@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { contrastRatio } from '../lib/contrast.js';
 
 const SKILL = 'claude-plugin/skills/arabic-carousel';
 const EXAMPLE = path.join(SKILL, 'references/example.json');
@@ -94,4 +95,17 @@ test('the ChatGPT/Codex manifest is complete and in sync with the Claude one', (
   const icon = fs.readFileSync(path.join('claude-plugin', ui.logo));
   assert.equal(icon.readUInt32BE(16), icon.readUInt32BE(20), 'icon must be square');
   assert.ok(icon.readUInt32BE(16) >= 48);
+});
+
+// Limits from OpenAI's plugin upload validation; exceeding any of them makes
+// ChatGPT reject the ZIP with a generic "Couldn't add plugin".
+test('the ChatGPT interface block stays within OpenAI upload limits', () => {
+  const ui = JSON.parse(fs.readFileSync('claude-plugin/plugin.json', 'utf8')).extensions['com.openai'].interface;
+  assert.ok(ui.displayName.length <= 30, `displayName is ${ui.displayName.length} chars`);
+  assert.ok(ui.shortDescription.length <= 30, `shortDescription is ${ui.shortDescription.length} chars`);
+  assert.ok(ui.longDescription.length <= 4000);
+  assert.ok(ui.developerName.length <= 80);
+  assert.ok(ui.defaultPrompt.length <= 3 && ui.defaultPrompt.every((p) => p.length <= 128));
+  assert.match(ui.brandColor, /^#[0-9A-Fa-f]{6}$/);
+  assert.ok(contrastRatio(ui.brandColor, '#FFFFFF') >= 2);
 });

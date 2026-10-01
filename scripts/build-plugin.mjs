@@ -101,11 +101,12 @@ async function buildSchema() {
   };
 }
 
-async function zipDir(dir, out) {
+async function zipDir(dir, out, skip = []) {
   const zip = new JSZip();
   const walk = async (rel) => {
     for (const entry of await fs.readdir(path.join(dir, rel), { withFileTypes: true })) {
       const relPath = path.posix.join(rel, entry.name);
+      if (skip.includes(relPath)) continue;
       if (entry.isDirectory()) await walk(relPath);
       else zip.file(relPath, await fs.readFile(path.join(dir, relPath)));
     }
@@ -120,7 +121,12 @@ await fs.writeFile(path.join(skillDir, 'assets/carousel.html'), html);
 await fs.writeFile(path.join(skillDir, 'references/schema.json'), `${JSON.stringify(schema, null, 2)}\n`);
 const zipPath = path.join(root, 'dist/arabic-carousel-plugin.zip');
 await zipDir(pluginDir, zipPath);
+// ChatGPT/Codex get only what OpenAI's packaging guide lists (plugin.json,
+// assets/, skills/), without Claude's .claude-plugin/ folder.
+const chatgptZipPath = path.join(root, 'dist/arabic-carousel-chatgpt.zip');
+await zipDir(pluginDir, chatgptZipPath, ['.claude-plugin']);
 
 const kb = (n) => `${Math.round(n / 1024)} KB`;
 console.log(`carousel.html  ${kb(Buffer.byteLength(html))}`);
-console.log(`plugin zip     ${kb((await fs.stat(zipPath)).size)} → ${path.relative(root, zipPath)}`);
+console.log(`plugin zip     ${kb((await fs.stat(zipPath)).size)} → ${path.relative(root, zipPath)} (Claude)`);
+console.log(`plugin zip     ${kb((await fs.stat(chatgptZipPath)).size)} → ${path.relative(root, chatgptZipPath)} (ChatGPT, Codex)`);

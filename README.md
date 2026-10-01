@@ -180,7 +180,7 @@ export default {
 npm run build:plugin   # → dist/arabic-carousel-plugin.zip
 ```
 
-**التثبيت في ChatGPT وCodex:** الملف نفسه يعمل هناك أيضًا. فيه `plugin.json` في الجذر بصيغة Agent Plugins المحايدة التي يقرؤها ChatGPT وCodex، و`.claude-plugin/plugin.json` الذي يقرؤه Claude، وكلاهما يشير إلى المهارة نفسها في `skills/`. ارفعه من «Upload plugin» في ChatGPT على الويب. يتطلّب ذلك، حسب OpenAI، صلاحية رفع الإضافات أو أن تكون مالك مساحة العمل أو مديرها.
+**التثبيت في ChatGPT وCodex:** الملف نفسه يعمل هناك أيضًا. فيه `plugin.json` في الجذر بصيغة Agent Plugins المحايدة التي يقرؤها ChatGPT وCodex، و`.claude-plugin/plugin.json` الذي يقرؤه Claude، وكلاهما يشير إلى المهارة نفسها في `skills/`. يُنتج `npm run build:plugin` ملفًا مخصّصًا لـ ChatGPT هو `dist/arabic-carousel-chatgpt.zip`، وفيه ما تطلبه OpenAI فقط. ارفعه من «Upload plugin» في ChatGPT على الويب. يتطلّب ذلك، حسب OpenAI، صلاحية رفع الإضافات أو أن تكون مالك مساحة العمل أو مديرها. اسم العرض والوصف القصير محدودان بـ ٣٠ حرفًا لكل منهما، وتتحقق الاختبارات من هذه الحدود.
 
 **التثبيت في Claude Code:** المستودع نفسه سوق إضافات:
 
