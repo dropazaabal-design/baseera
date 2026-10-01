@@ -1,0 +1,56 @@
+{
+  "design": { "paletteId": "midnight", "font": "cairo", "numerals": "arab" },
+  "brand": { "name": "بصيرة", "handle": "@baseera" },
+  "plugins": { "swipe": { "text": "اسحب لليسار", "lastText": "احفظ البوست 📌" } },
+  "slides": [
+    {
+      "template": "cover",
+      "data": {
+        "kicker": "دليل عملي",
+        "title": "٥ عادات *تضاعف* إنتاجيتك في ٢٠٢٦",
+        "subtitle": "خطوات بسيطة جرّبناها مع فريق Baseera — طبّقها من اليوم."
+      }
+    },
+    {
+      "template": "listicle",
+      "data": {
+        "title": "ابدأ يومك *بذكاء*",
+        "items": [
+          "خطّط ليومك في 10 دقائق باستخدام Notion",
+          "اعمل بفترات 25 دقيقة (تقنية Pomodoro)",
+          "أغلق إشعارات Slack و WhatsApp أثناء التركيز"
+        ],
+        "start": 1
+      }
+    },
+    {
+      "template": "comparison",
+      "data": {
+        "title": "قبل وبعد تطبيق *العادات*",
+        "beforeLabel": "قبل",
+        "before": ["مهام متراكمة بلا أولويات", "تشتّت بين 7 تطبيقات"],
+        "afterLabel": "بعد",
+        "after": ["قائمة من 3 أولويات فقط", "إنجاز أعلى بنسبة 40%"]
+      }
+    },
+    {
+      "template": "quote",
+      "data": {
+        "quote": "التركيز يعني أن تقول *لا* لمئة فكرة جيدة أخرى.",
+        "author": "ستيف جوبز",
+        "role": "Steve Jobs — Apple"
+      }
+    },
+    {
+      "template": "outro",
+      "data": {
+        "title": "هل كان المحتوى *مفيدًا*؟",
+        "subtitle": "احفظه لتعود إليه، وتابعنا لمحتوى عملي كل أسبوع.",
+        "save": "احفظه",
+        "share": "شاركه",
+        "follow": "تابعنا",
+        "socials": ["@baseera", "baseera.sa"]
+      }
+    }
+  ]
+}

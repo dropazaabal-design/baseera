@@ -1,0 +1,14 @@
+{
+  "name": "baseera",
+  "description": "Arabic design tools for Claude by Baseera.",
+  "owner": {
+    "name": "dropazaabal-design"
+  },
+  "plugins": [
+    {
+      "name": "arabic-carousel",
+      "source": "./claude-plugin",
+      "description": "Arabic RTL carousel designer: writes the slides and builds an offline editor with PNG/ZIP export."
+    }
+  ]
+}
