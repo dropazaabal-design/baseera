@@ -58,3 +58,22 @@ test('Arabic copy problems produce warnings, not errors', () => {
   assert.match(run.stdout, /tatweel/);
   assert.match(run.stdout, /bidi control/);
 });
+
+test('formats, governance and image placeholders are validated', () => {
+  const ok = build({
+    design: { format: 'story' },
+    governance: { institutional: true, locked: true },
+    slides: [{ template: 'quote', data: { quote: 'نص', author: 'اسم', photo: null } }],
+  });
+  assert.equal(ok.status, 0, ok.stderr);
+
+  const bad = build({
+    design: { format: 'landscape' },
+    governance: { institutional: 'yes' },
+    slides: [{ template: 'quote', data: { photo: 'https://example.com/a.png' } }],
+  });
+  assert.equal(bad.status, 1);
+  for (const expected of ['design.format', 'governance.institutional', 'slides[1].data.photo']) {
+    assert.ok(bad.stderr.includes(expected), `missing error for ${expected}:\n${bad.stderr}`);
+  }
+});

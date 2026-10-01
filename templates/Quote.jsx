@@ -22,7 +22,11 @@ function Quote({ data }) {
           </div>
           {data.author && (
             <div className="mt-[1em] flex items-center gap-[0.6em]" style={{ fontSize: 'max(0.4em, 30px)' }}>
-              <span className="h-[4px] w-[2em] shrink-0 rounded-full bg-(--c-accent)" />
+              {data.photo ? (
+                <img src={data.photo} alt="" className="size-[2.4em] shrink-0 rounded-full object-cover ring-[0.12em] ring-(--c-accent)" />
+              ) : (
+                <span className="h-[4px] w-[2em] shrink-0 rounded-full bg-(--c-accent)" />
+              )}
               <div style={{ lineHeight: 1.5 }}>
                 <div style={{ fontWeight: 'var(--w-bold)' }}>
                   <RichText text={data.author} />
@@ -49,11 +53,13 @@ export default {
     { key: 'quote', label: 'نص الاقتباس', type: 'textarea', rows: 4 },
     { key: 'author', label: 'القائل', type: 'text' },
     { key: 'role', label: 'الصفة', type: 'text' },
+    { key: 'photo', label: 'صورة القائل', type: 'image' },
   ],
   defaults: {
     quote: 'الطريقة الوحيدة لإنجاز عمل عظيم هي أن *تحبّ* ما تفعله.',
     author: 'اسم القائل',
     role: 'المنصب أو الجهة',
+    photo: null,
   },
   Component: Quote,
 };

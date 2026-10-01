@@ -8,10 +8,12 @@ function Overlay({ settings, ctx, template }) {
   return (
     <>
       {settings.showLogo && brand.logo && (
-        <img src={brand.logo} alt="" className="absolute top-[40px] start-[96px] h-[76px] w-auto max-w-[300px] object-contain" />
+        <img src={brand.logo} alt="" className="absolute start-[96px] h-[76px] w-auto max-w-[300px] object-contain"
+          style={{ top: 'calc(var(--inset-top) + 40px)' }}
+        />
       )}
       {showBadge && (
-        <div className="absolute bottom-[56px] start-[96px] flex items-center gap-[18px]">
+        <div className="absolute start-[96px] flex items-center gap-[18px]" style={{ bottom: 'calc(var(--inset-bottom) + 56px)' }}>
           <Avatar brand={brand} size={84} />
           <div className="whitespace-nowrap" style={{ lineHeight: 1.35 }}>
             {brand.name && (

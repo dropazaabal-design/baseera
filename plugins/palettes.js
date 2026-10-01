@@ -34,6 +34,19 @@ export const PALETTES = [
     name: 'مرجان',
     colors: { bg: '#FFF4EE', surface: '#FFE4D6', text: '#2B1210', muted: '#7A4A40', accent: '#C9362E', onAccent: '#FFFFFF' },
   },
+  // Agency Kit identity: deep navy primary, emerald secondary.
+  {
+    id: 'agency-navy',
+    name: 'مؤسسي داكن',
+    institutional: true,
+    colors: { bg: '#0B1F3A', surface: '#132B4D', text: '#F1F5F9', muted: '#A9B8CE', accent: '#10B981', onAccent: '#0B1F3A' },
+  },
+  {
+    id: 'agency-light',
+    name: 'مؤسسي فاتح',
+    institutional: true,
+    colors: { bg: '#FFFFFF', surface: '#EEF3F8', text: '#0B1F3A', muted: '#4A5B73', accent: '#047857', onAccent: '#FFFFFF' },
+  },
 ];
 
 // Accent is only used for large text and graphics, so it needs 3:1 (WCAG AA large).

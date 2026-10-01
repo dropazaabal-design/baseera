@@ -1,9 +1,15 @@
 import { templateList, templates } from '../../templates';
 import { formatNumber } from '../../lib/numerals.js';
-import { Field, IconButton, Section, Select, TextArea, TextInput } from '../ui';
+import { Field, IconButton, ImageUpload, Section, Select, TextArea, TextInput } from '../ui';
 
-function FieldEditor({ field, value, onChange }) {
+function FieldEditor({ field, value, onChange, onError }) {
   switch (field.type) {
+    case 'image':
+      return (
+        <Field label={field.label} hint={field.hint}>
+          <ImageUpload label="الصورة" value={value ?? null} onChange={onChange} onError={onError} />
+        </Field>
+      );
     case 'textarea':
       return (
         <Field label={field.label} hint={field.hint}>
@@ -39,7 +45,7 @@ function FieldEditor({ field, value, onChange }) {
   }
 }
 
-export default function ContentPanel({ slide, index, total, numerals, overflow, onField, onTemplate, onMove, onDuplicate, onRemove }) {
+export default function ContentPanel({ slide, index, total, numerals, overflow, locked, onField, onTemplate, onMove, onDuplicate, onRemove, onError }) {
   const template = templates[slide.template];
   return (
     <>
@@ -59,8 +65,9 @@ export default function ContentPanel({ slide, index, total, numerals, overflow, 
           </div>
         }
       >
-        <Field label="القالب">
+        <Field label="القالب" hint={locked ? 'التخطيط مقفل في الوضع المؤسسي؛ النصوص والصور فقط قابلة للتعديل.' : undefined}>
           <Select
+            disabled={locked}
             value={slide.template}
             onChange={(e) => onTemplate(e.target.value)}
             options={templateList.map((t) => ({ value: t.id, label: `${t.label} — ${t.description}` }))}
@@ -69,7 +76,7 @@ export default function ContentPanel({ slide, index, total, numerals, overflow, 
       </Section>
       <Section title="النصوص">
         {template.fields.map((f) => (
-          <FieldEditor key={f.key} field={f} value={slide.data[f.key]} onChange={(v) => onField(f.key, v)} />
+          <FieldEditor key={f.key} field={f} value={slide.data[f.key]} onChange={(v) => onField(f.key, v)} onError={onError} />
         ))}
         <p className="rounded-lg bg-indigo-50 px-3 py-2 text-xs leading-relaxed text-indigo-800">
           ضع أي كلمة بين نجمتين <span dir="ltr">*هكذا*</span> لتلوينها بلون التمييز. الأسماء اللاتينية والأرقام والروابط تُعزل اتجاهيًا تلقائيًا.

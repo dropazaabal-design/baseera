@@ -1,10 +1,18 @@
-// Content stays clear of the plugin chrome: progress bar, logo and counter at
-// the top; brand badge and swipe prompt at the bottom.
+// Content stays clear of the plugin chrome (progress bar, logo and counter at
+// the top; brand badge and swipe prompt at the bottom), which itself sits
+// inside the format's safe-zone insets.
 export const SAFE = { top: 170, bottom: 190, inline: 96 };
 
 export function SafeArea({ children }) {
   return (
-    <div className="absolute flex flex-col" style={{ top: SAFE.top, bottom: SAFE.bottom, insetInline: SAFE.inline }}>
+    <div
+      className="absolute flex flex-col"
+      style={{
+        top: `calc(var(--inset-top) + ${SAFE.top}px)`,
+        bottom: `calc(var(--inset-bottom) + ${SAFE.bottom}px)`,
+        insetInline: SAFE.inline,
+      }}
+    >
       {children}
     </div>
   );

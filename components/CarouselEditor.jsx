@@ -6,15 +6,17 @@ import Icon from './Icon';
 import ContentPanel from './panels/ContentPanel';
 import DesignPanel from './panels/DesignPanel';
 import PluginsPanel from './panels/PluginsPanel';
-import { Button, Select } from './ui';
+import { Button, Segmented, Select } from './ui';
 import { templates } from '../templates';
 import { paletteColors, resolvePalette } from '../plugins/palettes.js';
-import { SLIDE_H, SLIDE_W, exportCarouselZip, exportSlidePng } from '../lib/exportEngine.js';
+import { governDesign, governPlugins } from '../plugins/agencyKit.js';
+import { exportCarouselPdf, exportCarouselZip, exportSlidePng } from '../lib/exportEngine.js';
+import { FORMATS, formatOf } from '../lib/formats.js';
 import { createSlide, initialDoc, saveDoc } from '../lib/doc.js';
 import { formatNumber } from '../lib/numerals.js';
 
 // <option> text cannot hold a <bdi>, so isolate with LRI…PDI characters.
-const ltr = (s) => `⁦${s}⁩`;
+const ltr = (s) => `\u2066${s}\u2069`;
 
 const TABS = [
   { id: 'content', label: 'المحتوى' },
@@ -35,18 +37,18 @@ function retemplate(slide, templateId) {
 
 const STAGE_PADDING = 48;
 
-function usePreviewScale(ref) {
-  const [scale, setScale] = useState(0.4);
+function useStageSize(ref) {
+  const [size, setSize] = useState({ width: 0, height: 0 });
   useEffect(() => {
-    const ro = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-      setScale(Math.max(0.1, Math.min((width - STAGE_PADDING) / SLIDE_W, (height - STAGE_PADDING) / SLIDE_H)));
-    });
+    const ro = new ResizeObserver(([entry]) => setSize({ width: entry.contentRect.width, height: entry.contentRect.height }));
     ro.observe(ref.current);
     return () => ro.disconnect();
   }, [ref]);
-  return scale;
+  return size;
 }
+
+const fitScale = (stage, { width, height }) =>
+  Math.min(1, Math.max(0.1, Math.min((stage.width - STAGE_PADDING) / width, (stage.height - STAGE_PADDING) / height)));
 
 export default function CarouselEditor() {
   const [init] = useState(initialDoc);
@@ -58,7 +60,7 @@ export default function CarouselEditor() {
   const [status, setStatus] = useState(null);
   const stageRef = useRef(null);
   const stripRef = useRef(null);
-  const previewScale = usePreviewScale(stageRef);
+  const stage = useStageSize(stageRef);
 
   useEffect(() => {
     if (!saveDoc(doc, init.storageKey)) setStatus({ tone: 'error', text: 'تعذّر الحفظ التلقائي: مساحة التخزين في المتصفح ممتلئة.' });
@@ -79,13 +81,20 @@ export default function CarouselEditor() {
     return () => document.fonts.removeEventListener('loadingdone', check);
   });
 
-  const { colors, report } = useMemo(() => resolvePalette(paletteColors(doc.design)), [doc.design]);
-  const { slides, design } = doc;
+  // The Agency Kit policy is applied on top of the saved choices at render
+  // time. Design and plugins are memoised separately so typing in one slide
+  // does not re-render every other slide.
+  const { slides, governance } = doc;
+  const institutional = governance.institutional;
+  const design = useMemo(() => governDesign(doc.design, governance), [doc.design, governance]);
+  const plugins = useMemo(() => governPlugins(doc.plugins, governance), [doc.plugins, governance]);
+  const { colors, report } = useMemo(() => resolvePalette(paletteColors(design)), [design]);
+  const format = formatOf(design.format);
   const total = slides.length;
   const current = Math.min(active, total - 1);
   const fmt = (n) => formatNumber(n, design.numerals);
 
-  const slideProps = { total, colors, font: design.font, numerals: design.numerals, brand: doc.brand, plugins: doc.plugins };
+  const slideProps = { total, colors, font: design.font, numerals: design.numerals, format: format.id, brand: doc.brand, plugins };
 
   const patch = (key, value) => setDoc((d) => ({ ...d, [key]: typeof value === 'function' ? value(d[key]) : value }));
   const setSlides = (fn) => patch('slides', fn);
@@ -119,7 +128,8 @@ export default function CarouselEditor() {
   };
 
   const slideNodes = () => [...stripRef.current.querySelectorAll('.slide-root')];
-  const exportOptions = { fontId: design.font, background: colors.bg, scale: exportScale };
+  const exportOptions = { fontId: design.font, background: colors.bg, scale: exportScale, width: format.width, height: format.height };
+  const progress = (i, n) => setStatus({ tone: 'info', text: `جارٍ تصدير الشريحة ${fmt(i + 1)} من ${fmt(n)}…` });
 
   async function runExport(job, doneText) {
     setBusy(true);
@@ -139,12 +149,13 @@ export default function CarouselEditor() {
     runExport(() => exportSlidePng(slideNodes()[current], current, exportOptions), `تم تنزيل الشريحة ${fmt(current + 1)}.`);
 
   const exportAll = () =>
+    runExport(() => exportCarouselZip(slideNodes(), exportOptions, progress), `تم تنزيل ${fmt(total)} شرائح في ملف ZIP.`);
+
+  // LinkedIn shows a PDF as a swipeable document carousel, one page per slide.
+  const exportPdf = () =>
     runExport(
-      () =>
-        exportCarouselZip(slideNodes(), exportOptions, (i, n) =>
-          setStatus({ tone: 'info', text: `جارٍ تصدير الشريحة ${fmt(i + 1)} من ${fmt(n)}…` }),
-        ),
-      `تم تنزيل ${fmt(total)} شرائح في ملف ZIP.`,
+      () => exportCarouselPdf(slideNodes(), exportOptions, { title: 'كاروسيل', author: doc.brand.name || 'بصيرة' }, progress),
+      `تم تنزيل ملف PDF من ${fmt(total)} صفحات، جاهزًا للنشر كمستند على لينكدإن.`,
     );
 
   const reset = () => {
@@ -168,19 +179,26 @@ export default function CarouselEditor() {
           <div className="leading-tight">
             <h1 className="text-base font-extrabold">بصيرة</h1>
             <p className="text-xs text-zinc-500">
-              مولّد الكاروسيل العربي · <bdi dir="ltr">1080×1350</bdi>
+              مولّد الكاروسيل العربي · <bdi dir="ltr">{`${format.width}×${format.height}`}</bdi>
             </p>
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          <div className="w-64" role="group" aria-label="مقاس الشرائح">
+            <Segmented
+              value={format.id}
+              onChange={(id) => patch('design', (d) => ({ ...d, format: id }))}
+              options={Object.values(FORMATS).map((f) => ({ value: f.id, label: `${f.label} ${fmt(f.ratio)}` }))}
+            />
+          </div>
           <div className="w-52">
             <Select
               aria-label="دقة التصدير"
               value={exportScale}
               onChange={(e) => setExportScale(Number(e.target.value))}
               options={[
-                { value: 1, label: `${ltr('1080×1350')} — موصى به` },
-                { value: 2, label: `${ltr('2160×2700')} — دقة مضاعفة` },
+                { value: 1, label: `${ltr(`${format.width}×${format.height}`)} — موصى به` },
+                { value: 2, label: `${ltr(`${format.width * 2}×${format.height * 2}`)} — دقة مضاعفة` },
               ]}
             />
           </div>
@@ -191,6 +209,10 @@ export default function CarouselEditor() {
           <Button variant="primary" onClick={exportAll} disabled={busy}>
             <Icon name="download" size={16} />
             الكل ZIP
+          </Button>
+          <Button onClick={exportPdf} disabled={busy} title="مستند PDF لكاروسيل لينكدإن">
+            <Icon name="download" size={16} />
+            PDF لينكدإن
           </Button>
           <Button variant="ghost" onClick={reset} disabled={busy} aria-label="استعادة الأصل" title="استعادة الأصل">
             <Icon name="reset" size={16} />
@@ -235,22 +257,27 @@ export default function CarouselEditor() {
                 total={total}
                 numerals={design.numerals}
                 overflow={overflowing.includes(current)}
+                locked={institutional}
+                onError={(text) => setStatus({ tone: 'error', text })}
                 {...actions}
               />
             )}
             {tab === 'design' && (
               <DesignPanel
                 design={design}
+                governance={governance}
                 brand={doc.brand}
                 report={report}
                 onDesign={(p) => patch('design', (d) => ({ ...d, ...p }))}
                 onBrand={(p) => patch('brand', (b) => ({ ...b, ...p }))}
+                onGovernance={(p) => patch('governance', (g) => ({ ...g, ...p }))}
                 onError={(text) => setStatus({ tone: 'error', text })}
               />
             )}
             {tab === 'plugins' && (
               <PluginsPanel
-                plugins={doc.plugins}
+                plugins={plugins}
+                locked={institutional}
                 onChange={(id, p) => patch('plugins', (all) => ({ ...all, [id]: { ...all[id], ...p } }))}
               />
             )}
@@ -260,7 +287,12 @@ export default function CarouselEditor() {
         <main className="order-1 flex min-h-0 flex-1 flex-col lg:order-2">
           <div ref={stageRef} className="relative h-[62vh] lg:h-auto lg:min-h-0 lg:flex-1">
             <div className="absolute inset-0 grid place-items-center p-6">
-              <SlideFrame scale={Math.min(previewScale, 1)} className="rounded-sm shadow-xl shadow-zinc-900/10">
+              <SlideFrame
+                scale={fitScale(stage, format)}
+                width={format.width}
+                height={format.height}
+                className="rounded-sm shadow-xl shadow-zinc-900/10"
+              >
                 <Slide slide={slides[current]} index={current} {...slideProps} />
               </SlideFrame>
             </div>

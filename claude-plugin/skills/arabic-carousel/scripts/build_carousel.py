@@ -15,6 +15,7 @@ SEED = re.compile(r'(<script id="carousel-seed" type="application/json">)(.*?)(<
 
 TEMPLATES = {t["id"]: {f["key"]: f["type"] for f in t["fields"]} for t in SCHEMA["templates"]}
 FONTS = [f["id"] for f in SCHEMA["fonts"]]
+FORMATS = [f["id"] for f in SCHEMA["formats"]]
 PALETTES = [p["id"] for p in SCHEMA["palettes"]] + ["custom"]
 PLUGINS = {p["id"]: p["defaults"] for p in SCHEMA["plugins"]}
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
@@ -29,6 +30,8 @@ def field_ok(ftype, value):
         return isinstance(value, list) and all(isinstance(v, str) for v in value)
     if ftype == "number":
         return isinstance(value, int) and not isinstance(value, bool) and value >= 1
+    if ftype == "image":
+        return value is None or (isinstance(value, str) and value.startswith("data:image/"))
     return False
 
 
@@ -59,8 +62,8 @@ def check_object(where, value, errors):
 def validate(doc):
     errors, warnings = [], []
     doc = check_object("top level", doc, errors)
-    for key in doc.keys() - {"slides", "design", "brand", "plugins"}:
-        errors.append(f"{key}: unknown top-level key (allowed: slides, design, brand, plugins)")
+    for key in doc.keys() - {"slides", "design", "brand", "plugins", "governance"}:
+        errors.append(f"{key}: unknown top-level key (allowed: slides, design, brand, plugins, governance)")
 
     slides = doc.get("slides")
     if not isinstance(slides, list) or not slides:
@@ -78,8 +81,9 @@ def validate(doc):
             if key not in fields:
                 errors.append(f"{where}.data.{key}: not a '{slide['template']}' field (allowed: {', '.join(fields)})")
             elif not field_ok(fields[key], value):
-                errors.append(f"{where}.data.{key}: expected {fields[key]}")
-            else:
+                expected = "null or a data:image/... URL" if fields[key] == "image" else fields[key]
+                errors.append(f"{where}.data.{key}: expected {expected}")
+            elif fields[key] != "image":
                 for text in texts(value):
                     lint(f"{where}.data.{key}", text, warnings)
     templates_used = [s.get("template") for s in slides if isinstance(s, dict)]
@@ -97,6 +101,8 @@ def validate(doc):
         custom = design.get("custom")
         if not isinstance(custom, dict) or not all(HEX.match(str(custom.get(k, ""))) for k in ("bg", "accent")):
             errors.append('design.custom: needs {"bg": "#RRGGBB", "accent": "#RRGGBB"}')
+    if "format" in design and design["format"] not in FORMATS:
+        errors.append(f"design.format: must be one of {', '.join(FORMATS)}")
     if "numerals" in design and design["numerals"] not in SCHEMA["numerals"]:
         errors.append(f"design.numerals: must be one of {', '.join(SCHEMA['numerals'])}")
 
@@ -112,6 +118,12 @@ def validate(doc):
                 errors.append(f"brand.{key}: must be null or a data:image/... URL")
         else:
             errors.append(f"brand.{key}: unknown key (allowed: name, handle, logo, avatar)")
+
+    for key, value in check_object("governance", doc.get("governance", {}), errors).items():
+        if key not in ("institutional", "locked"):
+            errors.append(f"governance.{key}: unknown key (allowed: institutional, locked)")
+        elif not isinstance(value, bool):
+            errors.append(f"governance.{key}: expected true or false")
 
     for pid, settings in check_object("plugins", doc.get("plugins", {}), errors).items():
         if pid not in PLUGINS:

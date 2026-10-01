@@ -1,6 +1,6 @@
 ---
 name: arabic-carousel
-description: Designs Arabic (RTL) carousels for Instagram and LinkedIn at 1080×1350. Writes the slide copy, then builds one self-contained HTML file holding a live editor with PNG and ZIP export that keeps Arabic letters joined and mixed Arabic/English/numbers in the right order. Use when the user asks for a carousel, كاروسيل, سلايدات انستقرام, شرائح لينكدإن, بوست متعدد الشرائح, or Arabic social media slides.
+description: Designs Arabic (RTL) carousels for Instagram and LinkedIn in 4:5, 1:1 or 9:16. Writes the slide copy, then builds one self-contained HTML file holding a live editor with PNG, ZIP and LinkedIn PDF export that keeps Arabic letters joined and mixed Arabic/English/numbers in the right order. Supports a locked institutional (navy/emerald) brand mode. Use when the user asks for a carousel, كاروسيل, سلايدات انستقرام, شرائح لينكدإن, بوست متعدد الشرائح, or Arabic social media slides.
 ---
 
 # Arabic carousel
@@ -9,17 +9,17 @@ You write the content; a bundled editor renders and exports it. Never try to dra
 
 ## Workflow
 
-1. **Brief.** Get the topic, the audience, and the number of slides (default 6, max 20). Use the brand name and handle only if the user gives them; otherwise leave `brand` out, and the user can fill it in the editor.
+1. **Brief.** Get the topic, the audience, the platform, and the number of slides (default 6, max 20). The platform decides `design.format`: `portrait` 4:5 for Instagram and LinkedIn feeds (default), `square` 1:1, `story` 9:16 for Stories and Reels covers. Use the brand name and handle only if the user gives them; otherwise leave `brand` out, and the user can fill it in the editor.
 2. **Plan the arc.** `cover` (hook) → 3–6 body slides (`listicle`, `comparison`, `quote`) → `outro` (call to action). One idea per slide.
 3. **Write `carousel.json`** in the format below. Read `references/schema.json` for every template's exact field names and types, and `references/example.json` for a complete carousel.
 4. **Build:** `python3 <this skill's directory>/scripts/build_carousel.py carousel.json carousel.html`. Fix every `error:` and re-run. Fix `warning:` lines too, unless the user wants it that way.
-5. **Deliver `carousel.html`** as a file. Tell the user, in their language: open it in Chrome, Edge or Firefox; edit any text, colours, fonts or plugins in the side panel; press «الكل ZIP» to download every slide as PNG, or «الشريحة PNG» for the selected one. It works offline, and edits are saved in the browser.
+5. **Deliver `carousel.html`** as a file. Tell the user, in their language: open it in Chrome, Edge or Firefox; edit any text, colours, fonts or plugins in the side panel; press «الكل ZIP» to download every slide as PNG, «الشريحة PNG» for the selected one, or «PDF لينكدإن» for a single PDF that LinkedIn shows as a swipeable document post. It works offline, and edits are saved in the browser.
 
 ## Format
 
 ```json
 {
-  "design": { "paletteId": "midnight", "font": "cairo", "numerals": "arab" },
+  "design": { "paletteId": "midnight", "font": "cairo", "numerals": "arab", "format": "portrait" },
   "brand": { "name": "اسم الحساب", "handle": "@handle" },
   "plugins": { "swipe": { "text": "اسحب لليسار", "lastText": "احفظ البوست 📌" } },
   "slides": [
@@ -62,6 +62,14 @@ For brand colours use `"paletteId": "custom", "custom": { "bg": "#RRGGBB", "acce
 | `tajawal` | Clean and light |
 | `almarai` | Friendly, rounded, Gulf feel |
 | `readex` | Geometric, techy |
+
+## Institutional Mode
+
+For a company, government body or agency client that needs strict brand governance, add `"governance": { "institutional": true }`. The editor then forces the navy and emerald palettes (`agency-navy`, `agency-light`), disables every warm colour (yellow, orange, gold, red), locks the font to Tajawal, forces the slide counter and watermark on, and locks templates, plugins and identity. Only text and image fields stay editable. Add `"locked": true` to also hide the switch, so whoever opens the file cannot turn the mode off. Leave `paletteId` and `font` out in this mode; the policy sets them.
+
+## Images
+
+The `quote` template has a `photo` field (author photo). Like `brand.logo` and `brand.avatar`, it must be `null` or a `data:image/...` URL. Use it only when the user gives you an image file; otherwise leave it out and tell them they can add it in the editor.
 
 ## Plugins
 

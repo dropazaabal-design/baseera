@@ -67,6 +67,11 @@
           "key": "role",
           "label": "الصفة",
           "type": "text"
+        },
+        {
+          "key": "photo",
+          "label": "صورة القائل",
+          "type": "image"
         }
       ]
     },
@@ -232,12 +237,76 @@
         "accent": "#C9362E",
         "onAccent": "#FFFFFF"
       }
+    },
+    {
+      "id": "agency-navy",
+      "name": "مؤسسي داكن",
+      "colors": {
+        "bg": "#0B1F3A",
+        "surface": "#132B4D",
+        "text": "#F1F5F9",
+        "muted": "#A9B8CE",
+        "accent": "#10B981",
+        "onAccent": "#0B1F3A"
+      }
+    },
+    {
+      "id": "agency-light",
+      "name": "مؤسسي فاتح",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#EEF3F8",
+        "text": "#0B1F3A",
+        "muted": "#4A5B73",
+        "accent": "#047857",
+        "onAccent": "#FFFFFF"
+      }
+    }
+  ],
+  "formats": [
+    {
+      "id": "portrait",
+      "label": "عمودي",
+      "ratio": "4:5",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "square",
+      "label": "مربع",
+      "ratio": "1:1",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "story",
+      "label": "قصة",
+      "ratio": "9:16",
+      "width": 1080,
+      "height": 1920
     }
   ],
   "numerals": [
     "arab",
     "latn"
   ],
+  "institutional": {
+    "palettes": [
+      "agency-navy",
+      "agency-light"
+    ],
+    "font": "tajawal",
+    "plugins": {
+      "pagination": {
+        "enabled": true
+      },
+      "watermark": {
+        "enabled": true,
+        "showLogo": true,
+        "showBadge": true
+      }
+    }
+  },
   "plugins": [
     {
       "id": "pagination",

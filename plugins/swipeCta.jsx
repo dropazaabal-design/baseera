@@ -7,8 +7,8 @@ function Overlay({ settings, ctx }) {
   if (!text) return null;
   return (
     <div
-      className="absolute bottom-[60px] end-[96px] flex items-center whitespace-nowrap gap-[14px] rounded-full bg-(--c-accent) py-[14px] ps-[30px] pe-[24px] text-[30px] text-(--c-on-accent)"
-      style={{ fontWeight: 'var(--w-bold)', lineHeight: 1.4 }}
+      className="absolute end-[96px] flex items-center whitespace-nowrap gap-[14px] rounded-full bg-(--c-accent) py-[14px] ps-[30px] pe-[24px] text-[30px] text-(--c-on-accent)"
+      style={{ bottom: 'calc(var(--inset-bottom) + 60px)', fontWeight: 'var(--w-bold)', lineHeight: 1.4 }}
     >
       <RichText text={text} />
       {/* Drawn pointing "forward" (right); mirrored to point left in RTL,

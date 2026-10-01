@@ -8,7 +8,7 @@ function Overlay({ settings, ctx }) {
   return (
     <>
       {settings.showBar && (
-        <div className="absolute inset-x-0 top-0 h-[12px]" style={{ background: mix(colors.text, colors.bg, 0.86) }}>
+        <div className="absolute inset-x-0 h-[12px]" style={{ top: 'var(--inset-top)', background: mix(colors.text, colors.bg, 0.86) }}>
           {/* Anchored at inline-start: fills from the right in RTL. Each slide
               shows (i+1)/n, so swiping reads as one continuous bar. */}
           <div
@@ -19,8 +19,8 @@ function Overlay({ settings, ctx }) {
       )}
       {settings.showCounter && (
         <div
-          className="absolute top-[52px] end-[96px] whitespace-nowrap rounded-full bg-(--c-surface) px-[26px] py-[8px] text-[28px] text-(--c-muted)"
-          style={{ fontWeight: 'var(--w-bold)', lineHeight: 1.5 }}
+          className="absolute end-[96px] whitespace-nowrap rounded-full bg-(--c-surface) px-[26px] py-[8px] text-[28px] text-(--c-muted)"
+          style={{ top: 'calc(var(--inset-top) + 52px)', fontWeight: 'var(--w-bold)', lineHeight: 1.5 }}
         >
           <RichText text={counterLabel(index, total, settings.style, numerals)} />
         </div>

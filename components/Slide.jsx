@@ -2,11 +2,12 @@ import { memo } from 'react';
 import { templates } from '../templates';
 import { overlayPlugins } from '../plugins';
 import { FONTS } from '../lib/fonts.js';
-import { SLIDE_H, SLIDE_W } from '../lib/exportEngine.js';
+import { formatOf } from '../lib/formats.js';
 
-function Slide({ slide, index, total, colors, font, numerals, brand, plugins }) {
+function Slide({ slide, index, total, colors, font, numerals, format, brand, plugins }) {
   const template = templates[slide.template];
   const { family, weights } = FONTS[font];
+  const { width, height, inset } = formatOf(format);
   const ctx = { index, total, colors, numerals, brand, isLast: index === total - 1 };
   const { Component } = template;
 
@@ -16,8 +17,10 @@ function Slide({ slide, index, total, colors, font, numerals, brand, plugins }) 
       lang="ar"
       className="slide-root relative overflow-hidden text-start"
       style={{
-        width: SLIDE_W,
-        height: SLIDE_H,
+        width,
+        height,
+        '--inset-top': `${inset.top}px`,
+        '--inset-bottom': `${inset.bottom}px`,
         background: colors.bg,
         color: colors.text,
         fontFamily: `${family}, sans-serif`,

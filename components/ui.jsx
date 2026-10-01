@@ -14,6 +14,15 @@ export function Section({ title, aside, children }) {
   );
 }
 
+// A disabled <fieldset> natively disables every control inside it.
+export function Locked({ locked, children }) {
+  return (
+    <fieldset disabled={locked} className="m-0 min-w-0 space-y-3 border-0 p-0 disabled:opacity-60">
+      {children}
+    </fieldset>
+  );
+}
+
 export function Field({ label, hint, children }) {
   return (
     <label className="block">
@@ -25,7 +34,7 @@ export function Field({ label, hint, children }) {
 }
 
 const inputClass =
-  'w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20';
+  'w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:cursor-not-allowed disabled:bg-zinc-100 disabled:text-zinc-500';
 
 // dir="auto" lets "@handle" or a URL display LTR inside the RTL editor.
 export function TextInput({ className = '', ...props }) {
@@ -48,15 +57,18 @@ export function Select({ options, ...props }) {
   );
 }
 
-export function Toggle({ checked, onChange, label }) {
+export function Toggle({ checked, onChange, label, disabled = false }) {
   return (
     <button
       type="button"
       role="switch"
       aria-checked={checked}
       aria-label={label}
+      disabled={disabled}
       onClick={() => onChange(!checked)}
-      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? 'bg-indigo-600' : 'bg-zinc-300'}`}
+      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${
+        checked ? 'bg-indigo-600' : 'bg-zinc-300'
+      }`}
     >
       {/* The knob starts at inline-start and travels toward inline-end,
           so the translate direction flips in RTL. */}

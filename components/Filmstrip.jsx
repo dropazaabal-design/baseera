@@ -5,8 +5,10 @@ import Icon from './Icon';
 import { Button } from './ui';
 import { templateList } from '../templates';
 import { formatNumber } from '../lib/numerals.js';
+import { formatOf } from '../lib/formats.js';
 
-const THUMB_SCALE = 0.12;
+// Thumbnails share one height so every format lines up in the strip.
+const THUMB_HEIGHT = 160;
 
 function AddSlideMenu({ onAdd }) {
   const [open, setOpen] = useState(false);
@@ -49,6 +51,7 @@ function AddSlideMenu({ onAdd }) {
 // Thumbnails are full-resolution slide nodes shrunk by their wrapper; the
 // exporter captures them directly (see `stripRef` in CarouselEditor).
 export default function Filmstrip({ stripRef, slides, active, overflowing, numerals, slideProps, onSelect, onAdd }) {
+  const { width, height } = formatOf(slideProps.format);
   return (
     <div className="border-t border-zinc-200 bg-white">
       <div className="flex items-center justify-between px-4 pt-3">
@@ -59,7 +62,9 @@ export default function Filmstrip({ stripRef, slides, active, overflowing, numer
         {slides.map((slide, i) => (
           <div key={slide.id} className="relative shrink-0">
             <SlideFrame
-              scale={THUMB_SCALE}
+              scale={THUMB_HEIGHT / height}
+              width={width}
+              height={height}
               className={`rounded-md transition ${i === active ? 'ring-2 ring-indigo-500 ring-offset-2' : 'ring-1 ring-zinc-300'}`}
             >
               <Slide slide={slide} index={i} {...slideProps} />

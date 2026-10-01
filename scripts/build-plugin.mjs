@@ -82,7 +82,7 @@ async function buildSchema() {
   const tmp = path.join(root, 'node_modules/.cache/carousel-schema.mjs');
   await fs.mkdir(path.dirname(tmp), { recursive: true });
   await fs.writeFile(tmp, result.outputFiles[0].text);
-  const { templateList, overlayPlugins, PALETTES, FONTS } = await import(pathToFileURL(tmp).href);
+  const { templateList, overlayPlugins, PALETTES, FONTS, FORMATS, POLICY } = await import(pathToFileURL(tmp).href);
   await fs.rm(tmp);
   return {
     templates: templateList.map((t) => ({
@@ -94,7 +94,9 @@ async function buildSchema() {
     })),
     fonts: Object.entries(FONTS).map(([id, f]) => ({ id, label: f.label })),
     palettes: PALETTES.map(({ id, name, colors }) => ({ id, name, colors })),
+    formats: Object.values(FORMATS).map(({ id, label, ratio, width, height }) => ({ id, label, ratio, width, height })),
     numerals: ['arab', 'latn'],
+    institutional: { palettes: POLICY.palettes, font: POLICY.font, plugins: POLICY.plugins },
     plugins: overlayPlugins.map((p) => ({ id: p.id, label: p.label, defaults: p.defaults })),
   };
 }
