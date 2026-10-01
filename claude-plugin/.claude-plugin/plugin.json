@@ -1,0 +1,9 @@
+{
+  "name": "arabic-carousel",
+  "version": "1.0.0",
+  "description": "Arabic RTL carousels for Instagram and LinkedIn (1080×1350): Claude writes the slides and builds an offline editor with PNG and ZIP export that keeps Arabic letters joined and mixed Arabic/English/numbers in order.",
+  "author": { "name": "dropazaabal-design" },
+  "homepage": "https://github.com/dropazaabal-design/baseera",
+  "repository": "https://github.com/dropazaabal-design/baseera",
+  "keywords": ["arabic", "rtl", "carousel", "instagram", "linkedin", "design"]
+}

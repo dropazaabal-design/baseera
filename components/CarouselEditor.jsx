@@ -10,7 +10,7 @@ import { Button, Select } from './ui';
 import { templates } from '../templates';
 import { paletteColors, resolvePalette } from '../plugins/palettes.js';
 import { SLIDE_H, SLIDE_W, exportCarouselZip, exportSlidePng } from '../lib/exportEngine.js';
-import { createSampleDoc, createSlide, loadDoc, saveDoc } from '../lib/doc.js';
+import { createSlide, initialDoc, saveDoc } from '../lib/doc.js';
 import { formatNumber } from '../lib/numerals.js';
 
 // <option> text cannot hold a <bdi>, so isolate with LRI…PDI characters.
@@ -49,7 +49,8 @@ function usePreviewScale(ref) {
 }
 
 export default function CarouselEditor() {
-  const [doc, setDoc] = useState(() => loadDoc() ?? createSampleDoc());
+  const [init] = useState(initialDoc);
+  const [doc, setDoc] = useState(init.doc);
   const [active, setActive] = useState(0);
   const [tab, setTab] = useState('content');
   const [exportScale, setExportScale] = useState(1);
@@ -60,8 +61,8 @@ export default function CarouselEditor() {
   const previewScale = usePreviewScale(stageRef);
 
   useEffect(() => {
-    if (!saveDoc(doc)) setStatus({ tone: 'error', text: 'تعذّر الحفظ التلقائي: مساحة التخزين في المتصفح ممتلئة.' });
-  }, [doc]);
+    if (!saveDoc(doc, init.storageKey)) setStatus({ tone: 'error', text: 'تعذّر الحفظ التلقائي: مساحة التخزين في المتصفح ممتلئة.' });
+  }, [doc, init.storageKey]);
 
   // Runs after the FitBoxes have measured; slides whose text does not fit
   // even at the minimum size are flagged in the panel and the filmstrip.
@@ -147,8 +148,8 @@ export default function CarouselEditor() {
     );
 
   const reset = () => {
-    if (!window.confirm('سيُستبدل عملك الحالي بالمثال الافتراضي. متابعة؟')) return;
-    setDoc(createSampleDoc());
+    if (!window.confirm('ستُستعاد النسخة الأصلية وتُفقد تعديلاتك. متابعة؟')) return;
+    setDoc(init.fresh());
     setActive(0);
     setStatus(null);
   };
@@ -191,7 +192,7 @@ export default function CarouselEditor() {
             <Icon name="download" size={16} />
             الكل ZIP
           </Button>
-          <Button variant="ghost" onClick={reset} disabled={busy} aria-label="استعادة المثال" title="استعادة المثال">
+          <Button variant="ghost" onClick={reset} disabled={busy} aria-label="استعادة الأصل" title="استعادة الأصل">
             <Icon name="reset" size={16} />
           </Button>
         </div>

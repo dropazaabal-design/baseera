@@ -50,7 +50,9 @@ lib/
   fonts.js            سجل الخطوط وأوزانها
   fit.js, numerals.js, doc.js, image.js
 templates/            القوالب وسجلّها (index.js)
-plugins/              الإضافات وسجلّها (index.js) ولوحات الألوان
+plugins/              إضافات الشرائح وسجلّها (index.js) ولوحات الألوان
+claude-plugin/        إضافة Claude (المهارة + المحرّر في ملف واحد)
+scripts/              بناء إضافة Claude
 tests/                اختبارات ذهبية
 ```
 
@@ -154,10 +156,30 @@ export default {
 
 **٥. انعكاس التخطيط والأيقونات.** تُستعمل الخصائص المنطقية (`start` و`end` و`ps` و`me` و`border-s`) و`gap` في كل مكان، والأيقونات الاتجاهية تنعكس عبر `rtl:-scale-x-100`. ولم يُستعمل `rtl:flex-row-reverse` عمدًا: تحت `dir="rtl"` يجري `flex-row` من اليمين أصلًا، فعكسه يعيده إلى ترتيب اليسار. وكذلك `space-x-reverse` غير لازم مع `gap`.
 
+## إضافة Claude: `arabic-carousel`
+
+مجلد [`claude-plugin/`](claude-plugin) إضافة Claude جاهزة. تطلب من Claude «اعمل لي كاروسيل عن…»، فيكتب نصوص الشرائح ويسلّمك **ملف HTML واحدًا** فيه المحرّر كاملًا، معبّأً بالمحتوى وجاهزًا للتعديل والتصدير. الملف يعمل دون إنترنت، لأن الخطوط والمكتبات مضمّنة داخله.
+
+**التثبيت في Claude (الويب أو التطبيق):** حمّل `arabic-carousel-plugin.zip` وارفعه من صفحة الإضافات. لإنتاج الملف بنفسك:
+
+```bash
+npm run build:plugin   # → dist/arabic-carousel-plugin.zip
+```
+
+**التثبيت في Claude Code:** المستودع نفسه سوق إضافات:
+
+```
+/plugin marketplace add dropazaabal-design/baseera
+/plugin install arabic-carousel@baseera
+```
+
+**كيف تعمل:** تكتب المهارة (`skills/arabic-carousel/SKILL.md`) محتوى الكاروسيل بصيغة JSON. بعدها يتحقق السكربت `build_carousel.py` من الحقول والأنواع، وينبّه إلى أخطاء الكتابة العربية (الترقيم اللاتيني، والتطويل، ومحارف الاتجاه)، ثم يحقن المحتوى في `assets/carousel.html`. هذا الملف هو المحرّر نفسه مبنيًا من كود المستودع، فلا توجد نسخة ثانية من القوالب تحتاج مزامنة.
+
+بعد أي تعديل على القوالب أو الإضافات أو الخطوط أو الأنماط، شغّل `npm run build:plugin` وأودع النتيجة. فحص CI في كل PR يرفض أي ملفات إضافة قديمة.
+
 ## العمل مع Claude وChatGPT
 
-غلاف Next.js ملفّان فقط (`app/layout.js` و`app/page.js`)، وكل ما عداهما React وTailwind عاديّان دون أي واجهة خاصة بـ Next. لذلك يستطيع Claude Code وChatGPT/Codex قراءة المشروع وتعديله مباشرة، ونقل `components/` و`templates/` و`plugins/` و`lib/` إلى أي مشروع React آخر كما هي.
-أما Claude Artifacts وChatGPT Canvas فيعرضان مكوّنًا من ملف واحد، ولا يشغّلان مشروعًا متعدّد الملفات بخطوط من npm، فاستعمل النسخة المنشورة على GitHub Pages للمعاينة.
+غلاف Next.js ملفّان فقط (`app/layout.js` و`app/page.js`)، وكل ما عداهما React وTailwind عاديّان دون أي واجهة خاصة بـ Next. لذلك يستطيع Claude Code وChatGPT/Codex قراءة المشروع وتعديله مباشرة. وإن احتجت المحرّر في ملف واحد، فملف `carousel.html` الذي تبنيه إضافة Claude يعمل في أي متصفح دون خادم.
 
 ## قيود معروفة
 

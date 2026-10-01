@@ -1,0 +1,272 @@
+{
+  "templates": [
+    {
+      "id": "cover",
+      "label": "غلاف",
+      "description": "عنوان جذّاب يفتتح الكاروسيل",
+      "hideBrandBadge": false,
+      "fields": [
+        {
+          "key": "kicker",
+          "label": "الشارة",
+          "type": "text"
+        },
+        {
+          "key": "title",
+          "label": "العنوان الرئيسي",
+          "type": "textarea"
+        },
+        {
+          "key": "subtitle",
+          "label": "العنوان الفرعي",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "listicle",
+      "label": "قائمة خطوات",
+      "description": "خطوات أو نقاط مرقّمة",
+      "hideBrandBadge": false,
+      "fields": [
+        {
+          "key": "title",
+          "label": "العنوان",
+          "type": "textarea"
+        },
+        {
+          "key": "items",
+          "label": "العناصر",
+          "type": "list"
+        },
+        {
+          "key": "start",
+          "label": "يبدأ الترقيم من",
+          "type": "number",
+          "hint": "لمتابعة الترقيم عبر أكثر من شريحة"
+        }
+      ]
+    },
+    {
+      "id": "quote",
+      "label": "اقتباس",
+      "description": "اقتباس مؤثر مع اسم قائله",
+      "hideBrandBadge": false,
+      "fields": [
+        {
+          "key": "quote",
+          "label": "نص الاقتباس",
+          "type": "textarea"
+        },
+        {
+          "key": "author",
+          "label": "القائل",
+          "type": "text"
+        },
+        {
+          "key": "role",
+          "label": "الصفة",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "label": "قبل / بعد",
+      "description": "مقارنة بين حالتين في عمودين",
+      "hideBrandBadge": false,
+      "fields": [
+        {
+          "key": "title",
+          "label": "العنوان",
+          "type": "textarea"
+        },
+        {
+          "key": "beforeLabel",
+          "label": "عنوان العمود الأول",
+          "type": "text"
+        },
+        {
+          "key": "before",
+          "label": "عناصر العمود الأول",
+          "type": "list"
+        },
+        {
+          "key": "afterLabel",
+          "label": "عنوان العمود الثاني",
+          "type": "text"
+        },
+        {
+          "key": "after",
+          "label": "عناصر العمود الثاني",
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "id": "outro",
+      "label": "خاتمة",
+      "description": "دعوة للحفظ والمتابعة وحساباتك",
+      "hideBrandBadge": true,
+      "fields": [
+        {
+          "key": "title",
+          "label": "العنوان",
+          "type": "textarea"
+        },
+        {
+          "key": "subtitle",
+          "label": "العنوان الفرعي",
+          "type": "textarea"
+        },
+        {
+          "key": "save",
+          "label": "زر الحفظ",
+          "type": "text"
+        },
+        {
+          "key": "share",
+          "label": "زر المشاركة",
+          "type": "text"
+        },
+        {
+          "key": "follow",
+          "label": "زر المتابعة",
+          "type": "text"
+        },
+        {
+          "key": "socials",
+          "label": "الحسابات والروابط",
+          "type": "list"
+        }
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "id": "cairo",
+      "label": "Cairo"
+    },
+    {
+      "id": "tajawal",
+      "label": "Tajawal"
+    },
+    {
+      "id": "almarai",
+      "label": "Almarai"
+    },
+    {
+      "id": "readex",
+      "label": "Readex Pro"
+    }
+  ],
+  "palettes": [
+    {
+      "id": "midnight",
+      "name": "ليل",
+      "colors": {
+        "bg": "#0B1220",
+        "surface": "#16213A",
+        "text": "#F5F7FB",
+        "muted": "#A3B1C9",
+        "accent": "#F5B83D",
+        "onAccent": "#1A1204"
+      }
+    },
+    {
+      "id": "sand",
+      "name": "رمل",
+      "colors": {
+        "bg": "#F6EFE4",
+        "surface": "#EADCC8",
+        "text": "#2A1F14",
+        "muted": "#6A5642",
+        "accent": "#B4461E",
+        "onAccent": "#FFFFFF"
+      }
+    },
+    {
+      "id": "emerald",
+      "name": "زمرّد",
+      "colors": {
+        "bg": "#0E3B2E",
+        "surface": "#155443",
+        "text": "#EFFAF4",
+        "muted": "#A9D8C2",
+        "accent": "#F2C14E",
+        "onAccent": "#1B1403"
+      }
+    },
+    {
+      "id": "ink",
+      "name": "حبر",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F2F3F7",
+        "text": "#121826",
+        "muted": "#5B6474",
+        "accent": "#4338CA",
+        "onAccent": "#FFFFFF"
+      }
+    },
+    {
+      "id": "violet",
+      "name": "بنفسج",
+      "colors": {
+        "bg": "#1E1038",
+        "surface": "#2E1B54",
+        "text": "#F7F2FF",
+        "muted": "#C3B5E3",
+        "accent": "#FF8FB1",
+        "onAccent": "#2A0B19"
+      }
+    },
+    {
+      "id": "coral",
+      "name": "مرجان",
+      "colors": {
+        "bg": "#FFF4EE",
+        "surface": "#FFE4D6",
+        "text": "#2B1210",
+        "muted": "#7A4A40",
+        "accent": "#C9362E",
+        "onAccent": "#FFFFFF"
+      }
+    }
+  ],
+  "numerals": [
+    "arab",
+    "latn"
+  ],
+  "plugins": [
+    {
+      "id": "pagination",
+      "label": "الترقيم وشريط التقدّم",
+      "defaults": {
+        "enabled": true,
+        "style": "words",
+        "showBar": true,
+        "showCounter": true
+      }
+    },
+    {
+      "id": "swipe",
+      "label": "دعوة السحب والإجراء",
+      "defaults": {
+        "enabled": true,
+        "text": "اسحب لليسار",
+        "lastText": "احفظ البوست 📌",
+        "showArrow": true
+      }
+    },
+    {
+      "id": "watermark",
+      "label": "العلامة والهوية",
+      "defaults": {
+        "enabled": true,
+        "showLogo": true,
+        "showBadge": true
+      }
+    }
+  ]
+}

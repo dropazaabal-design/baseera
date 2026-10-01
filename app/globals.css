@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
+@source '../app';
+@source '../components';
+@source '../templates';
+@source '../plugins';
 
 @theme {
   --font-sans: 'Tajawal', ui-sans-serif, system-ui, sans-serif;
