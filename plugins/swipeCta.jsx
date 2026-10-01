@@ -2,9 +2,9 @@ import Icon from '../components/Icon';
 import RichText from '../components/RichText';
 import { Chips, Field, TextInput, ToggleRow } from '../components/ui';
 
-function Overlay({ settings, ctx }) {
+function Overlay({ settings, ctx, template }) {
   const text = ctx.isLast ? settings.lastText : settings.text;
-  if (!text) return null;
+  if (!text || (ctx.isLast && template.ownsCta)) return null;
   return (
     <div
       className="absolute end-[96px] flex items-center whitespace-nowrap gap-[14px] rounded-full bg-(--c-accent) py-[14px] ps-[30px] pe-[24px] text-[30px] text-(--c-on-accent)"

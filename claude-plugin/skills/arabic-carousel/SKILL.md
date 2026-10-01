@@ -1,6 +1,6 @@
 ---
 name: arabic-carousel
-description: Designs Arabic (RTL) carousels for Instagram and LinkedIn in 4:5, 1:1 or 9:16. Writes the slide copy, then builds one self-contained HTML file holding a live editor with PNG, ZIP and LinkedIn PDF export that keeps Arabic letters joined and mixed Arabic/English/numbers in the right order. Supports a locked institutional (navy/emerald) brand mode. Use when the user asks for a carousel, كاروسيل, سلايدات انستقرام, شرائح لينكدإن, بوست متعدد الشرائح, or Arabic social media slides.
+description: Designs Arabic (RTL) carousels for Instagram and LinkedIn in 4:5, 1:1 or 9:16. Writes the slide copy, then builds one self-contained HTML file holding a live editor with PNG, ZIP, LinkedIn PDF and 9:16 video reel export that keeps Arabic letters joined and mixed Arabic/English/numbers in the right order. Supports a locked institutional (navy/emerald) brand mode. Use when the user asks for a carousel, كاروسيل, سلايدات انستقرام, شرائح لينكدإن, بوست متعدد الشرائح, or Arabic social media slides.
 ---
 
 # Arabic carousel
@@ -10,10 +10,10 @@ You write the content; a bundled editor renders and exports it. Never try to dra
 ## Workflow
 
 1. **Brief.** Get the topic, the audience, the platform, and the number of slides (default 6, max 20). The platform decides `design.format`: `portrait` 4:5 for Instagram and LinkedIn feeds (default), `square` 1:1, `story` 9:16 for Stories and Reels covers. Use the brand name and handle only if the user gives them; otherwise leave `brand` out, and the user can fill it in the editor.
-2. **Plan the arc.** `cover` (hook) → 3–6 body slides (`listicle`, `comparison`, `quote`) → `outro` (call to action). One idea per slide.
+2. **Plan the arc.** `cover` (hook) → 3–6 body slides (`listicle`, `comparison`, `quote`) → `outro` (call to action). One idea per slide. For a single-image post, use one `post` slide: it holds the whole hook → content → CTA arc (`hook`, `points`, `cta`).
 3. **Write `carousel.json`** in the format below. Read `references/schema.json` for every template's exact field names and types, and `references/example.json` for a complete carousel.
 4. **Build:** `python3 <this skill's directory>/scripts/build_carousel.py carousel.json carousel.html`. Fix every `error:` and re-run. Fix `warning:` lines too, unless the user wants it that way.
-5. **Deliver `carousel.html`** as a file. Tell the user, in their language: open it in Chrome, Edge or Firefox; edit any text, colours, fonts or plugins in the side panel; press «الكل ZIP» to download every slide as PNG, «الشريحة PNG» for the selected one, or «PDF لينكدإن» for a single PDF that LinkedIn shows as a swipeable document post. It works offline, and edits are saved in the browser.
+5. **Deliver `carousel.html`** as a file. Tell the user, in their language: open it in Chrome, Edge or Firefox; edit any text, colours, fonts or plugins in the side panel; press «الكل ZIP» to download every slide as PNG, «الشريحة PNG» for the selected one, or «PDF لينكدإن» for a single PDF that LinkedIn shows as a swipeable document post. Images download as `01-hook.png`, `02-content.png`, … `05-cta.png`, so their order is the posting order. «فيديو ريلز» turns the slides into an animated 9:16 video (14 seconds by default) with a fast hook. For a reel, keep each body slide short: the dialog warns when a slide has more text than its scene leaves time to read. It works offline, and edits are saved in the browser.
 
 ## Format
 

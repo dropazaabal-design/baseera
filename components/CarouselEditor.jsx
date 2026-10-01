@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
 import Slide from './Slide';
 import SlideFrame from './SlideFrame';
 import Filmstrip from './Filmstrip';
 import Icon from './Icon';
+import Menu from './Menu';
 import ContentPanel from './panels/ContentPanel';
 import DesignPanel from './panels/DesignPanel';
 import PluginsPanel from './panels/PluginsPanel';
@@ -10,10 +11,14 @@ import { Button, Segmented, Select } from './ui';
 import { templates } from '../templates';
 import { paletteColors, resolvePalette } from '../plugins/palettes.js';
 import { governDesign, governPlugins } from '../plugins/agencyKit.js';
-import { exportCarouselPdf, exportCarouselZip, exportSlidePng } from '../lib/exportEngine.js';
+import { exportCarouselPdf, exportCarouselZip, exportSlidePng, slideFilename } from '../lib/exportEngine.js';
 import { FORMATS, formatOf } from '../lib/formats.js';
-import { createSlide, initialDoc, saveDoc } from '../lib/doc.js';
+import { createSlide, initialDoc, presetSlides, saveDoc } from '../lib/doc.js';
+import useBeforeUnload from '../hooks/useBeforeUnload.js';
 import { formatNumber } from '../lib/numerals.js';
+
+// The video engine and encoder load only when the reel dialog opens.
+const ReelDialog = lazy(() => import('./ReelDialog'));
 
 // <option> text cannot hold a <bdi>, so isolate with LRI…PDI characters.
 const ltr = (s) => `\u2066${s}\u2069`;
@@ -57,6 +62,7 @@ export default function CarouselEditor() {
   const [tab, setTab] = useState('content');
   const [exportScale, setExportScale] = useState(1);
   const [busy, setBusy] = useState(false);
+  const [reelOpen, setReelOpen] = useState(false);
   const [status, setStatus] = useState(null);
   const stageRef = useRef(null);
   const stripRef = useRef(null);
@@ -145,11 +151,14 @@ export default function CarouselEditor() {
     }
   }
 
+  useBeforeUnload(busy);
+  const filenames = slides.map((s, i) => slideFilename(i, templates[s.template].role));
+
   const exportCurrent = () =>
-    runExport(() => exportSlidePng(slideNodes()[current], current, exportOptions), `تم تنزيل الشريحة ${fmt(current + 1)}.`);
+    runExport(() => exportSlidePng(slideNodes()[current], filenames[current], exportOptions), `تم تنزيل الشريحة ${fmt(current + 1)}.`);
 
   const exportAll = () =>
-    runExport(() => exportCarouselZip(slideNodes(), exportOptions, progress), `تم تنزيل ${fmt(total)} شرائح في ملف ZIP.`);
+    runExport(() => exportCarouselZip(slideNodes(), exportOptions, filenames, progress), `تم تنزيل ${fmt(total)} شرائح في ملف ZIP.`);
 
   // LinkedIn shows a PDF as a swipeable document carousel, one page per slide.
   const exportPdf = () =>
@@ -157,6 +166,13 @@ export default function CarouselEditor() {
       () => exportCarouselPdf(slideNodes(), exportOptions, { title: 'كاروسيل', author: doc.brand.name || 'بصيرة' }, progress),
       `تم تنزيل ملف PDF من ${fmt(total)} صفحات، جاهزًا للنشر كمستند على لينكدإن.`,
     );
+
+  const applyPreset = (preset) => {
+    if (!window.confirm(`ستُستبدل الشرائح الحالية ببنية «${preset.label}». متابعة؟`)) return;
+    patch('slides', presetSlides(preset.id));
+    setActive(0);
+    setTab('content');
+  };
 
   const reset = () => {
     if (!window.confirm('ستُستعاد النسخة الأصلية وتُفقد تعديلاتك. متابعة؟')) return;
@@ -202,18 +218,18 @@ export default function CarouselEditor() {
               ]}
             />
           </div>
-          <Button onClick={exportCurrent} disabled={busy}>
-            <Icon name="download" size={16} />
-            الشريحة PNG
-          </Button>
-          <Button variant="primary" onClick={exportAll} disabled={busy}>
-            <Icon name="download" size={16} />
-            الكل ZIP
-          </Button>
-          <Button onClick={exportPdf} disabled={busy} title="مستند PDF لكاروسيل لينكدإن">
-            <Icon name="download" size={16} />
-            PDF لينكدإن
-          </Button>
+          <Menu
+            label="تصدير"
+            icon="download"
+            variant="primary"
+            disabled={busy}
+            items={[
+              { label: 'الشريحة الحالية PNG', description: ltr(filenames[current]), onSelect: exportCurrent },
+              { label: 'كل الشرائح ZIP', description: 'ملفات مرقّمة بترتيب النشر', onSelect: exportAll },
+              { label: 'PDF لينكدإن', description: 'مستند قابل للتمرير، صفحة لكل شريحة', onSelect: exportPdf },
+              { label: 'فيديو ريلز', description: 'قصة ٩:١٦ متحركة، ١٤ ثانية افتراضيًا', onSelect: () => setReelOpen(true) },
+            ]}
+          />
           <Button variant="ghost" onClick={reset} disabled={busy} aria-label="استعادة الأصل" title="استعادة الأصل">
             <Icon name="reset" size={16} />
           </Button>
@@ -306,9 +322,17 @@ export default function CarouselEditor() {
             slideProps={slideProps}
             onSelect={setActive}
             onAdd={addSlide}
+            onPreset={applyPreset}
           />
         </main>
       </div>
+      {reelOpen && (
+        <Suspense
+          fallback={<div className="fixed inset-0 z-50 grid place-items-center bg-zinc-950/60 text-sm text-white">جارٍ تحميل محرّك الفيديو…</div>}
+        >
+          <ReelDialog slides={slides} slideProps={slideProps} onClose={() => setReelOpen(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }
