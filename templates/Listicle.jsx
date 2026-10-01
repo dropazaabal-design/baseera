@@ -10,12 +10,12 @@ function Listicle({ data, ctx }) {
       <Circle size={340} top={-120} end={-120} opacity={0.1} />
       <SafeArea>
         <FitBox min={24} max={46} align="start">
-          <h2 className="mb-[0.7em]" style={{ fontSize: '1.9em', fontWeight: 'var(--w-black)', lineHeight: 1.35 }}>
+          <h2 data-anim="rise" className="mb-[0.7em]" style={{ fontSize: '1.9em', fontWeight: 'var(--w-black)', lineHeight: 1.35 }}>
             <RichText text={data.title} />
           </h2>
           <ol className="flex flex-col gap-[0.55em]">
             {nonEmpty(data.items).map((item, i) => (
-              <li key={i} className="flex items-start gap-[0.7em] rounded-[28px] bg-(--c-surface) px-[0.9em] py-[0.7em]">
+              <li key={i} data-anim="rise" className="flex items-start gap-[0.7em] rounded-[28px] bg-(--c-surface) px-[0.9em] py-[0.7em]">
                 <span
                   className="grid size-[1.9em] shrink-0 place-items-center rounded-full bg-(--c-accent) text-(--c-on-accent)"
                   style={{ fontWeight: 'var(--w-black)', lineHeight: 1 }}
@@ -37,6 +37,7 @@ function Listicle({ data, ctx }) {
 export default {
   id: 'listicle',
   label: 'قائمة خطوات',
+  role: 'content',
   description: 'خطوات أو نقاط مرقّمة',
   fields: [
     { key: 'title', label: 'العنوان', type: 'textarea', rows: 2 },

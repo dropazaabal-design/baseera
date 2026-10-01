@@ -15,13 +15,13 @@ function Quote({ data }) {
       />
       <SafeArea>
         <FitBox min={34} max={80}>
-          <div className="border-s-[10px] border-(--c-accent) ps-[0.7em]">
+          <div data-anim="rise" className="border-s-[10px] border-(--c-accent) ps-[0.7em]">
             <blockquote style={{ fontWeight: 'var(--w-bold)', lineHeight: 1.65 }}>
               <RichText text={data.quote} />
             </blockquote>
           </div>
           {data.author && (
-            <div className="mt-[1em] flex items-center gap-[0.6em]" style={{ fontSize: 'max(0.4em, 30px)' }}>
+            <div data-anim="fade" className="mt-[1em] flex items-center gap-[0.6em]" style={{ fontSize: 'max(0.4em, 30px)' }}>
               {data.photo ? (
                 <img src={data.photo} alt="" className="size-[2.4em] shrink-0 rounded-full object-cover ring-[0.12em] ring-(--c-accent)" />
               ) : (
@@ -48,6 +48,7 @@ function Quote({ data }) {
 export default {
   id: 'quote',
   label: 'اقتباس',
+  role: 'content',
   description: 'اقتباس مؤثر مع اسم قائله',
   fields: [
     { key: 'quote', label: 'نص الاقتباس', type: 'textarea', rows: 4 },

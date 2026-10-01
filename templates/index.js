@@ -3,7 +3,8 @@ import listicle from './Listicle';
 import quote from './Quote';
 import comparison from './Comparison';
 import outro from './Outro';
+import post from './Post';
 
 // Template registry. Order here is the order shown in the "add slide" menu.
-export const templateList = [cover, listicle, quote, comparison, outro];
+export const templateList = [cover, listicle, quote, comparison, outro, post];
 export const templates = Object.fromEntries(templateList.map((t) => [t.id, t]));

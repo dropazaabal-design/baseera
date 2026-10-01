@@ -28,3 +28,16 @@
 bdi {
   unicode-bidi: isolate;
 }
+
+/* Reel capture (lib/video.js): a base frame without the animated elements,
+   then each animated element alone on a transparent frame. Visibility keeps
+   the layout identical in both, so every layer lands exactly in place. */
+.slide-root[data-video-base] [data-anim],
+.slide-root[data-video-solo] * {
+  visibility: hidden;
+}
+
+.slide-root[data-video-solo] [data-video-show],
+.slide-root[data-video-solo] [data-video-show] * {
+  visibility: visible;
+}

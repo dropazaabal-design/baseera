@@ -5,6 +5,7 @@ import { mix } from '../lib/contrast.js';
 
 function Overlay({ settings, ctx }) {
   const { index, total, colors, numerals } = ctx;
+  if (total < 2) return null;
   return (
     <>
       {settings.showBar && (

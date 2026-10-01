@@ -17,9 +17,11 @@ function Outro({ data, ctx }) {
       <SafeArea>
         <FitBox min={40} max={96}>
           <div className="flex flex-col items-center text-center">
-            <Avatar brand={brand} size="2.4em" ring />
+            <div data-anim="pop">
+              <Avatar brand={brand} size="2.4em" ring />
+            </div>
             {(brand.name || brand.handle) && (
-              <div className="mt-[0.7em]" style={{ fontSize: 'max(0.34em, 30px)', lineHeight: 1.5 }}>
+              <div data-anim="fade" className="mt-[0.7em]" style={{ fontSize: 'max(0.34em, 30px)', lineHeight: 1.5 }}>
                 <span style={{ fontWeight: 'var(--w-bold)' }}>
                   <RichText text={brand.name} />
                 </span>{' '}
@@ -28,16 +30,16 @@ function Outro({ data, ctx }) {
                 </span>
               </div>
             )}
-            <h2 className="mt-[0.45em]" style={{ fontWeight: 'var(--w-black)', lineHeight: 1.3 }}>
+            <h2 data-anim="rise" className="mt-[0.45em]" style={{ fontWeight: 'var(--w-black)', lineHeight: 1.3 }}>
               <RichText text={data.title} />
             </h2>
             {data.subtitle && (
-              <p className="mt-[0.5em] text-(--c-muted)" style={{ fontSize: 'max(0.34em, 32px)', lineHeight: 1.7 }}>
+              <p data-anim="rise" className="mt-[0.5em] text-(--c-muted)" style={{ fontSize: 'max(0.34em, 32px)', lineHeight: 1.7 }}>
                 <RichText text={data.subtitle} />
               </p>
             )}
             {actions.length > 0 && (
-              <div className="mt-[0.7em] flex w-full flex-wrap justify-center gap-[0.35em]" style={{ fontSize: 'max(0.32em, 30px)' }}>
+              <div data-anim="rise" className="mt-[0.7em] flex w-full flex-wrap justify-center gap-[0.35em]" style={{ fontSize: 'max(0.32em, 30px)' }}>
                 {actions.map((a, i) => (
                   <span
                     key={a.icon}
@@ -53,7 +55,7 @@ function Outro({ data, ctx }) {
               </div>
             )}
             {nonEmpty(data.socials).length > 0 && (
-              <div className="mt-[0.6em] flex w-full flex-wrap justify-center gap-[0.3em]" style={{ fontSize: 'max(0.28em, 28px)' }}>
+              <div data-anim="fade" className="mt-[0.6em] flex w-full flex-wrap justify-center gap-[0.3em]" style={{ fontSize: 'max(0.28em, 28px)' }}>
                 {nonEmpty(data.socials).map((s, i) => (
                   <span key={i} className="whitespace-nowrap rounded-full border-2 border-(--c-muted) px-[0.8em] py-[0.25em] text-(--c-muted)" style={{ lineHeight: 1.5 }}>
                     <RichText text={s} />
@@ -71,8 +73,10 @@ function Outro({ data, ctx }) {
 export default {
   id: 'outro',
   label: 'خاتمة',
+  role: 'cta',
   description: 'دعوة للحفظ والمتابعة وحساباتك',
   hideBrandBadge: true,
+  ownsCta: true,
   fields: [
     { key: 'title', label: 'العنوان', type: 'textarea', rows: 2 },
     { key: 'subtitle', label: 'العنوان الفرعي', type: 'textarea', rows: 2 },

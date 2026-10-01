@@ -145,6 +145,30 @@
           "type": "list"
         }
       ]
+    },
+    {
+      "id": "post",
+      "label": "منشور مفرد",
+      "description": "خطّاف ← محتوى ← دعوة في صورة واحدة",
+      "hideBrandBadge": false,
+      "fields": [
+        {
+          "key": "hook",
+          "label": "الخطّاف",
+          "type": "textarea",
+          "hint": "أول ما يقرؤه المتابع: سؤال أو رقم أو وعد واضح"
+        },
+        {
+          "key": "points",
+          "label": "المحتوى",
+          "type": "list"
+        },
+        {
+          "key": "cta",
+          "label": "الدعوة للإجراء",
+          "type": "text"
+        }
+      ]
     }
   ],
   "fonts": [
