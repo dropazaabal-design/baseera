@@ -77,3 +77,21 @@ test('formats, governance and image placeholders are validated', () => {
     assert.ok(bad.stderr.includes(expected), `missing error for ${expected}:\n${bad.stderr}`);
   }
 });
+
+test('the ChatGPT/Codex manifest is complete and in sync with the Claude one', () => {
+  const portable = JSON.parse(fs.readFileSync('claude-plugin/plugin.json', 'utf8'));
+  const claude = JSON.parse(fs.readFileSync('claude-plugin/.claude-plugin/plugin.json', 'utf8'));
+  assert.equal(portable.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
+  assert.equal(portable.name, claude.name);
+  assert.equal(portable.version, claude.version);
+  assert.match(portable.name, /^(?!.*(?:--|\.\.))[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/);
+  const ui = portable.extensions['com.openai'].interface;
+  for (const key of ['displayName', 'shortDescription', 'longDescription', 'developerName', 'category']) assert.ok(ui[key], key);
+  for (const ref of [ui.composerIcon, ui.logo, ...ui.screenshots]) {
+    assert.ok(ref.startsWith('./'), ref);
+    assert.ok(fs.existsSync(path.join('claude-plugin', ref)), ref);
+  }
+  const icon = fs.readFileSync(path.join('claude-plugin', ui.logo));
+  assert.equal(icon.readUInt32BE(16), icon.readUInt32BE(20), 'icon must be square');
+  assert.ok(icon.readUInt32BE(16) >= 48);
+});

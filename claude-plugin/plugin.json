@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "arabic-carousel",
+  "version": "1.1.0",
+  "description": "Arabic RTL carousels, single posts and 9:16 reels for Instagram, LinkedIn and Facebook: writes the copy and builds an offline editor with PNG, ZIP, PDF and video export that keeps Arabic letters joined and mixed Arabic/English/numbers in order.",
+  "author": { "name": "dropazaabal-design", "url": "https://github.com/dropazaabal-design" },
+  "homepage": "https://github.com/dropazaabal-design/baseera",
+  "repository": "https://github.com/dropazaabal-design/baseera",
+  "keywords": ["arabic", "rtl", "carousel", "instagram", "linkedin", "reels", "design"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Arabic Carousel — بصيرة",
+        "shortDescription": "Arabic carousels, posts and reels with correct RTL text",
+        "longDescription": "Describe a topic and get a ready Arabic carousel: the skill writes the slides and delivers one offline HTML editor to tweak text, colours, fonts and formats (4:5, 1:1, 9:16), then export PNG, ZIP in posting order, a LinkedIn PDF, or an animated 9:16 reel. Arabic letters stay joined and mixed Arabic, English and numbers keep their order in every export.",
+        "developerName": "dropazaabal-design",
+        "category": "Productivity",
+        "websiteURL": "https://github.com/dropazaabal-design/baseera",
+        "defaultPrompt": [
+          "اعمل لي كاروسيل من ٦ شرائح عن عادات الإنتاجية",
+          "حوّل هذه الأفكار إلى منشور مفرد بالعربية لإنستغرام",
+          "اكتب ريلز ١٤ ثانية عن أخطاء التسويق الشائعة"
+        ],
+        "brandColor": "#4F46E5",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "screenshots": ["./assets/screenshot-1.png"]
+      }
+    }
+  }
+}
