@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Arabic shaping safety for everything that ends up in an export. */
+.slide-root {
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  /* No fake bold or fake italic: Arabic has no italic, and synthesised bold
+     smears the joins. Weights are mapped per font in lib/fonts.js instead. */
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tracking pulls connected Arabic letters apart. Never allowed on slides. */
+.slide-root,
+.slide-root * {
+  letter-spacing: 0 !important;
+}
+
+bdi {
+  unicode-bidi: isolate;
+}
