@@ -1,77 +1,129 @@
 ---
 name: canva-arabic
-description: Builds an Arabic (RTL) design on Canva as separate, editable text, shape and image elements at the exact pixel size, using the Canva connector's real tools, then reads it back and checks every word letter by letter. Use when the user says «على Canva», «في كانفا», «صمّمه في Canva», or wants an Arabic post or carousel they can keep editing in Canva.
+description: Builds and edits Arabic (RTL) designs and reels in the user's real Canva account as separate editable elements, choosing for each need a route Canva actually supports this session (connector tools, a native .pptx the user imports, the Connect API with the user's own token, or manual steps in Canva), then reads the result back and checks every letter. Use for «على Canva», «في كانفا», «صمّمه في Canva», «كبّر العنوان», «غيّر الخط», «أضف جرافيك», «حرّك العناصر», «صدّر الفيديو», or any edit of a design already in Canva.
 ---
 
-# Arabic design on Canva (editable elements)
+# Arabic design on Canva
 
-Design first with the `arabic-carousel` skill (spec → `studio compose` → quality gate passed).
-This skill moves that design into Canva. `studio` = `node <plugin>/skills/arabic-carousel/scripts/studio.mjs`.
+Design first with `arabic-carousel` (`studio compose` → quality gate passed); reels with
+`arabic-reels`. This skill moves the design into Canva and edits it there. Canva stays the
+editor: never build a substitute editor or site.
 
-## What the Canva connector can and cannot do (checked against its tool schemas)
+**Tools.** The plugin's MCP server `baseera-canva` exposes `canva_capabilities`, `canva_inspect`,
+`canva_build_design`, `canva_apply_patch`, `canva_import_editable`, `canva_build_reel`,
+`canva_apply_motion`, `canva_preview`, `canva_validate_arabic`, `canva_export`, `canva_record`.
+Without MCP: `node <this skill>/scripts/canva.mjs <tool> --key value …` (tool name without
+`canva_`, kebab-case: `build-design`, `--design design.json`; `--args file.json` for JSON input).
+They plan, check and record; the Canva connector's own tools (`edit-design`, `read-design`, …)
+do the work in Canva. Results are JSON: `status` is `done`, `planned`, `unsupported`,
+`blocked`, `needs-input` or `failed`, always with the reason and the next action. Nothing is
+reported as done before Canva's response or a read-back confirms it.
 
-| need | tool / operation | status |
+## 1. Capabilities first, every session
+
+Pass the Canva tool schemas you see in this session: `canva_capabilities` with `schemas`
+(the tool list: names + input schemas) and, if needed, `capability: "text.font-family"`.
+Each capability comes back per route with `supported` / `partial` / `unsupported` /
+`unverified`, the exact tool or operation, limits, whether it edits in place or makes a new
+design, the expected editability, whether approval is needed, and the last verification with
+its date and source (schema, live test, Help Center). Without schemas everything on the
+connector is `unverified` (with the last known state); a live result recorded against an older
+schema of that tool is `stale`. `references/capabilities.md` is a dated snapshot, not a rule.
+
+After any live test, record it: `canva_record` `event: "evidence"`, `capability`, `status`,
+`tool`, `via`, `note`.
+
+## 2. Routes
+
+| route | who runs it | result |
 |---|---|---|
-| a design | `create-design` (generates one from a brief; there is no blank design) | yes, then cleared |
-| exact size | `resize-design` custom width × height | yes |
-| independent Arabic text | `edit-design` `add_text` + `format_text` (size, colour, bold/normal, line height, alignment) | yes |
-| choose the font family | not offered by `format_text` | **no** → Canva's default font |
-| colour one word inside a text | not offered | **no** → one colour per text |
-| shapes | `insert_shape` (SVG path, M/L/H/V/C/S/A/Z) | yes |
-| our images | `create-upload-url` + POST raw bytes, then `insert_fill` at x/y/size | yes |
-| layers | creation order, `layer_element` | yes |
-| preview and read-back | `read-design` (thumbnails, element text and sizes) | yes |
-| save | `edit-design` `commit`, **only after the user approves the preview** | yes |
-| export | `export-design` png / pdf | yes |
+| connector | you, with the connector's tools | edits the same design inside a transaction; saved only on commit |
+| native file (.pptx) | the user imports it in Canva (Upload) | a **new** editable design: separate Arabic text with its font, separate images, native shapes. Help Center: transitions, animations and timings are not imported |
+| Connect API | `canva_import_editable --execute true`, only if the user set `CANVA_ACCESS_TOKEN` in their own environment | a **new** design from the .pptx (import job) |
+| manual | the user, with the listed steps | whatever Canva's editor offers (font family, motion, timing, audio) |
 
-Check what your session has: `studio canva caps --tools <comma-separated tool names you see>`.
+- An import always creates a new design: keep and state both ids (source and new). Never say
+  the original was edited.
+- Never ask for a password or token in the chat, never assume a logged-in browser session, and
+  never use an unofficial route to get around the connector's limits.
+- Credits exhausted, a rate limit, or an approval refused are stops, not reasons to switch route.
 
-## Editability levels (say which one you delivered)
+## 3. Build a design
 
-- **native**: every element is a separate Canva element; all text is live text.
-- **partial**: text is live; graphics are one uploaded image per page (`--mode partial`), used when
-  shapes cannot be created.
-- **flattened**: each page is one image; nothing is editable as text (`--mode image`). Only when
-  text cannot be added. Never describe this as editable.
+1. `canva_build_design` `design: design.json` → `steps`, the `.pptx` (always written), the
+   editability, limitations and the expected generation count (copying a blank earlier design
+   + `resize-design` = 0; `create-design` generates once). The same design built before is
+   resumed from the journal, not duplicated.
+2. Run the steps in order. Fill each `$name` from earlier results and drop keys starting with `_`.
+   Record every real id with `canva_record` right away:
+   - `event: "design"` with `designId`, `relation` (`created`/`copy`/`resize`/`import`) and
+     `sourceDesignId`;
+   - `event: "transaction"` (`state: "open"`), then `"closed"` after commit or cancel;
+   - `event: "upload"` with the file `hash` and the returned `mediaId` (re-used next time);
+   - after each `edit-design` batch that added elements: `event: "edit"`, `step` (the step you
+     sent) and `response` (Canva's returned page) → it maps our elements to Canva locators and
+     returns the next `format_text` batch to send (`next`).
+   - New page ids: `read-design` with the `transaction_id` and `design_content`
+     (`page_metadata` ignores an open transaction).
+3. Alignment: Canva takes each paragraph's direction from its first letter or digit, so an
+   Arabic title that starts with a number, or `@kitabwbs`, is left-to-right there. The tools
+   already send the right `text_align` (`end` for those); do not "correct" it to `start`.
+4. Verify: `read-design` (transaction, `design_content`, all pages) → `canva_validate_arabic`
+   (`design`, `readback`, `brandId`). It compares every text letter by letter (hamza, marks,
+   ة/ه, ى/ي, digits, punctuation, reversed words, presentation forms, direction marks), sizes,
+   colours, alignment, clipping, overlap, margins and reel zones, and returns `repair`
+   edit-design batches. Apply them, read back again, and on a pass run it once more with
+   `snapshot: true` (the baseline for external-change checks).
+5. Preview: `canva_preview` for the affected pages; show the thumbnails and the limitations.
+6. Commit (`finalize: "commit"`) only after the user explicitly approves this preview.
+   Otherwise `cancel`. Never end with a transaction open without saying so; `canva_inspect`
+   lists open (and probably expired) transactions from the journal.
 
-Do not use «تحويل صورة إلى طبقات» (layer separation of a flat image) as the default for Arabic:
-it re-types the words and can change them (عيوبك became عبويك in a previous attempt). If it is
-used at the user's request, run the read-back check below on the result.
+## 4. Edit a design in Canva
 
-## Steps
+`canva_apply_patch` with `commands` («كبّر العنوان», «غيّر الخط إلى تجوال», «حرّك الشعار
+للأسفل», «أضف جرافيك كتاب») or a `patch`, plus a fresh `readback`:
 
-1. `studio canva plan design.json --outdir canva/` → `canva/plan.json`, plus upload files
-   (illustrations recoloured for the design's theme, page art for partial mode).
-   The output lists the editability and the limitations; tell the user before starting.
-2. Run the steps in order. Fill each `$name` from earlier results:
-   - `create-design` → poll `get-create-design-async-job` (wait the seconds it says) → `$designId`.
-   - `resize-design` custom 1080×1350 (or the format's size) → new `$designId`.
-     (In testing, a generated «Instagram Post» came out 1080×1440: always resize.)
-   - `read-design` with `open_transaction: true` → `$transactionId`, `$page:1`, and the locators of
-     generated elements. `clear-page`: `delete_element` each of them.
-   - Uploads: `create-upload-url`, then `curl -X POST -H "Content-Type: application/octet-stream"
-     --data-binary @file "<uploadUrl>"` → `{"mediaId": "M…"}` → `$media:<assetId>`.
-   - `edit-design` batches in order (back to front). Each `add_text` returns a new element:
-     record its locator, then apply its `_then` `format_text` in the next call. Remove keys that
-     start with `_` before sending.
-3. Verify: `read-design` with the transaction → write `readback.json`:
-   `{ "designId", "designUrl", "committed": false, "pageCount", "pages": [{ "index": 0, "width",
-   "height", "texts": [{ "text": "<characters>" }] }] }` → `studio canva verify design.json
-   readback.json --plan canva/plan.json`. Any `readback.changed.*` (letters, numbers) or size
-   issue: fix with `replace_text` / `resize` before showing the user.
-4. Show the thumbnail and the limitations. Commit (`finalize: "commit"`) only after the user
-   approves. Then share the design link.
+- It applies the edit to the local design (reflow included), then plans `edit-design` operations
+  on exactly the affected Canva elements (`format_text`, `position_element`, `resize_element` +
+  `crop_media`, `replace_text`, `update_fill`, `delete_element`). Size, font and position edits
+  never generate or re-upload images. Only new art needs a generation, for that slot only.
+- A capability the connector lacks (font family today) comes back `unsupported` with its
+  alternatives: the manual steps, and a native `.pptx` revision (`<doc>-r<rev>.pptx`) whose
+  import would be a new design. Steps that would move elements without the font change are held
+  back rather than half-applied.
+- If the design changed in Canva since our last verified write, it returns `blocked` with the
+  changes. Ask before overwriting (`force: true` only with the user's go-ahead).
+- Previews only the pages it touched. Then validate and ask for approval as in §3.
 
-## Edits after delivery
+## 5. Export
 
-`studio canva`-side: map our element to its Canva locator (keep the mapping from step 2) and use
-`replace_text`, `position_element`, `resize_element`, `format_text`, `update_fill` (new image)
-in a new transaction. Re-run the read-back check for any text change.
+`canva_export` with `formats` from `get-export-formats` (call it first) → the `export-design`
+call. Exports reflect the **saved** design: commit first, after approval. Verify the downloaded
+file: `canva_export --file out.mp4 --reel reel.json` checks size and duration against the
+plan. A static design exported as MP4 is not an animated video; say what moves and what does not.
 
-## Limits to state plainly
+## Errors
 
-- Font: Canva's default Arabic font; the user can switch to Cairo/Tajawal in Canva in one click
-  (select all text → font).
-- Accent colour on one word: lost; whole text in one colour.
-- The generated starting design is replaced, but its page background image remains under our
-  full-page background shape.
+Record with `canva_record` `event: "error"`; the result classifies it: quota/credits → stop and
+tell the user; rate limit → wait the stated time, once; expired upload or export link → request
+a new one; transaction gone → re-read and resume from the journal; network → retry the same
+step (idempotent keys prevent duplicates); auth or approval refused → stop. Never leave a
+half-built design undescribed: say which pages and elements exist.
+
+## Report
+
+State the editability level (native / partial / flattened), the design ids and how they relate,
+what was verified and how, the open items, and the generation count from the journal
+(`canva_inspect` → `journal.generationCalls`). Token counts and costs only when a tool reported them.
+
+## Limits seen live (2026-10-02; recheck with §1)
+
+- `format_text` has no font family: Canva's default font until the user changes it (select the
+  texts → Font → Cairo or Tajawal) or imports the .pptx.
+- One colour per text box: a coloured word inside a text is lost on the connector route.
+- No motion, page transition, page duration or audio operation on the connector; the reel plan
+  goes into each page's speaker notes and the manual steps (see `arabic-reels`).
+- The connector's upload rejects .pptx and turns a .pdf into a file id only.
+- Layer separation of a flat image («تحويل صورة إلى طبقات») re-types Arabic and can change
+  words; never the default. If the user asks for it, validate the result letter by letter.

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "baseera-canva": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/skills/canva-arabic/scripts/canva-mcp.mjs"],
+      "env": {
+        "CANVA_ACCESS_TOKEN": "${CANVA_ACCESS_TOKEN:-}"
+      }
+    }
+  }
+}

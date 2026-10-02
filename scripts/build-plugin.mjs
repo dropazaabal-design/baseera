@@ -2,6 +2,9 @@
 //   skills/arabic-carousel/assets/carousel.html   the full editor (classic + studio) as one offline file
 //   skills/arabic-carousel/scripts/studio.mjs     the studio CLI (library, assets, memory, Canva plans)
 //   skills/arabic-carousel/references/schema.json templates, compositions, fonts, palettes, plugins
+//   skills/canva-arabic/scripts/canva.mjs         the canva_* tools as a CLI
+//   skills/canva-arabic/scripts/canva-mcp.mjs     the same tools as a local MCP server (.mcp.json)
+//   skills/canva-arabic/references/capabilities.md the capability table at build time
 // and zips the plugin to dist/arabic-carousel-plugin.zip for upload.
 // Run after changing templates, plugins, fonts or styles: npm run build:plugin
 import fs from 'node:fs/promises';
@@ -15,6 +18,7 @@ import JSZip from 'jszip';
 const root = path.resolve(import.meta.dirname, '..');
 const pluginDir = path.join(root, 'claude-plugin');
 const skillDir = path.join(pluginDir, 'skills/arabic-carousel');
+const canvaSkillDir = path.join(pluginDir, 'skills/canva-arabic');
 const fontsource = path.join(root, 'node_modules/@fontsource');
 
 const esbuildBase = { bundle: true, write: false, jsx: 'automatic', loader: { '.js': 'jsx' }, legalComments: 'none' };
@@ -30,10 +34,10 @@ async function bundleEditor() {
   return result.outputFiles[0].text;
 }
 
-// The studio CLI as one ES module for Node 18+, no dependencies.
-async function bundleCli() {
+// A CLI as one ES module for Node 18+, no dependencies.
+async function bundleCli(entry = 'scripts/studio-cli.js') {
   const result = await build({
-    entryPoints: [path.join(root, 'scripts/studio-cli.js')],
+    entryPoints: [path.join(root, entry)],
     bundle: true,
     write: false,
     platform: 'node',
@@ -133,6 +137,29 @@ async function buildSchema() {
   };
 }
 
+// The registry read against the schema snapshot in tests/fixtures plus the
+// dated live evidence it carries. A snapshot only: the skill reruns
+// canva_capabilities with the session's own tool schemas.
+async function buildCapabilities() {
+  const { CanvaCapabilityRegistry, registryMarkdown } = await import(pathToFileURL(path.join(root, 'lib/studio/canva/registry.js')).href);
+  const fixture = JSON.parse(await fs.readFile(path.join(root, 'tests/fixtures/canva-schema-2026-10-02.json'), 'utf8'));
+  const registry = new CanvaCapabilityRegistry();
+  registry.loadSchemas(fixture, { at: fixture.capturedAt });
+  const dated = registry.evidence.filter((e) => e.source === 'live').map((e) => `- ${e.at} — ${e.capability} (${e.route}): ${e.status}. ${e.note ?? ''}`);
+  return `# قدرات Canva — لقطة وقت البناء
+
+مولّد من \`lib/studio/canva/registry.js\` بمخططات أدوات Canva الملتقطة في ${fixture.capturedAt} ونتائج الاختبار الحي المؤرخة أدناه. **ليس مرجعًا ثابتًا**: أدوات الموصل تتغير، فشغّل \`canva_capabilities\` بمخططات جلستك قبل أي عمل؛ ما لم تُقرأ مخططاته في الجلسة يظهر «لم يُتحقق»، وأي اختبار حي على مخطط تغيّر بعده يصبح «قديمًا» ويُعاد التحقق منه.
+
+الحالات: مدعوم · جزئي (يعمل بحدود مذكورة) · غير مدعوم · لم يُتحقق. المسارات: الموصل (ينفّذه المساعد) · ملف أصلي .pptx (يستورده المستخدم في Canva فيُنشئ تصميمًا جديدًا) · Connect API (برمز وصول من المستخدم) · يدوي في Canva.
+
+${registryMarkdown(registry)}
+
+## اختبارات حية مؤرخة
+
+${dated.join('\n')}
+`;
+}
+
 async function zipDir(dir, out, skip = []) {
   const zip = new JSZip();
   const walk = async (rel) => {
@@ -148,19 +175,33 @@ async function zipDir(dir, out, skip = []) {
   await fs.writeFile(out, await zip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' }));
 }
 
-const [html, schema, cli] = await Promise.all([buildHtml(), buildSchema(), bundleCli()]);
+const [html, schema, cli, canvaCli, canvaMcp, capabilities] = await Promise.all([
+  buildHtml(),
+  buildSchema(),
+  bundleCli(),
+  bundleCli('scripts/canva-cli.js'),
+  bundleCli('scripts/canva-mcp.js'),
+  buildCapabilities(),
+]);
 await fs.writeFile(path.join(skillDir, 'assets/carousel.html'), html);
 await fs.writeFile(path.join(skillDir, 'scripts/studio.mjs'), cli, { mode: 0o755 });
 await fs.writeFile(path.join(skillDir, 'references/schema.json'), `${JSON.stringify(schema, null, 2)}\n`);
+await fs.mkdir(path.join(canvaSkillDir, 'scripts'), { recursive: true });
+await fs.mkdir(path.join(canvaSkillDir, 'references'), { recursive: true });
+await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva.mjs'), canvaCli, { mode: 0o755 });
+await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva-mcp.mjs'), canvaMcp, { mode: 0o755 });
+await fs.writeFile(path.join(canvaSkillDir, 'references/capabilities.md'), capabilities);
 const zipPath = path.join(root, 'dist/arabic-carousel-plugin.zip');
 await zipDir(pluginDir, zipPath);
 // ChatGPT/Codex get only what OpenAI's packaging guide lists (plugin.json,
-// assets/, skills/), without Claude's .claude-plugin/ folder.
+// assets/, skills/), without Claude's .claude-plugin/ folder or the local
+// MCP server config (.mcp.json).
 const chatgptZipPath = path.join(root, 'dist/arabic-carousel-chatgpt.zip');
-await zipDir(pluginDir, chatgptZipPath, ['.claude-plugin']);
+await zipDir(pluginDir, chatgptZipPath, ['.claude-plugin', '.mcp.json']);
 
 const kb = (n) => `${Math.round(n / 1024)} KB`;
 console.log(`carousel.html  ${kb(Buffer.byteLength(html))}`);
 console.log(`studio.mjs     ${kb(Buffer.byteLength(cli))}`);
+console.log(`canva.mjs      ${kb(Buffer.byteLength(canvaCli))}, canva-mcp.mjs ${kb(Buffer.byteLength(canvaMcp))}`);
 console.log(`plugin zip     ${kb((await fs.stat(zipPath)).size)} → ${path.relative(root, zipPath)} (Claude)`);
 console.log(`plugin zip     ${kb((await fs.stat(chatgptZipPath)).size)} → ${path.relative(root, chatgptZipPath)} (ChatGPT, Codex)`);

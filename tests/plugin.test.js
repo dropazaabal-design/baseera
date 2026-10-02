@@ -138,3 +138,28 @@ test('every skill has frontmatter with a name and a description, and the studio 
     assert.ok(text.includes('studio'), `${name} does not use the studio CLI`);
   }
 });
+
+test('the bundled Canva tools run as a CLI and as the MCP server the plugin declares', () => {
+  const canva = 'claude-plugin/skills/canva-arabic';
+  const env = { ...process.env, BASEERA_HOME: fs.mkdtempSync(path.join(os.tmpdir(), 'canva-cli-')), CANVA_ACCESS_TOKEN: '' };
+  const mcp = JSON.parse(fs.readFileSync('claude-plugin/.mcp.json', 'utf8')).mcpServers['baseera-canva'];
+  assert.deepEqual(mcp.args, ['${CLAUDE_PLUGIN_ROOT}/skills/canva-arabic/scripts/canva-mcp.mjs']);
+  assert.equal(mcp.env.CANVA_ACCESS_TOKEN, '${CANVA_ACCESS_TOKEN:-}', 'a reference to the user\'s variable, never a value');
+
+  const caps = spawnSync(process.execPath, [path.resolve(canva, 'scripts/canva.mjs'), 'capabilities', '--schemas-file', path.resolve('tests/fixtures/canva-schema-2026-10-02.json'), '--capability', 'text.font-family'], { encoding: 'utf8', env, cwd: os.tmpdir() });
+  assert.equal(caps.status, 0, caps.stderr);
+  const font = JSON.parse(caps.stdout).capability;
+  assert.equal(font.routes.connector.status, 'unsupported');
+  assert.ok(font.routes.manual.status === 'supported');
+
+  const input = [
+    { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'test', version: '0' } } },
+    { jsonrpc: '2.0', method: 'notifications/initialized' },
+    { jsonrpc: '2.0', id: 2, method: 'tools/list' },
+  ].map((m) => JSON.stringify(m)).join('\n');
+  const server = spawnSync(process.execPath, [path.resolve(canva, 'scripts/canva-mcp.mjs')], { input: `${input}\n`, encoding: 'utf8', env, cwd: os.tmpdir() });
+  const replies = server.stdout.trim().split('\n').map((l) => JSON.parse(l));
+  assert.equal(replies[0].result.serverInfo.name, 'baseera-canva');
+  assert.equal(replies[1].result.tools.length, 11);
+  assert.ok(fs.readFileSync(path.join(canva, 'references/capabilities.md'), 'utf8').includes('اختبارات حية مؤرخة'));
+});

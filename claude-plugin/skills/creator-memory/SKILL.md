@@ -21,6 +21,17 @@ studio store (`~/.baseera`), per creator (`--creator ID`, default `default`).
   --evidence "<the user's words>"`. Keys: `studio memory show` → `PREFERENCE_KEYS` in
   `references/schema.json` (`palette`, `font.heading`, `text.density`, `text.size`, `avoid`, …).
 
+## Identity rules are checked, not just stored
+
+An identity's `constraints` are checked on every design (`studio check`, `studio compose`) and
+after every Canva transfer (`canva_validate_arabic --brand-id …`). The «كتاب وبس» preset:
+blue as the main colour, no yellow or orange, no faces or human images, Cairo or Tajawal only,
+Western digits, no Latin words except `@kitabwbs`, strong titles and clear body text.
+What the studio controls (colours, fonts, digits) fails as an error; words the user wrote or
+approved come back as warnings to raise, not to rewrite silently. A palette or theme the user
+asks for in the current request relaxes the colour rules for that design only («مسموح بطلبك
+الحالي»); it is not stored as a new preference.
+
 ## Scope: never generalise one remark
 
 - «لهذا البوست» → no memory; fix the design only.

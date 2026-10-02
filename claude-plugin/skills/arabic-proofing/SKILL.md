@@ -30,10 +30,15 @@ with it word by word:
   you were given (`[{ "title": "…", "items": ["…"] }]`, one object per page).
 - `studio check design.json --readback readback.json` (or `studio canva verify`) compares what a
   destination returned.
+- After a Canva build or edit: `canva_validate_arabic` (`canva-arabic` skill) compares Canva's
+  read-back with the design, element by element.
 
-Each difference is classified: `reordered-letters` (عيوبك → عبويك), `changed-letters`,
-`changed-number` (٢ → ٧), `changed-digit-system` (٢٠٢٦ → 2026), `changed-marks` (diacritics),
-`missing-word`, `extra-word`.
+Each difference is classified: `reordered-letters` (عيوبك → عبويك), `reversed-word` (a word
+stored backwards: a direction bug), `changed-letters`, `changed-hamza` (أ/إ/ا/ء), `changed-taa-marbuta`
+(ة/ه), `changed-alef-maqsura` (ى/ي), `changed-marks` (diacritics), `changed-punctuation` (، ؛ ؟
+→ , ; ?), `changed-number` (٢ → ٧), `changed-digit-system` (٢٠٢٦ → 2026), `changed-word`,
+`missing-word`, `extra-word`. Presentation-form glyphs (ﻛﺘﺎﺏ instead of كتاب) and stray
+direction marks are errors too: the text looks right but no longer searches, copies or edits.
 
 ## OCR
 

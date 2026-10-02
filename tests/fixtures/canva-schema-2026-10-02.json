@@ -1,0 +1,14 @@
+{
+  "kind": "canva-schema-facts-input",
+  "capturedAt": "2026-10-02",
+  "note": "Compact facts read from the Canva connector's tool schemas in a live session on 2026-10-02. Used by tests and to document the last verified state; each session recomputes its own.",
+  "tools": ["autofill-design", "comment-on-design", "copy-design", "create-brand-template-draft", "create-design", "create-design-from-brand-template", "create-design-from-candidate", "create-folder", "create-upload-url", "edit-design", "export-design", "generate-design", "generate-design-structured", "generate-image", "get-assets", "get-brand-template-dataset", "get-create-design-async-job", "get-design-dataset", "get-export-formats", "get-generate-image-job", "get-separate-image-layers-job", "help", "import-design-from-url", "list-brand-kits", "list-comments", "list-folder-items", "list-replies", "merge-designs", "move-item-to-folder", "publish-brand-template", "read-design", "remove-background", "reply-to-comment", "request-outline-review", "resize-design", "resolve-shortlink", "search-brand-templates", "search-designs", "search-folders", "separate-image-layers", "upload-asset-from-url"],
+  "editOps": ["add_page", "add_text", "crop_media", "delete_element", "find_and_replace_text", "flip_media", "format_text", "group_elements", "insert_fill", "insert_shape", "layer_element", "position_element", "recolor_element", "reorder_page", "replace_shape", "replace_speaker_notes", "replace_text", "resize_element", "rotate_element", "ungroup_elements", "update_autofill_field", "update_fill", "update_line_properties", "update_opacity", "update_stroke_properties", "update_text_anchoring", "update_title"],
+  "formatFields": ["color", "decoration", "font_size", "font_style", "font_weight", "line_height", "link", "list_level", "list_marker", "strikethrough", "text_align"],
+  "insertFillTypes": ["image", "video"],
+  "exportTypes": ["pdf", "png", "jpg", "gif", "pptx", "mp4", "csv"],
+  "resizeCustom": true,
+  "mergeOps": ["delete_pages", "insert_pages", "move_pages"],
+  "importExcludesGenerated": true,
+  "uploadKinds": ["image", "video", "audio", "pdf"]
+}

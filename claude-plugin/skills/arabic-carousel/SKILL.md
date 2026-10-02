@@ -29,6 +29,9 @@ Every command prints JSON. Data persists in `~/.baseera` (or `BASEERA_HOME`).
 - «بوست مفرد» → one page. «كاروسيل» / «٧ شرائح» → that many connected pages. Respect the
   count exactly; the quality gate fails a mismatch.
 - «على Canva» → a real Canva design (then follow the `canva-arabic` skill). Otherwise local.
+- «ريل» / «حوّل الكاروسيل إلى ريل» → the `arabic-reels` skill (scenes, timing, motion plan).
+- An edit of a design already in Canva («كبّر العنوان»، «غيّر الخط») → `canva-arabic` §4: the
+  edit is planned on the Canva elements themselves, without regenerating images.
 - «جرافيك عالية» → a strong visual idea and new key art. «شيء جديد» → a new direction, no reuse.
 - The current request always beats memory and the library.
 
@@ -75,7 +78,8 @@ Full list and the delivery checklist: `references/roles/qa-delivery.md`.
 - **Local**: give `design.html`. Tell the user: open it in Chrome, Edge, Firefox or Safari; edit
   any element or type commands in «عدّل بالمحادثة»; export «الصفحة الحالية PNG», «كل الصفحات ZIP»
   (files `01-hook.png`… in posting order), «PDF لينكدإن», or «فيديو ريلز». Works offline.
-- **Canva**: `canva-arabic` skill. Say exactly which editability level was delivered.
+- **Canva**: `canva-arabic` skill. Say exactly which editability level was delivered, which
+  route was used, and which design ids exist (an import or resize makes a new design).
 
 Then ask what they think. Their words go to `studio feedback <designId> "<words>"`
 (`creator-memory` skill). Saving is not approval: only their explicit approval is.
