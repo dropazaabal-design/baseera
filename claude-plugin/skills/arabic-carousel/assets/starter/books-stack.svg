@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+<ellipse cx="120" cy="206" rx="92" ry="8" fill="#0E2A5C" data-token="text" opacity="0.12"/>
+<rect x="34" y="162" width="172" height="40" rx="8" fill="#7DB6FF" data-token="accent"/>
+<rect x="34" y="172" width="172" height="6" fill="#0E2A5C" data-token="bg" opacity="0.35"/>
+<rect x="72" y="184" width="64" height="7" rx="3.5" fill="#0E2A5C" data-token="bg" opacity="0.55"/>
+<rect x="52" y="122" width="148" height="40" rx="8" fill="#A9B8CE" data-token="muted"/>
+<rect x="52" y="132" width="148" height="6" fill="#0E2A5C" data-token="bg" opacity="0.3"/>
+<rect x="122" y="144" width="54" height="7" rx="3.5" fill="#0E2A5C" data-token="bg" opacity="0.5"/>
+<g transform="rotate(-7 122 104)">
+<rect x="42" y="84" width="160" height="38" rx="8" fill="#F1F5F9" data-token="text"/>
+<rect x="42" y="93" width="160" height="6" fill="#7DB6FF" data-token="accent"/>
+<rect x="64" y="105" width="70" height="7" rx="3.5" fill="#7DB6FF" data-token="accent" opacity="0.7"/>
+<path d="M170 122 V150 L180 141 L190 150 V122 Z" fill="#7DB6FF" data-token="accent"/>
+</g>
+<path d="M186 46 L190 58 L202 62 L190 66 L186 78 L182 66 L170 62 L182 58 Z" fill="#7DB6FF" data-token="accent"/>
+<path d="M52 56 L54.5 63 L61 65.5 L54.5 68 L52 75 L49.5 68 L43 65.5 L49.5 63 Z" fill="#F1F5F9" data-token="text" opacity="0.8"/>
+</svg>

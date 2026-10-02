@@ -16,6 +16,7 @@ import { FORMATS, formatOf } from '../lib/formats.js';
 import { createSlide, initialDoc, presetSlides, saveDoc } from '../lib/doc.js';
 import useBeforeUnload from '../hooks/useBeforeUnload.js';
 import { formatNumber } from '../lib/numerals.js';
+import { countWords } from '../lib/timeline.js';
 
 // The video engine and encoder load only when the reel dialog opens.
 const ReelDialog = lazy(() => import('./ReelDialog'));
@@ -55,7 +56,7 @@ function useStageSize(ref) {
 const fitScale = (stage, { width, height }) =>
   Math.min(1, Math.max(0.1, Math.min((stage.width - STAGE_PADDING) / width, (stage.height - STAGE_PADDING) / height)));
 
-export default function CarouselEditor() {
+export default function CarouselEditor({ onOpenStudio }) {
   const [init] = useState(initialDoc);
   const [doc, setDoc] = useState(init.doc);
   const [active, setActive] = useState(0);
@@ -101,6 +102,11 @@ export default function CarouselEditor() {
   const fmt = (n) => formatNumber(n, design.numerals);
 
   const slideProps = { total, colors, font: design.font, numerals: design.numerals, format: format.id, brand: doc.brand, plugins };
+  // A reel has no slide counter or swipe prompt; it draws its own progress bar.
+  const reelPlugins = useMemo(
+    () => ({ ...plugins, pagination: { ...plugins.pagination, enabled: false }, swipe: { ...plugins.swipe, enabled: false } }),
+    [plugins],
+  );
 
   const patch = (key, value) => setDoc((d) => ({ ...d, [key]: typeof value === 'function' ? value(d[key]) : value }));
   const setSlides = (fn) => patch('slides', fn);
@@ -230,6 +236,16 @@ export default function CarouselEditor() {
               { label: 'فيديو ريلز', description: 'قصة ٩:١٦ متحركة، ١٤ ثانية افتراضيًا', onSelect: () => setReelOpen(true) },
             ]}
           />
+          {onOpenStudio && (
+            <Button
+              variant="secondary"
+              disabled={busy}
+              title="عناصر مستقلة، تعديل بالمحادثة، مكتبة وذاكرة"
+              onClick={() => window.confirm('سيُفتح هذا الكاروسيل في الاستوديو كنسخة بعناصر مستقلة، ويبقى الأصل هنا. متابعة؟') && onOpenStudio(doc)}
+            >
+              فتح في الاستوديو
+            </Button>
+          )}
           <Button variant="ghost" onClick={reset} disabled={busy} aria-label="استعادة الأصل" title="استعادة الأصل">
             <Icon name="reset" size={16} />
           </Button>
@@ -330,7 +346,16 @@ export default function CarouselEditor() {
         <Suspense
           fallback={<div className="fixed inset-0 z-50 grid place-items-center bg-zinc-950/60 text-sm text-white">جارٍ تحميل محرّك الفيديو…</div>}
         >
-          <ReelDialog slides={slides} slideProps={slideProps} onClose={() => setReelOpen(false)} />
+          <ReelDialog
+            stage={slides.map((slide, i) => (
+              <Slide key={slide.id} slide={slide} index={i} {...slideProps} format={FORMATS.story.id} plugins={reelPlugins} />
+            ))}
+            words={slides.map((s) => countWords(s.data))}
+            colors={colors}
+            font={design.font}
+            numerals={design.numerals}
+            onClose={() => setReelOpen(false)}
+          />
         </Suspense>
       )}
     </div>

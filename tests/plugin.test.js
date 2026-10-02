@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { contrastRatio } from '../lib/contrast.js';
 
 const SKILL = 'claude-plugin/skills/arabic-carousel';
 const EXAMPLE = path.join(SKILL, 'references/example.json');
@@ -75,5 +76,65 @@ test('formats, governance and image placeholders are validated', () => {
   assert.equal(bad.status, 1);
   for (const expected of ['design.format', 'governance.institutional', 'slides[1].data.photo']) {
     assert.ok(bad.stderr.includes(expected), `missing error for ${expected}:\n${bad.stderr}`);
+  }
+});
+
+test('the ChatGPT/Codex manifest is complete and in sync with the Claude one', () => {
+  const portable = JSON.parse(fs.readFileSync('claude-plugin/plugin.json', 'utf8'));
+  const claude = JSON.parse(fs.readFileSync('claude-plugin/.claude-plugin/plugin.json', 'utf8'));
+  assert.equal(portable.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
+  assert.equal(portable.name, claude.name);
+  assert.equal(portable.version, claude.version);
+  assert.match(portable.name, /^(?!.*(?:--|\.\.))[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/);
+  const ui = portable.extensions['com.openai'].interface;
+  for (const key of ['displayName', 'shortDescription', 'longDescription', 'developerName', 'category']) assert.ok(ui[key], key);
+  for (const ref of [ui.composerIcon, ui.logo, ...ui.screenshots]) {
+    assert.ok(ref.startsWith('./'), ref);
+    assert.ok(fs.existsSync(path.join('claude-plugin', ref)), ref);
+  }
+  const icon = fs.readFileSync(path.join('claude-plugin', ui.logo));
+  assert.equal(icon.readUInt32BE(16), icon.readUInt32BE(20), 'icon must be square');
+  assert.ok(icon.readUInt32BE(16) >= 48);
+});
+
+// Limits from OpenAI's plugin upload validation; exceeding any of them makes
+// ChatGPT reject the ZIP with a generic "Couldn't add plugin".
+test('the ChatGPT interface block stays within OpenAI upload limits', () => {
+  const ui = JSON.parse(fs.readFileSync('claude-plugin/plugin.json', 'utf8')).extensions['com.openai'].interface;
+  assert.ok(ui.displayName.length <= 30, `displayName is ${ui.displayName.length} chars`);
+  assert.ok(ui.shortDescription.length <= 30, `shortDescription is ${ui.shortDescription.length} chars`);
+  assert.ok(ui.longDescription.length <= 4000);
+  assert.ok(ui.developerName.length <= 80);
+  assert.ok(ui.defaultPrompt.length <= 3 && ui.defaultPrompt.every((p) => p.length <= 128));
+  assert.match(ui.brandColor, /^#[0-9A-Fa-f]{6}$/);
+  assert.ok(contrastRatio(ui.brandColor, '#FFFFFF') >= 2);
+});
+
+test('the bundled studio CLI runs without dependencies and builds the shipped example', () => {
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-cli-'));
+  const cli = (...args) => {
+    const r = spawnSync(process.execPath, [path.resolve(SKILL, 'scripts/studio.mjs'), ...args, '--home', home], { encoding: 'utf8', cwd: os.tmpdir() });
+    assert.equal(r.status, 0, r.stderr);
+    return r.stdout.startsWith('{') || r.stdout.startsWith('[') ? JSON.parse(r.stdout) : r.stdout;
+  };
+  assert.match(cli('help'), /studio — Arabic design studio/);
+  const seeded = cli('asset', 'seed');
+  assert.ok(seeded.added.length >= 12);
+  cli('brand', 'preset', 'kitabwbs');
+  const out = path.join(home, 'design.html');
+  const r = cli('compose', path.resolve(SKILL, 'references/example-studio.json'), '--out', path.join(home, 'design.json'), '--html', out);
+  assert.equal(r.ok, true, JSON.stringify(r.quality.issues));
+  const html = fs.readFileSync(out, 'utf8');
+  assert.equal(JSON.parse(seedOf(html).replace(/\\u003c/g, '<')).schemaVersion, 2);
+});
+
+test('every skill has frontmatter with a name and a description, and the studio CLI is referenced', () => {
+  const dir = 'claude-plugin/skills';
+  for (const name of fs.readdirSync(dir)) {
+    const text = fs.readFileSync(path.join(dir, name, 'SKILL.md'), 'utf8');
+    const front = /^---\n([\s\S]*?)\n---/.exec(text)?.[1] ?? '';
+    assert.match(front, new RegExp(`^name: ${name}$`, 'm'));
+    assert.match(front, /^description: .{40,}/m);
+    assert.ok(text.includes('studio'), `${name} does not use the studio CLI`);
   }
 });

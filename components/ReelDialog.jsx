@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Slide from './Slide';
 import Icon from './Icon';
 import { Button, Segmented } from './ui';
 import { FORMATS } from '../lib/formats.js';
-import { countWords } from '../lib/timeline.js';
 import { captureReel, drawFrame, encodeReel, releaseReel } from '../lib/video.js';
 import { downloadBlob } from '../lib/exportEngine.js';
 import { formatNumber } from '../lib/numerals.js';
@@ -50,25 +48,17 @@ function Player({ scenes, timeline, accent, paused, fmt }) {
   );
 }
 
-export default function ReelDialog({ slides, slideProps, onClose }) {
+// `stage` renders the scenes as 9:16 .slide-root nodes (off-screen) with no
+// slide counter or swipe prompt; `words` is the word count per scene. The
+// classic editor passes its template slides, the studio its element pages.
+export default function ReelDialog({ stage, words, colors, font, numerals, onClose }) {
   const stageRef = useRef(null);
   const abort = useRef(null);
   const [scenes, setScenes] = useState(null);
-  const [phase, setPhase] = useState({ step: 'capturing', done: 0, total: slides.length });
+  const [phase, setPhase] = useState({ step: 'capturing', done: 0, total: words.length });
   const working = phase.step === 'capturing' || phase.step === 'encoding';
   useBeforeUnload(working);
-  const fmt = (n) => formatNumber(n, slideProps.numerals);
-  const { colors, font } = slideProps;
-
-  // A reel has no slide counter or swipe prompt; it draws its own progress bar.
-  const plugins = useMemo(
-    () => ({
-      ...slideProps.plugins,
-      pagination: { ...slideProps.plugins.pagination, enabled: false },
-      swipe: { ...slideProps.plugins.swipe, enabled: false },
-    }),
-    [slideProps.plugins],
-  );
+  const fmt = (n) => formatNumber(n, numerals);
 
   // Capture once per opening. The dialog blocks the editor, so the slides
   // cannot change underneath the captured layers.
@@ -95,7 +85,7 @@ export default function ReelDialog({ slides, slideProps, onClose }) {
     };
   }, []);
 
-  const specs = useMemo(() => scenes?.map((s, i) => ({ layers: s.layers.length, words: countWords(slides[i].data) })), [scenes, slides]);
+  const specs = useMemo(() => scenes?.map((s, i) => ({ layers: s.layers.length, words: words[i] })), [scenes, words]);
   const { timeline, duration, setDuration } = useTimeline(specs);
   const slow = timeline?.scenes.flatMap((s, i) => (s.tooFast ? [{ i, ...s }] : [])) ?? [];
 
@@ -126,9 +116,7 @@ export default function ReelDialog({ slides, slideProps, onClose }) {
     <div className="fixed inset-0 z-50 grid place-items-center bg-zinc-950/60 p-4" role="dialog" aria-modal="true" aria-label="تصدير فيديو ريلز">
       {/* Off-screen 9:16 render of the slides, captured layer by layer. */}
       <div ref={stageRef} aria-hidden="true" className="pointer-events-none fixed top-0 left-[-20000px]">
-        {slides.map((slide, i) => (
-          <Slide key={slide.id} slide={slide} index={i} {...slideProps} format={STORY.id} plugins={plugins} />
-        ))}
+        {stage}
       </div>
 
       <div className="flex h-[min(860px,94dvh)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">

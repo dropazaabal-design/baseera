@@ -1,0 +1,77 @@
+# Studio spec format (`spec.json` → `studio compose`)
+
+A spec describes pages by **composition** and **content**. The studio lays them out
+(independent text, image and shape elements with stable ids), reflows content that
+does not fit, runs the quality gate and saves the design to the library.
+
+```json
+{
+  "brief": "ست عادات تجعلك تقرأ أكثر",
+  "brandId": "kitabwbs",
+  "intent": { "mode": "post", "format": "portrait", "platform": "instagram", "pages": 1, "destination": "local" },
+  "concepts": ["reading", "habits"],
+  "metaphor": "ليلة قراءة هادئة تحت الهلال",
+  "pages": [
+    {
+      "composition": "post",
+      "variant": "art",
+      "keepArt": true,
+      "content": {
+        "hook": "ست عادات *تجعلك* تقرأ أكثر",
+        "points": ["…", "…"],
+        "cta": "احفظ المنشور",
+        "art": "a_3ab91802562b29c8",
+        "artAlt": "كتاب مفتوح تحت هلال"
+      }
+    }
+  ]
+}
+```
+
+- `intent.pages` is the page count the user asked for; the gate fails if it differs.
+- `intent.format`: `portrait` 1080×1350 (default), `square` 1080×1080, `story` 1080×1920.
+- Theme: `brandId` (a saved identity), or `paletteId` (`midnight`, `sand`, `emerald`, `ink`, `violet`, `coral`, `agency-navy`, `agency-light`), or `theme` in full. Fonts: `"fonts": { "heading": "cairo", "body": "tajawal" }` (`cairo`, `tajawal`, `almarai`, `readex`).
+- `keepArt: true` keeps the art when space is tight (reflow then reduces it to its minimum size instead of removing it). Use it when the user asked for strong graphics.
+- `*word*` colours one key word with the accent (one per title).
+- Asset fields (`art`, `itemArt`, `photo`, collage `art` list) take **asset ids** from `studio asset add` / `studio asset list`. Ids not in the store fail the build.
+
+## Compositions
+
+Run `node scripts/studio.mjs compositions` for the live list. In short:
+
+| id | use | variants | content fields |
+|---|---|---|---|
+| `hero` | cover / hook | `type`, `art` | `kicker`, `title`*, `subtitle`, `art` |
+| `list` | steps, tips | `cards`, `grid` (2 columns), `illustrated` (one drawing per item) | `title`*, `items`*, `start`, `itemArt[]` |
+| `post` | single post: hook → points → CTA | `stack`, `grid`, `illustrated`, `art` | `hook`*, `points`, `cta`, `art`, `itemArt[]` |
+| `comparison` | before/after, A vs B | `columns`, `rows` | `title`*, `beforeLabel`, `before`, `afterLabel`, `after` |
+| `quote` | quotation | `bar` | `quote`*, `author`, `role`, `photo` |
+| `statement` | one big sentence (typographic) | `block` | `kicker`, `title`*, `subtitle` |
+| `collage` | editorial collage of cut-outs | `top`, `bottom` | `kicker`, `title`*, `subtitle`, `art[]` (2–4) |
+| `outro` | follow / save CTA with identity | `center` | `title`*, `subtitle`, `save`, `share`, `follow`, `socials` |
+
+`*` required. Capacity (what reads well): list/post up to 6 items of ≤ 60–70 characters;
+comparison up to 4 per side; titles ≤ 60 characters. Beyond that the reflow engine
+switches to a denser variant, and if nothing fits it reports exact cuts.
+
+## What the reflow engine does
+
+In order: preferred sizes → gentle scale-down (≥ 82%) → smaller art → scale down to the
+readability floors (titles ≥ 56 px, body ≥ 32 px on a 1080-wide page, about 11.5 pt on a
+phone) → denser variant → drop optional art (unless `keepArt`). Each step is logged in
+Arabic in `pages[].decisions`. If nothing fits, the page is marked `fits: false` with
+suggestions like `{ "slot": "points.2", "removeChars": 24 }`: shorten exactly those texts,
+or split the list over two pages in a carousel. Never ask for smaller text.
+
+## Edits on an existing design
+
+- `studio edit design.json "<أمر>"`: local commands apply at once (sizes, colours from the
+  identity, moves, locks, typed text, columns, format). The output says `needs` when the
+  assistant must act: `asset` (one drawing, `target.elementId`), `rewrite` (`targets` with
+  `maxChars`), `recompose`, `generate`, `clarify` (`options` to choose from).
+- `studio patch design.json patches.json` applies DesignPatch lists:
+  `[{ "pageId": "pg_…", "elementId": "item-4-art", "action": "replace_asset", "payload": { "assetId": "a_…" } }]`.
+  Actions: `replace_text`, `move`, `resize`, `update_style`, `replace_asset`, `delete`, `lock`, `layer`, `hide`.
+  `--scope graphic` rejects any text change; `--scope text` rejects any artwork change.
+- Element ids are stable: `title`, `hook`, `subtitle`, `kicker`, `item-3`, `item-3-art`, `point-2`,
+  `cta`, `quote`, `author-name`, `collage-2`, `art`, and `sys-*` for counter, swipe and brand.

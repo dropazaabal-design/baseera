@@ -4,3 +4,6 @@ export { PALETTES } from '../plugins/palettes.js';
 export { FONTS } from '../lib/fonts.js';
 export { FORMATS } from '../lib/formats.js';
 export { POLICY } from '../plugins/agencyKit.js';
+export { compositionList } from '../lib/studio/compositions.js';
+export { THEME_TOKENS, PATCH_ACTIONS } from '../lib/studio/contracts.js';
+export { PREFERENCE_KEYS } from '../lib/studio/memory.js';

@@ -8,7 +8,7 @@
     {
       "name": "arabic-carousel",
       "source": "./claude-plugin",
-      "description": "Arabic RTL carousel designer: writes the slides and builds an offline editor with PNG/ZIP export."
+      "description": "Arabic design studio: posts, carousels and reels as editable elements, with a design library, creator memory, chat editing and a Canva path."
     }
   ]
 }

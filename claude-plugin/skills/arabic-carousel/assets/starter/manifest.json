@@ -1,0 +1,149 @@
+{
+  "about": "Starter illustrations for the blue editorial direction (optional «كتاب وبس» preset). Flat vector, no text, recolourable: parts marked data-token=\"accent|text|muted|bg|onAccent\" take the design's theme colours. Original artwork made for this project by the assistant; free to use and modify in designs made with this tool.",
+  "provenance": {
+    "kind": "generated",
+    "source": "baseera starter pack (AI-authored SVG)",
+    "rightsNote": "original artwork for this project; no third-party material"
+  },
+  "style": "تحريري مسطح أزرق",
+  "assets": [
+    {
+      "file": "night-reading.svg",
+      "tags": [
+        "قراءة",
+        "ليل",
+        "كتاب",
+        "عادات",
+        "هدوء",
+        "reading",
+        "habits"
+      ]
+    },
+    {
+      "file": "books-stack.svg",
+      "tags": [
+        "كتب",
+        "قراءة",
+        "مكتبة",
+        "reading",
+        "learning"
+      ]
+    },
+    {
+      "file": "open-book.svg",
+      "tags": [
+        "كتاب",
+        "قراءة",
+        "معرفة",
+        "صفحات",
+        "reading",
+        "learning"
+      ]
+    },
+    {
+      "file": "reading-glasses.svg",
+      "tags": [
+        "قراءة",
+        "تركيز",
+        "نظارة",
+        "reading",
+        "focus"
+      ]
+    },
+    {
+      "file": "lightbulb.svg",
+      "tags": [
+        "فكرة",
+        "تعلم",
+        "معرفة",
+        "إبداع",
+        "learning",
+        "growth"
+      ]
+    },
+    {
+      "file": "hourglass.svg",
+      "tags": [
+        "وقت",
+        "صبر",
+        "عادة",
+        "يومي",
+        "time",
+        "habits"
+      ]
+    },
+    {
+      "file": "notebook-pencil.svg",
+      "tags": [
+        "كتابة",
+        "تدوين",
+        "ملاحظات",
+        "قلم",
+        "writing"
+      ]
+    },
+    {
+      "file": "coffee-book.svg",
+      "tags": [
+        "صباح",
+        "روتين",
+        "عادات",
+        "قراءة",
+        "habits",
+        "reading"
+      ]
+    },
+    {
+      "file": "steps-flag.svg",
+      "tags": [
+        "خطوات",
+        "نمو",
+        "تقدم",
+        "هدف",
+        "growth"
+      ]
+    },
+    {
+      "file": "target.svg",
+      "tags": [
+        "هدف",
+        "تركيز",
+        "إنجاز",
+        "focus",
+        "growth",
+        "productivity"
+      ]
+    },
+    {
+      "file": "phone-focus.svg",
+      "tags": [
+        "هاتف",
+        "إشعارات",
+        "تركيز",
+        "هدوء",
+        "focus"
+      ]
+    },
+    {
+      "file": "reading-club.svg",
+      "tags": [
+        "نادي",
+        "مجتمع",
+        "أصدقاء",
+        "مشاركة",
+        "community",
+        "reading"
+      ]
+    },
+    {
+      "file": "bookmark.svg",
+      "tags": [
+        "حفظ",
+        "علامة",
+        "قراءة",
+        "صفحات",
+        "reading"
+      ]
+    }
+  ]
+}
