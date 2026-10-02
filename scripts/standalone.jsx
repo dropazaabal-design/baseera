@@ -1,4 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import CarouselEditor from '../components/CarouselEditor';
+import App from '../components/App';
 
-createRoot(document.getElementById('root')).render(<CarouselEditor />);
+createRoot(document.getElementById('root')).render(<App />);

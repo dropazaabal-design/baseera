@@ -109,3 +109,32 @@ test('the ChatGPT interface block stays within OpenAI upload limits', () => {
   assert.match(ui.brandColor, /^#[0-9A-Fa-f]{6}$/);
   assert.ok(contrastRatio(ui.brandColor, '#FFFFFF') >= 2);
 });
+
+test('the bundled studio CLI runs without dependencies and builds the shipped example', () => {
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-cli-'));
+  const cli = (...args) => {
+    const r = spawnSync(process.execPath, [path.resolve(SKILL, 'scripts/studio.mjs'), ...args, '--home', home], { encoding: 'utf8', cwd: os.tmpdir() });
+    assert.equal(r.status, 0, r.stderr);
+    return r.stdout.startsWith('{') || r.stdout.startsWith('[') ? JSON.parse(r.stdout) : r.stdout;
+  };
+  assert.match(cli('help'), /studio — Arabic design studio/);
+  const seeded = cli('asset', 'seed');
+  assert.ok(seeded.added.length >= 12);
+  cli('brand', 'preset', 'kitabwbs');
+  const out = path.join(home, 'design.html');
+  const r = cli('compose', path.resolve(SKILL, 'references/example-studio.json'), '--out', path.join(home, 'design.json'), '--html', out);
+  assert.equal(r.ok, true, JSON.stringify(r.quality.issues));
+  const html = fs.readFileSync(out, 'utf8');
+  assert.equal(JSON.parse(seedOf(html).replace(/\\u003c/g, '<')).schemaVersion, 2);
+});
+
+test('every skill has frontmatter with a name and a description, and the studio CLI is referenced', () => {
+  const dir = 'claude-plugin/skills';
+  for (const name of fs.readdirSync(dir)) {
+    const text = fs.readFileSync(path.join(dir, name, 'SKILL.md'), 'utf8');
+    const front = /^---\n([\s\S]*?)\n---/.exec(text)?.[1] ?? '';
+    assert.match(front, new RegExp(`^name: ${name}$`, 'm'));
+    assert.match(front, /^description: .{40,}/m);
+    assert.ok(text.includes('studio'), `${name} does not use the studio CLI`);
+  }
+});

@@ -1,82 +1,108 @@
 ---
 name: arabic-carousel
-description: Designs Arabic (RTL) carousels for Instagram and LinkedIn in 4:5, 1:1 or 9:16. Writes the slide copy, then builds one self-contained HTML file holding a live editor with PNG, ZIP, LinkedIn PDF and 9:16 video reel export that keeps Arabic letters joined and mixed Arabic/English/numbers in the right order. Supports a locked institutional (navy/emerald) brand mode. Use when the user asks for a carousel, كاروسيل, سلايدات انستقرام, شرائح لينكدإن, بوست متعدد الشرائح, or Arabic social media slides.
+description: Arabic design director for social media. Turns an idea, text or reference into a single post, a carousel or a 9:16 story/reel in Arabic (RTL), locally as an offline editor (PNG, ZIP, PDF, video) or on Canva with editable elements. Reuses the creator's design library, assets and saved taste before generating anything new. Use for بوست, منشور مفرد, كاروسيل, شرائح, سلايدات انستقرام, لينكدإن, ستوري, ريلز, «صمم لي», «جرافيك», or any Arabic social graphic, and for edits like «كبّر العنوان» or «غيّر الرسم الرابع».
 ---
 
-# Arabic carousel
+# Arabic design director
 
-You write the content; a bundled editor renders and exports it. Never try to draw the slides yourself (no PIL, no canvas, no hand-written HTML): the editor already solves Arabic shaping, bidi, auto-fitting and font embedding, and was tested for it.
+You plan, write and draw; the bundled studio lays out, checks and delivers. Never draw slides
+yourself (no PIL, no hand-written HTML or canvas): the studio handles Arabic shaping, bidi,
+reflow, fonts and exact sizes, and it is tested for them.
 
-## Workflow
+`studio` below means `node <this skill's directory>/scripts/studio.mjs` (Node 18+, no install).
+Every command prints JSON. Data persists in `~/.baseera` (or `BASEERA_HOME`).
 
-1. **Brief.** Get the topic, the audience, the platform, and the number of slides (default 6, max 20). The platform decides `design.format`: `portrait` 4:5 for Instagram and LinkedIn feeds (default), `square` 1:1, `story` 9:16 for Stories and Reels covers. Use the brand name and handle only if the user gives them; otherwise leave `brand` out, and the user can fill it in the editor.
-2. **Plan the arc.** `cover` (hook) → 3–6 body slides (`listicle`, `comparison`, `quote`) → `outro` (call to action). One idea per slide. For a single-image post, use one `post` slide: it holds the whole hook → content → CTA arc (`hook`, `points`, `cta`).
-3. **Write `carousel.json`** in the format below. Read `references/schema.json` for every template's exact field names and types, and `references/example.json` for a complete carousel.
-4. **Build:** `python3 <this skill's directory>/scripts/build_carousel.py carousel.json carousel.html`. Fix every `error:` and re-run. Fix `warning:` lines too, unless the user wants it that way.
-5. **Deliver `carousel.html`** as a file. Tell the user, in their language: open it in Chrome, Edge or Firefox; edit any text, colours, fonts or plugins in the side panel; press «الكل ZIP» to download every slide as PNG, «الشريحة PNG» for the selected one, or «PDF لينكدإن» for a single PDF that LinkedIn shows as a swipeable document post. Images download as `01-hook.png`, `02-content.png`, … `05-cta.png`, so their order is the posting order. «فيديو ريلز» turns the slides into an animated 9:16 video (14 seconds by default) with a fast hook. For a reel, keep each body slide short: the dialog warns when a slide has more text than its scene leaves time to read. It works offline, and edits are saved in the browser.
+## 0. Setup (once per session)
 
-## Format
+1. `node --version`. Without Node 18+, use the classic path in `references/classic.md` and tell
+   the user the library and memory are unavailable here.
+2. `studio init`. If this environment does not keep files between sessions and the user has a
+   `baseera-studio-backup.json`, run `studio restore <file>`; at the end run `studio backup <file>`
+   and hand the file over so the next session can continue.
+3. First run only: `studio asset seed` imports a small set of starter illustrations (blue editorial,
+   no text). For the «كتاب وبس» account, and only when asked: `studio brand preset kitabwbs`.
 
-```json
-{
-  "design": { "paletteId": "midnight", "font": "cairo", "numerals": "arab", "format": "portrait" },
-  "brand": { "name": "اسم الحساب", "handle": "@handle" },
-  "plugins": { "swipe": { "text": "اسحب لليسار", "lastText": "احفظ البوست 📌" } },
-  "slides": [
-    { "template": "cover", "data": { "kicker": "…", "title": "…", "subtitle": "…" } },
-    { "template": "listicle", "data": { "title": "…", "items": ["…", "…"], "start": 1 } },
-    { "template": "outro", "data": { "title": "…", "save": "احفظه", "share": "شاركه", "follow": "تابعنا", "socials": ["@handle"] } }
-  ]
-}
-```
+## 1. Understand the request
 
-Only `slides` is required. A field you leave out is simply not shown.
+`studio intent "<request>"` returns what the words ask for:
 
-## Writing Arabic copy
+- «بوست مفرد» → one page. «كاروسيل» / «٧ شرائح» → that many connected pages. Respect the
+  count exactly; the quality gate fails a mismatch.
+- «على Canva» → a real Canva design (then follow the `canva-arabic` skill). Otherwise local.
+- «جرافيك عالية» → a strong visual idea and new key art. «شيء جديد» → a new direction, no reuse.
+- The current request always beats memory and the library.
 
-- **Short.** Cover title ≤ 8 words; slide titles ≤ 6; list items ≤ 12 words; 3–5 items per list, 2–4 per comparison column. If the editor flags a slide with «!», the text does not fit even at the smallest readable size, so shorten it or split the slide.
-- **Accent:** wrap the one key word of a title in `*نجمتين*` to colour it. One accent per title.
-- **Punctuation:** ، ؛ ؟ and «», never `, ; ?` or straight quotes after Arabic words. ASCII punctuation is fine inside English phrases.
-- **Mixed text:** type Latin names, numbers, `@handles`, `#tags`, URLs, emails and phone numbers exactly as they are. The renderer keeps them in the right order. Never insert RLM/LRM or other bidi control characters.
-- **Numbers:** `design.numerals` controls only generated numbers (slide counter, step numbers). Pick one system for numbers in the copy as well and use it everywhere.
-- **No tatweel** (ـ) and no stretching. Arabic is not hyphenated, so prefer shorter words over long compounds in titles.
-- **One register** across all slides: simple Modern Standard Arabic unless the user asks for a dialect. Check hamzas (أ إ ء ئ ؤ), ة vs ه, and ى vs ي.
-- **Listicles over several slides:** set `start` so numbering continues (e.g. `"start": 4` on the second listicle slide).
+If the user attached a reference image, read `references/roles/reference-analysis.md` first.
 
-## Design choices
+## 2. Plan before generating
 
-| `paletteId` | Mood |
-|---|---|
-| `midnight` | Tech, serious, high contrast (default) |
-| `sand` | Warm, editorial, education |
-| `emerald` | Finance, growth, Islamic content |
-| `ink` | Minimal, corporate, white |
-| `violet` | Creative, youth, events |
-| `coral` | Lifestyle, food, health |
+`studio plan "<request>" --brand <id>` returns:
 
-For brand colours use `"paletteId": "custom", "custom": { "bg": "#RRGGBB", "accent": "#RRGGBB" }`. Text colours are derived automatically, and any pair that fails WCAG AA contrast is corrected.
+- `memory`: a few lines of the creator's relevant taste (only what applies to this brand,
+  platform and format). Use them; do not ask again what is there.
+- `route`: `reuse` / `partial` / `recompose` / `new`, with `reasons` and up to 3 `candidates`
+  (compact summaries, never the whole library).
+- `copy.source`: `cache` means an identical request was answered before: reuse `copy.value`.
+- `art`: per slot, `library` (with `assetId`) or `ai` (with a spec).
+- `expectedAiCalls`: what this will cost in generation steps.
 
-| `font` | Character |
-|---|---|
-| `cairo` | Modern, versatile (default) |
-| `tajawal` | Clean and light |
-| `almarai` | Friendly, rounded, Gulf feel |
-| `readex` | Geometric, techy |
+Details and judgement calls: `references/roles/director.md` and `references/roles/routing-cost.md`.
 
-## Institutional Mode
+## 3. Write, draw, compose
 
-For a company, government body or agency client that needs strict brand governance, add `"governance": { "institutional": true }`. The editor then forces the navy and emerald palettes (`agency-navy`, `agency-light`), disables every warm colour (yellow, orange, gold, red), locks the font to Tajawal, forces the slide counter and watermark on, and locks templates, plugins and identity. Only text and image fields stay editable. Add `"locked": true` to also hide the switch, so whoever opens the file cannot turn the mode off. Leave `paletteId` and `font` out in this mode; the policy sets them.
+1. **Copy** (unless cached): write in the creator's tone and density. Rules in the
+   `arabic-proofing` skill. Record it: `studio ledger add --kind ai.copy --tool assistant`.
+2. **Art** for `ai` slots only: follow `references/roles/asset-generation.md`, then
+   `studio asset add file.svg --kind generated --tags … --prompt "<spec>"` (this records the call).
+   Reuse `library` slots as given.
+3. **Spec**: write `spec.json` (format in `references/studio-format.md`; `studio compositions`
+   lists layouts and fields).
+4. `studio compose spec.json --request "<request>" --out design.json --html design.html`
 
-## Images
+## 4. Check before delivering
 
-The `quote` template has a `photo` field (author photo). Like `brand.logo` and `brand.avatar`, it must be `null` or a `data:image/...` URL. Use it only when the user gives you an image file; otherwise leave it out and tell them they can add it in the editor.
+Read `quality` in the compose output. Errors block delivery:
 
-## Plugins
+- `layout.overflow`: shorten exactly the texts and amounts listed (or split a carousel list).
+  Never ask for smaller text; the studio keeps every text above phone readability.
+- `art.missing`, `asset.*`: generate or pick the missing art; never deliver a placeholder.
+- `pages.count`, `size.mismatch`, `content.*`: fix the spec, not the output.
+Warnings (mixed digits, narrow text, punctuation) are fixed unless the user wants them.
+Full list and the delivery checklist: `references/roles/qa-delivery.md`.
 
-Every plugin is on by default; only set what you change.
+## 5. Deliver
 
-- `pagination`: `style` `"words"` (الشريحة ١ من ٥) or `"fraction"` (١/٥), `showBar`, `showCounter`.
-- `swipe`: `text` on every slide but the last, `lastText` on the last slide, `showArrow`.
-- `watermark`: `showLogo`, `showBadge`. The logo and photo are uploaded by the user in the editor (التصميم ← الهوية). Leave `brand.logo` and `brand.avatar` out unless the user hands you an image, which must then be a `data:image/...` URL.
+- **Local**: give `design.html`. Tell the user: open it in Chrome, Edge, Firefox or Safari; edit
+  any element or type commands in «عدّل بالمحادثة»; export «الصفحة الحالية PNG», «كل الصفحات ZIP»
+  (files `01-hook.png`… in posting order), «PDF لينكدإن», or «فيديو ريلز». Works offline.
+- **Canva**: `canva-arabic` skill. Say exactly which editability level was delivered.
 
-Turn a plugin off with `{"enabled": false}`.
+Then ask what they think. Their words go to `studio feedback <designId> "<words>"`
+(`creator-memory` skill). Saving is not approval: only their explicit approval is.
+
+## Edits by conversation
+
+`studio edit design.json "<أمر>" --page N` applies local edits (sizes, identity colours,
+moves, locks, typed text, columns, format) without any generation. When it returns `needs`:
+
+- `asset` → generate **only** `target.elementId`'s art, add it, then
+  `studio patch design.json patches.json --scope graphic` with one `replace_asset`.
+- `rewrite` → write shorter text within each target's `maxChars`, then
+  `studio patch … --scope text` with `replace_text`. Never touch art for a text request.
+- `clarify` → ask the short question with the listed `options`; do not guess.
+- `recompose` → `studio library remix <id>` or a new spec reusing the reference's compositions.
+
+Re-check after each edit (`studio check design.json`), and `studio render design.json design.html`.
+
+## Library, projects, workflows
+
+Library organisation, versions, reverting, remixing and reference images:
+`references/roles/library.md`. Ongoing work: `studio project new|resume`. Repeated formats the
+user liked: `studio workflow from design.json --name "…"`, later `studio workflow run`.
+
+## Honesty rules
+
+- Report what was reused and what was generated (`studio ledger report`). Token counts and
+  costs are only real when the tool reported them; otherwise say they are not available.
+- A rejected style is rejected for that topic only. One edit is not a preference.
+- Never call a flattened image «editable». Never claim a model learned; the studio stores context.
