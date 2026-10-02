@@ -3188,7 +3188,7 @@ var BUILTIN_EVIDENCE = [
   { capability: "design.size", route: "connector", status: "supported", via: "resize-design", note: "1080\xD71350 \u2192 1080\xD71920 \u0623\u0646\u0634\u0623 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u0628\u0642\u064A \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648\u061B \u0628\u0644\u0627 \u062A\u0648\u0644\u064A\u062F.", source: "live", at: "2026-10-02", tool: "resize-design", fingerprint: "b5bea41b6c62" },
   { capability: "text.add", route: "connector", status: "supported", via: "edit-design: add_text", note: "\u0643\u0627\u0631\u0648\u0633\u064A\u0644 3 \u0635\u0641\u062D\u0627\u062A \u0648\u0631\u064A\u0644 5 \u0645\u0634\u0627\u0647\u062F: 54/54 \u0646\u0635\u064B\u0627 \u0637\u0627\u0628\u0642 \u062D\u0631\u0641\u064A\u064B\u0627 \u0641\u064A \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
   { capability: "text.format", route: "connector", status: "supported", via: "edit-design: format_text", note: "\u0627\u0644\u062D\u062C\u0645 \u0648\u0627\u0644\u0644\u0648\u0646 \u0648\u0627\u0644\u0648\u0632\u0646 \u0648\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629 \u0648\u0627\u0644\u0645\u0633\u0627\u0641\u0629 \u0628\u064A\u0646 \u0627\u0644\u0623\u0633\u0637\u0631 \u0637\u064F\u0628\u0651\u0642\u062A \u0648\u0642\u064F\u0631\u0626\u062A \u0631\u0627\u062C\u0639\u0629 \u0645\u0637\u0627\u0628\u0642\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "text.rtl", route: "connector", status: "partial", via: "edit-design: add_text + format_text", note: "\u0627\u0644\u0627\u062A\u0635\u0627\u0644 \u0648\u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0635\u062D\u064A\u062D\u0627\u0646\u060C \u0648\u0644\u0627 \u062D\u0642\u0644 \u0644\u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0641\u0642\u0631\u0629: Canva \u064A\u0623\u062E\u0630\u0647 \u0645\u0646 \u0623\u0648\u0644 \u062D\u0631\u0641 \u0623\u0648 \u0631\u0642\u0645\u060C \u0641\u0646\u0635 \u064A\u0628\u062F\u0623 \u0628\u0631\u0642\u0645 \u0623\u0648 \u0628\u062D\u0631\u0641 \u0644\u0627\u062A\u064A\u0646\u064A \u064A\u062D\u0627\u0630\u0649 \u064A\u0633\u0627\u0631\u064B\u0627 \u0645\u0639 start\u061B \u0646\u0631\u0633\u0644 end \u0644\u0647\u0630\u0647 \u0627\u0644\u0646\u0635\u0648\u0635.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "text.rtl", route: "connector", status: "partial", via: "edit-design: add_text + format_text", note: "\u0627\u0644\u0627\u062A\u0635\u0627\u0644 \u0648\u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0635\u062D\u064A\u062D\u0627\u0646\u060C \u0648\u0644\u0627 \u062D\u0642\u0644 \u0644\u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0641\u0642\u0631\u0629: Canva \u064A\u0623\u062E\u0630\u0647 \u0645\u0646 \u0623\u0648\u0644 \u062D\u0631\u0641 \u0623\u0648 \u0631\u0642\u0645\u060C \u0641\u0646\u0635 \u064A\u0628\u062F\u0623 \u0628\u0631\u0642\u0645 \u0623\u0648 \u0628\u062D\u0631\u0641 \u0644\u0627\u062A\u064A\u0646\u064A \u064A\u062D\u0627\u0630\u0649 \u064A\u0633\u0627\u0631\u064B\u0627 \u0645\u0639 start (\u0646\u0631\u0633\u0644 end). \u0648\u0644\u0627 \u064A\u0639\u0632\u0644 Canva \u0627\u0644\u0645\u0642\u0627\u0637\u0639 \u0627\u0644\u0644\u0627\u062A\u064A\u0646\u064A\u0629: @kitabwbs \u062F\u0627\u062E\u0644 \u062C\u0645\u0644\u0629 \u0639\u0631\u0628\u064A\u0629 \u0638\u0647\u0631 kitabwbs@ \u062D\u062A\u0649 \u0623\u064F\u0636\u064A\u0641\u062A \u0639\u0644\u0627\u0645\u0629 LRM \u063A\u064A\u0631 \u0645\u0631\u0626\u064A\u0629 \u0642\u0628\u0644 @.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
   { capability: "page.add", route: "connector", status: "supported", via: "edit-design: add_page", note: "\u0635\u0641\u062D\u0627\u062A 1080\xD71350 \u06481080\xD71920 \u0628\u062E\u0644\u0641\u064A\u0629 \u0644\u0648\u0646\u064A\u0629\u061B \u0645\u0639\u0631\u0651\u0641\u0627\u062A\u0647\u0627 \u062A\u064F\u0642\u0631\u0623 \u0645\u0646 design_content \u0645\u0639 transaction_id.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
   { capability: "image.insert", route: "connector", status: "supported", via: "create-upload-url + edit-design: insert_fill", note: "SVG \u0645\u0631\u0641\u0648\u0639 \u0623\u064F\u062F\u0631\u062C \u0628\u0645\u0648\u0636\u0639\u0647 \u0648\u0645\u0642\u0627\u0633\u0647.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
   { capability: "image.replace", route: "connector", status: "supported", via: "edit-design: resize_element + crop_media", note: "\u0628\u0639\u062F \u062A\u0643\u0628\u064A\u0631 \u0627\u0644\u0625\u0637\u0627\u0631 \u062A\u064F\u0639\u0627\u062F \u0627\u0644\u0635\u0648\u0631\u0629 \u0643\u0627\u0645\u0644\u0629 \u0628\u0640 crop_media \u0648\u0625\u0644\u0627 \u0642\u064F\u0635\u0651\u062A.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
@@ -3605,6 +3605,19 @@ function canvaTextRtl(text) {
   const lead = String(text ?? "").replace(/\*/g, "").match(LEAD);
   return lead ? RTL_CHARS.test(lead[0]) : null;
 }
+var LRM = "\u200E";
+var HANDLE = /(^|[^\u200E\p{L}\p{N}_])([@#][A-Za-z0-9_][A-Za-z0-9_.]*)/gu;
+function markHandles(text) {
+  const raw = String(text ?? "");
+  if (!RTL_CHARS.test(raw)) return raw;
+  return raw.replace(HANDLE, (_, pre, handle) => `${pre}${LRM}${handle}`);
+}
+var canvaText = (text) => stripMarkers(markHandles(text));
+function unmarkedHandles(approved, observed) {
+  const want = canvaText(approved);
+  const got = String(observed ?? "");
+  return [...new Set([...want.matchAll(/\u200E([@#][A-Za-z0-9_.]+)/g)].map((m) => m[1]))].filter((h) => got.includes(h) && !got.includes(LRM + h));
+}
 function canvaAlign(el) {
   const align = el.style?.align ?? "start";
   if (align === "center") return "center";
@@ -3663,7 +3676,7 @@ function planCreate(doc, caps, { mode = "native", title, pageSize, assetFiles = 
         ops.push({
           type: "add_text",
           page_id: pageRef,
-          text: stripMarkers(el.text),
+          text: canvaText(el.text),
           top: f3.top,
           left: px(anchoredLeft),
           width: px(width),
@@ -4322,7 +4335,7 @@ var solid = (color, alpha = 1) => `<a:solidFill>${alpha < 1 ? `<a:srgbClr val="$
 var xfrm = (f3, rot = 0) => `<a:xfrm${rot ? ` rot="${Math.round(rot * 6e4)}"` : ""}><a:off x="${emu(f3.x)}" y="${emu(f3.y)}"/><a:ext cx="${Math.max(1, emu(f3.width))}" cy="${Math.max(1, emu(f3.height))}"/></a:xfrm>`;
 function textRuns(text) {
   const runs = [];
-  const parts = String(text ?? "").split("*");
+  const parts = markHandles(text).split("*");
   parts.forEach((part, i) => {
     if (part) runs.push({ text: part, accent: i % 2 === 1 });
   });
@@ -4716,7 +4729,7 @@ function planConnectorPatch(before, after, { locator, pageIndexOf, registry, sca
         continue;
       }
       if (el.kind === "text") {
-        if (stripMarkers2(el.text) !== stripMarkers2(prev.text)) changed.push(["replace_text", { type: "replace_text", locator_id: loc, text: stripMarkers2(el.text) }]);
+        if (stripMarkers2(el.text) !== stripMarkers2(prev.text)) changed.push(["replace_text", { type: "replace_text", locator_id: loc, text: canvaText(el.text) }]);
         else if (el.text !== prev.text) notes.push(`\xAB${el.name ?? el.id}\xBB: \u062A\u063A\u064A\u0651\u0631 \u062A\u0645\u064A\u064A\u0632 \u0643\u0644\u0645\u0629\u060C \u0648\u0627\u0644\u0645\u0648\u0635\u0644 \u064A\u0644\u0648\u0651\u0646 \u0627\u0644\u0646\u0635 \u0643\u0644\u0647 \u0628\u0644\u0648\u0646 \u0648\u0627\u062D\u062F.`);
         const fa = textFormat(el, ca, k);
         const fb = textFormat(prev, cb, k);
@@ -5054,7 +5067,12 @@ function validateTransfer(doc, readback, { map = {}, brand = null, expectedPages
         add(`text.${d.kind}`, "error", `\u0627\u0644\u0635\u0641\u062D\u0629 ${n2(rp.index + 1)}: ${what} (${DIFF_LABEL[d.kind] ?? d.kind}).`, page.id, el.id);
       }
       if (PRESENTATION_FORMS.test(got.text)) add("text.presentation-forms", "warning", `\xAB${el.name ?? el.id}\xBB \u0645\u062D\u0641\u0648\u0638 \u0628\u0623\u0634\u0643\u0627\u0644 \u062D\u0631\u0648\u0641 \u062C\u0627\u0647\u0632\u0629 (Presentation Forms): \u0642\u062F \u064A\u0643\u0648\u0646 \u0627\u0644\u0646\u0635 \u0645\u0633\u0637\u0651\u062D\u064B\u0627 \u0648\u064A\u0635\u0639\u0628 \u062A\u062D\u0631\u064A\u0631\u0647 \u0623\u0648 \u0627\u0644\u0628\u062D\u062B \u0641\u064A\u0647.`, page.id, el.id);
-      if (BIDI_MARKS.test(got.text) && !BIDI_MARKS.test(el.text)) add("text.bidi-marks", "warning", `\xAB${el.name ?? el.id}\xBB \u0635\u0627\u0631 \u064A\u062D\u0648\u064A \u0645\u062D\u0627\u0631\u0641 \u062A\u062D\u0643\u0645 \u0627\u062A\u062C\u0627\u0647 \u0644\u0645 \u062A\u0643\u0646 \u0641\u064A \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u0639\u062A\u0645\u062F.`, page.id, el.id);
+      const ownMarks = got.text.replace(/\u200E(?=[@#])/g, "");
+      if (BIDI_MARKS.test(ownMarks) && !BIDI_MARKS.test(el.text)) add("text.bidi-marks", "warning", `\xAB${el.name ?? el.id}\xBB \u0635\u0627\u0631 \u064A\u062D\u0648\u064A \u0645\u062D\u0627\u0631\u0641 \u062A\u062D\u0643\u0645 \u0627\u062A\u062C\u0627\u0647 \u0644\u0645 \u062A\u0643\u0646 \u0641\u064A \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u0639\u062A\u0645\u062F.`, page.id, el.id);
+      for (const h of unmarkedHandles(el.text, got.text)) {
+        add("text.handle-order", "error", `\xAB${el.name ?? el.id}\xBB: ${h} \u064A\u0638\u0647\u0631 \u0641\u064A Canva \u0645\u0642\u0644\u0648\u0628\u064B\u0627 (${h.slice(1)}${h[0]}) \u062F\u0627\u062E\u0644 \u0627\u0644\u0646\u0635 \u0627\u0644\u0639\u0631\u0628\u064A.`, page.id, el.id);
+        if (got.locator) repairs.push({ pageIndex: rp.index + 1, op: { type: "find_and_replace_text", locator_id: got.locator, find_text: h, replace_text: LRM + h } });
+      }
       for (const v of checkBrandText(got.text, brand)) {
         add(`brand.${v.rule}`, el.slot ? "warning" : "error", v.rule === "no-latin-words" ? `\xAB${el.name ?? el.id}\xBB \u0641\u064A Canva \u0641\u064A\u0647 \u0643\u0644\u0645\u0627\u062A \u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629: ${v.words.join("\u060C ")}.` : `\xAB${el.name ?? el.id}\xBB \u0641\u064A Canva \u0628\u0623\u0631\u0642\u0627\u0645 \u0645\u0634\u0631\u0642\u064A\u0629 \u0648\u0627\u0644\u0647\u0648\u064A\u0629 \u062A\u0633\u062A\u062E\u062F\u0645 0-9.`, page.id, el.id);
       }

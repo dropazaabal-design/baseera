@@ -4523,6 +4523,14 @@ function canvaTextRtl(text) {
   const lead = String(text ?? "").replace(/\*/g, "").match(LEAD);
   return lead ? RTL_CHARS.test(lead[0]) : null;
 }
+var LRM = "\u200E";
+var HANDLE = /(^|[^\u200E\p{L}\p{N}_])([@#][A-Za-z0-9_][A-Za-z0-9_.]*)/gu;
+function markHandles(text) {
+  const raw = String(text ?? "");
+  if (!RTL_CHARS.test(raw)) return raw;
+  return raw.replace(HANDLE, (_, pre, handle) => `${pre}${LRM}${handle}`);
+}
+var canvaText = (text) => stripMarkers(markHandles(text));
 function canvaAlign(el) {
   const align = el.style?.align ?? "start";
   if (align === "center") return "center";
@@ -4581,7 +4589,7 @@ function planCreate(doc, caps, { mode = "native", title, pageSize, assetFiles = 
         ops.push({
           type: "add_text",
           page_id: pageRef,
-          text: stripMarkers(el.text),
+          text: canvaText(el.text),
           top: f3.top,
           left: px(anchoredLeft),
           width: px(width),
@@ -4716,7 +4724,7 @@ var CanvaAdapter = class {
     for (const c of changes) {
       const locator = locators[`${c.pageId}/${c.elementId}`];
       if (!locator) continue;
-      if (c.action === "replace_text") ops.push({ type: "replace_text", locator_id: locator, text: stripMarkers(c.payload.text) });
+      if (c.action === "replace_text") ops.push({ type: "replace_text", locator_id: locator, text: canvaText(c.payload.text) });
       else if (c.action === "move") {
         const el = doc?.pages.find((p) => p.id === c.pageId)?.elements.find((e) => e.id === c.elementId);
         if (el) ops.push({ type: "position_element", locator_id: locator, top: el.frame.y, left: el.frame.x });

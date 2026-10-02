@@ -68,6 +68,9 @@ After any live test, record it: `canva_record` `event: "evidence"`, `capability`
 3. Alignment: Canva takes each paragraph's direction from its first letter or digit, so an
    Arabic title that starts with a number, or `@kitabwbs`, is left-to-right there. The tools
    already send the right `text_align` (`end` for those); do not "correct" it to `start`.
+   Canva also does not isolate Latin runs: inside Arabic text `@kitabwbs` shows as
+   `kitabwbs@`. The tools put an invisible left-to-right mark (U+200E) before a handle or
+   `#tag` in Arabic text; keep it when you edit, and use `find_and_replace_text` to add it.
 4. Verify: `read-design` (transaction, `design_content`, all pages) → `canva_validate_arabic`
    (`design`, `readback`, `brandId`). It compares every text letter by letter (hamza, marks,
    ة/ه, ى/ي, digits, punctuation, reversed words, presentation forms, direction marks), sizes,
@@ -76,7 +79,9 @@ After any live test, record it: `canva_record` `event: "evidence"`, `capability`
    `snapshot: true` (the baseline for external-change checks).
 5. Preview: `canva_preview` for the affected pages; show the thumbnails and the limitations.
 6. Commit (`finalize: "commit"`) only after the user explicitly approves this preview.
-   Otherwise `cancel`. Never end with a transaction open without saying so; `canva_inspect`
+   Otherwise `cancel`. After a commit, Canva's stored thumbnail can stay stale for a while:
+   check the saved version with `read-design` `design_content` or a PNG export, not the
+   thumbnail. Never end with a transaction open without saying so; `canva_inspect`
    lists open (and probably expired) transactions from the journal.
 
 ## 4. Edit a design in Canva

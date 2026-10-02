@@ -14,7 +14,9 @@ description: Arabic typesetting and proofreading for designs. Writes and checks 
 - **One key word** per title wrapped in `*نجمتين*` for the accent colour.
 - **Punctuation:** ، ؛ ؟ and «» after Arabic words; ASCII punctuation only inside English.
 - **Mixed text:** type Latin names, numbers, `@handles`, `#tags`, URLs, emails and phones as they
-  are. The renderer isolates them; never insert RLM/LRM or other bidi characters.
+  are. The renderer isolates them; never insert RLM/LRM or other bidi characters yourself.
+  (Canva and PowerPoint do not isolate: the Canva tools add one invisible LRM before a handle
+  inside Arabic text, or it shows as `kitabwbs@`. The checks expect exactly that mark.)
 - **Numbers:** one system across the copy: Arabic-Indic (١٢٣) or Western (123). The quality gate
   warns on mixing. Handles and URLs keep Western digits.
 - **No tatweel (ـ)**, no stretching. Prefer short words in titles (Arabic is not hyphenated).

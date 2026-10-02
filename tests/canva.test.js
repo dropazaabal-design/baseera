@@ -21,7 +21,7 @@ import { probeMp4 } from '../lib/studio/canva/media.js';
 import { arcToCubics, parsePathToSubpaths, bounds } from '../lib/studio/canva/geometry.js';
 import { svgToShapes } from '../lib/studio/canva/svgshapes.js';
 import { ConnectClient } from '../lib/studio/canva/connect.js';
-import { canvaAlign } from '../lib/studio/adapters/canva.js';
+import { canvaAlign, canvaText } from '../lib/studio/adapters/canva.js';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/canva-schema-2026-10-02.json'), 'utf8'));
@@ -84,7 +84,7 @@ function readbackOf(doc, { designId = 'DAHWtest001', transactionId = 'tx1', edit
           .sort((a, b) => a.z - b.z)
           .forEach((e, k) => {
             const base = { id: `LB${k}`, top: e.frame.y, left: e.frame.x, width: e.frame.width, height: e.frame.height, rotation: e.rotation ?? 0, opacity: e.opacity ?? 1, locator_id: `PB${i + 1}-LB${k}` };
-            if (e.kind === 'text') els.push({ ...base, type: 'text', textRegions: [{ characters: plainText(e.text), formatting: { fontSize: e.style.fontSize, color: resolveColor(e.style.color, colors).toUpperCase(), textAlign: canvaAlign(e), fontRef: 'X,0' } }] });
+            if (e.kind === 'text') els.push({ ...base, type: 'text', textRegions: [{ characters: canvaText(e.text), formatting: { fontSize: e.style.fontSize, color: resolveColor(e.style.color, colors).toUpperCase(), textAlign: canvaAlign(e), fontRef: 'X,0' } }] });
             else els.push({ ...base, type: e.kind === 'image' ? 'rect' : 'shape' });
           });
         const page = { type: 'fixed', id: `PB${i + 1}`, dimensions: { width: p.widthPx, height: p.heightPx }, elements: els, isEditable: true, locator_id: `PB${i + 1}` };
@@ -133,7 +133,7 @@ test('carousel: connector plan from the live schema, editable .pptx with RTL tex
     for (const el of page.elements.filter((e) => e.kind === 'text' && !e.hidden)) {
       const found = slides[i].texts.find((t) => t.name === el.id);
       assert.ok(found, `${el.id} on slide ${i + 1}`);
-      assert.equal(found.text, plainText(el.text), 'text kept letter by letter');
+      assert.equal(found.text, canvaText(el.text), 'text kept letter by letter (handles in Arabic carry their LRM)');
       assert.equal(found.rtl, el.style.direction !== 'ltr');
     }
   }
@@ -278,7 +278,7 @@ test('transfer: mixed Arabic, digits and a handle survive letter by letter; each
 
   // The .pptx keeps every character, digits and handle included.
   const back = readPptxTexts(unzip(buildPptx(doc).bytes));
-  assert.equal(back[2].texts.find((t) => t.name === handleText.id).text, plainText(handleText.text));
+  assert.equal(back[2].texts.find((t) => t.name === handleText.id).text, canvaText(handleText.text));
 
   const exact = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: readbackOf(doc) });
   assert.equal(exact.status, 'passed', JSON.stringify(exact.issues));
@@ -325,6 +325,21 @@ test('transfer: mixed Arabic, digits and a handle survive letter by letter; each
   const en = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: english, brandId: 'kitabwbs' });
   const brandIssue = en.issues.find((i) => i.code === 'brand.no-latin-words');
   assert.ok(brandIssue && /More/.test(brandIssue.message) && !/kitabwbs،/.test(brandIssue.message));
+
+  // A handle inside Arabic text without its left-to-right mark shows as
+  // "kitabwbs@" in Canva (seen live): an error with its repair. The mark we
+  // place is not reported as a stray direction mark.
+  const inArabic = doc.pages.flatMap((p) => p.elements).find((e) => e.kind === 'text' && /[\u0600-\u06FF].*@kitabwbs|@kitabwbs.*[\u0600-\u06FF]/.test(e.text));
+  assert.ok(inArabic && canvaText(inArabic.text).includes('\u200E@kitabwbs'), 'the plan sends the mark');
+  const ok = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: readbackOf(doc), brandId: 'kitabwbs' });
+  assert.ok(!ok.issues.some((i) => i.code === 'text.bidi-marks' || i.code === 'text.handle-order'), JSON.stringify(ok.issues));
+  const flipped = readbackOf(doc, { edit: (page) => ({ ...page, elements: page.elements.map((e) => (e.textRegions ? { ...e, textRegions: [{ ...e.textRegions[0], characters: e.textRegions[0].characters.replace(/\u200E/g, '') }] } : e)) }) });
+  const fl = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: flipped, brandId: 'kitabwbs' });
+  const order = fl.issues.filter((i) => i.code === 'text.handle-order');
+  assert.ok(order.length >= 1 && /kitabwbs@/.test(order[0].message));
+  assert.ok(fl.repair.some((b) => b.args.operations.some((o) => o.type === 'find_and_replace_text' && o.find_text === '@kitabwbs' && o.replace_text === '\u200E@kitabwbs')));
+  assert.equal(canvaText('@kitabwbs'), '@kitabwbs', 'a handle on its own is left-to-right already');
+  assert.equal(canvaText('راسلنا a@b.com'), 'راسلنا a@b.com', 'an email is not a handle');
 });
 
 // ---------------------------------------------------------------------------
