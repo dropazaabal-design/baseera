@@ -680,6 +680,53 @@
         ]
       },
       {
+        "id": "numbered",
+        "label": "رقم كبير",
+        "type": "numbered",
+        "description": "رقم أو معلومة رقمية كبيرة مع سطر يشرحها: مشهد ريل أو بند يستحق صفحة",
+        "variants": {
+          "type": "طباعي",
+          "center": "وسط",
+          "art": "مع رسم"
+        },
+        "capacity": {
+          "titleChars": 70,
+          "subtitleChars": 110
+        },
+        "tags": [
+          "رقم",
+          "خطوة",
+          "إحصائية",
+          "ريل",
+          "مشهد",
+          "بند"
+        ],
+        "fields": [
+          {
+            "key": "number",
+            "label": "الرقم",
+            "type": "text",
+            "required": true
+          },
+          {
+            "key": "title",
+            "label": "الجملة",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "subtitle",
+            "label": "سطر داعم",
+            "type": "textarea"
+          },
+          {
+            "key": "art",
+            "label": "الرسم",
+            "type": "asset"
+          }
+        ]
+      },
+      {
         "id": "outro",
         "label": "خاتمة",
         "type": "outro",

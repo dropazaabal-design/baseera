@@ -1213,6 +1213,8 @@ var toWesternDigits = (s) => String(s).replace(/[٠-٩]/g, (d) => String("\u0660
 var words = (text) => canonicalText(text).split(" ").filter(Boolean);
 var stripMarks = (w) => w.replace(/[ً-ٰٟ]/g, "");
 var letters = (w) => [...stripMarks(w)].sort().join("");
+var PUNCT = /[،؛؟!?.,:;«»"'()\-–—…]/g;
+var foldHamza = (w) => w.replace(/[أإآٱ]/g, "\u0627").replace(/ؤ/g, "\u0648").replace(/ئ/g, "\u064A").replace(/ء/g, "");
 function editDistance(a, b) {
   const A = [...a];
   const B = [...b];
@@ -1258,8 +1260,14 @@ function compareText(expected, observed) {
     const en = toWesternDigits(d.word);
     const gn = toWesternDigits(got);
     let kind = "changed-word";
-    if (/\d/.test(en) || /\d/.test(gn)) kind = en.replace(/\D/g, "") !== gn.replace(/\D/g, "") ? "changed-number" : "changed-digit-system";
+    const bare = (w) => stripMarks(w).replace(PUNCT, "");
+    if (/\d/.test(en) || /\d/.test(gn)) kind = en.replace(/\D/g, "") !== gn.replace(/\D/g, "") ? "changed-number" : en.replace(/\d/g, "") !== gn.replace(/\d/g, "") ? "changed-punctuation" : "changed-digit-system";
+    else if (d.word.replace(PUNCT, "") === got.replace(PUNCT, "")) kind = "changed-punctuation";
     else if (stripMarks(d.word) === stripMarks(got)) kind = "changed-marks";
+    else if (bare(d.word).length > 2 && [...bare(d.word)].reverse().join("") === bare(got)) kind = "reversed-word";
+    else if (foldHamza(bare(d.word)) === foldHamza(bare(got))) kind = "changed-hamza";
+    else if (bare(d.word).replace(/ة/g, "\u0647") === bare(got).replace(/ة/g, "\u0647")) kind = "changed-taa-marbuta";
+    else if (bare(d.word).replace(/ى/g, "\u064A") === bare(got).replace(/ى/g, "\u064A")) kind = "changed-alef-maqsura";
     else if (letters(d.word) === letters(got)) kind = "reordered-letters";
     else if (editDistance(stripMarks(d.word), stripMarks(got)) <= 2) kind = "changed-letters";
     out.push({ kind, expected: d.word, observed: got });
@@ -1275,6 +1283,11 @@ var DIFF_LABEL = {
   "changed-number": "\u0631\u0642\u0645 \u062A\u063A\u064A\u0651\u0631",
   "changed-digit-system": "\u0646\u0638\u0627\u0645 \u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u062A\u063A\u064A\u0651\u0631",
   "changed-marks": "\u0627\u0644\u062A\u0634\u0643\u064A\u0644 \u062A\u063A\u064A\u0651\u0631",
+  "changed-punctuation": "\u0639\u0644\u0627\u0645\u0629 \u062A\u0631\u0642\u064A\u0645 \u062A\u063A\u064A\u0651\u0631\u062A",
+  "changed-hamza": "\u0647\u0645\u0632\u0629 \u062A\u063A\u064A\u0651\u0631\u062A",
+  "changed-taa-marbuta": "\u0627\u0644\u062A\u0627\u0621 \u0627\u0644\u0645\u0631\u0628\u0648\u0637\u0629 \u062A\u063A\u064A\u0651\u0631\u062A",
+  "changed-alef-maqsura": "\u0627\u0644\u0623\u0644\u0641 \u0627\u0644\u0645\u0642\u0635\u0648\u0631\u0629 \u062A\u063A\u064A\u0651\u0631\u062A",
+  "reversed-word": "\u0627\u0644\u0643\u0644\u0645\u0629 \u0645\u0639\u0643\u0648\u0633\u0629 \u0627\u0644\u062A\u0631\u062A\u064A\u0628 (\u062E\u0637\u0623 \u0627\u062A\u062C\u0627\u0647)",
   "changed-word": "\u0643\u0644\u0645\u0629 \u062A\u063A\u064A\u0651\u0631\u062A",
   "missing-word": "\u0643\u0644\u0645\u0629 \u0646\u0627\u0642\u0635\u0629",
   "extra-word": "\u0643\u0644\u0645\u0629 \u0632\u0627\u0626\u062F\u0629"
@@ -2119,6 +2132,40 @@ var COMPOSITIONS = {
       return v === "bottom" ? [...text, collage] : [collage, ...text];
     }
   },
+  // A big number or short figure with one line of meaning: reel scenes and
+  // list items that deserve their own page ("3 دقائق", "70%", "الخطوة 2").
+  numbered: {
+    id: "numbered",
+    version: 1,
+    label: "\u0631\u0642\u0645 \u0643\u0628\u064A\u0631",
+    role: "content",
+    type: "numbered",
+    description: "\u0631\u0642\u0645 \u0623\u0648 \u0645\u0639\u0644\u0648\u0645\u0629 \u0631\u0642\u0645\u064A\u0629 \u0643\u0628\u064A\u0631\u0629 \u0645\u0639 \u0633\u0637\u0631 \u064A\u0634\u0631\u062D\u0647\u0627: \u0645\u0634\u0647\u062F \u0631\u064A\u0644 \u0623\u0648 \u0628\u0646\u062F \u064A\u0633\u062A\u062D\u0642 \u0635\u0641\u062D\u0629",
+    tags: ["\u0631\u0642\u0645", "\u062E\u0637\u0648\u0629", "\u0625\u062D\u0635\u0627\u0626\u064A\u0629", "\u0631\u064A\u0644", "\u0645\u0634\u0647\u062F", "\u0628\u0646\u062F"],
+    variants: { type: "\u0637\u0628\u0627\u0639\u064A", center: "\u0648\u0633\u0637", art: "\u0645\u0639 \u0631\u0633\u0645" },
+    defaultVariant: "type",
+    reflow: { art: ["type"], center: ["type"] },
+    capacity: { titleChars: 70, subtitleChars: 110 },
+    fields: [
+      { key: "number", label: "\u0627\u0644\u0631\u0642\u0645", type: "text", required: true },
+      { key: "title", label: "\u0627\u0644\u062C\u0645\u0644\u0629", type: "textarea", required: true },
+      { key: "subtitle", label: "\u0633\u0637\u0631 \u062F\u0627\u0639\u0645", type: "textarea" },
+      { key: "art", label: "\u0627\u0644\u0631\u0633\u0645", type: "asset" }
+    ],
+    decor: (ctx, W, H) => [
+      shapeElement("decor-circle", f(atEnd(ctx, W, -220, 640), ctx.format.inset.top + 40, 640, 640), "ellipse", "@accent", { opacity: 0.12, role: "decor", name: "\u062F\u0627\u0626\u0631\u0629 \u0632\u062E\u0631\u0641\u064A\u0629" }),
+      shapeElement("decor-band", f(atStart(ctx, W, 0, 28), H - ctx.format.inset.bottom - 360, 28, 240), "rect", "@accent", { role: "decor", name: "\u0634\u0631\u064A\u0637 \u0644\u0648\u0646\u064A" })
+    ],
+    blocks: (c, v) => {
+      const align = v === "center" ? "center" : void 0;
+      return [
+        { type: "text", id: "number", text: c.number ?? "", font: "@heading", weightRole: "black", size: [300, 160], lineHeight: 1.1, color: "@accent", align, slot: "number", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", anim: "pop" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [104, FLOOR.title], lineHeight: 1.3, align, slot: "title", role: "title", name: "\u0627\u0644\u062C\u0645\u0644\u0629", gap: 24, anim: "rise" },
+        c.subtitle && { type: "text", id: "subtitle", text: c.subtitle, size: [44, FLOOR.body], lineHeight: 1.6, color: "@muted", align, slot: "subtitle", role: "subtitle", name: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", gap: 36, anim: "rise" },
+        v === "art" && { type: "art", id: "art", assetId: c.art ?? null, share: 0.3, minShare: 0.18, optional: true, slot: "art", alt: c.artAlt, gap: 56 }
+      ];
+    }
+  },
   outro: {
     id: "outro",
     version: 1,
@@ -2350,7 +2397,9 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
     { variant: requested, art: "pref", sMin: COMFORT },
     hasArt && { variant: requested, art: "min", sMin: COMFORT, note: "art-min" },
     { variant: requested, art: hasArt ? "min" : "pref", sMin: 0 },
-    ...variants.slice(1).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
+    // A denser variant that has no place for the art would drop it
+    // silently: with keepArt only variants that still carry it are tried.
+    ...variants.slice(1).filter((v) => !keepArt || !hasArt || buildBlocks(comp, content, v, "min", ctx).some((b) => b.optional)).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
     ...hasArt && !keepArt ? variants.map((v) => ({ variant: v, art: "none", sMin: 0, note: "art-removed" })) : []
   ].filter(Boolean);
   const decisions = [];
@@ -3163,11 +3212,14 @@ var KITABWBS_PRESET = {
     { hex: "#7DB6FF", role: "accent", name: "\u0623\u0632\u0631\u0642 \u0633\u0645\u0627\u0648\u064A" },
     { hex: "#F7F3EA", role: "paper", name: "\u0648\u0631\u0642" }
   ],
-  fonts: { heading: "cairo", body: "tajawal", fallbacks: ["almarai"] },
-  imagery: { style: "\u0643\u0648\u0644\u0627\u062C \u062A\u062D\u0631\u064A\u0631\u064A \u0623\u0632\u0631\u0642: \u0643\u062A\u0628 \u0648\u0635\u0641\u062D\u0627\u062A \u0648\u0646\u0638\u0627\u0631\u0627\u062A \u0642\u0631\u0627\u0621\u0629 \u0648\u0623\u0642\u0644\u0627\u0645\u060C \u0623\u0634\u0643\u0627\u0644 \u0645\u0633\u0637\u062D\u0629 \u0628\u0644\u0627 \u0646\u0635\u0648\u0635", notes: "\u0628\u062F\u0648\u0646 \u0648\u062C\u0648\u0647 \u0628\u0634\u0631\u064A\u0629 \u0648\u0627\u0642\u0639\u064A\u0629" },
-  voice: { tone: "\u0648\u062F\u0648\u062F\u0629 \u0648\u0645\u0634\u062C\u0651\u0639\u0629 \u0639\u0644\u0649 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", dialect: "\u0641\u0635\u062D\u0649 \u0645\u0628\u0633\u0637\u0629" },
+  fonts: { heading: "cairo", body: "tajawal", fallbacks: ["almarai"], allowed: ["cairo", "tajawal"] },
+  numerals: "latn",
+  imagery: { style: "\u0643\u0648\u0644\u0627\u062C \u062A\u062D\u0631\u064A\u0631\u064A \u0623\u0632\u0631\u0642: \u0643\u062A\u0628 \u0648\u0635\u0641\u062D\u0627\u062A \u0648\u0646\u0638\u0627\u0631\u0627\u062A \u0642\u0631\u0627\u0621\u0629 \u0648\u0623\u0642\u0644\u0627\u0645\u060C \u0623\u0634\u0643\u0627\u0644 \u0645\u0633\u0637\u062D\u0629 \u0628\u0644\u0627 \u0646\u0635\u0648\u0635", notes: "\u0628\u0644\u0627 \u0648\u062C\u0648\u0647 \u0623\u0648 \u0635\u0648\u0631 \u0628\u0634\u0631\u064A\u0629" },
+  voice: { tone: "\u0648\u062F\u0648\u062F\u0629 \u0648\u0645\u0634\u062C\u0651\u0639\u0629 \u0639\u0644\u0649 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", dialect: "\u0641\u0635\u062D\u0649 \u0645\u0628\u0633\u0637\u0629", titles: "\u0639\u0646\u0627\u0648\u064A\u0646 \u0642\u0648\u064A\u0629 \u0642\u0635\u064A\u0631\u0629\u060C \u0648\u0645\u062A\u0646 \u0648\u0627\u0636\u062D \u0628\u0644\u0627 \u0627\u0632\u062F\u062D\u0627\u0645" },
   density: "medium",
-  constraints: [],
+  // Identity rules checked by the quality gate (lib/studio/brandRules.js).
+  constraints: ["no-yellow", "no-orange", "no-faces", "no-latin-words", "western-digits", "fonts-only"],
+  allowedLatin: ["@kitabwbs"],
   approvedExamples: []
 };
 var ASPECTS = [
@@ -3298,6 +3350,75 @@ function isWarm(hex) {
   return hue < 70 || hue >= 340;
 }
 
+// lib/studio/brandRules.js
+var BRAND_RULES = ["no-yellow", "no-orange", "no-faces", "no-latin-words", "western-digits", "fonts-only"];
+function warmFamily(hex) {
+  const [r, g, b] = hexToRgb(hex);
+  const chroma = (Math.max(r, g, b) - Math.min(r, g, b)) / 255;
+  if (chroma < 0.22) return null;
+  const { h } = hsl(hex);
+  if (h >= 18 && h < 42) return "orange";
+  if (h >= 42 && h < 68) return "yellow";
+  return null;
+}
+var FACE_TAGS = /(face|faces|person|people|portrait|selfie|human|man|woman|وجه|وجوه|شخص|أشخاص|اشخاص|بورتريه|رجل|امرأة|امراة|بشر)/i;
+function checkBrandRules(doc, brand, { overrides = [] } = {}) {
+  const rules = (brand?.constraints ?? []).filter((r) => BRAND_RULES.includes(r));
+  if (!rules.length) return [];
+  const issues = [];
+  const add = (rule, code, message, pageId, elementId, approved = false) => issues.push({
+    code: `brand.${code}`,
+    severity: overrides.includes(rule) || approved ? "warning" : "error",
+    message: overrides.includes(rule) ? `${message} (\u0645\u0633\u0645\u0648\u062D \u0628\u0637\u0644\u0628\u0643 \u0627\u0644\u062D\u0627\u0644\u064A)` : approved ? `${message} \u0627\u0644\u0646\u0635 \u0645\u0639\u062A\u0645\u062F: \u0639\u062F\u0651\u0644\u0647 \u0623\u0648 \u0623\u0643\u0651\u062F \u0623\u0646\u0647 \u0645\u0642\u0635\u0648\u062F.` : message,
+    ...pageId && { pageId },
+    ...elementId && { elementId }
+  });
+  const banned = new Set(rules.filter((r) => r === "no-yellow" || r === "no-orange").map((r) => r.slice(3)));
+  const allowedLatin = (brand.allowedLatin ?? [brand.handle].filter(Boolean)).map((s) => s.toLowerCase());
+  if (banned.size) {
+    for (const [role, hex] of Object.entries(doc.theme?.colors ?? {})) {
+      const fam = warmFamily(hex);
+      if (fam && banned.has(fam)) add(`no-${fam}`, `color-${fam}`, `\u0644\u0648\u0646 ${fam === "yellow" ? "\u0623\u0635\u0641\u0631" : "\u0628\u0631\u062A\u0642\u0627\u0644\u064A"} (${hex}) \u0641\u064A \u062F\u0648\u0631 ${role}: \u0645\u0645\u0646\u0648\u0639 \u0641\u064A \u0647\u0648\u064A\u0629 ${brand.name ?? brand.id}.`);
+    }
+  }
+  for (const page of doc.pages) {
+    const { colors } = pageTheme(doc, page);
+    for (const el of page.elements) {
+      if (el.hidden) continue;
+      if (banned.size) {
+        const used = [el.kind === "shape" && el.fill !== "none" && resolveColor(el.fill, colors), el.stroke && resolveColor(el.stroke, colors), el.kind === "text" && resolveColor(el.style.color, colors)].filter(Boolean);
+        for (const hex of used) {
+          const fam = warmFamily(hex);
+          if (fam && banned.has(fam)) add(`no-${fam}`, `color-${fam}`, `\xAB${el.name ?? el.id}\xBB \u0628\u0644\u0648\u0646 ${fam === "yellow" ? "\u0623\u0635\u0641\u0631" : "\u0628\u0631\u062A\u0642\u0627\u0644\u064A"} (${hex}).`, page.id, el.id);
+        }
+      }
+      if (el.kind === "image" && rules.includes("no-faces")) {
+        const asset = doc.assets?.[el.assetId];
+        const tags = [...asset?.tags ?? [], asset?.name ?? "", el.alt ?? ""].join(" ");
+        if (FACE_TAGS.test(tags)) add("no-faces", "faces", `\xAB${el.name ?? el.id}\xBB \u0645\u0648\u0633\u0648\u0645 \u0628\u0648\u062C\u0648\u0647 \u0623\u0648 \u0623\u0634\u062E\u0627\u0635: \u0627\u0644\u0647\u0648\u064A\u0629 \u0628\u0644\u0627 \u0648\u062C\u0648\u0647 \u0628\u0634\u0631\u064A\u0629.`, page.id, el.id);
+      }
+      if (el.kind !== "text") continue;
+      const text = plainText(el.text);
+      if (rules.includes("no-latin-words")) {
+        const latin = (text.match(/[@#]?[A-Za-z][A-Za-z0-9_.'-]*/g) ?? []).filter((w) => !allowedLatin.includes(w.toLowerCase()));
+        if (latin.length) add("no-latin-words", "latin-word", `\xAB${el.name ?? el.id}\xBB \u0641\u064A\u0647 \u0643\u0644\u0645\u0627\u062A \u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629: ${[...new Set(latin)].join("\u060C ")}. \u0627\u0644\u0645\u0633\u0645\u0648\u062D: ${allowedLatin.join("\u060C ") || "\u0644\u0627 \u0634\u064A\u0621"}.`, page.id, el.id, Boolean(el.slot));
+      }
+      if (rules.includes("western-digits") && /[٠-٩۰-۹]/.test(text)) add("western-digits", "digits", `\xAB${el.name ?? el.id}\xBB \u0628\u0623\u0631\u0642\u0627\u0645 \u0639\u0631\u0628\u064A\u0629 \u0645\u0634\u0631\u0642\u064A\u0629 (\u0660-\u0669): \u0627\u0644\u0647\u0648\u064A\u0629 \u062A\u0633\u062A\u062E\u062F\u0645 0-9.`, page.id, el.id, Boolean(el.slot));
+      if (rules.includes("fonts-only") && brand.fonts?.allowed?.length) {
+        const font = resolveFont(el.style.fontFamily, doc.theme.fonts);
+        if (!brand.fonts.allowed.includes(font)) add("fonts-only", "font", `\xAB${el.name ?? el.id}\xBB \u0628\u062E\u0637 ${font}\u060C \u0648\u0627\u0644\u0645\u0633\u0645\u0648\u062D ${brand.fonts.allowed.join(" \u0623\u0648 ")}.`, page.id, el.id);
+      }
+    }
+  }
+  const seen = /* @__PURE__ */ new Set();
+  return issues.filter((i) => {
+    const k = `${i.code}|${i.pageId}|${i.elementId}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+}
+
 // lib/studio/quality.js
 var PHONE_WIDTH = 390;
 var BODY_ROLES = /* @__PURE__ */ new Set(["item", "subtitle", "quote", "caption", "author", "body"]);
@@ -3316,7 +3437,7 @@ function backgroundOf(page, el, colors) {
   return below.length ? resolveColor(below[0].fill, colors) : colors.bg;
 }
 var visibleText = (page) => page.elements.filter((e) => e.kind === "text" && !e.hidden && plainText(e.text).trim());
-function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exported, verifyAsset, measure = estimateMeasure, requireAssetData = false, brand } = {}) {
+function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exported, verifyAsset, measure = estimateMeasure, requireAssetData = false, brand, brandOverrides = [] } = {}) {
   const issues = [];
   for (const p of validateDocument(doc)) issues.push(issue("contract.invalid", "error", `${p.path}: ${p.message}`));
   const format = FORMATS[expectedFormat ?? doc.intent?.format] ?? FORMATS.portrait;
@@ -3334,6 +3455,7 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
     const warm = Object.entries(doc.theme.colors).filter(([, hex]) => isWarm(hex));
     if (warm.length) issues.push(issue("brand.warm-colors", "error", `\u0623\u0644\u0648\u0627\u0646 \u062F\u0627\u0641\u0626\u0629 \u0645\u0645\u0646\u0648\u0639\u0629 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u0647\u0648\u064A\u0629: ${warm.map(([r, h]) => `${r} ${h}`).join("\u060C ")}.`));
   }
+  issues.push(...checkBrandRules(doc, brand, { overrides: brandOverrides }));
   doc.pages.forEach((page, pi) => {
     const theme = pageTheme(doc, page);
     const scale = PHONE_WIDTH / page.widthPx;
@@ -3795,10 +3917,10 @@ function resolveTheme(studio, spec, applied = {}) {
     ...applied["font.body"] && { body: applied["font.body"].value },
     ...spec.fonts
   };
-  const numerals = spec.numerals ?? applied.numerals?.value ?? "arab";
+  const brand = spec.brandId ? studio.memory.brand(spec.brandId) : null;
+  const numerals = spec.numerals ?? applied.numerals?.value ?? brand?.numerals ?? "arab";
   if (spec.theme) return spec.theme;
   if (spec.paletteId) return themeFromPalette(spec.paletteId, { custom: spec.custom, fonts, numerals });
-  const brand = spec.brandId ? studio.memory.brand(spec.brandId) : null;
   if (brand) {
     const t = themeFromBrand(brand, { numerals });
     return { ...t, fonts: { ...t.fonts, ...fonts } };
@@ -3812,6 +3934,7 @@ function buildDesign(studio, spec, { request, measure = estimateMeasure, save = 
   const format = spec.intent?.format ?? "portrait";
   const { applied } = studio.memory.resolve(creatorId, { brandId: spec.brandId, platform: spec.intent?.platform, format, projectId: spec.projectId });
   const theme = resolveTheme(studio, spec, applied);
+  const brandOverrides = [...spec.theme || spec.paletteId ? ["no-yellow", "no-orange"] : [], ...spec.brandOverrides ?? []];
   const brandInfo = { name: brand?.name ?? "", handle: brand?.handle ?? "", ...brand?.logoAssetId && { logoAssetId: brand.logoAssetId }, ...brand?.avatarAssetId && { avatarAssetId: brand.avatarAssetId }, ...spec.brand };
   const assets = studio.assets.embed(specAssetIds({ ...spec, brand: brandInfo }));
   const layoutKey = studio.cache.key(
@@ -3825,7 +3948,7 @@ function buildDesign(studio, spec, { request, measure = estimateMeasure, save = 
     const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
     if (existing && same(existing.theme, theme) && same(existing.pages.map((p) => p.elements), cached.pages.map((p) => p.elements))) {
       const doc2 = { ...existing, assets };
-      const quality2 = checkDesign(doc2, { expectedPages: spec.intent?.pages, expectedFormat: format, brand, verifyAsset: (a) => studio.assets.verify(a.id), requireAssetData: true });
+      const quality2 = checkDesign(doc2, { expectedPages: spec.intent?.pages, expectedFormat: format, brand, brandOverrides, verifyAsset: (a) => studio.assets.verify(a.id), requireAssetData: true });
       studio.library.markUsed(doc2.id, { action: "repeated", projectId: spec.projectId });
       studio.ledger.record({ kind: "local.compose", cache: "hit", durationMs: 0, designId: doc2.id, note: "same request: existing design returned" });
       return { doc: doc2, quality: quality2, saved: null, layoutCache: "hit", reused: true };
@@ -3836,7 +3959,7 @@ function buildDesign(studio, spec, { request, measure = estimateMeasure, save = 
   const doc = createDesign({ ...spec, creatorId, theme, brand: brandInfo, assets, ...brandKit && { brandKit } }, { measure, pages: cached?.pages });
   studio.ledger.record({ kind: "local.compose", cache: cached ? "hit" : "miss", durationMs: Date.now() - t0, designId: doc.id });
   const t1 = Date.now();
-  const quality = checkDesign(doc, { expectedPages: spec.intent?.pages, expectedFormat: format, brand, verifyAsset: (a) => studio.assets.verify(a.id), requireAssetData: true });
+  const quality = checkDesign(doc, { expectedPages: spec.intent?.pages, expectedFormat: format, brand, brandOverrides, verifyAsset: (a) => studio.assets.verify(a.id), requireAssetData: true });
   studio.ledger.record({ kind: "local.quality", durationMs: Date.now() - t1, designId: doc.id, note: `${quality.errors} errors, ${quality.warnings} warnings` });
   let saved = null;
   if (save) {
@@ -4123,6 +4246,8 @@ function choosePages(doc, m, ctx, target) {
   return [doc.pages.find((p) => p.id === ctx.pageId) ?? doc.pages[0]];
 }
 var fmt2 = (n2) => formatNumber(n2, "arab");
+var FONT_WORDS = { cairo: ["cairo", "\u0643\u0627\u064A\u0631\u0648", "\u0627\u0644\u0642\u0627\u0647\u0631\u0647"], tajawal: ["tajawal", "\u062A\u062C\u0648\u0627\u0644", "\u062A\u062C\u0648\u0644", "\u062A\u0627\u062C\u0648\u0627\u0644"], almarai: ["almarai", "\u0627\u0644\u0645\u0631\u0627\u0639\u064A"], readex: ["readex", "\u0631\u064A\u062F\u0643\u0633"] };
+var FONT_LABEL = { cairo: "Cairo", tajawal: "Tajawal", almarai: "Almarai", readex: "Readex Pro" };
 function colorFromWords(m, doc, brand) {
   const entry = colorWordIn(m.norm) ?? colorWordIn(m.words.join(" "));
   if (!entry) return { entry: null };
@@ -4162,6 +4287,12 @@ function parseCommand(doc, text, ctx = {}) {
     const t = target && target.id !== "art" ? target : TARGETS.find((x) => x.id === "items");
     const els2 = pages2.flatMap((p) => elementsFor(p, t).filter((e) => e.kind === "text").map((e) => ({ pageId: p.id, elementId: e.id, slot: e.slot, text: e.text, maxChars: Math.max(8, Math.floor(e.text.length * 0.7)) })));
     return result({ intent: "rewrite", local: false, needs: "rewrite", scope: "text", targets: els2, reply: `\u064A\u062D\u062A\u0627\u062C \u0627\u0644\u0627\u062E\u062A\u0635\u0627\u0631 \u0625\u0644\u0649 \u0627\u0644\u0645\u0633\u0627\u0639\u062F: ${fmt2(els2.length)} \u0646\u0635\u060C \u0643\u0644 \u0648\u0627\u062D\u062F \u0628\u0646\u062D\u0648 \u0667\u0660\u066A \u0645\u0646 \u0637\u0648\u0644\u0647 \u0645\u0639 \u0625\u0628\u0642\u0627\u0621 \u0627\u0644\u0631\u0633\u0627\u0644\u0629. \u0644\u0646 \u064A\u062A\u063A\u064A\u0651\u0631 \u0623\u064A \u0631\u0633\u0645.` });
+  }
+  const fontId = Object.entries(FONT_WORDS).find(([, forms]) => forms.some((w) => m.norm.includes(normalizeArabic(w))))?.[0];
+  if (fontId && m.has(["\u0627\u0644\u062E\u0637", "\u062E\u0637", "\u0627\u0644\u062E\u0637\u0648\u0637", "\u062E\u0637\u0648\u0637"])) {
+    const role = m.has(["\u0627\u0644\u0639\u0646\u0648\u0627\u0646", "\u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646", "\u0639\u0646\u0648\u0627\u0646"]) ? "heading" : m.has(["\u0627\u0644\u0646\u0635", "\u0627\u0644\u0628\u0646\u0648\u062F", "\u0627\u0644\u0645\u062A\u0646", "\u0627\u0644\u0641\u0642\u0631\u0627\u062A"]) ? "body" : "both";
+    const what = role === "heading" ? "\u062E\u0637 \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646" : role === "body" ? "\u062E\u0637 \u0627\u0644\u0646\u0635" : "\u0627\u0644\u062E\u0637";
+    return result({ intent: "font", fontId, role, reply: `\u063A\u064A\u0651\u0631\u062A ${what} \u0625\u0644\u0649 ${FONT_LABEL[fontId]} \u0648\u0623\u0639\u062F\u062A \u062A\u0648\u0632\u064A\u0639 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u062D\u0648\u0644\u0647\u060C \u062F\u0648\u0646 \u0623\u064A \u062A\u0648\u0644\u064A\u062F \u0644\u0644\u0635\u0648\u0631.` });
   }
   if (target?.background || m.has(["\u0627\u0644\u062E\u0644\u0641\u064A\u0647"]) && colorWordIn(m.norm)) {
     const { entry, matches, wantsBrand } = colorFromWords(m, doc, ctx.brand);
@@ -4293,6 +4424,10 @@ var COLUMN_VARIANT = { list: "grid", post: "grid", comparison: "columns" };
 function runCommand(doc, text, ctx = {}) {
   const cmd = parseCommand(doc, text, ctx);
   if (cmd.intent === "format") return { ...cmd, doc: setFormat({ ...doc, revision: doc.revision + 1, updatedAt: now() }, cmd.format, ctx) };
+  if (cmd.intent === "font") {
+    const fonts = { ...doc.theme.fonts, ...cmd.role !== "body" && { heading: cmd.fontId }, ...cmd.role !== "heading" && { body: cmd.fontId } };
+    return { ...cmd, doc: composeAll({ ...doc, revision: doc.revision + 1, updatedAt: now(), theme: { ...doc.theme, fonts } }, ctx) };
+  }
   if (cmd.intent === "theme") {
     if (cmd.pageIds) {
       const pages = doc.pages.map((p) => cmd.pageIds.includes(p.id) ? { ...p, themeOverride: { ...p.themeOverride, [cmd.role]: cmd.hex } } : p);
@@ -4382,6 +4517,20 @@ function editabilityFor(doc, caps, requested = "native") {
 }
 var px = (n2) => Math.round(n2 * 10) / 10;
 var stripMarkers = (t) => t.replace(/\*/g, "");
+var RTL_CHARS = /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/;
+var LEAD = /[\p{L}\p{N}]/u;
+function canvaTextRtl(text) {
+  const lead = String(text ?? "").replace(/\*/g, "").match(LEAD);
+  return lead ? RTL_CHARS.test(lead[0]) : null;
+}
+function canvaAlign(el) {
+  const align = el.style?.align ?? "start";
+  if (align === "center") return "center";
+  const designRtl = el.style?.direction !== "ltr";
+  const textRtl = canvaTextRtl(el.text);
+  if (textRtl === null || textRtl === designRtl) return align;
+  return align === "start" ? "end" : "start";
+}
 function planCreate(doc, caps, { mode = "native", title, pageSize, assetFiles = {}, artFiles = {} } = {}) {
   const decision = editabilityFor(doc, caps, mode);
   if (!decision.mode) return { ok: false, ...decision, steps: [] };
@@ -4447,7 +4596,7 @@ function planCreate(doc, caps, { mode = "native", title, pageSize, assetFiles = 
               font_size: Math.max(1, Math.round(el.style.fontSize * k)),
               font_weight: el.style.weight >= 600 ? "bold" : "normal",
               line_height: Math.min(2.5, Math.max(0.5, el.style.lineHeight)),
-              text_align: el.style.align
+              text_align: canvaAlign(el)
             }
           }
         });
