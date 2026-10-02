@@ -1,0 +1,1135 @@
+{
+ "kind": "canva-tool-capture",
+ "capturedAt": "2026-10-02",
+ "source": "Claude Canva connector tool schemas as listed in a live session (descriptions trimmed; field names, enums and required lists as captured). merge-designs and others by name only.",
+ "tools": [
+  {
+   "name": "mcp__Canva__edit-design",
+   "description": "Make changes to the content or layout of an existing Canva design within an active editing transaction.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "finalize": {
+      "type": "string",
+      "enum": [
+       "commit",
+       "cancel",
+       "keep_open"
+      ]
+     },
+     "is_editable": {
+      "type": "boolean"
+     },
+     "is_empty": {
+      "type": "boolean"
+     },
+     "is_responsive": {
+      "type": "boolean"
+     },
+     "operations": {
+      "type": "array",
+      "items": {
+       "anyOf": [
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_title",
+           "type": "string"
+          },
+          "title": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "title"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "replace_text",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "text": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_fill",
+           "type": "string"
+          },
+          "alt_text": {
+           "type": "string"
+          },
+          "asset_id": {
+           "type": "string"
+          },
+          "asset_type": {
+           "type": "string",
+           "enum": [
+            "image",
+            "video"
+           ]
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "asset_type",
+          "asset_id",
+          "alt_text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "insert_fill",
+           "type": "string"
+          },
+          "alt_text": {
+           "type": "string"
+          },
+          "asset_id": {
+           "type": "string"
+          },
+          "asset_type": {
+           "type": "string",
+           "enum": [
+            "image",
+            "video"
+           ]
+          },
+          "height": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          },
+          "opacity": {
+           "type": "number"
+          },
+          "page_id": {
+           "type": "string"
+          },
+          "rotation": {
+           "type": "number"
+          },
+          "top": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "asset_type",
+          "asset_id",
+          "alt_text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "delete_element",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "find_and_replace_text",
+           "type": "string"
+          },
+          "find_text": {
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "replace_text": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "find_text",
+          "replace_text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "position_element",
+           "type": "string"
+          },
+          "left": {
+           "type": "number"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "top": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "top",
+          "left"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "resize_element",
+           "type": "string"
+          },
+          "height": {
+           "type": "number"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "preserve_aspect_ratio": {
+           "type": "boolean"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "format_text",
+           "type": "string"
+          },
+          "formatting": {
+           "type": "object",
+           "properties": {
+            "color": {
+             "type": "string"
+            },
+            "decoration": {
+             "type": "string"
+            },
+            "font_size": {
+             "type": "string"
+            },
+            "font_style": {
+             "type": "string"
+            },
+            "font_weight": {
+             "type": "string"
+            },
+            "line_height": {
+             "type": "string"
+            },
+            "link": {
+             "type": "string"
+            },
+            "list_level": {
+             "type": "string"
+            },
+            "list_marker": {
+             "type": "string"
+            },
+            "strikethrough": {
+             "type": "string"
+            },
+            "text_align": {
+             "type": "string"
+            }
+           }
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "formatting"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "add_text",
+           "type": "string"
+          },
+          "left": {
+           "type": "number"
+          },
+          "opacity": {
+           "type": "number"
+          },
+          "page_id": {
+           "type": "string"
+          },
+          "rotation": {
+           "type": "number"
+          },
+          "text": {
+           "type": "string"
+          },
+          "top": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "insert_shape",
+           "type": "string"
+          },
+          "color": {
+           "type": "string"
+          },
+          "corner_rounding": {
+           "type": "number"
+          },
+          "height": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          },
+          "opacity": {
+           "type": "number"
+          },
+          "page_id": {
+           "type": "string"
+          },
+          "path": {
+           "type": "string"
+          },
+          "rotation": {
+           "type": "number"
+          },
+          "stroke_color": {
+           "type": "string"
+          },
+          "stroke_weight": {
+           "type": "number"
+          },
+          "top": {
+           "type": "number"
+          },
+          "view_box_height": {
+           "type": "number"
+          },
+          "view_box_width": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "top",
+          "left",
+          "width",
+          "height",
+          "path",
+          "view_box_width",
+          "view_box_height"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "replace_shape",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "path": {
+           "type": "string"
+          },
+          "view_box_height": {
+           "type": "number"
+          },
+          "view_box_width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "path",
+          "view_box_width",
+          "view_box_height"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "add_page",
+           "type": "string"
+          },
+          "background_color": {
+           "type": "string"
+          },
+          "height": {
+           "type": "integer"
+          },
+          "title": {
+           "type": "string"
+          },
+          "width": {
+           "type": "integer"
+          }
+         },
+         "required": [
+          "type"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_opacity",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "opacity": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "opacity"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "layer_element",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "position": {
+           "type": "string",
+           "enum": [
+            "front",
+            "back"
+           ]
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "position"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "recolor_element",
+           "type": "string"
+          },
+          "color": {
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "color"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "rotate_element",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "rotation": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "rotation"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "group_elements",
+           "type": "string"
+          },
+          "locator_ids": {
+           "type": "array",
+           "items": {
+            "type": "string"
+           }
+          },
+          "rotation": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_ids"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "ungroup_elements",
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "flip_media",
+           "type": "string"
+          },
+          "axis": {
+           "type": "string",
+           "enum": [
+            "horizontal",
+            "vertical"
+           ]
+          },
+          "flipped": {
+           "type": "boolean"
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "axis",
+          "flipped"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "crop_media",
+           "type": "string"
+          },
+          "height": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "rotation": {
+           "type": "number"
+          },
+          "top": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "reorder_page",
+           "type": "string"
+          },
+          "anchor_page_id": {
+           "type": "string"
+          },
+          "page_id": {
+           "type": "string"
+          },
+          "position": {
+           "type": "string",
+           "enum": [
+            "before",
+            "after"
+           ]
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "anchor_page_id",
+          "position"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "replace_speaker_notes",
+           "type": "string"
+          },
+          "notes": {
+           "type": "string"
+          },
+          "page_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "notes"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_text_anchoring",
+           "type": "string"
+          },
+          "anchoring": {
+           "type": "string",
+           "enum": [
+            "start",
+            "center",
+            "end"
+           ]
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id",
+          "anchoring"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_stroke_properties",
+           "type": "string"
+          },
+          "color": {
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "weight": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_line_properties",
+           "type": "string"
+          },
+          "end": {
+           "type": "object",
+           "properties": {}
+          },
+          "geometry": {
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          },
+          "start": {
+           "type": "object",
+           "properties": {}
+          },
+          "weight": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_autofill_field",
+           "type": "string"
+          },
+          "autofill_field_label": {
+           "type": "string"
+          },
+          "locator_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "locator_id"
+         ]
+        }
+       ]
+      }
+     },
+     "page_index": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "transaction_id": {
+      "type": "string"
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "transaction_id"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__read-design",
+   "description": "Read a Canva design: its text and wording, page count, title and metadata, page preview thumbnails, and presenter notes. Can also open or continue an editing transaction.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "filter": {
+      "type": "object",
+      "properties": {
+       "element_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "fields": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "enum": [
+          "design_metadata",
+          "page_metadata",
+          "design_content",
+          "thumbnails",
+          "presenter_notes"
+         ]
+        }
+       },
+       "page_indices": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        }
+       },
+       "thumbnail_pages": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        }
+       }
+      }
+     },
+     "open_transaction": {
+      "type": "boolean"
+     },
+     "transaction_id": {
+      "type": "string"
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "design_id"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__import-design-from-url",
+   "description": "Convert content at a public URL into a new Canva design.\n\nUse to turn a publicly hosted PDF, slide deck (PowerPoint or Keynote), document (Word, Pages, or Markdown), spreadsheet (Excel, CSV, or Numbers), webpage or HTML, or design file (Photoshop or Illustrator) into a Canva design.\n\nOnly call with a public HTTPS URL. Do not use for local, private, or agent-generated files, or to break a flat PNG, JPEG, or WEBP into separately editable layers.\n\nEach call creates one design and returns its design_id.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "intended_design_type": {
+      "type": "string",
+      "enum": [
+       "instagram_post",
+       "instagram_reel",
+       "presentation",
+       "other"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Name for the new Canva design."
+     },
+     "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https:\\/\\/(?!.*canva\\.com\\/design\\/)(?!.*files\\.oaiusercontent\\.com)(?!.*cdn\\.openai\\.com).*",
+      "description": "Public HTTPS URL for the source to convert. Does not accept Canva design URLs, OpenAI file URLs, local paths, private files, or agent-generated files."
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "url",
+     "name"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__upload-asset-from-url",
+   "description": "Import media from an existing public URL into Canva. Do not use for local, private, or agent-generated files.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string",
+      "format": "uri"
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "url",
+     "name"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__create-upload-url",
+   "description": "Uploads a file (image, video, audio, PDF, or other document) into Canva. Step 1: call this tool to get a single-use upload_url. Step 2: send the raw file bytes as the body of one HTTP POST to that URL.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    }
+   }
+  },
+  {
+   "name": "mcp__Canva__resize-design",
+   "description": "Adapt a Canva design to a different canvas size. Each call creates a new resized design and leaves the original unchanged.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "design_type": {
+      "anyOf": [
+       {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "enum": [
+           "presentation",
+           "whiteboard"
+          ]
+         },
+         "type": {
+          "const": "preset",
+          "type": "string"
+         }
+        },
+        "required": [
+         "type",
+         "name"
+        ]
+       },
+       {
+        "type": "object",
+        "properties": {
+         "height": {
+          "type": "number"
+         },
+         "type": {
+          "const": "custom",
+          "type": "string"
+         },
+         "width": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "type",
+         "width",
+         "height"
+        ]
+       }
+      ]
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "design_id",
+     "design_type"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__copy-design",
+   "description": "Duplicate an existing Canva design, or copy selected pages from it, into a new design.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "page_numbers": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "design_id"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__export-design",
+   "description": "Export an existing Canva design as a downloadable file.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "format": {
+      "type": "object",
+      "properties": {
+       "type": {
+        "type": "string",
+        "enum": [
+         "pdf",
+         "png",
+         "jpg",
+         "gif",
+         "pptx",
+         "mp4",
+         "csv"
+        ]
+       },
+       "pages": {
+        "type": "array",
+        "items": {
+         "type": "number"
+        }
+       },
+       "quality": {},
+       "width": {
+        "type": "number"
+       },
+       "height": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "design_id",
+     "format"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__get-export-formats",
+   "description": "Check which export file types an existing Canva design supports.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "user_intent": {
+      "type": "string",
+      "description": "Mandatory description of what the user is trying to accomplish."
+     }
+    },
+    "required": [
+     "design_id"
+    ],
+    "additionalProperties": false
+   }
+  },
+  {
+   "name": "mcp__Canva__create-design"
+  },
+  {
+   "name": "mcp__Canva__merge-designs"
+  },
+  {
+   "name": "mcp__Canva__list-brand-kits"
+  },
+  {
+   "name": "mcp__Canva__get-create-design-async-job"
+  },
+  {
+   "name": "mcp__Canva__search-designs"
+  }
+ ]
+}

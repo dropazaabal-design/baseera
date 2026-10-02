@@ -7,17 +7,21 @@
 | القدرة | الموصل | ملف أصلي | Connect API | يدوي في Canva |
 |---|---|---|---|---|
 | إنشاء تصميم | جزئي: copy-design لقاعدة سابقة ثم resize-design | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | لم يُتحقق: POST /v1/designs (custom width/height) | — |
+| نسخ تصميم | مدعوم: copy-design | غير مدعوم | غير مدعوم | — |
 | مقاس مطابق بالبكسل | مدعوم: resize-design | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | لم يُتحقق: POST /v1/designs (custom width/height) | — |
+| قراءة هوية العلامة (Brand Kit) | جزئي: list-brand-kits | غير مدعوم | غير مدعوم | — |
 | إضافة صفحة | مدعوم: edit-design: add_page | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | غير مدعوم | — |
 | ترتيب الصفحات | مدعوم: edit-design: reorder_page | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | غير مدعوم | — |
 | حذف صفحة | جزئي: merge-designs: delete_pages | غير مدعوم | غير مدعوم | — |
 | نسخ صفحات | جزئي: copy-design (page_numbers) | غير مدعوم | غير مدعوم | — |
 | إضافة مربع نص | مدعوم: edit-design: add_text | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | غير مدعوم | — |
 | تعديل نص | مدعوم: edit-design + read-design: replace_text | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | غير مدعوم | — |
+| قراءة النص من التصميم | مدعوم: read-design | غير مدعوم | غير مدعوم | — |
 | تنسيق النص (الحجم، اللون، الوزن، المحاذاة، المسافة بين الأسطر) | مدعوم: edit-design: format_text | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | غير مدعوم | — |
 | اختيار عائلة الخط | غير مدعوم | جزئي: .pptx: typeface لكل نص | لم يُتحقق: POST /v1/imports (.pptx) ثم GET /v1/imports/{job} | مدعوم: حدّد النصوص ← قائمة الخط ← Cairo أو Tajawal. |
 | تلوين كلمة داخل النص | غير مدعوم | جزئي: .pptx: run مستقل للكلمة المميزة | لم يُتحقق: POST /v1/imports (.pptx) ثم GET /v1/imports/{job} | — |
 | نص عربي من اليمين لليسار | جزئي: edit-design: add_text + format_text | جزئي: .pptx: rtl="1" ولغة ar-SA | غير مدعوم | — |
+| رفع وسائط إلى Canva (صور، فيديو) | مدعوم: create-upload-url + POST | غير مدعوم | غير مدعوم | — |
 | إدراج صورة | مدعوم: create-upload-url + edit-design: insert_fill | جزئي: canva_import_editable → .pptx → يستورده المستخدم في Canva | لم يُتحقق: POST /v1/asset-uploads | — |
 | استبدال صورة أو قصّها | مدعوم: edit-design: resize_element + crop_media | غير مدعوم | غير مدعوم | — |
 | إدراج فيديو | مدعوم: edit-design: insert_fill (asset_type video) | غير مدعوم | لم يُتحقق: POST /v1/asset-uploads | — |
@@ -29,7 +33,8 @@
 | انتقالات الصفحات | غير مدعوم | غير مدعوم | غير مدعوم | مدعوم: حدّد الصفحة ← Animate ← Page Animations/Transitions. |
 | مدة كل مشهد | غير مدعوم | غير مدعوم | غير مدعوم | مدعوم: مؤقت الصفحة ← أدخل المدة بالثواني. |
 | إضافة صوت | غير مدعوم | غير مدعوم | غير مدعوم | مدعوم: Elements ← Audio أو ارفع ملفك (لا نضيف موسيقى تلقائيًا). |
-| معاينة الصفحات | مدعوم: read-design (thumbnails, thumbnail_pages) | غير مدعوم | لم يُتحقق: GET /v1/designs/{id}/pages | — |
+| معاينة الصفحات | مدعوم: read-design (thumbnails) | غير مدعوم | لم يُتحقق: GET /v1/designs/{id}/pages | — |
+| حفظ التعديلات (commit) | مدعوم: edit-design (finalize: commit) | غير مدعوم | غير مدعوم | — |
 | ملاحظات الصفحة (خطة المشهد) | مدعوم: edit-design: replace_speaker_notes | غير مدعوم | غير مدعوم | — |
 | تصدير PNG | مدعوم: get-export-formats ثم export-design (png) | غير مدعوم | لم يُتحقق: POST /v1/exports (png) | — |
 | تصدير JPG | مدعوم: get-export-formats ثم export-design (jpg) | غير مدعوم | لم يُتحقق: POST /v1/exports (jpg) | — |
@@ -37,11 +42,11 @@
 | تصدير فيديو MP4 | مدعوم: get-export-formats ثم export-design (mp4) | غير مدعوم | لم يُتحقق: POST /v1/exports (mp4) | — |
 | تصدير GIF | مدعوم: get-export-formats ثم export-design (gif) | غير مدعوم | لم يُتحقق: POST /v1/exports (gif) | — |
 | تصدير PowerPoint | مدعوم: get-export-formats ثم export-design (pptx) | غير مدعوم | لم يُتحقق: POST /v1/exports (pptx) | — |
-| استيراد ملف تصميم أصلي (PPTX) | غير مدعوم: create-upload-url: .pptx مرفوض، .pdf بلا تحويل | جزئي: المستخدم يرفع الملف في Canva (Upload → استيراد) أو Connect API | لم يُتحقق: POST /v1/imports (.pptx) ثم GET /v1/imports/{job} | مدعوم: Upload ← ارفع ملف .pptx ← يُفتح تصميمًا جديدًا. |
+| استيراد ملف تصميم أصلي (PPTX) | غير مدعوم: import-design-from-url: url | جزئي: المستخدم يرفع الملف في Canva (Upload → استيراد) أو Connect API | لم يُتحقق: POST /v1/imports (.pptx) ثم GET /v1/imports/{job} | مدعوم: Upload ← ارفع ملف .pptx ← يُفتح تصميمًا جديدًا. |
 
 ## اختبارات حية مؤرخة
 
-- 2026-10-02 — import.native-file (connector): unsupported. PPTX: «Unsupported file format PPTX» (HTTP 400). PDF قُبل لكنه أعاد fileId فقط، ولا أداة في الموصل تحوّله إلى تصميم.
+- 2026-10-02 — media.upload (connector): supported. SVG رُفع وأُدرج. وليس مسار استيراد تصميم: PPTX رُفض («Unsupported file format PPTX»، HTTP 400) وPDF قُبل لكنه أعاد fileId فقط بلا تصميم.
 - 2026-10-02 — design.create (connector): partial. create-design أنتج 1080×1440 برسوم مولّدة؛ نسخ قاعدة سابقة لا يولّد شيئًا، وتبقى صورة خلفيتها تحت شكل الخلفية.
 - 2026-10-02 — design.size (connector): supported. 1080×1350 → 1080×1920 أنشأ تصميمًا جديدًا وبقي الأصل كما هو؛ بلا توليد.
 - 2026-10-02 — text.add (connector): supported. كاروسيل 3 صفحات وريل 5 مشاهد: 54/54 نصًا طابق حرفيًا في القراءة الراجعة.

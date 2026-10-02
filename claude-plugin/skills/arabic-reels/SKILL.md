@@ -52,14 +52,21 @@ Report each one separately, from the tools' `progress` (`reelStatus`), never mer
 | item | states |
 |---|---|
 | scenes | planned · created locally · created in Canva (design id) |
-| motion | not applied · applied by the user (they confirmed) |
-| timing | not set · set by the user · verified from the exported video |
-| audio | none · added by the user |
-| video | not exported · exported and verified (1080×1920, duration) · size mismatch |
+| file | not exported · probed (format, codec) |
+| size | unverified · verified 1080×1920 · mismatch |
+| total duration | unverified · verified against the plan's total · mismatch (pages × 5 s = Canva's defaults, timing not set) |
+| scene timing | unverified (with the reason) · verified scene by scene · mismatch |
+| motion / transitions | not applied · reported by the user (not verified from the file) |
+| audio | none · absent in file · present in file · reported by the user |
 
-Static pages are not an animated video. After an MP4 export (from the saved design, after the
-user approved saving), verify the file: `canva_export --file reel.mp4 --reel plan.json`. A video
-of pages × 5 s means Canva's default durations: the timing was not set.
+A matching total only proves the total. Scene timing is verified only with evidence of where
+each scene starts and ends: scene cuts detected in the file (`canva_export` runs ffmpeg's scene
+detection when the host has ffmpeg) or passed in `sceneCuts`. Without that evidence it stays
+`unverified`, with the reason; a detector that finds no cuts proves nothing either.
+
+Static pages are not an animated video, and an MP4 of static scenes is not proof of motion.
+After an MP4 export (from the saved design, after the user approved saving), verify the file:
+`canva_export --file reel.mp4 --reel plan.json [--scene-cuts 2.6,5.4,…]`.
 
 ## Identity
 

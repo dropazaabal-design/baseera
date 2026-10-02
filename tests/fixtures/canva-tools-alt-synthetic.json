@@ -1,0 +1,605 @@
+{
+ "kind": "canva-tool-capture",
+ "capturedAt": null,
+ "source": "SYNTHETIC — not captured from a live connector. Modelled on the tool names the creator reported for another host (canva_perform_editing_operations with element_id, separate start/commit/cancel transaction tools, separate content/pages/thumbnail readers, import_design_from_url with a design_file file param). Used only to test that the dialect layer reads field names from schemas instead of assuming Claude's.",
+ "tools": [
+  {
+   "name": "canva_start_editing_transaction",
+   "description": "Start an editing transaction for a design. Returns the transaction id and the design content.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_perform_editing_operations",
+   "description": "Apply editing operations to a page of a design inside an editing transaction.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "transaction_id": {
+      "type": "string"
+     },
+     "page_index": {
+      "type": "integer"
+     },
+     "operations": {
+      "type": "array",
+      "items": {
+       "anyOf": [
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_title",
+           "type": "string"
+          },
+          "title": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "title"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "replace_text",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "text": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "element_id",
+          "text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "find_and_replace_text",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "find_text": {
+           "type": "string"
+          },
+          "replace_text": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "element_id",
+          "find_text",
+          "replace_text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "format_text",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "formatting": {
+           "type": "object",
+           "properties": {
+            "color": {
+             "type": "string"
+            },
+            "font_size": {
+             "type": "string"
+            },
+            "font_weight": {
+             "type": "string"
+            },
+            "line_height": {
+             "type": "string"
+            },
+            "text_align": {
+             "type": "string"
+            }
+           }
+          }
+         },
+         "required": [
+          "type",
+          "element_id",
+          "formatting"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "position_element",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "top": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "element_id",
+          "top",
+          "left"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "resize_element",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "width": {
+           "type": "number"
+          },
+          "height": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "element_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "delete_element",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "element_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "update_fill",
+           "type": "string"
+          },
+          "element_id": {
+           "type": "string"
+          },
+          "asset_type": {
+           "type": "string",
+           "enum": [
+            "image",
+            "video"
+           ]
+          },
+          "asset_id": {
+           "type": "string"
+          },
+          "alt_text": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "element_id",
+          "asset_type",
+          "asset_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "insert_fill",
+           "type": "string"
+          },
+          "asset_type": {
+           "type": "string",
+           "enum": [
+            "image",
+            "video"
+           ]
+          },
+          "asset_id": {
+           "type": "string"
+          },
+          "alt_text": {
+           "type": "string"
+          },
+          "top": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          },
+          "height": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "asset_type",
+          "asset_id"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "add_text",
+           "type": "string"
+          },
+          "text": {
+           "type": "string"
+          },
+          "top": {
+           "type": "number"
+          },
+          "left": {
+           "type": "number"
+          },
+          "width": {
+           "type": "number"
+          }
+         },
+         "required": [
+          "type",
+          "text"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "add_page",
+           "type": "string"
+          },
+          "width": {
+           "type": "integer"
+          },
+          "height": {
+           "type": "integer"
+          },
+          "background_color": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type"
+         ]
+        },
+        {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+          "type": {
+           "const": "replace_speaker_notes",
+           "type": "string"
+          },
+          "page_id": {
+           "type": "string"
+          },
+          "notes": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "type",
+          "page_id",
+          "notes"
+         ]
+        }
+       ]
+      }
+     }
+    },
+    "required": [
+     "transaction_id",
+     "operations"
+    ]
+   }
+  },
+  {
+   "name": "canva_commit_editing_transaction",
+   "description": "Save the changes of an editing transaction. Ask the user before saving.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "transaction_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "transaction_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_cancel_editing_transaction",
+   "description": "Discard the changes of an editing transaction.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "transaction_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "transaction_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_get_design",
+   "description": "Get design metadata.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_get_design_content",
+   "description": "Get the text content and elements of a design (saved version).",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "page_index": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_get_design_pages",
+   "description": "List the pages of a design with their sizes.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_get_design_thumbnail",
+   "description": "Get a thumbnail image of one page.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "page_index": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  },
+  {
+   "name": "canva_resize_design",
+   "description": "Resize a design into a new design.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "design_type": {
+      "anyOf": [
+       {
+        "type": "object",
+        "properties": {
+         "type": {
+          "const": "custom"
+         },
+         "width": {
+          "type": "number"
+         },
+         "height": {
+          "type": "number"
+         }
+        },
+        "required": [
+         "type",
+         "width",
+         "height"
+        ]
+       }
+      ]
+     }
+    },
+    "required": [
+     "design_id",
+     "design_type"
+    ]
+   }
+  },
+  {
+   "name": "canva_import_design_from_url",
+   "description": "Import a PowerPoint, PDF or other file into a new Canva design, from a public URL or from a file the user attached.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Public HTTPS URL of the file."
+     },
+     "design_file": {
+      "type": "object",
+      "properties": {
+       "download_url": {
+        "type": "string"
+       },
+       "file_id": {
+        "type": "string"
+       }
+      },
+      "description": "A file attached in the conversation."
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "anyOf": [
+     {
+      "required": [
+       "url"
+      ]
+     },
+     {
+      "required": [
+       "design_file"
+      ]
+     }
+    ]
+   },
+   "_meta": {
+    "openai/fileParams": [
+     "design_file"
+    ]
+   }
+  },
+  {
+   "name": "canva_upload_asset_from_url",
+   "description": "Upload an image from a public URL.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "format": "uri"
+     },
+     "name": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "url"
+    ]
+   }
+  },
+  {
+   "name": "canva_export_design",
+   "description": "Export a design.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     },
+     "format": {
+      "type": "object",
+      "properties": {
+       "type": {
+        "type": "string",
+        "enum": [
+         "png",
+         "pdf",
+         "mp4"
+        ]
+       }
+      },
+      "required": [
+       "type"
+      ]
+     }
+    },
+    "required": [
+     "design_id",
+     "format"
+    ]
+   }
+  },
+  {
+   "name": "canva_get_export_formats",
+   "description": "List export formats.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "design_id": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "design_id"
+    ]
+   }
+  }
+ ]
+}

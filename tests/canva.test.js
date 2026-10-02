@@ -22,6 +22,7 @@ import { arcToCubics, parsePathToSubpaths, bounds } from '../lib/studio/canva/ge
 import { svgToShapes } from '../lib/studio/canva/svgshapes.js';
 import { ConnectClient } from '../lib/studio/canva/connect.js';
 import { canvaAlign, canvaText } from '../lib/studio/adapters/canva.js';
+import { detectDialect, normalizeToolName, translateStep } from '../lib/studio/canva/dialect.js';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/canva-schema-2026-10-02.json'), 'utf8'));
@@ -178,7 +179,7 @@ test('edit: a bigger title maps to one format_text; a font change is local, the 
   assert.ok(!ops.some((o) => ['insert_fill', 'update_fill'].includes(o.type)), 'no image operation');
   assert.equal(r.generation.expected, 0);
   assert.ok(r.unsupported.some((u) => /Tajawal/.test(u.what) && u.alternatives.some((a) => a.route === 'manual')), 'font family: unsupported in the connector, with the manual and native-file routes');
-  assert.deepEqual(r.preview.args.filter.thumbnail_pages, r.calls.map((c) => c.args.page_index).filter((v, i, a) => a.indexOf(v) === i), 'preview only the affected pages');
+  assert.deepEqual(r.preview.calls[0].args.filter.thumbnail_pages, r.calls.map((c) => c.args.page_index).filter((v, i, a) => a.indexOf(v) === i), 'preview only the affected pages');
 
   const edited = JSON.parse(new TextDecoder().decode(ctx.files.get('/d.json')));
   assert.equal(edited.theme.fonts.heading, 'tajawal');
@@ -215,7 +216,7 @@ test('reel: hook first, 1080×1920 scenes, timed by text, whole-element motion, 
   const kinds = plan.scenes.map((s) => `${s.composition}:${s.variant}`);
   assert.ok(kinds.every((k, i) => i < 2 || !(k === kinds[i - 1] && k === kinds[i - 2])), 'no three identical compositions in a row');
   assert.equal(r.quality.passed, true, JSON.stringify(r.quality.issues));
-  assert.deepEqual(Object.fromEntries(Object.entries(r.progress).map(([k, v]) => [k, v.state])), { scenes: 'created-locally', motion: 'not-applied', timing: 'not-set', audio: 'none', video: 'not-exported' });
+  assert.deepEqual(Object.fromEntries(Object.entries(r.progress).map(([k, v]) => [k, v.state])), { scenes: 'created-locally', file: 'not-exported', size: 'unverified', totalDuration: 'unverified', sceneTiming: 'unverified', motion: 'not-applied', transitions: 'not-applied', audio: 'none', video: 'not-exported' });
   assert.ok(r.connector.steps.some((s) => s.args?.operations?.some((o) => o.type === 'replace_speaker_notes')), 'the scene plan goes in the page notes');
   const slide = new TextDecoder().decode(unzip(ctx.files.get(r.files.pptx)).get('ppt/slides/slide1.xml'));
   assert.match(slide, new RegExp(`advTm="${Math.round(plan.scenes[0].seconds * 1000)}"`));
@@ -234,11 +235,36 @@ test('reel: hook first, 1080×1920 scenes, timed by text, whole-element motion, 
   ctx.files.set('/v1.mp4', defaultLength);
   const v1 = await TOOLS.canva_export(ctx, { file: '/v1.mp4', reel: plan });
   assert.equal(v1.status, 'verified');
-  assert.equal(v1.reel.timing.state, 'not-set', 'pages at Canva\'s default length: timing was not applied');
+  assert.equal(v1.reel.totalDuration.state, 'mismatch');
+  assert.match(v1.reel.totalDuration.note, /الافتراضية/, 'pages at Canva\'s default length: timing was not applied');
+  assert.equal(v1.reel.sceneTiming.state, 'mismatch');
   ctx.files.set('/v2.mp4', mp4({ seconds: plan.totalSeconds, width: 1080, height: 1920 }));
   const v2 = await TOOLS.canva_export(ctx, { file: '/v2.mp4', reel: plan });
-  assert.equal(v2.reel.timing.state, 'verified');
+  assert.equal(v2.reel.totalDuration.state, 'verified');
+  assert.equal(v2.reel.size.state, 'verified');
   assert.equal(v2.reel.video.state, 'exported-verified');
+  // The total matching says nothing about how it is split between scenes.
+  assert.equal(v2.reel.sceneTiming.state, 'unverified');
+  assert.match(v2.reel.sceneTiming.reason, /حدود المشاهد/);
+  assert.equal(v2.reel.audio.state, 'absent-in-file');
+
+  // Same total, scenes split differently (cuts detected in the file): the
+  // total passes, scene timing does not.
+  const ends = [];
+  let t = 0;
+  for (const s of plan.scenes) ends.push(Math.round((t += s.seconds) * 100) / 100);
+  const shifted = ends.slice(0, -1).map((e, i) => (i === 0 ? e + 1.2 : e));
+  const v4 = await TOOLS.canva_export(ctx, { file: '/v2.mp4', reel: plan, sceneCuts: shifted });
+  assert.equal(v4.reel.totalDuration.state, 'verified');
+  assert.equal(v4.reel.sceneTiming.state, 'mismatch');
+  assert.deepEqual(v4.reel.sceneTiming.scenes.filter((x) => !x.ok).map((x) => x.n), [1, 2]);
+  // Cuts where the plan puts them: verified, scene by scene.
+  const v5 = await TOOLS.canva_export(ctx, { file: '/v2.mp4', reel: plan, sceneCuts: ends.slice(0, -1).join(',') });
+  assert.equal(v5.reel.sceneTiming.state, 'verified');
+  assert.ok(v5.reel.sceneTiming.scenes.every((x) => x.ok));
+  // A detector that found nothing proves nothing.
+  const v6 = await TOOLS.canva_export({ ...ctx, detectSceneCuts: () => ({ cuts: [], source: 'test' }) }, { file: '/v2.mp4', reel: plan });
+  assert.equal(v6.reel.sceneTiming.state, 'unverified');
   ctx.files.set('/v3.mp4', mp4({ seconds: plan.totalSeconds, width: 1080, height: 1350 }));
   const v3 = await TOOLS.canva_export(ctx, { file: '/v3.mp4', reel: plan });
   assert.equal(v3.status, 'failed');
@@ -356,9 +382,17 @@ test('registry: statuses come from the session schema and dated evidence; a chan
   assert.equal(reg.entry('motion.animate', 'connector').status, 'unsupported');
   assert.equal(reg.entry('motion.animate', 'native-file').status, 'unsupported', 'Canva does not import animations');
   assert.equal(reg.entry('video.insert', 'connector').status, 'supported');
+  // Importing a design is read from the import tool, not from media upload:
+  // Claude's import-design-from-url takes a public URL only and excludes
+  // generated files, so our .pptx cannot go through it.
   const imp = reg.entry('import.native-file', 'connector');
   assert.equal(imp.status, 'unsupported');
-  assert.equal(imp.verified.source, 'live');
+  assert.equal(imp.verified.source, 'schema');
+  assert.equal(imp.inputType, 'public-url');
+  const media = reg.entry('media.upload', 'connector');
+  assert.equal(media.status, 'supported');
+  assert.equal(media.verified.source, 'live');
+  assert.match(media.verified.note, /PPTX/);
   assert.equal(reg.entry('page.delete', 'connector').approval, 'explicit-before-call');
   assert.equal(reg.entry('design.size', 'connector').target, 'new-design', 'a resize is a new design');
 
@@ -372,9 +406,9 @@ test('registry: statuses come from the session schema and dated evidence; a chan
   const changed = reg.loadSchemas(next);
   assert.ok(changed.changed.includes('edit-design') && changed.changed.includes('create-upload-url'));
   assert.equal(reg.entry('motion.animate', 'connector').status, 'supported');
-  const stale = reg.entry('import.native-file', 'connector');
+  const stale = reg.entry('media.upload', 'connector');
   assert.ok(stale.stale?.length, 'the live PPTX rejection must be re-tested');
-  assert.equal(stale.status, 'unverified');
+  assert.equal(stale.status, 'supported', 'back to what the new schema says, with the old test listed as stale');
   assert.equal(schemaFacts(next).fingerprints['edit-design'] !== schemaFacts(SCHEMA).fingerprints['edit-design'], true);
 });
 
@@ -523,4 +557,186 @@ test('MCP server: lists the eleven tools and answers a call over stdio', async (
   assert.equal(res.structuredContent.capability.routes.connector.status, 'unsupported');
   child.kill();
   fs.rmSync(home, { recursive: true, force: true });
+});
+
+// ---------------------------------------------------------------------------
+// 6. Two connector dialects (Claude's, and a host with separate transaction
+//    tools on element_id), MCP/underscore names, and importing a design file.
+
+const CLAUDE_TOOLS = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/canva-tools-claude-2026-10-02.json'), 'utf8')).tools;
+const ALT_TOOLS = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/canva-tools-alt-synthetic.json'), 'utf8')).tools;
+// The same Claude tools, listed by another host with "_" and a lower-case prefix.
+const UNDERSCORED = CLAUDE_TOOLS.map((t) => ({ ...t, name: t.name.replace('mcp__Canva__', 'mcp__canva__').replace(/-/g, '_') }));
+// Element ids as a host that names them element_id reports them.
+const asElementIds = (rb) => JSON.parse(JSON.stringify(rb).replace(/"locator_id"/g, '"element_id"'));
+
+test('dialects: tool names are normalised, roles and fields come from each schema, and the registry finds format, resize and preview wherever they are', async () => {
+  assert.equal(normalizeToolName('mcp__Canva__edit-design'), 'edit-design');
+  assert.equal(normalizeToolName('mcp__claude_ai_Canva__read-design'), 'read-design');
+  assert.equal(normalizeToolName('canva_perform_editing_operations'), 'perform-editing-operations');
+  assert.equal(normalizeToolName('mcp__canva__edit_design'), 'edit-design');
+
+  const claude = detectDialect(CLAUDE_TOOLS);
+  assert.equal(claude.id, 'edit-design');
+  assert.equal(claude.edit.ops.format_text.ref, 'locator_id');
+  assert.deepEqual([claude.commit.inline, claude.commit.value], [true, 'commit']);
+  assert.equal(claude.open.flag, 'open_transaction');
+  const under = detectDialect(UNDERSCORED);
+  assert.equal(under.id, 'edit-design');
+  assert.equal(under.edit.tool, 'mcp__canva__edit_design', 'calls keep the name the host lists');
+
+  const alt = detectDialect(ALT_TOOLS);
+  assert.equal(alt.id, 'transaction-tools');
+  assert.equal(alt.edit.tool, 'canva_perform_editing_operations');
+  assert.equal(alt.edit.ops.format_text.ref, 'element_id');
+  assert.equal(alt.commit.tool, 'canva_commit_editing_transaction');
+  assert.equal(alt.cancel.tool, 'canva_cancel_editing_transaction');
+  assert.equal(alt.open.tool, 'canva_start_editing_transaction');
+  assert.deepEqual([alt.read.content.tool, alt.read.pages.tool, alt.read.thumbnails.tool], ['canva_get_design_content', 'canva_get_design_pages', 'canva_get_design_thumbnail']);
+
+  // The registry reads the same capabilities through either dialect.
+  for (const tools of [CLAUDE_TOOLS, UNDERSCORED, ALT_TOOLS]) {
+    const reg = new CanvaCapabilityRegistry();
+    reg.loadSchemas(tools);
+    for (const cap of ['text.format', 'design.size', 'preview', 'save', 'text.read']) assert.equal(reg.entry(cap, 'connector').status, 'supported', `${cap} with ${tools[0].name}`);
+  }
+  const altReg = new CanvaCapabilityRegistry();
+  altReg.loadSchemas(ALT_TOOLS);
+  assert.match(altReg.entry('text.format', 'connector').via, /canva_perform_editing_operations/);
+  assert.match(altReg.entry('preview', 'connector').via, /canva_get_design_thumbnail/);
+  assert.equal(altReg.entry('shape.insert', 'connector').status, 'unsupported', 'its schema has no insert_shape');
+  assert.equal(altReg.entry('text.add', 'connector').lastKnown?.connector, 'edit-design', 'live results from Claude\'s connector are shown as another connector\'s, never applied');
+  // Without the tools for a role, the capability is absent, not assumed.
+  const bare = new CanvaCapabilityRegistry();
+  bare.loadSchemas(ALT_TOOLS.filter((t) => !/thumbnail|resize/.test(t.name)));
+  assert.equal(bare.entry('preview', 'connector').status, 'unsupported');
+  assert.equal(bare.entry('design.size', 'connector').status, 'unsupported');
+  // Names only: tools are there, operations unknown — unverified, and no
+  // call is written with guessed fields.
+  const names = new CanvaCapabilityRegistry();
+  names.loadSchemas(ALT_TOOLS.map((t) => t.name));
+  assert.equal(names.entry('text.format', 'connector').status, 'unverified');
+  assert.equal(translateStep({ tool: 'edit-design', args: { transaction_id: 'T', page_index: 1, finalize: 'keep_open', operations: [{ type: 'format_text', locator_id: 'L1', formatting: { font_size: 90 } }] } }, names.dialect).issues[0].code, 'ops-unknown');
+  // Claude's full capture keeps the fingerprint the live evidence was recorded on.
+  assert.equal(schemaFacts(CLAUDE_TOOLS).fingerprints['edit-design'], schemaFacts(SCHEMA).fingerprints['edit-design']);
+});
+
+test('dialects: the same plan becomes element_id operations, separate open/commit/cancel calls and separate readers; nothing unknown is sent', async () => {
+  const alt = detectDialect(ALT_TOOLS);
+  const claude = detectDialect(CLAUDE_TOOLS);
+  const edit = { tool: 'edit-design', args: { transaction_id: 'T1', page_index: 2, finalize: 'keep_open', operations: [{ type: 'format_text', locator_id: 'E9', formatting: { font_size: 120, font_style: 'italic' } }, { type: 'add_text', page_id: '$page:2', text: 'نص', top: 10, left: 20, width: 300, _element: 'title' }] } };
+  const a = translateStep(edit, alt);
+  assert.equal(a.steps[0].tool, 'canva_perform_editing_operations');
+  assert.deepEqual(a.steps[0].args.operations[0], { type: 'format_text', element_id: 'E9', formatting: { font_size: 120 } });
+  assert.equal(a.steps[0].args.page_index, 2);
+  assert.ok(!('finalize' in a.steps[0].args), 'no finalize field in this connector');
+  assert.ok(!('page_id' in a.steps[0].args.operations[1]), 'add_text here takes the page from the call');
+  assert.equal(a.steps[0].args.operations[1]._element, 'title', 'our bookkeeping keys stay for canva_record');
+  assert.ok(a.issues.some((i) => i.code === 'dropped-fields' && i.fields.includes('formatting.font_style')), 'a field the schema lacks is reported, not sent');
+  const c = translateStep(edit, claude);
+  assert.equal(c.steps[0].tool, 'mcp__Canva__edit-design');
+  assert.deepEqual(c.steps[0].args.operations, edit.args.operations, 'Claude\'s connector gets the plan as written');
+
+  const commit = { tool: 'edit-design', args: { transaction_id: 'T1', finalize: 'commit' } };
+  assert.deepEqual(translateStep(commit, alt).steps[0], { ...commit, tool: 'canva_commit_editing_transaction', args: { transaction_id: 'T1' }, canonical: 'edit-design' });
+  assert.equal(translateStep({ ...commit, args: { transaction_id: 'T1', finalize: 'cancel' } }, alt).steps[0].tool, 'canva_cancel_editing_transaction');
+  assert.deepEqual(translateStep(commit, claude).steps[0].args, { transaction_id: 'T1', finalize: 'commit' });
+  const open = translateStep({ tool: 'read-design', args: { design_id: 'D1', open_transaction: true, filter: { fields: ['design_content'] } } }, alt).steps[0];
+  assert.deepEqual([open.tool, open.args], ['canva_start_editing_transaction', { design_id: 'D1' }]);
+  const reads = translateStep({ tool: 'read-design', args: { design_id: 'D1', transaction_id: 'T1', filter: { fields: ['page_metadata', 'design_content', 'thumbnails'], thumbnail_pages: [1, 3] } } }, alt).steps;
+  assert.deepEqual(reads.map((s) => s.tool), ['canva_get_design_content', 'canva_get_design_pages', 'canva_get_design_thumbnail', 'canva_get_design_thumbnail']);
+  assert.equal(reads[0].readsSaved, true, 'this reader cannot see the open transaction: said so');
+  assert.deepEqual(reads.slice(2).map((s) => s.args.page_index), [1, 3]);
+  // An operation the connector does not have is an error, not a call.
+  const shape = translateStep({ tool: 'edit-design', args: { transaction_id: 'T1', page_index: 1, finalize: 'keep_open', operations: [{ type: 'insert_shape', page_id: 'P', top: 0, left: 0, width: 1, height: 1, path: 'M0 0Z', view_box_width: 1, view_box_height: 1 }] } }, alt);
+  assert.equal(shape.steps[0].blocked, 'untranslatable');
+  assert.equal(shape.issues[0].code, 'op-missing');
+  // Media from a local file cannot go to a public-URL upload.
+  assert.equal(translateStep({ tool: 'create-upload-url', args: {} }, alt).issues[0].code, 'upload-needs-public-url');
+});
+
+test('dialects: an edit on a design in the other connector — «كبّر العنوان» targets element_id, previews per page, and the follow-up batch is translated too', async () => {
+  const ctx = memCtx();
+  const { doc } = kitabwbsDesign(ctx);
+  await TOOLS.canva_capabilities(ctx, { schemas: ALT_TOOLS });
+  await TOOLS.canva_record(ctx, { design: doc, event: 'design', designId: 'DALT0000001', relation: 'created' });
+  const rb = asElementIds(readbackOf(doc, { designId: 'DALT0000001' }));
+  await TOOLS.canva_record(ctx, { design: doc, event: 'locators', readback: rb });
+  ctx.files.set('/d.json', utf8(JSON.stringify(doc)));
+  const r = await TOOLS.canva_apply_patch(ctx, { design: '/d.json', commands: ['كبّر العنوان'], readback: rb });
+  assert.equal(r.status, 'planned', JSON.stringify(r.issues ?? r));
+  assert.ok(r.calls.every((c) => c.tool === 'canva_perform_editing_operations'));
+  const ops = r.calls.flatMap((c) => c.args.operations);
+  assert.ok(ops.length && ops.every((o) => 'element_id' in o && !('locator_id' in o)));
+  assert.ok(r.preview.calls.every((c) => c.tool === 'canva_get_design_thumbnail' && Number.isInteger(c.args.page_index)));
+  // The art was resized; this connector has no crop_media: said, not hidden.
+  assert.ok(r.issues.some((i) => i.code === 'op-missing' && i.op === 'crop_media' && i.severity === 'error'));
+
+  // Build-time bookkeeping with this connector's response shape.
+  const step = { tool: 'canva_perform_editing_operations', args: { transaction_id: 'T9', page_index: 1, operations: [{ type: 'add_text', text: 'دليل القارئ', top: 1, left: 1, width: 10, _element: 'kicker', _then: { type: 'format_text', element_id: '$el:x/kicker', formatting: { font_size: 30 } } }] } };
+  const response = { document: { page_index: 1, page: { id: 'PG1', elements: [{ type: 'text', element_id: 'EL-new-1', top: 1, left: 1, width: 10, height: 20, textRegions: [{ characters: 'دليل القارئ' }] }] } } };
+  const fresh = memCtx();
+  const { doc: d2 } = kitabwbsDesign(fresh);
+  await TOOLS.canva_capabilities(fresh, { schemas: ALT_TOOLS });
+  const rec = await TOOLS.canva_record(fresh, { design: d2, event: 'edit', step, response });
+  assert.equal(rec.mapped, 1);
+  assert.equal(rec.next.tool, 'canva_perform_editing_operations');
+  assert.equal(rec.next.args.operations[0].element_id, 'EL-new-1');
+});
+
+test('import: a design_file field gets the .pptx directly; a public-URL field never gets a local file; both ids are kept and the result is verified after import', async () => {
+  // Another host: import_design_from_url with a design_file file param.
+  const ctx = memCtx();
+  const { doc } = kitabwbsDesign(ctx);
+  await TOOLS.canva_capabilities(ctx, { schemas: ALT_TOOLS });
+  await TOOLS.canva_record(ctx, { design: doc, event: 'design', designId: 'DSRC0000001', relation: 'created' });
+  const reg = new CanvaCapabilityRegistry({ store: ctx.store });
+  const entry = reg.entry('import.native-file', 'connector');
+  assert.equal(entry.status, 'supported', 'the schema takes a file and names PowerPoint');
+  assert.equal(entry.inputType, 'local-file (host-file)');
+  assert.notEqual(reg.entry('media.upload', 'connector').via, entry.via, 'uploading media and importing a design are separate');
+  const r = await TOOLS.canva_import_editable(ctx, { design: doc, outDir: '/imp' });
+  assert.equal(r.status, 'planned');
+  assert.equal(r.route, 'connector');
+  const call = r.calls[0];
+  assert.equal(call.tool, 'canva_import_design_from_url');
+  assert.deepEqual(call.args.design_file, { $attach: r.file });
+  assert.ok(!('url' in call.args), 'no local path in a URL field');
+  assert.equal(call.attach.path, r.file);
+  assert.match(call.attach.mediaType, /presentationml/);
+  assert.deepEqual(r.ids, { localDocId: doc.id, sourceDesignId: 'DSRC0000001', newDesignId: '$newDesignId' });
+  assert.equal(r.record.relation, 'import');
+  assert.deepEqual(r.verify.calls.map((c) => c.tool), ['canva_get_design_content', 'canva_get_design_pages', 'canva_get_design_thumbnail']);
+  assert.deepEqual(r.verify.expect, { pages: 3, width: 1080, height: 1350 });
+  // The new design is recorded as an import of the source, which stays as it was.
+  const linked = await TOOLS.canva_record(ctx, { design: doc, event: 'design', designId: 'DNEW0000001', relation: 'import', sourceDesignId: 'DSRC0000001' });
+  assert.deepEqual([linked.link.designId, linked.link.sourceDesignId, linked.link.relation], ['DNEW0000001', 'DSRC0000001', 'import']);
+  // After the import: text, page count and size are checked on the new design.
+  const imported = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: asElementIds(readbackOf(doc, { designId: 'DNEW0000001' })) });
+  assert.equal(imported.passed, true, JSON.stringify(imported.issues));
+  const short = readbackOf(doc, { designId: 'DNEW0000001' });
+  short.design_content.pages.pop();
+  short.page_metadata.pop();
+  const lost = await TOOLS.canva_validate_arabic(ctx, { design: doc, readback: short });
+  assert.equal(lost.passed, false, 'a page lost in the import fails');
+
+  // A base64 field gets the file's bytes.
+  const b64 = ALT_TOOLS.map((t) => (/import_design/.test(t.name) ? { ...t, inputSchema: { ...t.inputSchema, properties: { ...t.inputSchema.properties, design_file: { type: 'string', contentEncoding: 'base64' } } }, _meta: {} } : t));
+  const ctx2 = memCtx();
+  const { doc: d2 } = kitabwbsDesign(ctx2);
+  await TOOLS.canva_capabilities(ctx2, { schemas: b64 });
+  const r2 = await TOOLS.canva_import_editable(ctx2, { design: d2, outDir: '/imp2' });
+  assert.equal(Buffer.from(r2.calls[0].args.design_file, 'base64').subarray(0, 2).toString(), 'PK', 'the .pptx itself');
+
+  // Claude's connector: import-design-from-url takes a public URL only and
+  // excludes generated files — no call, the reason, and the other routes.
+  const ctx3 = memCtx();
+  const { doc: d3 } = kitabwbsDesign(ctx3);
+  await TOOLS.canva_capabilities(ctx3, { schemas: CLAUDE_TOOLS });
+  const r3 = await TOOLS.canva_import_editable(ctx3, { design: d3, outDir: '/imp3' });
+  assert.equal(r3.status, 'file-ready');
+  assert.equal(r3.connector.status, 'unsupported');
+  assert.match(r3.connector.why, /عام|مولّد/);
+  assert.ok(!r3.calls, 'nothing to call');
+  assert.ok(r3.importOptions.some((o) => o.route === 'manual' && o.status === 'supported'));
 });

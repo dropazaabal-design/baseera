@@ -13,7 +13,7 @@ import { pathToFileURL } from 'node:url';
 import { build } from 'esbuild';
 import postcss from 'postcss';
 import tailwind from '@tailwindcss/postcss';
-import JSZip from 'jszip';
+import { PACKAGES, zipPackage } from './plugin-packages.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const pluginDir = path.join(root, 'claude-plugin');
@@ -160,20 +160,6 @@ ${dated.join('\n')}
 `;
 }
 
-async function zipDir(dir, out, skip = []) {
-  const zip = new JSZip();
-  const walk = async (rel) => {
-    for (const entry of await fs.readdir(path.join(dir, rel), { withFileTypes: true })) {
-      const relPath = path.posix.join(rel, entry.name);
-      if (skip.includes(relPath)) continue;
-      if (entry.isDirectory()) await walk(relPath);
-      else zip.file(relPath, await fs.readFile(path.join(dir, relPath)));
-    }
-  };
-  await walk('');
-  await fs.mkdir(path.dirname(out), { recursive: true });
-  await fs.writeFile(out, await zip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' }));
-}
 
 const [html, schema, cli, canvaCli, canvaMcp, capabilities] = await Promise.all([
   buildHtml(),
@@ -191,13 +177,11 @@ await fs.mkdir(path.join(canvaSkillDir, 'references'), { recursive: true });
 await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva.mjs'), canvaCli, { mode: 0o755 });
 await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva-mcp.mjs'), canvaMcp, { mode: 0o755 });
 await fs.writeFile(path.join(canvaSkillDir, 'references/capabilities.md'), capabilities);
-const zipPath = path.join(root, 'dist/arabic-carousel-plugin.zip');
-await zipDir(pluginDir, zipPath);
-// ChatGPT/Codex get only what OpenAI's packaging guide lists (plugin.json,
-// assets/, skills/), without Claude's .claude-plugin/ folder or the local
-// MCP server config (.mcp.json).
-const chatgptZipPath = path.join(root, 'dist/arabic-carousel-chatgpt.zip');
-await zipDir(pluginDir, chatgptZipPath, ['.claude-plugin', '.mcp.json']);
+const zipPath = path.join(root, PACKAGES.claude.zip);
+await zipPackage(pluginDir, 'claude', zipPath);
+// ChatGPT/Codex: skills and the CLIs only (see scripts/plugin-packages.mjs).
+const chatgptZipPath = path.join(root, PACKAGES.chatgpt.zip);
+await zipPackage(pluginDir, 'chatgpt', chatgptZipPath);
 
 const kb = (n) => `${Math.round(n / 1024)} KB`;
 console.log(`carousel.html  ${kb(Buffer.byteLength(html))}`);

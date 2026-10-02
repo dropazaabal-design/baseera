@@ -163,3 +163,35 @@ test('the bundled Canva tools run as a CLI and as the MCP server the plugin decl
   assert.equal(replies[1].result.tools.length, 11);
   assert.ok(fs.readFileSync(path.join(canva, 'references/capabilities.md'), 'utf8').includes('اختبارات حية مؤرخة'));
 });
+
+test('each platform gets the binding it can run: Claude the MCP server, ChatGPT/Codex skills and the CLI only', async () => {
+  const { packageFiles } = await import('../scripts/plugin-packages.mjs');
+  const claude = await packageFiles('claude-plugin', 'claude');
+  for (const f of ['.claude-plugin/plugin.json', '.mcp.json', 'plugin.json', 'skills/canva-arabic/scripts/canva-mcp.mjs', 'skills/canva-arabic/scripts/canva.mjs', 'skills/canva-arabic/references/platforms.md']) assert.ok(claude.includes(f), `claude package has ${f}`);
+  const mcp = JSON.parse(fs.readFileSync('claude-plugin/.mcp.json', 'utf8')).mcpServers['baseera-canva'];
+  assert.ok(claude.includes(mcp.args[0].replace('${CLAUDE_PLUGIN_ROOT}/', '')), 'the server .mcp.json starts is in the package');
+
+  const chatgpt = await packageFiles('claude-plugin', 'chatgpt');
+  for (const f of ['.mcp.json', 'skills/canva-arabic/scripts/canva-mcp.mjs']) assert.ok(!chatgpt.includes(f), `no ${f} for ChatGPT/Codex`);
+  assert.ok(!chatgpt.some((f) => f.startsWith('.claude-plugin/')));
+  for (const f of ['plugin.json', 'skills/canva-arabic/SKILL.md', 'skills/canva-arabic/scripts/canva.mjs', 'skills/canva-arabic/references/platforms.md']) assert.ok(chatgpt.includes(f), `chatgpt package has ${f}`);
+  const portable = JSON.parse(fs.readFileSync('claude-plugin/plugin.json', 'utf8'));
+  assert.match(portable.description, /does not connect an MCP server/);
+  assert.match(portable.extensions['com.openai'].interface.longDescription, /no MCP server/);
+  assert.match(fs.readFileSync('claude-plugin/skills/canva-arabic/SKILL.md', 'utf8'), /Not in your tool list/);
+
+  // The ChatGPT/Codex package works on its own: its CLI runs from a copy of
+  // just those files and writes calls for another host's Canva tools.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'chatgpt-pkg-'));
+  for (const f of chatgpt) {
+    fs.mkdirSync(path.dirname(path.join(dir, f)), { recursive: true });
+    fs.copyFileSync(path.join('claude-plugin', f), path.join(dir, f));
+  }
+  const env = { ...process.env, BASEERA_HOME: fs.mkdtempSync(path.join(os.tmpdir(), 'chatgpt-home-')), CANVA_ACCESS_TOKEN: '' };
+  const run = spawnSync(process.execPath, [path.join(dir, 'skills/canva-arabic/scripts/canva.mjs'), 'capabilities', '--schemas-file', path.resolve('tests/fixtures/canva-tools-alt-synthetic.json'), '--capability', 'text.format'], { encoding: 'utf8', env, cwd: os.tmpdir() });
+  assert.equal(run.status, 0, run.stderr);
+  const out = JSON.parse(run.stdout);
+  assert.equal(out.dialect.id, 'transaction-tools');
+  assert.equal(out.capability.routes.connector.status, 'supported');
+  assert.match(out.capability.routes.connector.via, /canva_perform_editing_operations/);
+});

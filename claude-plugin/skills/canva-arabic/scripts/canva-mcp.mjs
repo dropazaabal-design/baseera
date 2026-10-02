@@ -501,8 +501,8 @@ function themeFromPalette(paletteId = "midnight", { custom, fonts, numerals = "a
   const { colors } = resolvePalette(raw);
   return { paletteId, colors, fonts: { ...DEFAULT_FONTS, ...fonts }, numerals };
 }
-function withColor(theme, role, hex) {
-  const raw = role === "bg" ? { ...derivePalette({ bg: hex, accent: theme.colors.accent }), accent: theme.colors.accent } : { ...theme.colors, [role]: hex };
+function withColor(theme, role2, hex) {
+  const raw = role2 === "bg" ? { ...derivePalette({ bg: hex, accent: theme.colors.accent }), accent: theme.colors.accent } : { ...theme.colors, [role2]: hex };
   return { ...theme, colors: resolvePalette(raw).colors };
 }
 function resolveColor(value, colors) {
@@ -517,7 +517,7 @@ function resolveFont(value, fonts) {
 function pageTheme(doc, page) {
   if (!page?.themeOverride) return doc.theme;
   let theme = doc.theme;
-  for (const [role, hex] of Object.entries(page.themeOverride)) theme = withColor(theme, role, hex);
+  for (const [role2, hex] of Object.entries(page.themeOverride)) theme = withColor(theme, role2, hex);
   return theme;
 }
 function hsl(hex) {
@@ -738,9 +738,9 @@ function checkBrandRules(doc, brand, { overrides = [] } = {}) {
   const banned = new Set(rules.filter((r) => r === "no-yellow" || r === "no-orange").map((r) => r.slice(3)));
   const allowedLatin = (brand.allowedLatin ?? [brand.handle].filter(Boolean)).map((s) => s.toLowerCase());
   if (banned.size) {
-    for (const [role, hex] of Object.entries(doc.theme?.colors ?? {})) {
+    for (const [role2, hex] of Object.entries(doc.theme?.colors ?? {})) {
       const fam = warmFamily(hex);
-      if (fam && banned.has(fam)) add(`no-${fam}`, `color-${fam}`, `\u0644\u0648\u0646 ${fam === "yellow" ? "\u0623\u0635\u0641\u0631" : "\u0628\u0631\u062A\u0642\u0627\u0644\u064A"} (${hex}) \u0641\u064A \u062F\u0648\u0631 ${role}: \u0645\u0645\u0646\u0648\u0639 \u0641\u064A \u0647\u0648\u064A\u0629 ${brand.name ?? brand.id}.`);
+      if (fam && banned.has(fam)) add(`no-${fam}`, `color-${fam}`, `\u0644\u0648\u0646 ${fam === "yellow" ? "\u0623\u0635\u0641\u0631" : "\u0628\u0631\u062A\u0642\u0627\u0644\u064A"} (${hex}) \u0641\u064A \u062F\u0648\u0631 ${role2}: \u0645\u0645\u0646\u0648\u0639 \u0641\u064A \u0647\u0648\u064A\u0629 ${brand.name ?? brand.id}.`);
     }
   }
   for (const page of doc.pages) {
@@ -808,7 +808,7 @@ function contentRegion(format, { topChrome = true, bottomChrome = true } = {}) {
   const bottom = format.inset.bottom + (bottomChrome ? 190 : 120);
   return { x: MARGIN, y: top, width: format.width - MARGIN * 2, height: format.height - top - bottom };
 }
-var weightOf = (font, role) => FONTS[font]?.weights[role] ?? { regular: 400, bold: 700, black: 800 }[role];
+var weightOf = (font, role2) => FONTS[font]?.weights[role2] ?? { regular: 400, bold: 700, black: 800 }[role2];
 var sizeAt = ([pref, min], s) => Math.max(min, Math.round(pref * s));
 function textStyle(ctx2, { font = "@body", weightRole = "regular", size, lineHeight }) {
   const fontId = resolveFont(font, ctx2.theme.fonts);
@@ -2734,7 +2734,7 @@ function colorFromWords(m, doc, brand) {
   const entry = colorWordIn(m.norm) ?? colorWordIn(m.words.join(" "));
   if (!entry) return { entry: null };
   const brandColors = (brand?.colors ?? []).map((c) => ({ hex: c.hex, name: c.name ?? c.role }));
-  const themeColors = Object.entries(doc.theme.colors).map(([role, hex]) => ({ hex, name: role, token: `@${role}` }));
+  const themeColors = Object.entries(doc.theme.colors).map(([role2, hex]) => ({ hex, name: role2, token: `@${role2}` }));
   const wantsBrand = m.has(["\u0647\u0648\u064A\u062A\u064A", "\u0627\u0644\u0647\u0648\u064A\u0647", "\u0627\u0644\u0628\u0631\u0627\u0646\u062F", "\u0647\u0648\u064A\u0647"]);
   const pool = wantsBrand ? brandColors : [...brandColors, ...themeColors];
   const said = entry.words.map((w) => normalizeArabic(w).replace(/^ال/, "")).filter((w) => m.norm.includes(w));
@@ -2772,9 +2772,9 @@ function parseCommand(doc, text, ctx2 = {}) {
   }
   const fontId = Object.entries(FONT_WORDS).find(([, forms]) => forms.some((w) => m.norm.includes(normalizeArabic(w))))?.[0];
   if (fontId && m.has(["\u0627\u0644\u062E\u0637", "\u062E\u0637", "\u0627\u0644\u062E\u0637\u0648\u0637", "\u062E\u0637\u0648\u0637"])) {
-    const role = m.has(["\u0627\u0644\u0639\u0646\u0648\u0627\u0646", "\u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646", "\u0639\u0646\u0648\u0627\u0646"]) ? "heading" : m.has(["\u0627\u0644\u0646\u0635", "\u0627\u0644\u0628\u0646\u0648\u062F", "\u0627\u0644\u0645\u062A\u0646", "\u0627\u0644\u0641\u0642\u0631\u0627\u062A"]) ? "body" : "both";
-    const what = role === "heading" ? "\u062E\u0637 \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646" : role === "body" ? "\u062E\u0637 \u0627\u0644\u0646\u0635" : "\u0627\u0644\u062E\u0637";
-    return result({ intent: "font", fontId, role, reply: `\u063A\u064A\u0651\u0631\u062A ${what} \u0625\u0644\u0649 ${FONT_LABEL[fontId]} \u0648\u0623\u0639\u062F\u062A \u062A\u0648\u0632\u064A\u0639 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u062D\u0648\u0644\u0647\u060C \u062F\u0648\u0646 \u0623\u064A \u062A\u0648\u0644\u064A\u062F \u0644\u0644\u0635\u0648\u0631.` });
+    const role2 = m.has(["\u0627\u0644\u0639\u0646\u0648\u0627\u0646", "\u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646", "\u0639\u0646\u0648\u0627\u0646"]) ? "heading" : m.has(["\u0627\u0644\u0646\u0635", "\u0627\u0644\u0628\u0646\u0648\u062F", "\u0627\u0644\u0645\u062A\u0646", "\u0627\u0644\u0641\u0642\u0631\u0627\u062A"]) ? "body" : "both";
+    const what = role2 === "heading" ? "\u062E\u0637 \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646" : role2 === "body" ? "\u062E\u0637 \u0627\u0644\u0646\u0635" : "\u0627\u0644\u062E\u0637";
+    return result({ intent: "font", fontId, role: role2, reply: `\u063A\u064A\u0651\u0631\u062A ${what} \u0625\u0644\u0649 ${FONT_LABEL[fontId]} \u0648\u0623\u0639\u062F\u062A \u062A\u0648\u0632\u064A\u0639 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u062D\u0648\u0644\u0647\u060C \u062F\u0648\u0646 \u0623\u064A \u062A\u0648\u0644\u064A\u062F \u0644\u0644\u0635\u0648\u0631.` });
   }
   if (target?.background || m.has(["\u0627\u0644\u062E\u0644\u0641\u064A\u0647"]) && colorWordIn(m.norm)) {
     const { entry, matches, wantsBrand } = colorFromWords(m, doc, ctx2.brand);
@@ -2937,6 +2937,370 @@ function runCommand(doc, text, ctx2 = {}) {
   return { ...cmd, doc };
 }
 
+// lib/studio/canva/dialect.js
+function normalizeToolName(name) {
+  const last = String(name ?? "").split("__").pop();
+  return last.replace(/^canva[._-]/i, "").replace(/_/g, "-").toLowerCase();
+}
+var schemaOf = (t) => t?.inputSchema ?? t?.input_schema ?? t?.parameters ?? null;
+var metaOf = (t) => t?._meta ?? t?.meta ?? null;
+var propsOf = (s) => s?.properties ?? {};
+var firstKey = (props, keys) => keys.find((k) => k in props) ?? null;
+var variantsOf = (prop) => {
+  const items = prop?.items;
+  if (!items) return null;
+  return items.anyOf ?? items.oneOf ?? (items.properties?.type ? [items] : null);
+};
+var opType = (v) => v?.properties?.type?.const ?? (v?.properties?.type?.enum?.length === 1 ? v.properties.type.enum[0] : null);
+var REF_KEYS = ["locator_id", "element_id", "elementId", "locatorId"];
+var REFS_KEYS = ["locator_ids", "element_ids", "elementIds", "locatorIds"];
+var PAGE_ID_KEYS = ["page_id", "pageId"];
+var TX_KEYS = ["transaction_id", "transactionId", "editing_transaction_id"];
+var PAGE_INDEX_KEYS = ["page_index", "page_number", "pageIndex", "pageNumber"];
+var DESIGN_KEYS = ["design_id", "designId"];
+function role(tools, re, { needs } = {}) {
+  return tools.find((t) => re.test(t.name) && (!needs || needs(t))) ?? null;
+}
+function editRole(tools) {
+  const known = /* @__PURE__ */ new Set(["add_text", "format_text", "replace_text", "find_and_replace_text", "delete_element", "position_element", "resize_element", "insert_fill", "update_fill", "insert_shape", "add_page", "update_title"]);
+  const candidates = tools.map((t) => ({ t, variants: variantsOf(propsOf(schemaOf(t)).operations) })).filter((c) => c.variants?.length).map((c) => ({ ...c, score: c.variants.map(opType).filter((o) => known.has(o)).length })).filter((c) => c.score > 0).sort((a, b) => b.score - a.score);
+  const best = candidates[0];
+  if (best) {
+    const p = propsOf(schemaOf(best.t));
+    const fin = p.finalize?.enum ?? null;
+    const ops = {};
+    for (const v of best.variants) {
+      const type = opType(v);
+      if (!type) continue;
+      const vp = propsOf(v);
+      ops[type] = {
+        ref: firstKey(vp, REF_KEYS),
+        refs: firstKey(vp, REFS_KEYS),
+        page: firstKey(vp, PAGE_ID_KEYS),
+        fields: Object.keys(vp).filter((k) => k !== "type"),
+        required: (v.required ?? []).filter((k) => k !== "type"),
+        nested: Object.fromEntries(Object.entries(vp).filter(([, s]) => s?.type === "object" && s.properties).map(([k, s]) => [k, Object.keys(s.properties)])),
+        enums: Object.fromEntries(Object.entries(vp).filter(([, s]) => Array.isArray(s?.enum)).map(([k, s]) => [k, s.enum]))
+      };
+    }
+    return {
+      tool: best.t.raw,
+      name: best.t.name,
+      source: "schema",
+      transaction: firstKey(p, TX_KEYS),
+      page: firstKey(p, PAGE_INDEX_KEYS),
+      finalize: fin?.includes("commit") ? { field: "finalize", keep: fin.includes("keep_open") ? "keep_open" : null, commit: "commit", cancel: fin.includes("cancel") ? "cancel" : null } : null,
+      ops
+    };
+  }
+  const named = role(tools, /^edit-design$|perform-editing-operations|^edit-design-content$/);
+  return named ? { tool: named.raw, name: named.name, source: "name", transaction: null, page: null, finalize: null, ops: null } : null;
+}
+function fileKind(name, schema, fileParams) {
+  if (!schema) return fileParams.includes(name) ? "host-file" : "unknown";
+  if (fileParams.includes(name)) return "host-file";
+  const p = schema.properties ?? {};
+  if (schema.type === "object" && ("download_url" in p || "file_id" in p)) return "host-file";
+  if (schema.type === "string" && (schema.contentEncoding === "base64" || schema.format === "byte")) return "base64";
+  if (schema.type === "string" && schema.format === "binary") return "binary";
+  if (schema.type === "string" && /\bpath\b/i.test(schema.description ?? "")) return "path";
+  return "unknown";
+}
+function importRole(t) {
+  if (!t) return null;
+  const s = schemaOf(t);
+  const p = propsOf(s);
+  const fileParams = [].concat(metaOf(t)?.["openai/fileParams"] ?? []);
+  const fileField = ["design_file", "file", "document", "source_file"].find((k) => k in p) ?? fileParams[0] ?? null;
+  const urlSchema = p.url ?? null;
+  const text = `${t.description ?? ""} ${urlSchema?.description ?? ""}`;
+  const required = s?.required ?? [];
+  const alternatives = (s?.anyOf ?? s?.oneOf ?? []).map((a) => a.required ?? []).filter((r) => r.length);
+  return {
+    tool: t.raw,
+    name: t.name,
+    source: s ? "schema" : "name",
+    url: urlSchema ? {
+      field: "url",
+      required: required.includes("url"),
+      publicOnly: /public/i.test(text) || /\^https/.test(urlSchema.pattern ?? ""),
+      excludesLocal: /local|private/i.test(text),
+      excludesGenerated: /agent-generated|generated files/i.test(text),
+      pattern: urlSchema.pattern ?? null
+    } : null,
+    file: fileField ? { field: fileField, kind: fileKind(fileField, p[fileField] ?? null, fileParams), required: required.includes(fileField) } : null,
+    alternatives,
+    nameField: firstKey(p, ["name", "title", "design_title"]),
+    nameRequired: required.some((r) => ["name", "title", "design_title"].includes(r)),
+    typeField: "intended_design_type" in p ? { field: "intended_design_type", values: p.intended_design_type.enum ?? null } : null,
+    acceptsPptx: /powerpoint|pptx|slide deck/i.test(t.description ?? "") ? true : s ? null : null
+  };
+}
+function readRoles(tools) {
+  const multi = tools.find((t) => {
+    const f3 = propsOf(schemaOf(t)).filter?.properties?.fields;
+    return Array.isArray(f3?.items?.enum) && f3.items.enum.includes("design_content");
+  });
+  if (multi) {
+    const p = propsOf(schemaOf(multi));
+    const fields = p.filter.properties.fields.items.enum;
+    const reader2 = { tool: multi.raw, design: firstKey(p, DESIGN_KEYS), transaction: firstKey(p, TX_KEYS) };
+    return {
+      style: "filter",
+      content: reader2,
+      pages: fields.includes("page_metadata") ? reader2 : null,
+      thumbnails: fields.includes("thumbnails") ? reader2 : null,
+      notes: fields.includes("presenter_notes") ? reader2 : null,
+      open: "open_transaction" in p ? { tool: multi.raw, flag: "open_transaction", design: firstKey(p, DESIGN_KEYS) } : null
+    };
+  }
+  const named = role(tools, /^read-design$/);
+  const reader = (re) => {
+    const t = role(tools, re);
+    if (!t) return null;
+    const p = propsOf(schemaOf(t));
+    return { tool: t.raw, design: firstKey(p, DESIGN_KEYS), transaction: firstKey(p, TX_KEYS), page: firstKey(p, PAGE_INDEX_KEYS), source: schemaOf(t) ? "schema" : "name" };
+  };
+  if (named && !schemaOf(named)) {
+    const r = { tool: named.raw, design: "design_id", transaction: "transaction_id", source: "name" };
+    return { style: "filter", content: r, pages: r, thumbnails: r, notes: r, open: { tool: named.raw, flag: "open_transaction", design: "design_id" } };
+  }
+  return {
+    style: "separate",
+    content: reader(/get-design-content|design-content|read-design-content/),
+    pages: reader(/get-design-pages|design-pages|list-design-pages/),
+    thumbnails: reader(/thumbnail/),
+    notes: null,
+    open: null
+  };
+}
+function transactionRoles(tools, edit, read) {
+  const txTool = (re) => {
+    const t = tools.find((x) => re.test(x.name) && x.raw !== edit?.tool && (!schemaOf(x) || firstKey(propsOf(schemaOf(x)), TX_KEYS)));
+    return t ? { tool: t.raw, transaction: schemaOf(t) ? firstKey(propsOf(schemaOf(t)), TX_KEYS) : "transaction_id", inline: false } : null;
+  };
+  const inline = (value) => edit?.finalize?.[value] ? { tool: edit.tool, inline: true, field: edit.finalize.field, value: edit.finalize[value], transaction: edit.transaction } : null;
+  let open = read.open;
+  if (!open) {
+    const t = tools.find((x) => /(start|open|begin)-(editing-)?(transaction|edit|session)/.test(x.name));
+    if (t) open = { tool: t.raw, flag: null, design: schemaOf(t) ? firstKey(propsOf(schemaOf(t)), DESIGN_KEYS) : "design_id" };
+  }
+  return {
+    open,
+    commit: inline("commit") ?? txTool(/commit|save-(editing-)?transaction/),
+    cancel: inline("cancel") ?? txTool(/cancel|discard|abort|rollback/)
+  };
+}
+function detectDialect(input) {
+  const list = Array.isArray(input) ? input : input?.tools ?? [];
+  const tools = list.map((t) => typeof t === "string" ? { name: t } : t).filter((t) => t?.name).map((t) => ({ raw: t.name, name: normalizeToolName(t.name), inputSchema: schemaOf(t), _meta: metaOf(t), description: t.description ?? "" }));
+  const named = (re) => role(tools, re);
+  const edit = editRole(tools);
+  const read = readRoles(tools);
+  const tx = transactionRoles(tools, edit, read);
+  const resizeTool = named(/^resize-design$/);
+  const upload = named(/^create-upload-url$|upload-url$/);
+  const uploadFromUrl = named(/upload-asset-from-url/);
+  const d = {
+    kind: "canva-dialect",
+    id: !edit ? "none" : tx.commit?.inline ? "edit-design" : tx.commit ? "transaction-tools" : "edit-only",
+    edit,
+    open: tx.open,
+    commit: tx.commit,
+    cancel: tx.cancel,
+    read: { style: read.style, content: read.content, pages: read.pages, thumbnails: read.thumbnails, notes: read.notes },
+    upload: upload ? { tool: upload.raw, mode: "post-bytes", description: upload.description } : null,
+    uploadFromUrl: uploadFromUrl ? { tool: uploadFromUrl.raw, mode: "public-url" } : null,
+    import: importRole(named(/import-design/)),
+    resize: resizeTool ? { tool: resizeTool.raw, design: firstKey(propsOf(resizeTool.inputSchema), DESIGN_KEYS) ?? "design_id", custom: resizeTool.inputSchema ? JSON.stringify(resizeTool.inputSchema).includes('"custom"') : null } : null,
+    copy: pickTool(named(/^copy-design$|^duplicate-design$/)),
+    create: pickTool(named(/^create-design$|^generate-design$/)),
+    export: pickTool(named(/^export-design$/)),
+    exportFormats: pickTool(named(/export-formats$/)),
+    merge: pickTool(named(/^merge-designs$/)),
+    tools: tools.map((t) => t.name).sort()
+  };
+  d.fingerprint = hashOf({ id: d.id, edit: d.edit && { t: d.edit.name, tx: d.edit.transaction, page: d.edit.page, ops: d.edit.ops && Object.fromEntries(Object.entries(d.edit.ops).map(([k, v]) => [k, v.ref])) }, open: d.open?.flag ?? d.open?.tool ?? null, read: d.read.style, import: d.import && { url: Boolean(d.import.url), file: d.import.file?.kind ?? null } }).slice(0, 12);
+  return d;
+}
+var pickTool = (t) => t ? { tool: t.raw, design: firstKey(propsOf(t.inputSchema), DESIGN_KEYS) ?? "design_id" } : null;
+function dialectFromFacts(facts) {
+  if (facts?.dialect?.kind === "canva-dialect") return facts.dialect;
+  const names = facts?.tools ?? [];
+  const d = detectDialect(names);
+  if (d.edit && d.edit.source === "name" && /^edit-design$/.test(d.edit.name)) {
+    d.edit = { ...d.edit, transaction: "transaction_id", page: "page_index", finalize: { field: "finalize", keep: "keep_open", commit: "commit", cancel: "cancel" }, ops: facts.editOps ? Object.fromEntries(facts.editOps.map((o) => [o, { passthrough: true }])) : null };
+    d.commit = { tool: d.edit.tool, inline: true, field: "finalize", value: "commit", transaction: "transaction_id" };
+    d.cancel = { tool: d.edit.tool, inline: true, field: "finalize", value: "cancel", transaction: "transaction_id" };
+    d.id = "edit-design";
+  }
+  if (d.import && facts.importExcludesGenerated !== null && facts.importExcludesGenerated !== void 0 && d.import.source === "name") {
+    d.import = { ...d.import, url: { field: "url", required: true, publicOnly: true, excludesLocal: true, excludesGenerated: Boolean(facts.importExcludesGenerated), pattern: null }, file: null, nameField: "name", nameRequired: true };
+  }
+  return d;
+}
+function translateOp(op, d) {
+  if (!op || typeof op !== "object") return { op };
+  const v = d.edit?.ops?.[op.type];
+  if (!d.edit) return { error: { code: "no-edit-tool", message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u062A\u062D\u0631\u064A\u0631 \u0639\u0646\u0627\u0635\u0631 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629." } };
+  if (!d.edit.ops) return { error: { code: "ops-unknown", op: op.type, message: `\u0645\u062E\u0637\u0637 \u0639\u0645\u0644\u064A\u0627\u062A ${d.edit.tool} \u0644\u0645 \u064A\u064F\u0642\u0631\u0623: \u0644\u0627 \u0623\u0631\u0633\u0644 ${op.type} \u062F\u0648\u0646 \u0645\u0639\u0631\u0641\u0629 \u062D\u0642\u0648\u0644\u0647.` } };
+  if (!v) return { error: { code: "op-missing", op: op.type, message: `\u0627\u0644\u0639\u0645\u0644\u064A\u0629 ${op.type} \u0644\u064A\u0633\u062A \u0641\u064A \u0645\u062E\u0637\u0637 ${d.edit.tool}.` } };
+  if (v.passthrough) return { op };
+  const out = { type: op.type };
+  const dropped = [];
+  for (const [k, val] of Object.entries(op)) {
+    if (k === "type") continue;
+    if (k.startsWith("_")) {
+      out[k] = k === "_then" ? translateOp(val, d).op ?? val : val;
+      continue;
+    }
+    if (k === "locator_id") {
+      if (!v.ref) return { error: { code: "no-ref-field", op: op.type, message: `${op.type} \u0641\u064A ${d.edit.tool} \u0628\u0644\u0627 \u062D\u0642\u0644 \u0644\u0645\u0639\u0631\u0651\u0641 \u0627\u0644\u0639\u0646\u0635\u0631.` } };
+      out[v.ref] = val;
+    } else if (k === "locator_ids") {
+      if (!v.refs) return { error: { code: "no-ref-field", op: op.type, message: `${op.type} \u0641\u064A ${d.edit.tool} \u0628\u0644\u0627 \u062D\u0642\u0644 \u0644\u0645\u0639\u0631\u0651\u0641\u0627\u062A \u0627\u0644\u0639\u0646\u0627\u0635\u0631.` } };
+      out[v.refs] = val;
+    } else if (k === "page_id") {
+      if (v.page) out[v.page] = val;
+      else dropped.push(k);
+    } else if (!v.fields.includes(k)) dropped.push(k);
+    else if (val && typeof val === "object" && !Array.isArray(val) && v.nested?.[k]) {
+      const allowed = v.nested[k];
+      out[k] = Object.fromEntries(Object.entries(val).filter(([kk]) => allowed.includes(kk)));
+      for (const kk of Object.keys(val)) if (!allowed.includes(kk)) dropped.push(`${k}.${kk}`);
+    } else out[k] = val;
+  }
+  const missing = v.required.filter((r) => !(r in out));
+  if (missing.length) return { error: { code: "missing-required", op: op.type, fields: missing, message: `${op.type} \u064A\u062D\u062A\u0627\u062C ${missing.join("\u060C ")} \u0641\u064A ${d.edit.tool}\u060C \u0648\u0644\u0627 \u064A\u0642\u0627\u0628\u0644\u0647 \u0634\u064A\u0621 \u0641\u064A \u0627\u0644\u062E\u0637\u0629.` } };
+  return { op: out, ...dropped.length && { dropped } };
+}
+function translateStep(step, d) {
+  const issues = [];
+  if (!step?.tool) return { steps: [step], issues };
+  const canonical = normalizeToolName(step.tool);
+  const args = step.args ?? {};
+  const keep = (tool, a, extra = {}) => ({ ...step, tool, args: a, canonical: step.canonical ?? step.tool, ...extra });
+  const fail2 = (code, message) => {
+    issues.push({ code, severity: "error", step: step.n ?? null, tool: step.tool, message });
+    return { steps: [{ ...step, blocked: code }], issues };
+  };
+  if (canonical === "edit-design") {
+    if (Array.isArray(args.operations) && args.operations.length) {
+      if (!d.edit) return fail2("no-edit-tool", "\u0644\u0627 \u0623\u062F\u0627\u0629 \u062A\u062D\u0631\u064A\u0631 \u0639\u0646\u0627\u0635\u0631 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.");
+      const ops = [];
+      for (const op of args.operations) {
+        const r = translateOp(op, d);
+        if (r.error) issues.push({ ...r.error, severity: "error", step: step.n ?? null });
+        else {
+          ops.push(r.op);
+          if (r.dropped) issues.push({ code: "dropped-fields", severity: "warning", op: op.type, fields: r.dropped, step: step.n ?? null, message: `${op.type}: ${r.dropped.join("\u060C ")} \u0644\u0627 \u0645\u0642\u0627\u0628\u0644 \u0644\u0647\u0627 \u0641\u064A ${d.edit.tool} \u0641\u0644\u0646 \u062A\u064F\u0631\u0633\u0644.` });
+        }
+      }
+      if (!ops.length) return { steps: [{ ...step, blocked: "untranslatable" }], issues };
+      if (d.edit.source !== "schema" && !d.edit.ops?.[args.operations[0].type]?.passthrough) return fail2("ops-unknown", `\u0645\u062E\u0637\u0637 ${d.edit.tool} \u0644\u0645 \u064A\u064F\u0642\u0631\u0623.`);
+      const needsPage = args.operations.some((o) => "page_id" in o && !d.edit.ops[o.type]?.page && !d.edit.ops[o.type]?.passthrough);
+      if (needsPage && !d.edit.page) return fail2("no-page-field", `${d.edit.tool} \u0644\u0627 \u064A\u062D\u062F\u062F \u0627\u0644\u0635\u0641\u062D\u0629 \u0644\u0639\u0645\u0644\u064A\u0627\u062A \u0627\u0644\u0625\u0636\u0627\u0641\u0629.`);
+      if (!d.edit.transaction) return fail2("no-transaction-field", `${d.edit.tool} \u0628\u0644\u0627 \u062D\u0642\u0644 \u0645\u0639\u0627\u0645\u0644\u0629.`);
+      const a = { [d.edit.transaction]: args.transaction_id };
+      if (d.edit.page && args.page_index !== void 0) a[d.edit.page] = args.page_index;
+      if (d.edit.finalize?.keep) a[d.edit.finalize.field] = d.edit.finalize.keep;
+      a.operations = ops;
+      return { steps: [keep(d.edit.tool, a)], issues };
+    }
+    if (args.finalize === "commit" || args.finalize === "cancel") {
+      const r = args.finalize === "commit" ? d.commit : d.cancel;
+      if (!r) return fail2(`no-${args.finalize}`, `\u0644\u0627 \u0623\u062F\u0627\u0629 ${args.finalize === "commit" ? "\u062D\u0641\u0638" : "\u0625\u0644\u063A\u0627\u0621"} \u0644\u0644\u0645\u0639\u0627\u0645\u0644\u0629 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.`);
+      const a = r.inline ? { [r.transaction ?? "transaction_id"]: args.transaction_id, [r.field]: r.value } : { [r.transaction]: args.transaction_id };
+      return { steps: [keep(r.tool, a)], issues };
+    }
+    return { steps: [step], issues };
+  }
+  if (canonical === "read-design") {
+    if (args.open_transaction) {
+      if (!d.open) return fail2("no-open", "\u0644\u0627 \u0637\u0631\u064A\u0642\u0629 \u0644\u0641\u062A\u062D \u0645\u0639\u0627\u0645\u0644\u0629 \u062A\u062D\u0631\u064A\u0631 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.");
+      if (d.open.flag) return { steps: [keep(d.open.tool, { ...rename(args, { design_id: d.open.design }), [d.open.flag]: true })], issues };
+      return { steps: [keep(d.open.tool, { [d.open.design]: args.design_id }, { note: `${step.note ? `${step.note} ` : ""}\u0631\u062F \u0647\u0630\u0647 \u0627\u0644\u0623\u062F\u0627\u0629 \u064A\u062D\u0645\u0644 \u0645\u0639\u0631\u0651\u0641 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629.`.trim() })], issues };
+    }
+    const fields = args.filter?.fields ?? ["design_metadata", "design_content"];
+    if (d.read.style === "filter") {
+      const r = d.read.content;
+      return { steps: [keep(r.tool, rename(args, { design_id: r.design, transaction_id: r.transaction }))], issues };
+    }
+    const out = [];
+    const want = (f3) => fields.includes(f3);
+    const call = (r, extra = {}) => {
+      const a = { [r.design]: args.design_id, ...extra };
+      if (args.transaction_id && r.transaction) a[r.transaction] = args.transaction_id;
+      return a;
+    };
+    if (want("design_content") || want("design_metadata")) {
+      const r = d.read.content;
+      if (!r) issues.push({ code: "no-content-reader", severity: "error", message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0644\u0642\u0631\u0627\u0621\u0629 \u0645\u062D\u062A\u0648\u0649 \u0627\u0644\u062A\u0635\u0645\u064A\u0645." });
+      else out.push(keep(r.tool, call(r), args.transaction_id && !r.transaction ? { readsSaved: true, note: "\u0647\u0630\u0647 \u0627\u0644\u0623\u062F\u0627\u0629 \u062A\u0642\u0631\u0623 \u0627\u0644\u0646\u0633\u062E\u0629 \u0627\u0644\u0645\u062D\u0641\u0648\u0638\u0629 \u0641\u0642\u0637: \u062A\u0639\u062F\u064A\u0644\u0627\u062A \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u0645\u0641\u062A\u0648\u062D\u0629 \u0644\u0627 \u062A\u0638\u0647\u0631 \u0641\u064A\u0647\u0627." } : {}));
+    }
+    if (want("page_metadata")) {
+      const r = d.read.pages;
+      if (!r) issues.push({ code: "no-pages-reader", severity: "warning", message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0648\u0645\u0642\u0627\u0633\u0627\u062A\u0647\u0627: \u064A\u064F\u0639\u062A\u0645\u062F \u0639\u0644\u0649 \u0645\u062D\u062A\u0648\u0649 \u0627\u0644\u062A\u0635\u0645\u064A\u0645." });
+      else out.push(keep(r.tool, call(r)));
+    }
+    if (want("thumbnails")) {
+      const r = d.read.thumbnails;
+      if (!r) issues.push({ code: "no-thumbnails", severity: "error", message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0645\u0639\u0627\u064A\u0646\u0629 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629." });
+      else {
+        const pages = args.filter?.thumbnail_pages ?? args.filter?.page_indices ?? null;
+        if (pages && r.page) for (const p of pages) out.push(keep(r.tool, call(r, { [r.page]: p })));
+        else out.push(keep(r.tool, call(r)));
+      }
+    }
+    if (want("presenter_notes") && !d.read.notes) issues.push({ code: "no-notes-reader", severity: "warning", message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0644\u0642\u0631\u0627\u0621\u0629 \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0627\u0644\u0635\u0641\u062D\u0627\u062A." });
+    return { steps: out.length ? out : [{ ...step, blocked: "no-reader" }], issues };
+  }
+  if (canonical === "create-upload-url") {
+    if (d.upload) return { steps: [keep(d.upload.tool, args)], issues };
+    if (d.uploadFromUrl) return fail2("upload-needs-public-url", `\u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629 \u062A\u0631\u0641\u0639 \u0627\u0644\u0648\u0633\u0627\u0626\u0637 \u0645\u0646 \u0631\u0627\u0628\u0637 \u0639\u0627\u0645 \u0641\u0642\u0637 (${d.uploadFromUrl.tool}): \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0645\u062D\u0644\u064A \u0644\u0627 \u064A\u064F\u0631\u0633\u0644 \u0625\u0644\u0649 \u062D\u0642\u0644 \u0631\u0627\u0628\u0637.`);
+    return fail2("no-upload", "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0631\u0641\u0639 \u0648\u0633\u0627\u0626\u0637 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.");
+  }
+  const simple = { "resize-design": "resize", "copy-design": "copy", "create-design": "create", "export-design": "export", "get-export-formats": "exportFormats", "merge-designs": "merge" }[canonical];
+  if (simple) {
+    const r = d[simple];
+    if (!r) return fail2(`no-${simple}`, `\u0644\u0627 \u0623\u062F\u0627\u0629 ${step.tool} \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.`);
+    return { steps: [keep(r.tool, rename(args, { design_id: r.design }))], issues };
+  }
+  return { steps: [step], issues };
+}
+function rename(args, map) {
+  const out = {};
+  for (const [k, v] of Object.entries(args)) {
+    const to = k in map ? map[k] : k;
+    if (to) out[to] = v;
+  }
+  return out;
+}
+function translatePlan(steps, d) {
+  const out = [];
+  const issues = [];
+  for (const s of steps) {
+    const r = translateStep(s, d);
+    out.push(...r.steps);
+    issues.push(...r.issues);
+  }
+  return { steps: out.map((s, i) => s.n !== void 0 ? { ...s, n: i + 1 } : s), issues };
+}
+function dialectSummary(d) {
+  if (!d) return null;
+  return {
+    id: d.id,
+    fingerprint: d.fingerprint,
+    edit: d.edit ? { tool: d.edit.tool, elementField: d.edit.ops ? [...new Set(Object.values(d.edit.ops).map((o) => o.ref).filter(Boolean))].join(",") || (Object.values(d.edit.ops).some((o) => o.passthrough) ? "locator_id" : null) : null, transactionField: d.edit.transaction, pageField: d.edit.page, operations: d.edit.ops ? Object.keys(d.edit.ops).length : null } : null,
+    open: d.open ? d.open.flag ? `${d.open.tool} (${d.open.flag})` : d.open.tool : null,
+    commit: d.commit ? d.commit.inline ? `${d.commit.tool} (${d.commit.field}: ${d.commit.value})` : d.commit.tool : null,
+    cancel: d.cancel ? d.cancel.inline ? `${d.cancel.tool} (${d.cancel.field}: ${d.cancel.value})` : d.cancel.tool : null,
+    read: { style: d.read.style, content: d.read.content?.tool ?? null, pages: d.read.pages?.tool ?? null, thumbnails: d.read.thumbnails?.tool ?? null },
+    upload: d.upload?.tool ?? d.uploadFromUrl?.tool ?? null,
+    import: d.import ? { tool: d.import.tool, url: Boolean(d.import.url), file: d.import.file ? `${d.import.file.field} (${d.import.file.kind})` : null } : null
+  };
+}
+
 // lib/studio/canva/registry.js
 var STATUSES = ["supported", "partial", "unsupported", "unverified"];
 var ROUTES = {
@@ -2947,17 +3311,21 @@ var ROUTES = {
 };
 var CAPABILITIES = {
   "design.create": "\u0625\u0646\u0634\u0627\u0621 \u062A\u0635\u0645\u064A\u0645",
+  "design.copy": "\u0646\u0633\u062E \u062A\u0635\u0645\u064A\u0645",
   "design.size": "\u0645\u0642\u0627\u0633 \u0645\u0637\u0627\u0628\u0642 \u0628\u0627\u0644\u0628\u0643\u0633\u0644",
+  "brand.kit": "\u0642\u0631\u0627\u0621\u0629 \u0647\u0648\u064A\u0629 \u0627\u0644\u0639\u0644\u0627\u0645\u0629 (Brand Kit)",
   "page.add": "\u0625\u0636\u0627\u0641\u0629 \u0635\u0641\u062D\u0629",
   "page.reorder": "\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u0635\u0641\u062D\u0627\u062A",
   "page.delete": "\u062D\u0630\u0641 \u0635\u0641\u062D\u0629",
   "page.duplicate": "\u0646\u0633\u062E \u0635\u0641\u062D\u0627\u062A",
   "text.add": "\u0625\u0636\u0627\u0641\u0629 \u0645\u0631\u0628\u0639 \u0646\u0635",
   "text.edit": "\u062A\u0639\u062F\u064A\u0644 \u0646\u0635",
+  "text.read": "\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0646\u0635 \u0645\u0646 \u0627\u0644\u062A\u0635\u0645\u064A\u0645",
   "text.format": "\u062A\u0646\u0633\u064A\u0642 \u0627\u0644\u0646\u0635 (\u0627\u0644\u062D\u062C\u0645\u060C \u0627\u0644\u0644\u0648\u0646\u060C \u0627\u0644\u0648\u0632\u0646\u060C \u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629\u060C \u0627\u0644\u0645\u0633\u0627\u0641\u0629 \u0628\u064A\u0646 \u0627\u0644\u0623\u0633\u0637\u0631)",
   "text.font-family": "\u0627\u062E\u062A\u064A\u0627\u0631 \u0639\u0627\u0626\u0644\u0629 \u0627\u0644\u062E\u0637",
   "text.rich-color": "\u062A\u0644\u0648\u064A\u0646 \u0643\u0644\u0645\u0629 \u062F\u0627\u062E\u0644 \u0627\u0644\u0646\u0635",
   "text.rtl": "\u0646\u0635 \u0639\u0631\u0628\u064A \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0644\u0644\u064A\u0633\u0627\u0631",
+  "media.upload": "\u0631\u0641\u0639 \u0648\u0633\u0627\u0626\u0637 \u0625\u0644\u0649 Canva (\u0635\u0648\u0631\u060C \u0641\u064A\u062F\u064A\u0648)",
   "image.insert": "\u0625\u062F\u0631\u0627\u062C \u0635\u0648\u0631\u0629",
   "image.replace": "\u0627\u0633\u062A\u0628\u062F\u0627\u0644 \u0635\u0648\u0631\u0629 \u0623\u0648 \u0642\u0635\u0651\u0647\u0627",
   "video.insert": "\u0625\u062F\u0631\u0627\u062C \u0641\u064A\u062F\u064A\u0648",
@@ -2970,6 +3338,7 @@ var CAPABILITIES = {
   "timing.duration": "\u0645\u062F\u0629 \u0643\u0644 \u0645\u0634\u0647\u062F",
   "audio.add": "\u0625\u0636\u0627\u0641\u0629 \u0635\u0648\u062A",
   preview: "\u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0641\u062D\u0627\u062A",
+  save: "\u062D\u0641\u0638 \u0627\u0644\u062A\u0639\u062F\u064A\u0644\u0627\u062A (commit)",
   "speaker-notes": "\u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0627\u0644\u0635\u0641\u062D\u0629 (\u062E\u0637\u0629 \u0627\u0644\u0645\u0634\u0647\u062F)",
   "export.png": "\u062A\u0635\u062F\u064A\u0631 PNG",
   "export.jpg": "\u062A\u0635\u062F\u064A\u0631 JPG",
@@ -2979,143 +3348,204 @@ var CAPABILITIES = {
   "export.pptx": "\u062A\u0635\u062F\u064A\u0631 PowerPoint",
   "import.native-file": "\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u0645\u0644\u0641 \u062A\u0635\u0645\u064A\u0645 \u0623\u0635\u0644\u064A (PPTX)"
 };
-var strip = (name) => String(name).replace(/^.*(?:__|\.)/, "");
 function schemaFacts(input = {}) {
-  if (input.kind === "canva-schema-facts") return input;
-  const list = Array.isArray(input) ? input : input.tools ?? [];
-  const tools = {};
-  for (const t of list) {
-    const name = strip(typeof t === "string" ? t : t.name);
-    if (name) tools[name] = typeof t === "string" ? {} : t;
+  if (input.kind === "canva-schema-facts") {
+    if (input.dialect?.kind === "canva-dialect") return input;
+    const withDialect = { ...input, dialect: dialectFromFacts(input) };
+    return { ...withDialect, fingerprints: toolFingerprints(withDialect) };
   }
-  const schemaOf = (name) => tools[name]?.inputSchema ?? tools[name]?.parameters ?? tools[name]?.input_schema ?? null;
-  const edit = schemaOf("edit-design");
-  const variants = edit?.properties?.operations?.items?.anyOf ?? edit?.properties?.operations?.items?.oneOf ?? null;
-  const opOf = (v) => v?.properties?.type?.const ?? v?.properties?.type?.enum?.[0];
-  const opSchema = (name) => variants?.find((v) => opOf(v) === name) ?? null;
-  const exportSchema = schemaOf("export-design");
+  const list = Array.isArray(input) ? input : input.tools ?? [];
+  const full = list.some((t) => t && typeof t === "object" && (t.inputSchema || t.input_schema || t.parameters));
+  const byName = {};
+  for (const t of list) {
+    const name = normalizeToolName(typeof t === "string" ? t : t?.name);
+    if (name) byName[name] = typeof t === "string" ? {} : t;
+  }
+  let dialect = detectDialect(list);
+  const schemaOf2 = (raw) => {
+    const t = byName[normalizeToolName(raw)];
+    return t?.inputSchema ?? t?.parameters ?? t?.input_schema ?? null;
+  };
+  const opsKnown = dialect.edit?.ops && !Object.values(dialect.edit.ops).some((o) => o.passthrough);
   const facts = {
     kind: "canva-schema-facts",
-    tools: Object.keys(tools).sort(),
-    editOps: variants ? variants.map(opOf).filter(Boolean).sort() : input.editOps ?? null,
-    formatFields: opSchema("format_text") ? Object.keys(opSchema("format_text").properties?.formatting?.properties ?? {}).sort() : input.formatFields ?? null,
-    insertFillTypes: opSchema("insert_fill")?.properties?.asset_type?.enum ?? input.insertFillTypes ?? null,
-    exportTypes: exportSchema?.properties?.format?.properties?.type?.enum ?? input.exportTypes ?? null,
-    resizeCustom: schemaOf("resize-design") ? JSON.stringify(schemaOf("resize-design")).includes('"custom"') : input.resizeCustom ?? null,
-    mergeOps: (schemaOf("merge-designs")?.properties?.operations?.items?.anyOf ?? []).map(opOf).filter(Boolean).sort(),
-    importExcludesGenerated: tools["import-design-from-url"]?.description ? /agent-generated|generated files/i.test(tools["import-design-from-url"].description) : input.importExcludesGenerated ?? null,
-    uploadKinds: tools["create-upload-url"]?.description ? ["image", "video", "audio", "pdf"].filter((k) => new RegExp(k, "i").test(tools["create-upload-url"].description)) : input.uploadKinds ?? null
+    tools: Object.keys(byName).sort(),
+    editOps: opsKnown ? Object.keys(dialect.edit.ops).sort() : input.editOps ?? null,
+    formatFields: opsKnown ? (dialect.edit.ops.format_text?.nested?.formatting ?? []).slice().sort() : input.formatFields ?? null,
+    insertFillTypes: opsKnown && dialect.edit.ops.insert_fill?.enums?.asset_type || input.insertFillTypes || null,
+    exportTypes: dialect.export && schemaOf2(dialect.export.tool)?.properties?.format?.properties?.type?.enum || input.exportTypes || null,
+    resizeCustom: dialect.resize ? dialect.resize.custom ?? input.resizeCustom ?? null : input.resizeCustom ?? null,
+    mergeOps: dialect.merge && (schemaOf2(dialect.merge.tool)?.properties?.operations?.items?.anyOf ?? []).map((v) => v?.properties?.type?.const).filter(Boolean).sort() || null,
+    importExcludesGenerated: dialect.import?.url ? dialect.import.source === "schema" ? dialect.import.url.excludesGenerated : input.importExcludesGenerated ?? null : input.importExcludesGenerated ?? null,
+    uploadKinds: dialect.upload?.description ? ["image", "video", "audio", "pdf"].filter((k) => new RegExp(k, "i").test(dialect.upload.description)) : input.uploadKinds ?? null
   };
-  if (!facts.mergeOps.length) facts.mergeOps = input.mergeOps ?? null;
+  if (!facts.mergeOps?.length) facts.mergeOps = input.mergeOps ?? null;
+  if (!full) dialect = dialectFromFacts({ ...facts, importExcludesGenerated: facts.importExcludesGenerated });
+  facts.dialect = dialect;
   facts.fingerprints = toolFingerprints(facts);
   return facts;
 }
 function toolFingerprints(f3) {
   const fp = (v) => v === null || v === void 0 ? null : hashOf(v).slice(0, 12);
+  const d = f3.dialect ?? dialectFromFacts(f3);
+  const other = d.id !== "edit-design" ? { dialect: d.id, fingerprint: d.fingerprint } : {};
   return {
-    "edit-design": f3.tools.includes("edit-design") ? fp({ ops: f3.editOps, format: f3.formatFields, fill: f3.insertFillTypes }) : null,
-    "export-design": f3.tools.includes("export-design") ? fp(f3.exportTypes) : null,
-    "create-upload-url": f3.tools.includes("create-upload-url") ? fp(f3.uploadKinds) : null,
-    "create-design": f3.tools.includes("create-design") ? "present" : null,
-    "resize-design": f3.tools.includes("resize-design") ? fp(f3.resizeCustom) : null,
-    "merge-designs": f3.tools.includes("merge-designs") ? fp(f3.mergeOps) : null
+    "edit-design": d.edit ? fp({ ops: f3.editOps, format: f3.formatFields, fill: f3.insertFillTypes, ...other }) : null,
+    "export-design": d.export ? fp(f3.exportTypes) : null,
+    "create-upload-url": d.upload ? fp(f3.uploadKinds) : null,
+    "create-design": d.create ? "present" : null,
+    "resize-design": d.resize ? fp(f3.resizeCustom) : null,
+    "merge-designs": d.merge ? fp(f3.mergeOps) : null,
+    "import-design": d.import ? fp({ url: d.import.url && { excl: d.import.url.excludesGenerated ?? null }, file: d.import.file?.kind ?? null, ...other }) : null
   };
 }
 function connectorEntry(cap, f3) {
-  const has = (t) => f3.tools.includes(t);
+  const d = f3.dialect ?? dialectFromFacts(f3);
+  const roles = {
+    edit: d.edit?.tool,
+    read: d.read?.content?.tool,
+    upload: d.upload?.tool,
+    copy: d.copy?.tool,
+    resize: d.resize?.tool,
+    create: d.create?.tool,
+    merge: d.merge?.tool,
+    export: d.export?.tool,
+    thumbnails: d.read?.thumbnails?.tool
+  };
+  const has = (r) => Boolean(roles[r]);
   const op = (name) => f3.editOps ? f3.editOps.includes(name) : null;
-  const need = (tools, ops = [], extra = {}) => {
-    const missing = tools.filter((t) => !has(t));
-    if (missing.length) return { status: "unsupported", missingTool: true, note: `\u0627\u0644\u0623\u062F\u0627\u0629 ${missing.join("\u060C ")} \u063A\u064A\u0631 \u0645\u062A\u0627\u062D\u0629 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.` };
+  const viaOf = (rs, ops) => `${rs.map((r) => roles[r]).join(" + ")}${ops.length ? `: ${ops.join(", ")}` : ""}`;
+  const need = (rs, ops = [], extra = {}) => {
+    const missing = rs.filter((r) => !has(r));
+    if (missing.length) return { status: "unsupported", missingTool: true, note: `\u0644\u0627 \u0623\u062F\u0627\u0629 \u0644\u062F\u0648\u0631 ${missing.join("\u060C ")} \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.` };
     const known = ops.map(op);
-    if (known.includes(null)) return { status: "unverified", note: "\u0627\u0644\u0623\u062F\u0627\u0629 \u0645\u0648\u062C\u0648\u062F\u0629 \u0644\u0643\u0646 \u0645\u062E\u0637\u0637 \u0639\u0645\u0644\u064A\u0627\u062A\u0647\u0627 \u0644\u0645 \u064A\u064F\u0642\u0631\u0623 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.", via: `${tools.join(" + ")}${ops.length ? `: ${ops.join(", ")}` : ""}` };
-    if (!known.every(Boolean)) return { status: "unsupported", note: `\u0627\u0644\u0639\u0645\u0644\u064A\u0629 ${ops.filter((o) => !op(o)).join("\u060C ")} \u0644\u064A\u0633\u062A \u0641\u064A \u0645\u062E\u0637\u0637 edit-design.` };
-    return { status: "supported", via: `${tools.join(" + ")}${ops.length ? `: ${ops.join(", ")}` : ""}`, ...extra };
+    if (known.includes(null)) return { status: "unverified", note: "\u0627\u0644\u0623\u062F\u0627\u0629 \u0645\u0648\u062C\u0648\u062F\u0629 \u0644\u0643\u0646 \u0645\u062E\u0637\u0637 \u0639\u0645\u0644\u064A\u0627\u062A\u0647\u0627 \u0644\u0645 \u064A\u064F\u0642\u0631\u0623 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.", via: viaOf(rs, ops) };
+    if (!known.every(Boolean)) return { status: "unsupported", note: `\u0627\u0644\u0639\u0645\u0644\u064A\u0629 ${ops.filter((o) => !op(o)).join("\u060C ")} \u0644\u064A\u0633\u062A \u0641\u064A \u0645\u062E\u0637\u0637 ${roles.edit}.` };
+    return { status: "supported", via: viaOf(rs, ops), ...extra };
   };
   const editable = { target: "in-place", approval: "preview-before-commit", editability: "native" };
   switch (cap) {
     case "design.create":
-      if (has("copy-design") && has("resize-design")) {
-        return { status: "partial", via: "copy-design (\u0642\u0627\u0639\u062F\u0629 \u0641\u0627\u0631\u063A\u0629) + resize-design\u060C \u0623\u0648 create-design \u0623\u0648\u0644 \u0645\u0631\u0629", target: "new-design", approval: "none", editability: "native", limits: ["\u0644\u0627 \u064A\u0648\u062C\u062F \u0625\u0646\u0634\u0627\u0621 \u062A\u0635\u0645\u064A\u0645 \u0641\u0627\u0631\u063A: create-design \u064A\u0648\u0644\u0651\u062F \u0645\u062D\u062A\u0648\u0649 (\u0639\u0645\u0644\u064A\u0629 \u062A\u0648\u0644\u064A\u062F) \u064A\u062C\u0628 \u0645\u0633\u062D\u0647\u060C \u0648\u0646\u0633\u062E \u0642\u0627\u0639\u062F\u0629 \u0641\u0627\u0631\u063A\u0629 \u0644\u0627 \u064A\u062D\u062A\u0627\u062C \u062A\u0648\u0644\u064A\u062F\u064B\u0627.", "\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u0645\u0648\u0644\u0651\u062F\u0629 \u0644\u0627 \u062A\u064F\u062D\u0630\u0641 \u0628\u0627\u0644\u0623\u062F\u0648\u0627\u062A: \u062A\u064F\u063A\u0637\u0651\u0649 \u0628\u0634\u0643\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u062E\u0644\u0641\u064A\u0629."] };
+      if (has("copy") && has("resize")) {
+        return { status: "partial", via: `${roles.copy} (\u0642\u0627\u0639\u062F\u0629 \u0641\u0627\u0631\u063A\u0629) + ${roles.resize}${has("create") ? `\u060C \u0623\u0648 ${roles.create} \u0623\u0648\u0644 \u0645\u0631\u0629` : ""}`, target: "new-design", approval: "none", editability: "native", limits: ["\u0644\u0627 \u064A\u0648\u062C\u062F \u0625\u0646\u0634\u0627\u0621 \u062A\u0635\u0645\u064A\u0645 \u0641\u0627\u0631\u063A: create-design \u064A\u0648\u0644\u0651\u062F \u0645\u062D\u062A\u0648\u0649 (\u0639\u0645\u0644\u064A\u0629 \u062A\u0648\u0644\u064A\u062F) \u064A\u062C\u0628 \u0645\u0633\u062D\u0647\u060C \u0648\u0646\u0633\u062E \u0642\u0627\u0639\u062F\u0629 \u0641\u0627\u0631\u063A\u0629 \u0644\u0627 \u064A\u062D\u062A\u0627\u062C \u062A\u0648\u0644\u064A\u062F\u064B\u0627.", "\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u0645\u0648\u0644\u0651\u062F\u0629 \u0644\u0627 \u062A\u064F\u062D\u0630\u0641 \u0628\u0627\u0644\u0623\u062F\u0648\u0627\u062A: \u062A\u064F\u063A\u0637\u0651\u0649 \u0628\u0634\u0643\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u062E\u0644\u0641\u064A\u0629."] };
       }
-      return has("create-design") ? { status: "partial", via: "create-design", target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0648\u0644\u0651\u062F \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u0645\u0646 \u0648\u0635\u0641\u061B \u0644\u0627 \u0625\u0646\u0634\u0627\u0621 \u0641\u0627\u0631\u063A."] } : { status: "unsupported" };
+      return has("create") ? { status: "partial", via: roles.create, target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0648\u0644\u0651\u062F \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u0645\u0646 \u0648\u0635\u0641\u061B \u0644\u0627 \u0625\u0646\u0634\u0627\u0621 \u0641\u0627\u0631\u063A."] } : { status: "unsupported", missingTool: true };
+    case "design.copy":
+      return has("copy") ? { status: "supported", via: roles.copy, target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u064A\u062A\u0631\u0643 \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648."] } : { status: "unsupported", missingTool: true };
     case "design.size":
-      if (!has("resize-design")) return { status: "unsupported" };
-      if (f3.resizeCustom === null) return { status: "unverified", via: "resize-design" };
-      return f3.resizeCustom ? { status: "supported", via: "resize-design (custom width \xD7 height)", target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0646\u0634\u0626 \u0646\u0633\u062E\u0629 \u062C\u062F\u064A\u062F\u0629 \u0628\u0627\u0644\u0645\u0642\u0627\u0633 \u0648\u064A\u062A\u0631\u0643 \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648."] } : { status: "unsupported" };
+      if (!has("resize")) return { status: "unsupported", missingTool: true };
+      if (f3.resizeCustom === null) return { status: "unverified", via: roles.resize };
+      return f3.resizeCustom ? { status: "supported", via: `${roles.resize} (custom width \xD7 height)`, target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0646\u0634\u0626 \u0646\u0633\u062E\u0629 \u062C\u062F\u064A\u062F\u0629 \u0628\u0627\u0644\u0645\u0642\u0627\u0633 \u0648\u064A\u062A\u0631\u0643 \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648."] } : { status: "unsupported" };
+    case "brand.kit": {
+      const kit = f3.tools.find((t) => /brand-kits?$|list-brand-kits/.test(t));
+      return kit ? { status: "partial", via: kit, target: "read-only", approval: "none", editability: null, limits: ["\u0642\u0631\u0627\u0621\u0629 \u0647\u0648\u064A\u0627\u062A \u0627\u0644\u0639\u0644\u0627\u0645\u0629 \u0641\u0642\u0637\u061B \u062A\u0637\u0628\u064A\u0642\u0647\u0627 \u0639\u0644\u0649 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0628\u0639\u0645\u0644\u064A\u0627\u062A \u0627\u0644\u062A\u062D\u0631\u064A\u0631."] } : { status: "unsupported", missingTool: true };
+    }
     case "page.add":
-      return { ...need(["edit-design"], ["add_page"]), ...editable, limits: ["\u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u062C\u062F\u064A\u062F\u0629 \u0628\u0645\u0642\u0627\u0633 \u0648\u062E\u0644\u0641\u064A\u0629 \u0644\u0648\u0646\u064A\u0629."] };
+      return { ...need(["edit"], ["add_page"]), ...editable, limits: ["\u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u062C\u062F\u064A\u062F\u0629 \u0628\u0645\u0642\u0627\u0633 \u0648\u062E\u0644\u0641\u064A\u0629 \u0644\u0648\u0646\u064A\u0629."] };
     case "page.reorder":
-      return { ...need(["edit-design"], ["reorder_page"]), ...editable };
+      return { ...need(["edit"], ["reorder_page"]), ...editable };
     case "page.delete":
-      if (!has("merge-designs")) return { status: "unsupported", note: "edit-design \u0644\u0627 \u064A\u062D\u0630\u0641 \u0635\u0641\u062D\u0627\u062A." };
+      if (!has("merge")) return { status: "unsupported", note: "\u0623\u062F\u0627\u0629 \u0627\u0644\u062A\u062D\u0631\u064A\u0631 \u0644\u0627 \u062A\u062D\u0630\u0641 \u0635\u0641\u062D\u0627\u062A." };
       if (f3.mergeOps && !f3.mergeOps.includes("delete_pages")) return { status: "unsupported" };
-      return { status: f3.mergeOps ? "partial" : "unverified", via: "merge-designs: delete_pages", target: "in-place", approval: "explicit-before-call", editability: "native", limits: ["\u064A\u062D\u062A\u0627\u062C \u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629 \u0639\u0644\u0649 \u0627\u0644\u0639\u0645\u0644\u064A\u0629 \u0646\u0641\u0633\u0647\u0627 \u0642\u0628\u0644 \u0627\u0644\u062A\u0646\u0641\u064A\u0630\u060C \u0648\u0627\u0644\u062D\u0630\u0641 \u0646\u0647\u0627\u0626\u064A."] };
+      return { status: f3.mergeOps ? "partial" : "unverified", via: `${roles.merge}: delete_pages`, target: "in-place", approval: "explicit-before-call", editability: "native", limits: ["\u064A\u062D\u062A\u0627\u062C \u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629 \u0639\u0644\u0649 \u0627\u0644\u0639\u0645\u0644\u064A\u0629 \u0646\u0641\u0633\u0647\u0627 \u0642\u0628\u0644 \u0627\u0644\u062A\u0646\u0641\u064A\u0630\u060C \u0648\u0627\u0644\u062D\u0630\u0641 \u0646\u0647\u0627\u0626\u064A."] };
     case "page.duplicate":
-      return has("copy-design") ? { status: "partial", via: "copy-design (page_numbers)", target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0646\u0633\u062E \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0625\u0644\u0649 \u062A\u0635\u0645\u064A\u0645 \u062C\u062F\u064A\u062F\u061B \u0627\u0644\u062F\u0645\u062C \u0641\u064A \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0646\u0641\u0633\u0647 \u0639\u0628\u0631 merge-designs \u0628\u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629."] } : { status: "unsupported" };
+      return has("copy") ? { status: "partial", via: `${roles.copy} (page_numbers)`, target: "new-design", approval: "none", editability: "native", limits: ["\u064A\u0646\u0633\u062E \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0625\u0644\u0649 \u062A\u0635\u0645\u064A\u0645 \u062C\u062F\u064A\u062F\u061B \u0627\u0644\u062F\u0645\u062C \u0641\u064A \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0646\u0641\u0633\u0647 \u0639\u0628\u0631 merge-designs \u0628\u0645\u0648\u0627\u0641\u0642\u0629 \u0635\u0631\u064A\u062D\u0629."] } : { status: "unsupported" };
     case "text.add":
-      return { ...need(["edit-design", "read-design"], ["add_text"]), ...editable, limits: ["\u0628\u0644\u0627 \u0639\u0631\u0636 \u064A\u0623\u062E\u0630 \u0627\u0644\u0646\u0635 \u0645\u0642\u0627\u0633\u064B\u0627 \u0637\u0628\u064A\u0639\u064A\u064B\u0627 \u064A\u062A\u063A\u064A\u0651\u0631 \u0645\u0639 \u062E\u0637 Canva: \u0646\u0639\u0637\u064A \u0643\u0644 \u0646\u0635 \u0639\u0631\u0636\u064B\u0627 \u062B\u0627\u0628\u062A\u064B\u0627."] };
+      return { ...need(["edit", "read"], ["add_text"]), ...editable, limits: ["\u0628\u0644\u0627 \u0639\u0631\u0636 \u064A\u0623\u062E\u0630 \u0627\u0644\u0646\u0635 \u0645\u0642\u0627\u0633\u064B\u0627 \u0637\u0628\u064A\u0639\u064A\u064B\u0627 \u064A\u062A\u063A\u064A\u0651\u0631 \u0645\u0639 \u062E\u0637 Canva: \u0646\u0639\u0637\u064A \u0643\u0644 \u0646\u0635 \u0639\u0631\u0636\u064B\u0627 \u062B\u0627\u0628\u062A\u064B\u0627."] };
     case "text.edit":
-      return { ...need(["edit-design", "read-design"], ["replace_text"]), ...editable };
+      return { ...need(["edit", "read"], ["replace_text"]), ...editable };
+    case "text.read":
+      return has("read") ? { status: "supported", via: roles.read, target: "read-only", approval: "none", editability: null, ...d.read.style === "separate" && !d.read.content.transaction && { limits: ["\u064A\u0642\u0631\u0623 \u0627\u0644\u0646\u0633\u062E\u0629 \u0627\u0644\u0645\u062D\u0641\u0648\u0638\u0629 \u0641\u0642\u0637: \u062A\u0639\u062F\u064A\u0644\u0627\u062A \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u0645\u0641\u062A\u0648\u062D\u0629 \u062A\u064F\u062A\u062D\u0642\u0642 \u0645\u0646 \u0631\u062F \u0623\u062F\u0627\u0629 \u0627\u0644\u062A\u062D\u0631\u064A\u0631."] } } : { status: "unsupported", missingTool: true };
     case "text.format": {
-      const e = need(["edit-design"], ["format_text"]);
+      const e = need(["edit"], ["format_text"]);
       const fields = f3.formatFields;
       return { ...e, ...editable, limits: [fields ? `\u0627\u0644\u062D\u0642\u0648\u0644: ${fields.join(", ")}` : "\u062D\u0642\u0648\u0644 \u0627\u0644\u062A\u0646\u0633\u064A\u0642 \u063A\u064A\u0631 \u0645\u0642\u0631\u0648\u0621\u0629", "\u0627\u0644\u0648\u0632\u0646 \u0639\u0627\u062F\u064A \u0623\u0648 \u0639\u0631\u064A\u0636 \u0641\u0642\u0637."] };
     }
     case "text.font-family": {
-      if (!has("edit-design")) return { status: "unsupported" };
-      if (!f3.formatFields) return { status: "unverified", via: "edit-design: format_text" };
+      if (!has("edit")) return { status: "unsupported", missingTool: true };
+      if (!f3.formatFields) return { status: "unverified", via: `${roles.edit}: format_text` };
       const field = f3.formatFields.find((x) => /font_?family|typeface/.test(x));
-      return field ? { status: "supported", via: `edit-design: format_text.${field}`, ...editable } : { status: "unsupported", note: "format_text \u0644\u0627 \u064A\u0642\u0628\u0644 \u0639\u0627\u0626\u0644\u0629 \u0627\u0644\u062E\u0637." };
+      return field ? { status: "supported", via: `${roles.edit}: format_text.${field}`, ...editable } : { status: "unsupported", note: "format_text \u0644\u0627 \u064A\u0642\u0628\u0644 \u0639\u0627\u0626\u0644\u0629 \u0627\u0644\u062E\u0637." };
     }
     case "text.rich-color":
       if (!f3.formatFields) return { status: "unverified" };
       return { status: "unsupported", note: "format_text \u064A\u0637\u0628\u0651\u0642 \u0627\u0644\u0644\u0648\u0646 \u0639\u0644\u0649 \u0627\u0644\u0646\u0635 \u0643\u0644\u0647\u061B \u0644\u0627 \u0646\u0637\u0627\u0642 \u0644\u0643\u0644\u0645\u0629 \u0648\u0627\u062D\u062F\u0629." };
     case "text.rtl":
-      return { ...need(["edit-design"], ["add_text"]), ...editable, limits: ["Canva \u064A\u0643\u062A\u0634\u0641 \u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0645\u0646 \u0627\u0644\u0646\u0635 \u0646\u0641\u0633\u0647."] };
+      return { ...need(["edit"], ["add_text"]), ...editable, limits: ["Canva \u064A\u0643\u062A\u0634\u0641 \u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0645\u0646 \u0627\u0644\u0646\u0635 \u0646\u0641\u0633\u0647."] };
+    case "media.upload":
+      if (has("upload")) return { status: "supported", via: `${roles.upload} \u062B\u0645 POST \u0644\u0644\u0628\u0627\u064A\u062A\u0627\u062A \u0627\u0644\u062E\u0627\u0645`, inputType: "local-bytes", target: "library", approval: "none", editability: null, limits: ["\u0644\u0644\u0648\u0633\u0627\u0626\u0637 (\u0635\u0648\u0631\u060C \u0641\u064A\u062F\u064A\u0648\u060C \u0635\u0648\u062A)\u061B \u0644\u064A\u0633 \u0627\u0633\u062A\u064A\u0631\u0627\u062F \u062A\u0635\u0645\u064A\u0645: \u0644\u0627 \u064A\u062D\u0648\u0651\u0644 PPTX \u0623\u0648 PDF \u0625\u0644\u0649 \u062A\u0635\u0645\u064A\u0645."] };
+      if (d.uploadFromUrl) return { status: "partial", via: d.uploadFromUrl.tool, inputType: "public-url", target: "library", approval: "none", editability: null, requires: ["\u0631\u0627\u0628\u0637 HTTPS \u0639\u0627\u0645 \u0644\u0644\u0648\u0633\u0627\u0626\u0637"], limits: ["\u0644\u0627 \u064A\u0642\u0628\u0644 \u0645\u0644\u0641\u064B\u0627 \u0645\u062D\u0644\u064A\u064B\u0627 \u0648\u0644\u0627 \u0645\u0648\u0644\u0651\u062F\u064B\u0627."] };
+      return { status: "unsupported", missingTool: true };
     case "image.insert":
-      return { ...need(["edit-design", "create-upload-url"], ["insert_fill"]), ...editable, limits: ["\u0627\u0631\u0641\u0639 \u0627\u0644\u0628\u0627\u064A\u062A\u0627\u062A \u0627\u0644\u062E\u0627\u0645 \u0625\u0644\u0649 \u0631\u0627\u0628\u0637 \u0627\u0644\u0631\u0641\u0639 (\u0645\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0644\u0643\u0644 \u0631\u0627\u0628\u0637) \u062B\u0645 \u0623\u062F\u0631\u062C mediaId."] };
+      if (!has("upload") && d.uploadFromUrl) return { ...need(["edit"], ["insert_fill"]), ...editable, status: need(["edit"], ["insert_fill"]).status === "supported" ? "partial" : need(["edit"], ["insert_fill"]).status, limits: [`\u0627\u0644\u0631\u0641\u0639 \u0645\u0646 \u0631\u0627\u0628\u0637 \u0639\u0627\u0645 \u0641\u0642\u0637 (${d.uploadFromUrl.tool}).`] };
+      return { ...need(["edit", "upload"], ["insert_fill"]), ...editable, limits: ["\u0627\u0631\u0641\u0639 \u0627\u0644\u0628\u0627\u064A\u062A\u0627\u062A \u0627\u0644\u062E\u0627\u0645 \u0625\u0644\u0649 \u0631\u0627\u0628\u0637 \u0627\u0644\u0631\u0641\u0639 (\u0645\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0644\u0643\u0644 \u0631\u0627\u0628\u0637) \u062B\u0645 \u0623\u062F\u0631\u062C mediaId."] };
     case "image.replace":
-      return { ...need(["edit-design"], ["update_fill"]), ...editable };
+      return { ...need(["edit"], ["update_fill"]), ...editable };
     case "video.insert": {
-      const e = need(["edit-design", "create-upload-url"], ["insert_fill"]);
+      const e = need(["edit", "upload"], ["insert_fill"]);
       if (e.status !== "supported") return e;
-      if (!f3.insertFillTypes) return { status: "unverified", via: "edit-design: insert_fill" };
-      return f3.insertFillTypes.includes("video") ? { ...e, via: "edit-design: insert_fill (asset_type video)", ...editable } : { status: "unsupported" };
+      if (!f3.insertFillTypes) return { status: "unverified", via: `${roles.edit}: insert_fill` };
+      return f3.insertFillTypes.includes("video") ? { ...e, via: `${roles.edit}: insert_fill (asset_type video)`, ...editable } : { status: "unsupported" };
     }
     case "shape.insert":
-      return { ...need(["edit-design"], ["insert_shape"]), ...editable, limits: ["\u0645\u0633\u0627\u0631 SVG \u0628\u0623\u0648\u0627\u0645\u0631 M/L/H/V/C/S/A/Z \u0641\u0642\u0637 (\u0644\u0627 Q/T)."] };
+      return { ...need(["edit"], ["insert_shape"]), ...editable, limits: ["\u0645\u0633\u0627\u0631 SVG \u0628\u0623\u0648\u0627\u0645\u0631 M/L/H/V/C/S/A/Z \u0641\u0642\u0637 (\u0644\u0627 Q/T)."] };
     case "shape.edit":
-      return { ...need(["edit-design"], ["recolor_element"]), ...editable };
+      return { ...need(["edit"], ["recolor_element"]), ...editable };
     case "layer.order":
-      return { ...need(["edit-design"], ["layer_element"]), ...editable, ...op("layer_element") && { status: "partial" }, limits: ["\u0625\u0644\u0649 \u0627\u0644\u0623\u0645\u0627\u0645 \u0623\u0648 \u0627\u0644\u062E\u0644\u0641 \u0641\u0642\u0637\u061B \u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u062F\u0642\u064A\u0642 \u0628\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u0625\u0636\u0627\u0641\u0629."] };
+      return { ...need(["edit"], ["layer_element"]), ...editable, ...op("layer_element") && { status: "partial" }, limits: ["\u0625\u0644\u0649 \u0627\u0644\u0623\u0645\u0627\u0645 \u0623\u0648 \u0627\u0644\u062E\u0644\u0641 \u0641\u0642\u0637\u061B \u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u062F\u0642\u064A\u0642 \u0628\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u0625\u0636\u0627\u0641\u0629."] };
     case "group":
-      return { ...need(["edit-design"], ["group_elements"]), ...editable };
+      return { ...need(["edit"], ["group_elements"]), ...editable };
     case "motion.animate":
     case "motion.transition":
     case "timing.duration": {
+      if (!has("edit")) return { status: "unsupported", missingTool: true };
       if (!f3.editOps) return { status: "unverified" };
       const found = f3.editOps.find((o) => (cap === "motion.animate" ? /anim/ : cap === "motion.transition" ? /transition/ : /duration|timing/).test(o));
-      return found ? { status: "supported", via: `edit-design: ${found}`, ...editable } : { status: "unsupported", note: "\u0644\u0627 \u0639\u0645\u0644\u064A\u0629 \u0644\u0647\u0627 \u0641\u064A \u0645\u062E\u0637\u0637 edit-design." };
+      return found ? { status: "supported", via: `${roles.edit}: ${found}`, ...editable } : { status: "unsupported", note: `\u0644\u0627 \u0639\u0645\u0644\u064A\u0629 \u0644\u0647\u0627 \u0641\u064A \u0645\u062E\u0637\u0637 ${roles.edit}.` };
     }
     case "audio.add":
       if (!f3.insertFillTypes) return { status: "unverified" };
       return f3.insertFillTypes.includes("audio") ? { status: "supported", via: "insert_fill audio", ...editable } : { status: "unsupported", note: "\u064A\u0645\u0643\u0646 \u0631\u0641\u0639 \u0645\u0644\u0641 \u0635\u0648\u062A\u060C \u0644\u0643\u0646 insert_fill \u064A\u0642\u0628\u0644 \u0635\u0648\u0631\u0629 \u0623\u0648 \u0641\u064A\u062F\u064A\u0648 \u0641\u0642\u0637." };
     case "preview":
-      return has("read-design") ? { status: "supported", via: "read-design (thumbnails, thumbnail_pages)", target: "in-place", approval: "none", editability: null } : { status: "unsupported" };
+      return has("thumbnails") ? { status: "supported", via: `${roles.thumbnails} (thumbnails)`, target: "in-place", approval: "none", editability: null } : { status: "unsupported", missingTool: true };
+    case "save":
+      return d.commit ? { status: "supported", via: d.commit.inline ? `${d.commit.tool} (${d.commit.field}: ${d.commit.value})` : d.commit.tool, target: "in-place", approval: "explicit-before-call", editability: "native", limits: ["\u0628\u0639\u062F \u0645\u0648\u0627\u0641\u0642\u0629 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0635\u0631\u064A\u062D\u0629 \u0639\u0644\u0649 \u0627\u0644\u0645\u0639\u0627\u064A\u0646\u0629 \u0641\u0642\u0637\u061B \u0644\u0627 \u0631\u062C\u0639\u0629 \u0641\u064A\u0647.", ...d.cancel ? [] : ["\u0644\u0627 \u0623\u062F\u0627\u0629 \u0625\u0644\u063A\u0627\u0621: \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629 \u063A\u064A\u0631 \u0627\u0644\u0645\u062D\u0641\u0648\u0638\u0629 \u062A\u0646\u062A\u0647\u064A \u0648\u062D\u062F\u0647\u0627."]] } : { status: has("edit") ? "unverified" : "unsupported", note: "\u0644\u0627 \u0637\u0631\u064A\u0642\u0629 \u0645\u0639\u0631\u0648\u0641\u0629 \u0644\u062D\u0641\u0638 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629." };
     case "speaker-notes":
-      return { ...need(["edit-design"], ["replace_speaker_notes"]), ...editable };
+      return { ...need(["edit"], ["replace_speaker_notes"]), ...editable };
     case "import.native-file":
-      return { status: "unverified", via: "create-upload-url", note: "\u0644\u0645 \u064A\u064F\u062E\u062A\u0628\u0631 \u0631\u0641\u0639 \u0645\u0644\u0641 \u062A\u0635\u0645\u064A\u0645 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.", target: "new-design" };
+      return importEntry(d);
     default:
       if (cap.startsWith("export.")) {
         const type = cap.slice(7);
-        if (!has("export-design")) return { status: "unsupported" };
-        if (!f3.exportTypes) return { status: "unverified", via: "export-design" };
-        return f3.exportTypes.includes(type) ? { status: "supported", via: `get-export-formats \u062B\u0645 export-design (${type})`, target: "file", approval: "none", editability: "flattened", limits: ["\u062A\u062D\u0642\u0642 \u0623\u0648\u0644\u064B\u0627 \u0645\u0646 get-export-formats \u0644\u0647\u0630\u0627 \u0627\u0644\u062A\u0635\u0645\u064A\u0645.", ...type === "mp4" ? ["\u064A\u062D\u062A\u0627\u062C quality \u0645\u062B\u0644 vertical_1080p\u061B \u0627\u0644\u062D\u0631\u0643\u0629 \u0648\u0627\u0644\u0645\u062F\u062F \u062A\u0623\u062A\u064A \u0645\u0646 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0643\u0645\u0627 \u0636\u064F\u0628\u0637\u062A \u0641\u064A\u0647."] : []] } : { status: "unsupported" };
+        if (!has("export")) return { status: "unsupported", missingTool: true };
+        if (!f3.exportTypes) return { status: "unverified", via: roles.export };
+        return f3.exportTypes.includes(type) ? { status: "supported", via: `${d.exportFormats?.tool ?? "get-export-formats"} \u062B\u0645 ${roles.export} (${type})`, target: "file", approval: "none", editability: "flattened", limits: ["\u062A\u062D\u0642\u0642 \u0623\u0648\u0644\u064B\u0627 \u0645\u0646 \u0627\u0644\u0635\u064A\u063A \u0627\u0644\u0645\u062A\u0627\u062D\u0629 \u0644\u0647\u0630\u0627 \u0627\u0644\u062A\u0635\u0645\u064A\u0645.", ...type === "mp4" ? ["\u064A\u062D\u062A\u0627\u062C quality \u0645\u062B\u0644 vertical_1080p\u061B \u0627\u0644\u062D\u0631\u0643\u0629 \u0648\u0627\u0644\u0645\u062F\u062F \u062A\u0623\u062A\u064A \u0645\u0646 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0643\u0645\u0627 \u0636\u064F\u0628\u0637\u062A \u0641\u064A\u0647."] : []] } : { status: "unsupported" };
       }
       return { status: "unverified" };
   }
+}
+function importEntry(d) {
+  const im = d.import;
+  const base = { target: "new-design", approval: "none", editability: "native" };
+  if (!im) return { status: "unsupported", missingTool: true, note: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0627\u0633\u062A\u064A\u0631\u0627\u062F \u062A\u0635\u0645\u064A\u0645 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629\u061B \u0631\u0641\u0639 \u0627\u0644\u0648\u0633\u0627\u0626\u0637 \u0644\u064A\u0633 \u0627\u0633\u062A\u064A\u0631\u0627\u062F\u064B\u0627.", ...base };
+  if (im.file && ["host-file", "base64", "binary", "path"].includes(im.file.kind)) {
+    return {
+      ...base,
+      status: im.acceptsPptx ? "supported" : "unverified",
+      via: `${im.tool}: ${im.file.field}`,
+      inputType: `local-file (${im.file.kind})`,
+      limits: ["\u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627\u061B \u0627\u0644\u0623\u0635\u0644 \u0644\u0627 \u064A\u062A\u063A\u064A\u0651\u0631.", ...im.acceptsPptx ? [] : ["\u0627\u0644\u0645\u062E\u0637\u0637 \u0644\u0627 \u064A\u0630\u0643\u0631 PowerPoint \u0635\u0631\u0627\u062D\u0629: \u0646\u062A\u064A\u062C\u0629 \u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u062A\u064F\u0641\u062D\u0635 \u0642\u0628\u0644 \u0623\u064A \u0627\u062F\u0639\u0627\u0621."], ...im.file.kind === "host-file" ? ["\u0627\u0644\u0645\u0636\u064A\u0641 \u064A\u0645\u0631\u0651\u0631 \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0645\u0631\u0641\u0642 \u0625\u0644\u0649 \u0647\u0630\u0627 \u0627\u0644\u062D\u0642\u0644."] : []],
+      ...im.file.kind === "host-file" && { requires: ["\u0645\u0636\u064A\u0641 \u064A\u0645\u0631\u0651\u0631 \u0645\u0644\u0641\u064B\u0627 \u0645\u062D\u0644\u064A\u064B\u0627 \u0625\u0644\u0649 \u062D\u0642\u0644 \u0627\u0644\u0645\u0644\u0641 (file param)"] }
+    };
+  }
+  if (im.file) return { ...base, status: "unverified", via: `${im.tool}: ${im.file.field}`, note: "\u062D\u0642\u0644 \u0645\u0644\u0641 \u0628\u0646\u0648\u0639 \u0644\u0627 \u064A\u0648\u0636\u062D\u0647 \u0627\u0644\u0645\u062E\u0637\u0637." };
+  if (im.url) {
+    if (im.url.excludesLocal || im.url.excludesGenerated) {
+      return { ...base, status: "unsupported", via: `${im.tool}: url`, inputType: "public-url", note: "\u064A\u0642\u0628\u0644 \u0631\u0627\u0628\u0637 HTTPS \u0639\u0627\u0645\u064B\u0627 \u0641\u0642\u0637\u060C \u0648\u064A\u0633\u062A\u062B\u0646\u064A \u0627\u0644\u0645\u0644\u0641\u0627\u062A \u0627\u0644\u0645\u062D\u0644\u064A\u0629 \u0648\u0627\u0644\u062E\u0627\u0635\u0629 \u0648\u0627\u0644\u0645\u0648\u0644\u0651\u062F\u0629\u061B \u0645\u0644\u0641 PPTX \u0627\u0644\u0630\u064A \u0646\u0628\u0646\u064A\u0647 \u0645\u0644\u0641 \u0645\u0648\u0644\u0651\u062F \u0645\u062D\u0644\u064A.", limits: ["\u0644\u0627 \u064A\u064F\u0631\u0633\u0644 \u0645\u0633\u0627\u0631 \u0645\u062D\u0644\u064A \u0625\u0644\u0649 \u062D\u0642\u0644 \u0631\u0627\u0628\u0637\u060C \u0648\u0644\u0627 \u064A\u064F\u0646\u0634\u0631 \u0645\u0644\u0641 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0639\u0644\u0646\u064B\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u0631\u0627\u0628\u0637."] };
+    }
+    return { ...base, status: "partial", via: `${im.tool}: url`, inputType: "public-url", requires: ["\u0631\u0627\u0628\u0637 HTTPS \u0639\u0627\u0645 \u0644\u0644\u0645\u0644\u0641\u060C \u0628\u0625\u0630\u0646 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645"], limits: ["\u0644\u0627 \u064A\u064F\u0646\u0634\u0631 \u0645\u0644\u0641 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0639\u0644\u0646\u064B\u0627 \u062F\u0648\u0646 \u0625\u0630\u0646\u0647."] };
+  }
+  return { ...base, status: "unverified", via: im.tool, note: "\u0645\u062E\u0637\u0637 \u0623\u062F\u0627\u0629 \u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u0644\u0645 \u064A\u064F\u0642\u0631\u0623 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629." };
 }
 var HELP = { source: "help-center", at: "2026-10-02", note: "\u0645\u0631\u0643\u0632 \u0645\u0633\u0627\u0639\u062F\u0629 Canva: \u0627\u0633\u062A\u064A\u0631\u0627\u062F PowerPoint" };
 function nativeFileEntry(cap) {
@@ -3183,17 +3613,17 @@ function manualEntry(cap) {
   return steps[cap] ? { ...base, via: steps[cap] } : null;
 }
 var BUILTIN_EVIDENCE = [
-  { capability: "import.native-file", route: "connector", status: "unsupported", via: "create-upload-url: .pptx \u0645\u0631\u0641\u0648\u0636\u060C .pdf \u0628\u0644\u0627 \u062A\u062D\u0648\u064A\u0644", note: "PPTX: \xABUnsupported file format PPTX\xBB (HTTP 400). PDF \u0642\u064F\u0628\u0644 \u0644\u0643\u0646\u0647 \u0623\u0639\u0627\u062F fileId \u0641\u0642\u0637\u060C \u0648\u0644\u0627 \u0623\u062F\u0627\u0629 \u0641\u064A \u0627\u0644\u0645\u0648\u0635\u0644 \u062A\u062D\u0648\u0651\u0644\u0647 \u0625\u0644\u0649 \u062A\u0635\u0645\u064A\u0645.", source: "live", at: "2026-10-02", tool: "create-upload-url", fingerprint: "fd378264248f" },
-  { capability: "design.create", route: "connector", status: "partial", via: "copy-design \u0644\u0642\u0627\u0639\u062F\u0629 \u0633\u0627\u0628\u0642\u0629 \u062B\u0645 resize-design", note: "create-design \u0623\u0646\u062A\u062C 1080\xD71440 \u0628\u0631\u0633\u0648\u0645 \u0645\u0648\u0644\u0651\u062F\u0629\u061B \u0646\u0633\u062E \u0642\u0627\u0639\u062F\u0629 \u0633\u0627\u0628\u0642\u0629 \u0644\u0627 \u064A\u0648\u0644\u0651\u062F \u0634\u064A\u0626\u064B\u0627\u060C \u0648\u062A\u0628\u0642\u0649 \u0635\u0648\u0631\u0629 \u062E\u0644\u0641\u064A\u062A\u0647\u0627 \u062A\u062D\u062A \u0634\u0643\u0644 \u0627\u0644\u062E\u0644\u0641\u064A\u0629.", source: "live", at: "2026-10-02" },
-  { capability: "design.size", route: "connector", status: "supported", via: "resize-design", note: "1080\xD71350 \u2192 1080\xD71920 \u0623\u0646\u0634\u0623 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u0628\u0642\u064A \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648\u061B \u0628\u0644\u0627 \u062A\u0648\u0644\u064A\u062F.", source: "live", at: "2026-10-02", tool: "resize-design", fingerprint: "b5bea41b6c62" },
-  { capability: "text.add", route: "connector", status: "supported", via: "edit-design: add_text", note: "\u0643\u0627\u0631\u0648\u0633\u064A\u0644 3 \u0635\u0641\u062D\u0627\u062A \u0648\u0631\u064A\u0644 5 \u0645\u0634\u0627\u0647\u062F: 54/54 \u0646\u0635\u064B\u0627 \u0637\u0627\u0628\u0642 \u062D\u0631\u0641\u064A\u064B\u0627 \u0641\u064A \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "text.format", route: "connector", status: "supported", via: "edit-design: format_text", note: "\u0627\u0644\u062D\u062C\u0645 \u0648\u0627\u0644\u0644\u0648\u0646 \u0648\u0627\u0644\u0648\u0632\u0646 \u0648\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629 \u0648\u0627\u0644\u0645\u0633\u0627\u0641\u0629 \u0628\u064A\u0646 \u0627\u0644\u0623\u0633\u0637\u0631 \u0637\u064F\u0628\u0651\u0642\u062A \u0648\u0642\u064F\u0631\u0626\u062A \u0631\u0627\u062C\u0639\u0629 \u0645\u0637\u0627\u0628\u0642\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "text.rtl", route: "connector", status: "partial", via: "edit-design: add_text + format_text", note: "\u0627\u0644\u0627\u062A\u0635\u0627\u0644 \u0648\u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0635\u062D\u064A\u062D\u0627\u0646\u060C \u0648\u0644\u0627 \u062D\u0642\u0644 \u0644\u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0641\u0642\u0631\u0629: Canva \u064A\u0623\u062E\u0630\u0647 \u0645\u0646 \u0623\u0648\u0644 \u062D\u0631\u0641 \u0623\u0648 \u0631\u0642\u0645\u060C \u0641\u0646\u0635 \u064A\u0628\u062F\u0623 \u0628\u0631\u0642\u0645 \u0623\u0648 \u0628\u062D\u0631\u0641 \u0644\u0627\u062A\u064A\u0646\u064A \u064A\u062D\u0627\u0630\u0649 \u064A\u0633\u0627\u0631\u064B\u0627 \u0645\u0639 start (\u0646\u0631\u0633\u0644 end). \u0648\u0644\u0627 \u064A\u0639\u0632\u0644 Canva \u0627\u0644\u0645\u0642\u0627\u0637\u0639 \u0627\u0644\u0644\u0627\u062A\u064A\u0646\u064A\u0629: @kitabwbs \u062F\u0627\u062E\u0644 \u062C\u0645\u0644\u0629 \u0639\u0631\u0628\u064A\u0629 \u0638\u0647\u0631 kitabwbs@ \u062D\u062A\u0649 \u0623\u064F\u0636\u064A\u0641\u062A \u0639\u0644\u0627\u0645\u0629 LRM \u063A\u064A\u0631 \u0645\u0631\u0626\u064A\u0629 \u0642\u0628\u0644 @.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "page.add", route: "connector", status: "supported", via: "edit-design: add_page", note: "\u0635\u0641\u062D\u0627\u062A 1080\xD71350 \u06481080\xD71920 \u0628\u062E\u0644\u0641\u064A\u0629 \u0644\u0648\u0646\u064A\u0629\u061B \u0645\u0639\u0631\u0651\u0641\u0627\u062A\u0647\u0627 \u062A\u064F\u0642\u0631\u0623 \u0645\u0646 design_content \u0645\u0639 transaction_id.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "image.insert", route: "connector", status: "supported", via: "create-upload-url + edit-design: insert_fill", note: "SVG \u0645\u0631\u0641\u0648\u0639 \u0623\u064F\u062F\u0631\u062C \u0628\u0645\u0648\u0636\u0639\u0647 \u0648\u0645\u0642\u0627\u0633\u0647.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "image.replace", route: "connector", status: "supported", via: "edit-design: resize_element + crop_media", note: "\u0628\u0639\u062F \u062A\u0643\u0628\u064A\u0631 \u0627\u0644\u0625\u0637\u0627\u0631 \u062A\u064F\u0639\u0627\u062F \u0627\u0644\u0635\u0648\u0631\u0629 \u0643\u0627\u0645\u0644\u0629 \u0628\u0640 crop_media \u0648\u0625\u0644\u0627 \u0642\u064F\u0635\u0651\u062A.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "shape.insert", route: "connector", status: "supported", via: "edit-design: insert_shape", note: "\u0645\u0633\u0627\u0631\u0627\u062A \u0648\u062F\u0648\u0627\u0626\u0631 \u0648\u062D\u0628\u0648\u0628 \u0648\u0623\u064A\u0642\u0648\u0646\u0627\u062A \u0628\u062E\u0637 \u0641\u0642\u0637.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
-  { capability: "speaker-notes", route: "connector", status: "supported", via: "edit-design: replace_speaker_notes", note: "\u062E\u0637\u0629 5 \u0645\u0634\u0627\u0647\u062F (\u0627\u0644\u0645\u062F\u0629 \u0648\u0627\u0644\u062D\u0631\u0643\u0629 \u0648\u0627\u0644\u0627\u0646\u062A\u0642\u0627\u0644) \u062E\u064F\u0632\u0651\u0646\u062A \u0648\u0642\u064F\u0631\u0626\u062A \u0631\u0627\u062C\u0639\u0629 \u0641\u064A \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0643\u0644 \u0635\u0641\u062D\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" }
+  { capability: "media.upload", route: "connector", dialect: "edit-design", status: "supported", via: "create-upload-url + POST", note: "SVG \u0631\u064F\u0641\u0639 \u0648\u0623\u064F\u062F\u0631\u062C. \u0648\u0644\u064A\u0633 \u0645\u0633\u0627\u0631 \u0627\u0633\u062A\u064A\u0631\u0627\u062F \u062A\u0635\u0645\u064A\u0645: PPTX \u0631\u064F\u0641\u0636 (\xABUnsupported file format PPTX\xBB\u060C HTTP 400) \u0648PDF \u0642\u064F\u0628\u0644 \u0644\u0643\u0646\u0647 \u0623\u0639\u0627\u062F fileId \u0641\u0642\u0637 \u0628\u0644\u0627 \u062A\u0635\u0645\u064A\u0645.", source: "live", at: "2026-10-02", tool: "create-upload-url", fingerprint: "fd378264248f" },
+  { capability: "design.create", route: "connector", dialect: "edit-design", status: "partial", via: "copy-design \u0644\u0642\u0627\u0639\u062F\u0629 \u0633\u0627\u0628\u0642\u0629 \u062B\u0645 resize-design", note: "create-design \u0623\u0646\u062A\u062C 1080\xD71440 \u0628\u0631\u0633\u0648\u0645 \u0645\u0648\u0644\u0651\u062F\u0629\u061B \u0646\u0633\u062E \u0642\u0627\u0639\u062F\u0629 \u0633\u0627\u0628\u0642\u0629 \u0644\u0627 \u064A\u0648\u0644\u0651\u062F \u0634\u064A\u0626\u064B\u0627\u060C \u0648\u062A\u0628\u0642\u0649 \u0635\u0648\u0631\u0629 \u062E\u0644\u0641\u064A\u062A\u0647\u0627 \u062A\u062D\u062A \u0634\u0643\u0644 \u0627\u0644\u062E\u0644\u0641\u064A\u0629.", source: "live", at: "2026-10-02" },
+  { capability: "design.size", route: "connector", dialect: "edit-design", status: "supported", via: "resize-design", note: "1080\xD71350 \u2192 1080\xD71920 \u0623\u0646\u0634\u0623 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u0628\u0642\u064A \u0627\u0644\u0623\u0635\u0644 \u0643\u0645\u0627 \u0647\u0648\u061B \u0628\u0644\u0627 \u062A\u0648\u0644\u064A\u062F.", source: "live", at: "2026-10-02", tool: "resize-design", fingerprint: "b5bea41b6c62" },
+  { capability: "text.add", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: add_text", note: "\u0643\u0627\u0631\u0648\u0633\u064A\u0644 3 \u0635\u0641\u062D\u0627\u062A \u0648\u0631\u064A\u0644 5 \u0645\u0634\u0627\u0647\u062F: 54/54 \u0646\u0635\u064B\u0627 \u0637\u0627\u0628\u0642 \u062D\u0631\u0641\u064A\u064B\u0627 \u0641\u064A \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "text.format", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: format_text", note: "\u0627\u0644\u062D\u062C\u0645 \u0648\u0627\u0644\u0644\u0648\u0646 \u0648\u0627\u0644\u0648\u0632\u0646 \u0648\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629 \u0648\u0627\u0644\u0645\u0633\u0627\u0641\u0629 \u0628\u064A\u0646 \u0627\u0644\u0623\u0633\u0637\u0631 \u0637\u064F\u0628\u0651\u0642\u062A \u0648\u0642\u064F\u0631\u0626\u062A \u0631\u0627\u062C\u0639\u0629 \u0645\u0637\u0627\u0628\u0642\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "text.rtl", route: "connector", dialect: "edit-design", status: "partial", via: "edit-design: add_text + format_text", note: "\u0627\u0644\u0627\u062A\u0635\u0627\u0644 \u0648\u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0635\u062D\u064A\u062D\u0627\u0646\u060C \u0648\u0644\u0627 \u062D\u0642\u0644 \u0644\u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0641\u0642\u0631\u0629: Canva \u064A\u0623\u062E\u0630\u0647 \u0645\u0646 \u0623\u0648\u0644 \u062D\u0631\u0641 \u0623\u0648 \u0631\u0642\u0645\u060C \u0641\u0646\u0635 \u064A\u0628\u062F\u0623 \u0628\u0631\u0642\u0645 \u0623\u0648 \u0628\u062D\u0631\u0641 \u0644\u0627\u062A\u064A\u0646\u064A \u064A\u062D\u0627\u0630\u0649 \u064A\u0633\u0627\u0631\u064B\u0627 \u0645\u0639 start (\u0646\u0631\u0633\u0644 end). \u0648\u0644\u0627 \u064A\u0639\u0632\u0644 Canva \u0627\u0644\u0645\u0642\u0627\u0637\u0639 \u0627\u0644\u0644\u0627\u062A\u064A\u0646\u064A\u0629: @kitabwbs \u062F\u0627\u062E\u0644 \u062C\u0645\u0644\u0629 \u0639\u0631\u0628\u064A\u0629 \u0638\u0647\u0631 kitabwbs@ \u062D\u062A\u0649 \u0623\u064F\u0636\u064A\u0641\u062A \u0639\u0644\u0627\u0645\u0629 LRM \u063A\u064A\u0631 \u0645\u0631\u0626\u064A\u0629 \u0642\u0628\u0644 @.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "page.add", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: add_page", note: "\u0635\u0641\u062D\u0627\u062A 1080\xD71350 \u06481080\xD71920 \u0628\u062E\u0644\u0641\u064A\u0629 \u0644\u0648\u0646\u064A\u0629\u061B \u0645\u0639\u0631\u0651\u0641\u0627\u062A\u0647\u0627 \u062A\u064F\u0642\u0631\u0623 \u0645\u0646 design_content \u0645\u0639 transaction_id.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "image.insert", route: "connector", dialect: "edit-design", status: "supported", via: "create-upload-url + edit-design: insert_fill", note: "SVG \u0645\u0631\u0641\u0648\u0639 \u0623\u064F\u062F\u0631\u062C \u0628\u0645\u0648\u0636\u0639\u0647 \u0648\u0645\u0642\u0627\u0633\u0647.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "image.replace", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: resize_element + crop_media", note: "\u0628\u0639\u062F \u062A\u0643\u0628\u064A\u0631 \u0627\u0644\u0625\u0637\u0627\u0631 \u062A\u064F\u0639\u0627\u062F \u0627\u0644\u0635\u0648\u0631\u0629 \u0643\u0627\u0645\u0644\u0629 \u0628\u0640 crop_media \u0648\u0625\u0644\u0627 \u0642\u064F\u0635\u0651\u062A.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "shape.insert", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: insert_shape", note: "\u0645\u0633\u0627\u0631\u0627\u062A \u0648\u062F\u0648\u0627\u0626\u0631 \u0648\u062D\u0628\u0648\u0628 \u0648\u0623\u064A\u0642\u0648\u0646\u0627\u062A \u0628\u062E\u0637 \u0641\u0642\u0637.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" },
+  { capability: "speaker-notes", route: "connector", dialect: "edit-design", status: "supported", via: "edit-design: replace_speaker_notes", note: "\u062E\u0637\u0629 5 \u0645\u0634\u0627\u0647\u062F (\u0627\u0644\u0645\u062F\u0629 \u0648\u0627\u0644\u062D\u0631\u0643\u0629 \u0648\u0627\u0644\u0627\u0646\u062A\u0642\u0627\u0644) \u062E\u064F\u0632\u0651\u0646\u062A \u0648\u0642\u064F\u0631\u0626\u062A \u0631\u0627\u062C\u0639\u0629 \u0641\u064A \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0643\u0644 \u0635\u0641\u062D\u0629.", source: "live", at: "2026-10-02", tool: "edit-design", fingerprint: "1480a76aa75b" }
 ];
 var CanvaCapabilityRegistry = class {
   // store: studio store (optional) to persist evidence and the last facts.
@@ -3206,6 +3636,9 @@ var CanvaCapabilityRegistry = class {
     this.factsAt = saved?.factsAt ?? null;
     this.evidence = [...evidence, ...saved?.evidence ?? []];
     this.schemaHistory = saved?.schemaHistory ?? [];
+  }
+  get dialect() {
+    return this.facts.dialect?.kind === "canva-dialect" ? this.facts.dialect : dialectFromFacts(this.facts);
   }
   // New schemas for this session. Returns the tools whose schema changed
   // since the last time (their live evidence becomes stale).
@@ -3226,7 +3659,7 @@ var CanvaCapabilityRegistry = class {
     if (!ROUTES[route]) throw new Error(`unknown route ${route}`);
     if (!STATUSES.includes(status)) throw new Error(`status must be one of ${STATUSES.join(", ")}`);
     const fingerprint = tool ? this.facts.fingerprints?.[tool] ?? null : null;
-    const row = { capability, route, status, ...via && { via }, ...note && { note }, source, at, ...tool && { tool, fingerprint } };
+    const row = { capability, route, status, ...via && { via }, ...note && { note }, source, at, ...tool && { tool, fingerprint }, ...route === "connector" && this.factsAt && { dialect: this.dialect.id } };
     this.evidence.push(row);
     this.persist();
     return row;
@@ -3245,8 +3678,9 @@ var CanvaCapabilityRegistry = class {
     if (!e) return null;
     const ev = this.evidence.filter((x) => x.capability === capability && x.route === route);
     const fpNow = (x) => x.tool ? this.facts.fingerprints?.[x.tool] ?? null : null;
-    const staleRows = ev.filter((x) => x.stale || x.tool && x.fingerprint && fpNow(x) && x.fingerprint !== fpNow(x));
-    const live = ev.filter((x) => !staleRows.includes(x) && (!x.tool || x.fingerprint && x.fingerprint === fpNow(x)));
+    const otherConnector = (x) => route === "connector" && this.factsAt && x.dialect && x.dialect !== this.dialect.id;
+    const staleRows = ev.filter((x) => !otherConnector(x) && (x.stale || x.tool && x.fingerprint && fpNow(x) && x.fingerprint !== fpNow(x)));
+    const live = ev.filter((x) => !otherConnector(x) && !staleRows.includes(x) && (!x.tool || x.fingerprint && x.fingerprint === fpNow(x)));
     const unconfirmed = ev.filter((x) => !staleRows.includes(x) && !live.includes(x));
     const byDate = (a, b) => a.at < b.at ? 1 : -1;
     const latest = live.sort(byDate)[0];
@@ -3268,8 +3702,10 @@ var CanvaCapabilityRegistry = class {
     if (route === "connector" && !this.factsAt) {
       out.status = "unverified";
       out.note = "\u0644\u0645 \u062A\u064F\u0642\u0631\u0623 \u0645\u062E\u0637\u0637\u0627\u062A \u0623\u062F\u0648\u0627\u062A Canva \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629.";
+      delete out.missingTool;
+      delete out.via;
     }
-    const known = (x) => ({ status: x.status, at: x.at, source: x.source, note: x.note });
+    const known = (x) => ({ status: x.status, at: x.at, source: x.source, note: x.note, ...otherConnector(x) && { connector: x.dialect, why: "\u0645\u0646 \u0645\u0648\u0635\u0644 Canva \u0622\u062E\u0631\u061B \u0644\u0627 \u064A\u064F\u0637\u0628\u0651\u0642 \u0639\u0644\u0649 \u0623\u062F\u0648\u0627\u062A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629" } });
     if (latest && sessionBlind) out.lastKnown = known(latest);
     else if (lastKnown && !latest) out.lastKnown = known(lastKnown);
     if (latest && !sessionBlind) {
@@ -3307,7 +3743,7 @@ var CanvaCapabilityRegistry = class {
     });
   }
   toJSON() {
-    return { factsAt: this.factsAt, tools: this.facts.tools, capabilities: Object.keys(CAPABILITIES).map((c) => this.get(c)) };
+    return { factsAt: this.factsAt, tools: this.facts.tools, dialect: dialectSummary(this.dialect), capabilities: Object.keys(CAPABILITIES).map((c) => this.get(c)) };
   }
 };
 
@@ -3351,7 +3787,7 @@ function flattenElements(list, out = []) {
 function normalizeReadback(raw, { designId } = {}) {
   if (!raw || typeof raw !== "object") throw new Error("read-back must be the JSON returned by read-design");
   if (raw.kind === "canva-readback") return raw;
-  const content = raw.design_content ?? raw.designContent ?? raw;
+  const content = raw.design_content ?? raw.designContent ?? raw.design ?? raw;
   const meta = raw.page_metadata ?? content.page_metadata;
   const metaPages = Array.isArray(meta) ? meta : [];
   const pages = (content.pages ?? []).map((p, i) => {
@@ -3369,7 +3805,9 @@ function normalizeReadback(raw, { designId } = {}) {
       elements: flattenElements(p.elements).map((el) => {
         const text = collectText(el);
         return {
-          locator: el.locator_id ?? el.id,
+          // Claude's connector names elements by locator_id; others by
+          // element_id. Whatever the read-back used is what edits target.
+          locator: el.locator_id ?? el.element_id ?? el.id,
           id: el.id ?? null,
           type: el.type ?? (text !== null ? "text" : "unknown"),
           frame: frameOf(el),
@@ -4606,6 +5044,10 @@ function themeXml(theme, heading, body) {
 // lib/studio/canva/connector.js
 var px2 = (n3) => Math.round(n3 * 10) / 10;
 var stripMarkers2 = (t) => String(t).replace(/\*/g, "");
+function forDialect(steps, registry) {
+  if (!registry?.factsAt) return { steps, issues: [] };
+  return translatePlan(steps, registry.dialect);
+}
 function capsFromRegistry(registry) {
   const ok2 = (cap) => ["supported", "partial"].includes(registry.entry(cap, "connector").status);
   const exportTypes = ["png", "pdf"].filter((t) => ok2(`export.${t}`));
@@ -4614,7 +5056,9 @@ function capsFromRegistry(registry) {
     insertText: ok2("text.add"),
     updateText: ok2("text.edit"),
     setFontFamily: registry.entry("text.font-family", "connector").status === "supported",
-    insertAsset: ok2("image.insert"),
+    // Our images are local files: only an upload that takes local bytes
+    // can place them (a public-URL upload cannot).
+    insertAsset: ok2("image.insert") && registry.entry("media.upload", "connector").inputType !== "public-url",
     positionElements: ok2("text.add"),
     preview: ok2("preview"),
     exportFormats: exportTypes,
@@ -4659,9 +5103,11 @@ function planConnectorBuild(doc, registry, { title, assetFiles = {}, artFiles = 
     ...s.save === "readback" && { note: "\u0627\u062D\u0641\u0638 \u0627\u0644\u0631\u062F \u0641\u064A readback.json\u060C \u062B\u0645 canva_record (event: edit) \u0644\u0643\u0644 \u062F\u0641\u0639\u0629 \u0623\u0636\u0627\u0641\u062A \u0646\u0635\u0648\u0635\u064B\u0627 \u0625\u0646 \u0644\u0645 \u062A\u064F\u0633\u062C\u064E\u0651\u0644\u060C \u062B\u0645 canva_validate_arabic (design + readback\u060C snapshot \u0639\u0646\u062F \u0627\u0644\u0646\u062C\u0627\u062D)." },
     n: i + 1
   }));
+  const adapted = forDialect(steps, registry);
   return {
     ...plan,
-    steps,
+    steps: adapted.steps,
+    dialectIssues: adapted.issues,
     generation: { expected: generation, note: generation ? "create-design \u064A\u064F\u062D\u0633\u0628 \u0639\u0645\u0644\u064A\u0629 \u062A\u0648\u0644\u064A\u062F \u0648\u0627\u062D\u062F\u0629." : "\u0644\u0627 \u062A\u0648\u0644\u064A\u062F." },
     uploads: { reused: Object.keys(known).length, new: steps.filter((s) => s.tool === "create-upload-url").length }
   };
@@ -4775,13 +5221,15 @@ function planConnectorPatch(before, after, { locator, pageIndexOf, registry, sca
       for (const [, op] of changed) add(pageIndex, op);
     }
   }
-  const calls = [];
+  const canonical = [];
   for (const [pageIndex, ops] of [...perPage.entries()].sort((a, b) => a[0] - b[0])) {
-    for (let s = 0; s < ops.length; s += 20) calls.push({ tool: "edit-design", args: { transaction_id: transactionId, page_index: pageIndex, finalize: "keep_open", operations: ops.slice(s, s + 20) } });
+    for (let s = 0; s < ops.length; s += 20) canonical.push({ tool: "edit-design", args: { transaction_id: transactionId, page_index: pageIndex, finalize: "keep_open", operations: ops.slice(s, s + 20) } });
   }
-  const opCount = calls.reduce((n3, c) => n3 + c.args.operations.length, 0);
+  const opCount = canonical.reduce((n3, c) => n3 + c.args.operations.length, 0);
+  const { steps: calls, issues: dialectIssues } = forDialect(canonical, registry);
   return {
     calls,
+    dialectIssues,
     operations: opCount,
     affectedPages: [...perPage.keys()].sort((a, b) => a - b),
     unsupported,
@@ -4815,8 +5263,8 @@ function mapReadback(doc, readback) {
     for (const el of page.elements.filter((e) => !e.hidden)) {
       let best = null;
       if (el.kind === "text") {
-        const want = plainText(el.text).replace(/\s+/g, " ").trim();
-        best = pool.find((x) => !x.used && typeof x.text === "string" && x.text.replace(/\s+/g, " ").trim() === want);
+        const want = canonicalText(el.text);
+        best = pool.find((x) => !x.used && typeof x.text === "string" && canonicalText(x.text) === want);
       } else {
         const f3 = { x: el.frame.x * k, y: el.frame.y * k, width: el.frame.width * k, height: el.frame.height * k };
         const scored = pool.filter((x) => !x.used && x.frame && x.text === void 0).map((x) => ({ x, s: iou2(f3, x.frame) })).sort((a, b) => b.s - a.s);
@@ -4889,9 +5337,9 @@ function compose(src, i, numerals, previous) {
   }
   return { composition: "statement", variant: "block", content: { title: src.title ?? "", ...src.subtitle && { subtitle: src.subtitle } } };
 }
-function motionFor(role, composition) {
-  if (role === "hook") return [{ target: "title", effect: "pop", at: 0, duration: 0.3 }, { target: "kicker", effect: "fade", at: 0.1, duration: 0.3 }];
-  if (role === "cta") return [{ target: "title", effect: "rise", at: 0.1, duration: 0.4 }, { target: "actions", effect: "pop", at: 0.5, duration: 0.3 }];
+function motionFor(role2, composition) {
+  if (role2 === "hook") return [{ target: "title", effect: "pop", at: 0, duration: 0.3 }, { target: "kicker", effect: "fade", at: 0.1, duration: 0.3 }];
+  if (role2 === "cta") return [{ target: "title", effect: "rise", at: 0.1, duration: 0.4 }, { target: "actions", effect: "pop", at: 0.5, duration: 0.3 }];
   if (composition === "numbered") return [{ target: "number", effect: "pop", at: 0, duration: 0.3 }, { target: "title", effect: "rise", at: 0.2, duration: 0.4 }, { target: "subtitle", effect: "fade", at: 0.5, duration: 0.4 }];
   return [{ target: "kicker", effect: "pop", at: 0, duration: 0.3 }, { target: "title", effect: "rise", at: 0.15, duration: 0.4 }, { target: "subtitle", effect: "fade", at: 0.45, duration: 0.4 }];
 }
@@ -4986,21 +5434,54 @@ function buildReel(source, options = {}) {
   return { plan, spec, doc };
 }
 function reelStatus(plan, evidence = {}) {
-  const exported = evidence.video ?? null;
-  const timingMatches = exported?.duration && Math.abs(exported.duration - plan.totalSeconds) <= Math.max(0.6, plan.scenes.length * 0.15);
-  const allDefault = exported?.duration && Math.abs(exported.duration - plan.scenes.length * 5) <= 0.6 && Math.abs(plan.totalSeconds - plan.scenes.length * 5) > 0.6;
+  const video = evidence.video ?? null;
+  const tol = Math.max(0.6, plan.scenes.length * 0.15);
+  const defaults = plan.scenes.length * 5;
+  const total = !video ? { state: "unverified", reason: "\u0644\u0627 \u0641\u064A\u062F\u064A\u0648 \u0645\u0635\u062F\u064E\u0651\u0631 \u0628\u0639\u062F." } : typeof video.duration !== "number" ? { state: "unverified", reason: "\u0644\u0645 \u062A\u064F\u0642\u0631\u0623 \u0645\u062F\u0629 \u0627\u0644\u0645\u0644\u0641." } : Math.abs(video.duration - plan.totalSeconds) <= tol ? { state: "verified", seconds: video.duration, expected: plan.totalSeconds } : { state: "mismatch", seconds: video.duration, expected: plan.totalSeconds, ...Math.abs(video.duration - defaults) <= 0.6 && Math.abs(plan.totalSeconds - defaults) > 0.6 && { note: `\u0627\u0644\u0641\u064A\u062F\u064A\u0648 ${video.duration} \u062B = ${plan.scenes.length} \u0635\u0641\u062D\u0627\u062A \xD7 5 \u062B \u0627\u0644\u0627\u0641\u062A\u0631\u0627\u0636\u064A\u0629: \u0627\u0644\u0645\u062F\u062F \u0644\u0645 \u062A\u064F\u0636\u0628\u0637.` } };
   return {
     scenes: evidence.canvaDesignId ? { state: "created-in-canva", designId: evidence.canvaDesignId, pages: evidence.pages ?? null } : evidence.localDocId ? { state: "created-locally", docId: evidence.localDocId } : { state: "planned" },
-    motion: evidence.motionApplied ? { state: "applied-by-user", note: "\u0623\u0643\u0651\u062F\u062A \u062A\u0637\u0628\u064A\u0642\u0647\u0627 \u0641\u064A Canva." } : { state: "not-applied", note: "\u0627\u0644\u0645\u0648\u0635\u0644 \u0644\u0627 \u064A\u0645\u0644\u0643 \u0639\u0645\u0644\u064A\u0629 \u062D\u0631\u0643\u0629: \u0627\u0644\u062E\u0637\u0629 \u0645\u0643\u062A\u0648\u0628\u0629 \u0641\u064A \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0643\u0644 \u0635\u0641\u062D\u0629 \u0644\u062A\u0637\u0628\u0651\u0642\u0647\u0627 \u0641\u064A Canva (Animate)." },
-    timing: timingMatches ? { state: "verified", seconds: exported.duration } : allDefault ? { state: "not-set", note: `\u0627\u0644\u0641\u064A\u062F\u064A\u0648 ${exported.duration} \u062B = ${plan.scenes.length} \u0635\u0641\u062D\u0627\u062A \xD7 5 \u062B \u0627\u0644\u0627\u0641\u062A\u0631\u0627\u0636\u064A\u0629: \u0627\u0644\u0645\u062F\u062F \u0644\u0645 \u062A\u064F\u0636\u0628\u0637.` } : evidence.timingSet ? { state: "set-by-user" } : { state: "not-set", note: "\u0627\u0636\u0628\u0637 \u0645\u0624\u0642\u062A \u0643\u0644 \u0635\u0641\u062D\u0629 \u0641\u064A Canva \u062D\u0633\u0628 \u0627\u0644\u062E\u0637\u0629." },
-    audio: evidence.audio ? { state: "added-by-user" } : { state: "none", note: "\u0644\u0645 \u064A\u064F\u0636\u0641 \u0635\u0648\u062A (\u0644\u0627 \u0645\u0648\u0633\u064A\u0642\u0649 \u062A\u0644\u0642\u0627\u0626\u064A\u0629)." },
-    video: exported ? {
-      state: exported.width === 1080 && exported.height === 1920 ? "exported-verified" : "exported-size-mismatch",
-      duration: exported.duration,
-      size: `${exported.width}\xD7${exported.height}`,
-      hasAudio: exported.hasAudio
-    } : { state: "not-exported" }
+    file: video ? { state: "probed", format: video.format ?? null, codec: video.codec ?? null } : { state: "not-exported" },
+    size: !video ? { state: "unverified", reason: "\u0644\u0627 \u0645\u0644\u0641." } : video.width === 1080 && video.height === 1920 ? { state: "verified", size: "1080\xD71920" } : { state: "mismatch", size: `${video.width}\xD7${video.height}`, expected: "1080\xD71920" },
+    totalDuration: total,
+    sceneTiming: sceneTiming(plan, video, total, evidence.sceneCuts ?? null, evidence.sceneCutsSource ?? null),
+    motion: evidence.motionApplied ? { state: "reported-by-user", verified: false, note: "\u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0623\u0643\u0651\u062F \u062A\u0637\u0628\u064A\u0642\u0647\u0627 \u0641\u064A Canva\u061B \u0645\u0644\u0641 \u0627\u0644\u0641\u064A\u062F\u064A\u0648 \u0648\u062D\u062F\u0647 \u0644\u0627 \u064A\u062B\u0628\u062A\u0647\u0627." } : { state: "not-applied", note: "\u0627\u0644\u0645\u0648\u0635\u0644 \u0644\u0627 \u064A\u0645\u0644\u0643 \u0639\u0645\u0644\u064A\u0629 \u062D\u0631\u0643\u0629: \u0627\u0644\u062E\u0637\u0629 \u0645\u0643\u062A\u0648\u0628\u0629 \u0641\u064A \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0643\u0644 \u0635\u0641\u062D\u0629 \u0644\u062A\u0637\u0628\u0651\u0642\u0647\u0627 \u0641\u064A Canva (Animate)." },
+    transitions: evidence.transitionsApplied ? { state: "reported-by-user", verified: false } : { state: "not-applied", note: "\u0627\u0644\u0627\u0646\u062A\u0642\u0627\u0644\u0627\u062A \u062A\u064F\u0636\u0628\u0637 \u0641\u064A Canva \u064A\u062F\u0648\u064A\u064B\u0627 \u062D\u0633\u0628 \u0627\u0644\u062E\u0637\u0629." },
+    audio: video ? video.hasAudio ? { state: "present-in-file", ...!evidence.audio && { note: "\u0641\u064A \u0627\u0644\u0645\u0644\u0641 \u0645\u0633\u0627\u0631 \u0635\u0648\u062A \u0644\u0645 \u064A\u064F\u0637\u0644\u0628: \u0631\u0627\u062C\u0639\u0647 (\u0644\u0627 \u0645\u0648\u0633\u064A\u0642\u0649 \u062A\u0644\u0642\u0627\u0626\u064A\u0629)." } } : { state: "absent-in-file", ...evidence.audio && { note: "\u0642\u064A\u0644 \u0625\u0646 \u0635\u0648\u062A\u064B\u0627 \u0623\u064F\u0636\u064A\u0641\u060C \u0648\u0627\u0644\u0645\u0644\u0641 \u0628\u0644\u0627 \u0645\u0633\u0627\u0631 \u0635\u0648\u062A." } } : evidence.audio ? { state: "reported-by-user", verified: false } : { state: "none", note: "\u0644\u0645 \u064A\u064F\u0636\u0641 \u0635\u0648\u062A (\u0644\u0627 \u0645\u0648\u0633\u064A\u0642\u0649 \u062A\u0644\u0642\u0627\u0626\u064A\u0629)." },
+    // Summary kept for older callers: file probed and size checked only.
+    video: video ? { state: video.width === 1080 && video.height === 1920 ? "exported-verified" : "exported-size-mismatch", duration: video.duration, size: `${video.width}\xD7${video.height}`, hasAudio: video.hasAudio } : { state: "not-exported" }
   };
+}
+function planBoundaries(plan) {
+  let t = 0;
+  return plan.scenes.map((s) => t = Math.round((t + s.seconds) * 100) / 100);
+}
+function sceneTiming(plan, video, total, cuts, source) {
+  if (!video) return { state: "unverified", reason: "\u0644\u0627 \u0641\u064A\u062F\u064A\u0648 \u0645\u0635\u062F\u064E\u0651\u0631 \u0628\u0639\u062F." };
+  if (total.state === "mismatch") return { state: "mismatch", reason: "\u0627\u0644\u0645\u062F\u0629 \u0627\u0644\u0625\u062C\u0645\u0627\u0644\u064A\u0629 \u0644\u0627 \u062A\u0637\u0627\u0628\u0642 \u0627\u0644\u062E\u0637\u0629\u060C \u0641\u0645\u062F\u062F \u0627\u0644\u0645\u0634\u0627\u0647\u062F \u0644\u0627 \u062A\u0637\u0627\u0628\u0642\u0647\u0627." };
+  if (!Array.isArray(cuts)) return { state: "unverified", reason: "\u0644\u0627 \u062F\u0644\u064A\u0644 \u0639\u0644\u0649 \u062D\u062F\u0648\u062F \u0627\u0644\u0645\u0634\u0627\u0647\u062F: \u0645\u0637\u0627\u0628\u0642\u0629 \u0627\u0644\u0645\u062F\u0629 \u0627\u0644\u0625\u062C\u0645\u0627\u0644\u064A\u0629 \u0644\u0627 \u062A\u062B\u0628\u062A \u0645\u062F\u0629 \u0643\u0644 \u0645\u0634\u0647\u062F. \u0634\u063A\u0651\u0644 \u0643\u0634\u0641 \u0627\u0644\u0645\u0634\u0627\u0647\u062F \u0639\u0644\u0649 \u0627\u0644\u0645\u0644\u0641 (ffmpeg) \u0623\u0648 \u0645\u0631\u0651\u0631 sceneCuts." };
+  if (!cuts.length) return { state: "unverified", reason: "\u0643\u0627\u0634\u0641 \u0627\u0644\u0645\u0634\u0627\u0647\u062F \u0644\u0645 \u064A\u062C\u062F \u0642\u0637\u0639\u064B\u0627 (\u0642\u062F \u062A\u0643\u0648\u0646 \u0627\u0644\u0627\u0646\u062A\u0642\u0627\u0644\u0627\u062A \u0646\u0627\u0639\u0645\u0629): \u0644\u0627 \u062D\u0643\u0645 \u0639\u0644\u0649 \u0645\u062F\u062F \u0627\u0644\u0645\u0634\u0627\u0647\u062F.", source };
+  const ends = planBoundaries(plan);
+  const pool = [...cuts].map(Number).filter((x) => Number.isFinite(x)).sort((a, b) => a - b);
+  const found = [];
+  for (let i = 0; i < ends.length - 1; i++) {
+    const tolerance = Math.max(0.35, plan.scenes[i].transition?.seconds ?? 0);
+    let best = null;
+    for (const c of pool) if (Math.abs(c - ends[i]) <= tolerance && (best === null || Math.abs(c - ends[i]) < Math.abs(best - ends[i]))) best = c;
+    if (best !== null) pool.splice(pool.indexOf(best), 1);
+    found.push(best);
+  }
+  const scenes = plan.scenes.map((s, i) => {
+    const start = i === 0 ? 0 : found[i - 1];
+    const end = i === plan.scenes.length - 1 ? video.duration : found[i];
+    const seconds = start === null || end === null || start === void 0 || end === void 0 ? null : Math.round((end - start) * 100) / 100;
+    const tolerance = Math.max(0.35, s.transition?.seconds ?? 0, plan.scenes[i - 1]?.transition?.seconds ?? 0);
+    return { n: s.n, expected: s.seconds, seconds, ok: seconds !== null && Math.abs(seconds - s.seconds) <= tolerance };
+  });
+  const missing = found.map((f3, i) => f3 === null ? i + 1 : null).filter(Boolean);
+  if (missing.length) return { state: "mismatch", reason: `\u0644\u0627 \u0642\u0637\u0639 \u0642\u0631\u0628 \u0646\u0647\u0627\u064A\u0629 \u0627\u0644\u0645\u0634\u0647\u062F ${missing.join("\u060C ")} \u0643\u0645\u0627 \u0641\u064A \u0627\u0644\u062E\u0637\u0629.`, scenes, source, extraCuts: pool };
+  const off = scenes.filter((x) => !x.ok);
+  if (off.length) return { state: "mismatch", reason: `\u0645\u062F\u0629 \u0627\u0644\u0645\u0634\u0647\u062F ${off.map((x) => x.n).join("\u060C ")} \u062A\u062E\u062A\u0644\u0641 \u0639\u0646 \u0627\u0644\u062E\u0637\u0629.`, scenes, source, extraCuts: pool };
+  return { state: "verified", scenes, source, ...pool.length && { extraCuts: pool } };
 }
 function sceneNotes(scene, { numerals = "arab" } = {}) {
   const n3 = (x) => formatNumber(String(x).replace(".", numerals === "arab" ? "\u066B" : "."), numerals);
@@ -5369,14 +5850,22 @@ function probeMp4(bytes) {
           track.height = u32(b, at + 4) / 65536;
         }
         if (t.type === "mdia") {
-          for (const m of boxes(b, t.body, t.end)) if (m.type === "hdlr") track.kind = { vide: "video", soun: "audio" }[type4(b, m.body + 8)] ?? type4(b, m.body + 8);
+          for (const m of boxes(b, t.body, t.end)) {
+            if (m.type === "hdlr") track.kind = { vide: "video", soun: "audio" }[type4(b, m.body + 8)] ?? type4(b, m.body + 8);
+            if (m.type === "minf") {
+              for (const st of boxes(b, m.body, m.end)) {
+                if (st.type !== "stbl") continue;
+                for (const sd of boxes(b, st.body, st.end)) if (sd.type === "stsd" && sd.end - sd.body >= 16) track.codec = type4(b, sd.body + 12);
+              }
+            }
+          }
         }
       }
       tracks.push(track);
     }
   }
   const video = tracks.find((t) => t.kind === "video");
-  return { format: "mp4", duration, width: video?.width ?? null, height: video?.height ?? null, hasAudio: tracks.some((t) => t.kind === "audio"), tracks };
+  return { format: "mp4", duration, width: video?.width ?? null, height: video?.height ?? null, codec: video?.codec ?? null, hasAudio: tracks.some((t) => t.kind === "audio"), tracks };
 }
 function probePdf(bytes) {
   const text = new TextDecoder("latin1").decode(bytes);
@@ -5542,11 +6031,12 @@ async function canva_capabilities(ctx2, args = {}) {
   if (args.schemas || args.schemasFile) changed = reg.loadSchemas(args.schemas ?? ctx2.readJson(args.schemasFile)).changed;
   if (args.record) reg.record(args.record);
   record(ctx2, "capabilities");
-  if (args.capability) return ok("canva_capabilities", "done", { factsAt: reg.factsAt, capability: reg.get(args.capability) });
+  if (args.capability) return ok("canva_capabilities", "done", { factsAt: reg.factsAt, ...reg.factsAt && { dialect: dialectSummary(reg.dialect) }, capability: reg.get(args.capability) });
   const table2 = reg.table();
   const count = (route) => table2.reduce((acc, r) => (acc[r[route]?.status ?? "n/a"] = (acc[r[route]?.status ?? "n/a"] ?? 0) + 1, acc), {});
   return ok("canva_capabilities", "done", {
     factsAt: reg.factsAt,
+    ...reg.factsAt && { dialect: dialectSummary(reg.dialect) },
     changedTools: changed,
     connector: count("connector"),
     ...reg.factsAt ? {} : { note: "\u0644\u0645 \u062A\u064F\u0642\u0631\u0623 \u0645\u062E\u0637\u0637\u0627\u062A \u0623\u062F\u0648\u0627\u062A Canva \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629: \u0642\u062F\u0631\u0627\u062A \u0627\u0644\u0645\u0648\u0635\u0644 \u0643\u0644\u0647\u0627 \xAB\u0644\u0645 \u064A\u064F\u062A\u062D\u0642\u0642\xBB. \u0645\u0631\u0651\u0631 schemas (\u0623\u0633\u0645\u0627\u0621 \u0627\u0644\u0623\u062F\u0648\u0627\u062A \u0648\u0645\u062E\u0637\u0637 edit-design \u0648export-design)." },
@@ -5643,6 +6133,10 @@ async function canva_build_design(ctx2, args = {}) {
   }
   const plan = planConnectorBuild(doc, reg, { title: args.title ?? doc.brief, assetFiles, artFiles, uploadKeys, uploads: j.data.uploads, base: args.base ? typeof args.base === "string" ? { designId: args.base } : args.base : j.data.base ?? null, notes: args.notes ?? null, mode: args.mode ?? "native" });
   if (!plan.ok) return ok("canva_build_design", "unsupported", { route: "connector", limitations: plan.limitations, files, alternatives: importOptions(reg) });
+  const blocking = (plan.dialectIssues ?? []).filter((i) => i.severity === "error");
+  if (blocking.length) {
+    return ok("canva_build_design", "unsupported", { route: "connector", code: "connector-dialect", issues: plan.dialectIssues, dialect: dialectSummary(reg.dialect), files, alternatives: importOptions(reg), message: "\u062E\u0637\u0648\u0627\u062A \u0644\u0627 \u064A\u0642\u0627\u0628\u0644\u0647\u0627 \u0641\u064A \u0645\u0648\u0635\u0644 \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629 \u0623\u062F\u0627\u0629 \u0623\u0648 \u062D\u0642\u0644: \u0644\u0627 \u0623\u0631\u0633\u0644\u0647\u0627 \u0628\u0623\u0633\u0645\u0627\u0621 \u0645\u062E\u0645\u0651\u0646\u0629." });
+  }
   j.updateBuild(key, { state: "planned", steps: plan.steps.length });
   const fontLimit = reg.entry("text.font-family", "connector").status !== "supported";
   return ok("canva_build_design", "planned", {
@@ -5653,6 +6147,8 @@ async function canva_build_design(ctx2, args = {}) {
     generation: plan.generation,
     uploads: plan.uploads,
     steps: plan.steps,
+    ...plan.dialectIssues?.length && { issues: plan.dialectIssues },
+    dialect: dialectSummary(reg.dialect),
     files,
     ...fontLimit && { fontsInFile: pptx.report.fonts, alternative: "\u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0623\u0635\u0644\u064A (.pptx) \u064A\u062D\u0645\u0644 \u0627\u0644\u062E\u0637\u0648\u0637 \u0648\u0627\u0644\u0643\u0644\u0645\u0627\u062A \u0627\u0644\u0645\u0644\u0648\u0651\u0646\u0629\u061B \u0627\u0633\u062A\u064A\u0631\u0627\u062F\u0647 \u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627." },
     record: "\u0633\u062C\u0651\u0644 \u0643\u0644 \u0645\u0639\u0631\u0651\u0641 \u062D\u0642\u064A\u0642\u064A \u0628\u0640 canva_record: design (\u0628\u0639\u062F \u0627\u0644\u0625\u0646\u0634\u0627\u0621/\u0627\u0644\u0646\u0633\u062E/\u062A\u063A\u064A\u064A\u0631 \u0627\u0644\u0645\u0642\u0627\u0633)\u060C transaction\u060C upload\u060C \u062B\u0645 locators \u0645\u0646 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629."
@@ -5715,6 +6211,7 @@ async function canva_apply_patch(ctx2, args = {}) {
       continue;
     }
     plan.calls.push(...p.calls);
+    plan.issues = [...plan.issues ?? [], ...p.dialectIssues ?? []];
     plan.operations += p.operations;
     plan.affectedPages = [.../* @__PURE__ */ new Set([...plan.affectedPages, ...p.affectedPages])].sort((a, b) => a - b);
   }
@@ -5740,12 +6237,40 @@ async function canva_apply_patch(ctx2, args = {}) {
     withheld: plan.withheld,
     ...nativeFile && { nativeFile: { path: nativeFile, note: "\u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0623\u0635\u0644\u064A \u064A\u062D\u0645\u0644 \u0627\u0644\u062E\u0637 \u0627\u0644\u062C\u062F\u064A\u062F\u061B \u0627\u0633\u062A\u064A\u0631\u0627\u062F\u0647 \u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627. \u0623\u0648 \u063A\u064A\u0651\u0631 \u0627\u0644\u062E\u0637 \u0641\u064A Canva \u064A\u062F\u0648\u064A\u064B\u0627 (\u062A\u062D\u062F\u064A\u062F \u0627\u0644\u0646\u0635\u0648\u0635 \u2190 \u0627\u0644\u062E\u0637) \u0641\u064A\u0628\u0642\u0649 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0646\u0641\u0633\u0647." } },
     generation: plan.generation,
-    preview: plan.affectedPages.length ? { tool: "read-design", args: { design_id: link.designId, transaction_id: readback?.transactionId ?? "$transactionId", filter: { fields: ["thumbnails"], thumbnail_pages: plan.affectedPages } }, note: "\u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062A\u0623\u062B\u0631\u0629 \u0641\u0642\u0637." } : null,
+    ...plan.issues?.length && { issues: plan.issues },
+    preview: plan.affectedPages.length ? { calls: forDialect([{ tool: "read-design", args: { design_id: link.designId, transaction_id: readback?.transactionId ?? "$transactionId", filter: { fields: ["thumbnails"], thumbnail_pages: plan.affectedPages } } }], reg).steps, note: "\u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062A\u0623\u062B\u0631\u0629 \u0641\u0642\u0637." } : null,
     approval: "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0639\u0627\u064A\u0646\u0629\u061B \u0627\u0644\u062D\u0641\u0638 (commit) \u0628\u0639\u062F \u0645\u0648\u0627\u0641\u0642\u0629 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0635\u0631\u064A\u062D\u0629 \u0641\u0642\u0637.",
     ...plan.unmapped.length && { next: "\u0639\u0646\u0627\u0635\u0631 \u0628\u0644\u0627 \u0645\u0631\u062C\u0639 \u0641\u064A Canva: \u0634\u063A\u0651\u0644 canva_inspect \u0645\u0639 design \u0648readback \u0644\u0631\u0628\u0637\u0647\u0627." }
   });
 }
 var summarizeQuality = (q) => ({ passed: q.passed, errors: q.errors, warnings: q.warnings, issues: q.issues.slice(0, 12).map((i) => `${i.severity}: ${i.message}`) });
+var PPTX_MIME = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+function connectorImport(reg, { file: file2, bytes, title, isReel }) {
+  const im = reg.factsAt ? reg.dialect.import : null;
+  if (!im) return null;
+  const entry = reg.entry("import.native-file", "connector");
+  if (im.file && ["host-file", "base64", "binary", "path"].includes(im.file.kind)) {
+    const attach = ["host-file", "binary"].includes(im.file.kind);
+    const value = im.file.kind === "base64" ? base64Encode(bytes) : im.file.kind === "path" ? file2 : { $attach: file2 };
+    const a = { [im.file.field]: value };
+    if (im.nameField) a[im.nameField] = title;
+    if (im.typeField?.values) {
+      const want = isReel ? "instagram_reel" : "instagram_post";
+      if (im.typeField.values.includes(want)) a[im.typeField.field] = want;
+    }
+    return {
+      entry,
+      call: {
+        tool: im.tool,
+        args: a,
+        save: "newDesignId",
+        ...attach && { attach: { field: im.file.field, path: file2, mediaType: PPTX_MIME, how: "\u0623\u0631\u0641\u0642 \u0647\u0630\u0627 \u0627\u0644\u0645\u0644\u0641 \u0643\u0645\u0627 \u064A\u0637\u0644\u0628 \u0627\u0644\u0645\u0636\u064A\u0641\u060C \u062B\u0645 \u0645\u0631\u0651\u0631 \u0645\u0631\u062C\u0639 \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0630\u064A \u064A\u0639\u0637\u064A\u0647 \u0627\u0644\u0645\u0636\u064A\u0641 \u0641\u064A \u0647\u0630\u0627 \u0627\u0644\u062D\u0642\u0644\u061B \u0644\u0627 \u0645\u0633\u0627\u0631\u064B\u0627 \u0645\u062D\u0644\u064A\u064B\u0627 \u0648\u0644\u0627 \u0631\u0627\u0628\u0637\u064B\u0627 \u0639\u0627\u0645\u064B\u0627." } },
+        note: "\u0627\u0633\u062A\u062F\u0639\u0627\u0621 \u0648\u0627\u062D\u062F \u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u0648\u0627\u062D\u062F\u064B\u0627: \u0625\u0646 \u0627\u0646\u0642\u0637\u0639 \u0627\u0644\u0631\u062F \u0641\u0627\u0642\u0631\u0623 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062A\u0635\u0627\u0645\u064A\u0645 \u0642\u0628\u0644 \u0623\u064A \u0625\u0639\u0627\u062F\u0629\u060C \u0648\u0644\u0627 \u062A\u0633\u062A\u0648\u0631\u062F \u0645\u0631\u062A\u064A\u0646."
+      }
+    };
+  }
+  return { entry, call: null };
+}
 async function canva_import_editable(ctx2, args = {}) {
   const doc = loadDoc(ctx2, args.design);
   const reg = registryOf(ctx2);
@@ -5757,6 +6282,26 @@ async function canva_import_editable(ctx2, args = {}) {
   ctx2.writeFile(file2, pptx.bytes);
   record(ctx2, "import_editable", { designId: doc.id });
   const source = j.current();
+  const isReel = Boolean(args.reel) || doc.pages[0].heightPx / doc.pages[0].widthPx > 1.7;
+  const viaConnector = args.route === "connect-api" || args.execute ? null : connectorImport(reg, { file: file2, bytes: pptx.bytes, title: args.title ?? doc.brief ?? "\u062A\u0635\u0645\u064A\u0645", isReel });
+  if (viaConnector?.call) {
+    const verify = forDialect([{ tool: "read-design", args: { design_id: "$newDesignId", filter: { fields: ["page_metadata", "design_content", "thumbnails"] } } }], reg);
+    return ok("canva_import_editable", "planned", {
+      route: "connector",
+      file: file2,
+      report: pptx.report,
+      capability: { status: viaConnector.entry.status, via: viaConnector.entry.via, limits: viaConnector.entry.limits ?? [] },
+      ids: { localDocId: doc.id, sourceDesignId: source?.designId ?? null, newDesignId: "$newDesignId" },
+      calls: [viaConnector.call],
+      record: { event: "design", relation: "import", designId: "$newDesignId", sourceDesignId: source?.designId ?? null, route: "connector", tool: viaConnector.call.tool },
+      verify: {
+        calls: verify.steps,
+        expect: { pages: doc.pages.length, width: doc.pages[0].widthPx, height: doc.pages[0].heightPx },
+        then: "canva_validate_arabic (design + readback): \u0643\u0644 \u0646\u0635 \u062D\u0631\u0641\u064A\u064B\u0627\u060C \u0648\u0639\u062F\u062F \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0648\u0645\u0642\u0627\u0633\u0647\u0627\u061B \u062B\u0645 \u0645\u0639\u0627\u064A\u0646\u0629 \u0643\u0644 \u0635\u0641\u062D\u0629 \u0644\u0644\u0645\u0638\u0647\u0631 (\u0627\u0644\u062E\u0637 \u0648\u0627\u0644\u0627\u062A\u062C\u0627\u0647 \u0648\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629)."
+      },
+      honesty: `\u0644\u0645 \u064A\u064F\u0633\u062A\u0648\u0631\u062F \u0634\u064A\u0621 \u0628\u0639\u062F. \u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u0644\u0627 \u064A\u0639\u062F\u0651\u0644 \u0627\u0644\u0623\u0635\u0644${source ? ` ${source.designId}` : ""}. \u0644\u0627 \u0646\u062C\u0627\u062D \u0642\u0628\u0644 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629 \u0648\u0627\u0644\u0645\u0639\u0627\u064A\u0646\u0629.${viaConnector.entry.status === "unverified" ? " \u0645\u062E\u0637\u0637 \u0623\u062F\u0627\u0629 \u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u0644\u0627 \u064A\u0630\u0643\u0631 PowerPoint \u0635\u0631\u0627\u062D\u0629." : ""}`
+    });
+  }
   if (args.execute) {
     const token = ctx2.env?.CANVA_ACCESS_TOKEN;
     if (!token) return ok("canva_import_editable", "needs-input", { file: file2, message: "\u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u0627\u0644\u0622\u0644\u064A \u064A\u062D\u062A\u0627\u062C Canva Connect API \u0628\u062A\u0641\u0648\u064A\u0636 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 (CANVA_ACCESS_TOKEN). \u0627\u0644\u0628\u062F\u064A\u0644: \u064A\u0631\u0641\u0639 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0645\u0644\u0641 \u0641\u064A Canva \u0628\u0646\u0641\u0633\u0647.", importOptions: importOptions(reg) });
@@ -5785,6 +6330,7 @@ async function canva_import_editable(ctx2, args = {}) {
   return ok("canva_import_editable", "file-ready", {
     file: file2,
     report: pptx.report,
+    ...viaConnector && { connector: { status: viaConnector.entry.status, via: viaConnector.entry.via ?? null, why: viaConnector.entry.note ?? null } },
     importOptions: importOptions(reg),
     steps: ["\u0641\u064A Canva: Create a design \u2190 Import file (\u0623\u0648 \u0627\u0633\u062D\u0628 \u0627\u0644\u0645\u0644\u0641 \u0625\u0644\u0649 \u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629).", "\u0627\u0641\u062A\u062D \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u062C\u062F\u064A\u062F \u0648\u0627\u0646\u0633\u062E \u0631\u0627\u0628\u0637\u0647.", "canva_record design (relation import) \u062B\u0645 canva_inspect \u0648canva_validate_arabic \u0639\u0644\u0649 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0631\u0627\u062C\u0639\u0629."],
     honesty: "\u0644\u0645 \u064A\u064F\u0633\u062A\u0648\u0631\u062F \u0634\u064A\u0621 \u0628\u0639\u062F. \u0627\u0644\u0627\u0633\u062A\u064A\u0631\u0627\u062F \u064A\u0646\u0634\u0626 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0648\u0644\u0627 \u064A\u0639\u062F\u0651\u0644 \u062A\u0635\u0645\u064A\u0645\u064B\u0627 \u0642\u0627\u0626\u0645\u064B\u0627."
@@ -5809,7 +6355,7 @@ async function canva_build_reel(ctx2, args = {}) {
   const connector = reg.factsAt ? planConnectorBuild(doc, reg, { title: plan.title, notes, ...uploadPlanArgs(ctx2, doc, outDir) }) : null;
   record(ctx2, "build_reel", { designId: doc.id, note: `${plan.scenes.length} scenes, ${plan.totalSeconds}s` });
   return ok("canva_build_reel", "planned", {
-    reel: { scenes: plan.scenes.map(({ n: n3, role, composition, variant, seconds, words: words2, content }) => ({ n: n3, role, composition, variant, seconds, words: words2, title: content.title ?? content.quote ?? "" })), totalSeconds: plan.totalSeconds, issues: plan.issues },
+    reel: { scenes: plan.scenes.map(({ n: n3, role: role2, composition, variant, seconds, words: words2, content }) => ({ n: n3, role: role2, composition, variant, seconds, words: words2, title: content.title ?? content.quote ?? "" })), totalSeconds: plan.totalSeconds, issues: plan.issues },
     quality: summarizeQuality(quality),
     files: { design: docPath, plan: planPath, pptx: pptxPath },
     connector: connector ? { steps: connector.steps, editability: connector.editability, limitations: connector.limitations, generation: connector.generation } : { status: "needs-input", message: "\u0645\u0631\u0651\u0631 \u0645\u062E\u0637\u0637\u0627\u062A \u0623\u062F\u0648\u0627\u062A Canva \u0644\u0628\u0646\u0627\u0621 \u0627\u0644\u0645\u0634\u0627\u0647\u062F \u0641\u064A Canva." },
@@ -5829,7 +6375,7 @@ async function canva_apply_motion(ctx2, args = {}) {
   const supported = needs.filter((e) => e.status === "supported");
   record(ctx2, "apply_motion", { note: needs.map((e) => `${e.capability}:${e.status}`).join(",") });
   const notes = plan.scenes.map((s) => sceneNotes(s, { numerals: args.numerals ?? plan.numerals ?? "arab" }));
-  const notesCalls = reg.entry("speaker-notes", "connector").status === "supported" ? plan.scenes.map((s, i) => ({ tool: "edit-design", args: { transaction_id: "$transactionId", page_index: i + 1, finalize: "keep_open", operations: [{ type: "replace_speaker_notes", page_id: `$page:${i + 1}`, notes: notes[i] }] } })) : [];
+  const notesCalls = reg.entry("speaker-notes", "connector").status === "supported" ? forDialect(plan.scenes.map((s, i) => ({ tool: "edit-design", args: { transaction_id: "$transactionId", page_index: i + 1, finalize: "keep_open", operations: [{ type: "replace_speaker_notes", page_id: `$page:${i + 1}`, notes: notes[i] }] } })), reg).steps : [];
   if (supported.length === needs.length) {
     return ok("canva_apply_motion", "needs-input", { message: `\u0627\u0644\u0645\u0648\u0635\u0644 \u0635\u0627\u0631 \u064A\u0639\u0631\u0636 ${supported.map((e) => e.via).join("\u060C ")}: \u0627\u0642\u0631\u0623 \u0645\u062E\u0637\u0637 \u0647\u0630\u0647 \u0627\u0644\u0639\u0645\u0644\u064A\u0629 \u0648\u0637\u0628\u0651\u0642 \u0627\u0644\u062E\u0637\u0629\u061B \u0644\u0627 \u0623\u062E\u0645\u0651\u0646 \u0645\u0639\u0627\u0645\u0644\u0627\u062A\u0647\u0627.`, plan: notes });
   }
@@ -5850,8 +6396,11 @@ async function canva_preview(ctx2, args = {}) {
   if (!args.designId) throw new Error("designId is required");
   const pages = args.pages ? [].concat(args.pages).map(Number).filter((n3) => n3 >= 1) : null;
   record(ctx2, "preview");
+  const reg = registryOf(ctx2);
+  const t = forDialect([{ tool: "read-design", args: { design_id: args.designId, ...args.transactionId && { transaction_id: args.transactionId }, filter: { fields: ["thumbnails"], ...pages?.length && { thumbnail_pages: pages } } } }], reg);
+  if (t.issues.some((i) => i.severity === "error")) return ok("canva_preview", "unsupported", { issues: t.issues, message: "\u0644\u0627 \u0623\u062F\u0627\u0629 \u0645\u0639\u0627\u064A\u0646\u0629 \u0641\u064A \u0645\u0648\u0635\u0644 \u0647\u0630\u0647 \u0627\u0644\u062C\u0644\u0633\u0629." });
   return ok("canva_preview", "planned", {
-    calls: [{ tool: "read-design", args: { design_id: args.designId, ...args.transactionId && { transaction_id: args.transactionId }, filter: { fields: ["thumbnails"], ...pages?.length && { thumbnail_pages: pages } } } }],
+    calls: t.steps,
     note: pages?.length ? `\u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0641\u062D\u0627\u062A ${pages.join("\u060C ")} \u0641\u0642\u0637 (\u0627\u0644\u0645\u062A\u0623\u062B\u0631\u0629 \u0628\u0627\u0644\u062A\u0639\u062F\u064A\u0644).` : "\u0645\u0639\u0627\u064A\u0646\u0629 \u0643\u0644 \u0627\u0644\u0635\u0641\u062D\u0627\u062A."
   });
 }
@@ -5863,6 +6412,11 @@ async function canva_validate_arabic(ctx2, args = {}) {
   const auto = mapReadback(doc, rb).map;
   const map = { ...auto, ...j.data.locators };
   const report = validateTransfer(doc, rb, { map, brand });
+  if (report.repair?.length) {
+    const t = forDialect(report.repair, registryOf(ctx2));
+    report.repair = t.steps;
+    if (t.issues.length) report.repairIssues = t.issues;
+  }
   const designId = rb.designId ?? args.designId ?? j.current()?.designId;
   if (report.passed && args.snapshot && designId) j.snapshot(designId, rb);
   record(ctx2, "validate_arabic", { designId: doc.id, note: `${report.errors} errors` });
@@ -5881,14 +6435,20 @@ async function canva_export(ctx2, args = {}) {
     let reel = null;
     if (args.reel) {
       const plan = load(ctx2, args.reel, "reel plan");
-      reel = reelStatus(plan, { video: info, canvaDesignId: args.designId ?? null });
+      let cuts = args.sceneCuts === void 0 ? null : typeof args.sceneCuts === "string" ? args.sceneCuts.split(",").map(Number) : [].concat(args.sceneCuts).map(Number);
+      let source = cuts ? "provided" : null;
+      if (!cuts && info.format === "mp4" && ctx2.detectSceneCuts) {
+        const detected = ctx2.detectSceneCuts(args.file);
+        if (detected) ({ cuts, source } = detected);
+      }
+      reel = reelStatus(plan, { video: info, canvaDesignId: args.designId ?? null, sceneCuts: cuts, sceneCutsSource: source, audio: args.audio ?? false, motionApplied: args.motionApplied ?? false });
       if (info.format === "mp4" && (info.width !== 1080 || info.height !== 1920)) problems.push(`\u0627\u0644\u0641\u064A\u062F\u064A\u0648 ${info.width}\xD7${info.height} \u0648\u0627\u0644\u0645\u0637\u0644\u0648\u0628 1080\xD71920.`);
     }
     return ok("canva_export", problems.length ? "failed" : "verified", { file: args.file, info, problems, ...reel && { reel } });
   }
   if (!args.designId) throw new Error("designId is required");
   if (!args.formats) {
-    return ok("canva_export", "needs-input", { calls: [{ tool: "get-export-formats", args: { design_id: args.designId } }], message: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0635\u064A\u063A \u0627\u0644\u0645\u062A\u0627\u062D\u0629 \u0644\u0647\u0630\u0627 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0623\u0648\u0644\u064B\u0627 \u062B\u0645 \u0623\u0639\u062F \u0627\u0644\u0627\u0633\u062A\u062F\u0639\u0627\u0621 \u0645\u0639 formats." });
+    return ok("canva_export", "needs-input", { calls: forDialect([{ tool: "get-export-formats", args: { design_id: args.designId } }], registryOf(ctx2)).steps, message: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0635\u064A\u063A \u0627\u0644\u0645\u062A\u0627\u062D\u0629 \u0644\u0647\u0630\u0627 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0623\u0648\u0644\u064B\u0627 \u062B\u0645 \u0623\u0639\u062F \u0627\u0644\u0627\u0633\u062A\u062F\u0639\u0627\u0621 \u0645\u0639 formats." });
   }
   const formats = load(ctx2, args.formats, "formats");
   const available = JSON.stringify(formats).toLowerCase();
@@ -5898,7 +6458,7 @@ async function canva_export(ctx2, args = {}) {
   }
   const format = { type, ...args.pages && { pages: [].concat(args.pages).map(Number) }, ...type === "mp4" && { quality: args.quality ?? "vertical_1080p" }, ...type === "png" && args.width && { width: Number(args.width) } };
   return ok("canva_export", "planned", {
-    calls: [{ tool: "export-design", args: { design_id: args.designId, format } }],
+    calls: forDialect([{ tool: "export-design", args: { design_id: args.designId, format } }], registryOf(ctx2)).steps,
     ...type === "mp4" && !args.quality && { note: "quality=vertical_1080p \u0627\u0641\u062A\u0631\u0627\u0636 \u0644\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u0639\u0645\u0648\u062F\u064A: \u0625\u0646 \u0631\u0641\u0636\u0647 Canva \u0627\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0642\u064A\u0645\u0629 \u0627\u0644\u062A\u064A \u064A\u0630\u0643\u0631\u0647\u0627." },
     verify: "\u0646\u0632\u0651\u0644 \u0627\u0644\u0645\u0644\u0641 \u0645\u0646 \u0631\u0627\u0628\u0637 \u0627\u0644\u062A\u0635\u062F\u064A\u0631 \u062B\u0645 canva_export --file <path> --expect \u2026 (\u0648\u0627\u0644\u0631\u064A\u0644\u0632: --reel plan.json) \u0644\u0644\u062A\u062D\u0642\u0642 \u0645\u0646 \u0627\u0644\u0645\u0642\u0627\u0633 \u0648\u0627\u0644\u0645\u062F\u0629."
   });
@@ -5944,10 +6504,14 @@ async function canva_record(ctx2, args = {}) {
   if (event === "edit") {
     const step = load(ctx2, args.step, "step");
     const response = load(ctx2, args.response, "response");
-    const ops = step.args?.operations ?? step.operations ?? [];
-    const page = response.document?.page ?? response.page;
-    if (!page) throw new Error("response has no document.page (pass the edit-design result)");
-    const ourPage = doc.pages[(response.document?.page_index ?? step.args?.page_index ?? 1) - 1];
+    const d = reg.dialect;
+    const sa = step.args ?? {};
+    const ops = sa.operations ?? step.operations ?? [];
+    const pageIndex = response.document?.page_index ?? sa.page_index ?? (d.edit?.page && sa[d.edit.page]) ?? 1;
+    const transactionId = sa.transaction_id ?? (d.edit?.transaction && sa[d.edit.transaction]) ?? null;
+    const page = response.document?.page ?? response.page ?? response.design_content?.pages?.[0] ?? response.pages?.[0];
+    if (!page) throw new Error("response has no page document (pass the result of the edit call)");
+    const ourPage = doc.pages[pageIndex - 1];
     const rb = normalizeReadback({ design_content: { pages: [page] } });
     const mine = new Set(ops.filter((o) => o._element).map((o) => j.locator(ourPage.id, o._element)).filter(Boolean));
     const pool = rb.pages[0].elements.filter((e) => mine.has(e.locator) || !Object.values(j.data.locators).includes(e.locator));
@@ -5971,13 +6535,13 @@ async function canva_record(ctx2, args = {}) {
       }
     }
     if (page.id) j.setPage(ourPage.id, page.id);
-    j.touchTransaction(step.args?.transaction_id, ops.length);
-    j.op({ tool: "edit-design", args: { page: step.args?.page_index, ops: ops.length }, result: { mapped } });
+    j.touchTransaction(transactionId, ops.length);
+    j.op({ tool: step.tool ?? "edit-design", args: { page: pageIndex, ops: ops.length }, result: { mapped } });
     const missing = ops.filter((o) => o._element && !j.locator(ourPage.id, o._element)).map((o) => o._element);
     return ok("canva_record", missing.length ? "needs-input" : "done", {
       mapped,
       missing,
-      next: follow.length ? { tool: "edit-design", args: { transaction_id: step.args?.transaction_id, page_index: step.args?.page_index, finalize: "keep_open", operations: follow } } : null,
+      next: follow.length ? forDialect([{ tool: "edit-design", args: { transaction_id: transactionId, page_index: pageIndex, finalize: "keep_open", operations: follow } }], reg).steps[0] : null,
       ...missing.length && { message: `\u0644\u0645 \u0623\u062C\u062F \u0641\u064A \u0627\u0644\u0631\u062F \u0639\u0646\u0627\u0635\u0631: ${missing.join("\u060C ")}. \u0627\u0642\u0631\u0623 \u0627\u0644\u0635\u0641\u062D\u0629 \u0628\u0640 read-design \u0648\u0623\u0639\u062F \u0627\u0644\u0645\u062D\u0627\u0648\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u0636\u0641\u0647\u0627 \u0645\u0631\u0629 \u062B\u0627\u0646\u064A\u0629.` }
     });
   }
@@ -6022,12 +6586,12 @@ var TOOL_DEFS = {
   canva_inspect: S("Reads a Canva design from a read-design result: pages, sizes, elements, texts; maps them to the studio design, reports external changes since our last write and open transactions.", { readback: file("read-design result"), design: file("studio design"), designId: str("Canva design id") }, ["readback"]),
   canva_build_design: S("Builds a studio design in Canva: a connector plan (idempotent: an identical earlier build is resumed, not duplicated), plus a native .pptx carrying fonts and coloured words.", { design: file("studio design"), route: { type: "string", enum: ["auto", "connector", "native-file"] }, outDir: str("folder for files"), title: str("design title"), base: str("id of a cleared base design to copy instead of generating"), mode: { type: "string", enum: ["native", "partial"] } }, ["design"]),
   canva_apply_patch: S('Applies edits ("\u0643\u0628\u0651\u0631 \u0627\u0644\u0639\u0646\u0648\u0627\u0646", "\u063A\u064A\u0651\u0631 \u0627\u0644\u062E\u0637 \u0625\u0644\u0649 \u062A\u062C\u0648\u0627\u0644", a patch list) to the studio design locally, then plans the matching edit-design operations on exactly those Canva elements; blocks on external changes; reports what the connector cannot do (e.g. font family) with alternatives.', { design: file("studio design"), commands: { type: "array", items: { type: "string" } }, patch: file("DesignPatch list"), readback: file("fresh read-design result with an open transaction"), force: { type: "boolean" }, out: str("where to save the edited design"), brandId: str("brand kit id") }, ["design"]),
-  canva_import_editable: S("Writes the design as an editable .pptx (independent Arabic text with its font, separate images, native shapes) and imports it as a NEW Canva design through the Connect API when a token is configured and execute is true; otherwise returns the file and import steps.", { design: file("studio design"), outDir: str("folder"), execute: { type: "boolean" }, title: str("title"), reel: file("reel plan, to write slide timings") }, ["design"]),
+  canva_import_editable: S("Writes the design as an editable .pptx (independent Arabic text with its font, separate images, native shapes) and imports it as a NEW Canva design: through the session connector when its import tool takes a file (e.g. design_file), through the Connect API when a token is configured and execute is true, otherwise returns the file and manual steps. A local file is never sent to a public-URL field.", { design: file("studio design"), outDir: str("folder"), execute: { type: "boolean" }, route: { type: "string", enum: ["auto", "connector", "connect-api"] }, title: str("title"), reel: file("reel plan, to write slide timings") }, ["design"]),
   canva_build_reel: S("Turns a carousel or an idea into a 1080\xD71920 reel: hook first, short phone-readable scenes, big Arabic numbers/titles, varied compositions, durations from text length, closing scene; stores per-scene text, assets, elements, duration, motion and transition. Returns the reel design, plan, .pptx and connector plan.", { source: file("carousel studio design"), idea: file("{ hook, points[], cta }"), outDir: str("folder"), brandId: str("brand kit id"), numerals: { type: "string", enum: ["arab", "latn"] }, title: str("title") }),
   canva_apply_motion: S("Applies the reel plan's motion, transitions and durations where a route supports it; today the connector has no motion operation, so it returns that clearly with the manual steps per scene and speaker-notes calls.", { reel: file("reel plan"), designId: str("Canva design id") }, ["reel"]),
   canva_preview: S("Preview call for a Canva design, limited to the affected pages.", { designId: str("Canva design id"), transactionId: str("open transaction"), pages: { type: "array", items: { type: "integer" } } }, ["designId"]),
   canva_validate_arabic: S("Checks Arabic after a transfer, letter by letter (hamzas, marks, \u0629/\u0647, \u0649/\u064A, digits, punctuation, reversed words), presentation-form glyphs, direction marks, identity text rules, and Canva geometry (clipped, overlapping, margins, reel zones, grown text).", { design: file("studio design"), readback: file("read-design result"), brandId: str("brand kit id"), snapshot: { type: "boolean", description: "when passed, record this state as ours (for external-change checks)" } }, ["design", "readback"]),
-  canva_export: S("Plans an export in a format get-export-formats lists for the design, and verifies a downloaded file (PNG size, PDF pages, MP4 size and duration against the reel plan, PPTX slides).", { designId: str("Canva design id"), format: { type: "string", enum: ["png", "jpg", "pdf", "mp4", "gif", "pptx"] }, formats: file("get-export-formats result"), quality: str("mp4 quality"), pages: { type: "array", items: { type: "integer" } }, file: str("downloaded file to verify"), expect: { type: "object" }, reel: file("reel plan") }),
+  canva_export: S("Plans an export in a format get-export-formats lists for the design, and verifies a downloaded file (PNG size, PDF pages, MP4 size and duration against the reel plan, PPTX slides).", { designId: str("Canva design id"), format: { type: "string", enum: ["png", "jpg", "pdf", "mp4", "gif", "pptx"] }, formats: file("get-export-formats result"), quality: str("mp4 quality"), pages: { type: "array", items: { type: "integer" } }, file: str("downloaded file to verify"), expect: { type: "object" }, reel: file("reel plan"), sceneCuts: { description: "scene cut times in seconds from a detector (comma list or array); without them per-scene timing stays unverified", anyOf: [{ type: "string" }, { type: "array", items: { type: "number" } }] } }),
   canva_record: S("Records what Canva returned (design ids and their relation, transactions, uploads, locators, errors, live capability results) in the journal, so retries resume instead of duplicating.", { design: file("studio design"), event: { type: "string", enum: ["design", "transaction", "upload", "locators", "edit", "op", "error", "evidence"] }, step: file("the edit-design step that was run (event edit)"), response: file("the edit-design result (event edit)"), designId: str(""), relation: { type: "string", enum: ["created", "copy", "resize", "import"] }, sourceDesignId: str(""), buildKey: str(""), transactionId: str(""), state: { type: "string", enum: ["open", "committed", "cancelled", "expired"] }, file: str(""), hash: str(""), mediaId: str(""), readback: file("read-design result"), tool: str(""), message: str(""), status: {}, capability: str(""), route: str(""), note: str(""), via: str(""), generation: { type: "boolean" }, base: { type: "boolean" }, url: str(""), title: str("") }, ["design", "event"])
 };
 
@@ -6036,6 +6600,7 @@ import fs2 from "node:fs";
 import os2 from "node:os";
 import path2 from "node:path";
 import zlib from "node:zlib";
+import { spawnSync } from "node:child_process";
 
 // lib/studio/budget.js
 var CACHE_KINDS = ["text", "asset", "layout", "export"];
@@ -6709,9 +7274,9 @@ var Projects = class {
   note(id, text, { designId, elementIds } = {}) {
     return this.update(id, (p) => void p.notes.push({ at: now(), text, ...designId && { designId }, ...elementIds?.length && { elementIds } }));
   }
-  linkDesign(id, designId, revision, role = "main") {
+  linkDesign(id, designId, revision, role2 = "main") {
     return this.update(id, (p) => {
-      p.designs = [...p.designs.filter((d) => d.designId !== designId), { designId, revision, role, at: now() }];
+      p.designs = [...p.designs.filter((d) => d.designId !== designId), { designId, revision, role: role2, at: now() }];
     });
   }
   setCopy(id, copy) {
@@ -7028,6 +7593,7 @@ function nodeContext({ home = defaultHome(), env = process.env } = {}) {
     inflateRaw: zlib.inflateRawSync,
     tmpDir: path2.join(os2.tmpdir(), "baseera-canva"),
     join: path2.join,
+    detectSceneCuts,
     readJson: (p) => JSON.parse(fs2.readFileSync(p, "utf8")),
     readBytes: (p) => new Uint8Array(fs2.readFileSync(p)),
     writeFile: (p, bytes) => {
@@ -7035,6 +7601,12 @@ function nodeContext({ home = defaultHome(), env = process.env } = {}) {
       fs2.writeFileSync(p, bytes);
     }
   };
+}
+function detectSceneCuts(file2, { threshold = 0.3 } = {}) {
+  const run = spawnSync("ffmpeg", ["-hide_banner", "-nostats", "-i", file2, "-filter:v", `select='gt(scene,${threshold})',showinfo`, "-f", "null", "-"], { encoding: "utf8", timeout: 12e4 });
+  if (run.error || run.status !== 0) return null;
+  const cuts = [...run.stderr.matchAll(/pts_time:([\d.]+)/g)].map((m) => Number(m[1]));
+  return { cuts, source: `ffmpeg scene>${threshold}` };
 }
 
 // scripts/canva-mcp.js

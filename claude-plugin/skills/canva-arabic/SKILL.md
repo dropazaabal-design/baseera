@@ -9,15 +9,26 @@ Design first with `arabic-carousel` (`studio compose` → quality gate passed); 
 `arabic-reels`. This skill moves the design into Canva and edits it there. Canva stays the
 editor: never build a substitute editor or site.
 
-**Tools.** The plugin's MCP server `baseera-canva` exposes `canva_capabilities`, `canva_inspect`,
-`canva_build_design`, `canva_apply_patch`, `canva_import_editable`, `canva_build_reel`,
-`canva_apply_motion`, `canva_preview`, `canva_validate_arabic`, `canva_export`, `canva_record`.
-Without MCP: `node <this skill>/scripts/canva.mjs <tool> --key value …` (tool name without
-`canva_`, kebab-case: `build-design`, `--design design.json`; `--args file.json` for JSON input).
-They plan, check and record; the Canva connector's own tools (`edit-design`, `read-design`, …)
-do the work in Canva. Results are JSON: `status` is `done`, `planned`, `unsupported`,
-`blocked`, `needs-input` or `failed`, always with the reason and the next action. Nothing is
-reported as done before Canva's response or a read-back confirms it.
+**Tools.** The same eleven tools — `canva_capabilities`, `canva_inspect`, `canva_build_design`,
+`canva_apply_patch`, `canva_import_editable`, `canva_build_reel`, `canva_apply_motion`,
+`canva_preview`, `canva_validate_arabic`, `canva_export`, `canva_record` — reach you one of two ways:
+
+- **In your tool list** (Claude Code with this plugin: the plugin's `.mcp.json` starts the local
+  MCP server `baseera-canva`; the tools appear as `mcp__plugin_arabic-carousel_baseera-canva__canva_*`).
+  Call them directly.
+- **Not in your tool list** (ChatGPT, Codex, or any host that does not start the server): run the
+  CLI if the host can run Node 18+: `node <this skill>/scripts/canva.mjs <tool> --key value …`
+  (tool name without `canva_`, kebab-case: `build-design`, `--design design.json`; `--args
+  file.json` for JSON input). If the host cannot run Node, these tools are not available: say so,
+  and use the skill as guidance only. `references/platforms.md` lists what was tested where.
+
+They plan, check and record; the host's own Canva tools do the work in Canva, whatever their
+names (`edit-design` / `read-design` here, or a host's `perform_editing_operations` with
+`element_id` and separate start/commit/cancel tools): pass the host's tool list with their
+schemas to `canva_capabilities`, and every call the tools return is written for that host. Results
+are JSON: `status` is `done`, `planned`, `unsupported`, `blocked`, `needs-input` or `failed`,
+always with the reason and the next action. Nothing is reported as done before Canva's
+response or a read-back confirms it.
 
 ## 1. Capabilities first, every session
 
@@ -38,6 +49,7 @@ After any live test, record it: `canva_record` `event: "evidence"`, `capability`
 | route | who runs it | result |
 |---|---|---|
 | connector | you, with the connector's tools | edits the same design inside a transaction; saved only on commit |
+| connector import | `canva_import_editable`, when the host's import tool has a file field (e.g. `design_file`) | a **new** design from the .pptx itself. A tool that takes only a public `url` never gets a local path or a file published without the user's consent |
 | native file (.pptx) | the user imports it in Canva (Upload) | a **new** editable design: separate Arabic text with its font, separate images, native shapes. Help Center: transitions, animations and timings are not imported |
 | Connect API | `canva_import_editable --execute true`, only if the user set `CANVA_ACCESS_TOKEN` in their own environment | a **new** design from the .pptx (import job) |
 | manual | the user, with the listed steps | whatever Canva's editor offers (font family, motion, timing, audio) |
@@ -54,7 +66,10 @@ After any live test, record it: `canva_record` `event: "evidence"`, `capability`
    editability, limitations and the expected generation count (copying a blank earlier design
    + `resize-design` = 0; `create-design` generates once). The same design built before is
    resumed from the journal, not duplicated.
-2. Run the steps in order. Fill each `$name` from earlier results and drop keys starting with `_`.
+2. Run the steps in order. Each step already names this host's tool and fields (e.g.
+   `element_id` instead of `locator_id`, a separate commit tool); a step marked `blocked`
+   has no counterpart here and is not sent — its `issues` say why. Fill each `$name` from
+   earlier results and drop keys starting with `_`.
    Record every real id with `canva_record` right away:
    - `event: "design"` with `designId`, `relation` (`created`/`copy`/`resize`/`import`) and
      `sourceDesignId`;
