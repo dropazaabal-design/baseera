@@ -3,7 +3,8 @@
 //   node scripts/style-qa.mjs [--styles a,b] [--compositions x,y] [--formats portrait,story]
 //                             [--render] [--zoom hero/long,list/long] [--out docs/library]
 //
-// For every pair and every Arabic sample (short, long) it builds the design
+// For every pair and every Arabic sample (short, long; in light and dark for
+// styles with both modes) it builds the design
 // with the «كتاب وبس» identity, runs the quality gate (overflow, contrast,
 // identity rules, Arabic text) and, with --render, draws the pages in
 // Chromium with the real fonts, reads the text that still overflows after
@@ -26,7 +27,7 @@ import { SAMPLES } from '../lib/studio/library/samples.js';
 import { seedQaArt, withArt } from '../lib/studio/library/art.js';
 import { documentHtml } from '../lib/studio/htmlPreview.js';
 import { FONTS } from '../lib/fonts.js';
-import { ROLE_OF, claims, pairFingerprint, pairStatus } from '../lib/studio/library/matrix.js';
+import { ROLE_OF, claims, pairFingerprint, pairStatus, sequenceFingerprint, sequencePages } from '../lib/studio/library/matrix.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const argv = process.argv.slice(2);
@@ -57,12 +58,12 @@ function fontCss() {
   return rules.join('\n');
 }
 
-function build(styleId, compositionId, size, format) {
+function build(styleId, compositionId, size, format, mode = null) {
   const studio = openStudio(new MemoryStore());
   studio.memory.saveBrand('default', KITABWBS_PRESET);
   const content = withArt(SAMPLES[compositionId][size], seedQaArt(studio));
   const pages = [{ composition: compositionId, content }];
-  const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa ${styleId ?? 'classic'}/${compositionId}/${size}`, ...(styleId && { style: { id: styleId } }), intent: { mode: 'post', format, pages: 1, platform: 'instagram' }, pages }, { save: false });
+  const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa ${styleId ?? 'classic'}/${compositionId}/${size}`, ...(styleId && { style: { id: styleId, ...(mode && { mode }) } }), intent: { mode: 'post', format, pages: 1, platform: 'instagram' }, pages }, { save: false });
   return { doc, quality };
 }
 
@@ -78,29 +79,50 @@ for (const styleId of styles) {
     continue;
   }
   for (const compositionId of compositions) {
-    for (const format of formats) {
+    // Formats the style does not declare are not tested (nor counted).
+    for (const format of formats.filter((f) => style.formats.includes(f))) {
       const claimed = claims(style, compositionId, format);
-      const pair = { style: styleId, styleVersion: style.version, composition: compositionId, compositionVersion: COMPOSITIONS[compositionId]?.version ?? null, format, claimed, fingerprint: pairFingerprint(style, compositionId), samples: {} };
-      for (const size of ['short', 'long']) {
-        const { doc, quality } = build(styleId, compositionId, size, format);
-        pair.samples[size] = { errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code), chars: JSON.stringify(SAMPLES[compositionId][size]).length };
+      const pair = { ...(!claimed && { why: style.notFor?.[ROLE_OF[compositionId]] ?? null }), style: styleId, styleVersion: style.version, composition: compositionId, compositionVersion: COMPOSITIONS[compositionId]?.version ?? null, format, claimed, fingerprint: pairFingerprint(style, compositionId), samples: {} };
+      // A style with light and dark pages is checked in both modes: the
+      // same composition must work wherever the sequence puts it.
+      const modes = style.tokens.light && style.tokens.dark ? ['light', 'dark'] : [null];
+      for (const [size, mode] of ['short', 'long'].flatMap((z) => modes.map((m) => [z, m]))) {
+        const sample = mode ? `${size}-${mode}` : size;
+        const { doc, quality } = build(styleId, compositionId, size, format, mode);
+        pair.samples[sample] = { errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code), chars: JSON.stringify(SAMPLES[compositionId][size]).length };
         // A sample that fails the same way without the style is a limit of
         // the composition in this format (too much text for the page), not a
         // style defect: recorded as such, with the gate's own suggestion.
         if (quality.errors) {
           const base = build(null, compositionId, size, format).quality;
           if (base.errors && JSON.stringify(errorCodes(base)) === JSON.stringify(errorCodes(quality))) {
-            pair.samples[size].limit = { sameWithoutStyle: true, fix: quality.issues.find((i) => i.code === 'layout.overflow')?.message ?? null };
+            pair.samples[sample].limit = { sameWithoutStyle: true, fix: quality.issues.find((i) => i.code === 'layout.overflow')?.message ?? null };
           }
         }
-        (sheets[`${styleId}.${format}`] ??= []).push({ doc, label: `${compositionId} · ${size} · ${format}`, key: `${compositionId}/${size}/${format}` });
+        if (claimed) (sheets[`${styleId}.${format}`] ??= []).push({ doc, label: `${compositionId} · ${sample} · ${format}`, key: `${compositionId}/${sample}/${format}` });
       }
       results.push(pair);
     }
   }
 }
 
+// The acceptance carousel per style (portrait): the sequence, with
+// pagination and light/dark alternation, built and checked like a pair.
+const sequences = {};
+for (const styleId of styles) {
+  const style = STYLES.find((s) => s.id === styleId);
+  if (!style || validateStyle(style).length || !style.formats.includes('portrait')) continue;
+  const studio = openStudio(new MemoryStore());
+  studio.memory.saveBrand('default', KITABWBS_PRESET);
+  const ids = seedQaArt(studio);
+  const pages = sequencePages(style).map((p) => ({ ...p, content: withArt(p.content, ids) }));
+  const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa sequence ${styleId}`, style: { id: styleId }, intent: { mode: 'carousel', format: 'portrait', pages: pages.length, platform: 'instagram' }, pages }, { save: false });
+  sequences[styleId] = { fingerprint: sequenceFingerprint(style), pages: pages.map((p) => p.composition), modes: doc.pages.map((p) => p.styleMode ?? 'light'), errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code) };
+  sheets[`${styleId}.sequence`] = [{ doc, key: 'sequence', label: 'sequence' }];
+}
+
 let overflow = {};
+const orphans = {};
 if (render) {
   const require = createRequire('/opt/node22/lib/node_modules/');
   const { chromium } = require('playwright');
@@ -110,22 +132,30 @@ if (render) {
   for (const [sheet, items] of Object.entries(sheets)) {
     // One sheet per style and format: every sample side by side, 1/4 scale.
     const styleId = sheet.split('.')[0];
-    const merged = { ...items[0].doc, pages: items.flatMap((it) => it.doc.pages.map((p) => ({ ...p, id: `${it.key}` }))), assets: Object.assign({}, ...items.map((it) => it.doc.assets)) };
+    const merged = { ...items[0].doc, pages: items.flatMap((it) => it.doc.pages.map((p, i) => ({ ...p, id: it.doc.pages.length > 1 ? `${it.key}/${i + 1}` : `${it.key}` }))), assets: Object.assign({}, ...items.map((it) => it.doc.assets)) };
     const html = documentHtml(merged, { fontCss: css, gap: 40 });
     const page = await browser.newPage({ viewport: { width: 1200 * 4, height: 1400 }, deviceScaleFactor: 0.25 });
     await page.setContent(html, { waitUntil: 'load' });
     await page.waitForFunction(() => Array.isArray(window.__fit), null, { timeout: 30000 });
-    overflow[styleId] = [...(overflow[styleId] ?? []), ...(await page.evaluate(() => window.__fit))];
+    const fit = await page.evaluate(() => window.__fit);
+    for (const o of await page.evaluate(() => window.__orphans ?? [])) (orphans[styleId] ??= []).push({ ...o, sheet });
+    if (sheet.endsWith('.sequence')) sequences[styleId].browserOverflow = fit.map((o) => ({ page: o.page, element: o.el }));
+    else overflow[styleId] = [...(overflow[styleId] ?? []), ...fit];
     await page.screenshot({ path: path.join(outDir, 'previews', `${sheet}.png`), fullPage: true });
+    // Where each page sits on the sheet, in image pixels: lets a later run
+    // be compared page by page with the sheet that was reviewed.
+    const rects = await page.evaluate(() => [...document.querySelectorAll('.page')].map((p) => { const r = p.getBoundingClientRect(); return { id: p.dataset.page, x: r.x, y: r.y + window.scrollY, w: r.width, h: r.height }; }));
+    fs.writeFileSync(path.join(outDir, 'previews', `${sheet}.pages.json`), `${JSON.stringify(rects.map((r) => ({ ...r, x: Math.round(r.x * 0.25), y: Math.round(r.y * 0.25), w: Math.round(r.w * 0.25), h: Math.round(r.h * 0.25) })))}\n`);
     await page.close();
     // Single pages at half scale, for a closer look («--zoom list/long»).
     const close = items.filter((it) => zoom.some((z) => it.key.startsWith(z)));
     if (close.length) {
       const big = await browser.newPage({ viewport: { width: 1200, height: 1500 }, deviceScaleFactor: 0.5 });
-      await big.setContent(documentHtml({ ...merged, pages: merged.pages.filter((p) => close.some((it) => it.key === p.id)) }, { fontCss: css, gap: 0 }), { waitUntil: 'load' });
+      const wanted = merged.pages.filter((p) => close.some((it) => p.id === it.key || p.id.startsWith(`${it.key}/`)));
+      await big.setContent(documentHtml({ ...merged, pages: wanted }, { fontCss: css, gap: 0 }), { waitUntil: 'load' });
       await big.waitForFunction(() => Array.isArray(window.__fit), null, { timeout: 30000 });
       fs.mkdirSync(path.join(outDir, 'previews', styleId), { recursive: true });
-      for (const it of close) await big.locator(`[data-page="${it.key}"]`).screenshot({ path: path.join(outDir, 'previews', styleId, `${it.key.replace(/\//g, '-')}.png`) });
+      for (const p of wanted) await big.locator(`[data-page="${p.id}"]`).screenshot({ path: path.join(outDir, 'previews', styleId, `${p.id.replace(/\//g, '-')}.png`) });
       await big.close();
     }
   }
@@ -140,18 +170,47 @@ for (const r of results) {
   if (r.error) continue;
   const key = `${r.style}/${r.composition}/${r.format}`;
   const over = render ? (overflow[r.style] ?? []).filter((o) => o.page.startsWith(`${r.composition}/`) && o.page.endsWith(`/${r.format}`)) : null;
-  r.browser = render ? { overflow: over.map((o) => ({ sample: o.page.split('/')[1], element: o.el })) } : 'not run';
+  const lone = render ? (orphans[r.style] ?? []).filter((o) => o.page.startsWith(`${r.composition}/`) && o.page.endsWith(`/${r.format}`)) : [];
+  r.browser = render ? { overflow: over.map((o) => ({ sample: o.page.split('/')[1], element: o.el })), loneLastWord: lone.map((o) => o.page.split('/')[1]) } : 'not run';
   const passes = (sample) => sample.errors === 0 || sample.limit?.sameWithoutStyle;
-  const automated = passes(r.samples.short) && passes(r.samples.long) && (!render || over.length === 0);
+  const automated = Object.values(r.samples).every(passes) && (!render || over.length === 0);
   const limits = Object.entries(r.samples).filter(([, v]) => v.limit).map(([k]) => k);
   if (limits.length) r.limits = limits.map((k) => ({ sample: k, why: 'المحتوى أطول من سعة التكوين في هذا المقاس، والنتيجة نفسها دون الأسلوب' }));
   const review = reviews[key] ?? null;
   r.review = review && { ...review, current: review.fingerprint === r.fingerprint };
   r.status = pairStatus({ claimed: r.claimed, automated, rendered: render, review, fingerprint: r.fingerprint });
 }
+for (const [styleId, seq] of Object.entries(sequences)) {
+  const review = reviews[`${styleId}/sequence/portrait`] ?? null;
+  const automated = seq.errors === 0 && (!render || (seq.browserOverflow ?? []).length === 0);
+  seq.review = review && { ...review, current: review.fingerprint === seq.fingerprint };
+  seq.status = pairStatus({ claimed: true, automated, rendered: render, review, fingerprint: seq.fingerprint });
+}
 const summary = {};
 for (const r of results) if (!r.error) summary[r.status] = (summary[r.status] ?? 0) + 1;
-const matrix = { kind: 'style-composition-matrix', generatedAt: new Date().toISOString().slice(0, 10), identity: 'kitabwbs', rendered: render, summary, pairs: results };
+// Per style, counted by composition (a composition is ready for a style
+// only when it is ready in every format the style declares), so the count
+// is never inflated by multiplying formats.
+const byStyle = {};
+for (const r of results) {
+  if (r.error) continue;
+  const st = (byStyle[r.style] ??= { formats: [], ready: [], notReady: [], notClaimed: [] });
+  if (!st.formats.includes(r.format)) st.formats.push(r.format);
+}
+for (const [styleId, st] of Object.entries(byStyle)) {
+  const rows = results.filter((r) => r.style === styleId && !r.error);
+  for (const c of [...new Set(rows.map((r) => r.composition))]) {
+    const cr = rows.filter((r) => r.composition === c);
+    if (cr.every((r) => r.status === 'not_claimed')) st.notClaimed.push({ composition: c, why: STYLES.find((x) => x.id === styleId)?.notFor?.[ROLE_OF[c]] ?? null });
+    else if (cr.every((r) => r.status === 'ready')) st.ready.push(c);
+    else st.notReady.push(`${c} (${cr.filter((r) => r.status !== 'ready').map((r) => `${r.format}: ${r.status}`).join(', ')})`);
+  }
+}
+// Titles of four words or more drawn with a lone last word, counted per
+// style (a typographic warning: it does not fail a pair; it is reported).
+const titleOrphans = Object.fromEntries(Object.entries(orphans).map(([k, v]) => [k, v.map((o) => o.page)]));
+const totals = { styles: Object.keys(byStyle).length, compositions: compositions.length, readyStyleCompositionPairs: Object.values(byStyle).reduce((t, st) => t + st.ready.length, 0), possiblePairs: Object.keys(byStyle).length * compositions.length };
+const matrix = { kind: 'style-composition-matrix', generatedAt: new Date().toISOString().slice(0, 10), identity: 'kitabwbs', rendered: render, sequences, titleOrphans, note: 'Reviews bind to the layout engine version, the style\'s visual fields, the composition code and the samples; changing any of them returns the pair to needs_review.', totals, summary, byStyle, pairs: results };
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, 'matrix.json'), `${JSON.stringify(matrix, null, 1)}\n`);
-console.log(JSON.stringify({ summary, failed: results.filter((r) => r.status === 'failed').map((r) => ({ pair: `${r.style}/${r.composition}`, short: r.samples.short.issues, long: r.samples.long.issues, overflow: r.browser?.overflow })) }, null, 1));
+console.log(JSON.stringify({ totals, summary, titleOrphans: Object.fromEntries(Object.entries(titleOrphans).map(([k, v]) => [k, v.length])), sequences: Object.fromEntries(Object.entries(sequences).map(([k, v]) => [k, `${v.status} (${v.errors} errors${v.issues.length ? `: ${v.issues.join(', ')}` : ''})`])), failed: results.filter((r) => r.status === 'failed').map((r) => ({ pair: `${r.style}/${r.composition}/${r.format}`, issues: Object.fromEntries(Object.entries(r.samples).filter(([, v]) => v.issues.length).map(([k, v]) => [k, v.issues])), overflow: r.browser?.overflow })) }, null, 1));

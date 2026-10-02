@@ -1,7 +1,10 @@
 // Records a visual verdict for style × composition pairs after looking at
 // the contact sheets (docs/library/previews/<style>.<format>.png):
 //
-//   node scripts/style-review.mjs <style> <composition[,…]|all> <format[,…]> <ready|unsuitable|needs_work> "<note>" [--by name] [--out docs/library]
+//   node scripts/style-review.mjs <style> <composition[,…]|all|sequence> <format[,…]> <ready|unsuitable|needs_work> "<note>" [--by name] [--out docs/library]
+//
+// "sequence" records the verdict on the style's acceptance carousel
+// (docs/library/previews/<style>.sequence.png, portrait).
 //
 // The verdict is bound to the pair's current fingerprint (style record,
 // composition code, samples): editing any of them puts the pair back to
@@ -11,7 +14,7 @@ import path from 'node:path';
 import { STYLES } from '../lib/studio/styles/catalog.js';
 import { COMPOSITIONS } from '../lib/studio/compositions.js';
 import { SAMPLES } from '../lib/studio/library/samples.js';
-import { claims, pairFingerprint } from '../lib/studio/library/matrix.js';
+import { claims, pairFingerprint, sequenceFingerprint } from '../lib/studio/library/matrix.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const args = process.argv.slice(2);
@@ -36,6 +39,12 @@ const reviews = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) 
 const list = comps === 'all' ? Object.keys(COMPOSITIONS).filter((c) => SAMPLES[c]) : comps.split(',');
 const at = new Date().toISOString().slice(0, 10);
 const done = [];
+if (comps === 'sequence') {
+  const key = `${styleId}/sequence/portrait`;
+  reviews[key] = { verdict, fingerprint: sequenceFingerprint(style), note, by, at };
+  done.push(key);
+  list.length = 0;
+}
 for (const c of list) {
   for (const f of formats.split(',')) {
     if (!claims(style, c, f)) continue;

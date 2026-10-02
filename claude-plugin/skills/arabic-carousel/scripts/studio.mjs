@@ -1037,7 +1037,7 @@ var STYLES = [
     kind: "style",
     id: "quiet-editorial",
     version: 1,
-    status: "preview_verified",
+    status: "reusable",
     family: "editorial",
     name: "\u062A\u062D\u0631\u064A\u0631\u064A \u0647\u0627\u062F\u0626",
     purpose: "\u0645\u0642\u0627\u0644\u0627\u062A \u0648\u0642\u0648\u0627\u0626\u0645 \u0647\u0627\u062F\u0626\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629: \u0639\u0646\u0648\u0627\u0646 \u0643\u0628\u064A\u0631 \u0641\u064A \u0623\u0639\u0644\u0649 \u0627\u0644\u0635\u0641\u062D\u0629\u060C \u0641\u0631\u0627\u063A \u0648\u0627\u0633\u0639\u060C \u0648\u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062D\u062F \u0641\u064A \u0643\u0644 \u0635\u0641\u062D\u0629",
@@ -1056,7 +1056,9 @@ var STYLES = [
       cta: [{ shape: "rect", at: "start", x: "M", y: "R-44", w: 140, h: 10, fill: "@accent", name: "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0627\u0644\u0648\u062D\u064A\u062F\u0629" }]
     },
     densities: ["comfortable", "airy"],
-    roles: ["cover", "list", "steps", "quote", "statement", "evidence", "checklist", "cta"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { comparison: "\u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629 \u062A\u062D\u062A\u0627\u062C \u062C\u0647\u062A\u064A\u0646 \u0645\u062A\u0645\u0627\u064A\u0632\u062A\u064A\u0646 \u0628\u0648\u0636\u0648\u062D\u061B \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062A \u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0648\u0627\u0644\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u0628\u064A\u0636\u0627\u0621 \u062A\u0636\u0639\u0641\u0627\u0646 \u0627\u0644\u0641\u0631\u0642 \u0628\u064A\u0646\u0647\u0645\u0627", collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "steps", "quote", "statement", "evidence", "framework", "cta"],
     formats: ["portrait", "square", "story"],
     rtl: ["\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629 \u0645\u0646 \u0627\u0644\u0628\u062F\u0627\u064A\u0629 (\u0627\u0644\u064A\u0645\u064A\u0646)", "\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641 \u0648\u0644\u0627 \u0623\u062D\u0631\u0641 \u0643\u0628\u064A\u0631\u0629", "\u0627\u0644\u0632\u062E\u0631\u0641\u0629 \u062A\u064F\u0642\u0627\u0633 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629"],
     provenance: [
@@ -1069,247 +1071,338 @@ var STYLES = [
     ],
     designedHere: ["\u062E\u0637 \u0639\u0644\u0648\u064A \u0631\u0641\u064A\u0639 \u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649", "\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0642\u0648\u0627\u0626\u0645 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u0644\u0627 \u062F\u0648\u0627\u0626\u0631", "\u0634\u0627\u0631\u0629 \u0628\u0625\u0637\u0627\u0631 \u0628\u062F\u0644 \u0627\u0644\u062A\u0639\u0628\u0626\u0629"],
     keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "magazine-bold",
+    version: 1,
+    status: "reusable",
+    family: "magazine",
+    name: "\u0645\u062C\u0644\u0629 \u062C\u0631\u064A\u0626\u0629",
+    purpose: "\u0623\u0641\u0643\u0627\u0631 \u0639\u0645\u0644\u064A\u0629 \u0648\u0646\u0635\u0627\u0626\u062D \u0633\u0631\u064A\u0639\u0629 \u0628\u0625\u064A\u0642\u0627\u0639 \u0645\u062C\u0644\u0629: \u063A\u0644\u0627\u0641 \u0648\u062E\u0627\u062A\u0645\u0629 \u062F\u0627\u0643\u0646\u0627\u0646\u060C \u0639\u0646\u0627\u0648\u064A\u0646 \u062B\u0642\u064A\u0644\u0629 \u0643\u0628\u064A\u0631\u0629\u060C \u0648\u0631\u0642\u0645 \u0634\u0628\u062D\u064A \u0641\u064A \u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649",
+    tone: "\u0648\u0627\u062B\u0642\u060C \u0645\u0628\u0627\u0634\u0631\u060C \u0639\u0627\u0644\u064A \u0627\u0644\u062A\u0628\u0627\u064A\u0646",
+    distinctFrom: { style: "quiet-editorial", how: "\u0639\u0646\u0627\u0648\u064A\u0646 \u0623\u062B\u0642\u0644 \u0648\u0623\u0643\u0628\u0631\u060C \u063A\u0644\u0627\u0641 \u0648\u062E\u0627\u062A\u0645\u0629 \u0628\u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A\u060C \u0632\u0648\u0627\u064A\u0627 \u062D\u0627\u062F\u0629\u060C \u0628\u0637\u0627\u0642\u0627\u062A \u0645\u0645\u0644\u0648\u0621\u0629 \u0628\u0639\u0644\u0627\u0645\u0629 \u062A\u0645\u064A\u064A\u0632 \u0642\u0635\u064A\u0631\u0629\u060C \u0631\u0642\u0645 \u0634\u0628\u062D\u064A \u0636\u062E\u0645 \u062E\u0644\u0641 \u0627\u0644\u0645\u062D\u062A\u0648\u0649" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#EEF2F7", text: "#0B1220", muted: "#4A5565" },
+      dark: { bg: "#0E2A5C", surface: "#173B74", text: "#FFFFFF", muted: "#C9D4E3" }
+    },
+    defaultMode: "light",
+    modeByRole: { cover: "dark", cta: "dark" },
+    type: { titleScale: 1.12, titleWeight: "black", titleLineHeight: 1.25 },
+    treatment: { pillRadius: 0, pillFill: "@accent", cardMode: "accent-bar", cardRadius: 0, badge: "rect", ruleFill: "@accent", ruleRadius: 0, rule: { width: 220, height: 14 }, artRadius: 0 },
+    layout: { stackAlign: "center", margin: 88, maxScale: 1.2 },
+    decor: {
+      cover: [{ shape: "rect", at: "start", x: 0, y: "T", w: "W/2", h: 24, fill: "@accent", name: "\u0634\u0631\u064A\u0637 \u0627\u0644\u063A\u0644\u0627\u0641" }],
+      content: [{ shape: "ghost-number", at: "end", x: "M-24", y: "F-300", w: 420, h: 330, fill: "@text", opacity: 0.05, compositions: ["statement", "quote", "post"], name: "\u0631\u0642\u0645 \u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u0634\u0628\u062D\u064A" }],
+      cta: [{ shape: "rect", at: "start", x: 0, y: "H-B-24", w: "W/2", h: 24, fill: "@accent", name: "\u0634\u0631\u064A\u0637 \u0627\u0644\u062E\u0627\u062A\u0645\u0629" }]
+    },
+    densities: ["comfortable", "dense"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "steps", "statement", "evidence", "framework", "comparison", "quote", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u0634\u0631\u064A\u0637 \u0648\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0634\u0628\u062D\u064A \u064A\u064F\u0642\u0627\u0633\u0627\u0646 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0648\u0646\u0647\u0627\u064A\u062A\u0647\u0627", "\u0644\u0627 \u0623\u062D\u0631\u0641 \u0643\u0628\u064A\u0631\u0629 \u0648\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641", "\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u063A\u0631\u0628\u064A\u0629 \u062D\u0633\u0628 \u0627\u0644\u0647\u0648\u064A\u0629"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0627\u062A\u062C\u0627\u0647 \xABBusiness Innovation\xBB: \u0643\u062A\u0644 \u0639\u0646\u0627\u0648\u064A\u0646 \u062C\u0631\u064A\u0626\u0629 \u0648\u0646\u0638\u064A\u0641\u0629\u060C \u062A\u0628\u0627\u064A\u0646 \u0643\u0628\u064A\u0631 \u0628\u064A\u0646 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0648\u0627\u0644\u0646\u0635\u060C \u0645\u0646\u0637\u0642 \u0645\u0631\u0642\u0651\u0645\u060C \u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062B\u0642", "\u062A\u062C\u0646\u0651\u0628 \u0644\u063A\u0629 \u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062A \u0627\u0644\u0635\u0627\u062E\u0628\u0629"],
+        adapted: ["\u0627\u0644\u0645\u0644\u0635\u0642\u0627\u062A \u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629 \u0627\u0644\u0635\u063A\u064A\u0631\u0629 (SIGNAL, MOVE) \u0627\u0633\u062A\u064F\u0628\u062F\u0644\u062A \u0628\u0644\u0627 \u0634\u064A\u0621: \u0644\u0627 \u0643\u0644\u0645\u0627\u062A \u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629 \u0641\u064A \u0627\u0644\u062A\u0635\u0645\u064A\u0645"],
+        notUsed: ["\u0645\u0642\u062A\u0631\u062D\u0627\u062A \u0627\u0644\u0627\u062A\u062C\u0627\u0647\u0627\u062A \u0627\u0644\u062B\u0644\u0627\u062B\u0629 \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645 (\u0647\u0646\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u064A\u064F\u062E\u062A\u0627\u0631 \u0645\u0646 \u0627\u0644\u0645\u0643\u062A\u0628\u0629)"]
+      },
+      {
+        source: sourceRef("carousel-generator/design-system"),
+        extracted: ["\u0631\u0642\u0645 \u0634\u0628\u062D\u064A \u0628\u0634\u0641\u0627\u0641\u064A\u0629 \u0645\u0646\u062E\u0641\u0636\u0629 \u062C\u062F\u064B\u0627 (4%) \u0641\u064A \u0634\u0631\u0627\u0626\u062D \u0627\u0644\u0645\u062D\u062A\u0648\u0649\u060C \u0648\u0644\u0627 \u0631\u0642\u0645 \u0634\u0628\u062D\u064A \u0641\u064A \u0634\u0631\u0627\u0626\u062D \u0627\u0644\u062E\u0637\u0648\u0627\u062A", "\u0639\u0644\u0627\u0645\u0629 \u062A\u0645\u064A\u064A\u0632 \u0642\u0635\u064A\u0631\u0629 \u0639\u0644\u0649 \u062D\u0627\u0641\u0629 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0644\u0627 \u0628\u0637\u0648\u0644\u0647\u0627 \u0643\u0627\u0645\u0644\u064B\u0627"],
+        adapted: ["\u0627\u0644\u0628\u0631\u062A\u0642\u0627\u0644\u064A #E85D04 \u0627\u0633\u062A\u064F\u0628\u062F\u0644 \u0628\u0623\u0632\u0631\u0642 \u0627\u0644\u0647\u0648\u064A\u0629", "Inter \u0627\u0633\u062A\u064F\u0628\u062F\u0644 \u0628\u0640 Cairo/Tajawal", "\u0634\u0641\u0627\u0641\u064A\u0629 \u0627\u0644\u0631\u0642\u0645 5% \u0644\u062A\u0638\u0647\u0631 \u0639\u0644\u0649 \u0627\u0644\u0623\u0628\u064A\u0636", "\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0634\u0628\u062D\u064A \u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u0641\u062A\u0648\u062D\u0629 \u0641\u0642\u0637 (\u062C\u0645\u0644\u0629\u060C \u0627\u0642\u062A\u0628\u0627\u0633\u060C \u0645\u0646\u0634\u0648\u0631): \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062A \u062A\u062E\u0641\u064A\u0647 \u0648\u062A\u062A\u0631\u0643 \u0645\u0646\u0647 \u0642\u0637\u0639\u0629", "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0639\u0644\u0649 \u062D\u0627\u0641\u0629 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 (\u0627\u0644\u064A\u0645\u064A\u0646) \u0648\u0628\u0637\u0648\u0644 \u0627\u0644\u062B\u0644\u062B"],
+        notUsed: ["\u062A\u0628\u0627\u0639\u062F \u0627\u0644\u062D\u0631\u0648\u0641 \u0627\u0644\u0633\u0627\u0644\u0628", "\u0627\u0644\u0623\u062D\u0631\u0641 \u0627\u0644\u0643\u0628\u064A\u0631\u0629", "\u062E\u0637 Caveat \u0627\u0644\u0645\u0643\u062A\u0648\u0628 \u0628\u0627\u0644\u064A\u062F", "\u0627\u0631\u062A\u0641\u0627\u0639 \u0627\u0644\u0633\u0637\u0631 0.97 \u0644\u0644\u0639\u0646\u0627\u0648\u064A\u0646 (\u064A\u0642\u0635 \u0627\u0644\u062A\u0634\u0643\u064A\u0644 \u0627\u0644\u0639\u0631\u0628\u064A)"]
+      }
+    ],
+    designedHere: ["\u0627\u0644\u063A\u0644\u0627\u0641 \u0648\u0627\u0644\u062E\u0627\u062A\u0645\u0629 \u0628\u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A \u0627\u0644\u0645\u0634\u062A\u0642 \u0645\u0646 \u0627\u0644\u0647\u0648\u064A\u0629", "\u0634\u0631\u064A\u0637 \u062A\u0645\u064A\u064A\u0632 \u0628\u0639\u0631\u0636 \u0646\u0635\u0641 \u0627\u0644\u0635\u0641\u062D\u0629 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", "\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0642\u0648\u0627\u0626\u0645 \u0628\u064A\u0636\u0627\u0621 \u0639\u0644\u0649 \u0645\u0631\u0628\u0639\u0627\u062A \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 (\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0645\u0644\u0648\u0646\u0629 \u0639\u0644\u0649 \u0627\u0644\u0633\u0637\u062D \u0644\u0627 \u062A\u0628\u0644\u063A 4.5 \u062D\u064A\u0646 \u062A\u0635\u063A\u0631)"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "swiss-editorial",
+    version: 1,
+    status: "reusable",
+    family: "grid",
+    name: "\u0633\u0648\u064A\u0633\u0631\u064A \u062A\u062D\u0631\u064A\u0631\u064A",
+    purpose: "\u0634\u0631\u062D \u0645\u0646\u0638\u0651\u0645 \u0648\u062E\u0637\u0648\u0627\u062A \u0648\u0623\u0637\u0631 \u0639\u0645\u0644: \u0643\u0644 \u0634\u064A\u0621 \u0639\u0644\u0649 \u0639\u0645\u0648\u062F \u0648\u0627\u062D\u062F \u064A\u0628\u062F\u0623 \u0645\u0646 \u0623\u0639\u0644\u0649 \u0627\u0644\u0635\u0641\u062D\u0629\u060C \u0628\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A \u0648\u0644\u0627 \u0632\u0648\u0627\u064A\u0627\u060C \u0648\u0639\u0645\u0648\u062F \u062A\u0645\u064A\u064A\u0632 \u0631\u0623\u0633\u064A",
+    tone: "\u062F\u0642\u064A\u0642\u060C \u0645\u0646\u0638\u0651\u0645\u060C \u0647\u0627\u062F\u0626 \u0627\u0644\u0623\u0644\u0648\u0627\u0646",
+    distinctFrom: { style: "quiet-editorial", how: "\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u064A\u0628\u062F\u0623 \u0645\u0646 \u0623\u0639\u0644\u0649 \u0627\u0644\u0635\u0641\u062D\u0629 \u0644\u0627 \u0645\u0627\u0626\u0644\u064B\u0627\u060C \u0627\u0644\u0628\u0646\u0648\u062F \u0628\u062E\u0637\u0648\u0637 \u0641\u0627\u0635\u0644\u0629 \u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A\u060C \u0628\u0644\u0627 \u0623\u064A \u0632\u0648\u0627\u064A\u0627 \u0645\u0633\u062A\u062F\u064A\u0631\u0629\u060C \u0627\u0644\u062A\u0645\u0647\u064A\u062F \u0646\u0635 \u0628\u0644\u0627 \u0625\u0637\u0627\u0631\u060C \u0648\u0639\u0645\u0648\u062F \u062A\u0645\u064A\u064A\u0632 \u0631\u0623\u0633\u064A \u0639\u0646\u062F \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0628\u062F\u0644 \u0627\u0644\u062E\u0637 \u0627\u0644\u0623\u0641\u0642\u064A" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#F4F5F6", text: "#111111", muted: "#55595F" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 0.95, titleWeight: "bold", titleLineHeight: 1.35 },
+    treatment: { pillRadius: 0, pillFill: "outline", kicker: "plain", cardMode: "rule", cardRadius: 0, badge: "plain", ruleFill: "@text", ruleRadius: 0, rule: { width: 72, height: 8 }, artRadius: 0 },
+    layout: { stackAlign: "start", margin: 112, maxScale: 1.15 },
+    decor: {
+      cover: [{ shape: "rect", at: "start", x: 52, y: "R", w: 16, h: "F-R", fill: "@accent", name: "\u0639\u0645\u0648\u062F \u0627\u0644\u062A\u0645\u064A\u064A\u0632" }],
+      content: [{ shape: "rect", at: "start", x: 56, y: "R", w: 8, h: "F-R", fill: "@accent", name: "\u0639\u0645\u0648\u062F \u0627\u0644\u062A\u0645\u064A\u064A\u0632" }],
+      cta: [{ shape: "rect", at: "start", x: 52, y: "R", w: 16, h: "F-R", fill: "@accent", name: "\u0639\u0645\u0648\u062F \u0627\u0644\u062A\u0645\u064A\u064A\u0632" }]
+    },
+    densities: ["comfortable", "dense"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { quote: "\u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633 \u064A\u062D\u062A\u0627\u062C \u0645\u0633\u0627\u062D\u0629 \u0648\u0633\u0637\u064A\u0629 \u0648\u0625\u064A\u0642\u0627\u0639\u064B\u0627 \u0647\u0627\u062F\u0626\u064B\u0627\u061B \u0641\u064A \u0627\u0644\u0639\u0645\u0648\u062F \u0627\u0644\u0635\u0627\u0631\u0645 \u064A\u0635\u064A\u0631 \u0633\u0637\u0631\u064B\u0627 \u0639\u0627\u062F\u064A\u064B\u0627", collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "steps", "framework", "comparison", "evidence", "statement", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u0639\u0645\u0648\u062F \u0627\u0644\u0631\u0623\u0633\u064A \u0639\u0646\u062F \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 (\u0627\u0644\u064A\u0645\u064A\u0646)", "\u0643\u0644 \u0627\u0644\u0646\u0635\u0648\u0635 \u062A\u0628\u062F\u0623 \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646", "\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0627\u062A\u062C\u0627\u0647 \xABFinance Explainer\xBB: \u0634\u0628\u0643\u0629 \u0646\u0638\u064A\u0641\u0629\u060C \u0623\u0642\u0633\u0627\u0645 \u0645\u0631\u0642\u0651\u0645\u0629\u060C \u0641\u0648\u0627\u0635\u0644 \u0648\u0627\u0636\u062D\u0629\u060C \u0644\u0648\u0646 \u0645\u0642\u064A\u0651\u062F", "\u0627\u0644\u062D\u0645\u0636 \u0627\u0644\u0628\u0635\u0631\u064A: \u0633\u0637\u062D \u0623\u0628\u064A\u0636\u060C \u062D\u0628\u0631 \u0623\u0633\u0648\u062F\u060C \u062E\u0637\u0648\u0637 \u0648\u062D\u062F\u0627\u062A \u0631\u0645\u0627\u062F\u064A\u0629 \u0646\u0627\u0639\u0645\u0629\u060C \u0634\u0631\u0627\u0626\u0637 \u062A\u0645\u064A\u064A\u0632 \u0631\u0623\u0633\u064A\u0629\u060C \u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062D\u062F"],
+        adapted: ["\u0627\u0644\u062C\u062F\u0627\u0648\u0644 \u0648\u0627\u0644\u0631\u0633\u0648\u0645 \u0627\u0644\u0635\u063A\u064A\u0631\u0629 \u0644\u0645 \u062A\u064F\u0646\u0642\u0644: \u0627\u0644\u062A\u0643\u0648\u064A\u0646\u0627\u062A \u0627\u0644\u062D\u0627\u0644\u064A\u0629 \u062A\u062D\u0645\u0644 \u0627\u0644\u0628\u0646\u0648\u062F \u0648\u0627\u0644\u0623\u0637\u0631"],
+        notUsed: ["\u0627\u0644\u0645\u0644\u0635\u0642\u0627\u062A \u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629 \u0627\u0644\u0635\u063A\u064A\u0631\u0629", "\u0627\u0644\u062A\u0633\u0645\u064A\u0627\u062A \u0628\u0627\u0644\u0635\u064A\u0646\u064A\u0629"]
+      },
+      {
+        source: sourceRef("opendesign/editorial"),
+        extracted: ["\u0627\u0644\u062D\u0628\u0631 #111111 \u0644\u0644\u0646\u0635 \u0627\u0644\u0623\u0633\u0627\u0633\u064A", "\u0644\u0627 \u062A\u0633\u0648\u064A\u0629 \u0644\u0644\u062A\u0633\u0644\u0633\u0644 \u0627\u0644\u0647\u0631\u0645\u064A \u0628\u062D\u062C\u0645 \u0648\u0648\u0632\u0646 \u0648\u0627\u062D\u062F \u0644\u0643\u0644 \u0627\u0644\u0646\u0635\u0648\u0635", "\u0627\u0644\u0645\u0633\u0627\u0641\u0627\u062A \u0642\u0628\u0644 \u0627\u0644\u062D\u062F\u0648\u062F \u0648\u0627\u0644\u0638\u0644\u0627\u0644"],
+        adapted: ["\u062E\u0637 Gelasio \u0627\u0644\u0645\u0630\u064A\u0651\u0644 \u0627\u0633\u062A\u064F\u0628\u062F\u0644 \u0628\u0640 Cairo"],
+        notUsed: ["\u0623\u0644\u0648\u0627\u0646 \u0627\u0644\u0646\u062C\u0627\u062D \u0648\u0627\u0644\u062A\u062D\u0630\u064A\u0631 \u0648\u0627\u0644\u062E\u0637\u0631 (\u0627\u0644\u0647\u0648\u064A\u0629 \u0644\u0627 \u062A\u0633\u062A\u0639\u0645\u0644 \u0627\u0644\u0628\u0631\u062A\u0642\u0627\u0644\u064A)"]
+      }
+    ],
+    designedHere: ["\u0639\u0645\u0648\u062F \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0627\u0644\u0631\u0623\u0633\u064A \u0628\u0637\u0648\u0644 \u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0645\u062D\u062A\u0648\u0649", "\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0645\u0646 \u0623\u0639\u0644\u0649 \u0627\u0644\u0645\u0646\u0637\u0642\u0629", "\u0647\u0627\u0645\u0634 \u062C\u0627\u0646\u0628\u064A 112"],
+    referenceOnly: ["pangxiaobin/MarkCardStudio (GPL-3.0) \u0641\u064A\u0647 \u0645\u0644\u0641 theme-swiss-grid.css: \u0644\u0645 \u064A\u064F\u0641\u062A\u062D \u0648\u0644\u0645 \u064A\u064F\u0646\u0642\u0644 \u0645\u0646\u0647 \u0634\u064A\u0621\u060C \u0648\u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0644\u0627 \u064A\u062D\u0645\u0644 \u0627\u0633\u0645\u0647\u061B \xAB\u0633\u0648\u064A\u0633\u0631\u064A\xBB \u0648\u0635\u0641 \u0644\u0645\u062F\u0631\u0633\u0629 \u062A\u0635\u0645\u064A\u0645 \u0639\u0627\u0645\u0629"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "newspaper-editorial",
+    version: 1,
+    status: "reusable",
+    family: "editorial",
+    name: "\u0635\u062D\u0641\u064A",
+    purpose: "\u0631\u0623\u064A \u0648\u062A\u062D\u0644\u064A\u0644 \u0648\u0627\u0642\u062A\u0628\u0627\u0633\u0627\u062A: \u062A\u0631\u0648\u064A\u0633\u0629 \u0628\u062E\u0637\u064A\u0646 \u0623\u0633\u0648\u062F\u064A\u0646\u060C \u0639\u0646\u0627\u0648\u064A\u0646 \u0633\u0648\u062F\u0627\u0621 \u062B\u0642\u064A\u0644\u0629\u060C \u0628\u0646\u0648\u062F \u0645\u0641\u0635\u0648\u0644\u0629 \u0628\u062E\u0637\u0648\u0637\u060C \u0648\u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0641\u064A \u0627\u0644\u062A\u0645\u0647\u064A\u062F \u0648\u0643\u0644\u0645\u0629 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0641\u0642\u0637",
+    tone: "\u062C\u0627\u062F\u060C \u062A\u062D\u0644\u064A\u0644\u064A\u060C \u0628\u0627\u0644\u062D\u0628\u0631 \u0627\u0644\u0623\u0633\u0648\u062F",
+    distinctFrom: { style: "swiss-editorial", how: "\u062A\u0631\u0648\u064A\u0633\u0629 \u0623\u0641\u0642\u064A\u0629 \u0645\u0632\u062F\u0648\u062C\u0629 \u0633\u0648\u062F\u0627\u0621 \u0628\u062F\u0644 \u0627\u0644\u0639\u0645\u0648\u062F \u0627\u0644\u0645\u0644\u0648\u0651\u0646\u060C \u0639\u0646\u0627\u0648\u064A\u0646 \u0623\u062B\u0642\u0644 \u0648\u0623\u0643\u0628\u0631\u060C \u0623\u0631\u0642\u0627\u0645 \u0643\u0628\u064A\u0631\u0629 \u0628\u0627\u0644\u062D\u0628\u0631 \u0627\u0644\u0623\u0633\u0648\u062F\u060C \u0648\u062E\u0637 \u0633\u0641\u0644\u064A \u064A\u063A\u0644\u0642 \u0627\u0644\u063A\u0644\u0627\u0641\u061B \u0648\u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0644\u0627 \u064A\u0638\u0647\u0631 \u0641\u064A \u0627\u0644\u0632\u062E\u0631\u0641\u0629" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#F3F3F1", text: "#141414", muted: "#575757" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 1.08, titleWeight: "black", titleLineHeight: 1.3 },
+    treatment: { pillRadius: 0, pillFill: "outline", kicker: "plain", cardMode: "rule", cardRadius: 0, badge: "plain", ruleFill: "@text", ruleRadius: 0, rule: { width: 120, height: 3 }, artRadius: 0, figureColor: "@text" },
+    layout: { stackAlign: "start", margin: 96, maxScale: 1.15 },
+    decor: {
+      cover: [
+        { shape: "rect", at: "start", x: "M", y: "R-64", w: "W-2*M", h: 8, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0633\u0645\u064A\u0643)" },
+        { shape: "rect", at: "start", x: "M", y: "R-48", w: "W-2*M", h: 2, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0631\u0641\u064A\u0639)" },
+        { shape: "rect", at: "start", x: "M", y: "F+24", w: "W-2*M", h: 2, fill: "@text", name: "\u062E\u0637 \u0627\u0644\u0625\u063A\u0644\u0627\u0642" }
+      ],
+      content: [
+        { shape: "rect", at: "start", x: "M", y: "R-56", w: "W-2*M", h: 6, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0633\u0645\u064A\u0643)" },
+        { shape: "rect", at: "start", x: "M", y: "R-44", w: "W-2*M", h: 2, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0631\u0641\u064A\u0639)" }
+      ],
+      cta: [
+        { shape: "rect", at: "start", x: "M", y: "R-56", w: "W-2*M", h: 6, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0633\u0645\u064A\u0643)" },
+        { shape: "rect", at: "start", x: "M", y: "R-44", w: "W-2*M", h: 2, fill: "@text", name: "\u062A\u0631\u0648\u064A\u0633\u0629 (\u062E\u0637 \u0631\u0641\u064A\u0639)" }
+      ]
+    },
+    densities: ["comfortable", "dense"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "quote", "statement", "evidence", "comparison", "framework", "steps", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u062A\u0631\u0648\u064A\u0633\u0629 \u0628\u0639\u0631\u0636 \u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0643\u0627\u0645\u0644\u0629", "\u0627\u0644\u062A\u0645\u0647\u064A\u062F \u0646\u0635 \u0628\u0644\u0627 \u0625\u0637\u0627\u0631 \u0639\u0646\u062F \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", "\u0644\u0627 \u0623\u062D\u0631\u0641 \u0643\u0628\u064A\u0631\u0629 \u0648\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0627\u062A\u062C\u0627\u0647 \xABOpinion Column\xBB: \u0623\u0639\u0645\u062F\u0629 \u0645\u0642\u064A\u0651\u062F\u0629\u060C \u0647\u0648\u0627\u0645\u0634 \u0648\u0627\u0633\u0639\u0629\u060C \u0627\u0642\u062A\u0628\u0627\u0633 \u0628\u0627\u0631\u0632\u060C \u062A\u0645\u064A\u064A\u0632 \u0642\u0644\u064A\u0644"],
+        adapted: ["\u0627\u0644\u0645\u0635\u062F\u0631 \u064A\u062A\u062C\u0646\u0628 \u0627\u0644\u062E\u0637\u0648\u0637 \u0627\u0644\u0623\u0641\u0642\u064A\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0627\u0641\u062A\u0631\u0627\u0636\u064A\u064B\u0627\u061B \u0647\u0646\u0627 \u0627\u062E\u062A\u0631\u0646\u0627\u0647\u0627 \u0639\u0645\u062F\u064B\u0627 \u0644\u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0648\u062D\u062F\u0647 \u0644\u0623\u0646\u0647\u0627 \u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u0635\u062D\u064A\u0641\u0629\u060C \u0648\u0644\u0645 \u0646\u0636\u0641\u0647\u0627 \u0625\u0644\u0649 \u063A\u064A\u0631\u0647"],
+        notUsed: ["\u0627\u0644\u0631\u0633\u0648\u0645 \u0627\u0644\u062A\u0648\u0636\u064A\u062D\u064A\u0629 \u0627\u0644\u0623\u062F\u0628\u064A\u0629"]
+      },
+      {
+        source: sourceRef("opendesign/editorial"),
+        extracted: ["\u0627\u0644\u062D\u0628\u0631 #111111 \u0648\u0627\u0644\u0646\u0635 #111827", "\u062A\u0633\u0644\u0633\u0644 \u0648\u0627\u0636\u062D: \u0639\u0646\u0648\u0627\u0646 \u2190 \u0646\u0635 \u062F\u0627\u0639\u0645 \u2190 \u0625\u062C\u0631\u0627\u0621"],
+        adapted: ["\u0627\u0644\u0646\u0635 #141414 \u0648\u0627\u0644\u0631\u0645\u0627\u062F\u064A #575757 \u0644\u064A\u0628\u0644\u063A\u0627 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0628\u064A\u0636 \u0648\u0627\u0644\u0633\u0637\u062D"],
+        notUsed: ["Gelasio \u0648Ubuntu Mono"]
+      }
+    ],
+    designedHere: ["\u0627\u0644\u062A\u0631\u0648\u064A\u0633\u0629 \u0627\u0644\u0645\u0632\u062F\u0648\u062C\u0629 (\u062E\u0637 \u0633\u0645\u064A\u0643 \u0641\u0648\u0642 \u0631\u0641\u064A\u0639)", "\u062E\u0637 \u0625\u063A\u0644\u0627\u0642 \u0623\u0633\u0641\u0644 \u0627\u0644\u063A\u0644\u0627\u0641", "\u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0641\u064A \u0627\u0644\u0646\u0635 \u0644\u0627 \u0641\u064A \u0627\u0644\u0632\u062E\u0631\u0641\u0629", "\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0643\u0628\u064A\u0631\u0629 \u0628\u0627\u0644\u062D\u0628\u0631 \u0627\u0644\u0623\u0633\u0648\u062F"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "monochrome-editorial",
+    version: 1,
+    status: "reusable",
+    family: "monochrome",
+    name: "\u0623\u062D\u0627\u062F\u064A \u0644\u064A\u0644\u064A",
+    purpose: "\u0645\u062D\u062A\u0648\u0649 \u062A\u0623\u0645\u0644\u064A \u0648\u0627\u0642\u062A\u0628\u0627\u0633\u0627\u062A \u0648\u0623\u0641\u0643\u0627\u0631 \u0647\u0627\u062F\u0626\u0629 \u0639\u0644\u0649 \u0635\u0641\u062D\u0627\u062A \u0628\u0644\u0648\u0646 \u0648\u0627\u062D\u062F: \u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A \u0627\u0644\u0645\u0634\u062A\u0642 \u0645\u0646 \u0627\u0644\u0647\u0648\u064A\u0629 \u0628\u062A\u062F\u0631\u062C\u0627\u062A\u0647\u060C \u062F\u0627\u062E\u0644 \u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639",
+    tone: "\u0647\u0627\u062F\u0626\u060C \u0644\u064A\u0644\u064A\u060C \u0645\u0631\u0643\u0651\u0632",
+    distinctFrom: { style: "quiet-editorial", how: "\u0643\u0644 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u062F\u0627\u0643\u0646\u0629 \u0628\u0644\u0648\u0646 \u0648\u0627\u062D\u062F (\u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A) \u0648\u062A\u062F\u0631\u062C\u0627\u062A\u0647\u060C \u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u062D\u0648\u0644 \u0627\u0644\u0635\u0641\u062D\u0629\u060C \u0634\u0627\u0631\u0627\u062A \u062F\u0627\u0626\u0631\u064A\u0629 \u0628\u0625\u0637\u0627\u0631\u060C \u0648\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0641\u064A \u0627\u0644\u0648\u0633\u0637" },
+    tokens: {
+      dark: { bg: "#0E2A5C", surface: "#16386F", text: "#F5F8FC", muted: "#B8C6DA" }
+    },
+    defaultMode: "dark",
+    type: { titleScale: 1.05, titleWeight: "bold", titleLineHeight: 1.35 },
+    treatment: { pillRadius: "full", pillFill: "outline", cardMode: "outline", cardRadius: 20, badge: "ellipse", ruleFill: "@accent", ruleRadius: 3, rule: { width: 120, height: 6 }, artRadius: 20 },
+    layout: { stackAlign: "center", margin: 112 },
+    decor: {
+      cover: [{ shape: "frame", x: 44, y: "T+44", w: "W-88", h: "H-T-B-88", stroke: "@muted", strokeWidth: 2, opacity: 0.5, name: "\u0625\u0637\u0627\u0631 \u0627\u0644\u0635\u0641\u062D\u0629" }],
+      content: [{ shape: "frame", x: 44, y: "T+44", w: "W-88", h: "H-T-B-88", stroke: "@muted", strokeWidth: 2, opacity: 0.5, name: "\u0625\u0637\u0627\u0631 \u0627\u0644\u0635\u0641\u062D\u0629" }],
+      cta: [{ shape: "frame", x: 44, y: "T+44", w: "W-88", h: "H-T-B-88", stroke: "@muted", strokeWidth: 2, opacity: 0.5, name: "\u0625\u0637\u0627\u0631 \u0627\u0644\u0635\u0641\u062D\u0629" }]
+    },
+    densities: ["airy", "comfortable"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { comparison: "\u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629 \u062A\u0639\u062A\u0645\u062F \u0639\u0644\u0649 \u062A\u0644\u0648\u064A\u0646 \u0627\u0644\u062C\u0647\u0629 \u0627\u0644\u0625\u064A\u062C\u0627\u0628\u064A\u0629\u061B \u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0629 \u0623\u062D\u0627\u062F\u064A\u0629 \u0627\u0644\u0644\u0648\u0646 \u064A\u0636\u0639\u0641 \u0627\u0644\u0641\u0631\u0642", collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "quote", "statement", "steps", "evidence", "framework", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u0625\u0637\u0627\u0631 \u0645\u062A\u0646\u0627\u0638\u0631", "\u0627\u0644\u0634\u0627\u0631\u0627\u062A \u0641\u064A \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", "\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0648\u062D\u062F\u0627\u062A \u0645\u0624\u0637\u0651\u0631\u0629 \u0645\u062F\u0645\u062C\u0629", "\u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062D\u062F \u0645\u0642\u064A\u0651\u062F"],
+        adapted: ["\u0627\u0644\u0633\u0637\u062D \u0627\u0644\u0623\u0628\u064A\u0636 \u0627\u0644\u0627\u0641\u062A\u0631\u0627\u0636\u064A \u0641\u064A \u0627\u0644\u0645\u0635\u062F\u0631 \u0639\u064F\u0643\u0633 \u0647\u0646\u0627 \u0639\u0645\u062F\u064B\u0627: \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0644\u064A\u0644\u064A \u0648\u064A\u064F\u0633\u062A\u0639\u0645\u0644 \u062D\u064A\u0646 \u064A\u064F\u0637\u0644\u0628 \u0627\u0644\u062F\u0627\u0643\u0646"],
+        notUsed: ["\u062A\u062D\u0630\u064A\u0631 \u0627\u0644\u0645\u0635\u062F\u0631 \u0645\u0646 \u0627\u0644\u062E\u0644\u0641\u064A\u0627\u062A \u0627\u0644\u0645\u0644\u0648\u0651\u0646\u0629 \u064A\u0646\u0637\u0628\u0642 \u0639\u0644\u0649 \u0627\u0644\u062E\u0644\u0641\u064A\u0627\u062A \u0627\u0644\u062F\u0627\u0641\u0626\u0629\u061B \u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A \u0645\u0646 \u0627\u0644\u0647\u0648\u064A\u0629"]
+      }
+    ],
+    designedHere: ["\u0627\u0644\u0635\u0641\u062D\u0629 \u0628\u0627\u0644\u0623\u0632\u0631\u0642 \u0627\u0644\u0644\u064A\u0644\u064A \u0627\u0644\u0645\u0634\u062A\u0642 \u0645\u0646 \u0627\u0644\u0647\u0648\u064A\u0629", "\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u064A\u064F\u0641\u062A\u064E\u0651\u062D \u0639\u0644\u0649 \u0627\u0644\u062F\u0627\u0643\u0646 \u0644\u064A\u0628\u0644\u063A 4.5 \u0648\u064A\u064F\u0633\u062C\u064E\u0651\u0644", "\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0628\u0646\u0635\u0641 \u0634\u0641\u0627\u0641\u064A\u0629"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "collage-cutout",
+    version: 1,
+    status: "reusable",
+    family: "collage",
+    name: "\u0643\u0648\u0644\u0627\u062C \u062A\u062D\u0631\u064A\u0631\u064A",
+    purpose: "\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u062A\u062D\u0631\u064A\u0631\u064A \u0628\u0642\u0635\u0627\u0635\u0627\u062A \u0648\u0631\u0642\u064A\u0629: \u0648\u0631\u0642\u0629 \u0645\u0627\u0626\u0644\u0629 \u0642\u0644\u064A\u0644\u064B\u0627 \u062E\u0644\u0641 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642\u060C \u0648\u0635\u0641\u062D\u0627\u062A \u062A\u062A\u0646\u0627\u0648\u0628 \u0628\u064A\u0646 \u0627\u0644\u062F\u0627\u0643\u0646 \u0648\u0627\u0644\u0641\u0627\u062A\u062D",
+    tone: "\u062D\u064A\u0648\u064A\u060C \u0634\u062E\u0635\u064A\u060C \u0645\u0631\u062A\u0651\u0628 \u0631\u063A\u0645 \u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A",
+    distinctFrom: { style: "magazine-bold", how: "\u0648\u0631\u0642\u0629 \u0645\u0627\u0626\u0644\u0629 \u062E\u0644\u0641 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642 \u0628\u062F\u0644 \u0627\u0644\u0623\u0634\u0631\u0637\u0629 \u0627\u0644\u0645\u0633\u062A\u0642\u064A\u0645\u0629\u060C \u062A\u0646\u0627\u0648\u0628 \u062F\u0627\u0643\u0646/\u0641\u0627\u062A\u062D \u0645\u0646 \u0627\u0644\u063A\u0644\u0627\u0641\u060C \u0628\u0637\u0627\u0642\u0627\u062A \u0628\u064A\u0636\u0627\u0621 \u0639\u0644\u0649 \u0627\u0644\u0648\u0631\u0642\u0629\u060C \u0648\u0645\u0648\u062C\u0629 \u064A\u062F\u0648\u064A\u0629 \u0623\u0633\u0641\u0644 \u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#E9F0F8", text: "#14181F", muted: "#4E5866" },
+      dark: { bg: "#0E2A5C", surface: "#1B4282", text: "#FFFFFF", muted: "#C7D3E4" }
+    },
+    defaultMode: "alternate",
+    alternateStart: "dark",
+    type: { titleScale: 1.05, titleWeight: "black", titleLineHeight: 1.3 },
+    treatment: { pillRadius: 4, pillFill: "@accent", cardMode: "fill", cardFill: "@bg", cardRadius: 6, badge: "rect", ruleFill: "@accent", ruleRadius: 2, rule: { width: 140, height: 12 }, artRadius: 6 },
+    layout: { stackAlign: "center", margin: 120 },
+    decor: {
+      cover: [
+        { shape: "rect", at: "start", x: "M-48", y: "R-56", w: "W-2*M+96", h: "F-R+104", fill: "@surface", radius: 6, rotation: -1.6, name: "\u0648\u0631\u0642\u0629 \u0627\u0644\u0642\u0635\u0627\u0635\u0629" },
+        { shape: "rect", at: "start", x: "M+24", y: "R-78", w: 160, h: 40, fill: "@accent", opacity: 0.85, radius: 3, rotation: -8, name: "\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642" }
+      ],
+      content: [
+        { shape: "rect", at: "start", x: "M-44", y: "R-48", w: "W-2*M+88", h: "F-R+88", fill: "@surface", radius: 6, rotation: 1.1, name: "\u0648\u0631\u0642\u0629 \u0627\u0644\u0642\u0635\u0627\u0635\u0629" },
+        { shape: "rect", at: "end", x: "M+24", y: "R-70", w: 150, h: 38, fill: "@accent", opacity: 0.85, radius: 3, rotation: 7, name: "\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642" }
+      ],
+      cta: [
+        { shape: "rect", at: "start", x: "M-48", y: "R-56", w: "W-2*M+96", h: "F-R+104", fill: "@surface", radius: 6, rotation: -1.2, name: "\u0648\u0631\u0642\u0629 \u0627\u0644\u0642\u0635\u0627\u0635\u0629" },
+        { shape: "rect", at: "start", x: "M+24", y: "R-78", w: 160, h: 40, fill: "@accent", opacity: 0.85, radius: 3, rotation: -8, name: "\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642" }
+      ]
+    },
+    densities: ["comfortable"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: {},
+    roles: ["cover", "collage", "list", "quote", "statement", "steps", "framework", "evidence", "comparison", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u0634\u0631\u064A\u0637 \u0627\u0644\u0644\u0627\u0635\u0642 \u0639\u0644\u0649 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0641\u064A \u0627\u0644\u063A\u0644\u0627\u0641 \u0648\u0639\u0644\u0649 \u0646\u0647\u0627\u064A\u062A\u0647\u0627 \u0641\u064A \u0627\u0644\u0645\u062D\u062A\u0648\u0649", "\u0645\u064A\u0644 \u0627\u0644\u0648\u0631\u0642\u0629 \u0623\u0642\u0644 \u0645\u0646 \u062F\u0631\u062C\u062A\u064A\u0646 \u0641\u0644\u0627 \u062A\u0645\u064A\u0644 \u0627\u0644\u0623\u0633\u0637\u0631", "\u0644\u0627 \u0645\u0644\u0635\u0642\u0627\u062A \u0648\u0644\u0627 \u0631\u0645\u0648\u0632 \u062A\u0639\u0628\u064A\u0631\u064A\u0629"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u062A\u062D\u0630\u064A\u0631 \u0627\u0644\u0645\u0635\u062F\u0631 \u0645\u0646 \xAB\u0645\u0644\u0635\u0642\u0627\u062A \u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A\xBB \u0648\u0627\u0644\u0641\u0648\u0636\u0649"],
+        adapted: ["\u0627\u0644\u0643\u0648\u0644\u0627\u062C \u0647\u0646\u0627 \u0648\u0631\u0642\u0629 \u0648\u0627\u062D\u062F\u0629 \u0648\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642 \u0641\u0642\u0637\u060C \u0648\u0627\u0644\u0646\u0635 \u064A\u0628\u0642\u0649 \u0623\u0641\u0642\u064A\u064B\u0627 \u0639\u0644\u0649 \u0633\u0637\u062D \u0647\u0627\u062F\u0626"],
+        notUsed: ["\u0627\u0644\u0645\u0644\u0635\u0642\u0627\u062A \u0648\u0627\u0644\u0631\u0645\u0648\u0632 \u0627\u0644\u062A\u0639\u0628\u064A\u0631\u064A\u0629 \u0648\u0627\u0644\u0623\u0633\u0647\u0645 \u0627\u0644\u0635\u0627\u062E\u0628\u0629"]
+      },
+      { source: null, designedHere: true, note: "\u0637\u0644\u0628 \xABEditorial Collage\xBB \u0645\u0639 \u062A\u0646\u0627\u0648\u0628 \u062F\u0627\u0643\u0646/\u0641\u0627\u062A\u062D \u0645\u0646 \u0645\u0648\u062C\u0632 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 (2026-10-02)" }
+    ],
+    designedHere: ["\u0648\u0631\u0642\u0629 \u0645\u0627\u0626\u0644\u0629 \u062E\u0644\u0641 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D", "\u0634\u0631\u064A\u0637 \u0644\u0627\u0635\u0642 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632", "\u0628\u0637\u0627\u0642\u0627\u062A \u0628\u064A\u0636\u0627\u0621 \u0639\u0644\u0649 \u0627\u0644\u0648\u0631\u0642\u0629", "\u062A\u0646\u0627\u0648\u0628 \u062F\u0627\u0643\u0646/\u0641\u0627\u062A\u062D \u064A\u0628\u062F\u0623 \u0628\u0627\u0644\u063A\u0644\u0627\u0641 \u0627\u0644\u062F\u0627\u0643\u0646"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "quiet-minimal",
+    version: 1,
+    status: "reusable",
+    family: "minimal",
+    name: "\u0628\u0633\u064A\u0637 \u0647\u0627\u062F\u0626",
+    purpose: "\u062C\u0645\u0644\u0629 \u0623\u0648 \u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0628\u0645\u0633\u0627\u0641\u0627\u062A \u0648\u0627\u0633\u0639\u0629 \u062C\u062F\u064B\u0627: \u0627\u0644\u0646\u0635 \u0641\u064A \u0627\u0644\u0648\u0633\u0637\u060C \u0628\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A\u060C \u0648\u0646\u0642\u0637\u0629 \u062A\u0645\u064A\u064A\u0632 \u0635\u063A\u064A\u0631\u0629 \u0641\u0642\u0637",
+    tone: "\u0635\u0627\u0645\u062A\u060C \u0645\u062A\u0623\u0645\u0644\u060C \u0648\u0627\u0633\u0639",
+    distinctFrom: { style: "quiet-editorial", how: "\u0627\u0644\u0646\u0635 \u0641\u064A \u0627\u0644\u0648\u0633\u0637 \u0644\u0627 \u0639\u0646\u062F \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629\u060C \u0639\u0646\u0627\u0648\u064A\u0646 \u0623\u0635\u063A\u0631 \u0628\u0645\u0633\u0627\u0641\u0627\u062A \u0623\u0648\u0633\u0639 (\u0647\u0627\u0645\u0634 128)\u060C \u0628\u0644\u0627 \u062E\u0637\u0648\u0637 \u0639\u0644\u0648\u064A\u0629 \u0648\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A\u060C \u0648\u0646\u0642\u0637\u0629 \u0635\u063A\u064A\u0631\u0629 \u0641\u064A \u0623\u0633\u0641\u0644 \u0627\u0644\u0648\u0633\u0637 \u0628\u062F\u0644 \u0627\u0644\u0634\u0631\u064A\u0637" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#F4F4F1", text: "#0C0C09", muted: "#5E5E58" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 0.9, titleWeight: "bold", titleLineHeight: 1.45, align: "center" },
+    treatment: { pillRadius: "full", pillFill: "outline", kicker: "plain", cardMode: "rule", badge: "plain", ruleFill: "@accent", ruleRadius: 3, rule: { width: 48, height: 6 }, artRadius: 24 },
+    layout: { stackAlign: "center", margin: 128, maxScale: 1.15 },
+    decor: {
+      cover: [{ shape: "ellipse", at: "start", x: "(W-20)/2", y: "F+36", w: 20, h: 20, fill: "@accent", name: "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u0646\u0647\u0627\u064A\u0629" }],
+      cta: [{ shape: "ellipse", at: "start", x: "(W-20)/2", y: "F+36", w: 20, h: 20, fill: "@accent", name: "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u0646\u0647\u0627\u064A\u0629" }]
+    },
+    densities: ["airy"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { comparison: "\u062A\u062D\u062A\u0627\u062C \u0628\u0637\u0627\u0642\u062A\u064A\u0646 \u0645\u062A\u062C\u0627\u0648\u0631\u062A\u064A\u0646\u061B \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0628\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A \u0648\u0645\u0648\u0633\u0651\u0637", framework: "\u0627\u0644\u0625\u0637\u0627\u0631 \u0634\u0628\u0643\u0629 \u0628\u0637\u0627\u0642\u0627\u062A\u061B \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0628\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A", collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "quote", "statement", "list", "steps", "evidence", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u062A\u0648\u0633\u064A\u0637 \u0644\u0644\u0646\u0635\u0648\u0635 \u0627\u0644\u0642\u0635\u064A\u0631\u0629 \u0641\u0642\u0637\u061B \u0627\u0644\u0628\u0646\u0648\u062F \u062A\u0628\u0642\u0649 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629", "\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641"],
+    provenance: [
+      {
+        source: sourceRef("opendesign/minimal"),
+        extracted: ["\u0627\u0644\u0633\u0637\u062D #F4F4F1 \u0648\u0627\u0644\u062D\u0628\u0631 #0C0C09", "\u0627\u0644\u0645\u0633\u0627\u0641\u0627\u062A \u0642\u0628\u0644 \u0627\u0644\u062D\u062F\u0648\u062F \u0648\u0627\u0644\u0638\u0644\u0627\u0644", "\u0645\u0642\u064A\u0627\u0633 \u0627\u0644\u0645\u0633\u0627\u0641\u0627\u062A 4/8/12/16/24/32"],
+        adapted: ["\u0627\u0644\u062D\u0628\u0631 #0C0C09 \u0644\u0644\u0646\u0635\u060C \u0648\u0627\u0644\u0631\u0645\u0627\u062F\u064A #5E5E58 \u0644\u064A\u0628\u0644\u063A 4.5", "\u0627\u0644\u0645\u0642\u064A\u0627\u0633 \xABexpressive\xBB \u0628\u0644\u0627 \u0642\u064A\u0645 \u0641\u064A \u0627\u0644\u0645\u0635\u062F\u0631: \u0644\u0645 \u0646\u062E\u062A\u0631\u0639 \u0644\u0647 \u0642\u064A\u0645\u064B\u0627"],
+        notUsed: ["Inter \u0648Open Sans", "\u0627\u0644\u0644\u0648\u0646 \u0627\u0644\u062B\u0627\u0646\u0648\u064A #312C85"]
+      },
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0627\u062A\u062C\u0627\u0647 \xABOpinion Column\xBB: \u0647\u0648\u0627\u0645\u0634 \u0648\u0627\u0633\u0639\u0629 \u0648\u062A\u0645\u064A\u064A\u0632 \u0642\u0644\u064A\u0644"],
+        adapted: [],
+        notUsed: ["\u0627\u0644\u0623\u0639\u0645\u062F\u0629 \u0627\u0644\u0645\u062A\u0639\u062F\u062F\u0629"]
+      }
+    ],
+    designedHere: ["\u0646\u0642\u0637\u0629 \u062A\u0645\u064A\u064A\u0632 \u0641\u064A \u0623\u0633\u0641\u0644 \u0627\u0644\u0648\u0633\u0637 \u0639\u0644\u0627\u0645\u0629\u064E \u0646\u0647\u0627\u064A\u0629 \u0644\u0644\u063A\u0644\u0627\u0641 \u0648\u0627\u0644\u062E\u0627\u062A\u0645\u0629", "\u0647\u0627\u0645\u0634 128", "\u062A\u0648\u0633\u064A\u0637 \u0627\u0644\u0646\u0635\u0648\u0635", "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0628\u0633\u064A\u0637\u0629 \u062A\u062A\u0648\u0633\u0651\u0637 \u0643\u062A\u0644\u0629\u064B \u0648\u062A\u0628\u0642\u0649 \u0628\u0646\u0648\u062F\u0647\u0627 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629"],
+    keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "geometric-editorial",
+    version: 1,
+    status: "reusable",
+    family: "geometric",
+    name: "\u0647\u0646\u062F\u0633\u064A",
+    purpose: "\u0645\u062D\u062A\u0648\u0649 \u062A\u0639\u0644\u064A\u0645\u064A \u062D\u064A\u0648\u064A: \u062F\u0648\u0627\u0626\u0631 \u0635\u0644\u0628\u0629 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u062A\u062E\u0631\u062C \u0645\u0646 \u062D\u0627\u0641\u0629 \u0627\u0644\u0635\u0641\u062D\u0629\u060C \u0628\u0637\u0627\u0642\u0627\u062A \u0645\u0631\u0628\u0639\u0629 \u0645\u0645\u0644\u0648\u0621\u0629 \u0648\u0634\u0627\u0631\u0627\u062A \u0623\u0631\u0642\u0627\u0645 \u062F\u0627\u0626\u0631\u064A\u0629",
+    tone: "\u062D\u064A\u0648\u064A\u060C \u0648\u062F\u0648\u062F\u060C \u0648\u0627\u0636\u062D",
+    distinctFrom: { style: "magazine-bold", how: "\u0623\u0634\u0643\u0627\u0644 \u062F\u0627\u0626\u0631\u064A\u0629 \u0635\u0644\u0628\u0629 \u062A\u062E\u0631\u062C \u0645\u0646 \u062D\u0627\u0641\u0629 \u0627\u0644\u0635\u0641\u062D\u0629 \u0628\u062F\u0644 \u0627\u0644\u0623\u0634\u0631\u0637\u0629 \u0648\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0634\u0628\u062D\u064A\u060C \u0628\u0637\u0627\u0642\u0627\u062A \u0645\u0645\u0644\u0648\u0621\u0629 \u0628\u0644\u0627 \u0639\u0644\u0627\u0645\u0629\u060C \u0634\u0627\u0631\u0627\u062A \u0623\u0631\u0642\u0627\u0645 \u062F\u0627\u0626\u0631\u064A\u0629\u060C \u0643\u0644 \u0627\u0644\u0635\u0641\u062D\u0627\u062A \u0641\u0627\u062A\u062D\u0629\u061B \u0648\u0639\u0646 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0627\u0644\u0643\u0644\u0627\u0633\u064A\u0643\u064A: \u0628\u0637\u0627\u0642\u0627\u062A \u0628\u0632\u0648\u0627\u064A\u0627 \u062D\u0627\u062F\u0629 \u0648\u0623\u0634\u0643\u0627\u0644 \u0635\u0644\u0628\u0629 \u0644\u0627 \u0634\u0641\u0627\u0641\u0629" },
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#EAF1FA", text: "#101828", muted: "#4B5563" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 1.05, titleWeight: "black", titleLineHeight: 1.3 },
+    treatment: { pillRadius: "full", pillFill: "@accent", cardMode: "fill", cardRadius: 0, badge: "ellipse", ruleFill: "@accent", ruleRadius: 8, rule: { width: 96, height: 16 }, artRadius: 0 },
+    layout: { stackAlign: "center", margin: 96 },
+    decor: {
+      cover: [
+        { shape: "ellipse", at: "end", x: -150, y: "F+10", w: 480, h: 480, fill: "@accent", sequence: "single", name: "\u062F\u0627\u0626\u0631\u0629 \u0635\u0644\u0628\u0629" },
+        // In a carousel the swipe button sits there: a pale circle keeps it readable.
+        { shape: "ellipse", at: "end", x: -150, y: "F+10", w: 480, h: 480, fill: "@surface", sequence: "carousel", name: "\u062F\u0627\u0626\u0631\u0629 \u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D" },
+        { shape: "rect", at: "start", x: -70, y: "T-70", w: 260, h: 260, fill: "@surface", rotation: 45, name: "\u0645\u0631\u0628\u0639 \u0645\u0627\u0626\u0644" }
+      ],
+      content: [
+        { shape: "ellipse", at: "start", x: "M", y: "R-96", w: 44, h: 44, fill: "@accent", name: "\u062F\u0627\u0626\u0631\u0629 \u0635\u063A\u064A\u0631\u0629" },
+        { shape: "rect", at: "start", x: "M+52", y: "R-96", w: 44, h: 44, fill: "@surface", name: "\u0645\u0631\u0628\u0639 \u0635\u063A\u064A\u0631" }
+      ],
+      cta: [{ shape: "ellipse", at: "end", x: -150, y: "F+10", w: 480, h: 480, fill: "@accent", name: "\u062F\u0627\u0626\u0631\u0629 \u0635\u0644\u0628\u0629" }]
+    },
+    densities: ["comfortable"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { quote: "\u0627\u0644\u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0635\u0644\u0628\u0629 \u0627\u0644\u0643\u0628\u064A\u0631\u0629 \u062A\u0646\u0627\u0641\u0633 \u0646\u0635 \u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633 \u0639\u0644\u0649 \u0627\u0644\u0627\u0646\u062A\u0628\u0627\u0647", collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u0644\u063A\u0629 \u0628\u0635\u0631\u064A\u0629 \u0645\u0633\u062A\u0642\u0644\u0629\u061B \u0644\u0627 \u062A\u064F\u062F\u0645\u062C \u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628" },
+    roles: ["cover", "list", "steps", "framework", "evidence", "statement", "comparison", "cta"],
+    formats: ["portrait", "story"],
+    rtl: ["\u0627\u0644\u062F\u0627\u0626\u0631\u0629 \u0627\u0644\u0643\u0628\u064A\u0631\u0629 \u0639\u0646\u062F \u0646\u0647\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 (\u0627\u0644\u064A\u0633\u0627\u0631) \u0628\u0639\u064A\u062F\u064B\u0627 \u0639\u0646 \u0634\u0627\u0631\u0629 \u0627\u0644\u062D\u0633\u0627\u0628", "\u0627\u0644\u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0635\u063A\u064A\u0631\u0629 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629"],
+    provenance: [
+      {
+        source: sourceRef("image-text-layout/style-directions"),
+        extracted: ["\u0627\u062A\u062C\u0627\u0647 \xABBusiness Innovation\xBB: \u0631\u0633\u0648\u0645 \u0628\u0633\u064A\u0637\u0629 \u0648\u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062B\u0642"],
+        adapted: ["\u0627\u0644\u0631\u0633\u0648\u0645 \u0627\u0644\u0628\u0633\u064A\u0637\u0629 \u0635\u0627\u0631\u062A \u0623\u0634\u0643\u0627\u0644\u064B\u0627 \u0647\u0646\u062F\u0633\u064A\u0629 \u0635\u0644\u0628\u0629 \u0639\u0644\u0649 \u062D\u0648\u0627\u0641 \u0627\u0644\u0635\u0641\u062D\u0629"],
+        notUsed: ["\u0627\u0644\u062A\u062F\u0631\u062C\u0627\u062A \u0627\u0644\u0644\u0648\u0646\u064A\u0629 \u0648\u0627\u0644\u0623\u064A\u0642\u0648\u0646\u0627\u062A \u062B\u0644\u0627\u062B\u064A\u0629 \u0627\u0644\u0623\u0628\u0639\u0627\u062F (\u0627\u0644\u0645\u0635\u062F\u0631 \u064A\u0645\u0646\u0639\u0647\u0627 \u0623\u064A\u0636\u064B\u0627)"]
+      },
+      { source: null, designedHere: true, note: "\u0627\u0644\u0623\u0634\u0643\u0627\u0644 \u0648\u0623\u0645\u0627\u0643\u0646\u0647\u0627 \u0635\u064F\u0645\u0645\u062A \u0647\u0646\u0627 \u0644\u0635\u0641\u062D\u0627\u062A \u0639\u0631\u0628\u064A\u0629" }
+    ],
+    designedHere: ["\u062F\u0627\u0626\u0631\u0629 \u0635\u0644\u0628\u0629 \u062A\u062E\u0631\u062C \u0645\u0646 \u0623\u0633\u0641\u0644 \u0646\u0647\u0627\u064A\u0629 \u0627\u0644\u0635\u0641\u062D\u0629 (\u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D \u0641\u064A \u063A\u0644\u0627\u0641 \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u062D\u064A\u062B \u0632\u0631 \u0627\u0644\u0633\u062D\u0628)", "\u0645\u0631\u0628\u0639 \u0645\u0627\u0626\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D \u0641\u064A \u0623\u0639\u0644\u0649 \u0627\u0644\u0628\u062F\u0627\u064A\u0629", "\u0632\u0648\u062C \u062F\u0627\u0626\u0631\u0629 \u0648\u0645\u0631\u0628\u0639 \u0641\u0648\u0642 \u0627\u0644\u0645\u062D\u062A\u0648\u0649"],
+    keepCompositionDecor: false
   }
 ];
-
-// lib/studio/styles.js
-var styleById = (id) => STYLES.find((s) => s.id === id) ?? null;
-function styleTheme(style, { brand = null, fonts, numerals = "arab" } = {}) {
-  const brandRole = (role) => (brand?.colors ?? []).find((c) => c.role === role)?.hex ?? null;
-  const accent = brandRole("accent") ?? style.tokens.light?.accent ?? style.tokens.dark?.accent ?? "#2E7BC5";
-  const derived = [];
-  const build = (mode) => {
-    const t = style.tokens[mode];
-    if (!t) return null;
-    const bg = mode === "light" ? brandRole("bg") ?? t.bg : brandRole("dark") ?? t.bg;
-    let fill = accent;
-    if (mode === "light") {
-      let k = 0;
-      while (contrastRatio("#FFFFFF", fill) < 4.5 && k < 0.6) fill = mix(accent, "#000000", k += 0.04);
-    }
-    if (fill !== accent) derived.push({ role: "accent", mode, from: accent, to: fill, why: "\u0646\u0635 \u0623\u0628\u064A\u0636 \u0639\u0644\u0649 \u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u062A\u0628\u0627\u064A\u0646 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644" });
-    const raw = { ...derivePalette({ bg, accent: fill }), surface: t.surface, text: t.text, muted: t.muted, accent: fill, onAccent: mode === "light" ? "#FFFFFF" : bestOn(fill) };
-    return resolvePalette(raw).colors;
-  };
-  const light = build("light");
-  const dark = build("dark");
-  const heading = brand?.fonts?.heading ?? style.type.headingFont ?? "cairo";
-  const body = brand?.fonts?.body ?? style.type.bodyFont ?? "tajawal";
-  return {
-    paletteId: `style:${style.id}`,
-    colors: light ?? dark,
-    ...light && dark && { dark },
-    ...derived.length && { derived },
-    fonts: { heading, body, ...fonts },
-    numerals
-  };
-}
-function pageModes(style, count, mode = style.defaultMode ?? "light") {
-  const has = (m2) => Boolean(style.tokens[m2]);
-  if (mode === "alternate" && has("light") && has("dark")) return Array.from({ length: count }, (_, i) => i % 2 === 0 ? style.alternateStart ?? "dark" : style.alternateStart === "light" ? "dark" : "light");
-  const m = has(mode) ? mode : has("light") ? "light" : "dark";
-  return Array.from({ length: count }, () => m);
-}
-function resolveStyle(doc) {
-  if (!doc?.style?.id) return null;
-  return styleById(doc.style.id);
-}
-function evaluate(expr, vars) {
-  if (typeof expr === "number") return expr;
-  const src = String(expr).replace(/\s+/g, "");
-  let i = 0;
-  const peek = () => src[i];
-  const num2 = () => {
-    const m = /^(\d+(\.\d+)?)/.exec(src.slice(i));
-    if (m) {
-      i += m[0].length;
-      return Number(m[0]);
-    }
-    const v = /^[A-Z]/.exec(src.slice(i));
-    if (v && v[0] in vars) {
-      i += 1;
-      return vars[v[0]];
-    }
-    if (peek() === "(") {
-      i++;
-      const r2 = sum();
-      i++;
-      return r2;
-    }
-    if (peek() === "-") {
-      i++;
-      return -num2();
-    }
-    throw new Error(`bad style expression "${expr}"`);
-  };
-  const prod = () => {
-    let r2 = num2();
-    while (peek() === "*" || peek() === "/") r2 = src[i++] === "*" ? r2 * num2() : r2 / num2();
-    return r2;
-  };
-  const sum = () => {
-    let r2 = prod();
-    while (peek() === "+" || peek() === "-") r2 = src[i++] === "+" ? r2 + prod() : r2 - prod();
-    return r2;
-  };
-  const r = sum();
-  if (i !== src.length) throw new Error(`bad style expression "${expr}"`);
-  return r;
-}
-var round1 = (n2) => Math.round(n2 * 10) / 10;
-function pageRole(comp) {
-  if (comp.role === "hook" || comp.type === "cover") return "cover";
-  if (comp.role === "cta" || comp.type === "outro") return "cta";
-  return "content";
-}
-function styleDecor(style, ctx, comp, { textElement: textElement2, shapeElement: shapeElement2 }) {
-  const W = ctx.format.width;
-  const H = ctx.format.height;
-  const vars = { W, H, T: ctx.format.inset.top, B: ctx.format.inset.bottom, M: ctx.style?.layout?.margin ?? 96, R: ctx.region?.y ?? ctx.format.inset.top + 170 };
-  const role = pageRole(comp);
-  const list2 = style.decor?.[role] ?? [];
-  const els = [];
-  list2.forEach((d, n2) => {
-    if (d.pages === "odd" && ctx.index % 2 === 1) return;
-    if (d.pages === "even" && ctx.index % 2 === 0) return;
-    if (d.modes && !d.modes.includes(ctx.styleMode ?? "light")) return;
-    const w = evaluate(d.w, vars);
-    const h = evaluate(d.h, vars);
-    const x0 = evaluate(d.x, vars);
-    const y = evaluate(d.y, vars);
-    const fromStart = (d.at ?? "start") === "start";
-    const x = ctx.rtl === false === fromStart ? x0 : W - x0 - w;
-    const f3 = { x: round1(x), y: round1(y), width: round1(Math.max(1, w)), height: round1(Math.max(1, h)) };
-    const id = `style-${role}-${n2}`;
-    const base = { role: "decor", name: d.name ?? "\u0632\u062E\u0631\u0641\u0629 \u0627\u0644\u0623\u0633\u0644\u0648\u0628", ...d.opacity !== void 0 && { opacity: d.opacity }, ...d.rotation && { rotation: d.rotation }, ...d.anim && { anim: d.anim } };
-    if (d.shape === "ghost-number") {
-      const text = formatNumber(ctx.index + 1, ctx.theme.numerals);
-      els.push(textElement2(id, f3, text, ctx, { font: "@heading", weightRole: "black", size: Math.round(h * 0.8), min: Math.round(h * 0.8), lineHeight: 1.1, color: d.fill ?? "@text", align: fromStart ? "start" : "end", nowrap: true, ...base, role: "decor" }));
-    } else if (d.shape === "frame") {
-      els.push(shapeElement2(id, f3, "rect", "none", { stroke: d.stroke ?? "@text", strokeWidth: d.strokeWidth ?? 4, radius: d.radius ?? 0, ...base }));
-    } else {
-      els.push(shapeElement2(id, f3, d.shape, d.fill ?? "@accent", { ...d.radius !== void 0 && { radius: d.radius }, ...d.stroke && { stroke: d.stroke, strokeWidth: d.strokeWidth ?? 2 }, ...base }));
-    }
-  });
-  return els;
-}
-function styleBlocks(style, blocks) {
-  if (!style) return blocks;
-  const t = style.type ?? {};
-  return blocks.map((b) => {
-    if (!b) return b;
-    if (b.role === "title" && b.type === "text") {
-      return { ...b, size: [Math.round(b.size[0] * (t.titleScale ?? 1)), b.size[1]], ...t.titleWeight && { weightRole: t.titleWeight }, ...t.titleLineHeight && { lineHeight: Math.max(b.lineHeight ?? 1.3, t.titleLineHeight) } };
-    }
-    if (b.type === "list" && style.treatment?.listCard !== void 0) return { ...b, card: style.treatment.listCard };
-    if (b.type === "rule" && style.treatment?.rule) return { ...b, ...style.treatment.rule.width && { width: style.treatment.rule.width }, ...style.treatment.rule.height && { height: style.treatment.rule.height } };
-    return b;
-  });
-}
-
-// lib/studio/budget.js
-var VERSIONS = { copy: 1, layout: 1, measure: 1, renderer: 1 };
-var CACHE_KINDS = ["text", "asset", "layout", "export"];
-var Cache = class {
-  constructor(store, ledger) {
-    this.store = store;
-    this.ledger = ledger;
-  }
-  key(kind, inputs, deps = {}) {
-    if (!CACHE_KINDS.includes(kind)) throw new Error(`unknown cache kind ${kind}`);
-    return `${kind}_${hashOf({ inputs, deps }).slice(0, 40)}`;
-  }
-  path(kind, key) {
-    return `cache/${kind}/${key}.json`;
-  }
-  // validate(entry) → true | false: e.g. "is the asset still intact?". An
-  // entry that fails validation is dropped and reported as a miss.
-  get(kind, key, { validate } = {}) {
-    const entry = this.store.readJson(this.path(kind, key));
-    let hit = Boolean(entry && entry.status === "ok");
-    let reason = entry ? hit ? null : `status ${entry.status}` : "absent";
-    if (hit && validate && !validate(entry.value, entry)) {
-      this.store.remove(this.path(kind, key));
-      hit = false;
-      reason = "invalidated (dependency changed or missing)";
-    }
-    this.ledger?.record({ kind: `cache.${kind}`, cache: hit ? "hit" : "miss", note: reason ?? "" });
-    return hit ? entry.value : null;
-  }
-  set(kind, key, value, { status = "ok", deps = {}, note = "" } = {}) {
-    if (!["ok", "failed", "temporary"].includes(status)) throw new Error(`bad cache status ${status}`);
-    this.store.writeJson(this.path(kind, key), { key, kind, status, deps, note, at: now(), value });
-  }
-  invalidate(kind, predicate = () => true) {
-    let removed = 0;
-    for (const p of this.store.list(`cache/${kind}/`)) {
-      const entry = this.store.readJson(p);
-      if (predicate(entry)) {
-        this.store.remove(p);
-        removed++;
-      }
-    }
-    return removed;
-  }
-};
-var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr"];
-var Ledger = class {
-  constructor(store, path3 = "ledger.jsonl") {
-    this.store = store;
-    this.file = path3;
-  }
-  record({ kind, tool = null, cache = null, durationMs = null, tokens = null, costUsd = null, designId = null, note = "", session = null }) {
-    const row = { at: now(), kind, tool, cache, durationMs, tokens, costUsd, designId, note, session };
-    this.store.appendLine(this.file, JSON.stringify(row));
-    return row;
-  }
-  // Times a function and records it.
-  time(kind, fn, extra = {}) {
-    const t0 = typeof performance !== "undefined" ? performance.now() : Date.now();
-    try {
-      return fn();
-    } finally {
-      const t1 = typeof performance !== "undefined" ? performance.now() : Date.now();
-      this.record({ kind, durationMs: Math.round(t1 - t0), ...extra });
-    }
-  }
-  rows({ since, session } = {}) {
-    return this.store.readLines(this.file).map((l) => {
-      try {
-        return JSON.parse(l);
-      } catch {
-        return null;
-      }
-    }).filter((r) => r && (!since || r.at >= since) && (!session || r.session === session));
-  }
-  report(filter) {
-    const rows = this.rows(filter);
-    const byKind = {};
-    for (const r of rows) {
-      const k = byKind[r.kind] ??= { calls: 0, hits: 0, misses: 0, durationMs: 0, tokens: null, costUsd: null };
-      k.calls++;
-      if (r.cache === "hit") k.hits++;
-      if (r.cache === "miss") k.misses++;
-      if (typeof r.durationMs === "number") k.durationMs += r.durationMs;
-      if (typeof r.tokens === "number") k.tokens = (k.tokens ?? 0) + r.tokens;
-      if (typeof r.costUsd === "number") k.costUsd = (k.costUsd ?? 0) + r.costUsd;
-    }
-    const ai = rows.filter((r) => AI_KINDS.includes(r.kind));
-    const cacheRows = rows.filter((r) => r.kind.startsWith("cache."));
-    const tokens = ai.filter((r) => typeof r.tokens === "number");
-    const cost = ai.filter((r) => typeof r.costUsd === "number");
-    return {
-      rows: rows.length,
-      aiCalls: ai.length,
-      aiByKind: Object.fromEntries(AI_KINDS.map((k) => [k, rows.filter((r) => r.kind === k).length]).filter(([, n2]) => n2)),
-      cache: { hits: cacheRows.filter((r) => r.cache === "hit").length, misses: cacheRows.filter((r) => r.cache === "miss").length },
-      tokens: tokens.length ? tokens.reduce((s, r) => s + r.tokens, 0) : "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D",
-      tokensCoverage: `${tokens.length}/${ai.length}`,
-      costUsd: cost.length ? Math.round(cost.reduce((s, r) => s + r.costUsd, 0) * 1e4) / 1e4 : "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D",
-      byKind
-    };
-  }
-};
 
 // lib/fonts.js
 var FONTS = {
@@ -1578,10 +1671,10 @@ function colorWordIn(text) {
 // lib/studio/layout.js
 var FLOOR = { title: 56, heading: 44, body: 32, label: 26 };
 var MARGIN = 96;
-function contentRegion(format, { topChrome = true, bottomChrome = true } = {}) {
+function contentRegion(format, { topChrome = true, bottomChrome = true, margin = MARGIN } = {}) {
   const top = format.inset.top + (topChrome ? 170 : 120);
   const bottom = format.inset.bottom + (bottomChrome ? 190 : 120);
-  return { x: MARGIN, y: top, width: format.width - MARGIN * 2, height: format.height - top - bottom };
+  return { x: margin, y: top, width: format.width - margin * 2, height: format.height - top - bottom };
 }
 var weightOf = (font, role) => FONTS[font]?.weights[role] ?? { regular: 400, bold: 700, black: 800 }[role];
 var sizeAt = ([pref, min], s) => Math.max(min, Math.round(pref * s));
@@ -1696,7 +1789,7 @@ function listItemMetrics(b, item, width, s, ctx) {
   const textW = Math.max(40, width - padX * 2 - badge - gap);
   const m = measureText(ctx, item, style, textW);
   const inner = Math.max(m.height, b.badge === "art" || b.badge === "number" ? badge : 0);
-  return { size, style, padX, padY, badge, gap, textW, textH: m.height, h: inner + padY * 2, clipped: m.clipped };
+  return { size, style, padX, padY, badge, gap, textW, textH: m.height, lineW: m.width ?? textW, h: inner + padY * 2, clipped: m.clipped };
 }
 function listRows(b, width, s, ctx) {
   const cols = b.columns ?? 1;
@@ -1711,15 +1804,95 @@ function listRows(b, width, s, ctx) {
   const gap = sizeAt(b.size, s) * (b.itemGap ?? 0.5);
   return { rows, colW, colGap, gap, total: rows.reduce((t, r) => t + r.h, 0) + gap * Math.max(0, rows.length - 1) };
 }
+function cardShapes(id, cell, size, ctx, name, anim, fill) {
+  const t = treat(ctx);
+  const mode = t.cardMode ?? "fill";
+  if (mode === "rule") return [shapeElement(`${id}-card`, frame(cell.x, cell.y + cell.height - 3, cell.width, 3), "rect", "@muted", { opacity: 0.35, role: "decor", name: `\u0641\u0627\u0635\u0644 ${name}`, anim })];
+  const cr = cornerOf(t.cardRadius, Math.round(size * 0.65));
+  const els = [shapeElement(`${id}-card`, frame(cell.x, cell.y, cell.width, cell.height), "rect", mode === "outline" ? "none" : fill ?? t.cardFill ?? "@surface", { radius: cr, ...mode === "outline" && { stroke: t.cardStroke ?? "@muted", strokeWidth: t.cardStrokeWidth ?? 2 }, role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name}`, anim })];
+  if (mode === "accent-bar") {
+    const bw = 8;
+    els.push(shapeElement(`${id}-accent`, frame(ctx.rtl === false ? cell.x : cell.x + cell.width - bw, cell.y, bw, Math.max(24, cell.height * 0.32)), "rect", "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name}`, anim }));
+  }
+  return els;
+}
+function tileMetrics(b, i, width, s, ctx) {
+  const size = sizeAt(b.size, s);
+  const headSize = Math.round(size * 1.18);
+  const card = (treat(ctx).cardMode ?? "fill") !== "rule";
+  const padX = card ? size * 0.8 : 0;
+  const padY = size * 0.7;
+  const innerW = Math.max(60, width - padX * 2);
+  const numW = b.numbered ? headSize * (String(i + 1).length * 0.62 + 0.4) : 0;
+  const numGap = b.numbered ? size * 0.35 : 0;
+  const headW = Math.max(40, innerW - numW - numGap);
+  const headStyle = textStyle(ctx, { font: "@heading", weightRole: "bold", size: headSize, lineHeight: 1.4 });
+  const bodyStyle = textStyle(ctx, { size, lineHeight: 1.6 });
+  const headH = measureText(ctx, b.heads[i], headStyle, headW).height;
+  const body = b.bodies?.[i];
+  const bodyH = body ? measureText(ctx, body, bodyStyle, innerW).height : 0;
+  const hbGap = body ? size * 0.3 : 0;
+  return { size, headSize, padX, padY, innerW, numW, numGap, headW, headH, bodyH, hbGap, h: padY * 2 + headH + hbGap + bodyH };
+}
+function tileRows(b, width, s, ctx) {
+  const cols = b.columns ?? 2;
+  const size = sizeAt(b.size, s);
+  const colGap = size * 0.6;
+  const rows = [];
+  for (let i = 0; i < b.heads.length; i += cols) {
+    const n2 = Math.min(cols, b.heads.length - i);
+    const colW = (width - colGap * (n2 - 1)) / n2;
+    const items = Array.from({ length: n2 }, (_, k) => tileMetrics(b, i + k, colW, s, ctx));
+    rows.push({ start: i, colW, items, h: Math.max(...items.map((t) => t.h)) });
+  }
+  const gap = cols === 1 && b.connect ? size * 1.1 : size * 0.6;
+  return { rows, colGap, gap, total: rows.reduce((t, r) => t + r.h, 0) + gap * Math.max(0, rows.length - 1) };
+}
+var RENDER_RATIO = 0.965;
+function stableWrap(ctx, text, style, width) {
+  const plain = plainText(text);
+  const words2 = (line) => line.text.trim().split(/\s+/).filter(Boolean);
+  let lines = wrapLines(plain, style, width);
+  if (lines.length < 2) return { frame: width, lone: false };
+  const count = lines.length;
+  for (let k = 0; k < 6 && words2(lines[count - 1]).length < 2; k++) {
+    const next = wrapLines(plain, style, lines[count - 2].width - 1);
+    if (next.length !== count) break;
+    lines = next;
+  }
+  const lone = words2(lines[count - 1]).length < 2;
+  const lo = Math.max(...lines.map((l) => l.width));
+  let hi = Infinity;
+  for (let i = 0; i < lines.length - 1; i++) hi = Math.min(hi, textWidth(`${lines[i].text} ${words2(lines[i + 1])[0]}`, style));
+  if (!(hi > lo * 1.05)) return { frame: width, lone: words2(wrapLines(plain, style, width).at(-1)).length < 2 };
+  return { frame: Math.min(width, Math.round(RENDER_RATIO * (lo + hi) / 2)), lone };
+}
+function titleLayout(ctx, b, width, s) {
+  const base = sizeAt(b.size, s);
+  const words2 = plainText(b.text).trim().split(/\s+/).filter(Boolean).length;
+  let first = null;
+  for (const k of [1, 0.94, 0.88]) {
+    const size = Math.max(b.size[1], Math.round(base * k));
+    const style = textStyle(ctx, { font: b.font, weightRole: b.weightRole, size, lineHeight: b.lineHeight });
+    const r = stableWrap(ctx, b.text, style, width);
+    const result = { size, frame: r.frame, height: measureText(ctx, b.text, style, width).height };
+    first ??= result;
+    if (!r.lone || words2 < 4) return result;
+    if (size === b.size[1]) break;
+  }
+  return first;
+}
 var BLOCKS = {
   text: {
     height(b, width, s, ctx) {
       const w = width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0);
+      if (b.balance && !b.nowrap) return titleLayout(ctx, b, w, s).height;
       const style = textStyle(ctx, { font: b.font, weightRole: b.weightRole, size: sizeAt(b.size, s), lineHeight: b.lineHeight });
       return measureText(ctx, b.text, style, w).height;
     },
     emit(b, box, s, ctx) {
-      const size = sizeAt(b.size, s);
+      const balanced = b.balance && !b.nowrap ? titleLayout(ctx, b, box.width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0), s) : null;
+      const size = balanced?.size ?? sizeAt(b.size, s);
       const w = box.width * (b.maxWidth ?? 1);
       const x = alignedX(box, w, b.align === "center" ? "center" : "start", ctx);
       const bar = b.bar ? 10 : 0;
@@ -1727,11 +1900,17 @@ var BLOCKS = {
       const tw = w - bar - barGap;
       const h = this.height(b, box.width, s, ctx);
       const els = [];
+      let tx = ctx.rtl === false ? x + bar + barGap : x;
+      let fw = tw;
+      if (balanced) {
+        fw = Math.min(tw, balanced.frame);
+        tx += b.align === "center" ? (tw - fw) / 2 : ctx.rtl === false ? 0 : tw - fw;
+      }
       if (b.bar) {
         els.push(shapeElement(`${b.id}-bar`, frame(startX({ x, width: w }, bar, ctx), box.y, bar, h), "rect", "@accent", { radius: 5, role: "decor", name: "\u062E\u0637 \u062C\u0627\u0646\u0628\u064A", anim: b.anim }));
       }
       els.push(
-        textElement(b.id, frame(ctx.rtl === false ? x + bar + barGap : x, box.y, tw, h), b.text, ctx, {
+        textElement(b.id, frame(tx, box.y, fw, h), b.text, ctx, {
           font: b.font,
           weightRole: b.weightRole,
           size,
@@ -1785,7 +1964,14 @@ var BLOCKS = {
   list: {
     height: (b, width, s, ctx) => listRows(b, width, s, ctx).total,
     emit(b, box, s, ctx) {
-      const L = listRows(b, box.width, s, ctx);
+      let L = listRows(b, box.width, s, ctx);
+      if (b.align === "center" && !b.card && (b.columns ?? 1) === 1) {
+        const used = Math.ceil(Math.max(...L.rows.flatMap((r) => r.items.map((m) => m.badge + m.gap + Math.min(m.textW, m.lineW))))) + 2;
+        if (used < box.width) {
+          box = { ...box, x: box.x + (box.width - used) / 2, width: used };
+          L = listRows(b, box.width, s, ctx);
+        }
+      }
       const els = [];
       let y = box.y;
       for (const row of L.rows) {
@@ -1795,20 +1981,7 @@ var BLOCKS = {
           const colX = ctx.rtl === false ? box.x + k * (L.colW + L.colGap) : box.x + box.width - (k + 1) * L.colW - k * L.colGap;
           const cell = { x: colX, y, width: L.colW, height: row.h };
           const name = `\u0627\u0644\u0628\u0646\u062F ${formatNumber(n2, ctx.theme.numerals)}`;
-          if (b.card) {
-            const t = treat(ctx);
-            const cr = cornerOf(t.cardRadius, Math.round(m.size * 0.65));
-            const mode = t.cardMode ?? "fill";
-            if (mode === "rule") {
-              els.push(shapeElement(`${b.id}-${n2}-card`, frame(cell.x, cell.y + row.h - 3, cell.width, 3), "rect", "@muted", { opacity: 0.35, role: "decor", name: `\u0641\u0627\u0635\u0644 ${name}`, anim: b.anim ?? "rise" }));
-            } else {
-              els.push(shapeElement(`${b.id}-${n2}-card`, frame(cell.x, cell.y, cell.width, row.h), "rect", mode === "outline" ? "none" : b.cardFill ?? "@surface", { radius: cr, ...mode === "outline" && { stroke: "@muted", strokeWidth: 2 }, role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name}`, anim: b.anim ?? "rise" }));
-              if (mode === "accent-bar") {
-                const bw = 8;
-                els.push(shapeElement(`${b.id}-${n2}-accent`, frame(ctx.rtl === false ? cell.x : cell.x + cell.width - bw, cell.y, bw, Math.max(24, row.h * 0.32)), "rect", "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name}`, anim: b.anim ?? "rise" }));
-              }
-            }
-          }
+          if (b.card) els.push(...cardShapes(`${b.id}-${n2}`, { ...cell, height: row.h }, m.size, ctx, name, b.anim ?? "rise", b.cardFill));
           const inner = { x: cell.x + m.padX, y: cell.y + m.padY, width: cell.width - m.padX * 2, height: row.h - m.padY * 2 };
           const bx = startX(inner, m.badge, ctx);
           const contentH = Math.max(m.textH, m.badge);
@@ -1865,6 +2038,41 @@ var BLOCKS = {
       return els;
     }
   },
+  tiles: {
+    height: (b, width, s, ctx) => tileRows(b, width, s, ctx).total,
+    emit(b, box, s, ctx) {
+      const L = tileRows(b, box.width, s, ctx);
+      const anim = b.anim ?? "rise";
+      const els = [];
+      let y = box.y;
+      L.rows.forEach((row, r) => {
+        row.items.forEach((m, k) => {
+          const i = row.start + k;
+          const n2 = i + 1;
+          const colX = ctx.rtl === false ? box.x + k * (row.colW + L.colGap) : box.x + box.width - (k + 1) * row.colW - k * L.colGap;
+          const cell = { x: colX, y, width: row.colW, height: row.h };
+          const name = `\u0627\u0644\u062C\u0632\u0621 ${formatNumber(n2, ctx.theme.numerals)}`;
+          els.push(...cardShapes(`${b.id}-${n2}`, cell, m.size, ctx, name, anim));
+          const inner = { x: cell.x + m.padX, y: cell.y + m.padY, width: m.innerW };
+          const headLine = m.headSize * 1.4;
+          if (b.numbered) {
+            els.push(textElement(`${b.id}-${n2}-num`, frame(startX(inner, m.numW, ctx), inner.y, m.numW, headLine), formatNumber(n2, ctx.theme.numerals), ctx, { font: "@heading", weightRole: "black", size: m.headSize, min: m.headSize, lineHeight: 1.4, color: "@accent", align: "start", nowrap: true, role: "number", name: `\u0631\u0642\u0645 ${name}`, anim }));
+          }
+          const headX = ctx.rtl === false ? inner.x + m.numW + m.numGap : inner.x;
+          els.push(textElement(`${b.id}-${n2}`, frame(headX, inner.y, m.headW, m.headH), b.heads[i], ctx, { font: "@heading", weightRole: "bold", size: m.headSize, min: b.size[1], lineHeight: 1.4, role: "item", slot: `${b.slot}.${i}`, name, anim }));
+          if (b.bodies?.[i]) {
+            els.push(textElement(`${b.id}-${n2}-body`, frame(inner.x, inner.y + m.headH + m.hbGap, m.innerW, m.bodyH), b.bodies[i], ctx, { size: m.size, min: b.size[1], lineHeight: 1.6, color: "@muted", role: "item", slot: `${b.bodySlot}.${i}`, name: `\u0634\u0631\u062D ${name}`, anim }));
+          }
+          if ((b.columns ?? 2) === 1 && b.connect && r < L.rows.length - 1) {
+            const cx = startX(inner, b.numbered ? m.numW : 4, ctx) + (b.numbered ? m.numW / 2 : 2) - 2;
+            els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx, cell.y + row.h, 4, L.gap), "rect", "@accent", { role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
+          }
+        });
+        y += row.h + L.gap;
+      });
+      return els;
+    }
+  },
   // Two cards side by side (or stacked when `stacked`), each with a label
   // pill and a checked/crossed list. Used by the comparison composition.
   compare: {
@@ -1895,12 +2103,14 @@ var BLOCKS = {
         const cy = b.stacked ? y : box.y;
         const h = b.stacked ? card.h : L.h;
         const id = `${b.id}-${k + 1}`;
+        const mode = treat(ctx).cardMode ?? "fill";
+        const open = mode === "outline" || mode === "rule";
         els.push(
-          shapeElement(`${id}-card`, frame(x, cy, L.cardW, h), "rect", "@surface", {
+          shapeElement(`${id}-card`, frame(x, cy, L.cardW, h), "rect", open ? "none" : treat(ctx).cardFill ?? "@surface", {
             radius: cornerOf(treat(ctx).cardRadius, Math.round(L.size * 0.9)),
             role: "decor",
             name: `\u0628\u0637\u0627\u0642\u0629 ${col.label.text}`,
-            ...col.positive && { stroke: "@accent", strokeWidth: 4 },
+            ...col.positive ? { stroke: "@accent", strokeWidth: 4 } : mode === "outline" && { stroke: treat(ctx).cardStroke ?? "@muted", strokeWidth: 2 },
             anim: "rise"
           })
         );
@@ -2120,10 +2330,14 @@ function blockTexts(b) {
   if (b.type === "list") return b.items.map((t, i) => ({ id: `${b.id}-${i + 1}`, slot: `${b.slot}.${i}`, text: t, size: b.size }));
   if (b.type === "compare") return b.columns.flatMap((c, k) => c.items.map((t, i) => ({ id: `${b.id}-${k + 1}-item-${i + 1}`, slot: `${c.slot}.${i}`, text: t, size: b.size })));
   if (b.type === "author") return [{ id: `${b.id}-name`, slot: "author", text: b.name, size: b.size }];
+  if (b.type === "tiles") return b.heads.flatMap((t, i) => [{ id: `${b.id}-${i + 1}`, slot: `${b.slot}.${i}`, text: t, size: b.size }, ...b.bodies?.[i] ? [{ id: `${b.id}-${i + 1}-body`, slot: `${b.bodySlot}.${i}`, text: b.bodies[i], size: b.size }] : []]);
   return [];
 }
 
 // lib/studio/compositions.js
+var hasArabicLetters = (text) => /[\u0600-\u06FF]/.test(text ?? "");
+var figureType = (text) => hasArabicLetters(text) ? { size: [170, 110], lineHeight: 1.6 } : null;
+var afterFigure = (text, gap) => hasArabicLetters(text) ? Math.max(gap, 56) : gap;
 var nonEmpty = (list2) => (Array.isArray(list2) ? list2 : []).filter((s) => typeof s === "string" && s.trim());
 var f = (x, y, width, height) => ({ x, y, width, height });
 var atEnd = (ctx, W, x, w) => ctx.rtl === false ? W - x - w : x;
@@ -2385,10 +2599,75 @@ var COMPOSITIONS = {
     blocks: (c, v) => {
       const align = v === "center" ? "center" : void 0;
       return [
-        { type: "text", id: "number", text: c.number ?? "", font: "@heading", weightRole: "black", size: [300, 160], lineHeight: 1.1, color: "@accent", align, slot: "number", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", anim: "pop" },
-        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [104, FLOOR.title], lineHeight: 1.3, align, slot: "title", role: "title", name: "\u0627\u0644\u062C\u0645\u0644\u0629", gap: 24, anim: "rise" },
+        { type: "text", id: "number", text: c.number ?? "", font: "@heading", weightRole: "black", size: [300, 160], lineHeight: 1.1, ...figureType(c.number), color: "@accent", align, slot: "number", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", anim: "pop" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [104, FLOOR.title], lineHeight: 1.3, align, slot: "title", role: "title", name: "\u0627\u0644\u062C\u0645\u0644\u0629", gap: afterFigure(c.number, 24), anim: "rise" },
         c.subtitle && { type: "text", id: "subtitle", text: c.subtitle, size: [44, FLOOR.body], lineHeight: 1.6, color: "@muted", align, slot: "subtitle", role: "subtitle", name: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", gap: 36, anim: "rise" },
         v === "art" && { type: "art", id: "art", assetId: c.art ?? null, share: 0.3, minShare: 0.18, optional: true, slot: "art", alt: c.artAlt, gap: 56 }
+      ];
+    }
+  },
+  // A figure with its meaning and its source: the evidence page of a
+  // carousel ("70% من الانطباع…" — المصدر). The source line is part of the
+  // content, never invented: without one the page says nothing about it.
+  stat: {
+    id: "stat",
+    version: 1,
+    maxScale: 1.1,
+    label: "\u0631\u0642\u0645 \u0648\u062F\u0644\u064A\u0644",
+    role: "content",
+    type: "stat",
+    description: "\u0631\u0642\u0645 \u0623\u0648 \u0646\u0633\u0628\u0629 \u0643\u0628\u064A\u0631\u0629 \u0645\u0639 \u0645\u0639\u0646\u0627\u0647\u0627 \u0648\u0645\u0635\u062F\u0631\u0647\u0627: \u0635\u0641\u062D\u0629 \u0627\u0644\u062F\u0644\u064A\u0644",
+    tags: ["\u0625\u062D\u0635\u0627\u0626\u064A\u0629", "\u062F\u0644\u064A\u0644", "\u0646\u0633\u0628\u0629", "\u0631\u0642\u0645", "\u062F\u0631\u0627\u0633\u0629", "\u0645\u0635\u062F\u0631"],
+    variants: { type: "\u0637\u0628\u0627\u0639\u064A", center: "\u0648\u0633\u0637" },
+    defaultVariant: "type",
+    reflow: { center: ["type"] },
+    capacity: { titleChars: 90, sourceChars: 80 },
+    fields: [
+      { key: "kicker", label: "\u062A\u0645\u0647\u064A\u062F", type: "text" },
+      { key: "figure", label: "\u0627\u0644\u0631\u0642\u0645", type: "text", required: true },
+      { key: "title", label: "\u0645\u0639\u0646\u0627\u0647", type: "textarea", required: true },
+      { key: "source", label: "\u0627\u0644\u0645\u0635\u062F\u0631", type: "text" }
+    ],
+    decor: (ctx, W, H) => [shapeElement("decor-band", f(atStart(ctx, W, 0, 28), ctx.format.inset.top + 150, 28, 260), "rect", "@accent", { role: "decor", name: "\u0634\u0631\u064A\u0637 \u0644\u0648\u0646\u064A" })],
+    blocks: (c, v) => {
+      const align = v === "center" ? "center" : void 0;
+      return [
+        c.kicker && { type: "text", id: "kicker", text: c.kicker, weightRole: "bold", size: [36, 28], lineHeight: 1.5, color: "@accent", align, slot: "kicker", role: "kicker", name: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", anim: "fade" },
+        { type: "text", id: "figure", text: c.figure ?? "", font: "@heading", weightRole: "black", size: [260, 140], lineHeight: 1.15, ...figureType(c.figure), color: "@accent", align, slot: "figure", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", gap: 20, anim: "pop" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "bold", size: [64, FLOOR.title], lineHeight: 1.4, align, slot: "title", role: "title", name: "\u0627\u0644\u0645\u0639\u0646\u0649", gap: afterFigure(c.figure, 28), anim: "rise" },
+        c.source && { type: "rule", id: "source-rule", width: 96, height: 4, gap: 44, align },
+        c.source && { type: "text", id: "source", text: c.source, size: [32, FLOOR.body - 4], lineHeight: 1.6, color: "@muted", align, slot: "source", role: "source", name: "\u0627\u0644\u0645\u0635\u062F\u0631", gap: 22, anim: "fade" }
+      ];
+    }
+  },
+  // A framework: named parts, each with a short explanation, as a grid of
+  // tiles or a chain (one after the other, joined). Parts and their
+  // explanations are parallel lists so each text keeps its own slot.
+  framework: {
+    id: "framework",
+    version: 1,
+    maxScale: 1.1,
+    label: "\u0625\u0637\u0627\u0631 \u0639\u0645\u0644",
+    role: "content",
+    type: "framework",
+    description: "\u0625\u0637\u0627\u0631 \u0639\u0645\u0644: \u0623\u062C\u0632\u0627\u0621 \u0645\u0633\u0645\u0651\u0627\u0629 \u0644\u0643\u0644 \u0645\u0646\u0647\u0627 \u0634\u0631\u062D \u0642\u0635\u064A\u0631\u060C \u0641\u064A \u0634\u0628\u0643\u0629 \u0623\u0648 \u0633\u0644\u0633\u0644\u0629",
+    tags: ["\u0625\u0637\u0627\u0631", "\u0646\u0645\u0648\u0630\u062C", "\u0645\u0631\u0627\u062D\u0644", "\u0623\u0631\u0643\u0627\u0646", "\u0645\u0646\u0647\u062C", "\u062E\u0637\u0648\u0627\u062A"],
+    variants: { grid: "\u0634\u0628\u0643\u0629", chain: "\u0633\u0644\u0633\u0644\u0629" },
+    defaultVariant: "grid",
+    reflow: { chain: ["grid"], grid: ["chain"] },
+    capacity: { items: 6, itemChars: 30, detailChars: 70, titleChars: 50 },
+    fields: [
+      { key: "title", label: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", type: "textarea", required: true },
+      { key: "parts", label: "\u0627\u0644\u0623\u062C\u0632\u0627\u0621", type: "list", required: true },
+      { key: "details", label: "\u0634\u0631\u062D \u0643\u0644 \u062C\u0632\u0621", type: "list" }
+    ],
+    decor: (ctx, W) => [shapeElement("decor-circle", f(atEnd(ctx, W, -120, 340), -120, 340, 340), "ellipse", "@accent", { opacity: 0.1, role: "decor", name: "\u062F\u0627\u0626\u0631\u0629 \u0632\u062E\u0631\u0641\u064A\u0629" })],
+    blocks: (c, v) => {
+      const parts = nonEmpty(c.parts);
+      const details = Array.isArray(c.details) ? c.details : [];
+      return [
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [80, FLOOR.title], lineHeight: 1.35, slot: "title", role: "title", name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", anim: "rise" },
+        { type: "tiles", id: "part", heads: parts, bodies: parts.map((_, i) => typeof details[i] === "string" && details[i].trim() ? details[i] : null), size: [36, FLOOR.body - 2], columns: v === "chain" ? 1 : 2, connect: v === "chain", numbered: true, slot: "parts", bodySlot: "details", gap: 40 }
       ];
     }
   },
@@ -2483,6 +2762,275 @@ function validateContent(compositionId, content, path3 = "content") {
   }
   return out;
 }
+
+// lib/studio/styles.js
+var styleById = (id) => STYLES.find((s) => s.id === id) ?? null;
+var STYLE_VISUAL_FIELDS = ["version", "tokens", "defaultMode", "alternateStart", "modeByRole", "type", "treatment", "layout", "decor", "keepCompositionDecor"];
+var styleVisual = (style) => Object.fromEntries(STYLE_VISUAL_FIELDS.filter((k) => style[k] !== void 0).map((k) => [k, style[k]]));
+var styleVisualHash = (style) => hashOf(styleVisual(style)).slice(0, 16);
+function styleTheme(style, { brand = null, fonts, numerals = "arab" } = {}) {
+  const brandRole = (role) => (brand?.colors ?? []).find((c) => c.role === role)?.hex ?? null;
+  const accent = brandRole("accent") ?? style.tokens.light?.accent ?? style.tokens.dark?.accent ?? "#2E7BC5";
+  const derived = [];
+  const build = (mode) => {
+    const t = style.tokens[mode];
+    if (!t) return null;
+    const bg = mode === "light" ? brandRole("bg") ?? t.bg : brandRole("dark") ?? t.bg;
+    let fill = accent;
+    let k = 0;
+    if (mode === "light") {
+      while (contrastRatio("#FFFFFF", fill) < 4.5 && k < 0.6) fill = mix(accent, "#000000", k += 0.04);
+    } else {
+      while (contrastRatio(fill, bg) < 4.5 && k < 0.7) fill = mix(accent, "#FFFFFF", k += 0.04);
+    }
+    if (fill !== accent) derived.push({ role: "accent", mode, from: accent, to: fill, why: mode === "light" ? "\u0646\u0635 \u0623\u0628\u064A\u0636 \u0639\u0644\u0649 \u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u062A\u0628\u0627\u064A\u0646 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644" : "\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0645\u0642\u0631\u0648\u0621 \u0639\u0644\u0649 \u0627\u0644\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u062F\u0627\u0643\u0646\u0629 \u0628\u062A\u0628\u0627\u064A\u0646 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644" });
+    const onAccent = mode === "light" ? "#FFFFFF" : contrastRatio(bg, fill) >= 4.5 ? bg : bestOn(fill);
+    const raw = { ...derivePalette({ bg, accent: fill }), surface: t.surface, text: t.text, muted: t.muted, accent: fill, onAccent };
+    return resolvePalette(raw).colors;
+  };
+  const light = build("light");
+  const dark = build("dark");
+  const heading = brand?.fonts?.heading ?? style.type.headingFont ?? "cairo";
+  const body = brand?.fonts?.body ?? style.type.bodyFont ?? "tajawal";
+  return {
+    paletteId: `style:${style.id}`,
+    colors: light ?? dark,
+    ...light && dark && { dark },
+    ...derived.length && { derived },
+    fonts: { heading, body, ...fonts },
+    numerals
+  };
+}
+function pageModes(style, count, mode, roles = []) {
+  const has = (m) => Boolean(style.tokens[m]);
+  const want = mode ?? style.defaultMode ?? "light";
+  if (want === "alternate" && has("light") && has("dark")) {
+    const first = style.alternateStart ?? "dark";
+    const second = first === "light" ? "dark" : "light";
+    return Array.from({ length: count }, (_, i) => i % 2 === 0 ? first : second);
+  }
+  const fallback = has(want) ? want : has("light") ? "light" : "dark";
+  if (!mode && style.modeByRole) return Array.from({ length: count }, (_, i) => has(style.modeByRole[roles[i]]) ? style.modeByRole[roles[i]] : fallback);
+  return Array.from({ length: count }, () => fallback);
+}
+function resolveStyle(doc) {
+  if (!doc?.style?.id) return null;
+  return styleById(doc.style.id);
+}
+function evaluate(expr, vars) {
+  if (typeof expr === "number") return expr;
+  const src = String(expr).replace(/\s+/g, "");
+  let i = 0;
+  const peek = () => src[i];
+  const num2 = () => {
+    const m = /^(\d+(\.\d+)?)/.exec(src.slice(i));
+    if (m) {
+      i += m[0].length;
+      return Number(m[0]);
+    }
+    const v = /^[A-Z]/.exec(src.slice(i));
+    if (v && v[0] in vars) {
+      i += 1;
+      return vars[v[0]];
+    }
+    if (peek() === "(") {
+      i++;
+      const r2 = sum();
+      i++;
+      return r2;
+    }
+    if (peek() === "-") {
+      i++;
+      return -num2();
+    }
+    throw new Error(`bad style expression "${expr}"`);
+  };
+  const prod = () => {
+    let r2 = num2();
+    while (peek() === "*" || peek() === "/") r2 = src[i++] === "*" ? r2 * num2() : r2 / num2();
+    return r2;
+  };
+  const sum = () => {
+    let r2 = prod();
+    while (peek() === "+" || peek() === "-") r2 = src[i++] === "+" ? r2 + prod() : r2 - prod();
+    return r2;
+  };
+  const r = sum();
+  if (i !== src.length) throw new Error(`bad style expression "${expr}"`);
+  return r;
+}
+var round1 = (n2) => Math.round(n2 * 10) / 10;
+function pageRole(comp) {
+  if (comp.role === "hook" || comp.type === "cover") return "cover";
+  if (comp.role === "cta" || comp.type === "outro") return "cta";
+  return "content";
+}
+var roleOfComposition = (id) => COMPOSITIONS[id] ? pageRole(COMPOSITIONS[id]) : "content";
+function styleDecor(style, ctx, comp, { textElement: textElement2, shapeElement: shapeElement2 }) {
+  const W = ctx.format.width;
+  const H = ctx.format.height;
+  const R = ctx.region?.y ?? ctx.format.inset.top + 170;
+  const vars = { W, H, T: ctx.format.inset.top, B: ctx.format.inset.bottom, M: ctx.style?.layout?.margin ?? 96, R, F: ctx.region ? ctx.region.y + ctx.region.height : H - ctx.format.inset.bottom - 190 };
+  const role = pageRole(comp);
+  const list2 = style.decor?.[role] ?? [];
+  const els = [];
+  list2.forEach((d, n2) => {
+    if (d.pages === "odd" && ctx.index % 2 === 1) return;
+    if (d.pages === "even" && ctx.index % 2 === 0) return;
+    if (d.modes && !d.modes.includes(ctx.styleMode ?? "light")) return;
+    if (d.compositions && !d.compositions.includes(comp.id)) return;
+    if (d.sequence === "single" && ctx.total > 1) return;
+    if (d.sequence === "carousel" && ctx.total <= 1) return;
+    const w = evaluate(d.w, vars);
+    const h = evaluate(d.h, vars);
+    const x0 = evaluate(d.x, vars);
+    const y = evaluate(d.y, vars);
+    const fromStart = (d.at ?? "start") === "start";
+    const x = ctx.rtl === false === fromStart ? x0 : W - x0 - w;
+    const f3 = { x: round1(x), y: round1(y), width: round1(Math.max(1, w)), height: round1(Math.max(1, h)) };
+    const id = `style-${role}-${n2}`;
+    const base = { role: "decor", name: d.name ?? "\u0632\u062E\u0631\u0641\u0629 \u0627\u0644\u0623\u0633\u0644\u0648\u0628", ...d.opacity !== void 0 && { opacity: d.opacity }, ...d.rotation && { rotation: d.rotation }, ...d.anim && { anim: d.anim } };
+    if (d.shape === "ghost-number" && comp.fields?.some((x2) => x2.key === "number" || x2.key === "figure")) return;
+    if (d.shape === "ghost-number") {
+      const text = formatNumber(ctx.index + 1, ctx.theme.numerals);
+      els.push(textElement2(id, f3, text, ctx, { font: "@heading", weightRole: "black", size: Math.round(h * 0.8), min: Math.round(h * 0.8), lineHeight: 1.1, color: d.fill ?? "@text", align: fromStart ? "start" : "end", nowrap: true, ...base, role: "decor" }));
+    } else if (d.shape === "path") {
+      els.push(shapeElement2(id, f3, "path", "none", { path: d.path, viewBox: d.viewBox, stroke: d.stroke ?? "@accent", strokeWidth: d.strokeWidth ?? 4, ...base }));
+    } else if (d.shape === "frame") {
+      els.push(shapeElement2(id, f3, "rect", "none", { stroke: d.stroke ?? "@text", strokeWidth: d.strokeWidth ?? 4, radius: d.radius ?? 0, ...base }));
+    } else {
+      els.push(shapeElement2(id, f3, d.shape, d.fill ?? "@accent", { ...d.radius !== void 0 && { radius: d.radius }, ...d.stroke && { stroke: d.stroke, strokeWidth: d.strokeWidth ?? 2 }, ...base }));
+    }
+  });
+  return els;
+}
+function styleBlocks(style, blocks) {
+  if (!style) return blocks;
+  const t = style.type ?? {};
+  const tr = style.treatment ?? {};
+  const aligned = (b) => t.align && !b.align ? { ...b, align: t.align } : b;
+  return blocks.map((b) => {
+    if (!b) return b;
+    if (b.role === "title" && b.type === "text") {
+      return aligned({ ...b, size: [Math.round(b.size[0] * (t.titleScale ?? 1)), b.size[1]], ...t.titleWeight && { weightRole: t.titleWeight }, ...t.titleLineHeight && { lineHeight: Math.max(b.lineHeight ?? 1.3, t.titleLineHeight) }, balance: t.balance !== false });
+    }
+    if (b.type === "pill" && b.role === "kicker" && tr.kicker === "plain") {
+      return aligned({ type: "text", id: b.id, text: b.text, weightRole: "bold", size: [Math.round(b.size[0] * 0.95), Math.max(26, b.size[1] - 2)], lineHeight: 1.5, color: "@accent", slot: b.slot, role: "kicker", name: b.name, anim: b.anim, ...b.gap !== void 0 && { gap: b.gap } });
+    }
+    if (b.type === "text" && b.role === "number" && tr.figureColor) return aligned({ ...b, color: tr.figureColor });
+    if (b.type === "text" || b.type === "pill") return aligned(b);
+    if (b.type === "list") return { ...b, ...tr.listCard !== void 0 && { card: tr.listCard }, ...t.align && !b.align && { align: t.align } };
+    if (b.type === "rule") {
+      if (tr.rule === "none") return null;
+      return { ...b, ...t.align && !b.align && { align: t.align }, ...tr.rule?.width && { width: tr.rule.width }, ...tr.rule?.height && { height: tr.rule.height } };
+    }
+    return b;
+  });
+}
+
+// lib/studio/budget.js
+var VERSIONS = { copy: 1, layout: 3, measure: 1, renderer: 1 };
+var CACHE_KINDS = ["text", "asset", "layout", "export"];
+var Cache = class {
+  constructor(store, ledger) {
+    this.store = store;
+    this.ledger = ledger;
+  }
+  key(kind, inputs, deps = {}) {
+    if (!CACHE_KINDS.includes(kind)) throw new Error(`unknown cache kind ${kind}`);
+    return `${kind}_${hashOf({ inputs, deps }).slice(0, 40)}`;
+  }
+  path(kind, key) {
+    return `cache/${kind}/${key}.json`;
+  }
+  // validate(entry) → true | false: e.g. "is the asset still intact?". An
+  // entry that fails validation is dropped and reported as a miss.
+  get(kind, key, { validate } = {}) {
+    const entry = this.store.readJson(this.path(kind, key));
+    let hit = Boolean(entry && entry.status === "ok");
+    let reason = entry ? hit ? null : `status ${entry.status}` : "absent";
+    if (hit && validate && !validate(entry.value, entry)) {
+      this.store.remove(this.path(kind, key));
+      hit = false;
+      reason = "invalidated (dependency changed or missing)";
+    }
+    this.ledger?.record({ kind: `cache.${kind}`, cache: hit ? "hit" : "miss", note: reason ?? "" });
+    return hit ? entry.value : null;
+  }
+  set(kind, key, value, { status = "ok", deps = {}, note = "" } = {}) {
+    if (!["ok", "failed", "temporary"].includes(status)) throw new Error(`bad cache status ${status}`);
+    this.store.writeJson(this.path(kind, key), { key, kind, status, deps, note, at: now(), value });
+  }
+  invalidate(kind, predicate = () => true) {
+    let removed = 0;
+    for (const p of this.store.list(`cache/${kind}/`)) {
+      const entry = this.store.readJson(p);
+      if (predicate(entry)) {
+        this.store.remove(p);
+        removed++;
+      }
+    }
+    return removed;
+  }
+};
+var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr"];
+var Ledger = class {
+  constructor(store, path3 = "ledger.jsonl") {
+    this.store = store;
+    this.file = path3;
+  }
+  record({ kind, tool = null, cache = null, durationMs = null, tokens = null, costUsd = null, designId = null, note = "", session = null }) {
+    const row = { at: now(), kind, tool, cache, durationMs, tokens, costUsd, designId, note, session };
+    this.store.appendLine(this.file, JSON.stringify(row));
+    return row;
+  }
+  // Times a function and records it.
+  time(kind, fn, extra = {}) {
+    const t0 = typeof performance !== "undefined" ? performance.now() : Date.now();
+    try {
+      return fn();
+    } finally {
+      const t1 = typeof performance !== "undefined" ? performance.now() : Date.now();
+      this.record({ kind, durationMs: Math.round(t1 - t0), ...extra });
+    }
+  }
+  rows({ since, session } = {}) {
+    return this.store.readLines(this.file).map((l) => {
+      try {
+        return JSON.parse(l);
+      } catch {
+        return null;
+      }
+    }).filter((r) => r && (!since || r.at >= since) && (!session || r.session === session));
+  }
+  report(filter) {
+    const rows = this.rows(filter);
+    const byKind = {};
+    for (const r of rows) {
+      const k = byKind[r.kind] ??= { calls: 0, hits: 0, misses: 0, durationMs: 0, tokens: null, costUsd: null };
+      k.calls++;
+      if (r.cache === "hit") k.hits++;
+      if (r.cache === "miss") k.misses++;
+      if (typeof r.durationMs === "number") k.durationMs += r.durationMs;
+      if (typeof r.tokens === "number") k.tokens = (k.tokens ?? 0) + r.tokens;
+      if (typeof r.costUsd === "number") k.costUsd = (k.costUsd ?? 0) + r.costUsd;
+    }
+    const ai = rows.filter((r) => AI_KINDS.includes(r.kind));
+    const cacheRows = rows.filter((r) => r.kind.startsWith("cache."));
+    const tokens = ai.filter((r) => typeof r.tokens === "number");
+    const cost = ai.filter((r) => typeof r.costUsd === "number");
+    return {
+      rows: rows.length,
+      aiCalls: ai.length,
+      aiByKind: Object.fromEntries(AI_KINDS.map((k) => [k, rows.filter((r) => r.kind === k).length]).filter(([, n2]) => n2)),
+      cache: { hits: cacheRows.filter((r) => r.cache === "hit").length, misses: cacheRows.filter((r) => r.cache === "miss").length },
+      tokens: tokens.length ? tokens.reduce((s, r) => s + r.tokens, 0) : "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D",
+      tokensCoverage: `${tokens.length}/${ai.length}`,
+      costUsd: cost.length ? Math.round(cost.reduce((s, r) => s + r.costUsd, 0) * 1e4) / 1e4 : "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D",
+      byKind
+    };
+  }
+};
 
 // lib/studio/chrome.js
 var CHROME_DEFAULTS = {
@@ -2723,7 +3271,7 @@ function composePage(doc, page, index, { measure = estimateMeasure } = {}) {
   const ctx = { ...contextFor(doc, page, index), measure };
   const settings = chromeSettings(doc.chrome);
   const bands = chromeBands(settings, comp, index, doc.pages.length, doc.brand);
-  const region = contentRegion(ctx.format, { topChrome: bands.top, bottomChrome: bands.bottom });
+  const region = contentRegion(ctx.format, { topChrome: bands.top, bottomChrome: bands.bottom, ...ctx.style?.layout?.margin && { margin: ctx.style.layout.margin } });
   ctx.region = region;
   const styled = ctx.style ? { ...comp, blocks: (content2, variant, c) => styleBlocks(ctx.style, comp.blocks(content2, variant, c)) } : comp;
   const result = solveLayout(blocksWithOverrides(styled, page.overrides), page.content ?? {}, ctx, {
@@ -2795,7 +3343,7 @@ function createDesign(spec, options = {}) {
     brand: { name: "", handle: "", ...spec.brand },
     chrome: chromeSettings(spec.chrome),
     governance: { institutional: false, locked: false, ...spec.governance },
-    ...style && { style: { id: style.id, version: style.version, mode: spec.style.mode ?? style.defaultMode ?? "light" } },
+    ...style && { style: { id: style.id, version: style.version, mode: spec.style.mode ?? (style.modeByRole ? "by-role" : style.defaultMode ?? "light") } },
     pages: (spec.pages ?? []).map((p) => ({
       id: p.id ?? newPageId(),
       widthPx: 0,
@@ -2808,7 +3356,7 @@ function createDesign(spec, options = {}) {
     assets: clone(spec.assets ?? {})
   };
   if (style && doc.theme.dark) {
-    const modes = pageModes(style, doc.pages.length, doc.style.mode);
+    const modes = pageModes(style, doc.pages.length, spec.style.mode ?? void 0, doc.pages.map((p) => roleOfComposition(p.composition.id)));
     doc.pages.forEach((p, i) => p.styleMode = spec.pages[i]?.styleMode ?? modes[i]);
   }
   const composed = options.pages ? { ...doc, pages: options.pages } : composeAll(doc, options);
@@ -3764,8 +4312,10 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
       if (/[؀-ۿ]\s*[,;?]/.test(el.text)) issues.push(issue("punct.ascii", "warning", `\xAB${el.name ?? el.id}\xBB: \u0627\u0633\u062A\u062E\u062F\u0645 \u060C \u061B \u061F \u0628\u0639\u062F \u0627\u0644\u0643\u0644\u0645\u0627\u062A \u0627\u0644\u0639\u0631\u0628\u064A\u0629.`, page.id, el.id));
       if (/ـ/.test(el.text)) issues.push(issue("text.tatweel", "warning", `\xAB${el.name ?? el.id}\xBB \u064A\u062D\u0648\u064A \u062A\u0637\u0648\u064A\u0644\u064B\u0627 (\u0640).`, page.id, el.id));
     }
+    const watermark = (el) => el.role === "decor" && (el.opacity ?? 1) <= 0.12;
     for (let i = 0; i < texts.length; i++) {
       for (let j = i + 1; j < texts.length; j++) {
+        if (watermark(texts[i]) || watermark(texts[j])) continue;
         const a = texts[i].frame;
         const b = texts[j].frame;
         const inter = intersection(a, b);
@@ -4186,7 +4736,7 @@ function buildDesign(studio, spec, { request, measure = estimateMeasure, save = 
   const assets = studio.assets.embed(specAssetIds({ ...spec, brand: brandInfo }));
   const layoutKey = studio.cache.key(
     "layout",
-    { pages: spec.pages, format, fonts: theme.fonts, numerals: theme.numerals, brand: brandInfo, chrome: spec.chrome ?? null, style: spec.style ? { id: spec.style.id, mode: spec.style.mode ?? null, version: styleById(spec.style.id)?.version ?? null } : null, colors: theme.colors, dark: theme.dark ?? null },
+    { pages: spec.pages, format, fonts: theme.fonts, numerals: theme.numerals, brand: brandInfo, chrome: spec.chrome ?? null, style: spec.style ? { id: spec.style.id, mode: spec.style.mode ?? null, visual: styleById(spec.style.id) ? styleVisualHash(styleById(spec.style.id)) : null } : null, colors: theme.colors, dark: theme.dark ?? null },
     { compositions: Object.fromEntries(Object.values(COMPOSITIONS).map((c) => [c.id, c.version])), layout: VERSIONS.layout, measure: VERSIONS.measure }
   );
   const cached = studio.cache.get("layout", layoutKey, { validate: (v) => v.pages.every((p) => p.elements.every((e) => e.kind !== "image" || assets[e.assetId])) });

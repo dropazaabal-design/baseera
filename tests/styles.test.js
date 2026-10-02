@@ -221,3 +221,120 @@ test('a style claims preview_verified or reusable only with every claimed pair r
   assert.ok(styleClaimProblems(pretend, matrix).length > 0, 'a changed style loses its claim until reviewed again');
   assert.ok(styleClaimProblems({ ...pretend, id: 'never-tested', status: 'reusable' }, matrix).length > 0);
 });
+
+// --- Batch: compositions, title wrapping, modes, treatments -----------------
+
+import { wrapLines } from '../lib/studio/measure.js';
+import { checkDesign } from '../lib/studio/quality.js';
+import { SEQUENCE } from '../lib/studio/library/samples.js';
+
+const carousel = (style, pages) => {
+  const studio = openStudio(new MemoryStore());
+  studio.memory.saveBrand('default', KITABWBS_PRESET);
+  const ids = seedQaArt(studio);
+  return buildDesign(studio, { brandId: 'kitabwbs', brief: 'seq', style: { id: style }, intent: { mode: 'carousel', format: 'portrait', pages: pages.length, platform: 'instagram' }, pages: pages.map((p) => ({ ...p, content: withArt(p.content, ids) })) }, { save: false });
+};
+const byId = (page, id) => page.elements.find((e) => e.id === id);
+
+test('framework: tiles keep each name and explanation in its own slot; a short last row takes the full width', () => {
+  const { doc, quality } = build([['framework', SAMPLES.framework.short]], { style: 'quiet-editorial' });
+  assert.equal(quality.errors, 0);
+  const page = doc.pages[0];
+  assert.equal(byId(page, 'part-1').slot, 'parts.0');
+  assert.equal(byId(page, 'part-1-body').slot, 'details.0');
+  assert.equal(byId(page, 'part-1').text, 'انتبه');
+  const c1 = byId(page, 'part-1-card').frame;
+  const c3 = byId(page, 'part-3-card').frame;
+  assert.ok(c3.width > c1.width * 1.8, 'third tile spans the row');
+  assert.ok(c1.x > byId(page, 'part-2-card').frame.x, 'first tile on the right (RTL)');
+  assert.ok(page.elements.every((e) => !/-link$/.test(e.id)), 'a grid has no links');
+  const chain = carousel('quiet-editorial', [{ composition: 'framework', variant: 'chain', content: SAMPLES.framework.short }]).doc.pages[0];
+  const links = chain.elements.filter((e) => /^part-\d-link$/.test(e.id));
+  assert.equal(links.length, 2, 'a chain of three joins twice');
+  assert.ok(links.every((l) => l.frame.x > chain.layout.region.x + chain.layout.region.width / 2), 'links on the reading-start side');
+});
+
+test('stat: a figure with Arabic letters gets Arabic line spacing; no source line is invented', () => {
+  const { doc } = build([['stat', SAMPLES.stat.long]], { style: 'quiet-editorial' });
+  const fig = byId(doc.pages[0], 'figure');
+  assert.equal(fig.style.lineHeight, 1.6);
+  assert.equal(byId(build([['stat', SAMPLES.stat.short]], { style: 'quiet-editorial' }).doc.pages[0], 'figure').style.lineHeight, 1.15);
+  const { source, ...noSource } = SAMPLES.stat.short;
+  const page = build([['stat', noSource]], { style: 'quiet-editorial' }).doc.pages[0];
+  assert.ok(!byId(page, 'source') && !byId(page, 'source-rule'));
+});
+
+test('styled titles wrap stably: a lone last word moves down, the frame keeps the line count; unstyled titles are untouched', () => {
+  const page = carousel('collage-cutout', [SEQUENCE.pages[3]]).doc.pages[0];
+  const t = byId(page, 'title');
+  const style = { font: 'cairo', weight: t.style.weight, size: t.style.fontSize, lineHeight: t.style.lineHeight };
+  const lines = wrapLines(t.text.replace(/\*/g, ''), style, t.frame.width);
+  assert.equal(lines.length, 2);
+  assert.ok(lines.at(-1).text.trim().split(/\s+/).length >= 2, `last line «${lines.at(-1).text}»`);
+  assert.ok(t.frame.width < page.layout.region.width);
+  const plain = build([['numbered', SEQUENCE.pages[3].content]]).doc.pages[0];
+  assert.equal(byId(plain, 'title').frame.width, plain.layout.region.width, 'classic keeps full-width titles');
+});
+
+test('page modes: by role (magazine: dark cover and closing) or alternating from a dark cover (collage)', () => {
+  const pages = [SEQUENCE.pages[0], SEQUENCE.pages[1], SEQUENCE.pages[2], SEQUENCE.pages[7]].map(({ fallback, ...p }) => (p.composition === 'collage' ? { ...p, composition: 'hero', content: { title: p.content.title } } : p));
+  assert.deepEqual(carousel('magazine-bold', pages).doc.pages.map((p) => p.styleMode), ['dark', 'light', 'light', 'dark']);
+  assert.deepEqual(carousel('collage-cutout', pages).doc.pages.map((p) => p.styleMode), ['dark', 'light', 'dark', 'light']);
+  const dark = carousel('collage-cutout', pages).doc;
+  assert.equal(pageTheme(dark, dark.pages[0]).colors.bg, '#0E2A5C');
+  assert.ok(contrastRatio(pageTheme(dark, dark.pages[0]).colors.accent, '#0E2A5C') >= 4.5, 'accent lightened on navy');
+});
+
+test('treatments: plain kickers, centred plain lists, figures in ink', () => {
+  const swiss = build([['hero', SAMPLES.hero.short]], { style: 'swiss-editorial' }).doc.pages[0];
+  assert.equal(byId(swiss, 'kicker').kind, 'text');
+  assert.equal(byId(swiss, 'kicker').style.color, '@accent');
+  assert.ok(!byId(swiss, 'kicker-bg'), 'no pill behind a plain kicker');
+  const minimal = build([['post', SAMPLES.post.short]], { style: 'quiet-minimal' }).doc.pages[0];
+  const region = minimal.layout.region;
+  const items = minimal.elements.filter((e) => /^point-\d$/.test(e.id));
+  const left = Math.min(...items.map((e) => e.frame.x));
+  const right = Math.max(...minimal.elements.filter((e) => /^point-\d-icon$/.test(e.id)).map((e) => e.frame.x + e.frame.width));
+  assert.ok(Math.abs(left - region.x - (region.x + region.width - right)) < 4, 'the list block sits in the middle');
+  const news = build([['stat', SAMPLES.stat.short]], { style: 'newspaper-editorial' }).doc.pages[0];
+  assert.equal(byId(news, 'figure').style.color, '@text');
+});
+
+test('watermarks: the ghost number appears only on open pages and is the only text allowed under text', () => {
+  const statement = build([['statement', SAMPLES.statement.long]], { style: 'magazine-bold' });
+  assert.ok(statement.doc.pages[0].elements.some((e) => e.id === 'style-content-0'));
+  assert.equal(statement.quality.errors, 0);
+  for (const comp of ['list', 'numbered', 'framework', 'stat']) assert.ok(!build([[comp, SAMPLES[comp].long]], { style: 'magazine-bold' }).doc.pages[0].elements.some((e) => e.id === 'style-content-0'), comp);
+  // The same ghost number at full opacity is a text collision.
+  const doc = structuredClone(statement.doc);
+  doc.pages[0].elements.find((e) => e.id === 'style-content-0').opacity = 1;
+  assert.ok(checkDesign(doc).issues.some((i) => i.code === 'layout.overlap'));
+});
+
+test('carousel-only decoration: the geometric cover circle turns pale where the swipe button sits', () => {
+  const single = build([['hero', SAMPLES.hero.short]], { style: 'geometric-editorial' }).doc.pages[0];
+  const circle = single.elements.find((e) => e.shape === 'ellipse' && e.role === 'decor' && e.frame.width === 480);
+  assert.equal(circle.fill, '@accent');
+  const multi = carousel('geometric-editorial', [{ composition: 'hero', content: SAMPLES.hero.short }, SEQUENCE.pages[1]]).doc.pages[0];
+  assert.equal(multi.elements.find((e) => e.shape === 'ellipse' && e.role === 'decor' && e.frame.width === 480).fill, '@surface');
+});
+
+test('style validation covers treatments, modes and declined roles', () => {
+  const s = styleById('magazine-bold');
+  const paths = (x) => validateStyle(x).map((p) => p.path);
+  assert.ok(paths({ ...s, treatment: { ...s.treatment, pillFill: 'fill' } }).includes('treatment.pillFill'));
+  assert.ok(paths({ ...s, treatment: { ...s.treatment, cardMode: 'shadow' } }).includes('treatment.cardMode'));
+  assert.ok(paths({ ...s, modeByRole: { cover: 'sepia' } }).includes('modeByRole.cover'));
+  assert.ok(paths({ ...s, notFor: { list: 'x' } }).includes('notFor.list'));
+  assert.ok(paths({ ...s, decor: { content: [{ shape: 'rect', x: 0, y: 0, w: 1, h: 1, sequence: 'reel' }] } }).includes('decor.content[0].sequence'));
+});
+
+test('committed matrix: counts are per composition, every declined pair says why, every carousel was reviewed', () => {
+  const m = JSON.parse(fs.readFileSync('docs/library/matrix.json', 'utf8'));
+  assert.equal(m.totals.styles, STYLES.length);
+  const ready = Object.values(m.byStyle).reduce((t, s) => t + s.ready.length, 0);
+  assert.equal(m.totals.readyStyleCompositionPairs, ready);
+  assert.ok(ready <= m.totals.possiblePairs);
+  for (const p of m.pairs.filter((x) => !x.claimed)) assert.ok(p.why, `${p.style}/${p.composition}: declined without a reason`);
+  for (const s of STYLES) if (s.status === 'reusable') assert.equal(m.sequences[s.id]?.status, 'ready', s.id);
+});

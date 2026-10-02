@@ -3,9 +3,546 @@
  "generatedAt": "2026-10-02",
  "identity": "kitabwbs",
  "rendered": true,
+ "sequences": {
+  "quiet-editorial": {
+   "fingerprint": "7950992e13bd7617",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 2,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7950992e13bd7617",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "magazine-bold": {
+   "fingerprint": "83ac5a9235d43e73",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "dark",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "dark"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "83ac5a9235d43e73",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "swiss-editorial": {
+   "fingerprint": "f8c6e9a578bd4a80",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 2,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f8c6e9a578bd4a80",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "newspaper-editorial": {
+   "fingerprint": "1eea3577af160bde",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1eea3577af160bde",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "monochrome-editorial": {
+   "fingerprint": "faf6e90663d3f0cf",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "faf6e90663d3f0cf",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "collage-cutout": {
+   "fingerprint": "27ef3a5e27d0bc4c",
+   "pages": [
+    "collage",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "dark",
+    "light",
+    "dark",
+    "light",
+    "dark",
+    "light",
+    "dark",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "27ef3a5e27d0bc4c",
+    "note": "راجعتُ الكاروسيل كاملًا: غلاف كولاج داكن بثلاث قصاصات، ثم تناوب فاتح/داكن، والجرافيك الرابع في العادة السادسة؛ العناوين بلا كلمة أخيرة منفردة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "quiet-minimal": {
+   "fingerprint": "e9d6c83ffbdbf41e",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "e9d6c83ffbdbf41e",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "geometric-editorial": {
+   "fingerprint": "964841de2ecbedae",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 1,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "964841de2ecbedae",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%. بعد الإصلاح: دائرة الغلاف بلون السطح في الكاروسيل حتى يبقى زر السحب مقروءًا",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  }
+ },
+ "titleOrphans": {
+  "quiet-editorial": [
+   "sequence/1"
+  ],
+  "magazine-bold": [
+   "sequence/1"
+  ],
+  "swiss-editorial": [
+   "sequence/1"
+  ],
+  "newspaper-editorial": [
+   "sequence/1"
+  ],
+  "monochrome-editorial": [
+   "sequence/1"
+  ],
+  "quiet-minimal": [
+   "sequence/1"
+  ],
+  "geometric-editorial": [
+   "sequence/1"
+  ]
+ },
+ "note": "Reviews bind to the layout engine version, the style's visual fields, the composition code and the samples; changing any of them returns the pair to needs_review.",
+ "totals": {
+  "styles": 8,
+  "compositions": 11,
+  "readyStyleCompositionPairs": 75,
+  "possiblePairs": 88
+ },
  "summary": {
-  "ready": 21,
-  "not_claimed": 6
+  "ready": 159,
+  "not_claimed": 28
+ },
+ "byStyle": {
+  "quiet-editorial": {
+   "formats": [
+    "portrait",
+    "square",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "comparison",
+     "why": "المقارنة تحتاج جهتين متمايزتين بوضوح؛ البطاقات بإطار رفيع والخلفية البيضاء تضعفان الفرق بينهما"
+    },
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  },
+  "magazine-bold": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  },
+  "swiss-editorial": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "quote",
+     "why": "الاقتباس يحتاج مساحة وسطية وإيقاعًا هادئًا؛ في العمود الصارم يصير سطرًا عاديًا"
+    },
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  },
+  "newspaper-editorial": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  },
+  "monochrome-editorial": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "comparison",
+     "why": "المقارنة تعتمد على تلوين الجهة الإيجابية؛ في الصفحة أحادية اللون يضعف الفرق"
+    },
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  },
+  "collage-cutout": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "quote",
+    "statement",
+    "collage",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": []
+  },
+  "quiet-minimal": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "comparison",
+     "why": "تحتاج بطاقتين متجاورتين؛ الأسلوب بلا بطاقات وموسّط"
+    },
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "framework",
+     "why": "الإطار شبكة بطاقات؛ الأسلوب بلا بطاقات"
+    }
+   ]
+  },
+  "geometric-editorial": {
+   "formats": [
+    "portrait",
+    "story"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "quote",
+     "why": "الأشكال الصلبة الكبيرة تنافس نص الاقتباس على الانتباه"
+    },
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    }
+   ]
+  }
  },
  "pairs": [
   {
@@ -15,7 +552,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "0cf5969b74780643",
+   "fingerprint": "8e1e8a7598d71613",
    "samples": {
     "short": {
      "errors": 0,
@@ -31,12 +568,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "0cf5969b74780643",
-    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "fingerprint": "8e1e8a7598d71613",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -50,7 +588,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "0cf5969b74780643",
+   "fingerprint": "8e1e8a7598d71613",
    "samples": {
     "short": {
      "errors": 0,
@@ -66,12 +604,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "0cf5969b74780643",
-    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "fingerprint": "8e1e8a7598d71613",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -85,7 +624,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "0cf5969b74780643",
+   "fingerprint": "8e1e8a7598d71613",
    "samples": {
     "short": {
      "errors": 0,
@@ -101,12 +640,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "0cf5969b74780643",
-    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "fingerprint": "8e1e8a7598d71613",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -120,7 +660,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "f1a0e17e313d540c",
+   "fingerprint": "e90d63e76e474244",
    "samples": {
     "short": {
      "errors": 0,
@@ -136,12 +676,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "f1a0e17e313d540c",
-    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "fingerprint": "e90d63e76e474244",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -155,7 +696,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "f1a0e17e313d540c",
+   "fingerprint": "e90d63e76e474244",
    "samples": {
     "short": {
      "errors": 0,
@@ -179,7 +720,8 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "limits": [
     {
@@ -189,8 +731,8 @@
    ],
    "review": {
     "verdict": "ready",
-    "fingerprint": "f1a0e17e313d540c",
-    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "fingerprint": "e90d63e76e474244",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -204,7 +746,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "f1a0e17e313d540c",
+   "fingerprint": "e90d63e76e474244",
    "samples": {
     "short": {
      "errors": 0,
@@ -220,12 +762,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "f1a0e17e313d540c",
-    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "fingerprint": "e90d63e76e474244",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -239,7 +782,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "85408595555d2bb0",
+   "fingerprint": "930c6904a25a12b6",
    "samples": {
     "short": {
      "errors": 0,
@@ -255,12 +798,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "85408595555d2bb0",
-    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "fingerprint": "930c6904a25a12b6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -274,7 +818,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "85408595555d2bb0",
+   "fingerprint": "930c6904a25a12b6",
    "samples": {
     "short": {
      "errors": 0,
@@ -290,12 +834,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "85408595555d2bb0",
-    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "fingerprint": "930c6904a25a12b6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -309,7 +854,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "85408595555d2bb0",
+   "fingerprint": "930c6904a25a12b6",
    "samples": {
     "short": {
      "errors": 0,
@@ -325,12 +870,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "85408595555d2bb0",
-    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "fingerprint": "930c6904a25a12b6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -338,13 +884,14 @@
    "status": "ready"
   },
   {
+   "why": "المقارنة تحتاج جهتين متمايزتين بوضوح؛ البطاقات بإطار رفيع والخلفية البيضاء تضعفان الفرق بينهما",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "comparison",
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": false,
-   "fingerprint": "4bcbfd56c957d52b",
+   "fingerprint": "24d6d96575d27993",
    "samples": {
     "short": {
      "errors": 0,
@@ -360,19 +907,21 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
   },
   {
+   "why": "المقارنة تحتاج جهتين متمايزتين بوضوح؛ البطاقات بإطار رفيع والخلفية البيضاء تضعفان الفرق بينهما",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "comparison",
    "compositionVersion": 1,
    "format": "square",
    "claimed": false,
-   "fingerprint": "4bcbfd56c957d52b",
+   "fingerprint": "24d6d96575d27993",
    "samples": {
     "short": {
      "errors": 0,
@@ -388,19 +937,21 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
   },
   {
+   "why": "المقارنة تحتاج جهتين متمايزتين بوضوح؛ البطاقات بإطار رفيع والخلفية البيضاء تضعفان الفرق بينهما",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "comparison",
    "compositionVersion": 1,
    "format": "story",
    "claimed": false,
-   "fingerprint": "4bcbfd56c957d52b",
+   "fingerprint": "24d6d96575d27993",
    "samples": {
     "short": {
      "errors": 0,
@@ -416,7 +967,8 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
@@ -428,7 +980,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "82e56ce92a0daa98",
+   "fingerprint": "1761b8228c6c831d",
    "samples": {
     "short": {
      "errors": 0,
@@ -444,12 +996,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "82e56ce92a0daa98",
-    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "fingerprint": "1761b8228c6c831d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -463,7 +1016,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "82e56ce92a0daa98",
+   "fingerprint": "1761b8228c6c831d",
    "samples": {
     "short": {
      "errors": 0,
@@ -479,12 +1032,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "82e56ce92a0daa98",
-    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "fingerprint": "1761b8228c6c831d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -498,7 +1052,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "82e56ce92a0daa98",
+   "fingerprint": "1761b8228c6c831d",
    "samples": {
     "short": {
      "errors": 0,
@@ -514,12 +1068,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "82e56ce92a0daa98",
-    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "fingerprint": "1761b8228c6c831d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -533,7 +1088,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "3686a1f5fd4fc1ae",
+   "fingerprint": "4022f4160d241c35",
    "samples": {
     "short": {
      "errors": 0,
@@ -549,12 +1104,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "3686a1f5fd4fc1ae",
-    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "fingerprint": "4022f4160d241c35",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -568,7 +1124,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "3686a1f5fd4fc1ae",
+   "fingerprint": "4022f4160d241c35",
    "samples": {
     "short": {
      "errors": 0,
@@ -584,12 +1140,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "3686a1f5fd4fc1ae",
-    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "fingerprint": "4022f4160d241c35",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -603,7 +1160,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "3686a1f5fd4fc1ae",
+   "fingerprint": "4022f4160d241c35",
    "samples": {
     "short": {
      "errors": 0,
@@ -619,12 +1176,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "3686a1f5fd4fc1ae",
-    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "fingerprint": "4022f4160d241c35",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -632,13 +1190,14 @@
    "status": "ready"
   },
   {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "collage",
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": false,
-   "fingerprint": "0dce67a037591db4",
+   "fingerprint": "a404debfe5c302df",
    "samples": {
     "short": {
      "errors": 0,
@@ -654,19 +1213,21 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
   },
   {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "collage",
    "compositionVersion": 1,
    "format": "square",
    "claimed": false,
-   "fingerprint": "0dce67a037591db4",
+   "fingerprint": "a404debfe5c302df",
    "samples": {
     "short": {
      "errors": 0,
@@ -682,19 +1243,21 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
   },
   {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
    "style": "quiet-editorial",
    "styleVersion": 1,
    "composition": "collage",
    "compositionVersion": 1,
    "format": "story",
    "claimed": false,
-   "fingerprint": "0dce67a037591db4",
+   "fingerprint": "a404debfe5c302df",
    "samples": {
     "short": {
      "errors": 0,
@@ -710,7 +1273,8 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": null,
    "status": "not_claimed"
@@ -722,7 +1286,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "2e0f56117439e5da",
+   "fingerprint": "e2c5f405da843954",
    "samples": {
     "short": {
      "errors": 0,
@@ -738,12 +1302,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "2e0f56117439e5da",
-    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "fingerprint": "e2c5f405da843954",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -757,7 +1322,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "2e0f56117439e5da",
+   "fingerprint": "e2c5f405da843954",
    "samples": {
     "short": {
      "errors": 0,
@@ -773,12 +1338,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "2e0f56117439e5da",
-    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "fingerprint": "e2c5f405da843954",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -792,7 +1358,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "2e0f56117439e5da",
+   "fingerprint": "e2c5f405da843954",
    "samples": {
     "short": {
      "errors": 0,
@@ -808,12 +1374,229 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "2e0f56117439e5da",
-    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "fingerprint": "e2c5f405da843954",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "55057cf6150383ab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "55057cf6150383ab",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "55057cf6150383ab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "55057cf6150383ab",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "55057cf6150383ab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "55057cf6150383ab",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "83a23b486bc73300",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "83a23b486bc73300",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "83a23b486bc73300",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "83a23b486bc73300",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "83a23b486bc73300",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "83a23b486bc73300",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -827,7 +1610,7 @@
    "compositionVersion": 1,
    "format": "portrait",
    "claimed": true,
-   "fingerprint": "d3501247698f3eb9",
+   "fingerprint": "ee8a4580fd49e435",
    "samples": {
     "short": {
      "errors": 0,
@@ -843,12 +1626,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "d3501247698f3eb9",
-    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "fingerprint": "ee8a4580fd49e435",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -862,7 +1646,7 @@
    "compositionVersion": 1,
    "format": "square",
    "claimed": true,
-   "fingerprint": "d3501247698f3eb9",
+   "fingerprint": "ee8a4580fd49e435",
    "samples": {
     "short": {
      "errors": 0,
@@ -878,12 +1662,13 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "d3501247698f3eb9",
-    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "fingerprint": "ee8a4580fd49e435",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true
@@ -897,7 +1682,7 @@
    "compositionVersion": 1,
    "format": "story",
    "claimed": true,
-   "fingerprint": "d3501247698f3eb9",
+   "fingerprint": "ee8a4580fd49e435",
    "samples": {
     "short": {
      "errors": 0,
@@ -913,12 +1698,5953 @@
     }
    },
    "browser": {
-    "overflow": []
+    "overflow": [],
+    "loneLastWord": []
    },
    "review": {
     "verdict": "ready",
-    "fingerprint": "d3501247698f3eb9",
-    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "fingerprint": "ee8a4580fd49e435",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت. القائمة الطويلة في المربع حدّ سعة مسجّل",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "808b0675cba66115",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "808b0675cba66115",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "808b0675cba66115",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "808b0675cba66115",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "7c8c6a4428a9989d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7c8c6a4428a9989d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "7c8c6a4428a9989d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7c8c6a4428a9989d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "11a8eb97235ba139",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "11a8eb97235ba139",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "11a8eb97235ba139",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "11a8eb97235ba139",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "ef4572c54ae7cc19",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ef4572c54ae7cc19",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "ef4572c54ae7cc19",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ef4572c54ae7cc19",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "45455b7a5fe5e159",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "45455b7a5fe5e159",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "45455b7a5fe5e159",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "45455b7a5fe5e159",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "54b7b4e41635f8da",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "54b7b4e41635f8da",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "54b7b4e41635f8da",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "54b7b4e41635f8da",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "e6e318288fc71b95",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "e6e318288fc71b95",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "27a87b90272a2772",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "27a87b90272a2772",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "27a87b90272a2772",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "27a87b90272a2772",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "7d8f7e02467d4108",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7d8f7e02467d4108",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "7d8f7e02467d4108",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7d8f7e02467d4108",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "0875db91626d7254",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0875db91626d7254",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "0875db91626d7254",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0875db91626d7254",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "b4920fe09a280bbc",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b4920fe09a280bbc",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "b4920fe09a280bbc",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b4920fe09a280bbc",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "26d990ce4688febb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "26d990ce4688febb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "26d990ce4688febb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "26d990ce4688febb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "7604b36528a90dfb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7604b36528a90dfb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "7604b36528a90dfb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7604b36528a90dfb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "2efd7003082855b1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2efd7003082855b1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "2efd7003082855b1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2efd7003082855b1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "bd22d0378b7cad1b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bd22d0378b7cad1b",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "bd22d0378b7cad1b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bd22d0378b7cad1b",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "الاقتباس يحتاج مساحة وسطية وإيقاعًا هادئًا؛ في العمود الصارم يصير سطرًا عاديًا",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "81cec24b87d532d0",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "الاقتباس يحتاج مساحة وسطية وإيقاعًا هادئًا؛ في العمود الصارم يصير سطرًا عاديًا",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "81cec24b87d532d0",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "1eed8c73b79d18f1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1eed8c73b79d18f1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "1eed8c73b79d18f1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1eed8c73b79d18f1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "9a86db4c30da6daf",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "9a86db4c30da6daf",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "d272d05b1c81c6bd",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d272d05b1c81c6bd",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "d272d05b1c81c6bd",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d272d05b1c81c6bd",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "bcc4aa6fc377b70d",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bcc4aa6fc377b70d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "bcc4aa6fc377b70d",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bcc4aa6fc377b70d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "ef37dac9cc409be3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ef37dac9cc409be3",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "ef37dac9cc409be3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ef37dac9cc409be3",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "926462a6a072b92a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "926462a6a072b92a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "926462a6a072b92a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "926462a6a072b92a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "6c7163d87ae713c9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6c7163d87ae713c9",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "6c7163d87ae713c9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6c7163d87ae713c9",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "ee7f529841826d21",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ee7f529841826d21",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "ee7f529841826d21",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ee7f529841826d21",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "b57ed72347e802f3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b57ed72347e802f3",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "b57ed72347e802f3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b57ed72347e802f3",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "8ce667821b560698",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "8ce667821b560698",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "8ce667821b560698",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "8ce667821b560698",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "33fa6e6c3e0ecd58",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "33fa6e6c3e0ecd58",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "33fa6e6c3e0ecd58",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "33fa6e6c3e0ecd58",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "c97a13305e8ea529",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c97a13305e8ea529",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "c97a13305e8ea529",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c97a13305e8ea529",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "281f99e4e113bab8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "281f99e4e113bab8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "0c38728b48d7d295",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0c38728b48d7d295",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "0c38728b48d7d295",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0c38728b48d7d295",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "5b460f88e3307f9a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5b460f88e3307f9a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "5b460f88e3307f9a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5b460f88e3307f9a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "ae39ba08ec968e4a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ae39ba08ec968e4a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "ae39ba08ec968e4a",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ae39ba08ec968e4a",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "6af35f5745cb58ac",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6af35f5745cb58ac",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "6af35f5745cb58ac",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6af35f5745cb58ac",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "d22df42a53eee7fb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d22df42a53eee7fb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "d22df42a53eee7fb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d22df42a53eee7fb",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "094a51af3c22df2e",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "094a51af3c22df2e",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "094a51af3c22df2e",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "094a51af3c22df2e",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "194c38426f35e58e",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "194c38426f35e58e",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "194c38426f35e58e",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "194c38426f35e58e",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "المقارنة تعتمد على تلوين الجهة الإيجابية؛ في الصفحة أحادية اللون يضعف الفرق",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "b44be7746f308177",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "المقارنة تعتمد على تلوين الجهة الإيجابية؛ في الصفحة أحادية اللون يضعف الفرق",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "b44be7746f308177",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "1727adcb11fa4430",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1727adcb11fa4430",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "1727adcb11fa4430",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1727adcb11fa4430",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "5380390084884bf6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5380390084884bf6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "5380390084884bf6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5380390084884bf6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "c243f8b2a944fd86",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "c243f8b2a944fd86",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3aab4c557cbc63a6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3aab4c557cbc63a6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3aab4c557cbc63a6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3aab4c557cbc63a6",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "8cd9bcffe99f1b92",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "8cd9bcffe99f1b92",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "8cd9bcffe99f1b92",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "8cd9bcffe99f1b92",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "ed01f4362b3119d1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ed01f4362b3119d1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "ed01f4362b3119d1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ed01f4362b3119d1",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "7fbaac0de9cfcc36",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7fbaac0de9cfcc36",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "7fbaac0de9cfcc36",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7fbaac0de9cfcc36",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "03c4f4386983c28d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "03c4f4386983c28d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "03c4f4386983c28d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "03c4f4386983c28d",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "04ee8b5aa67a19b0",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "04ee8b5aa67a19b0",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "04ee8b5aa67a19b0",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "04ee8b5aa67a19b0",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "f6a6808669efa856",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f6a6808669efa856",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "f6a6808669efa856",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f6a6808669efa856",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "2706bbbe2ef27196",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2706bbbe2ef27196",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "2706bbbe2ef27196",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2706bbbe2ef27196",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3e4ead2920ac2c83",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3e4ead2920ac2c83",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3e4ead2920ac2c83",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3e4ead2920ac2c83",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3ed095af3664c396",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3ed095af3664c396",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3ed095af3664c396",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3ed095af3664c396",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "68e40fa5ddf00710",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "68e40fa5ddf00710",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "68e40fa5ddf00710",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "68e40fa5ddf00710",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "1bfa6425043dc8dc",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1bfa6425043dc8dc",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "1bfa6425043dc8dc",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1bfa6425043dc8dc",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "bb8531086f0a0b14",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bb8531086f0a0b14",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "bb8531086f0a0b14",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bb8531086f0a0b14",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "4aef86de205abd22",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "4aef86de205abd22",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "4aef86de205abd22",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "4aef86de205abd22",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "77dc86319b5b99bd",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "77dc86319b5b99bd",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "77dc86319b5b99bd",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "77dc86319b5b99bd",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "b2a3a0033ca2b947",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b2a3a0033ca2b947",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "b2a3a0033ca2b947",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b2a3a0033ca2b947",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "fb9eee28a0c3b52c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "fb9eee28a0c3b52c",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "fb9eee28a0c3b52c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "fb9eee28a0c3b52c",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "5dccbf75896d64c5",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5dccbf75896d64c5",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "5dccbf75896d64c5",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "5dccbf75896d64c5",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "تحتاج بطاقتين متجاورتين؛ الأسلوب بلا بطاقات وموسّط",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "0771885a16224ce4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "تحتاج بطاقتين متجاورتين؛ الأسلوب بلا بطاقات وموسّط",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "0771885a16224ce4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3450ebf5cbf24292",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3450ebf5cbf24292",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3450ebf5cbf24292",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3450ebf5cbf24292",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "9cb92652469ac591",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "9cb92652469ac591",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "9cb92652469ac591",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "9cb92652469ac591",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "0878821fac821d53",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "0878821fac821d53",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "0983768bda7a0391",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0983768bda7a0391",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "0983768bda7a0391",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0983768bda7a0391",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "c7f89fd2452b7064",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c7f89fd2452b7064",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "c7f89fd2452b7064",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c7f89fd2452b7064",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "الإطار شبكة بطاقات؛ الأسلوب بلا بطاقات",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "d60182fe52cf9473",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "الإطار شبكة بطاقات؛ الأسلوب بلا بطاقات",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "d60182fe52cf9473",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "739ba77b39f2b15c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "739ba77b39f2b15c",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "739ba77b39f2b15c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "739ba77b39f2b15c",
+    "note": "محرك التخطيط 3 النهائي (التفاف عناوين ثابت + تصغير حتى 12% لمنع الكلمة الأخيرة المنفردة): قارنتُ الصفحات بكسلًا بالأوراق المراجَعة (scripts/sheet-diff.mjs) وراجعتُ كل صفحة تغيّرت؛ غير المتغيّر هو الصورة نفسها التي رُوجعت",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "c4ba506beaafcd90",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c4ba506beaafcd90",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "c4ba506beaafcd90",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "c4ba506beaafcd90",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "816cdb95376af251",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "816cdb95376af251",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "816cdb95376af251",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "816cdb95376af251",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "22de336311631623",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "22de336311631623",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "22de336311631623",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "22de336311631623",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3198579e845bd2a7",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3198579e845bd2a7",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3198579e845bd2a7",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3198579e845bd2a7",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "الأشكال الصلبة الكبيرة تنافس نص الاقتباس على الانتباه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "9d5d2b3fa43e179b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "الأشكال الصلبة الكبيرة تنافس نص الاقتباس على الانتباه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "9d5d2b3fa43e179b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "b3857a0004e902ed",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b3857a0004e902ed",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "b3857a0004e902ed",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "b3857a0004e902ed",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "471cffd8793236fa",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "471cffd8793236fa",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "9838ef4bc85a8941",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "9838ef4bc85a8941",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "9838ef4bc85a8941",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "9838ef4bc85a8941",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "437b12de706b3729",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "437b12de706b3729",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "437b12de706b3729",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "437b12de706b3729",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "47233b4fedd94345",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "47233b4fedd94345",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "47233b4fedd94345",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "47233b4fedd94345",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "e6771b051307bc31",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "e6771b051307bc31",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "e6771b051307bc31",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "e6771b051307bc31",
+    "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
     "by": "assistant",
     "at": "2026-10-02",
     "current": true

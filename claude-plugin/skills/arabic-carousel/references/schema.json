@@ -727,6 +727,95 @@
         ]
       },
       {
+        "id": "stat",
+        "label": "رقم ودليل",
+        "type": "stat",
+        "description": "رقم أو نسبة كبيرة مع معناها ومصدرها: صفحة الدليل",
+        "variants": {
+          "type": "طباعي",
+          "center": "وسط"
+        },
+        "capacity": {
+          "titleChars": 90,
+          "sourceChars": 80
+        },
+        "tags": [
+          "إحصائية",
+          "دليل",
+          "نسبة",
+          "رقم",
+          "دراسة",
+          "مصدر"
+        ],
+        "fields": [
+          {
+            "key": "kicker",
+            "label": "تمهيد",
+            "type": "text"
+          },
+          {
+            "key": "figure",
+            "label": "الرقم",
+            "type": "text",
+            "required": true
+          },
+          {
+            "key": "title",
+            "label": "معناه",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "source",
+            "label": "المصدر",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "framework",
+        "label": "إطار عمل",
+        "type": "framework",
+        "description": "إطار عمل: أجزاء مسمّاة لكل منها شرح قصير، في شبكة أو سلسلة",
+        "variants": {
+          "grid": "شبكة",
+          "chain": "سلسلة"
+        },
+        "capacity": {
+          "items": 6,
+          "itemChars": 30,
+          "detailChars": 70,
+          "titleChars": 50
+        },
+        "tags": [
+          "إطار",
+          "نموذج",
+          "مراحل",
+          "أركان",
+          "منهج",
+          "خطوات"
+        ],
+        "fields": [
+          {
+            "key": "title",
+            "label": "العنوان",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "parts",
+            "label": "الأجزاء",
+            "type": "list",
+            "required": true
+          },
+          {
+            "key": "details",
+            "label": "شرح كل جزء",
+            "type": "list"
+          }
+        ]
+      },
+      {
         "id": "outro",
         "label": "خاتمة",
         "type": "outro",
