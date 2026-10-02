@@ -14,7 +14,9 @@ import { pageTheme, resolveColor, resolveFont } from '../../lib/studio/theme.js'
 // real browser) shrinks one px at a time, never below its minFontSize; if it
 // still does not fit it is flagged for the quality panel. The inner block is
 // measured rather than scrollHeight, which also counts the glyph overhang of
-// tall Arabic fonts and would flag single lines that fit.
+// tall Arabic fonts and would flag single lines that fit. The box does not
+// clip: Cairo's descent passes the line box, and clipping it hid the dots
+// of a final ي on the last line (read as ى).
 function fitText(outer, inner, size, min) {
   let px = size;
   outer.style.fontSize = `${px}px`;
@@ -41,7 +43,7 @@ function TextEl({ el, color, family }) {
     <div
       ref={outer}
       dir={style.direction}
-      className="h-full w-full overflow-hidden"
+      className="h-full w-full"
       style={{
         fontFamily: `${family}, sans-serif`,
         fontSize: style.fontSize,

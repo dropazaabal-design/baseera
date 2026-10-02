@@ -1,0 +1,929 @@
+{
+ "kind": "style-composition-matrix",
+ "generatedAt": "2026-10-02",
+ "identity": "kitabwbs",
+ "rendered": true,
+ "summary": {
+  "ready": 21,
+  "not_claimed": 6
+ },
+ "pairs": [
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "0cf5969b74780643",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0cf5969b74780643",
+    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "0cf5969b74780643",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0cf5969b74780643",
+    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "0cf5969b74780643",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "0cf5969b74780643",
+    "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "f1a0e17e313d540c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f1a0e17e313d540c",
+    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "f1a0e17e313d540c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 3,
+     "warnings": 1,
+     "issues": [
+      "layout.overflow",
+      "layout.overlap",
+      "layout.overlap"
+     ],
+     "chars": 407,
+     "limit": {
+      "sameWithoutStyle": true,
+      "fix": "الصفحة ١: المحتوى لا يتسع بحجم مقروء. اختصر «items.0» بنحو ٥٥ حرفًا، «items.1» بنحو ٥٥ حرفًا، «items.2» بنحو ٥٥ حرفًا."
+     }
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "limits": [
+    {
+     "sample": "long",
+     "why": "المحتوى أطول من سعة التكوين في هذا المقاس، والنتيجة نفسها دون الأسلوب"
+    }
+   ],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f1a0e17e313d540c",
+    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "f1a0e17e313d540c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f1a0e17e313d540c",
+    "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "85408595555d2bb0",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "85408595555d2bb0",
+    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "85408595555d2bb0",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "85408595555d2bb0",
+    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "85408595555d2bb0",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "85408595555d2bb0",
+    "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "4bcbfd56c957d52b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "4bcbfd56c957d52b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "4bcbfd56c957d52b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "82e56ce92a0daa98",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "82e56ce92a0daa98",
+    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "82e56ce92a0daa98",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "82e56ce92a0daa98",
+    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "82e56ce92a0daa98",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "82e56ce92a0daa98",
+    "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "3686a1f5fd4fc1ae",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3686a1f5fd4fc1ae",
+    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "3686a1f5fd4fc1ae",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3686a1f5fd4fc1ae",
+    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "3686a1f5fd4fc1ae",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "3686a1f5fd4fc1ae",
+    "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "0dce67a037591db4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "0dce67a037591db4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "0dce67a037591db4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "2e0f56117439e5da",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2e0f56117439e5da",
+    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "2e0f56117439e5da",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2e0f56117439e5da",
+    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "2e0f56117439e5da",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "2e0f56117439e5da",
+    "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "d3501247698f3eb9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d3501247698f3eb9",
+    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": true,
+   "fingerprint": "d3501247698f3eb9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d3501247698f3eb9",
+    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": true,
+   "fingerprint": "d3501247698f3eb9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "d3501247698f3eb9",
+    "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  }
+ ]
+}

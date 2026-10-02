@@ -515,8 +515,9 @@ function resolveFont(value, fonts) {
   return value;
 }
 function pageTheme(doc, page) {
-  if (!page?.themeOverride) return doc.theme;
-  let theme = doc.theme;
+  const base = page?.styleMode === "dark" && doc.theme?.dark ? { ...doc.theme, colors: doc.theme.dark } : doc.theme;
+  if (!page?.themeOverride) return base;
+  let theme = base;
   for (const [role2, hex] of Object.entries(page.themeOverride)) theme = withColor(theme, role2, hex);
   return theme;
 }
@@ -819,6 +820,8 @@ var startX = (box, w, ctx) => ctx.rtl === false ? box.x : box.x + box.width - w;
 var endX = (box, w, ctx) => ctx.rtl === false ? box.x + box.width - w : box.x;
 var alignedX = (box, w, align, ctx) => align === "center" ? box.x + (box.width - w) / 2 : align === "end" ? endX(box, w, ctx) : startX(box, w, ctx);
 var frame = (x, y, width, height) => ({ x: round(x, 1), y: round(y, 1), width: round(Math.max(1, width), 1), height: round(Math.max(1, height), 1) });
+var treat = (ctx) => ctx.style?.treatment ?? {};
+var cornerOf = (value, auto) => value === void 0 || value === null || value === "auto" ? auto : value === "full" ? auto : Number(value);
 function textElement(id, f3, text, ctx, { font = "@body", weightRole = "regular", size, min, lineHeight, color = "@text", align = "start", nowrap = false, ...extra }) {
   const fontId = resolveFont(font, ctx.theme.fonts);
   return {
@@ -878,8 +881,13 @@ function emitPill(b, box, s, ctx, at) {
   const p = pillMetrics(b, s, ctx, box.width);
   const x = at?.x ?? alignedX(box, p.w, b.align ?? "start", ctx);
   const y = at?.y ?? box.y;
+  const t = treat(ctx);
+  const outline = !b.fill && t.pillFill === "outline";
+  const fill = b.fill ?? (outline ? "none" : t.pillFill ?? "@accent");
+  const radius = t.pillRadius === void 0 || t.pillRadius === "full" ? round(p.h / 2, 1) : Number(t.pillRadius);
+  const onPill = b.color ?? (outline ? "@accent" : t.pillFill === "@text" ? "@bg" : "@onAccent");
   const els = [
-    shapeElement(`${b.id}-bg`, frame(x, y, p.w, p.h), "rect", b.fill ?? "@accent", { radius: round(p.h / 2, 1), role: "decor", name: `\u062E\u0644\u0641\u064A\u0629 ${b.name ?? ""}`.trim(), anim: b.anim })
+    shapeElement(`${b.id}-bg`, frame(x, y, p.w, p.h), "rect", fill, { radius, ...outline && { stroke: "@accent", strokeWidth: 3 }, role: "decor", name: `\u062E\u0644\u0641\u064A\u0629 ${b.name ?? ""}`.trim(), anim: b.anim })
   ];
   const textX = ctx.rtl === false ? x + p.padX : x + p.w - p.padX - p.textW;
   els.push(
@@ -889,7 +897,7 @@ function emitPill(b, box, s, ctx, at) {
       size: p.size,
       min: b.size[1],
       lineHeight: 1.4,
-      color: b.color ?? "@onAccent",
+      color: onPill,
       align: "center",
       nowrap: p.oneLine,
       role: b.role ?? "label",
@@ -900,7 +908,7 @@ function emitPill(b, box, s, ctx, at) {
   );
   if (b.icon) {
     const iconX = ctx.rtl === false ? x + p.w - p.padX - p.icon : x + p.padX;
-    els.push(iconElement(`${b.id}-icon`, frame(iconX, y + (p.h - p.icon) / 2, p.icon, p.icon), b.icon, b.color ?? "@onAccent", ctx, { directional: b.iconDirectional, role: "decor", name: "\u0623\u064A\u0642\u0648\u0646\u0629", anim: b.anim }));
+    els.push(iconElement(`${b.id}-icon`, frame(iconX, y + (p.h - p.icon) / 2, p.icon, p.icon), b.icon, onPill, ctx, { directional: b.iconDirectional, role: "decor", name: "\u0623\u064A\u0642\u0648\u0646\u0629", anim: b.anim }));
   }
   return { elements: els, width: p.w, height: p.h };
 }
@@ -973,8 +981,8 @@ var BLOCKS = {
   rule: {
     height: (b) => b.height,
     emit: (b, box, s, ctx) => [
-      shapeElement(b.id, frame(alignedX(box, b.width, b.align ?? "start", ctx), box.y, b.width, b.height), "rect", b.fill ?? "@accent", {
-        radius: b.height / 2,
+      shapeElement(b.id, frame(alignedX(box, b.width, b.align ?? "start", ctx), box.y, b.width, b.height), "rect", b.fill ?? treat(ctx).ruleFill ?? "@accent", {
+        radius: cornerOf(treat(ctx).ruleRadius, b.height / 2),
         role: "decor",
         name: "\u062E\u0637 \u0632\u062E\u0631\u0641\u064A",
         anim: b.anim ?? "fade"
@@ -989,7 +997,7 @@ var BLOCKS = {
       if (!b.assetId) {
         return [
           shapeElement(b.id, frame(area2.x, area2.y, area2.width, area2.height), "rect", "@surface", {
-            radius: 36,
+            radius: cornerOf(treat(ctx).artRadius, 36),
             role: "art-placeholder",
             slot: b.slot,
             name: b.name ?? "\u0645\u0643\u0627\u0646 \u0627\u0644\u0631\u0633\u0645",
@@ -1014,14 +1022,26 @@ var BLOCKS = {
           const cell = { x: colX, y, width: L.colW, height: row.h };
           const name2 = `\u0627\u0644\u0628\u0646\u062F ${formatNumber(n3, ctx.theme.numerals)}`;
           if (b.card) {
-            els.push(shapeElement(`${b.id}-${n3}-card`, frame(cell.x, cell.y, cell.width, row.h), "rect", b.cardFill ?? "@surface", { radius: Math.round(m.size * 0.65), role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name2}`, anim: b.anim ?? "rise" }));
+            const t = treat(ctx);
+            const cr = cornerOf(t.cardRadius, Math.round(m.size * 0.65));
+            const mode = t.cardMode ?? "fill";
+            if (mode === "rule") {
+              els.push(shapeElement(`${b.id}-${n3}-card`, frame(cell.x, cell.y + row.h - 3, cell.width, 3), "rect", "@muted", { opacity: 0.35, role: "decor", name: `\u0641\u0627\u0635\u0644 ${name2}`, anim: b.anim ?? "rise" }));
+            } else {
+              els.push(shapeElement(`${b.id}-${n3}-card`, frame(cell.x, cell.y, cell.width, row.h), "rect", mode === "outline" ? "none" : b.cardFill ?? "@surface", { radius: cr, ...mode === "outline" && { stroke: "@muted", strokeWidth: 2 }, role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name2}`, anim: b.anim ?? "rise" }));
+              if (mode === "accent-bar") {
+                const bw = 8;
+                els.push(shapeElement(`${b.id}-${n3}-accent`, frame(ctx.rtl === false ? cell.x : cell.x + cell.width - bw, cell.y, bw, Math.max(24, row.h * 0.32)), "rect", "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name2}`, anim: b.anim ?? "rise" }));
+              }
+            }
           }
           const inner = { x: cell.x + m.padX, y: cell.y + m.padY, width: cell.width - m.padX * 2, height: row.h - m.padY * 2 };
           const bx = startX(inner, m.badge, ctx);
           const contentH = Math.max(m.textH, m.badge);
           const by = inner.y + (b.badge === "art" || b.badge === "number" ? 0 : m.size * 0.28);
+          const badgeShape = treat(ctx).badge ?? "ellipse";
           if (b.badge === "number") {
-            els.push(shapeElement(`${b.id}-${n3}-badge`, frame(bx, by, m.badge, m.badge), "ellipse", "@accent", { role: "decor", name: `\u062F\u0627\u0626\u0631\u0629 ${name2}`, anim: b.anim ?? "rise" }));
+            if (badgeShape !== "plain") els.push(shapeElement(`${b.id}-${n3}-badge`, frame(bx, by, m.badge, m.badge), badgeShape === "rect" ? "rect" : "ellipse", "@accent", { ...badgeShape === "rect" && { radius: Math.round(m.badge * 0.18) }, role: "decor", name: `\u062F\u0627\u0626\u0631\u0629 ${name2}`, anim: b.anim ?? "rise" }));
             els.push(
               textElement(`${b.id}-${n3}-num`, frame(bx, by + (m.badge - m.size * 1.3) / 2, m.badge, m.size * 1.3), formatNumber((b.start ?? 1) + i, ctx.theme.numerals), ctx, {
                 font: "@heading",
@@ -1029,7 +1049,7 @@ var BLOCKS = {
                 size: m.size,
                 min: m.size,
                 lineHeight: 1.3,
-                color: "@onAccent",
+                color: badgeShape === "plain" ? "@accent" : "@onAccent",
                 align: "center",
                 nowrap: true,
                 role: "number",
@@ -1045,9 +1065,9 @@ var BLOCKS = {
             );
           } else if (b.badge !== "none") {
             const icon = b.badge === "cross" ? "x" : "check";
-            els.push(shapeElement(`${b.id}-${n3}-badge`, frame(bx, by, m.badge, m.badge), "ellipse", b.badgeFill ?? "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name2}`, anim: b.anim ?? "rise" }));
-            const pad = m.badge * 0.2;
-            els.push(iconElement(`${b.id}-${n3}-icon`, frame(bx + pad, by + pad, m.badge - pad * 2, m.badge - pad * 2), icon, b.badgeColor ?? "@onAccent", ctx, { role: "decor", name: `\u0623\u064A\u0642\u0648\u0646\u0629 ${name2}`, strokeWidth: 3, anim: b.anim ?? "rise" }));
+            if (badgeShape !== "plain") els.push(shapeElement(`${b.id}-${n3}-badge`, frame(bx, by, m.badge, m.badge), badgeShape === "rect" ? "rect" : "ellipse", b.badgeFill ?? "@accent", { ...badgeShape === "rect" && { radius: Math.round(m.badge * 0.18) }, role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name2}`, anim: b.anim ?? "rise" }));
+            const pad = badgeShape === "plain" ? 0 : m.badge * 0.2;
+            els.push(iconElement(`${b.id}-${n3}-icon`, frame(bx + pad, by + pad, m.badge - pad * 2, m.badge - pad * 2), icon, badgeShape === "plain" ? b.badgeFill ?? "@accent" : b.badgeColor ?? "@onAccent", ctx, { role: "decor", name: `\u0623\u064A\u0642\u0648\u0646\u0629 ${name2}`, strokeWidth: 3, anim: b.anim ?? "rise" }));
           }
           const textX = ctx.rtl === false ? inner.x + m.badge + m.gap : inner.x;
           const ty = inner.y + (b.badge === "number" || b.badge === "art" ? Math.max(0, (contentH - m.textH) / 2) : 0);
@@ -1103,7 +1123,7 @@ var BLOCKS = {
         const id = `${b.id}-${k + 1}`;
         els.push(
           shapeElement(`${id}-card`, frame(x, cy, L.cardW, h), "rect", "@surface", {
-            radius: Math.round(L.size * 0.9),
+            radius: cornerOf(treat(ctx).cardRadius, Math.round(L.size * 0.9)),
             role: "decor",
             name: `\u0628\u0637\u0627\u0642\u0629 ${col.label.text}`,
             ...col.positive && { stroke: "@accent", strokeWidth: 4 },
@@ -1278,7 +1298,7 @@ var BLOCKS = {
         { x: 0.3, y: 0.42, w: 0.42, h: 0.56, r: -2 },
         { x: 0.66, y: 0.5, w: 0.32, h: 0.46, r: 7 }
       ];
-      const els = [shapeElement(`${b.id}-paper`, frame(box.x - 24, box.y + h * 0.1, box.width + 48, h * 0.8), "rect", "@surface", { radius: 28, rotation: -2, role: "decor", name: "\u0648\u0631\u0642\u0629 \u0627\u0644\u0643\u0648\u0644\u0627\u062C", anim: "fade" })];
+      const els = [shapeElement(`${b.id}-paper`, frame(box.x - 24, box.y + h * 0.1, box.width + 48, h * 0.8), "rect", "@surface", { radius: cornerOf(treat(ctx).cardRadius, 28), rotation: -2, role: "decor", name: "\u0648\u0631\u0642\u0629 \u0627\u0644\u0643\u0648\u0644\u0627\u062C", anim: "fade" })];
       const assets = (b.assets ?? []).slice(0, 4);
       const count = Math.max(assets.length, 1);
       slots.slice(0, count).forEach((slot, i) => {
@@ -1312,7 +1332,7 @@ function placeStack(blocks, region, s, ctx, align = "center") {
   const heights = blocks.map((b) => blockHeight(b, region.width, s, ctx));
   const total = heights.reduce((a, b) => a + b, 0) + blocks.reduce((t, b, i) => t + (i ? (b.gap ?? 0) * gapScale : 0), 0);
   const leftover = Math.max(0, region.height - total);
-  let y = region.y + (align === "center" ? leftover / 2 : align === "end" ? leftover : 0);
+  let y = region.y + (align === "center" ? leftover / 2 : align === "end" ? leftover : align === "upper" ? leftover * 0.25 : 0);
   const elements = [];
   blocks.forEach((b, i) => {
     if (i) y += (b.gap ?? 0) * gapScale;
@@ -2086,10 +2106,11 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
     ...variants.slice(1).filter((v) => !keepArt || !hasArt || buildBlocks(comp, content, v, "min", ctx).some((b) => b.optional)).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
     ...hasArt && !keepArt ? variants.map((v) => ({ variant: v, art: "none", sMin: 0, note: "art-removed" })) : []
   ].filter(Boolean);
+  const maxScale = Math.max(comp.maxScale ?? 1, ctx.style?.layout?.maxScale ?? 1);
   const decisions = [];
   for (const attempt of attempts) {
     const blocks2 = buildBlocks(comp, content, attempt.variant, attempt.art, ctx);
-    const s = bestScale(blocks2, region, ctx, attempt.sMin, attempt === attempts[0] ? comp.maxScale ?? 1 : 1);
+    const s = bestScale(blocks2, region, ctx, attempt.sMin, attempt === attempts[0] ? maxScale : 1);
     if (s === null) continue;
     if (attempt.note === "art-min") decisions.push({ code: "art-min", message: "\u0642\u0644\u0651\u0635\u062A \u0645\u0633\u0627\u062D\u0629 \u0627\u0644\u0631\u0633\u0645 \u0644\u064A\u062A\u0633\u0639 \u0627\u0644\u0646\u0635 \u0628\u062D\u062C\u0645 \u0645\u0631\u064A\u062D." });
     if (attempt.note === "variant") {
@@ -2102,7 +2123,7 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
       const parts = [title && `\u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${formatNumber(sizeAt(title.size, s), "latn")}px`, body && `\u0627\u0644\u0645\u062A\u0646 ${formatNumber(sizeAt(body.size, s), "latn")}px`].filter(Boolean);
       decisions.push({ code: "scaled", message: `\u0635\u063A\u0651\u0631\u062A \u0627\u0644\u0646\u0635 \u0625\u0644\u0649 ${Math.round(s * 100)}\u066A \u0645\u0646 \u062D\u062C\u0645\u0647 \u0627\u0644\u0645\u0641\u0636\u0651\u0644 (${parts.join("\u060C ")})\u060C \u0648\u0647\u0648 \u0641\u0648\u0642 \u062D\u062F \u0627\u0644\u0642\u0631\u0627\u0621\u0629.` });
     }
-    const placed2 = placeStack(blocks2, region, s, ctx, comp.align ?? "center");
+    const placed2 = placeStack(blocks2, region, s, ctx, ctx.style?.layout?.stackAlign ?? comp.align ?? "center");
     return { fits: true, variant: attempt.variant, art: attempt.art, scale: s, blocks: blocks2, elements: placed2.elements, decisions, overflow: null };
   }
   const fallback = attempts[attempts.length - 1];
@@ -2127,6 +2148,173 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
   };
 }
 
+// lib/studio/styles/sources.js
+var OPENDESIGN_COMMIT = "e3a848a33a151ba6f29be02e58ab17a9d135b1a7";
+var opendesign = (name2, blob) => ({ id: `opendesign/${name2}`, repo: "AICAE/opendesign", commit: OPENDESIGN_COMMIT, path: `design-systems/${name2}/DESIGN.md`, blob, license: "Apache-2.0", format: "design-md" });
+var SOURCES = [
+  opendesign("editorial", "f67fc5abc6b5d62cdc652b578627134138449eec"),
+  opendesign("warm-editorial", "491242090884d239a2dc92fa7793b794ee92baea"),
+  opendesign("minimal", "6c4ce3012eb067b91ac9c74c8cadccf52e01561e"),
+  opendesign("paper", "3306e19fc82b5a22d645c7e0f801681a0b820a52"),
+  opendesign("publication", "fda77a69603c479bcf20901c6ef6233de5ae70e2"),
+  opendesign("brutalism", "5922713522dbac4e17fe5eb8ac64af7f5adc0e22"),
+  opendesign("doodle", "b893c161783255605ae23751e1460f1d997218da"),
+  { id: "carousel-generator/design-system", repo: "idrsdev/social-carousel-generator", commit: "44e6ee5979864a21fd9e47425fcd6fa8242bfe99", path: "design-system.json", blob: "d9d36accda05bb70e3d93e038b21ff581947eb7d", license: "MIT", format: "json" },
+  { id: "image-text-layout/style-directions", repo: "Errno722/image-text-layout-skill", commit: "98b065fd9de06730add337bb87eb7cfaeb610172", path: "references/style-directions.md", blob: "20a0342d57433efe8190af15f1fcaebbf70b5582", license: "MIT", format: "notes" }
+];
+var sourceById = (id) => SOURCES.find((s) => s.id === id) ?? null;
+var sourceRef = (id) => {
+  const s = sourceById(id);
+  if (!s) throw new Error(`unknown style source "${id}"`);
+  return { repo: s.repo, commit: s.commit, path: s.path, blob: s.blob, license: s.license };
+};
+
+// lib/studio/styles/catalog.js
+var STYLES = [
+  {
+    kind: "style",
+    id: "quiet-editorial",
+    version: 1,
+    status: "preview_verified",
+    family: "editorial",
+    name: "\u062A\u062D\u0631\u064A\u0631\u064A \u0647\u0627\u062F\u0626",
+    purpose: "\u0645\u0642\u0627\u0644\u0627\u062A \u0648\u0642\u0648\u0627\u0626\u0645 \u0647\u0627\u062F\u0626\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629: \u0639\u0646\u0648\u0627\u0646 \u0643\u0628\u064A\u0631 \u0641\u064A \u0623\u0639\u0644\u0649 \u0627\u0644\u0635\u0641\u062D\u0629\u060C \u0641\u0631\u0627\u063A \u0648\u0627\u0633\u0639\u060C \u0648\u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062D\u062F \u0641\u064A \u0643\u0644 \u0635\u0641\u062D\u0629",
+    tone: "\u0645\u062A\u0623\u0646\u064D\u0651\u060C \u0648\u0627\u062B\u0642\u060C \u0628\u0644\u0627 \u0632\u062E\u0631\u0641\u0629",
+    distinctFrom: { style: "classic", how: "\u0628\u0644\u0627 \u062F\u0648\u0627\u0626\u0631 \u0632\u062E\u0631\u0641\u064A\u0629 \u0648\u0644\u0627 \u0628\u0637\u0627\u0642\u0627\u062A \u0645\u0645\u0644\u0648\u0621\u0629: \u0628\u0637\u0627\u0642\u0627\u062A \u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639\u060C \u0648\u0623\u0631\u0642\u0627\u0645 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u0644\u0627 \u062F\u0648\u0627\u0626\u0631\u060C \u0648\u0643\u062A\u0644\u0629 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0645\u0627\u0626\u0644\u0629 \u0625\u0644\u0649 \u0627\u0644\u0623\u0639\u0644\u0649\u060C \u0648\u0632\u062E\u0631\u0641\u0629 \u0648\u0627\u062D\u062F\u0629 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0641\u0642\u0637" },
+    tokens: {
+      light: { bg: "#FAF7F2", surface: "#FFFFFF", text: "#1C1A17", muted: "#6F6760" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 1, titleWeight: "bold", titleLineHeight: 1.35, headingFont: "cairo", bodyFont: "tajawal" },
+    treatment: { pillRadius: 12, pillFill: "outline", cardMode: "outline", cardRadius: 16, badge: "plain", ruleFill: "@text", ruleRadius: 0, artRadius: 16 },
+    layout: { stackAlign: "upper", margin: 96, maxScale: 1.35 },
+    decor: {
+      cover: [{ shape: "rect", at: "start", x: "M", y: "R-44", w: 140, h: 10, fill: "@accent", name: "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0627\u0644\u0648\u062D\u064A\u062F\u0629" }],
+      content: [{ shape: "rect", at: "start", x: "M", y: "R-32", w: "W-2*M", h: 2, fill: "@muted", opacity: 0.45, name: "\u062E\u0637 \u0639\u0644\u0648\u064A \u0631\u0641\u064A\u0639" }],
+      cta: [{ shape: "rect", at: "start", x: "M", y: "R-44", w: 140, h: 10, fill: "@accent", name: "\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0627\u0644\u0648\u062D\u064A\u062F\u0629" }]
+    },
+    densities: ["comfortable", "airy"],
+    roles: ["cover", "list", "steps", "quote", "statement", "evidence", "checklist", "cta"],
+    formats: ["portrait", "square", "story"],
+    rtl: ["\u0627\u0644\u0645\u062D\u0627\u0630\u0627\u0629 \u0645\u0646 \u0627\u0644\u0628\u062F\u0627\u064A\u0629 (\u0627\u0644\u064A\u0645\u064A\u0646)", "\u0644\u0627 \u062A\u0628\u0627\u0639\u062F \u062D\u0631\u0648\u0641 \u0648\u0644\u0627 \u0623\u062D\u0631\u0641 \u0643\u0628\u064A\u0631\u0629", "\u0627\u0644\u0632\u062E\u0631\u0641\u0629 \u062A\u064F\u0642\u0627\u0633 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629"],
+    provenance: [
+      {
+        source: sourceRef("opendesign/warm-editorial"),
+        extracted: ["\u0627\u0644\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u0648\u0631\u0642\u064A\u0629 #FAF7F2 \u0648\u0627\u0644\u0646\u0635 #1C1A17 \u0648\u0627\u0644\u0633\u0637\u062D #FFFFFF", "\u0632\u0648\u0627\u064A\u0627 \u0628\u064A\u0646 8 \u064824 (\u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062A 16 \u0648\u0627\u0644\u0623\u0632\u0631\u0627\u0631 12)", "\u0644\u0648\u0646 \u062A\u0645\u064A\u064A\u0632 \u0648\u0627\u062D\u062F \u0644\u0643\u0644 \u0635\u0641\u062D\u0629", "\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0645\u0627\u0626\u0644 \u0625\u0644\u0649 \u0627\u0644\u0623\u0639\u0644\u0649 \u0644\u0627 \u0641\u064A \u0627\u0644\u0648\u0633\u0637", "\u0644\u0627 \u062A\u062F\u0631\u062C\u0627\u062A \u0648\u0644\u0627 \u0638\u0644\u0627\u0644 \u0625\u0644\u0627 \u0644\u0644\u0631\u0641\u0639"],
+        adapted: ["\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0627\u0644\u0637\u064A\u0646\u064A \u0627\u0633\u062A\u064F\u0628\u062F\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u0647\u0648\u064A\u0629", "\u0627\u0644\u062E\u0637 \u0627\u0644\u0631\u0623\u0633\u064A \u0627\u0644\u0644\u0627\u062A\u064A\u0646\u064A (serif) \u0627\u0633\u062A\u064F\u0628\u062F\u0644 \u0628\u0640 Cairo \u0644\u0639\u062F\u0645 \u0648\u062C\u0648\u062F \u062E\u0637 \u0639\u0631\u0628\u064A \u0645\u0630\u064A\u0651\u0644 \u0641\u064A \u0627\u0644\u0645\u062C\u0645\u0648\u0639\u0629", "\u0627\u0631\u062A\u0641\u0627\u0639 \u0627\u0644\u0633\u0637\u0631 1.2/1.6 \u0631\u064F\u0641\u0639 \u0625\u0644\u0649 1.35/1.7 \u0644\u0644\u062A\u0634\u0643\u064A\u0644 \u0648\u0627\u0644\u0646\u0642\u0627\u0637", "\u0627\u0644\u0631\u0645\u0627\u062F\u064A #8A817A \u063A\u064F\u0645\u0651\u0642 \u0625\u0644\u0649 #6F6760 \u0644\u064A\u0628\u0644\u063A \u062A\u0628\u0627\u064A\u0646 4.5"],
+        notUsed: ["\u062A\u0628\u0627\u0639\u062F \u0627\u0644\u062D\u0631\u0648\u0641 \u0627\u0644\u0633\u0627\u0644\u0628", "Title Case", "\u0634\u0628\u0643\u0629 12 \u0639\u0645\u0648\u062F\u064B\u0627 \u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0648\u064A\u0628"]
+      }
+    ],
+    designedHere: ["\u062E\u0637 \u0639\u0644\u0648\u064A \u0631\u0641\u064A\u0639 \u0644\u0635\u0641\u062D\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649", "\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0642\u0648\u0627\u0626\u0645 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u0644\u0627 \u062F\u0648\u0627\u0626\u0631", "\u0634\u0627\u0631\u0629 \u0628\u0625\u0637\u0627\u0631 \u0628\u062F\u0644 \u0627\u0644\u062A\u0639\u0628\u0626\u0629"],
+    keepCompositionDecor: false
+  }
+];
+
+// lib/studio/styles.js
+var styleById = (id) => STYLES.find((s) => s.id === id) ?? null;
+function pageModes(style, count, mode = style.defaultMode ?? "light") {
+  const has = (m2) => Boolean(style.tokens[m2]);
+  if (mode === "alternate" && has("light") && has("dark")) return Array.from({ length: count }, (_, i) => i % 2 === 0 ? style.alternateStart ?? "dark" : style.alternateStart === "light" ? "dark" : "light");
+  const m = has(mode) ? mode : has("light") ? "light" : "dark";
+  return Array.from({ length: count }, () => m);
+}
+function resolveStyle(doc) {
+  if (!doc?.style?.id) return null;
+  return styleById(doc.style.id);
+}
+function evaluate(expr, vars) {
+  if (typeof expr === "number") return expr;
+  const src = String(expr).replace(/\s+/g, "");
+  let i = 0;
+  const peek = () => src[i];
+  const num3 = () => {
+    const m = /^(\d+(\.\d+)?)/.exec(src.slice(i));
+    if (m) {
+      i += m[0].length;
+      return Number(m[0]);
+    }
+    const v = /^[A-Z]/.exec(src.slice(i));
+    if (v && v[0] in vars) {
+      i += 1;
+      return vars[v[0]];
+    }
+    if (peek() === "(") {
+      i++;
+      const r2 = sum();
+      i++;
+      return r2;
+    }
+    if (peek() === "-") {
+      i++;
+      return -num3();
+    }
+    throw new Error(`bad style expression "${expr}"`);
+  };
+  const prod = () => {
+    let r2 = num3();
+    while (peek() === "*" || peek() === "/") r2 = src[i++] === "*" ? r2 * num3() : r2 / num3();
+    return r2;
+  };
+  const sum = () => {
+    let r2 = prod();
+    while (peek() === "+" || peek() === "-") r2 = src[i++] === "+" ? r2 + prod() : r2 - prod();
+    return r2;
+  };
+  const r = sum();
+  if (i !== src.length) throw new Error(`bad style expression "${expr}"`);
+  return r;
+}
+var round1 = (n3) => Math.round(n3 * 10) / 10;
+function pageRole(comp) {
+  if (comp.role === "hook" || comp.type === "cover") return "cover";
+  if (comp.role === "cta" || comp.type === "outro") return "cta";
+  return "content";
+}
+function styleDecor(style, ctx, comp, { textElement: textElement2, shapeElement: shapeElement2 }) {
+  const W = ctx.format.width;
+  const H = ctx.format.height;
+  const vars = { W, H, T: ctx.format.inset.top, B: ctx.format.inset.bottom, M: ctx.style?.layout?.margin ?? 96, R: ctx.region?.y ?? ctx.format.inset.top + 170 };
+  const role2 = pageRole(comp);
+  const list = style.decor?.[role2] ?? [];
+  const els = [];
+  list.forEach((d, n3) => {
+    if (d.pages === "odd" && ctx.index % 2 === 1) return;
+    if (d.pages === "even" && ctx.index % 2 === 0) return;
+    if (d.modes && !d.modes.includes(ctx.styleMode ?? "light")) return;
+    const w = evaluate(d.w, vars);
+    const h = evaluate(d.h, vars);
+    const x0 = evaluate(d.x, vars);
+    const y = evaluate(d.y, vars);
+    const fromStart = (d.at ?? "start") === "start";
+    const x = ctx.rtl === false === fromStart ? x0 : W - x0 - w;
+    const f3 = { x: round1(x), y: round1(y), width: round1(Math.max(1, w)), height: round1(Math.max(1, h)) };
+    const id = `style-${role2}-${n3}`;
+    const base = { role: "decor", name: d.name ?? "\u0632\u062E\u0631\u0641\u0629 \u0627\u0644\u0623\u0633\u0644\u0648\u0628", ...d.opacity !== void 0 && { opacity: d.opacity }, ...d.rotation && { rotation: d.rotation }, ...d.anim && { anim: d.anim } };
+    if (d.shape === "ghost-number") {
+      const text = formatNumber(ctx.index + 1, ctx.theme.numerals);
+      els.push(textElement2(id, f3, text, ctx, { font: "@heading", weightRole: "black", size: Math.round(h * 0.8), min: Math.round(h * 0.8), lineHeight: 1.1, color: d.fill ?? "@text", align: fromStart ? "start" : "end", nowrap: true, ...base, role: "decor" }));
+    } else if (d.shape === "frame") {
+      els.push(shapeElement2(id, f3, "rect", "none", { stroke: d.stroke ?? "@text", strokeWidth: d.strokeWidth ?? 4, radius: d.radius ?? 0, ...base }));
+    } else {
+      els.push(shapeElement2(id, f3, d.shape, d.fill ?? "@accent", { ...d.radius !== void 0 && { radius: d.radius }, ...d.stroke && { stroke: d.stroke, strokeWidth: d.strokeWidth ?? 2 }, ...base }));
+    }
+  });
+  return els;
+}
+function styleBlocks(style, blocks) {
+  if (!style) return blocks;
+  const t = style.type ?? {};
+  return blocks.map((b) => {
+    if (!b) return b;
+    if (b.role === "title" && b.type === "text") {
+      return { ...b, size: [Math.round(b.size[0] * (t.titleScale ?? 1)), b.size[1]], ...t.titleWeight && { weightRole: t.titleWeight }, ...t.titleLineHeight && { lineHeight: Math.max(b.lineHeight ?? 1.3, t.titleLineHeight) } };
+    }
+    if (b.type === "list" && style.treatment?.listCard !== void 0) return { ...b, card: style.treatment.listCard };
+    if (b.type === "rule" && style.treatment?.rule) return { ...b, ...style.treatment.rule.width && { width: style.treatment.rule.width }, ...style.treatment.rule.height && { height: style.treatment.rule.height } };
+    return b;
+  });
+}
+
 // lib/studio/document.js
 var formatOf = (id) => FORMATS[id] ?? FORMATS.portrait;
 function newPageId() {
@@ -2136,7 +2324,8 @@ var Z_BASE = { decor: 0, content: 10, system: 100 };
 function contextFor(doc, page, index) {
   const format = formatOf(doc.intent?.format);
   const theme = pageTheme(doc, page);
-  return { format, theme, rtl: true, brand: doc.brand ?? {}, assets: doc.assets ?? {}, index, total: doc.pages.length };
+  const style = resolveStyle(doc);
+  return { format, theme, rtl: true, brand: doc.brand ?? {}, assets: doc.assets ?? {}, index, total: doc.pages.length, ...style && { style, styleMode: page.styleMode ?? "light" } };
 }
 function applyOverrides(elements, overrides = {}) {
   const out = [];
@@ -2181,13 +2370,15 @@ function composePage(doc, page, index, { measure = estimateMeasure } = {}) {
   const bands = chromeBands(settings, comp, index, doc.pages.length, doc.brand);
   const region = contentRegion(ctx.format, { topChrome: bands.top, bottomChrome: bands.bottom });
   ctx.region = region;
-  const result = solveLayout(blocksWithOverrides(comp, page.overrides), page.content ?? {}, ctx, {
+  const styled = ctx.style ? { ...comp, blocks: (content2, variant, c) => styleBlocks(ctx.style, comp.blocks(content2, variant, c)) } : comp;
+  const result = solveLayout(blocksWithOverrides(styled, page.overrides), page.content ?? {}, ctx, {
     variant: page.composition.variant,
     keepArt: Boolean(page.composition.keepArt),
     lockVariant: Boolean(page.composition.lockVariant)
   });
   const layer = (els, base) => els.map((el, i) => ({ ...el, z: base + i }));
-  const decor = layer(comp.decor(ctx, ctx.format.width, ctx.format.height), Z_BASE.decor);
+  const decorEls = ctx.style ? [...ctx.style.keepCompositionDecor ? comp.decor(ctx, ctx.format.width, ctx.format.height) : [], ...styleDecor(ctx.style, ctx, comp, { textElement, shapeElement })] : comp.decor(ctx, ctx.format.width, ctx.format.height);
+  const decor = layer(decorEls, Z_BASE.decor);
   const content = layer(result.elements, Z_BASE.content);
   const system = layer(
     chromeElements({ settings, bands, index, total: doc.pages.length, format: ctx.format, ctx, brand: doc.brand ?? {}, assets: doc.assets }).map((el) => ({ ...el, locked: true })),
@@ -2221,6 +2412,8 @@ function createDesign(spec, options = {}) {
     if (!COMPOSITIONS[p.composition]) problems.push({ path: `pages[${i}].composition`, message: `unknown composition "${p.composition}"` });
     else problems.push(...validateContent(p.composition, p.content ?? {}, `pages[${i}].content`));
   });
+  const style = spec.style?.id ? styleById(spec.style.id) : null;
+  if (spec.style?.id && !style) problems.push({ path: "style.id", message: `unknown style "${spec.style.id}"` });
   assertValid("design plan", problems);
   const created = now();
   const doc = {
@@ -2247,6 +2440,7 @@ function createDesign(spec, options = {}) {
     brand: { name: "", handle: "", ...spec.brand },
     chrome: chromeSettings(spec.chrome),
     governance: { institutional: false, locked: false, ...spec.governance },
+    ...style && { style: { id: style.id, version: style.version, mode: spec.style.mode ?? style.defaultMode ?? "light" } },
     pages: (spec.pages ?? []).map((p) => ({
       id: p.id ?? newPageId(),
       widthPx: 0,
@@ -2258,6 +2452,10 @@ function createDesign(spec, options = {}) {
     })),
     assets: clone(spec.assets ?? {})
   };
+  if (style && doc.theme.dark) {
+    const modes = pageModes(style, doc.pages.length, doc.style.mode);
+    doc.pages.forEach((p, i) => p.styleMode = spec.pages[i]?.styleMode ?? modes[i]);
+  }
   const composed = options.pages ? { ...doc, pages: options.pages } : composeAll(doc, options);
   assertValid("design document", validateDocument(composed));
   return composed;

@@ -1,0 +1,173 @@
+{
+ "kind": "design-rules",
+ "source": {
+  "repo": "AICAE/opendesign",
+  "commit": "e3a848a33a151ba6f29be02e58ab17a9d135b1a7",
+  "path": "design-systems/warm-editorial/DESIGN.md",
+  "blob": "491242090884d239a2dc92fa7793b794ee92baea",
+  "license": "Apache-2.0"
+ },
+ "boilerplate": false,
+ "explicit": {
+  "colors": {
+   "background": {
+    "hex": "#FAF7F2",
+    "note": "(warm off-white paper)"
+   },
+   "foreground": {
+    "hex": "#1C1A17",
+    "note": "(near-black, slightly warm)"
+   },
+   "accent (primary)": {
+    "hex": "#C0512F",
+    "note": "(terracotta) — used for links, primary CTAs, 1 hero element max per page"
+   },
+   "accent (secondary)": {
+    "hex": "#2F5B4F",
+    "note": "(forest) — section dividers, tags"
+   },
+   "muted": {
+    "hex": "#8A817A",
+    "note": "(mid-warm-grey) — timestamps, metadata"
+   },
+   "surface": {
+    "hex": "#FFFFFF",
+    "note": "elevated cards only"
+   }
+  },
+  "fonts": {
+   "display": {
+    "family": "GT Sectra",
+    "category": "serif",
+    "arabic": false
+   },
+   "body": {
+    "family": "Söhne",
+    "category": "sans",
+    "arabic": false
+   }
+  },
+  "typeScale": [
+   12,
+   14,
+   16,
+   20,
+   28,
+   40,
+   56,
+   80
+  ],
+  "lineHeight": {
+   "body": 1.6,
+   "display": 1.2
+  },
+  "radius": {
+   "button": 12,
+   "card": 16,
+   "max": 24,
+   "min": 8
+  },
+  "grid": {
+   "columns": 12,
+   "maxWidth": 1200,
+   "gutter": 24
+  },
+  "spacing": {},
+  "weights": null
+ },
+ "rules": [
+  {
+   "section": "layout principles",
+   "kind": "do",
+   "text": "One accent color per screen. If a page has a terracotta hero, secondary CTAs are foreground-only, not forest."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "do",
+   "text": "Let whitespace breathe. A short headline on 50% of the viewport height is correct."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "do",
+   "text": "Use serif for numbers when they matter (pricing, stats)."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "do",
+   "text": "Draw one accent element per page; the rest is foreground."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "dont",
+   "text": "No gradients."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "dont",
+   "text": "No emojis in product copy."
+  },
+  {
+   "section": "do's and don'ts",
+   "kind": "dont",
+   "text": "No border-radius above 24px; no border-radius below 8px."
+  },
+  {
+   "section": "agent prompt guide",
+   "kind": "do",
+   "text": "Prefer 1 hero + 3–5 body sections over 1 hero + 8+ sections. Editorial means restraint."
+  }
+ ],
+ "ambiguous": [
+  {
+   "section": "layout principles",
+   "text": "One accent color per screen. If a page has a terracotta hero, secondary CTAs are foreground-only, not forest.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "do's and don'ts",
+   "text": "Use serif for numbers when they matter (pricing, stats).",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "do's and don'ts",
+   "text": "Draw one accent element per page; the rest is foreground.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "do's and don'ts",
+   "text": "No gradients.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "do's and don'ts",
+   "text": "No emojis in product copy.",
+   "why": "guidance without a measurable value"
+  }
+ ],
+ "notForArabic": [
+  {
+   "text": "- Display / headings: \"GT Sectra\" or fallback serif (`'GT Sectra', 'Times New Roman', serif`)",
+   "why": "Latin face; the category (serif/sans) is kept as intent"
+  },
+  {
+   "text": "- Body: \"Söhne\" or fallback sans (`'Söhne', -apple-system, system-ui, sans-serif`)",
+   "why": "Latin face; the category (serif/sans) is kept as intent"
+  },
+  {
+   "text": "Letter-spacing: -0.02em for display sizes above 40px; default elsewhere",
+   "why": "no letter spacing, case or title-casing in Arabic"
+  },
+  {
+   "text": "No sentence-case for headings — use title case for H1/H2, sentence case for H3 and below.",
+   "why": "no letter spacing, case or title-casing in Arabic"
+  }
+ ],
+ "summary": {
+  "colors": 6,
+  "typeScale": 8,
+  "rules": 8,
+  "ambiguous": 5,
+  "notForArabic": 4
+ },
+ "note": "Extracted values and rule excerpts from the source above, under its licence. Inputs for styles, not styles."
+}

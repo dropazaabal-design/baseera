@@ -1,0 +1,149 @@
+{
+ "quiet-editorial/hero/portrait": {
+  "verdict": "ready",
+  "fingerprint": "0cf5969b74780643",
+  "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/hero/square": {
+  "verdict": "ready",
+  "fingerprint": "0cf5969b74780643",
+  "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/hero/story": {
+  "verdict": "ready",
+  "fingerprint": "0cf5969b74780643",
+  "note": "عنوان كبير في أعلى الصفحة، الكيكر بإطار، علامة تمييز واحدة؛ القصير يكبر حتى 1.35 دون كسر كلمة في سطر",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/list/portrait": {
+  "verdict": "ready",
+  "fingerprint": "f1a0e17e313d540c",
+  "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/list/square": {
+  "verdict": "ready",
+  "fingerprint": "f1a0e17e313d540c",
+  "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/list/story": {
+  "verdict": "ready",
+  "fingerprint": "f1a0e17e313d540c",
+  "note": "بطاقات بإطار رفيع وأرقام بلون التمييز؛ الطويل (6 بنود طويلة) لا يتسع في المربع ونفس النتيجة دون الأسلوب: البوابة تمنع التصدير وتقترح الاختصار. ملاحظة صغيرة: كلمة يتيمة في آخر العنوان الطويل بالمربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/numbered/portrait": {
+  "verdict": "ready",
+  "fingerprint": "2e0f56117439e5da",
+  "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/numbered/square": {
+  "verdict": "ready",
+  "fingerprint": "2e0f56117439e5da",
+  "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/numbered/story": {
+  "verdict": "ready",
+  "fingerprint": "2e0f56117439e5da",
+  "note": "الرقم الكبير بلون التمييز دون دائرة، العنوان تحته",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/outro/portrait": {
+  "verdict": "ready",
+  "fingerprint": "d3501247698f3eb9",
+  "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/outro/square": {
+  "verdict": "ready",
+  "fingerprint": "d3501247698f3eb9",
+  "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/outro/story": {
+  "verdict": "ready",
+  "fingerprint": "d3501247698f3eb9",
+  "note": "دائرة الحساب، المعرّف @kitabwbs بعد الاسم، زر الحفظ مملوء ونص المتابعة بلا تعبئة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/post/portrait": {
+  "verdict": "ready",
+  "fingerprint": "85408595555d2bb0",
+  "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/post/square": {
+  "verdict": "ready",
+  "fingerprint": "85408595555d2bb0",
+  "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/post/story": {
+  "verdict": "ready",
+  "fingerprint": "85408595555d2bb0",
+  "note": "علامات صح بلون التمييز، الدعوة بإطار وسهم إلى الأمام؛ مقروء في المربع",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/quote/portrait": {
+  "verdict": "ready",
+  "fingerprint": "82e56ce92a0daa98",
+  "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/quote/square": {
+  "verdict": "ready",
+  "fingerprint": "82e56ce92a0daa98",
+  "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/quote/story": {
+  "verdict": "ready",
+  "fingerprint": "82e56ce92a0daa98",
+  "note": "خط عمودي بلون التمييز من بداية القراءة؛ الاقتباس القصير يكبر ويملأ الصفحة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/statement/portrait": {
+  "verdict": "ready",
+  "fingerprint": "3686a1f5fd4fc1ae",
+  "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/statement/square": {
+  "verdict": "ready",
+  "fingerprint": "3686a1f5fd4fc1ae",
+  "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ },
+ "quiet-editorial/statement/story": {
+  "verdict": "ready",
+  "fingerprint": "3686a1f5fd4fc1ae",
+  "note": "النسبة 80% في بداية السطر الصحيحة، كلمة التمييز وحدها ملونة",
+  "by": "assistant",
+  "at": "2026-10-02"
+ }
+}

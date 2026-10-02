@@ -1,0 +1,213 @@
+{
+ "kind": "design-rules",
+ "source": {
+  "repo": "AICAE/opendesign",
+  "commit": "e3a848a33a151ba6f29be02e58ab17a9d135b1a7",
+  "path": "design-systems/paper/DESIGN.md",
+  "blob": "3306e19fc82b5a22d645c7e0f801681a0b820a52",
+  "license": "Apache-2.0"
+ },
+ "boilerplate": true,
+ "explicit": {
+  "colors": {
+   "primary": {
+    "hex": "#111111"
+   },
+   "secondary": {
+    "hex": "#8B5CF6"
+   },
+   "success": {
+    "hex": "#16A34A"
+   },
+   "warning": {
+    "hex": "#D97706"
+   },
+   "danger": {
+    "hex": "#DC2626"
+   },
+   "surface": {
+    "hex": "#FFFFFF"
+   },
+   "text": {
+    "hex": "#111827"
+   },
+   "neutral": {
+    "hex": "#FFFFFF"
+   }
+  },
+  "fonts": {
+   "primary": {
+    "family": "Roboto",
+    "arabic": false
+   },
+   "display": {
+    "family": "Montserrat",
+    "arabic": false
+   },
+   "mono": {
+    "family": "PT Mono",
+    "arabic": false
+   }
+  },
+  "typeScale": [
+   14,
+   16,
+   18,
+   24,
+   32,
+   40
+  ],
+  "lineHeight": {},
+  "radius": {},
+  "grid": {},
+  "spacing": {
+   "scale": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32
+   ]
+  },
+  "weights": [
+   100,
+   200,
+   300,
+   400,
+   500,
+   600,
+   700,
+   800,
+   900
+  ]
+ },
+ "rules": [
+  {
+   "section": "color",
+   "kind": "do",
+   "text": "Favor Primary (#111111) for CTA emphasis."
+  },
+  {
+   "section": "color",
+   "kind": "do",
+   "text": "Use Surface (#FFFFFF) for large backgrounds and cards."
+  },
+  {
+   "section": "color",
+   "kind": "do",
+   "text": "Keep body copy on Text (#111827) for legibility."
+  },
+  {
+   "section": "spacing & grid",
+   "kind": "do",
+   "text": "Keep vertical rhythm consistent across sections and components."
+  },
+  {
+   "section": "layout & composition",
+   "kind": "do",
+   "text": "Prefer clear content blocks with consistent internal padding."
+  },
+  {
+   "section": "layout & composition",
+   "kind": "do",
+   "text": "Keep hierarchy obvious: headline → support text → primary action."
+  },
+  {
+   "section": "layout & composition",
+   "kind": "do",
+   "text": "Use whitespace to separate concerns before adding borders or shadows."
+  },
+  {
+   "section": "motion & interaction",
+   "kind": "do",
+   "text": "Use subtle transitions that emphasize Primary (#111111) as the interaction signal."
+  },
+  {
+   "section": "voice & brand",
+   "kind": "dont",
+   "text": "Keep microcopy action-oriented and avoid generic filler language."
+  },
+  {
+   "section": "anti-patterns",
+   "kind": "dont",
+   "text": "Do not introduce off-palette colors when an existing token can solve the problem."
+  },
+  {
+   "section": "anti-patterns",
+   "kind": "dont",
+   "text": "Do not flatten hierarchy by using the same type size/weight for all text."
+  },
+  {
+   "section": "anti-patterns",
+   "kind": "dont",
+   "text": "Do not add decorative effects that reduce readability or accessibility."
+  },
+  {
+   "section": "anti-patterns",
+   "kind": "dont",
+   "text": "Do not mix unrelated visual metaphors in the same interface."
+  }
+ ],
+ "ambiguous": [
+  {
+   "section": "spacing & grid",
+   "text": "Keep vertical rhythm consistent across sections and components.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "layout & composition",
+   "text": "Prefer clear content blocks with consistent internal padding.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "layout & composition",
+   "text": "Keep hierarchy obvious: headline → support text → primary action.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "layout & composition",
+   "text": "Use whitespace to separate concerns before adding borders or shadows.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "voice & brand",
+   "text": "Keep microcopy action-oriented and avoid generic filler language.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "anti-patterns",
+   "text": "Do not introduce off-palette colors when an existing token can solve the problem.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "anti-patterns",
+   "text": "Do not flatten hierarchy by using the same type size/weight for all text.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "anti-patterns",
+   "text": "Do not add decorative effects that reduce readability or accessibility.",
+   "why": "guidance without a measurable value"
+  },
+  {
+   "section": "anti-patterns",
+   "text": "Do not mix unrelated visual metaphors in the same interface.",
+   "why": "guidance without a measurable value"
+  }
+ ],
+ "notForArabic": [
+  {
+   "text": "- Families: primary=Roboto, display=Montserrat, mono=PT Mono",
+   "why": "Latin families: Arabic text needs Cairo, Tajawal or another Arabic face"
+  }
+ ],
+ "summary": {
+  "colors": 8,
+  "typeScale": 6,
+  "rules": 13,
+  "ambiguous": 9,
+  "notForArabic": 1
+ },
+ "note": "Extracted values and rule excerpts from the source above, under its licence. Inputs for styles, not styles."
+}
