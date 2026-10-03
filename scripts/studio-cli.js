@@ -11,6 +11,7 @@ import { parseIntent, plan } from '../lib/studio/router.js';
 import { checkDesign } from '../lib/studio/quality.js';
 import { runCommand } from '../lib/studio/commands.js';
 import { applyPatches, diffFingerprints, fingerprint } from '../lib/studio/patch.js';
+import { designPrompts, promptsMarkdown } from '../lib/studio/prompts.js';
 import { migrateCarousel } from '../lib/studio/document.js';
 import { inlineAsset } from '../lib/studio/assets.js';
 import { KITABWBS_PRESET, parseFeedback } from '../lib/studio/memory.js';
@@ -22,7 +23,7 @@ import { exportSnapshot, importSnapshot } from '../lib/studio/store.js';
 import { validateDocument } from '../lib/studio/contracts.js';
 import { compositionList } from '../lib/studio/compositions.js';
 import { STYLES } from '../lib/studio/styles/catalog.js';
-import { ROLE_OF } from '../lib/studio/library/matrix.js';
+import { LATER_ROLES, ROLE_OF, declinedWhy } from '../lib/studio/library/matrix.js';
 import { setFormat } from '../lib/studio/document.js';
 import { hashOf } from '../lib/studio/util.js';
 
@@ -44,6 +45,9 @@ const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
   studio edit DESIGN.json "<أمر>" [--page N] [--out FILE]   conversational edit (local when possible)
   studio patch DESIGN.json PATCHES.json [--scope graphic|text] [--out FILE]
   studio render DESIGN.json OUT.html             the offline editor with the design embedded
+  studio prompts DESIGN.json [--out FILE.md] [--json]
+                                                storyboard, ready copy and one generation prompt per
+                                                slide (+ negative prompt), read from the design itself
   studio svg DESIGN.json OUTDIR                  page artwork (no text) as SVG
   studio format DESIGN.json portrait|square|story [--out FILE]
   studio save DESIGN.json [--status candidate|used] [--label TEXT] [--concepts a,b] [--metaphor TEXT]
@@ -168,7 +172,13 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
           defaultMode: st.defaultMode ?? 'light',
           formats: st.formats,
           compositions: Object.keys(ROLE_OF).filter((c) => st.roles.includes(ROLE_OF[c])),
-          declines: Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why })),
+          declines: [
+            ...Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why })),
+            ...(() => {
+              const later = Object.keys(ROLE_OF).filter((c) => LATER_ROLES.includes(ROLE_OF[c]) && !st.roles.includes(ROLE_OF[c]) && !st.notFor?.[ROLE_OF[c]]);
+              return later.length ? [{ compositions: later, why: declinedWhy(st, later[0]) }] : [];
+            })(),
+          ],
         })),
       );
     }
@@ -288,6 +298,17 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
       fs.writeFileSync(rest[0], injectSeed(fs.readFileSync(templatePath(), 'utf8'), doc));
       studio.ledger.record({ kind: 'export', tool: 'html', designId: doc.id });
       return out({ ok: true, file: rest[0], pages: doc.pages.length, size: `${doc.pages[0].widthPx}×${doc.pages[0].heightPx}` });
+    }
+
+    case 'prompts': {
+      const doc = withAssets(studio, loadDesign(sub));
+      if (opt.json) return out(designPrompts(doc).map(({ colors, ...d }) => d));
+      const md = promptsMarkdown(doc);
+      if (typeof opt.out === 'string') {
+        fs.writeFileSync(opt.out, `${md}\n`);
+        return out({ ok: true, file: opt.out, slides: doc.pages.length });
+      }
+      return out(md);
     }
 
     case 'svg': {

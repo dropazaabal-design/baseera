@@ -29,7 +29,7 @@ function fitText(outer, inner, size, min) {
   outer.dataset.fontSize = String(px);
 }
 
-function TextEl({ el, color, family }) {
+function TextEl({ el, color, family, highlight }) {
   const outer = useRef(null);
   const inner = useRef(null);
   const { style } = el;
@@ -54,7 +54,7 @@ function TextEl({ el, color, family }) {
       }}
     >
       <div ref={inner} style={{ whiteSpace: style.nowrap ? 'nowrap' : 'pre-line' }}>
-        <RichText text={el.text} />
+        <RichText text={el.text} highlight={highlight} />
       </div>
     </div>
   );
@@ -143,7 +143,7 @@ function ScenePage({ doc, page, editing = false, selected = null, onSelect, onPo
             }}
             onPointerDown={editing ? (e) => onPointerDown?.(e, el) : undefined}
           >
-            {el.kind === 'text' && <TextEl el={el} color={resolveColor(el.style.color, colors)} family={FONTS[font]?.family ?? "'Cairo'"} />}
+            {el.kind === 'text' && <TextEl el={el} color={resolveColor(el.style.color, colors)} family={FONTS[font]?.family ?? "'Cairo'"} highlight={el.style.highlight ? resolveColor(el.style.highlight, colors) : null} />}
             {el.kind === 'shape' && <ShapeEl el={el} colors={colors} />}
             {el.kind === 'image' && <ImageEl el={el} asset={doc.assets?.[el.assetId]} colors={colors} />}
           </div>

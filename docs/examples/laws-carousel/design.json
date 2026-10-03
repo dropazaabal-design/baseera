@@ -1,0 +1,2887 @@
+{
+  "schemaVersion": 2,
+  "kind": "design",
+  "id": "d_pbsk3b6gxq75",
+  "revision": 1,
+  "createdAt": "2026-10-03T12:53:37.581Z",
+  "updatedAt": "2026-10-03T12:53:37.581Z",
+  "creatorId": "default",
+  "brandId": "kitabwbs",
+  "brandKit": {
+    "id": "kitabwbs",
+    "name": "كتاب وبس",
+    "handle": "@kitabwbs",
+    "colors": [
+      {
+        "hex": "#2E7BC5",
+        "role": "accent",
+        "name": "الأزرق الأساسي"
+      },
+      {
+        "hex": "#FFFFFF",
+        "role": "bg",
+        "name": "أبيض"
+      },
+      {
+        "hex": "#0E2A5C",
+        "role": "dark",
+        "name": "أزرق ليلي (مشتق للصفحات الداكنة)"
+      },
+      {
+        "hex": "#E63946",
+        "role": "negative",
+        "name": "أحمر وظيفي"
+      },
+      {
+        "hex": "#10B981",
+        "role": "positive",
+        "name": "أخضر وظيفي"
+      }
+    ],
+    "fonts": {
+      "heading": "cairo",
+      "body": "tajawal",
+      "fallbacks": [
+        "almarai"
+      ],
+      "allowed": [
+        "cairo",
+        "tajawal"
+      ]
+    },
+    "voice": {
+      "tone": "ودودة ومشجّعة على القراءة",
+      "dialect": "فصحى مبسطة",
+      "titles": "عناوين قوية قصيرة، ومتن واضح بلا ازدحام"
+    },
+    "imagery": {
+      "style": "كولاج تحريري أزرق: كتب وصفحات ونظارات قراءة وأقلام، أشكال مسطحة بلا نصوص",
+      "notes": "بلا وجوه أو صور بشرية"
+    },
+    "constraints": [
+      "no-yellow",
+      "no-orange",
+      "no-faces",
+      "no-latin-words",
+      "western-digits",
+      "fonts-only"
+    ],
+    "version": 1
+  },
+  "brief": "كاروسيل «أشهر 7 قوانين في العالم»: غلاف برقم، تمهيد، 7 قوانين كلٌّ بتوزيع مختلف، خاتمة بحفظ ومشاركة — أسلوب تعليمي بتظليل نعناعي",
+  "intent": {
+    "mode": "carousel",
+    "platform": "instagram",
+    "format": "portrait",
+    "pages": 10,
+    "destination": "local"
+  },
+  "theme": {
+    "paletteId": "style:mint-highlight",
+    "accentRole": "positive",
+    "colors": {
+      "bg": "#FFFFFF",
+      "surface": "#F3F7F5",
+      "text": "#14181F",
+      "muted": "#4A515A",
+      "accent": "#0C855D",
+      "onAccent": "#FFFFFF",
+      "highlight": "#D9F4EB",
+      "line": "#E1E6E9"
+    },
+    "derived": [
+      {
+        "role": "accent",
+        "mode": "light",
+        "from": "#10B981",
+        "to": "#0C855D",
+        "why": "نص أبيض على لون التمييز بتباين 4.5 على الأقل"
+      }
+    ],
+    "fonts": {
+      "heading": "cairo",
+      "body": "tajawal"
+    },
+    "numerals": "latn"
+  },
+  "brand": {
+    "name": "كتاب وبس",
+    "handle": "@kitabwbs"
+  },
+  "chrome": {
+    "pagination": {
+      "enabled": true,
+      "style": "fraction",
+      "showBar": true,
+      "showCounter": true
+    },
+    "swipe": {
+      "enabled": true,
+      "text": "اسحب واكتشف",
+      "lastText": "",
+      "showArrow": true
+    },
+    "watermark": {
+      "enabled": true,
+      "showLogo": true,
+      "showBadge": true
+    }
+  },
+  "governance": {
+    "institutional": false,
+    "locked": false
+  },
+  "style": {
+    "id": "mint-highlight",
+    "version": 1,
+    "mode": "light"
+  },
+  "pages": [
+    {
+      "id": "pg_qzlgxn5ek5",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "opener",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "figure": "7",
+        "title": "قوانين تُدير يومك *في صمت*",
+        "subtitle": "اعرفها… وتحكّم بها بدل أن تتحكّم بك."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "figure",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 326.8,
+            "width": 888,
+            "height": 264
+          },
+          "z": 10,
+          "locked": false,
+          "text": "7",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 240,
+            "minFontSize": 150,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "figure",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 160,
+            "y": 594.8,
+            "width": 824,
+            "height": 313.2
+          },
+          "z": 11,
+          "locked": false,
+          "text": "قوانين تُدير يومك *في صمت*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 116,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 936,
+            "width": 888,
+            "height": 67.2
+          },
+          "z": 12,
+          "locked": false,
+          "text": "اعرفها… وتحكّم بها بدل أن تتحكّم بك.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 42,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 49,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "1/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_g6cdko1mp6",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "plain"
+      },
+      "content": {
+        "kicker": "قبل أن تبدأ",
+        "title": "ليست صدفة. *إنها أنماط.*",
+        "body": "خطة تتعطّل، ومهمة تتأخر،\nوقرار يتأجّل بلا سبب واضح.\nلكلٍّ منها قانون يفسّره،\nوطريقة تتعامل بها معه."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 324.2,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "قبل أن تبدأ",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 405,
+            "y": 408.2,
+            "width": 579,
+            "height": 237.6
+          },
+          "z": 11,
+          "locked": false,
+          "text": "ليست صدفة. *إنها أنماط.*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 697.8,
+            "width": 888,
+            "height": 308
+          },
+          "z": 12,
+          "locked": false,
+          "text": "خطة تتعطّل، ومهمة تتأخر،\nوقرار يتأجّل بلا سبب واضح.\nلكلٍّ منها قانون يفسّره،\nوطريقة تتعامل بها معه.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 52,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "2/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "plain",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_3ik92tz4vf",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "box"
+      },
+      "content": {
+        "kicker": "1 · قانون مورفي",
+        "title": "ما يمكن أن يتعطّل… *سيتعطّل*",
+        "body": "لا تتشاءم، بل استعدّ:\nجهّز خطة بديلة،\nواترك هامشًا للطوارئ."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 336.7,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "1 · قانون مورفي",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 189.5,
+            "y": 420.7,
+            "width": 701,
+            "height": 237.6
+          },
+          "z": 11,
+          "locked": false,
+          "text": "ما يمكن أن يتعطّل… *سيتعطّل*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "body-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 710.3,
+            "width": 888,
+            "height": 283
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "none",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 131,
+            "y": 736.3,
+            "width": 818,
+            "height": 231
+          },
+          "z": 13,
+          "locked": false,
+          "text": "لا تتشاءم، بل استعدّ:\nجهّز خطة بديلة،\nواترك هامشًا للطوارئ.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 53,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "3/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "box",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_2nxt4c6gwg",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "callout"
+      },
+      "content": {
+        "kicker": "2 · قانون باركنسون",
+        "title": "العمل *يتمدّد* ليملأ وقته",
+        "body": "أعطِ المهمة أسبوعًا… تأخذ أسبوعًا.\nأعطها يومين… تنتهي في يومين.",
+        "takeaway": "حدّد موعدًا أقصر وواقعيًا."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 322.7,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "2 · قانون باركنسون",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 372,
+            "y": 406.7,
+            "width": 612,
+            "height": 237.6
+          },
+          "z": 11,
+          "locked": false,
+          "text": "العمل *يتمدّد* ليملأ وقته",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 696.3,
+            "width": 888,
+            "height": 154
+          },
+          "z": 12,
+          "locked": false,
+          "text": "أعطِ المهمة أسبوعًا… تأخذ أسبوعًا.\nأعطها يومين… تنتهي في يومين.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "takeaway-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 906.3,
+            "width": 888,
+            "height": 101
+          },
+          "z": 13,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "radius": 8,
+          "role": "decor",
+          "name": "إطار الخلاصة",
+          "anim": "rise"
+        },
+        {
+          "id": "takeaway",
+          "kind": "text",
+          "frame": {
+            "x": 125,
+            "y": 925.3,
+            "width": 830,
+            "height": 63
+          },
+          "z": 14,
+          "locked": false,
+          "text": "حدّد موعدًا أقصر وواقعيًا.",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 42,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "body",
+          "slot": "takeaway",
+          "name": "الخلاصة",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 55,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "4/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "callout",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_8km4k7sljl",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "figure"
+      },
+      "content": {
+        "kicker": "3 · مبدأ باريتو",
+        "title": "القليل يصنع *الكثير*",
+        "figure": "80/20",
+        "body": "معظم الأثر يأتي غالبًا\nمن جزء صغير من الجهد.\nابحث عنه في يومك،\nوالنسبة تقريبية لا ثابتة."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 250.9,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "3 · مبدأ باريتو",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 334.9,
+            "width": 888,
+            "height": 118.8
+          },
+          "z": 11,
+          "locked": false,
+          "text": "القليل يصنع *الكثير*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "figure-band",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 591.1,
+            "width": 888,
+            "height": 72.4
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "role": "decor",
+          "name": "شريط التظليل",
+          "anim": "fade"
+        },
+        {
+          "id": "figure",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 489.7,
+            "width": 888,
+            "height": 241.5
+          },
+          "z": 13,
+          "locked": false,
+          "text": "80/20",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 210,
+            "minFontSize": 130,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.15
+          },
+          "role": "number",
+          "slot": "figure",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 771.2,
+            "width": 888,
+            "height": 308
+          },
+          "z": 14,
+          "locked": false,
+          "text": "معظم الأثر يأتي غالبًا\nمن جزء صغير من الجهد.\nابحث عنه في يومك،\nوالنسبة تقريبية لا ثابتة.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 53,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "5/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "figure",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_vxt8ij2yg4",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "flow",
+        "version": 1,
+        "variant": "fill"
+      },
+      "content": {
+        "kicker": "4 · قانون هيك",
+        "title": "كثرة الخيارات *تُبطئك*",
+        "steps": [
+          "خيارات أكثر",
+          "خيارات أقل"
+        ],
+        "details": [
+          "قرار أبطأ وتردّد أطول",
+          "قرار أسرع وبداية أوضح"
+        ]
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 310.6,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "4 · قانون هيك",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 394.6,
+            "width": 888,
+            "height": 118.8
+          },
+          "z": 11,
+          "locked": false,
+          "text": "كثرة الخيارات *تُبطئك*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 565.4,
+            "width": 888,
+            "height": 192
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "none",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 589.4,
+            "width": 828,
+            "height": 66
+          },
+          "z": 13,
+          "locked": false,
+          "text": "خيارات أكثر",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "item",
+          "slot": "steps.0",
+          "name": "المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-body",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 669.4,
+            "width": 828,
+            "height": 64
+          },
+          "z": 14,
+          "locked": false,
+          "text": "قرار أبطأ وتردّد أطول",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 40,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "item",
+          "slot": "details.0",
+          "name": "شرح المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-link",
+          "kind": "shape",
+          "frame": {
+            "x": 519,
+            "y": 771.4,
+            "width": 42,
+            "height": 42
+          },
+          "z": 15,
+          "locked": false,
+          "shape": "ellipse",
+          "fill": "@bg",
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "وصلة المرحلة 1",
+          "anim": "fade"
+        },
+        {
+          "id": "step-1-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 529.5,
+            "y": 781.9,
+            "width": 21,
+            "height": 21
+          },
+          "z": 16,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M4 12h15M13 6l6 6-6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2.2,
+          "rotation": 90,
+          "role": "decor",
+          "name": "سهم المرحلة 1",
+          "anim": "fade"
+        },
+        {
+          "id": "step-2-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 827.4,
+            "width": 888,
+            "height": 192
+          },
+          "z": 17,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "step-2",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 851.4,
+            "width": 828,
+            "height": 66
+          },
+          "z": 18,
+          "locked": false,
+          "text": "خيارات أقل",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "item",
+          "slot": "steps.1",
+          "name": "المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "step-2-body",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 931.4,
+            "width": 828,
+            "height": 64
+          },
+          "z": 19,
+          "locked": false,
+          "text": "قرار أسرع وبداية أوضح",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 40,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "item",
+          "slot": "details.1",
+          "name": "شرح المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 54,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "6/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "fill",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_6sh1ltl9k8",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "flow",
+        "version": 1,
+        "variant": "mark"
+      },
+      "content": {
+        "kicker": "5 · قانون غودهارت",
+        "title": "حين يصبح المقياس *هدفًا*",
+        "steps": [
+          "تقيس لتفهم",
+          "تقيس لتصل إلى رقم"
+        ],
+        "details": [
+          "فيكشف لك الرقم ما يحدث",
+          "فيتحسّن الرقم وتضيع الحقيقة"
+        ]
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 251.2,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "5 · قانون غودهارت",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 207.5,
+            "y": 335.2,
+            "width": 665,
+            "height": 237.6
+          },
+          "z": 11,
+          "locked": false,
+          "text": "حين يصبح المقياس *هدفًا*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 624.8,
+            "width": 888,
+            "height": 192
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "none",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-mark",
+          "kind": "shape",
+          "frame": {
+            "x": 111,
+            "y": 668.6,
+            "width": 858,
+            "height": 39.6
+          },
+          "z": 13,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "role": "decor",
+          "name": "تظليل المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 648.8,
+            "width": 828,
+            "height": 66
+          },
+          "z": 14,
+          "locked": false,
+          "text": "تقيس لتفهم",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "item",
+          "slot": "steps.0",
+          "name": "المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-body",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 728.8,
+            "width": 828,
+            "height": 64
+          },
+          "z": 15,
+          "locked": false,
+          "text": "فيكشف لك الرقم ما يحدث",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 40,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "item",
+          "slot": "details.0",
+          "name": "شرح المرحلة 1",
+          "anim": "rise"
+        },
+        {
+          "id": "step-1-link",
+          "kind": "shape",
+          "frame": {
+            "x": 519,
+            "y": 830.8,
+            "width": 42,
+            "height": 42
+          },
+          "z": 16,
+          "locked": false,
+          "shape": "ellipse",
+          "fill": "@bg",
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "وصلة المرحلة 1",
+          "anim": "fade"
+        },
+        {
+          "id": "step-1-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 529.5,
+            "y": 841.3,
+            "width": 21,
+            "height": 21
+          },
+          "z": 17,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M4 12h15M13 6l6 6-6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2.2,
+          "rotation": 90,
+          "role": "decor",
+          "name": "سهم المرحلة 1",
+          "anim": "fade"
+        },
+        {
+          "id": "step-2-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 886.8,
+            "width": 888,
+            "height": 192
+          },
+          "z": 18,
+          "locked": false,
+          "shape": "rect",
+          "fill": "none",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "step-2-mark",
+          "kind": "shape",
+          "frame": {
+            "x": 111,
+            "y": 930.6,
+            "width": 858,
+            "height": 39.6
+          },
+          "z": 19,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "role": "decor",
+          "name": "تظليل المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "step-2",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 910.8,
+            "width": 828,
+            "height": 66
+          },
+          "z": 20,
+          "locked": false,
+          "text": "تقيس لتصل إلى رقم",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "item",
+          "slot": "steps.1",
+          "name": "المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "step-2-body",
+          "kind": "text",
+          "frame": {
+            "x": 126,
+            "y": 990.8,
+            "width": 828,
+            "height": 64
+          },
+          "z": 21,
+          "locked": false,
+          "text": "فيتحسّن الرقم وتضيع الحقيقة",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 40,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "item",
+          "slot": "details.1",
+          "name": "شرح المرحلة 2",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 51,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "7/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "mark",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_2leatm9rh2",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "panel"
+      },
+      "content": {
+        "kicker": "6 · قانون هوفستادتر",
+        "title": "كل شيء يأخذ وقتًا *أطول* مما تتوقع",
+        "body": "حتى لو أخذت هذا القانون في حسابك.\nأضف هامشًا لكل تقدير،\nوابدأ أبكر مما تنوي."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 302.3,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "6 · قانون هوفستادتر",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title-box",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 386.3,
+            "width": 888,
+            "height": 358.4
+          },
+          "z": 11,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "إطار العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 137,
+            "y": 441.3,
+            "width": 806,
+            "height": 248.4
+          },
+          "z": 12,
+          "locked": false,
+          "text": "كل شيء يأخذ وقتًا *أطول* مما تتوقع",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 92,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 796.7,
+            "width": 888,
+            "height": 231
+          },
+          "z": 13,
+          "locked": false,
+          "text": "حتى لو أخذت هذا القانون في حسابك.\nأضف هامشًا لكل تقدير،\nوابدأ أبكر مما تنوي.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 54,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "8/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "panel",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_xe3qv2hfe9",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "concept",
+        "version": 1,
+        "variant": "rule"
+      },
+      "content": {
+        "kicker": "7 · شفرة أوكام",
+        "title": "ابدأ بالتفسير *الأبسط*",
+        "body": "إذا تساوت التفسيرات في قوتها،\nفالأقل افتراضات أولى بالتجربة،\nثم اختبره قبل أن تعتمده."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 343.7,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "7 · شفرة أوكام",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 281,
+            "y": 427.7,
+            "width": 703,
+            "height": 237.6
+          },
+          "z": 11,
+          "locked": false,
+          "text": "ابدأ بالتفسير *الأبسط*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 88,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "body-rule",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 713.3,
+            "width": 888,
+            "height": 2
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@line",
+          "radius": 0,
+          "role": "decor",
+          "name": "خط زخرفي",
+          "anim": "fade"
+        },
+        {
+          "id": "body",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 755.3,
+            "width": 888,
+            "height": 231
+          },
+          "z": 13,
+          "locked": false,
+          "text": "إذا تساوت التفسيرات في قوتها،\nفالأقل افتراضات أولى بالتجربة،\nثم اختبره قبل أن تعتمده.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.75
+          },
+          "role": "body",
+          "slot": "body",
+          "name": "السطور",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 54,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "9/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 134,
+            "y": 1244,
+            "width": 207,
+            "height": 42
+          },
+          "z": 101,
+          "locked": true,
+          "text": "اسحب واكتشف",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1254,
+            "width": 26,
+            "height": 26
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 2,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 848,
+            "y": 1244,
+            "width": 136,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        }
+      ],
+      "layout": {
+        "variant": "rule",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_ssamcdii90",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "actions",
+        "version": 1,
+        "variant": "center"
+      },
+      "content": {
+        "kicker": "كتاب وبس",
+        "title": "اعرف القانون. *تصرّف أذكى.*",
+        "subtitle": "اختر قانونًا واحدًا وجرّبه هذا الأسبوع.",
+        "save": "احفظها لترجع إليها",
+        "share": "أرسلها لشخص يحتاجها"
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 339.5,
+            "width": 888,
+            "height": 54
+          },
+          "z": 10,
+          "locked": false,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 28,
+            "color": "@accent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "التمهيد",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 180,
+            "y": 423.5,
+            "width": 720,
+            "height": 270
+          },
+          "z": 11,
+          "locked": false,
+          "text": "اعرف القانون. *تصرّف أذكى.*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 100,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.35,
+            "highlight": "@highlight"
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 727.5,
+            "width": 888,
+            "height": 64
+          },
+          "z": 12,
+          "locked": false,
+          "text": "اختر قانونًا واحدًا وجرّبه هذا الأسبوع.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 40,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "action-save-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 851.5,
+            "width": 888,
+            "height": 95
+          },
+          "z": 13,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@highlight",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "خلفية زر الحفظ",
+          "anim": "pop"
+        },
+        {
+          "id": "action-save",
+          "kind": "text",
+          "frame": {
+            "x": 179,
+            "y": 870.5,
+            "width": 722,
+            "height": 57
+          },
+          "z": 14,
+          "locked": false,
+          "text": "احفظها لترجع إليها",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "cta",
+          "slot": "save",
+          "name": "زر الحفظ",
+          "anim": "pop"
+        },
+        {
+          "id": "action-save-icon",
+          "kind": "shape",
+          "frame": {
+            "x": 126,
+            "y": 882,
+            "width": 34,
+            "height": 34
+          },
+          "z": 15,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M6.5 3.5h11a1 1 0 0 1 1 1V21l-6.5-4.2L5.5 21V4.5a1 1 0 0 1 1-1z",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@accent",
+          "strokeWidth": 1.8,
+          "role": "decor",
+          "name": "أيقونة زر الحفظ",
+          "anim": "pop"
+        },
+        {
+          "id": "action-share-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 965.5,
+            "width": 888,
+            "height": 95
+          },
+          "z": 16,
+          "locked": false,
+          "shape": "rect",
+          "fill": "none",
+          "radius": 8,
+          "stroke": "@line",
+          "strokeWidth": 2,
+          "role": "decor",
+          "name": "خلفية زر المشاركة",
+          "anim": "pop"
+        },
+        {
+          "id": "action-share",
+          "kind": "text",
+          "frame": {
+            "x": 179,
+            "y": 984.5,
+            "width": 722,
+            "height": 57
+          },
+          "z": 17,
+          "locked": false,
+          "text": "أرسلها لشخص يحتاجها",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 32,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "cta",
+          "slot": "share",
+          "name": "زر المشاركة",
+          "anim": "pop"
+        },
+        {
+          "id": "action-share-icon",
+          "kind": "shape",
+          "frame": {
+            "x": 126,
+            "y": 996,
+            "width": 34,
+            "height": 34
+          },
+          "z": 18,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M3 3L14 14M3 3l7 18l4 -7l7 -4l-18 -7z",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@muted",
+          "strokeWidth": 1.8,
+          "role": "decor",
+          "name": "أيقونة زر المشاركة",
+          "anim": "pop"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 96,
+            "y": 56,
+            "width": 66,
+            "height": 39
+          },
+          "z": 100,
+          "locked": true,
+          "text": "10/10",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        }
+      ],
+      "layout": {
+        "variant": "center",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 96,
+          "y": 170,
+          "width": 888,
+          "height": 1060
+        }
+      }
+    }
+  ],
+  "assets": {}
+}

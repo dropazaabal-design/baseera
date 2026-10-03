@@ -816,6 +816,207 @@
         ]
       },
       {
+        "id": "opener",
+        "label": "غلاف برقم",
+        "type": "cover",
+        "description": "غلاف يبدأ برقم كبير (عدد ما في الكاروسيل) ثم العنوان ثم سطر داعم",
+        "variants": {
+          "type": "طباعي",
+          "center": "وسط"
+        },
+        "capacity": {
+          "titleChars": 60,
+          "subtitleChars": 90
+        },
+        "tags": [
+          "غلاف",
+          "رقم",
+          "عدد",
+          "قوانين",
+          "قواعد",
+          "أسباب",
+          "خطاف"
+        ],
+        "fields": [
+          {
+            "key": "kicker",
+            "label": "تمهيد",
+            "type": "text"
+          },
+          {
+            "key": "figure",
+            "label": "الرقم",
+            "type": "text"
+          },
+          {
+            "key": "title",
+            "label": "العنوان",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "subtitle",
+            "label": "سطر داعم",
+            "type": "textarea"
+          }
+        ]
+      },
+      {
+        "id": "concept",
+        "label": "فكرة",
+        "type": "concept",
+        "description": "فكرة واحدة في صفحة: عنوان وسطور قصيرة، بستة توزيعات (نص، إطار، خلاصة مظلّلة، لوح، فاصل، رقم)",
+        "variants": {
+          "plain": "نص",
+          "box": "إطار",
+          "callout": "خلاصة مظلّلة",
+          "panel": "لوح",
+          "rule": "فاصل",
+          "figure": "رقم"
+        },
+        "capacity": {
+          "titleChars": 50,
+          "bodyChars": 160,
+          "takeawayChars": 50
+        },
+        "tags": [
+          "فكرة",
+          "قانون",
+          "قاعدة",
+          "مبدأ",
+          "تعريف",
+          "شرح",
+          "مقدمة",
+          "خلاصة",
+          "سؤال"
+        ],
+        "fields": [
+          {
+            "key": "kicker",
+            "label": "تمهيد",
+            "type": "text"
+          },
+          {
+            "key": "title",
+            "label": "العنوان",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "figure",
+            "label": "الرقم",
+            "type": "text"
+          },
+          {
+            "key": "body",
+            "label": "السطور",
+            "type": "textarea"
+          },
+          {
+            "key": "takeaway",
+            "label": "الخلاصة",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "flow",
+        "label": "مسار",
+        "type": "flow",
+        "description": "من حالة إلى حالة: مربعات رفيعة متتالية يصل بينها سهم، والأخيرة مظلّلة أو العناوين مظلّلة",
+        "variants": {
+          "fill": "النتيجة مظلّلة",
+          "mark": "العناوين مظلّلة"
+        },
+        "capacity": {
+          "items": 3,
+          "itemChars": 30,
+          "detailChars": 50,
+          "titleChars": 40
+        },
+        "tags": [
+          "مسار",
+          "من إلى",
+          "تحول",
+          "قبل وبعد",
+          "سبب ونتيجة",
+          "خطوات",
+          "تدفق"
+        ],
+        "fields": [
+          {
+            "key": "kicker",
+            "label": "تمهيد",
+            "type": "text"
+          },
+          {
+            "key": "title",
+            "label": "العنوان",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "steps",
+            "label": "المراحل",
+            "type": "list",
+            "required": true
+          },
+          {
+            "key": "details",
+            "label": "سطر كل مرحلة",
+            "type": "list"
+          }
+        ]
+      },
+      {
+        "id": "actions",
+        "label": "خاتمة بأزرار",
+        "type": "outro",
+        "description": "خاتمة بجملة تُحفظ وسطر داعم ثم صفّا إجراء بعرض الصفحة: احفظ وشارك",
+        "variants": {
+          "center": "وسط"
+        },
+        "capacity": {
+          "titleChars": 50,
+          "subtitleChars": 70
+        },
+        "tags": [
+          "خاتمة",
+          "دعوة",
+          "حفظ",
+          "مشاركة",
+          "خلاصة"
+        ],
+        "fields": [
+          {
+            "key": "kicker",
+            "label": "تمهيد",
+            "type": "text"
+          },
+          {
+            "key": "title",
+            "label": "العنوان",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "key": "subtitle",
+            "label": "سطر داعم",
+            "type": "textarea"
+          },
+          {
+            "key": "save",
+            "label": "زر الحفظ",
+            "type": "text"
+          },
+          {
+            "key": "share",
+            "label": "زر المشاركة",
+            "type": "text"
+          }
+        ]
+      },
+      {
         "id": "outro",
         "label": "خاتمة",
         "type": "outro",

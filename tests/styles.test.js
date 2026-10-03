@@ -10,9 +10,9 @@ import { evaluate, pageModes, pageRole, styleById, styleTheme, validateStyle } f
 import { pageTheme, themeFromBrand } from '../lib/studio/theme.js';
 import { contrastRatio } from '../lib/contrast.js';
 import { extractDesignRules } from '../lib/studio/styleCompiler.js';
-import { SAMPLES } from '../lib/studio/library/samples.js';
+import { LAWS_SEQUENCE, SAMPLES } from '../lib/studio/library/samples.js';
 import { QA_ART, seedQaArt, withArt } from '../lib/studio/library/art.js';
-import { claims, pairFingerprint, pairStatus, styleClaimProblems } from '../lib/studio/library/matrix.js';
+import { claims, pairFingerprint, pairStatus, sequenceKey, sequencesFor, styleClaimProblems } from '../lib/studio/library/matrix.js';
 import { documentHtml } from '../lib/studio/htmlPreview.js';
 
 function build(pages, { style = null, format = 'portrait' } = {}) {
@@ -336,7 +336,7 @@ test('committed matrix: counts are per composition, every declined pair says why
   assert.equal(m.totals.readyStyleCompositionPairs, ready);
   assert.ok(ready <= m.totals.possiblePairs);
   for (const p of m.pairs.filter((x) => !x.claimed)) assert.ok(p.why, `${p.style}/${p.composition}: declined without a reason`);
-  for (const s of STYLES) if (s.status === 'reusable') assert.equal(m.sequences[s.id]?.status, 'ready', s.id);
+  for (const s of STYLES) if (s.status === 'reusable') for (const seq of sequencesFor(s)) assert.equal(m.sequences[sequenceKey(s.id, seq)]?.status, 'ready', sequenceKey(s.id, seq));
 });
 
 import { runCommand } from '../lib/studio/commands.js';
@@ -368,4 +368,128 @@ test('acceptance edits: «كبّر العنوان الثاني» touches page 2 
   assert.equal(r2.intent, 'replace_asset');
   assert.deepEqual(changed(r1.doc, r2.doc), [`${doc.pages[6].id}/art`]);
   assert.equal(runCommand(r1.doc, 'كبّر العنوان التاسع', {}).needs, 'clarify', 'no ninth title in an eight-page carousel');
+});
+
+// ---------------------------------------------------------------------------
+// The educational set (mint-highlight): marker band, frames, flow, actions,
+// quiet chrome, accent from the identity's green.
+
+import { buildPptx } from '../lib/studio/canva/pptx.js';
+
+const laws = () => carousel('mint-highlight', LAWS_SEQUENCE.pages);
+
+test('mint-highlight: accent from the identity green, darkened for text; mint marker mixed from the raw green', () => {
+  const theme = styleTheme(styleById('mint-highlight'), { brand: KITABWBS_PRESET });
+  assert.equal(theme.accentRole, 'positive');
+  assert.ok(contrastRatio(theme.colors.accent, '#FFFFFF') >= 4.5);
+  assert.equal(theme.derived[0].from, '#10B981');
+  assert.ok(contrastRatio(theme.colors.text, theme.colors.highlight) >= 4.5, 'text reads on the marker');
+  // The request may take the identity blue instead.
+  const blue = styleTheme(styleById('mint-highlight'), { brand: KITABWBS_PRESET, accentRole: 'accent' });
+  assert.equal(blue.accentRole, undefined);
+  assert.equal(blue.derived?.[0]?.from ?? blue.colors.accent, '#2E7BC5');
+  assert.notEqual(blue.colors.highlight, theme.colors.highlight);
+  // A theme without the extra roles derives them.
+  assert.match(pageTheme({ theme: themeFromBrand(KITABWBS_PRESET) }, {}).colors.accent, /^#/);
+});
+
+test('mint-highlight: marked words get a marker band in the text colour, except on tinted boxes', () => {
+  const { doc, quality } = laws();
+  assert.equal(quality.errors, 0, JSON.stringify(quality.issues.filter((i) => i.severity === 'error')));
+  const cover = doc.pages[0];
+  assert.equal(byId(cover, 'title').style.highlight, '@highlight');
+  assert.equal(byId(cover, 'title').style.color, '@text');
+  // The panel title sits on the tint: its marked word keeps the accent colour.
+  const panel = doc.pages[7];
+  assert.equal(byId(panel, 'title').style.highlight, undefined);
+  assert.equal(byId(panel, 'title-box').fill, '@highlight');
+  // Unmarked texts carry no marker.
+  assert.equal(byId(doc.pages[1], 'body').style.highlight, undefined);
+  const html = documentHtml(doc, { pages: [1] });
+  assert.match(html, /linear-gradient\(to bottom,transparent 52%,#D9F4EB 52%/);
+});
+
+test('mint-highlight: six concept layouts, flow and actions keep every text in its slot', () => {
+  const { doc } = laws();
+  const [, plain, box, callout, figure, fill, mark, panel, rule, actions] = doc.pages;
+  assert.equal(byId(box, 'body-box').fill, 'none');
+  assert.equal(byId(box, 'body-box').stroke, '@line');
+  assert.equal(byId(callout, 'takeaway-box').fill, '@highlight');
+  assert.equal(byId(callout, 'takeaway').slot, 'takeaway');
+  assert.equal(byId(figure, 'figure-band').frame.width, figure.layout.region.width, 'band across the column');
+  assert.equal(byId(rule, 'body-rule').frame.width, rule.layout.region.width);
+  assert.equal(byId(rule, 'body-rule').fill, '@line');
+  assert.equal(byId(fill, 'step-2-box').fill, '@highlight', 'the outcome box is tinted');
+  assert.equal(byId(fill, 'step-1-box').fill, 'none');
+  assert.equal(byId(fill, 'step-1-arrow').rotation, 90, 'a down arrow between the stages');
+  assert.equal(byId(fill, 'step-1-body').slot, 'details.0');
+  assert.ok(byId(mark, 'step-1-mark') && byId(mark, 'step-2-mark'));
+  assert.equal(byId(actions, 'action-save').slot, 'save');
+  assert.equal(byId(actions, 'action-save-bg').fill, '@highlight');
+  assert.equal(byId(actions, 'action-share-bg').fill, 'none');
+  // The icon sits at the reading end (left in RTL).
+  assert.ok(byId(actions, 'action-share-icon').frame.x < byId(actions, 'action-share').frame.x);
+  for (const p of [plain, panel]) assert.ok(!p.elements.some((e) => e.role === 'decor' && e.kind === 'text'));
+});
+
+test('mint-highlight: quiet chrome — "1/10" as text, the name at the start, «اسحب واكتشف» at the end, nothing on the closing page', () => {
+  const { doc } = laws();
+  const first = doc.pages[0];
+  assert.equal(byId(first, 'sys-counter').text, '1/10');
+  assert.ok(!byId(first, 'sys-counter-bg') && !byId(first, 'sys-progress'));
+  assert.equal(byId(first, 'sys-swipe').text, 'اسحب واكتشف');
+  assert.ok(!byId(first, 'sys-swipe-bg'));
+  assert.equal(byId(first, 'sys-brand-name').text, 'كتاب وبس');
+  assert.ok(!byId(first, 'sys-avatar-bg'));
+  assert.ok(byId(first, 'sys-brand-name').frame.x > 540 && byId(first, 'sys-swipe').frame.x < 540, 'name at the start (right), swipe at the end (left)');
+  const last = doc.pages[9];
+  assert.ok(!byId(last, 'sys-swipe') && !byId(last, 'sys-brand-name'));
+  assert.equal(byId(last, 'sys-counter').text, '10/10');
+  // Other styles keep the classic chrome.
+  const classic = carousel('quiet-editorial', LAWS_SEQUENCE.pages.slice(0, 2).map((p) => ({ composition: 'hero', content: { title: p.content.title } })));
+  assert.ok(byId(classic.doc.pages[0], 'sys-swipe-bg'));
+});
+
+test('educational compositions: a denser fallback drops a frame, never a text; every variant renders its fields', () => {
+  for (const v of ['plain', 'box', 'callout', 'panel', 'rule', 'figure']) {
+    const { doc } = carousel('mint-highlight', [{ composition: 'concept', variant: v, content: { kicker: 'ك', title: 'عنوان *قصير*', figure: '80/20', body: 'سطر أول\nسطر ثانٍ', takeaway: 'الخلاصة' } }]);
+    const slots = doc.pages[0].elements.map((e) => e.slot).filter(Boolean);
+    for (const k of ['kicker', 'title', 'figure', 'body', 'takeaway']) assert.ok(slots.includes(k), `${v}: ${k}`);
+  }
+});
+
+test('the educational set is claimed only by styles that were built and reviewed with it', () => {
+  for (const s of STYLES) {
+    for (const c of ['opener', 'concept', 'flow', 'actions']) assert.equal(claims(s, c, 'portrait'), s.id === 'mint-highlight', `${s.id}/${c}`);
+    assert.equal(sequencesFor(s).length, s.id === 'mint-highlight' ? 2 : 1);
+  }
+});
+
+test('quality gate: a supporting line ending on a lone word is a warning; marked words must read on the marker', () => {
+  // A body of n words whose estimated wrap leaves one word on the last line.
+  const body = (n) => Array.from({ length: n }, (_, i) => (i % 2 ? 'الأثر' : 'يأتي')).join(' ');
+  const pages = (n) => [{ composition: 'concept', content: { title: 'عنوان', body: body(n) } }];
+  const lone = [8, 9, 10, 11, 12, 13, 14].map((n) => checkDesign(carousel('mint-highlight', pages(n)).doc).issues.some((i) => i.code === 'text.lone-word' && i.severity === 'warning'));
+  assert.ok(lone.includes(true) && lone.includes(false), JSON.stringify(lone));
+  const bad = structuredClone(laws().doc);
+  bad.theme.colors.highlight = '#20242B';
+  assert.ok(checkDesign(bad).issues.some((i) => i.code === 'contrast.low' && /المظلّلة/.test(i.message)));
+});
+
+test('PPTX: marked words carry a text highlight in the text colour, and the limit is written down', () => {
+  const { doc } = laws();
+  const built = buildPptx(doc, { title: 'laws' });
+  const xml = new TextDecoder().decode(built.bytes);
+  assert.ok(built.report.limitations.some((l) => /تظليل/.test(l)));
+  assert.ok(xml.length > 0);
+});
+
+test('commands reach the educational body lines: «صغّر النص في الشريحة الخامسة»', () => {
+  const { doc } = laws();
+  const r = runCommand(doc, 'صغّر النص في الشريحة الخامسة', { brand: KITABWBS_PRESET });
+  assert.equal(r.intent, 'resize_text');
+  assert.match(r.reply, /النص/);
+  const body = r.doc.pages[4].elements.find((e) => e.id === 'body');
+  assert.ok(body.style.fontSize < doc.pages[4].elements.find((e) => e.id === 'body').style.fontSize);
+  assert.ok(r.doc.pages.every((p, i) => i === 4 || JSON.stringify(p.elements) === JSON.stringify(doc.pages[i].elements)), 'other pages untouched');
 });

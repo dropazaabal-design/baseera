@@ -1,10 +1,11 @@
 {
  "kind": "style-composition-matrix",
- "generatedAt": "2026-10-02",
+ "generatedAt": "2026-10-03",
  "identity": "kitabwbs",
  "rendered": true,
  "sequences": {
   "quiet-editorial": {
+   "sequence": "listen-carousel",
    "fingerprint": "7950992e13bd7617",
    "pages": [
     "hero",
@@ -13,7 +14,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -27,7 +28,7 @@
     "light"
    ],
    "errors": 0,
-   "warnings": 2,
+   "warnings": 3,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -41,6 +42,7 @@
    "status": "ready"
   },
   "magazine-bold": {
+   "sequence": "listen-carousel",
    "fingerprint": "83ac5a9235d43e73",
    "pages": [
     "hero",
@@ -49,7 +51,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -63,7 +65,7 @@
     "dark"
    ],
    "errors": 0,
-   "warnings": 1,
+   "warnings": 2,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -77,6 +79,7 @@
    "status": "ready"
   },
   "swiss-editorial": {
+   "sequence": "listen-carousel",
    "fingerprint": "f8c6e9a578bd4a80",
    "pages": [
     "hero",
@@ -85,7 +88,44 @@
     "numbered",
     "numbered",
     "numbered",
+    "numbered/art",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 3,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "f8c6e9a578bd4a80",
+    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
+    "by": "assistant",
+    "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "newspaper-editorial": {
+   "sequence": "listen-carousel",
+   "fingerprint": "1eea3577af160bde",
+   "pages": [
+    "hero",
     "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -104,42 +144,6 @@
    "browserOverflow": [],
    "review": {
     "verdict": "ready",
-    "fingerprint": "f8c6e9a578bd4a80",
-    "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
-    "by": "assistant",
-    "at": "2026-10-02",
-    "current": true
-   },
-   "status": "ready"
-  },
-  "newspaper-editorial": {
-   "fingerprint": "1eea3577af160bde",
-   "pages": [
-    "hero",
-    "numbered",
-    "numbered",
-    "numbered",
-    "numbered",
-    "numbered",
-    "numbered",
-    "outro"
-   ],
-   "modes": [
-    "light",
-    "light",
-    "light",
-    "light",
-    "light",
-    "light",
-    "light",
-    "light"
-   ],
-   "errors": 0,
-   "warnings": 1,
-   "issues": [],
-   "browserOverflow": [],
-   "review": {
-    "verdict": "ready",
     "fingerprint": "1eea3577af160bde",
     "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%",
     "by": "assistant",
@@ -149,6 +153,7 @@
    "status": "ready"
   },
   "monochrome-editorial": {
+   "sequence": "listen-carousel",
    "fingerprint": "faf6e90663d3f0cf",
    "pages": [
     "hero",
@@ -157,7 +162,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -171,7 +176,7 @@
     "light"
    ],
    "errors": 0,
-   "warnings": 1,
+   "warnings": 2,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -185,6 +190,7 @@
    "status": "ready"
   },
   "collage-cutout": {
+   "sequence": "listen-carousel",
    "fingerprint": "27ef3a5e27d0bc4c",
    "pages": [
     "collage",
@@ -193,7 +199,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -207,7 +213,7 @@
     "light"
    ],
    "errors": 0,
-   "warnings": 1,
+   "warnings": 3,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -221,6 +227,7 @@
    "status": "ready"
   },
   "quiet-minimal": {
+   "sequence": "listen-carousel",
    "fingerprint": "e9d6c83ffbdbf41e",
    "pages": [
     "hero",
@@ -229,7 +236,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -243,7 +250,7 @@
     "light"
    ],
    "errors": 0,
-   "warnings": 1,
+   "warnings": 3,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -257,6 +264,7 @@
    "status": "ready"
   },
   "geometric-editorial": {
+   "sequence": "listen-carousel",
    "fingerprint": "964841de2ecbedae",
    "pages": [
     "hero",
@@ -265,7 +273,7 @@
     "numbered",
     "numbered",
     "numbered",
-    "numbered",
+    "numbered/art",
     "outro"
    ],
    "modes": [
@@ -279,7 +287,7 @@
     "light"
    ],
    "errors": 0,
-   "warnings": 1,
+   "warnings": 3,
    "issues": [],
    "browserOverflow": [],
    "review": {
@@ -288,6 +296,84 @@
     "note": "راجعتُ الكاروسيل كاملًا (8 شرائح): العدّاد وزر السحب والتناوب إن وُجد، وتسلسل غلاف ← 6 عادات ← خاتمة. ملاحظة معروفة: عنوان الغلاف الطباعي «كيف تتكلم فيُنصت لك الآخرون؟» ينتهي بكلمة وحدها بهذا الحجم، ولا يصلحه عرض إطار ولا تصغير حتى 12%. بعد الإصلاح: دائرة الغلاف بلون السطح في الكاروسيل حتى يبقى زر السحب مقروءًا",
     "by": "assistant",
     "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "mint-highlight": {
+   "sequence": "listen-carousel",
+   "fingerprint": "6959716215d856bc",
+   "pages": [
+    "hero",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered",
+    "numbered/art",
+    "outro"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 3,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6959716215d856bc",
+    "note": "كاروسيل الإنصات بالأسلوب: عدّاد «1/8» نصّي، اسم الحساب يمينًا و«اسحب واكتشف» يسارًا، الأرقام سوداء والكلمات مظلّلة؛ عنوان الغلاف ينتهي بكلمة منفردة (حد الغلاف الطباعي المعروف)",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  "mint-highlight:laws-carousel": {
+   "sequence": "laws-carousel",
+   "fingerprint": "ec9231be417c85c5",
+   "pages": [
+    "opener",
+    "concept/plain",
+    "concept/box",
+    "concept/callout",
+    "concept/figure",
+    "flow/fill",
+    "flow/mark",
+    "concept/panel",
+    "concept/rule",
+    "actions"
+   ],
+   "modes": [
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light",
+    "light"
+   ],
+   "errors": 0,
+   "warnings": 0,
+   "issues": [],
+   "browserOverflow": [],
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "ec9231be417c85c5",
+    "note": "كاروسيل القوانين السبعة (10 شرائح) بأحجام الطلب (116/88/44): لا تتكرر التوزيعات المتجاورة، شريط التظليل في النصف السفلي من الكلمة، اللوح والمراحل والخاتمة كما في المرجع؛ بلا فيض ولا كلمة منفردة",
+    "by": "assistant",
+    "at": "2026-10-03",
     "current": true
    },
    "status": "ready"
@@ -314,18 +400,21 @@
   ],
   "geometric-editorial": [
    "sequence/1"
+  ],
+  "mint-highlight": [
+   "sequence/1"
   ]
  },
  "note": "Reviews bind to the layout engine version, the style's visual fields, the composition code and the samples; changing any of them returns the pair to needs_review.",
  "totals": {
-  "styles": 8,
-  "compositions": 11,
-  "readyStyleCompositionPairs": 75,
-  "possiblePairs": 88
+  "styles": 9,
+  "compositions": 15,
+  "readyStyleCompositionPairs": 89,
+  "possiblePairs": 135
  },
  "summary": {
-  "ready": 159,
-  "not_claimed": 28
+  "ready": 173,
+  "not_claimed": 97
  },
  "byStyle": {
   "quiet-editorial": {
@@ -354,6 +443,22 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -379,6 +484,22 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -407,6 +528,22 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -432,6 +569,22 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -460,6 +613,22 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -482,7 +651,24 @@
     "outro"
    ],
    "notReady": [],
-   "notClaimed": []
+   "notClaimed": [
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    }
+   ]
   },
   "quiet-minimal": {
    "formats": [
@@ -512,6 +698,22 @@
     {
      "composition": "framework",
      "why": "الإطار شبكة بطاقات؛ الأسلوب بلا بطاقات"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
     }
    ]
   },
@@ -540,6 +742,50 @@
     {
      "composition": "collage",
      "why": "القصاصات المائلة بأشرطتها اللاصقة لغة بصرية مستقلة؛ لا تُدمج مع هذا الأسلوب"
+    },
+    {
+     "composition": "opener",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "concept",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "flow",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    },
+    {
+     "composition": "actions",
+     "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه"
+    }
+   ]
+  },
+  "mint-highlight": {
+   "formats": [
+    "portrait"
+   ],
+   "ready": [
+    "hero",
+    "list",
+    "post",
+    "comparison",
+    "quote",
+    "statement",
+    "numbered",
+    "stat",
+    "framework",
+    "opener",
+    "concept",
+    "flow",
+    "actions",
+    "outro"
+   ],
+   "notReady": [],
+   "notClaimed": [
+    {
+     "composition": "collage",
+     "why": "القصاصات المائلة بأشرطتها اللاصقة تخالف هدوء الأسلوب التعليمي"
     }
    ]
   }
@@ -1098,7 +1344,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -1170,7 +1416,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -1602,6 +1848,474 @@
     "current": true
    },
    "status": "ready"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "6aaa5fd640f41ca8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "6aaa5fd640f41ca8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "6aaa5fd640f41ca8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "e57512f01dca81f1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "e57512f01dca81f1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "e57512f01dca81f1",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "3702e378f158e8ce",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "3702e378f158e8ce",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "3702e378f158e8ce",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "43fb3f03fa4317de",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "square",
+   "claimed": false,
+   "fingerprint": "43fb3f03fa4317de",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "43fb3f03fa4317de",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
   },
   {
    "style": "quiet-editorial",
@@ -2660,6 +3374,486 @@
    "status": "ready"
   },
   {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "67d26810d1286387",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "67d26810d1286387",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "fd84260607330603",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "box-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "callout-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "panel-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "rule-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    },
+    "figure-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "fd84260607330603",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "box-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "callout-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "panel-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "rule-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    },
+    "figure-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "e09a4d2e9efd9d9d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    },
+    "mark-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "e09a4d2e9efd9d9d",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    },
+    "mark-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "e0c691569c823047",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "magazine-bold",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "e0c691569c823047",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
    "style": "magazine-bold",
    "styleVersion": 1,
    "composition": "outro",
@@ -3452,6 +4646,318 @@
    "status": "ready"
   },
   {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "28cefdbd716a1e48",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "28cefdbd716a1e48",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "61a6ad6824cc1966",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "61a6ad6824cc1966",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "ea6a19dfb9b631b6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "ea6a19dfb9b631b6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "8dd8d71da7b4e529",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "swiss-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "8dd8d71da7b4e529",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
    "style": "swiss-editorial",
    "styleVersion": 1,
    "composition": "outro",
@@ -3900,7 +5406,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -3936,7 +5442,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -4232,6 +5738,318 @@
    "status": "ready"
   },
   {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "e6036a505821041f",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "e6036a505821041f",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "340fb269a264b49f",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "340fb269a264b49f",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "b397816a23ba54a5",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "b397816a23ba54a5",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "dc20a3cb48c01211",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "newspaper-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "dc20a3cb48c01211",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
    "style": "newspaper-editorial",
    "styleVersion": 1,
    "composition": "outro",
@@ -4668,7 +6486,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -4704,7 +6522,7 @@
     },
     "long": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -4998,6 +6816,318 @@
     "current": true
    },
    "status": "ready"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "746109e9ce99f53c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "746109e9ce99f53c",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "a887d6adcab9e8bb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "a887d6adcab9e8bb",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "340a2a7c61d77bf3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "340a2a7c61d77bf3",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "c2f5a8660d290a8d",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "monochrome-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "c2f5a8660d290a8d",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
   },
   {
    "style": "monochrome-editorial",
@@ -5574,13 +7704,13 @@
     },
     "long-light": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     },
     "long-dark": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -5622,13 +7752,13 @@
     },
     "long-light": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     },
     "long-dark": {
      "errors": 0,
-     "warnings": 0,
+     "warnings": 1,
      "issues": [],
      "chars": 151
     }
@@ -6030,6 +8160,486 @@
     "current": true
    },
    "status": "ready"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "6e697b6496000c1b",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "6e697b6496000c1b",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "cdced74e8e7a99d9",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "box-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "callout-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "panel-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "rule-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    },
+    "figure-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "cdced74e8e7a99d9",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "box-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "callout-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "panel-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "rule-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    },
+    "figure-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "9993a3823ff84db2",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    },
+    "mark-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "9993a3823ff84db2",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    },
+    "mark-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "bbf09442ffd2277e",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "collage-cutout",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "bbf09442ffd2277e",
+   "samples": {
+    "short-light": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "short-dark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long-light": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    },
+    "long-dark": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
   },
   {
    "style": "collage-cutout",
@@ -6812,6 +9422,318 @@
    "status": "not_claimed"
   },
   {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "b7f1859ab670d1c9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "b7f1859ab670d1c9",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "41a3c6ce01f02161",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "41a3c6ce01f02161",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "b3ab60786da804af",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "b3ab60786da804af",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "c626dc1bd9428636",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "quiet-minimal",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "c626dc1bd9428636",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
    "style": "quiet-minimal",
    "styleVersion": 1,
    "composition": "outro",
@@ -7580,6 +10502,318 @@
    "status": "ready"
   },
   {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "c68e055821448eaa",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "c68e055821448eaa",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "a3c7b092d05010de",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "a3c7b092d05010de",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "05e420e12a1650b6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "05e420e12a1650b6",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "d3ee1f8dd6a045ab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "why": "من المجموعة التعليمية التي أُضيفت بعد مراجعة هذا الأسلوب: لا يُدّعى حتى يُبنى ويُراجَع معه",
+   "style": "geometric-editorial",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "story",
+   "claimed": false,
+   "fingerprint": "d3ee1f8dd6a045ab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
    "style": "geometric-editorial",
    "styleVersion": 1,
    "composition": "outro",
@@ -7647,6 +10881,576 @@
     "note": "تغيّر سجل الأسلوب (دائرة بلون السطح في غلاف الكاروسيل فقط)؛ الصفحات المفردة مطابقة بكسلًا للمراجَعة (scripts/sheet-diff.mjs)",
     "by": "assistant",
     "at": "2026-10-02",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "hero",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "7c787d729defcc5b",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 46
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 178
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "7c787d729defcc5b",
+    "note": "الكلمة المميزة على شريط نعناعي بلون النص، والشارة نص أخضر بلا كبسولة، وخط فاصل رفيع بعرض العمود؛ الطويل في 3 أسطر بلا فيض (سطره الداعم ينتهي بكلمة: تحذير text.lone-word)",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "list",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "a6106df398a33b0f",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 90
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 407
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "a6106df398a33b0f",
+    "note": "بطاقات بإطار رفيع ورقم أخضر بلا دائرة؛ العيّنة الطويلة تنتقل إلى عمودين (حد سعة التكوين نفسه في كل الأساليب) وتبقى مقروءة",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "post",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "cb6ee969ebffb0f4",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 56
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 197
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "cb6ee969ebffb0f4",
+    "note": "علامات صح خضراء بلا دوائر، وزر الدعوة لوح نعناعي بنص داكن وسهم",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "comparison",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "708fdaa19f95b8fc",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 128
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 341
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "708fdaa19f95b8fc",
+    "note": "البطاقة الإيجابية بإطار أخضر وشارة خضراء، والسلبية بإطار رفيع؛ بالأحجام المحددة (بلا تكبير) تبقى العيّنة القصيرة صغيرة وسط فراغ واسع، مقروءة ومتوازنة",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "quote",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "4d9f3f01ebacf2cf",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 51
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 150
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "4d9f3f01ebacf2cf",
+    "note": "خط جانبي أخضر واقتباس أسود؛ الطويل في 5 أسطر بلا ازدحام",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "statement",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "6bc7227becd78d3e",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 25
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 151
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6bc7227becd78d3e",
+    "note": "جملة كبيرة والكلمة المميزة على الشريط؛ الطويل في 4 أسطر والسطر الداعم تحته",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "why": "القصاصات المائلة بأشرطتها اللاصقة تخالف هدوء الأسلوب التعليمي",
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "collage",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": false,
+   "fingerprint": "eca78495836c8eab",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 94
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 225
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": null,
+   "status": "not_claimed"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "numbered",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "465ccba615a881f2",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 37
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 152
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "465ccba615a881f2",
+    "note": "الرقم أسود كبير (لا أخضر) والعنوان تحته بتظليل الكلمة؛ متوازن في القصير والطويل",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "stat",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "23d70d66d14da6d5",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 111
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 190
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "23d70d66d14da6d5",
+    "note": "الرقم أسود، والمعنى بتظليل الكلمة، والمصدر تحت خط رفيع؛ «5 ثوانٍ» بعلاماتها كاملة، والعنوان الطويل في 3 أسطر بلا كلمة منفردة",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "framework",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "90d537b4f2d2a8b8",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 316
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "90d537b4f2d2a8b8",
+    "note": "بطاقات بإطار رفيع وأرقام خضراء على سطر الاسم؛ الصف الأخير القصير بعرض الصفحة",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "opener",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "a6b8af8671304631",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 44
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 173
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "a6b8af8671304631",
+    "note": "رقم أسود كبير ثم العنوان والكلمة المميزة على الشريط؛ في الطويل يمتد التظليل على سطرين لأن العبارة المميزة طويلة",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "concept",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "333580da3c390f91",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 69
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 176
+    },
+    "box": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 149
+    },
+    "callout": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 175
+    },
+    "panel": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 154
+    },
+    "rule": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 160
+    },
+    "figure": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 131
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "333580da3c390f91",
+    "note": "التوزيعات الستة: نص، إطار رفيع موسّط، خلاصة على لوح، عنوان في لوح (الكلمة المميزة بالأخضر لأن الشريط لا يظهر على اللوح)، فاصل بعرض العمود، رقم على شريط بعرض العمود؛ لا فيض ولا كلمة منفردة في العناوين",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "flow",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "1c67e6fae3960146",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 72
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 240
+    },
+    "mark": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 167
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "1c67e6fae3960146",
+    "note": "مربعان أو ثلاثة بإطار رفيع ودائرة بسهم نازل أخضر؛ «النتيجة مظلّلة» تلوّن المربع الأخير و«العناوين مظلّلة» تضع الشريط خلف كل عنوان",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "actions",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "bceb53d076b3b144",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 38
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 1,
+     "issues": [],
+     "chars": 200
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "bceb53d076b3b144",
+    "note": "صفّا إجراء بعرض الصفحة: الأول نعناعي والثاني بإطار، والأيقونة عند نهاية القراءة (طائرة الإرسال مقلوبة لليمين إلى اليسار)",
+    "by": "assistant",
+    "at": "2026-10-03",
+    "current": true
+   },
+   "status": "ready"
+  },
+  {
+   "style": "mint-highlight",
+   "styleVersion": 1,
+   "composition": "outro",
+   "compositionVersion": 1,
+   "format": "portrait",
+   "claimed": true,
+   "fingerprint": "6c890a2e53927720",
+   "samples": {
+    "short": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 54
+    },
+    "long": {
+     "errors": 0,
+     "warnings": 0,
+     "issues": [],
+     "chars": 191
+    }
+   },
+   "browser": {
+    "overflow": [],
+    "loneLastWord": []
+   },
+   "review": {
+    "verdict": "ready",
+    "fingerprint": "6c890a2e53927720",
+    "note": "الدائرة والحلقة بالأخضر المعتّم، والزران وحساب الهوية واضحة؛ بلا دعوة سحب في الصفحة الأخيرة",
+    "by": "assistant",
+    "at": "2026-10-03",
     "current": true
    },
    "status": "ready"

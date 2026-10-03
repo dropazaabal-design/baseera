@@ -1,0 +1,19 @@
+{
+ "kind": "edits",
+ "design": "laws-carousel",
+ "note": "The delivered design.json is the composed carousel (revision 1), inside the brief's type ranges. The edit below was run on a copy to show a local edit; rerun it with the command in README.md.",
+ "edits": [
+  {
+   "command": "كبّر العنوان الثاني قليلًا",
+   "intent": "resize_text",
+   "reply": "كبّرت العنوان من 88 إلى 97 بكسل، وأعدت توزيع الصفحة حوله.",
+   "changedContent": ["الشريحة 2: حجم العنوان 88 → 97"],
+   "movedOnly": ["الشريحة 2: التمهيد صعد 12 بكسل، والسطور نزلت 12 بكسل"],
+   "untouched": "الشرائح التسع الأخرى عنصرًا عنصرًا",
+   "local": true,
+   "aiGenerations": 0,
+   "checkAfter": "0 أخطاء، 0 تحذيرات",
+   "note": "97 بكسل فوق نطاق العناوين في الطلب (70–90): الأمر الصريح يتقدم على القاعدة، ولهذا لم يُطبَّق على الملف المسلَّم"
+  }
+ ]
+}

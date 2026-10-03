@@ -148,7 +148,10 @@ what was verified and how, the open items, and the generation count from the jou
 - Styled designs (`doc.style`) transfer element by element like any other: decoration shapes,
   tilted paper sheets and per-page dark/light backgrounds are plain shapes and page fills. The
   style's accent words are what the connector loses (one colour per text box); say so before
-  building, or offer the .pptx, which keeps them. A title's line breaks come from its frame
+  building, or offer the .pptx, which keeps them. Marker bands behind words (`mint-highlight`)
+  are lost the same way on the connector; the .pptx keeps them as text highlight over the whole
+  line height (not the lower half). Frames, panels, the down arrow and the action rows are plain
+  shapes and transfer. A title's line breaks come from its frame
   width; Canva's own text metrics can still move a word, so read back and look at the preview.
 - Layer separation of a flat image («تحويل صورة إلى طبقات») re-types Arabic and can change
   words; never the default. If the user asks for it, validate the result letter by letter.

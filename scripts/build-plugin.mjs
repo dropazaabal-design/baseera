@@ -5,6 +5,7 @@
 //   skills/canva-arabic/scripts/canva.mjs         the canva_* tools as a CLI
 //   skills/canva-arabic/scripts/canva-mcp.mjs     the same tools as a local MCP server (.mcp.json)
 //   skills/canva-arabic/references/capabilities.md the capability table at build time
+//   GUIDE.md                                      the Arabic usage guide (docs/GUIDE.md)
 // and zips the plugin to dist/arabic-carousel-plugin.zip for upload.
 // Run after changing templates, plugins, fonts or styles: npm run build:plugin
 import fs from 'node:fs/promises';
@@ -177,6 +178,10 @@ await fs.mkdir(path.join(canvaSkillDir, 'references'), { recursive: true });
 await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva.mjs'), canvaCli, { mode: 0o755 });
 await fs.writeFile(path.join(canvaSkillDir, 'scripts/canva-mcp.mjs'), canvaMcp, { mode: 0o755 });
 await fs.writeFile(path.join(canvaSkillDir, 'references/capabilities.md'), capabilities);
+// The usage guide with its ready prompts travels with the plugin; its links
+// point into the repository, where the examples live.
+const guide = (await fs.readFile(path.join(root, 'docs/GUIDE.md'), 'utf8')).replace(/\]\((?!https?:)([^)]+)\)/g, (m, rel) => `](https://github.com/dropazaabal-design/baseera/blob/HEAD/docs/${rel})`);
+await fs.writeFile(path.join(pluginDir, 'GUIDE.md'), guide);
 const zipPath = path.join(root, PACKAGES.claude.zip);
 await zipPackage(pluginDir, 'claude', zipPath);
 // ChatGPT/Codex: skills and the CLIs only (see scripts/plugin-packages.mjs).

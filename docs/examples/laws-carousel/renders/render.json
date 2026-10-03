@@ -1,0 +1,34 @@
+{
+ "design": "d_pbsk3b6gxq75",
+ "revision": 1,
+ "pages": 10,
+ "size": "1080×1350",
+ "browser": {
+  "overflow": [],
+  "loneLastWord": []
+ },
+ "pptx": {
+  "file": "laws-carousel.pptx",
+  "bytes": 113313,
+  "native": {
+   "text": 68,
+   "shape": 28,
+   "vectorGroup": 0,
+   "picture": 0
+  },
+  "fonts": [
+   "Cairo",
+   "Tajawal"
+  ],
+  "degraded": 0,
+  "skipped": 0,
+  "limitations": [
+   "الكلمات المظلّلة مكتوبة بتظليل النص في PowerPoint: يغطي ارتفاع السطر كله بدل نصفه السفلي كما في المعاينة."
+  ],
+  "readback": {
+   "slides": 10,
+   "rtlTexts": 68,
+   "mismatches": []
+  }
+ }
+}

@@ -388,6 +388,7 @@ function estimateMeasure(text, style, width) {
 var SCHEMA_VERSION = 2;
 var ELEMENT_KINDS = ["text", "image", "shape"];
 var THEME_TOKENS = ["bg", "surface", "text", "muted", "accent", "onAccent"];
+var EXTRA_TOKENS = ["highlight", "line"];
 var FORMATS = {
   portrait: { id: "portrait", ratio: "4:5", width: 1080, height: 1350, inset: { top: 0, bottom: 0 } },
   square: { id: "square", ratio: "1:1", width: 1080, height: 1080, inset: { top: 0, bottom: 0 } },
@@ -405,7 +406,7 @@ var HEX = /^#[0-9A-Fa-f]{6}$/;
 var MAX_TEXT = 4e3;
 var MAX_COORD = 2e4;
 var err = (path3, message) => ({ path: path3, message });
-var isColor = (v) => typeof v === "string" && (HEX.test(v) || v === "none" || v.startsWith("@") && THEME_TOKENS.includes(v.slice(1)));
+var isColor = (v) => typeof v === "string" && (HEX.test(v) || v === "none" || v.startsWith("@") && (THEME_TOKENS.includes(v.slice(1)) || EXTRA_TOKENS.includes(v.slice(1))));
 var isFontRef = (v) => typeof v === "string" && (FONT_IDS.includes(v) || v === "@heading" || v === "@body");
 var isId = (v) => typeof v === "string" && ID.test(v);
 function validateFrame(frame2, path3) {
@@ -425,6 +426,9 @@ var TEXT_STYLE_KEYS = {
   minFontSize: (v) => isFiniteNumber(v) && v >= 6 && v <= 800,
   color: isColor,
   accentColor: isColor,
+  // *Marked* words drawn on a marker band of this colour, in the text's own
+  // colour (instead of the accent colour).
+  highlight: isColor,
   weight: (v) => Number.isInteger(v) && v >= 100 && v <= 900,
   direction: (v) => v === "rtl" || v === "ltr",
   align: (v) => ["start", "center", "end"].includes(v),
@@ -505,14 +509,14 @@ function validatePage(page, path3, assets) {
   if (!Array.isArray(page.elements)) return [...out, err(`${path3}.elements`, "must be a list")];
   const seen = /* @__PURE__ */ new Set();
   page.elements.forEach((el, i) => {
-    const where = `${path3}.elements[${i}]`;
-    out.push(...validateElement(el, where, { width: page.widthPx, height: page.heightPx }));
+    const where2 = `${path3}.elements[${i}]`;
+    out.push(...validateElement(el, where2, { width: page.widthPx, height: page.heightPx }));
     if (el?.id) {
-      if (seen.has(el.id)) out.push(err(`${where}.id`, `duplicate element id "${el.id}" on this page`));
+      if (seen.has(el.id)) out.push(err(`${where2}.id`, `duplicate element id "${el.id}" on this page`));
       seen.add(el.id);
     }
     if (el?.kind === "image" && assets && isId(el.assetId) && !assets[el.assetId]) {
-      out.push(err(`${where}.assetId`, `asset "${el.assetId}" is not in the document`));
+      out.push(err(`${where2}.assetId`, `asset "${el.assetId}" is not in the document`));
     }
   });
   return out;
@@ -1401,6 +1405,69 @@ var STYLES = [
     ],
     designedHere: ["\u062F\u0627\u0626\u0631\u0629 \u0635\u0644\u0628\u0629 \u062A\u062E\u0631\u062C \u0645\u0646 \u0623\u0633\u0641\u0644 \u0646\u0647\u0627\u064A\u0629 \u0627\u0644\u0635\u0641\u062D\u0629 (\u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D \u0641\u064A \u063A\u0644\u0627\u0641 \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u062D\u064A\u062B \u0632\u0631 \u0627\u0644\u0633\u062D\u0628)", "\u0645\u0631\u0628\u0639 \u0645\u0627\u0626\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u0633\u0637\u062D \u0641\u064A \u0623\u0639\u0644\u0649 \u0627\u0644\u0628\u062F\u0627\u064A\u0629", "\u0632\u0648\u062C \u062F\u0627\u0626\u0631\u0629 \u0648\u0645\u0631\u0628\u0639 \u0641\u0648\u0642 \u0627\u0644\u0645\u062D\u062A\u0648\u0649"],
     keepCompositionDecor: false
+  },
+  {
+    kind: "style",
+    id: "mint-highlight",
+    version: 1,
+    status: "reusable",
+    family: "educational",
+    name: "\u062A\u0639\u0644\u064A\u0645\u064A \u0628\u062A\u0638\u0644\u064A\u0644 \u0646\u0639\u0646\u0627\u0639\u064A",
+    purpose: "\u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A \u062A\u0639\u0644\u064A\u0645\u064A\u0629 \u0648\u0627\u0636\u062D\u0629: \u062E\u0644\u0641\u064A\u0629 \u0628\u064A\u0636\u0627\u0621\u060C \u0639\u0646\u0627\u0648\u064A\u0646 \u0633\u0648\u062F\u0627\u0621 \u0639\u0631\u064A\u0636\u0629\u060C \u062A\u0638\u0644\u064A\u0644 \u0646\u0639\u0646\u0627\u0639\u064A \u062E\u0644\u0641 \u0627\u0644\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0647\u0645\u0629\u060C \u0625\u0637\u0627\u0631\u0627\u062A \u0631\u0641\u064A\u0639\u0629 \u0648\u0623\u0633\u0647\u0645 \u062E\u0641\u064A\u0641\u0629\u060C \u0648\u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0641\u064A \u0643\u0644 \u0634\u0631\u064A\u062D\u0629",
+    tone: "\u0647\u0627\u062F\u0626\u060C \u0648\u0627\u0636\u062D\u060C \u062A\u0639\u0644\u064A\u0645\u064A\u060C \u0628\u0644\u0627 \u0632\u062D\u0645\u0629",
+    distinctFrom: { style: "quiet-minimal", how: "\u0627\u0644\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0647\u0645\u0629 \u0639\u0644\u0649 \u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u0646\u0639\u0646\u0627\u0639\u064A \u0628\u0644\u0648\u0646 \u0627\u0644\u0646\u0635 \u0644\u0627 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632\u060C \u0625\u0637\u0627\u0631\u0627\u062A \u0631\u0641\u064A\u0639\u0629 \u0648\u0644\u0648\u062D\u0627\u062A \u0645\u0638\u0644\u0651\u0644\u0629 \u0648\u0633\u0647\u0645 \u0646\u0627\u0632\u0644 \u0628\u064A\u0646 \u0627\u0644\u0645\u0631\u0627\u062D\u0644\u060C \u0639\u062F\u0651\u0627\u062F \xAB1/10\xBB \u0646\u0635\u0651\u064A \u0648\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628 \u0648\u062D\u062F\u0647 \u0641\u064A \u0627\u0644\u062A\u0630\u064A\u064A\u0644 \u0648\u062F\u0639\u0648\u0629 \u0633\u062D\u0628 \u0646\u0635\u0651\u064A\u0629 \u0628\u0644\u0627 \u0632\u0631\u060C \u0648\u0627\u0644\u0646\u0635 \u0645\u0646 \u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0644\u0627 \u0641\u064A \u0627\u0644\u0648\u0633\u0637" },
+    // Green is the identity's functional colour; this style is built on it
+    // (the creator's reference asks for a mint marker). Under an identity
+    // without a green role it keeps its own.
+    accentRole: "positive",
+    tokens: {
+      light: { bg: "#FFFFFF", surface: "#F3F7F5", text: "#14181F", muted: "#4A515A", accent: "#10B981", highlight: 0.84, line: "#E1E6E9" }
+    },
+    defaultMode: "light",
+    type: { titleScale: 1, titleWeight: "black", titleLineHeight: 1.35, headingFont: "cairo", bodyFont: "tajawal" },
+    treatment: {
+      accentMode: "highlight",
+      kicker: "plain",
+      pillFill: "@highlight",
+      pillText: "@text",
+      pillRadius: 8,
+      cardMode: "outline",
+      cardStroke: "@line",
+      cardRadius: 8,
+      badge: "plain",
+      rule: { width: "full", height: 2 },
+      ruleFill: "@line",
+      ruleRadius: 0,
+      figureColor: "@text",
+      boxRadius: 8,
+      artRadius: 8
+    },
+    // The creator's type scale: cover title 116, titles 88, body 44 px at
+    // 1080 wide (brief: 90–120 / 70–90 / 42–55); short pages keep these
+    // sizes and gain white space instead of growing.
+    layout: { stackAlign: "center", margin: 96, capScale: 1 },
+    chrome: {
+      look: { bar: false, counter: "plain", swipe: "text", badge: "name" },
+      defaults: { pagination: { style: "fraction" }, swipe: { text: "\u0627\u0633\u062D\u0628 \u0648\u0627\u0643\u062A\u0634\u0641", lastText: "" } }
+    },
+    decor: {},
+    densities: ["comfortable"],
+    // Roles not claimed, and why (a design decision, not a test result).
+    notFor: { collage: "\u0627\u0644\u0642\u0635\u0627\u0635\u0627\u062A \u0627\u0644\u0645\u0627\u0626\u0644\u0629 \u0628\u0623\u0634\u0631\u0637\u062A\u0647\u0627 \u0627\u0644\u0644\u0627\u0635\u0642\u0629 \u062A\u062E\u0627\u0644\u0641 \u0647\u062F\u0648\u0621 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0627\u0644\u062A\u0639\u0644\u064A\u0645\u064A" },
+    roles: ["cover", "cover-figure", "concept", "flow", "list", "steps", "evidence", "framework", "comparison", "quote", "statement", "cta", "cta-actions"],
+    formats: ["portrait"],
+    rtl: ["\u0627\u0644\u062A\u0638\u0644\u064A\u0644 \u064A\u063A\u0637\u064A \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0633\u0641\u0644\u064A \u0645\u0646 \u0627\u0644\u0643\u0644\u0645\u0629 \u0648\u064A\u0645\u062A\u062F \u0642\u0644\u064A\u0644\u064B\u0627 \u0639\u0646 \u0637\u0631\u0641\u064A\u0647\u0627\u060C \u0641\u0644\u0627 \u064A\u0642\u0637\u0639 \u0646\u0642\u0627\u0637 \u0627\u0644\u062D\u0631\u0648\u0641 \u0648\u0644\u0627 \u0639\u0644\u0627\u0645\u0627\u062A\u0647\u0627", "\u0627\u0644\u0639\u062F\u0651\u0627\u062F \u0648\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628 \u0639\u0646\u062F \u0646\u0647\u0627\u064A\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 (\u0627\u0644\u064A\u0633\u0627\u0631)\u060C \u0648\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628 \u0639\u0646\u062F \u0628\u062F\u0627\u064A\u062A\u0647\u0627", "\u0633\u0647\u0645 \u0627\u0644\u0645\u0631\u0627\u062D\u0644 \u0646\u0627\u0632\u0644 \u0644\u0627 \u062C\u0627\u0646\u0628\u064A\u060C \u0641\u0644\u0627 \u064A\u062D\u062A\u0627\u062C \u0642\u0644\u0628\u064B\u0627"],
+    provenance: [
+      {
+        source: null,
+        reference: { kind: "creator-reference", at: "2026-10-03", what: "\u0635\u0648\u0631\u0629 \u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u0645\u0631\u062C\u0639\u064A\u0629 \u0645\u0646 10 \u0634\u0631\u0627\u0626\u062D \u0648\u0648\u0635\u0641 \xABDNA \u0628\u0635\u0631\u064A\xBB \u0641\u064A \u0637\u0644\u0628 \u0635\u0627\u062D\u0628 \u0627\u0644\u062D\u0633\u0627\u0628" },
+        extracted: ["\u062E\u0644\u0641\u064A\u0629 \u0628\u064A\u0636\u0627\u0621 \u0648\u0639\u0646\u0627\u0648\u064A\u0646 \u0633\u0648\u062F\u0627\u0621 \u0639\u0631\u064A\u0636\u0629", "\u062A\u0638\u0644\u064A\u0644 \u0646\u0639\u0646\u0627\u0639\u064A \u062E\u0644\u0641 \u0627\u0644\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0647\u0645\u0629", "\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u062D\u0648\u0644 \u0641\u0643\u0631\u0629\u060C \u0648\u0644\u0648\u062D \u0645\u0638\u0644\u0651\u0644\u060C \u0648\u0634\u0631\u064A\u0637 \u062E\u0644\u0627\u0635\u0629 \u0645\u0638\u0644\u0651\u0644", "\u0645\u0631\u0628\u0639\u0627\u0646 \u0628\u064A\u0646\u0647\u0645\u0627 \u062F\u0627\u0626\u0631\u0629 \u0628\u0633\u0647\u0645 \u0646\u0627\u0632\u0644", "\u0635\u0641\u0651\u0627 \u0625\u062C\u0631\u0627\u0621 \u0628\u0639\u0631\u0636 \u0627\u0644\u0635\u0641\u062D\u0629 \u0641\u064A \u0627\u0644\u062E\u0627\u062A\u0645\u0629", "\u0639\u062F\u0651\u0627\u062F \xAB1/10\xBB \u0648\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628 \u0648\u062F\u0639\u0648\u0629 \xAB\u0627\u0633\u062D\u0628 \u0648\u0627\u0643\u062A\u0634\u0641\xBB \u0646\u0635\u0648\u0635\u064B\u0627 \u0635\u063A\u064A\u0631\u0629"],
+        adapted: ["\u0627\u0644\u0623\u062E\u0636\u0631 \u0645\u0646 \u0627\u0644\u062F\u0648\u0631 \u0627\u0644\u0648\u0638\u064A\u0641\u064A \u0641\u064A \u0627\u0644\u0647\u0648\u064A\u0629 (#10B981)\u060C \u0645\u064F\u0639\u062A\u064E\u0651\u0645 \u0644\u0644\u0646\u0635 \u062D\u062A\u0649 \u062A\u0628\u0627\u064A\u0646 4.5\u060C \u0648\u0627\u0644\u062A\u0638\u0644\u064A\u0644 \u062E\u0644\u064A\u0637 \u0645\u0646\u0647 \u0645\u0639 \u0627\u0644\u0623\u0628\u064A\u0636", "\u0627\u0644\u062E\u0637\u0651\u0627\u0646 Cairo \u0648Tajawal \u0645\u0646 \u0627\u0644\u0647\u0648\u064A\u0629", "\u0623\u062D\u062C\u0627\u0645 \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646 \u0648\u0627\u0644\u0645\u062A\u0646 \u0645\u0646 \u0642\u0648\u0627\u0639\u062F \u0627\u0644\u0637\u0644\u0628 (\u0627\u0644\u063A\u0644\u0627\u0641 116\u060C \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646 88\u060C \u0627\u0644\u0645\u062A\u0646 44 \u0628\u0643\u0633\u0644 \u0639\u0644\u0649 \u0639\u0631\u0636 1080) \u0648\u0644\u0627 \u062A\u0643\u0628\u0631 \u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u0642\u0635\u064A\u0631\u0629 \u0641\u0648\u0642\u0647\u0627"],
+        notUsed: ["\u0646\u0635\u0648\u0635 \u0627\u0644\u0635\u0648\u0631\u0629 \u0627\u0644\u0645\u0631\u062C\u0639\u064A\u0629: \u0643\u064F\u062A\u0628 \u0646\u0635 \u0627\u0644\u0645\u062B\u0627\u0644 \u0645\u0646 \u062C\u062F\u064A\u062F"]
+      }
+    ],
+    designedHere: ["\u0627\u0644\u062A\u0638\u0644\u064A\u0644 \u0641\u064A \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0633\u0641\u0644\u064A \u0645\u0646 \u0627\u0644\u0633\u0637\u0631 \u0628\u0644\u0648\u0646 \u0627\u0644\u0646\u0635", "\u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u0628\u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0648\u062F \u062E\u0644\u0641 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0643\u0628\u064A\u0631", "\u0633\u0645\u0627\u0643\u0629 \u0627\u0644\u0625\u0637\u0627\u0631 2 \u0648\u0632\u0648\u0627\u064A\u0627\u0647 8", "\u0627\u0644\u0639\u062F\u0651\u0627\u062F \u0648\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628 \u0648\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628 \u0646\u0635\u0648\u0635\u064B\u0627 \u0628\u0644\u0627 \u062E\u0644\u0641\u064A\u0627\u062A"],
+    keepCompositionDecor: false
   }
 ];
 
@@ -1616,8 +1683,15 @@ function withColor(theme, role, hex) {
   const raw = role === "bg" ? { ...derivePalette({ bg: hex, accent: theme.colors.accent }), accent: theme.colors.accent } : { ...theme.colors, [role]: hex };
   return { ...theme, colors: resolvePalette(raw).colors };
 }
+var DERIVED_ROLES = {
+  highlight: (c) => mix(c.accent, c.bg, 0.84),
+  line: (c) => mix(c.text, c.bg, 0.86)
+};
 function resolveColor(value, colors) {
-  if (typeof value === "string" && value.startsWith("@")) return colors[value.slice(1)] ?? "#000000";
+  if (typeof value === "string" && value.startsWith("@")) {
+    const role = value.slice(1);
+    return colors[role] ?? (DERIVED_ROLES[role] && colors.accent ? DERIVED_ROLES[role](colors) : "#000000");
+  }
   return value;
 }
 function resolveFont(value, fonts) {
@@ -1689,8 +1763,14 @@ var alignedX = (box, w, align, ctx) => align === "center" ? box.x + (box.width -
 var frame = (x, y, width, height) => ({ x: round(x, 1), y: round(y, 1), width: round(Math.max(1, width), 1), height: round(Math.max(1, height), 1) });
 var treat = (ctx) => ctx.style?.treatment ?? {};
 var cornerOf = (value, auto) => value === void 0 || value === null || value === "auto" ? auto : value === "full" ? auto : Number(value);
-function textElement(id, f3, text, ctx, { font = "@body", weightRole = "regular", size, min, lineHeight, color = "@text", align = "start", nowrap = false, ...extra }) {
+var markerOf = (ctx, text, color, role) => {
+  const t = ctx.style?.treatment;
+  if (t?.accentMode !== "highlight" || role === "system" || !String(text ?? "").includes("*")) return null;
+  return color === "@accent" || color === "@onAccent" ? null : t.highlightFill ?? "@highlight";
+};
+function textElement(id, f3, text, ctx, { font = "@body", weightRole = "regular", size, min, lineHeight, color = "@text", align = "start", nowrap = false, marker = true, ...extra }) {
   const fontId = resolveFont(font, ctx.theme.fonts);
+  const highlight = marker ? markerOf(ctx, text, color, extra.role) : null;
   return {
     id,
     kind: "text",
@@ -1707,7 +1787,8 @@ function textElement(id, f3, text, ctx, { font = "@body", weightRole = "regular"
       direction: ctx.rtl === false ? "ltr" : "rtl",
       align,
       lineHeight,
-      ...nowrap && { nowrap: true }
+      ...nowrap && { nowrap: true },
+      ...highlight && { highlight }
     },
     ...extra
   };
@@ -1752,7 +1833,7 @@ function emitPill(b, box, s, ctx, at) {
   const outline = !b.fill && t.pillFill === "outline";
   const fill = b.fill ?? (outline ? "none" : t.pillFill ?? "@accent");
   const radius = t.pillRadius === void 0 || t.pillRadius === "full" ? round(p.h / 2, 1) : Number(t.pillRadius);
-  const onPill = b.color ?? (outline ? "@accent" : t.pillFill === "@text" ? "@bg" : "@onAccent");
+  const onPill = b.color ?? (outline ? "@accent" : t.pillText ?? (t.pillFill === "@text" ? "@bg" : "@onAccent"));
   const els = [
     shapeElement(`${b.id}-bg`, frame(x, y, p.w, p.h), "rect", fill, { radius, ...outline && { stroke: "@accent", strokeWidth: 3 }, role: "decor", name: `\u062E\u0644\u0641\u064A\u0629 ${b.name ?? ""}`.trim(), anim: b.anim })
   ];
@@ -1804,15 +1885,15 @@ function listRows(b, width, s, ctx) {
   const gap = sizeAt(b.size, s) * (b.itemGap ?? 0.5);
   return { rows, colW, colGap, gap, total: rows.reduce((t, r) => t + r.h, 0) + gap * Math.max(0, rows.length - 1) };
 }
-function cardShapes(id, cell, size, ctx, name, anim, fill) {
+function cardShapes(id, cell2, size, ctx, name, anim, fill) {
   const t = treat(ctx);
   const mode = t.cardMode ?? "fill";
-  if (mode === "rule") return [shapeElement(`${id}-card`, frame(cell.x, cell.y + cell.height - 3, cell.width, 3), "rect", "@muted", { opacity: 0.35, role: "decor", name: `\u0641\u0627\u0635\u0644 ${name}`, anim })];
+  if (mode === "rule") return [shapeElement(`${id}-card`, frame(cell2.x, cell2.y + cell2.height - 3, cell2.width, 3), "rect", "@muted", { opacity: 0.35, role: "decor", name: `\u0641\u0627\u0635\u0644 ${name}`, anim })];
   const cr = cornerOf(t.cardRadius, Math.round(size * 0.65));
-  const els = [shapeElement(`${id}-card`, frame(cell.x, cell.y, cell.width, cell.height), "rect", mode === "outline" ? "none" : fill ?? t.cardFill ?? "@surface", { radius: cr, ...mode === "outline" && { stroke: t.cardStroke ?? "@muted", strokeWidth: t.cardStrokeWidth ?? 2 }, role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name}`, anim })];
+  const els = [shapeElement(`${id}-card`, frame(cell2.x, cell2.y, cell2.width, cell2.height), "rect", mode === "outline" ? "none" : fill ?? t.cardFill ?? "@surface", { radius: cr, ...mode === "outline" && { stroke: t.cardStroke ?? "@muted", strokeWidth: t.cardStrokeWidth ?? 2 }, role: "decor", name: `\u0628\u0637\u0627\u0642\u0629 ${name}`, anim })];
   if (mode === "accent-bar") {
     const bw = 8;
-    els.push(shapeElement(`${id}-accent`, frame(ctx.rtl === false ? cell.x : cell.x + cell.width - bw, cell.y, bw, Math.max(24, cell.height * 0.32)), "rect", "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name}`, anim }));
+    els.push(shapeElement(`${id}-accent`, frame(ctx.rtl === false ? cell2.x : cell2.x + cell2.width - bw, cell2.y, bw, Math.max(24, cell2.height * 0.32)), "rect", "@accent", { role: "decor", name: `\u0639\u0644\u0627\u0645\u0629 ${name}`, anim }));
   }
   return els;
 }
@@ -1882,25 +1963,39 @@ function titleLayout(ctx, b, width, s) {
   }
   return first;
 }
+var boxPad = (b, s) => b.boxed ? { x: Math.round(sizeAt(b.size, s) * (b.boxed.padX ?? 0.7)), y: Math.round(sizeAt(b.size, s) * (b.boxed.padY ?? 0.5)) } : { x: 0, y: 0 };
+function boxShape(id, fr, mode, ctx, name, anim) {
+  const t = treat(ctx);
+  const fill = mode === "outline" ? "none" : t.boxFill ?? "@highlight";
+  const stroke = mode === "fill" ? null : t.boxStroke ?? "@line";
+  return shapeElement(id, fr, "rect", fill, { radius: cornerOf(t.boxRadius, 8), ...stroke && { stroke, strokeWidth: t.boxStrokeWidth ?? 2 }, role: "decor", name, anim });
+}
 var BLOCKS = {
   text: {
     height(b, width, s, ctx) {
-      const w = width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0);
-      if (b.balance && !b.nowrap) return titleLayout(ctx, b, w, s).height;
+      const pad = boxPad(b, s);
+      const w = width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0) - pad.x * 2;
+      if (b.balance && !b.nowrap) return titleLayout(ctx, b, w, s).height + pad.y * 2;
       const style = textStyle(ctx, { font: b.font, weightRole: b.weightRole, size: sizeAt(b.size, s), lineHeight: b.lineHeight });
-      return measureText(ctx, b.text, style, w).height;
+      return measureText(ctx, b.text, style, w).height + pad.y * 2;
     },
     emit(b, box, s, ctx) {
-      const balanced = b.balance && !b.nowrap ? titleLayout(ctx, b, box.width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0), s) : null;
+      const pad = boxPad(b, s);
+      const balanced = b.balance && !b.nowrap ? titleLayout(ctx, b, box.width * (b.maxWidth ?? 1) - (b.bar ? 10 + sizeAt(b.size, s) * 0.7 : 0) - pad.x * 2, s) : null;
       const size = balanced?.size ?? sizeAt(b.size, s);
       const w = box.width * (b.maxWidth ?? 1);
       const x = alignedX(box, w, b.align === "center" ? "center" : "start", ctx);
       const bar = b.bar ? 10 : 0;
       const barGap = b.bar ? size * 0.7 : 0;
-      const tw = w - bar - barGap;
+      const tw = w - bar - barGap - pad.x * 2;
       const h = this.height(b, box.width, s, ctx);
+      const th = h - pad.y * 2;
       const els = [];
-      let tx = ctx.rtl === false ? x + bar + barGap : x;
+      if (b.boxed) els.push(boxShape(`${b.id}-box`, frame(x, box.y, w, h), b.boxed.mode, ctx, `\u0625\u0637\u0627\u0631 ${b.name ?? ""}`.trim(), b.anim));
+      if (b.underlay === "band") {
+        els.push(shapeElement(`${b.id}-band`, frame(box.x, box.y + th * (b.bandAt?.[0] ?? 0.42), box.width, th * (b.bandAt?.[1] ?? 0.3)), "rect", treat(ctx).highlightFill ?? "@highlight", { role: "decor", name: "\u0634\u0631\u064A\u0637 \u0627\u0644\u062A\u0638\u0644\u064A\u0644", anim: "fade" }));
+      }
+      let tx = (ctx.rtl === false ? x + bar + barGap : x) + pad.x;
       let fw = tw;
       if (balanced) {
         fw = Math.min(tw, balanced.frame);
@@ -1910,7 +2005,8 @@ var BLOCKS = {
         els.push(shapeElement(`${b.id}-bar`, frame(startX({ x, width: w }, bar, ctx), box.y, bar, h), "rect", "@accent", { radius: 5, role: "decor", name: "\u062E\u0637 \u062C\u0627\u0646\u0628\u064A", anim: b.anim }));
       }
       els.push(
-        textElement(b.id, frame(tx, box.y, fw, h), b.text, ctx, {
+        textElement(b.id, frame(tx, box.y + pad.y, fw, th), b.text, ctx, {
+          marker: !b.boxed || b.boxed.mode === "outline",
           font: b.font,
           weightRole: b.weightRole,
           size,
@@ -1934,7 +2030,7 @@ var BLOCKS = {
   rule: {
     height: (b) => b.height,
     emit: (b, box, s, ctx) => [
-      shapeElement(b.id, frame(alignedX(box, b.width, b.align ?? "start", ctx), box.y, b.width, b.height), "rect", b.fill ?? treat(ctx).ruleFill ?? "@accent", {
+      shapeElement(b.id, frame(b.width === "full" ? box.x : alignedX(box, b.width, b.align ?? "start", ctx), box.y, b.width === "full" ? box.width : b.width, b.height), "rect", b.fill ?? treat(ctx).ruleFill ?? "@accent", {
         radius: cornerOf(treat(ctx).ruleRadius, b.height / 2),
         role: "decor",
         name: "\u062E\u0637 \u0632\u062E\u0631\u0641\u064A",
@@ -1979,10 +2075,10 @@ var BLOCKS = {
           const i = row.start + k;
           const n2 = i + 1;
           const colX = ctx.rtl === false ? box.x + k * (L.colW + L.colGap) : box.x + box.width - (k + 1) * L.colW - k * L.colGap;
-          const cell = { x: colX, y, width: L.colW, height: row.h };
+          const cell2 = { x: colX, y, width: L.colW, height: row.h };
           const name = `\u0627\u0644\u0628\u0646\u062F ${formatNumber(n2, ctx.theme.numerals)}`;
-          if (b.card) els.push(...cardShapes(`${b.id}-${n2}`, { ...cell, height: row.h }, m.size, ctx, name, b.anim ?? "rise", b.cardFill));
-          const inner = { x: cell.x + m.padX, y: cell.y + m.padY, width: cell.width - m.padX * 2, height: row.h - m.padY * 2 };
+          if (b.card) els.push(...cardShapes(`${b.id}-${n2}`, { ...cell2, height: row.h }, m.size, ctx, name, b.anim ?? "rise", b.cardFill));
+          const inner = { x: cell2.x + m.padX, y: cell2.y + m.padY, width: cell2.width - m.padX * 2, height: row.h - m.padY * 2 };
           const bx = startX(inner, m.badge, ctx);
           const contentH = Math.max(m.textH, m.badge);
           const by = inner.y + (b.badge === "art" || b.badge === "number" ? 0 : m.size * 0.28);
@@ -2050,10 +2146,10 @@ var BLOCKS = {
           const i = row.start + k;
           const n2 = i + 1;
           const colX = ctx.rtl === false ? box.x + k * (row.colW + L.colGap) : box.x + box.width - (k + 1) * row.colW - k * L.colGap;
-          const cell = { x: colX, y, width: row.colW, height: row.h };
+          const cell2 = { x: colX, y, width: row.colW, height: row.h };
           const name = `\u0627\u0644\u062C\u0632\u0621 ${formatNumber(n2, ctx.theme.numerals)}`;
-          els.push(...cardShapes(`${b.id}-${n2}`, cell, m.size, ctx, name, anim));
-          const inner = { x: cell.x + m.padX, y: cell.y + m.padY, width: m.innerW };
+          els.push(...cardShapes(`${b.id}-${n2}`, cell2, m.size, ctx, name, anim));
+          const inner = { x: cell2.x + m.padX, y: cell2.y + m.padY, width: m.innerW };
           const headLine = m.headSize * 1.4;
           if (b.numbered) {
             els.push(textElement(`${b.id}-${n2}-num`, frame(startX(inner, m.numW, ctx), inner.y, m.numW, headLine), formatNumber(n2, ctx.theme.numerals), ctx, { font: "@heading", weightRole: "black", size: m.headSize, min: m.headSize, lineHeight: 1.4, color: "@accent", align: "start", nowrap: true, role: "number", name: `\u0631\u0642\u0645 ${name}`, anim }));
@@ -2065,7 +2161,7 @@ var BLOCKS = {
           }
           if ((b.columns ?? 2) === 1 && b.connect && r < L.rows.length - 1) {
             const cx = startX(inner, b.numbered ? m.numW : 4, ctx) + (b.numbered ? m.numW / 2 : 2) - 2;
-            els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx, cell.y + row.h, 4, L.gap), "rect", "@accent", { role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
+            els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx, cell2.y + row.h, 4, L.gap), "rect", "@accent", { role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
           }
         });
         y += row.h + L.gap;
@@ -2164,6 +2260,103 @@ var BLOCKS = {
           anim: "pop"
         })
       );
+      return els;
+    }
+  },
+  // Stages in framed boxes, one under the other, joined by a small circle
+  // with a down arrow: "from → to". `emphasis` marks the outcome: "fill"
+  // tints the last box, "mark" puts a marker band behind every head.
+  flow: {
+    layout(b, width, s, ctx) {
+      const size = sizeAt(b.size, s);
+      const headSize = Math.round(size * 1.1);
+      const padX = Math.round(size * 0.75);
+      const padY = Math.round(size * 0.6);
+      const innerW = Math.max(60, width - padX * 2);
+      const headStyle = textStyle(ctx, { font: "@heading", weightRole: "bold", size: headSize, lineHeight: 1.5 });
+      const bodyStyle = textStyle(ctx, { size, lineHeight: 1.6 });
+      const items = b.heads.map((head, i) => {
+        const headH = measureText(ctx, head, headStyle, innerW).height;
+        const body = b.bodies?.[i];
+        const bodyH = body ? measureText(ctx, body, bodyStyle, innerW).height : 0;
+        const hb = body ? Math.round(size * 0.35) : 0;
+        return { headH, bodyH, hb, h: padY * 2 + headH + hb + bodyH };
+      });
+      const d = Math.round(size * 1.05);
+      const gap = d + Math.round(size * 0.7);
+      return { size, headSize, padX, padY, innerW, items, d, gap, h: items.reduce((t, it) => t + it.h, 0) + gap * Math.max(0, items.length - 1) };
+    },
+    height(b, width, s, ctx) {
+      return this.layout(b, width, s, ctx).h;
+    },
+    emit(b, box, s, ctx) {
+      const L = this.layout(b, box.width, s, ctx);
+      const anim = b.anim ?? "rise";
+      const els = [];
+      let y = box.y;
+      L.items.forEach((it, i) => {
+        const n2 = i + 1;
+        const last = i === L.items.length - 1;
+        const name = `\u0627\u0644\u0645\u0631\u062D\u0644\u0629 ${formatNumber(n2, ctx.theme.numerals)}`;
+        els.push(boxShape(`${b.id}-${n2}-box`, frame(box.x, y, box.width, it.h), b.emphasis === "fill" && last ? "panel" : "outline", ctx, `\u0625\u0637\u0627\u0631 ${name}`, anim));
+        const inner = { x: box.x + L.padX, y: y + L.padY };
+        if (b.emphasis === "mark") {
+          els.push(shapeElement(`${b.id}-${n2}-mark`, frame(box.x + L.padX * 0.5, inner.y + it.headH * 0.3, box.width - L.padX, it.headH * 0.6), "rect", treat(ctx).highlightFill ?? "@highlight", { role: "decor", name: `\u062A\u0638\u0644\u064A\u0644 ${name}`, anim }));
+        }
+        els.push(textElement(`${b.id}-${n2}`, frame(inner.x, inner.y, L.innerW, it.headH), b.heads[i], ctx, { font: "@heading", weightRole: "bold", size: L.headSize, min: b.size[1], lineHeight: 1.5, role: "item", slot: `${b.slot}.${i}`, name, anim }));
+        if (b.bodies?.[i]) {
+          els.push(textElement(`${b.id}-${n2}-body`, frame(inner.x, inner.y + it.headH + it.hb, L.innerW, it.bodyH), b.bodies[i], ctx, { size: L.size, min: b.size[1], lineHeight: 1.6, color: "@muted", role: "item", slot: `${b.bodySlot}.${i}`, name: `\u0634\u0631\u062D ${name}`, anim }));
+        }
+        y += it.h;
+        if (!last) {
+          const cx = box.x + box.width / 2;
+          const cy = y + L.gap / 2;
+          els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx - L.d / 2, cy - L.d / 2, L.d, L.d), "ellipse", "@bg", { stroke: treat(ctx).boxStroke ?? "@line", strokeWidth: 2, role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
+          const a = Math.round(L.d * 0.5);
+          els.push(iconElement(`${b.id}-${n2}-arrow`, frame(cx - a / 2, cy - a / 2, a, a), "arrow", "@accent", ctx, { rotation: 90, role: "decor", name: `\u0633\u0647\u0645 ${name}`, strokeWidth: 2.2, anim: "fade" }));
+          y += L.gap;
+        }
+      });
+      return els;
+    }
+  },
+  // Full-width action rows of a closing page ("احفظها…", "شاركها…"): the
+  // first tinted, the others framed, each with its icon at the reading end.
+  actions: {
+    layout(b, width, s, ctx) {
+      const size = sizeAt(b.size, s);
+      const style = textStyle(ctx, { font: "@heading", weightRole: "bold", size, lineHeight: 1.5 });
+      const icon = Math.round(size * 0.9);
+      const padX = Math.round(size * 0.8);
+      const padY = Math.round(size * 0.5);
+      const textW = Math.max(60, width - (padX + icon + size * 0.5) * 2);
+      const rows = b.items.map((it) => {
+        const textH = measureText(ctx, it.text, style, textW).height;
+        return { textH, h: textH + padY * 2 };
+      });
+      const gap = Math.round(size * 0.5);
+      return { size, icon, padX, padY, textW, rows, gap, h: rows.reduce((t, r) => t + r.h, 0) + gap * Math.max(0, rows.length - 1) };
+    },
+    height(b, width, s, ctx) {
+      return b.items.length ? this.layout(b, width, s, ctx).h : 0;
+    },
+    emit(b, box, s, ctx) {
+      if (!b.items.length) return [];
+      const L = this.layout(b, box.width, s, ctx);
+      const els = [];
+      let y = box.y;
+      b.items.forEach((it, i) => {
+        const r = L.rows[i];
+        const primary = i === 0;
+        const id = it.id ?? `${b.id}-${i + 1}`;
+        els.push(boxShape(`${id}-bg`, frame(box.x, y, box.width, r.h), primary ? "panel" : "outline", ctx, `\u062E\u0644\u0641\u064A\u0629 ${it.name ?? ""}`.trim(), "pop"));
+        els.push(textElement(id, frame(box.x + (box.width - L.textW) / 2, y + L.padY, L.textW, r.textH), it.text, ctx, { font: "@heading", weightRole: "bold", size: L.size, min: b.size[1], lineHeight: 1.5, align: "center", role: "cta", slot: it.slot, name: it.name, anim: "pop" }));
+        if (it.icon) {
+          const ix = ctx.rtl === false ? box.x + box.width - L.padX - L.icon : box.x + L.padX;
+          els.push(iconElement(`${id}-icon`, frame(ix, y + (r.h - L.icon) / 2, L.icon, L.icon), it.icon, primary ? "@accent" : "@muted", ctx, { directional: it.icon === "share", role: "decor", name: `\u0623\u064A\u0642\u0648\u0646\u0629 ${it.name ?? ""}`.trim(), strokeWidth: 1.8, anim: "pop" }));
+        }
+        y += r.h + L.gap;
+      });
       return els;
     }
   },
@@ -2330,6 +2523,8 @@ function blockTexts(b) {
   if (b.type === "list") return b.items.map((t, i) => ({ id: `${b.id}-${i + 1}`, slot: `${b.slot}.${i}`, text: t, size: b.size }));
   if (b.type === "compare") return b.columns.flatMap((c, k) => c.items.map((t, i) => ({ id: `${b.id}-${k + 1}-item-${i + 1}`, slot: `${c.slot}.${i}`, text: t, size: b.size })));
   if (b.type === "author") return [{ id: `${b.id}-name`, slot: "author", text: b.name, size: b.size }];
+  if (b.type === "flow") return b.heads.flatMap((t, i) => [{ id: `${b.id}-${i + 1}`, slot: `${b.slot}.${i}`, text: t, size: b.size }, ...b.bodies?.[i] ? [{ id: `${b.id}-${i + 1}-body`, slot: `${b.bodySlot}.${i}`, text: b.bodies[i], size: b.size }] : []]);
+  if (b.type === "actions") return b.items.map((it, i) => ({ id: it.id ?? `${b.id}-${i + 1}`, slot: it.slot, text: it.text, size: b.size }));
   if (b.type === "tiles") return b.heads.flatMap((t, i) => [{ id: `${b.id}-${i + 1}`, slot: `${b.slot}.${i}`, text: t, size: b.size }, ...b.bodies?.[i] ? [{ id: `${b.id}-${i + 1}-body`, slot: `${b.bodySlot}.${i}`, text: b.bodies[i], size: b.size }] : []]);
   return [];
 }
@@ -2671,6 +2866,178 @@ var COMPOSITIONS = {
       ];
     }
   },
+  // A cover led by a figure ("7") over its headline: the count of what the
+  // carousel holds, then the promise. Built for quiet educational styles.
+  opener: {
+    id: "opener",
+    version: 1,
+    label: "\u063A\u0644\u0627\u0641 \u0628\u0631\u0642\u0645",
+    role: "hook",
+    type: "cover",
+    description: "\u063A\u0644\u0627\u0641 \u064A\u0628\u062F\u0623 \u0628\u0631\u0642\u0645 \u0643\u0628\u064A\u0631 (\u0639\u062F\u062F \u0645\u0627 \u0641\u064A \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644) \u062B\u0645 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u062B\u0645 \u0633\u0637\u0631 \u062F\u0627\u0639\u0645",
+    tags: ["\u063A\u0644\u0627\u0641", "\u0631\u0642\u0645", "\u0639\u062F\u062F", "\u0642\u0648\u0627\u0646\u064A\u0646", "\u0642\u0648\u0627\u0639\u062F", "\u0623\u0633\u0628\u0627\u0628", "\u062E\u0637\u0627\u0641"],
+    variants: { type: "\u0637\u0628\u0627\u0639\u064A", center: "\u0648\u0633\u0637" },
+    defaultVariant: "type",
+    reflow: { center: ["type"] },
+    capacity: { titleChars: 60, subtitleChars: 90 },
+    fields: [
+      { key: "kicker", label: "\u062A\u0645\u0647\u064A\u062F", type: "text" },
+      { key: "figure", label: "\u0627\u0644\u0631\u0642\u0645", type: "text" },
+      { key: "title", label: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", type: "textarea", required: true },
+      { key: "subtitle", label: "\u0633\u0637\u0631 \u062F\u0627\u0639\u0645", type: "textarea" }
+    ],
+    decor: () => [],
+    blocks: (c, v) => {
+      const align = v === "center" ? "center" : void 0;
+      return [
+        c.kicker && { type: "text", id: "kicker", text: c.kicker, weightRole: "bold", size: [36, 28], lineHeight: 1.5, color: "@accent", align, slot: "kicker", role: "kicker", name: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", anim: "fade" },
+        c.figure && { type: "text", id: "figure", text: c.figure, font: "@heading", weightRole: "black", size: [240, 150], lineHeight: 1.1, ...figureType(c.figure), align, slot: "figure", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", gap: 16, anim: "pop" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [116, FLOOR.title], lineHeight: 1.3, align, slot: "title", role: "title", name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", gap: c.figure ? afterFigure(c.figure, 4) : 24, anim: "rise" },
+        c.subtitle && { type: "text", id: "subtitle", text: c.subtitle, size: [42, FLOOR.body], lineHeight: 1.6, color: "@muted", align, slot: "subtitle", role: "subtitle", name: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", gap: 28, anim: "rise" }
+      ];
+    }
+  },
+  // One idea per page, set six ways so a carousel never repeats a layout:
+  //   plain    kicker, title, short lines
+  //   box      the lines in a hairline frame, centred
+  //   callout  the lines, then the takeaway on a tinted bar
+  //   panel    the title inside a tinted panel, the lines under it
+  //   rule     a hairline between the title and the lines
+  //   figure   a big figure on a band across the page ("80/20")
+  concept: {
+    id: "concept",
+    version: 1,
+    maxScale: 1.1,
+    label: "\u0641\u0643\u0631\u0629",
+    role: "content",
+    type: "concept",
+    description: "\u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0641\u064A \u0635\u0641\u062D\u0629: \u0639\u0646\u0648\u0627\u0646 \u0648\u0633\u0637\u0648\u0631 \u0642\u0635\u064A\u0631\u0629\u060C \u0628\u0633\u062A\u0629 \u062A\u0648\u0632\u064A\u0639\u0627\u062A (\u0646\u0635\u060C \u0625\u0637\u0627\u0631\u060C \u062E\u0644\u0627\u0635\u0629 \u0645\u0638\u0644\u0651\u0644\u0629\u060C \u0644\u0648\u062D\u060C \u0641\u0627\u0635\u0644\u060C \u0631\u0642\u0645)",
+    tags: ["\u0641\u0643\u0631\u0629", "\u0642\u0627\u0646\u0648\u0646", "\u0642\u0627\u0639\u062F\u0629", "\u0645\u0628\u062F\u0623", "\u062A\u0639\u0631\u064A\u0641", "\u0634\u0631\u062D", "\u0645\u0642\u062F\u0645\u0629", "\u062E\u0644\u0627\u0635\u0629", "\u0633\u0624\u0627\u0644"],
+    variants: { plain: "\u0646\u0635", box: "\u0625\u0637\u0627\u0631", callout: "\u062E\u0644\u0627\u0635\u0629 \u0645\u0638\u0644\u0651\u0644\u0629", panel: "\u0644\u0648\u062D", rule: "\u0641\u0627\u0635\u0644", figure: "\u0631\u0642\u0645" },
+    defaultVariant: "plain",
+    reflow: { panel: ["plain"], box: ["plain"], callout: ["plain"], figure: ["plain"], rule: ["plain"] },
+    capacity: { titleChars: 50, bodyChars: 160, takeawayChars: 50 },
+    fields: [
+      { key: "kicker", label: "\u062A\u0645\u0647\u064A\u062F", type: "text" },
+      { key: "title", label: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", type: "textarea", required: true },
+      { key: "figure", label: "\u0627\u0644\u0631\u0642\u0645", type: "text" },
+      { key: "body", label: "\u0627\u0644\u0633\u0637\u0648\u0631", type: "textarea" },
+      { key: "takeaway", label: "\u0627\u0644\u062E\u0644\u0627\u0635\u0629", type: "text" }
+    ],
+    decor: () => [],
+    blocks: (c, v) => {
+      const centred = v === "box" || v === "panel" || v === "figure";
+      const align = centred ? "center" : void 0;
+      const figure = Boolean(c.figure);
+      return [
+        c.kicker && { type: "text", id: "kicker", text: c.kicker, weightRole: "bold", size: [36, 28], lineHeight: 1.5, color: "@accent", align, slot: "kicker", role: "kicker", name: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", anim: "fade" },
+        {
+          type: "text",
+          id: "title",
+          text: c.title ?? "",
+          font: "@heading",
+          weightRole: "black",
+          size: v === "panel" ? [92, FLOOR.title] : [88, FLOOR.title],
+          lineHeight: 1.35,
+          align,
+          ...v === "panel" && { boxed: { mode: "panel", padX: 0.45, padY: 0.6 } },
+          slot: "title",
+          role: "title",
+          name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+          gap: 30,
+          anim: "rise"
+        },
+        figure && { type: "text", id: "figure", text: c.figure, font: "@heading", weightRole: "black", size: [210, 130], lineHeight: 1.15, ...figureType(c.figure), color: "@text", align, underlay: "band", slot: "figure", role: "number", name: "\u0627\u0644\u0631\u0642\u0645", gap: 36, anim: "pop" },
+        v === "rule" && c.body && { type: "rule", id: "body-rule", width: "full", height: 2, fill: "@line", gap: 48 },
+        c.body && {
+          type: "text",
+          id: "body",
+          text: c.body,
+          size: [44, FLOOR.body],
+          lineHeight: 1.75,
+          color: "@muted",
+          align,
+          ...v === "box" && { boxed: { mode: "outline", padX: 0.8, padY: 0.6 } },
+          slot: "body",
+          role: "body",
+          name: "\u0627\u0644\u0633\u0637\u0648\u0631",
+          gap: figure ? afterFigure(c.figure, 40) : v === "rule" ? 40 : 52,
+          anim: "rise"
+        },
+        c.takeaway && { type: "text", id: "takeaway", text: c.takeaway, font: "@heading", weightRole: "bold", size: [42, FLOOR.body], lineHeight: 1.5, align, ...v === "callout" && { boxed: { mode: "fill", padX: 0.7, padY: 0.45 } }, slot: "takeaway", role: "body", name: "\u0627\u0644\u062E\u0644\u0627\u0635\u0629", gap: v === "callout" ? 56 : 40, anim: "rise" }
+      ];
+    }
+  },
+  // From one state to another: framed stages joined by a down arrow
+  // ("خيارات أكثر" ↓ "خيارات أقل"). Stages and their lines are parallel
+  // lists so each text keeps its own slot.
+  flow: {
+    id: "flow",
+    version: 1,
+    maxScale: 1.1,
+    label: "\u0645\u0633\u0627\u0631",
+    role: "content",
+    type: "flow",
+    description: "\u0645\u0646 \u062D\u0627\u0644\u0629 \u0625\u0644\u0649 \u062D\u0627\u0644\u0629: \u0645\u0631\u0628\u0639\u0627\u062A \u0631\u0641\u064A\u0639\u0629 \u0645\u062A\u062A\u0627\u0644\u064A\u0629 \u064A\u0635\u0644 \u0628\u064A\u0646\u0647\u0627 \u0633\u0647\u0645\u060C \u0648\u0627\u0644\u0623\u062E\u064A\u0631\u0629 \u0645\u0638\u0644\u0651\u0644\u0629 \u0623\u0648 \u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646 \u0645\u0638\u0644\u0651\u0644\u0629",
+    tags: ["\u0645\u0633\u0627\u0631", "\u0645\u0646 \u0625\u0644\u0649", "\u062A\u062D\u0648\u0644", "\u0642\u0628\u0644 \u0648\u0628\u0639\u062F", "\u0633\u0628\u0628 \u0648\u0646\u062A\u064A\u062C\u0629", "\u062E\u0637\u0648\u0627\u062A", "\u062A\u062F\u0641\u0642"],
+    variants: { fill: "\u0627\u0644\u0646\u062A\u064A\u062C\u0629 \u0645\u0638\u0644\u0651\u0644\u0629", mark: "\u0627\u0644\u0639\u0646\u0627\u0648\u064A\u0646 \u0645\u0638\u0644\u0651\u0644\u0629" },
+    defaultVariant: "fill",
+    reflow: { fill: ["mark"], mark: ["fill"] },
+    capacity: { items: 3, itemChars: 30, detailChars: 50, titleChars: 40 },
+    fields: [
+      { key: "kicker", label: "\u062A\u0645\u0647\u064A\u062F", type: "text" },
+      { key: "title", label: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", type: "textarea", required: true },
+      { key: "steps", label: "\u0627\u0644\u0645\u0631\u0627\u062D\u0644", type: "list", required: true },
+      { key: "details", label: "\u0633\u0637\u0631 \u0643\u0644 \u0645\u0631\u062D\u0644\u0629", type: "list" }
+    ],
+    decor: () => [],
+    blocks: (c, v) => {
+      const steps = nonEmpty(c.steps);
+      const details = Array.isArray(c.details) ? c.details : [];
+      return [
+        c.kicker && { type: "text", id: "kicker", text: c.kicker, weightRole: "bold", size: [36, 28], lineHeight: 1.5, color: "@accent", align: "center", slot: "kicker", role: "kicker", name: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", anim: "fade" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [88, FLOOR.title], lineHeight: 1.35, align: "center", slot: "title", role: "title", name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", gap: 30, anim: "rise" },
+        { type: "flow", id: "step", heads: steps, bodies: steps.map((_, i) => typeof details[i] === "string" && details[i].trim() ? details[i] : null), size: [40, FLOOR.body], emphasis: v === "mark" ? "mark" : "fill", slot: "steps", bodySlot: "details", gap: 52 }
+      ];
+    }
+  },
+  // A closing page of full-width action rows (save, then share), under a
+  // short memorable line. Owns the call to action, so no swipe prompt.
+  actions: {
+    id: "actions",
+    version: 1,
+    label: "\u062E\u0627\u062A\u0645\u0629 \u0628\u0623\u0632\u0631\u0627\u0631",
+    role: "cta",
+    type: "outro",
+    ownsCta: true,
+    hideBrandBadge: true,
+    description: "\u062E\u0627\u062A\u0645\u0629 \u0628\u062C\u0645\u0644\u0629 \u062A\u064F\u062D\u0641\u0638 \u0648\u0633\u0637\u0631 \u062F\u0627\u0639\u0645 \u062B\u0645 \u0635\u0641\u0651\u0627 \u0625\u062C\u0631\u0627\u0621 \u0628\u0639\u0631\u0636 \u0627\u0644\u0635\u0641\u062D\u0629: \u0627\u062D\u0641\u0638 \u0648\u0634\u0627\u0631\u0643",
+    tags: ["\u062E\u0627\u062A\u0645\u0629", "\u062F\u0639\u0648\u0629", "\u062D\u0641\u0638", "\u0645\u0634\u0627\u0631\u0643\u0629", "\u062E\u0644\u0627\u0635\u0629"],
+    variants: { center: "\u0648\u0633\u0637" },
+    defaultVariant: "center",
+    reflow: {},
+    capacity: { titleChars: 50, subtitleChars: 70 },
+    fields: [
+      { key: "kicker", label: "\u062A\u0645\u0647\u064A\u062F", type: "text" },
+      { key: "title", label: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", type: "textarea", required: true },
+      { key: "subtitle", label: "\u0633\u0637\u0631 \u062F\u0627\u0639\u0645", type: "textarea" },
+      { key: "save", label: "\u0632\u0631 \u0627\u0644\u062D\u0641\u0638", type: "text" },
+      { key: "share", label: "\u0632\u0631 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", type: "text" }
+    ],
+    decor: () => [],
+    blocks: (c) => {
+      const rows = [
+        c.save && { text: c.save, icon: "bookmark", id: "action-save", slot: "save", name: "\u0632\u0631 \u0627\u0644\u062D\u0641\u0638" },
+        c.share && { text: c.share, icon: "share", id: "action-share", slot: "share", name: "\u0632\u0631 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629" }
+      ].filter(Boolean);
+      return [
+        c.kicker && { type: "text", id: "kicker", text: c.kicker, weightRole: "bold", size: [36, 28], lineHeight: 1.5, color: "@accent", align: "center", slot: "kicker", role: "kicker", name: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", anim: "fade" },
+        { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [100, FLOOR.title], lineHeight: 1.35, align: "center", slot: "title", role: "title", name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", gap: 30, anim: "rise" },
+        c.subtitle && { type: "text", id: "subtitle", text: c.subtitle, size: [40, FLOOR.body], lineHeight: 1.6, color: "@muted", align: "center", slot: "subtitle", role: "subtitle", name: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", gap: 34, anim: "rise" },
+        rows.length > 0 && { type: "actions", id: "actions", items: rows, size: [38, FLOOR.body], gap: 60 }
+      ];
+    }
+  },
   outro: {
     id: "outro",
     version: 1,
@@ -2765,12 +3132,13 @@ function validateContent(compositionId, content, path3 = "content") {
 
 // lib/studio/styles.js
 var styleById = (id) => STYLES.find((s) => s.id === id) ?? null;
-var STYLE_VISUAL_FIELDS = ["version", "tokens", "defaultMode", "alternateStart", "modeByRole", "type", "treatment", "layout", "decor", "keepCompositionDecor"];
+var STYLE_VISUAL_FIELDS = ["version", "tokens", "accentRole", "defaultMode", "alternateStart", "modeByRole", "type", "treatment", "layout", "decor", "keepCompositionDecor", "chrome"];
 var styleVisual = (style) => Object.fromEntries(STYLE_VISUAL_FIELDS.filter((k) => style[k] !== void 0).map((k) => [k, style[k]]));
 var styleVisualHash = (style) => hashOf(styleVisual(style)).slice(0, 16);
-function styleTheme(style, { brand = null, fonts, numerals = "arab" } = {}) {
-  const brandRole = (role) => (brand?.colors ?? []).find((c) => c.role === role)?.hex ?? null;
-  const accent = brandRole("accent") ?? style.tokens.light?.accent ?? style.tokens.dark?.accent ?? "#2E7BC5";
+function styleTheme(style, { brand = null, fonts, numerals = "arab", accentRole } = {}) {
+  const brandRole = (role2) => (brand?.colors ?? []).find((c) => c.role === role2)?.hex ?? null;
+  const role = accentRole ?? style.accentRole ?? "accent";
+  const accent = brandRole(role) ?? style.tokens.light?.accent ?? style.tokens.dark?.accent ?? brandRole("accent") ?? "#2E7BC5";
   const derived = [];
   const build = (mode) => {
     const t = style.tokens[mode];
@@ -2786,7 +3154,10 @@ function styleTheme(style, { brand = null, fonts, numerals = "arab" } = {}) {
     if (fill !== accent) derived.push({ role: "accent", mode, from: accent, to: fill, why: mode === "light" ? "\u0646\u0635 \u0623\u0628\u064A\u0636 \u0639\u0644\u0649 \u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0628\u062A\u0628\u0627\u064A\u0646 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644" : "\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 \u0645\u0642\u0631\u0648\u0621 \u0639\u0644\u0649 \u0627\u0644\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u062F\u0627\u0643\u0646\u0629 \u0628\u062A\u0628\u0627\u064A\u0646 4.5 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644" });
     const onAccent = mode === "light" ? "#FFFFFF" : contrastRatio(bg, fill) >= 4.5 ? bg : bestOn(fill);
     const raw = { ...derivePalette({ bg, accent: fill }), surface: t.surface, text: t.text, muted: t.muted, accent: fill, onAccent };
-    return resolvePalette(raw).colors;
+    const colors = resolvePalette(raw).colors;
+    if (t.highlight !== void 0) colors.highlight = typeof t.highlight === "number" ? mix(accent, bg, t.highlight) : t.highlight;
+    if (t.line) colors.line = t.line;
+    return colors;
   };
   const light = build("light");
   const dark = build("dark");
@@ -2794,6 +3165,7 @@ function styleTheme(style, { brand = null, fonts, numerals = "arab" } = {}) {
   const body = brand?.fonts?.body ?? style.type.bodyFont ?? "tajawal";
   return {
     paletteId: `style:${style.id}`,
+    ...role !== "accent" && { accentRole: role },
     colors: light ?? dark,
     ...light && dark && { dark },
     ...derived.length && { derived },
@@ -2922,6 +3294,7 @@ function styleBlocks(style, blocks) {
     if (b.type === "list") return { ...b, ...tr.listCard !== void 0 && { card: tr.listCard }, ...t.align && !b.align && { align: t.align } };
     if (b.type === "rule") {
       if (tr.rule === "none") return null;
+      if (b.width === "full") return { ...b, ...tr.ruleFill && { fill: b.fill ?? tr.ruleFill } };
       return { ...b, ...t.align && !b.align && { align: t.align }, ...tr.rule?.width && { width: tr.rule.width }, ...tr.rule?.height && { height: tr.rule.height } };
     }
     return b;
@@ -3038,8 +3411,8 @@ var CHROME_DEFAULTS = {
   swipe: { enabled: true, text: "\u0627\u0633\u062D\u0628 \u0644\u0644\u064A\u0633\u0627\u0631", lastText: "\u0627\u062D\u0641\u0638 \u0627\u0644\u0628\u0648\u0633\u062A \u{1F4CC}", showArrow: true },
   watermark: { enabled: true, showLogo: true, showBadge: true }
 };
-function chromeSettings(raw) {
-  return Object.fromEntries(Object.entries(CHROME_DEFAULTS).map(([id, d]) => [id, { ...d, ...raw?.[id] }]));
+function chromeSettings(raw, base = null) {
+  return Object.fromEntries(Object.entries(CHROME_DEFAULTS).map(([id, d]) => [id, { ...d, ...base?.[id], ...raw?.[id] }]));
 }
 var f2 = (x, y, width, height) => ({ x: round(x, 1), y: round(y, 1), width: round(width, 1), height: round(height, 1) });
 function chromeBands(settings, comp, index, total, brand) {
@@ -3059,12 +3432,19 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
   const rtl = ctx.rtl !== false;
   const els = [];
   const body = resolveFont("@body", ctx.theme.fonts);
-  if (bands.pagination && settings.pagination.showBar) {
+  const look = ctx.style?.chrome?.look ?? {};
+  const footer = bottom - 64 - 28 * 1.5;
+  if (look.bar !== false && bands.pagination && settings.pagination.showBar) {
     els.push(shapeElement("sys-progress-track", f2(0, top, W, 12), "rect", "@surface", { role: "system", name: "\u0645\u0633\u0627\u0631 \u0634\u0631\u064A\u0637 \u0627\u0644\u062A\u0642\u062F\u0651\u0645" }));
     const filled = W * (index + 1) / total;
     els.push(shapeElement("sys-progress", f2(rtl ? W - filled : 0, top, filled, 12), "rect", "@accent", { role: "system", name: "\u0634\u0631\u064A\u0637 \u0627\u0644\u062A\u0642\u062F\u0651\u0645" }));
   }
-  if (bands.pagination && settings.pagination.showCounter) {
+  if (bands.pagination && settings.pagination.showCounter && look.counter === "plain") {
+    const text = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
+    const size = 26;
+    const tw = labelWidth(text, { font: body, weight: 700, size });
+    els.push(textElement("sys-counter", f2(rtl ? MARGIN : W - MARGIN - tw, top + 56, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@muted", align: "center", nowrap: true, role: "system", name: "\u0639\u062F\u0651\u0627\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D" }));
+  } else if (bands.pagination && settings.pagination.showCounter) {
     const text = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
     const size = 28;
     const tw = labelWidth(text, { font: body, weight: 700, size });
@@ -3080,7 +3460,18 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
     const w = asset ? Math.min(300, asset.widthPx / asset.heightPx * h) : h;
     els.push(imageElement("sys-logo", f2(rtl ? W - MARGIN - w : MARGIN, top + 40, w, h), brand.logoAssetId, "\u0627\u0644\u0634\u0639\u0627\u0631", { role: "system", name: "\u0627\u0644\u0634\u0639\u0627\u0631" }));
   }
-  if (bands.swipe) {
+  if (bands.swipe && look.swipe === "text") {
+    const size = 28;
+    const text = bands.swipeText;
+    const tw = labelWidth(text, { font: body, weight: 700, size });
+    const arrow = index < total - 1 && settings.swipe.showArrow ? 26 : 0;
+    const w = tw + (arrow ? arrow + 12 : 0);
+    const x = rtl ? MARGIN : W - MARGIN - w;
+    els.push(textElement("sys-swipe", f2(rtl ? x + w - tw : x, footer, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@accent", align: "center", nowrap: true, role: "system", name: "\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
+    if (arrow) {
+      els.push(iconElement("sys-swipe-arrow", f2(rtl ? x : x + w - arrow, footer + (size * 1.5 - arrow) / 2 + 2, arrow, arrow), "arrow", "@accent", ctx, { directional: true, role: "system", name: "\u0633\u0647\u0645 \u0627\u0644\u0633\u062D\u0628", strokeWidth: 2 }));
+    }
+  } else if (bands.swipe) {
     const size = 30;
     const text = bands.swipeText;
     const tw = labelWidth(text, { font: body, weight: 700, size });
@@ -3095,7 +3486,12 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
       els.push(iconElement("sys-swipe-arrow", f2(rtl ? x + 24 : x + w - 24 - arrow, y + (h - arrow) / 2, arrow, arrow), "arrow", "@onAccent", ctx, { directional: true, role: "system", name: "\u0633\u0647\u0645 \u0627\u0644\u0633\u062D\u0628", strokeWidth: 2.5 }));
     }
   }
-  if (bands.badge) {
+  if (bands.badge && look.badge === "name") {
+    const text = brand.name || brand.handle || "";
+    const size = 28;
+    const tw = labelWidth(text, { font: body, weight: 700, size });
+    if (text) els.push(textElement("sys-brand-name", f2(rtl ? W - MARGIN - tw : MARGIN, footer, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, align: "center", nowrap: true, role: "system", name: "\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628" }));
+  } else if (bands.badge) {
     const d = 84;
     const y = bottom - 56 - d;
     const ax = rtl ? W - MARGIN - d : MARGIN;
@@ -3176,7 +3572,7 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
     ...variants.slice(1).filter((v) => !keepArt || !hasArt || buildBlocks(comp, content, v, "min", ctx).some((b) => b.optional)).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
     ...hasArt && !keepArt ? variants.map((v) => ({ variant: v, art: "none", sMin: 0, note: "art-removed" })) : []
   ].filter(Boolean);
-  const maxScale = Math.max(comp.maxScale ?? 1, ctx.style?.layout?.maxScale ?? 1);
+  const maxScale = Math.min(ctx.style?.layout?.capScale ?? Infinity, Math.max(comp.maxScale ?? 1, ctx.style?.layout?.maxScale ?? 1));
   const decisions = [];
   for (const attempt of attempts) {
     const blocks2 = buildBlocks(comp, content, attempt.variant, attempt.art, ctx);
@@ -3341,7 +3737,7 @@ function createDesign(spec, options = {}) {
     },
     theme: spec.theme ?? themeFromPalette(spec.paletteId ?? "midnight"),
     brand: { name: "", handle: "", ...spec.brand },
-    chrome: chromeSettings(spec.chrome),
+    chrome: chromeSettings(spec.chrome, style?.chrome?.defaults),
     governance: { institutional: false, locked: false, ...spec.governance },
     ...style && { style: { id: style.id, version: style.version, mode: spec.style.mode ?? (style.modeByRole ? "by-role" : style.defaultMode ?? "light") } },
     pages: (spec.pages ?? []).map((p) => ({
@@ -3941,16 +4337,16 @@ var Memory = class {
   // id). Stored as given; never invented, and too few rows say nothing.
   importResults(creatorId, rows) {
     const p = this.profile(creatorId);
-    const clean = rows.filter((r) => r && typeof r.designId === "string").map((r) => ({
+    const clean2 = rows.filter((r) => r && typeof r.designId === "string").map((r) => ({
       designId: r.designId,
       platform: r.platform ?? null,
       postedAt: r.postedAt ?? null,
       metrics: Object.fromEntries(Object.entries(r.metrics ?? r).filter(([k, v]) => typeof v === "number" && Number.isFinite(v) && !["designId"].includes(k))),
       importedAt: now()
     }));
-    p.results = [...p.results, ...clean];
+    p.results = [...p.results, ...clean2];
     this.save(p);
-    return clean.length;
+    return clean2.length;
   }
   resultsSummary(creatorId, { minRows = 5 } = {}) {
     const rows = this.profile(creatorId).results;
@@ -4285,6 +4681,13 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
         const perLine = el.frame.width / (0.5 * size);
         if (perLine < 9) issues.push(issue("text.narrow", "warning", `\xAB${el.name ?? el.id}\xBB \u0636\u064A\u0651\u0642: \u0646\u062D\u0648 ${n(Math.floor(perLine))} \u0623\u062D\u0631\u0641 \u0641\u064A \u0627\u0644\u0633\u0637\u0631. \u0648\u0633\u0651\u0639 \u0645\u0646\u0637\u0642\u062A\u0647 \u0623\u0648 \u0642\u0644\u0651\u0644 \u062D\u062C\u0645\u0647.`, page.id, el.id));
       }
+      if ((el.role === "body" || el.role === "subtitle") && !el.style.nowrap) {
+        const lone = plainText(el.text).split("\n").filter((para) => {
+          const lines = wrapLines(para, { font, weight: el.style.weight, size }, el.frame.width);
+          return lines.length > 1 && lines.at(-1).text.trim().split(/\s+/).length < 2;
+        });
+        if (lone.length) issues.push(issue("text.lone-word", "warning", `\xAB${el.name ?? el.id}\xBB: \u0633\u0637\u0631 \u064A\u0646\u062A\u0647\u064A \u0628\u0643\u0644\u0645\u0629 \u0648\u062D\u064A\u062F\u0629 (\xAB${lone[0].trim().split(/\s+/).at(-1)}\xBB). \u0627\u0642\u0633\u0645 \u0627\u0644\u0633\u0637\u0648\u0631 \u0628\u0646\u0641\u0633\u0643 \u0623\u0648 \u0627\u062E\u062A\u0635\u0631\u0647\u0627.`, page.id, el.id));
+      }
       const longest = Math.max(0, ...words2.map((w) => textWidth(w, { font, weight: el.style.weight, size })));
       if (longest > el.frame.width * 1.02 && !el.style.nowrap) {
         issues.push(issue("text.clipped-word", "error", `\xAB${el.name ?? el.id}\xBB: \u0643\u0644\u0645\u0629 \u0623\u0639\u0631\u0636 \u0645\u0646 \u0645\u0633\u0627\u062D\u062A\u0647\u0627 \u0648\u0633\u062A\u064F\u0642\u0635.`, page.id, el.id));
@@ -4307,6 +4710,10 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
       const ratio = contrastRatio(fg, bg);
       if (ratio < (large ? 3 : 4.5)) {
         issues.push(issue("contrast.low", "error", `\xAB${el.name ?? el.id}\xBB: \u062A\u0628\u0627\u064A\u0646 ${ratio.toFixed(2)}:1 \u0623\u0642\u0644 \u0645\u0646 ${large ? 3 : 4.5}:1.`, page.id, el.id));
+      }
+      if (el.style.highlight && el.text.includes("*")) {
+        const hl = contrastRatio(fg, resolveColor(el.style.highlight, theme.colors));
+        if (hl < (large ? 3 : 4.5)) issues.push(issue("contrast.low", "error", `\xAB${el.name ?? el.id}\xBB: \u062A\u0628\u0627\u064A\u0646 \u0627\u0644\u0643\u0644\u0645\u0627\u062A \u0627\u0644\u0645\u0638\u0644\u0651\u0644\u0629 ${hl.toFixed(2)}:1 \u0623\u0642\u0644 \u0645\u0646 ${large ? 3 : 4.5}:1.`, page.id, el.id));
       }
       if (/[‎‏‪-‮⁦-⁩]/.test(el.text)) issues.push(issue("bidi.controls", "warning", `\xAB${el.name ?? el.id}\xBB \u064A\u062D\u0648\u064A \u0645\u062D\u0627\u0631\u0641 \u062A\u062D\u0643\u0645 \u0627\u062A\u062C\u0627\u0647\u061B \u0627\u0644\u0645\u062D\u0631\u0643 \u064A\u0639\u0632\u0644 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062E\u062A\u0644\u0637 \u0628\u0646\u0641\u0633\u0647.`, page.id, el.id));
       if (/[؀-ۿ]\s*[,;?]/.test(el.text)) issues.push(issue("punct.ascii", "warning", `\xAB${el.name ?? el.id}\xBB: \u0627\u0633\u062A\u062E\u062F\u0645 \u060C \u061B \u061F \u0628\u0639\u062F \u0627\u0644\u0643\u0644\u0645\u0627\u062A \u0627\u0644\u0639\u0631\u0628\u064A\u0629.`, page.id, el.id));
@@ -4715,7 +5122,7 @@ function resolveTheme(studio, spec, applied = {}) {
   if (spec.paletteId) return themeFromPalette(spec.paletteId, { custom: spec.custom, fonts, numerals });
   const style = spec.style?.id ? styleById(spec.style.id) : null;
   if (style) {
-    const t = styleTheme(style, { brand, numerals });
+    const t = styleTheme(style, { brand, numerals, ...spec.style.accentRole && { accentRole: spec.style.accentRole } });
     return { ...t, fonts: { ...t.fonts, ...fonts } };
   }
   if (brand) {
@@ -4785,26 +5192,26 @@ function applyPatches(doc, patches, { scope = "any", measure, label } = {}) {
   const touched = /* @__PURE__ */ new Set();
   const changed = [];
   patches.forEach((patch, i) => {
-    const where = `patches[${i}]`;
+    const where2 = `patches[${i}]`;
     const page = pages.get(patch.pageId);
-    if (!page) return problems.push({ path: `${where}.pageId`, message: `no page "${patch.pageId}"` });
+    if (!page) return problems.push({ path: `${where2}.pageId`, message: `no page "${patch.pageId}"` });
     const el = page.elements.find((e) => e.id === patch.elementId);
-    if (!el) return problems.push({ path: `${where}.elementId`, message: `no element "${patch.elementId}" on page ${patch.pageId}` });
-    if (scope === "graphic" && GRAPHIC_ONLY.has(patch.action)) return problems.push({ path: where, message: "a graphic edit cannot change text" });
-    if (scope === "text" && TEXT_ONLY.has(patch.action)) return problems.push({ path: where, message: "a text edit cannot replace artwork" });
+    if (!el) return problems.push({ path: `${where2}.elementId`, message: `no element "${patch.elementId}" on page ${patch.pageId}` });
+    if (scope === "graphic" && GRAPHIC_ONLY.has(patch.action)) return problems.push({ path: where2, message: "a graphic edit cannot change text" });
+    if (scope === "text" && TEXT_ONLY.has(patch.action)) return problems.push({ path: where2, message: "a text edit cannot replace artwork" });
     const force = patch.payload.force === true;
     if (el.locked && !force && !["lock", "replace_text"].includes(patch.action)) {
-      return problems.push({ path: where, message: `element "${el.id}" is locked; unlock it first` });
+      return problems.push({ path: where2, message: `element "${el.id}" is locked; unlock it first` });
     }
     if (el.locked && patch.action === "replace_text" && !force) {
-      return problems.push({ path: where, message: `text "${el.id}" is locked; an explicit edit must pass force: true` });
+      return problems.push({ path: where2, message: `text "${el.id}" is locked; an explicit edit must pass force: true` });
     }
     page.overrides = page.overrides ?? {};
     const o = page.overrides[el.id] = { ...page.overrides[el.id] };
     const { payload } = patch;
     switch (patch.action) {
       case "replace_text": {
-        if (el.kind !== "text") return problems.push({ path: where, message: `"${el.id}" is not a text element` });
+        if (el.kind !== "text") return problems.push({ path: where2, message: `"${el.id}" is not a text element` });
         if (el.slot) page.content = setContentAt(page.content, el.slot, payload.text);
         else o.text = payload.text;
         break;
@@ -4823,14 +5230,14 @@ function applyPatches(doc, patches, { scope = "any", measure, label } = {}) {
       }
       case "update_style": {
         const { force: _force, ...style } = payload;
-        const bad = validateStylePayload(el.kind, style, `${where}.payload`);
+        const bad = validateStylePayload(el.kind, style, `${where2}.payload`);
         if (bad.length) return problems.push(...bad);
         o.style = { ...o.style, ...style };
         break;
       }
       case "replace_asset": {
-        if (el.kind !== "image" && el.role !== "art-placeholder") return problems.push({ path: where, message: `"${el.id}" is not an image` });
-        if (!assets[payload.assetId]) return problems.push({ path: `${where}.payload.assetId`, message: `asset "${payload.assetId}" is not in the document` });
+        if (el.kind !== "image" && el.role !== "art-placeholder") return problems.push({ path: where2, message: `"${el.id}" is not an image` });
+        if (!assets[payload.assetId]) return problems.push({ path: `${where2}.payload.assetId`, message: `asset "${payload.assetId}" is not in the document` });
         if (el.slot) page.content = setContentAt(page.content, el.slot, payload.assetId);
         else o.assetId = payload.assetId;
         break;
@@ -4950,7 +5357,8 @@ var TARGETS = [
   { id: "quote", forms: ["\u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633"], roles: ["quote"] },
   { id: "author", forms: ["\u0627\u0644\u0642\u0627\u0626\u0644", "\u0627\u0633\u0645 \u0627\u0644\u0642\u0627\u0626\u0644"], roles: ["author", "caption"] },
   { id: "art", forms: ["\u0627\u0644\u0631\u0633\u0645", "\u0627\u0644\u0631\u0633\u0645\u0647", "\u0627\u0644\u0635\u0648\u0631\u0647", "\u0627\u0644\u0627\u064A\u0642\u0648\u0646\u0647", "\u0627\u0644\u0642\u0635\u0627\u0635\u0647", "\u0627\u0644\u062C\u0631\u0627\u0641\u064A\u0643", "\u0627\u0644\u0631\u0633\u0648\u0645", "\u0627\u0644\u0635\u0648\u0631", "\u0627\u0644\u0631\u0633\u0648\u0645\u0627\u062A", "\u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u062C\u0631\u0627\u0641\u064A\u0643\u064A"], roles: ["art", "art-placeholder", "photo"] },
-  { id: "items", forms: ["\u0627\u0644\u0628\u0646\u0648\u062F", "\u0627\u0644\u0628\u0646\u062F", "\u0627\u0644\u0646\u0642\u0627\u0637", "\u0627\u0644\u0646\u0642\u0637\u0647", "\u0627\u0644\u0642\u0627\u0626\u0645\u0647", "\u0627\u0644\u0645\u062A\u0646", "\u0627\u0644\u0646\u0635", "\u0627\u0644\u0643\u0644\u0627\u0645", "\u0627\u0644\u062E\u0637"], roles: ["item"] },
+  // Body lines of the educational layouts (concept) answer to the same words.
+  { id: "items", forms: ["\u0627\u0644\u0628\u0646\u0648\u062F", "\u0627\u0644\u0628\u0646\u062F", "\u0627\u0644\u0646\u0642\u0627\u0637", "\u0627\u0644\u0646\u0642\u0637\u0647", "\u0627\u0644\u0642\u0627\u0626\u0645\u0647", "\u0627\u0644\u0645\u062A\u0646", "\u0627\u0644\u0646\u0635", "\u0627\u0644\u0633\u0637\u0648\u0631", "\u0627\u0644\u0634\u0631\u062D", "\u0627\u0644\u0643\u0644\u0627\u0645", "\u0627\u0644\u062E\u0637"], roles: ["item", "body"] },
   { id: "background", forms: ["\u0627\u0644\u062E\u0644\u0641\u064A\u0647", "\u0644\u0648\u0646 \u0627\u0644\u062E\u0644\u0641\u064A\u0647"], background: true }
 ];
 var ORDINALS = [
@@ -5128,7 +5536,7 @@ function parseCommand(doc, text, ctx = {}) {
     const n2 = ordinalAfter(m, target.forms);
     const across = Boolean(n2) && !pageOrdinal(m) && !ctx.pageId && doc.pages.length > 1;
     const pool = across ? doc.pages.flatMap((p) => artOrder(p).map((el2) => ({ page: p, el: el2 }))) : artOrder(pages[0]).map((el2) => ({ page: pages[0], el: el2 }));
-    const where = across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0627\u0644\u0635\u0641\u062D\u0629";
+    const where2 = across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0627\u0644\u0635\u0641\u062D\u0629";
     if (!pool.length) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0641\u064A ${across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0629"}.` });
     if (hasVerb(m, VERBS.remove) || hasVerb(m, VERBS.hide)) {
       const picks = n2 ? [pool[n2 === -1 ? pool.length - 1 : n2 - 1]].filter(Boolean) : pool;
@@ -5139,12 +5547,12 @@ function parseCommand(doc, text, ctx = {}) {
         intent: "clarify",
         local: false,
         needs: "clarify",
-        reply: `\u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
+        reply: `\u0641\u064A ${where2} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
         options: pool.map(({ page: page2, el: el2 }, i) => ({ label: `${el2.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page2.id, elementId: el2.id }))
       });
     }
     const pick2 = pool[n2 === -1 ? pool.length - 1 : (n2 ?? 1) - 1];
-    if (!pick2) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    if (!pick2) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A ${where2} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
     const { page, el } = pick2;
     const assetId = /\b(a_[a-z0-9]{6,})\b/i.exec(text)?.[1];
     if (assetId) {
@@ -5169,7 +5577,7 @@ function parseCommand(doc, text, ctx = {}) {
     els = [pick2];
   }
   const textEls = els.filter(({ el }) => el.kind === "text");
-  const label = nth ? `\u0627\u0644\u0628\u0646\u062F ${fmt2(nth === -1 ? els.length : nth)}` : target.forms[0];
+  const label = nth ? `\u0627\u0644\u0628\u0646\u062F ${fmt2(nth === -1 ? els.length : nth)}` : target.id === "items" && els.every(({ el }) => el.role === "body") ? "\u0627\u0644\u0646\u0635" : target.forms[0];
   const patch = (action, payload, list2 = els) => list2.map(({ page, el }) => ({ pageId: page.id, elementId: el.id, action, payload }));
   if (hasVerb(m, VERBS.unlock) || m.has(["\u0641\u0643 \u0627\u0644\u0642\u0641\u0644", "\u0627\u0644\u063A \u0627\u0644\u0642\u0641\u0644"])) return result({ intent: "lock", patches: patch("lock", { locked: false }), reply: `\u0641\u062A\u062D\u062A \u0642\u0641\u0644 ${label}.` });
   if (hasVerb(m, VERBS.lock)) return result({ intent: "lock", patches: patch("lock", { locked: true }), reply: `\u0642\u0641\u0644\u062A ${label}: \u0644\u0646 \u062A\u063A\u064A\u0651\u0631\u0647 \u0627\u0644\u0623\u0648\u0627\u0645\u0631 \u062D\u062A\u0649 \u062A\u0641\u062A\u062D\u0647.` });
@@ -5264,6 +5672,145 @@ function runCommand(doc, text, ctx = {}) {
     }
   }
   return { ...cmd, doc };
+}
+
+// lib/studio/prompts.js
+var NEGATIVE_PROMPT = "\u0628\u062F\u0648\u0646 \u0632\u062D\u0645\u0629\u060C \u0628\u062F\u0648\u0646 \u0646\u0635\u0648\u0635 \u0635\u063A\u064A\u0631\u0629\u060C \u0628\u062F\u0648\u0646 \u0623\u062E\u0637\u0627\u0621 \u0639\u0631\u0628\u064A\u0629\u060C \u0628\u062F\u0648\u0646 \u062D\u0631\u0648\u0641 \u0645\u0642\u0637\u0639\u0629\u060C \u0628\u062F\u0648\u0646 \u0639\u0643\u0633 \u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0646\u0635\u060C \u0628\u062F\u0648\u0646 \u0634\u0639\u0627\u0631\u0627\u062A \u0639\u0634\u0648\u0627\u0626\u064A\u0629\u060C \u0628\u062F\u0648\u0646 \u0639\u0646\u0627\u0635\u0631 \u0645\u0634\u062A\u062A\u0629\u060C \u0628\u062F\u0648\u0646 \u0623\u0644\u0648\u0627\u0646 \u0643\u062B\u064A\u0631\u0629\u060C \u0628\u062F\u0648\u0646 \u0635\u0648\u0631 \u063A\u064A\u0631 \u0645\u0631\u062A\u0628\u0637\u0629\u060C \u0628\u062F\u0648\u0646 watermark\u060C \u0628\u062F\u0648\u0646 \u0627\u0632\u062F\u062D\u0627\u0645 \u0628\u0635\u0631\u064A\u060C \u0628\u062F\u0648\u0646 \u062A\u0643\u0648\u064A\u0646 \u0636\u0639\u064A\u0641\u060C \u0628\u062F\u0648\u0646 \u0645\u062D\u0627\u0630\u0627\u0629 \u0639\u0634\u0648\u0627\u0626\u064A\u0629.";
+var TYPES = {
+  hero: "\u063A\u0644\u0627\u0641 (\u062E\u0637\u0651\u0627\u0641)",
+  opener: "\u063A\u0644\u0627\u0641 \u0628\u0631\u0642\u0645 \u0643\u0628\u064A\u0631 (\u062E\u0637\u0651\u0627\u0641)",
+  collage: "\u063A\u0644\u0627\u0641 \u0643\u0648\u0644\u0627\u062C (\u062E\u0637\u0651\u0627\u0641)",
+  "concept/plain": "\u0646\u0635 \u0643\u0628\u064A\u0631",
+  "concept/box": "\u0645\u0631\u0628\u0639 \u0645\u0631\u0643\u0632\u064A",
+  "concept/callout": "\u0634\u0631\u062D \u0648\u062E\u0644\u0627\u0635\u0629 \u0645\u0638\u0644\u0651\u0644\u0629",
+  "concept/panel": "\u062E\u0644\u0627\u0635\u0629 \u062C\u0631\u064A\u0626\u0629 \u0641\u064A \u0644\u0648\u062D",
+  "concept/rule": "\u0639\u0646\u0648\u0627\u0646 \u0648\u0641\u0627\u0635\u0644 \u0648\u0646\u0635",
+  "concept/figure": "\u0631\u0642\u0645 \u0643\u0628\u064A\u0631",
+  flow: "\u062E\u0637 \u0633\u064A\u0631 \u0628\u0635\u0631\u064A (\u0645\u0646 \u2190 \u0625\u0644\u0649)",
+  list: "\u0642\u0627\u0626\u0645\u0629 \u0645\u062E\u062A\u0635\u0631\u0629",
+  post: "\u0645\u0646\u0634\u0648\u0631 \u0645\u0641\u0631\u062F",
+  comparison: "\u0645\u0642\u0627\u0631\u0646\u0629 \u0628\u0633\u064A\u0637\u0629",
+  quote: "\u0627\u0642\u062A\u0628\u0627\u0633",
+  statement: "\u062C\u0645\u0644\u0629 \u0637\u0628\u0627\u0639\u064A\u0629",
+  numbered: "\u0631\u0642\u0645 \u0648\u062E\u0637\u0648\u0629",
+  stat: "\u0631\u0642\u0645 \u0648\u062F\u0644\u064A\u0644",
+  framework: "\u0625\u0637\u0627\u0631 \u0639\u0645\u0644",
+  outro: "\u062F\u0639\u0648\u0629 (CTA)",
+  actions: "\u062F\u0639\u0648\u0629 (CTA) \u0628\u0623\u0632\u0631\u0627\u0631"
+};
+var typeOf = (page) => TYPES[`${page.composition.id}/${page.layout?.variant ?? page.composition.variant}`] ?? TYPES[page.composition.id] ?? page.composition.id;
+function goalOf(page, i, total) {
+  const id = page.composition.id;
+  if (["hero", "opener", "collage"].includes(id) && i === 0) return "\u0625\u064A\u0642\u0627\u0641 \u0627\u0644\u062A\u0645\u0631\u064A\u0631 \u0648\u0625\u062B\u0627\u0631\u0629 \u0627\u0644\u0641\u0636\u0648\u0644";
+  if (["outro", "actions"].includes(id)) return "\u0627\u0644\u062D\u0641\u0638 \u0648\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629";
+  if (i === 1) return "\u062A\u0645\u0647\u064A\u062F: \u0644\u0645\u0627\u0630\u0627 \u064A\u0647\u0645\u0651\u0643 \u0647\u0630\u0627";
+  if (i === total - 2) return "\u062A\u062B\u0628\u064A\u062A \u0622\u062E\u0631 \u0641\u0643\u0631\u0629 \u0642\u0628\u0644 \u0627\u0644\u062F\u0639\u0648\u0629";
+  return "\u0642\u064A\u0645\u0629: \u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0648\u0627\u0636\u062D\u0629";
+}
+var WEIGHT = (w) => w >= 800 ? "\u0623\u0633\u0648\u062F (Black)" : w >= 700 ? "\u0639\u0631\u064A\u0636 (Bold)" : w >= 500 ? "\u0645\u062A\u0648\u0633\u0637 (Medium)" : "\u0639\u0627\u062F\u064A (Regular)";
+var where = (f3, H) => {
+  const c = (f3.y + f3.height / 2) / H;
+  return c < 0.36 ? "\u0641\u064A \u0627\u0644\u062B\u0644\u062B \u0627\u0644\u0639\u0644\u0648\u064A" : c < 0.64 ? "\u0641\u064A \u0627\u0644\u0648\u0633\u0637" : "\u0641\u064A \u0627\u0644\u062B\u0644\u062B \u0627\u0644\u0633\u0641\u0644\u064A";
+};
+var alignOf = (el) => el.style.align === "center" ? "\u0641\u064A \u0627\u0644\u0648\u0633\u0637" : el.style.direction === "ltr" ? "\u0645\u0646 \u0627\u0644\u064A\u0633\u0627\u0631" : "\u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646";
+var marked = (text) => [...String(text ?? "").matchAll(/\*([^*]+)\*/g)].map((m) => m[1].trim());
+var clean = (text) => plainText(text).replace(/\n/g, " / ");
+var LABEL = { kicker: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", title: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", number: "\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0643\u0628\u064A\u0631", subtitle: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", body: "\u0627\u0644\u0646\u0635", item: "\u0628\u0646\u062F", quote: "\u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633", author: "\u0627\u0644\u0642\u0627\u0626\u0644", caption: "\u0627\u0644\u0635\u0641\u0629", source: "\u0627\u0644\u0645\u0635\u062F\u0631", cta: "\u0632\u0631", label: "\u0634\u0627\u0631\u0629", brand: "\u0627\u0644\u062D\u0633\u0627\u0628", role: "\u0627\u0644\u0635\u0641\u0629" };
+function describePage(doc, page, i) {
+  const { colors, fonts } = pageTheme(doc, page);
+  const H = page.heightPx;
+  const els = page.elements.filter((e) => !e.hidden);
+  const texts = els.filter((e) => e.kind === "text" && e.role !== "system" && e.role !== "decor" && plainText(e.text).trim()).sort((a, b) => a.frame.y - b.frame.y || b.frame.x - a.frame.x);
+  const lines = texts.map((e) => {
+    const font = resolveFont(e.style.fontFamily, fonts);
+    return {
+      id: e.id,
+      label: e.name ?? LABEL[e.role] ?? "\u0646\u0635",
+      text: clean(e.text),
+      raw: e.text,
+      marked: marked(e.text),
+      highlight: e.style.highlight ? resolveColor(e.style.highlight, colors) : null,
+      accent: e.text.includes("*") && !e.style.highlight ? colors.accent : null,
+      font: FONTS[font]?.label ?? font,
+      weight: WEIGHT(e.style.weight),
+      size: Math.round(e.style.fontSize),
+      color: resolveColor(e.style.color, colors),
+      where: where(e.frame, H),
+      align: alignOf(e)
+    };
+  });
+  const shapes = els.filter((e) => e.kind === "shape" && e.role === "decor");
+  const visual = [];
+  const has = (re) => shapes.some((e) => re.test(e.id));
+  if (has(/^action-.*-bg$/)) visual.push("\u0635\u0641\u0651\u0627 \u0625\u062C\u0631\u0627\u0621 \u0628\u0639\u0631\u0636 \u0627\u0644\u0635\u0641\u062D\u0629: \u0627\u0644\u0623\u0648\u0644 \u0645\u0645\u0644\u0648\u0621 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0638\u0644\u064A\u0644 \u0645\u0639 \u0623\u064A\u0642\u0648\u0646\u0629 \u062D\u0641\u0638\u060C \u0648\u0627\u0644\u062B\u0627\u0646\u064A \u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0645\u0639 \u0623\u064A\u0642\u0648\u0646\u0629 \u0625\u0631\u0633\u0627\u0644\u060C \u0648\u0627\u0644\u0623\u064A\u0642\u0648\u0646\u0629 \u0639\u0646\u062F \u0627\u0644\u0637\u0631\u0641 \u0627\u0644\u0623\u064A\u0633\u0631");
+  if (has(/^step-\d+-arrow$/)) visual.push(`\u0645\u0631\u0628\u0639\u0627\u062A \u0631\u0641\u064A\u0639\u0629 \u0645\u062A\u062A\u0627\u0644\u064A\u0629 \u0628\u064A\u0646\u0647\u0627 \u062F\u0627\u0626\u0631\u0629 \u0635\u063A\u064A\u0631\u0629 \u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0648\u0633\u0647\u0645 \u0646\u0627\u0632\u0644 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632${shapes.some((e) => /^step-\d+-box$/.test(e.id) && e.fill !== "none") ? "\u060C \u0648\u0627\u0644\u0645\u0631\u0628\u0639 \u0627\u0644\u0623\u062E\u064A\u0631 \u0645\u0645\u0644\u0648\u0621 \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0638\u0644\u064A\u0644" : ""}`);
+  if (has(/^step-\d+-mark$/)) visual.push("\u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u062E\u0644\u0641 \u0639\u0646\u0648\u0627\u0646 \u0643\u0644 \u0645\u0631\u0628\u0639");
+  if (has(/-band$/)) visual.push(`\u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u0623\u0641\u0642\u064A \u0628\u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0648\u062F \u0628\u0627\u0644\u0644\u0648\u0646 ${resolveColor("@highlight", colors)} \u062E\u0644\u0641 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0643\u0628\u064A\u0631`);
+  for (const s of shapes) {
+    if (!/-box$/.test(s.id) || /^step-/.test(s.id)) continue;
+    const owner = lines.find((l) => s.id === `${l.id}-box`)?.text ?? "\u0627\u0644\u0641\u0643\u0631\u0629";
+    visual.push(s.fill === "none" ? `\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0628\u0644\u0648\u0646 ${resolveColor(s.stroke ?? "@line", colors)} \u062D\u0648\u0644 \xAB${owner}\xBB` : `\u0644\u0648\u062D ${s.stroke ? "\u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 " : ""}\u0645\u0645\u0644\u0648\u0621 \u0628\u0627\u0644\u0644\u0648\u0646 ${resolveColor(s.fill, colors)} \u062E\u0644\u0641 \xAB${owner}\xBB`);
+  }
+  if (has(/-rule$/)) visual.push(`\u062E\u0637 \u0641\u0627\u0635\u0644 \u0631\u0641\u064A\u0639 \u0623\u0641\u0642\u064A \u0628\u0644\u0648\u0646 ${resolveColor(shapes.find((e) => /-rule$/.test(e.id)).fill, colors)}`);
+  if (els.some((e) => e.kind === "image")) visual.push("\u0631\u0633\u0645 \u0645\u0633\u0637\u062D \u0628\u0633\u064A\u0637 \u0628\u0644\u0627 \u0646\u0635\u0648\u0635 \u0648\u0644\u0627 \u0648\u062C\u0648\u0647");
+  const sys = els.filter((e) => e.role === "system" && e.kind === "text").map((e) => ({ name: e.name, text: plainText(e.text), where: where(e.frame, H), side: e.frame.x + e.frame.width / 2 < page.widthPx / 2 ? "\u064A\u0633\u0627\u0631" : "\u064A\u0645\u064A\u0646" }));
+  return { index: i + 1, total: doc.pages.length, type: typeOf(page), goal: goalOf(page, i, doc.pages.length), size: `${page.widthPx}\xD7${H}`, bg: colors.bg, colors, lines, visual: [...new Set(visual)], system: sys };
+}
+function promptOf(d, style) {
+  const out = [];
+  out.push(`\u0635\u0645\u0651\u0645 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${d.index} \u0645\u0646 ${d.total} \u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u0625\u0646\u0633\u062A\u063A\u0631\u0627\u0645 \u0639\u0631\u0628\u064A: ${d.type}.`);
+  out.push(`\u0627\u0644\u0645\u0642\u0627\u0633 ${d.size} \u0628\u0643\u0633\u0644 \u0639\u0645\u0648\u062F\u064A\u060C \u062E\u0644\u0641\u064A\u0629 ${d.bg === "#FFFFFF" ? "\u0628\u064A\u0636\u0627\u0621 \u0646\u0638\u064A\u0641\u0629" : "\u0633\u0627\u062F\u0629"} (${d.bg})\u060C \u0647\u0648\u0627\u0645\u0634 \u0622\u0645\u0646\u0629 \u0646\u062D\u0648 96 \u0628\u0643\u0633\u0644 \u0645\u0646 \u0627\u0644\u062C\u0627\u0646\u0628\u064A\u0646.`);
+  for (const l of d.lines) {
+    out.push(`${l.label} ${l.where} ${l.align}\u060C \u0628\u062E\u0637 ${l.font} ${l.weight} \u0628\u062D\u062C\u0645 \u0646\u062D\u0648 ${l.size} \u0628\u0643\u0633\u0644\u060C \u0628\u0644\u0648\u0646 ${l.color}: \xAB${l.text}\xBB`);
+  }
+  const hl = d.lines.filter((l) => l.marked.length && l.highlight);
+  if (hl.length) out.push(`\u0627\u0644\u0647\u0627\u064A\u0644\u0627\u064A\u062A: \u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u0641\u0627\u062A\u062D (${hl[0].highlight}) \u062E\u0644\u0641 \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0633\u0641\u0644\u064A \u0645\u0646 ${hl.flatMap((l) => l.marked.map((w) => `\xAB${w}\xBB`)).join(" \u0648")} \u0641\u0642\u0637\u060C \u0648\u0627\u0644\u0646\u0635 \u0641\u0648\u0642\u0647 \u0628\u0644\u0648\u0646\u0647 \u0627\u0644\u0623\u0633\u0648\u062F.`);
+  const ac = d.lines.filter((l) => l.marked.length && l.accent);
+  if (ac.length) out.push(`\u062A\u0645\u064A\u064A\u0632: ${ac.flatMap((l) => l.marked.map((w) => `\xAB${w}\xBB`)).join(" \u0648")} \u0628\u0644\u0648\u0646 \u0627\u0644\u062A\u0645\u064A\u064A\u0632 ${ac[0].accent} \u0628\u0644\u0627 \u0634\u0631\u064A\u0637.`);
+  if (d.visual.length) out.push(`\u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u0628\u0635\u0631\u064A\u0629: ${d.visual.join("\u061B ")}.`);
+  if (d.system.length) out.push(`\u0639\u0646\u0627\u0635\u0631 \u062B\u0627\u0628\u062A\u0629 \u0635\u063A\u064A\u0631\u0629: ${d.system.map((s) => `\xAB${s.text}\xBB ${s.where} ${s.side === "\u064A\u0633\u0627\u0631" ? "\u064A\u0633\u0627\u0631\u064B\u0627" : "\u064A\u0645\u064A\u0646\u064B\u0627"}`).join("\u060C ")}.`);
+  if (style) out.push(`\u0627\u0644\u0625\u062D\u0633\u0627\u0633 \u0627\u0644\u0639\u0627\u0645: ${style.tone ?? ""}\u061B ${style.purpose ?? ""}.`.replace("\u061B .", "."));
+  out.push("\u0627\u0644\u062A\u0648\u0627\u0632\u0646 \u0627\u0644\u0628\u0635\u0631\u064A: \u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629 \u0641\u0642\u0637\u060C \u0645\u0633\u0627\u062D\u0627\u062A \u0628\u064A\u0636\u0627\u0621 \u0648\u0627\u0633\u0639\u0629\u060C \u0648\u0627\u0644\u0639\u064A\u0646 \u062A\u0642\u0631\u0623 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0623\u0648\u0644\u064B\u0627 \u062B\u0645 \u0627\u0644\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0638\u0644\u0644\u0629 \u062B\u0645 \u0627\u0644\u0646\u0635 \u062B\u0645 \u0627\u0644\u0639\u0646\u0635\u0631 \u0627\u0644\u0645\u0633\u0627\u0639\u062F.");
+  out.push("\u0634\u0631\u064A\u062D\u0629 \u0627\u062D\u062A\u0631\u0627\u0641\u064A\u0629 \u0646\u0638\u064A\u0641\u0629 \u0633\u0647\u0644\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0639\u0644\u0649 \u0627\u0644\u0647\u0627\u062A\u0641\u060C \u0646\u0635 \u0639\u0631\u0628\u064A \u0635\u062D\u064A\u062D \u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646 \u0625\u0644\u0649 \u0627\u0644\u064A\u0633\u0627\u0631 \u0628\u062D\u0631\u0648\u0641 \u0645\u062A\u0635\u0644\u0629 \u063A\u064A\u0631 \u0645\u0642\u0637\u0639\u0629\u060C \u0648\u0627\u0644\u0646\u0635\u0648\u0635 \u0643\u0645\u0627 \u0647\u064A \u062D\u0631\u0641\u064A\u064B\u0627 \u062F\u0648\u0646 \u0632\u064A\u0627\u062F\u0629 \u0623\u0648 \u0646\u0642\u0635.");
+  return out.join("\n");
+}
+function designPrompts(doc) {
+  const style = resolveStyle(doc);
+  return doc.pages.map((page, i) => {
+    const d = describePage(doc, page, i);
+    return { ...d, prompt: promptOf(d, style), negative: NEGATIVE_PROMPT };
+  });
+}
+var cell = (s) => String(s ?? "").replace(/\|/g, "\xA6").replace(/\n/g, " ");
+function promptsMarkdown(doc) {
+  const list2 = designPrompts(doc);
+  const md = [];
+  md.push(`# ${doc.brief || doc.id}`, "");
+  md.push("## Storyboard \u0628\u0635\u0631\u064A", "");
+  md.push("| # | \u0627\u0644\u0647\u062F\u0641 | \u0627\u0644\u0646\u0635 \u0627\u0644\u0638\u0627\u0647\u0631 | \u0646\u0648\u0639 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 | \u062A\u0648\u0632\u064A\u0639 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 | \u0627\u0644\u0639\u0646\u0635\u0631 \u0627\u0644\u0628\u0635\u0631\u064A \u0627\u0644\u0631\u0626\u064A\u0633\u064A | \u0627\u0644\u0647\u0627\u064A\u0644\u0627\u064A\u062A | \u0645\u0644\u0627\u062D\u0638\u0629 \u0644\u0644\u0645\u0635\u0645\u0645 |");
+  md.push("|---|---|---|---|---|---|---|---|");
+  for (const d of list2) {
+    const title = d.lines.find((l) => l.label === "\u0627\u0644\u0639\u0646\u0648\u0627\u0646") ?? d.lines[0];
+    const groups = [];
+    for (const l of d.lines) {
+      if (groups.length && groups.at(-1).where === l.where) groups.at(-1).labels.push(l.label);
+      else groups.push({ where: l.where, labels: [l.label] });
+    }
+    const layout = groups.map((g) => `${g.labels.join(" \u0648")} ${g.where}`).join("\u060C ");
+    const words2 = d.lines.flatMap((l) => l.marked).map((w) => `\xAB${w}\xBB`).join(" ") || "\u2014";
+    md.push(`| ${d.index} | ${cell(d.goal)} | ${cell(title?.text)} | ${cell(d.type)} | ${cell(layout)} | ${cell(d.visual[0] ?? "\u0645\u0633\u0627\u062D\u0629 \u0628\u064A\u0636\u0627\u0621 \u0648\u0646\u0635 \u0641\u0642\u0637")} | ${cell(words2)} | ${cell(title ? `\u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${title.align} \u0628\u062E\u0637 ${title.font} ${title.weight} ${title.size} \u0628\u0643\u0633\u0644` : "")} |`);
+  }
+  md.push("", "## \u0627\u0644\u0646\u0633\u062E\u0629 \u0627\u0644\u0646\u0647\u0627\u0626\u064A\u0629 \u0627\u0644\u062C\u0627\u0647\u0632\u0629 \u0644\u0644\u062A\u0635\u0645\u064A\u0645", "");
+  for (const d of list2) {
+    md.push(`**\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${d.index} \u2014 ${d.type}**`, "");
+    for (const l of d.lines) md.push(`- ${l.label}: ${plainText(l.raw).split("\n").join(" \u23CE ")}${l.marked.length ? ` (\u0645\u0638\u0644\u0651\u0644: ${l.marked.map((w) => `\xAB${w}\xBB`).join("\u060C ")})` : ""}`);
+    md.push("");
+  }
+  md.push("## \u0628\u0631\u0648\u0645\u0628\u062A\u0627\u062A \u062A\u0648\u0644\u064A\u062F \u0627\u0644\u062A\u0635\u0645\u064A\u0645", "");
+  for (const d of list2) {
+    md.push(`### \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${d.index}`, "", "```text", d.prompt, `\u0633\u0644\u0628\u064A: ${d.negative}`, "```", "");
+  }
+  return md.join("\n");
 }
 
 // lib/studio/adapters/canva.js
@@ -5606,7 +6153,9 @@ function renderArtSvg(doc, page, { background = true } = {}) {
 }
 
 // lib/studio/library/matrix.js
-var ROLE_OF = { hero: "cover", collage: "collage", list: "list", post: "list", quote: "quote", comparison: "comparison", statement: "statement", numbered: "steps", outro: "cta", stat: "evidence", framework: "framework" };
+var ROLE_OF = { hero: "cover", collage: "collage", list: "list", post: "list", quote: "quote", comparison: "comparison", statement: "statement", numbered: "steps", outro: "cta", stat: "evidence", framework: "framework", opener: "cover-figure", concept: "concept", flow: "flow", actions: "cta-actions" };
+var LATER_ROLES = ["cover-figure", "concept", "flow", "cta-actions"];
+var declinedWhy = (style, compositionId) => style.notFor?.[ROLE_OF[compositionId]] ?? (LATER_ROLES.includes(ROLE_OF[compositionId]) ? "\u0645\u0646 \u0627\u0644\u0645\u062C\u0645\u0648\u0639\u0629 \u0627\u0644\u062A\u0639\u0644\u064A\u0645\u064A\u0629 \u0627\u0644\u062A\u064A \u0623\u064F\u0636\u064A\u0641\u062A \u0628\u0639\u062F \u0645\u0631\u0627\u062C\u0639\u0629 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628: \u0644\u0627 \u064A\u064F\u062F\u0651\u0639\u0649 \u062D\u062A\u0649 \u064A\u064F\u0628\u0646\u0649 \u0648\u064A\u064F\u0631\u0627\u062C\u064E\u0639 \u0645\u0639\u0647" : null);
 
 // scripts/studio-cli.js
 var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
@@ -5627,6 +6176,9 @@ var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
   studio edit DESIGN.json "<\u0623\u0645\u0631>" [--page N] [--out FILE]   conversational edit (local when possible)
   studio patch DESIGN.json PATCHES.json [--scope graphic|text] [--out FILE]
   studio render DESIGN.json OUT.html             the offline editor with the design embedded
+  studio prompts DESIGN.json [--out FILE.md] [--json]
+                                                storyboard, ready copy and one generation prompt per
+                                                slide (+ negative prompt), read from the design itself
   studio svg DESIGN.json OUTDIR                  page artwork (no text) as SVG
   studio format DESIGN.json portrait|square|story [--out FILE]
   studio save DESIGN.json [--status candidate|used] [--label TEXT] [--concepts a,b] [--metaphor TEXT]
@@ -5736,7 +6288,13 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
           defaultMode: st.defaultMode ?? "light",
           formats: st.formats,
           compositions: Object.keys(ROLE_OF).filter((c) => st.roles.includes(ROLE_OF[c])),
-          declines: Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why }))
+          declines: [
+            ...Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why })),
+            ...(() => {
+              const later = Object.keys(ROLE_OF).filter((c) => LATER_ROLES.includes(ROLE_OF[c]) && !st.roles.includes(ROLE_OF[c]) && !st.notFor?.[ROLE_OF[c]]);
+              return later.length ? [{ compositions: later, why: declinedWhy(st, later[0]) }] : [];
+            })()
+          ]
         }))
       );
     }
@@ -5845,6 +6403,17 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
       fs2.writeFileSync(rest[0], injectSeed(fs2.readFileSync(templatePath(), "utf8"), doc));
       studio.ledger.record({ kind: "export", tool: "html", designId: doc.id });
       return out({ ok: true, file: rest[0], pages: doc.pages.length, size: `${doc.pages[0].widthPx}\xD7${doc.pages[0].heightPx}` });
+    }
+    case "prompts": {
+      const doc = withAssets(studio, loadDesign(sub));
+      if (opt.json) return out(designPrompts(doc).map(({ colors, ...d }) => d));
+      const md = promptsMarkdown(doc);
+      if (typeof opt.out === "string") {
+        fs2.writeFileSync(opt.out, `${md}
+`);
+        return out({ ok: true, file: opt.out, slides: doc.pages.length });
+      }
+      return out(md);
     }
     case "svg": {
       const doc = withAssets(studio, loadDesign(sub));

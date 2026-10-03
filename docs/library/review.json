@@ -440,6 +440,118 @@
   "by": "assistant",
   "at": "2026-10-02"
  },
+ "mint-highlight/actions/portrait": {
+  "verdict": "ready",
+  "fingerprint": "bceb53d076b3b144",
+  "note": "صفّا إجراء بعرض الصفحة: الأول نعناعي والثاني بإطار، والأيقونة عند نهاية القراءة (طائرة الإرسال مقلوبة لليمين إلى اليسار)",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/comparison/portrait": {
+  "verdict": "ready",
+  "fingerprint": "708fdaa19f95b8fc",
+  "note": "البطاقة الإيجابية بإطار أخضر وشارة خضراء، والسلبية بإطار رفيع؛ بالأحجام المحددة (بلا تكبير) تبقى العيّنة القصيرة صغيرة وسط فراغ واسع، مقروءة ومتوازنة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/concept/portrait": {
+  "verdict": "ready",
+  "fingerprint": "333580da3c390f91",
+  "note": "التوزيعات الستة: نص، إطار رفيع موسّط، خلاصة على لوح، عنوان في لوح (الكلمة المميزة بالأخضر لأن الشريط لا يظهر على اللوح)، فاصل بعرض العمود، رقم على شريط بعرض العمود؛ لا فيض ولا كلمة منفردة في العناوين",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/flow/portrait": {
+  "verdict": "ready",
+  "fingerprint": "1c67e6fae3960146",
+  "note": "مربعان أو ثلاثة بإطار رفيع ودائرة بسهم نازل أخضر؛ «النتيجة مظلّلة» تلوّن المربع الأخير و«العناوين مظلّلة» تضع الشريط خلف كل عنوان",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/framework/portrait": {
+  "verdict": "ready",
+  "fingerprint": "90d537b4f2d2a8b8",
+  "note": "بطاقات بإطار رفيع وأرقام خضراء على سطر الاسم؛ الصف الأخير القصير بعرض الصفحة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/hero/portrait": {
+  "verdict": "ready",
+  "fingerprint": "7c787d729defcc5b",
+  "note": "الكلمة المميزة على شريط نعناعي بلون النص، والشارة نص أخضر بلا كبسولة، وخط فاصل رفيع بعرض العمود؛ الطويل في 3 أسطر بلا فيض (سطره الداعم ينتهي بكلمة: تحذير text.lone-word)",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/list/portrait": {
+  "verdict": "ready",
+  "fingerprint": "a6106df398a33b0f",
+  "note": "بطاقات بإطار رفيع ورقم أخضر بلا دائرة؛ العيّنة الطويلة تنتقل إلى عمودين (حد سعة التكوين نفسه في كل الأساليب) وتبقى مقروءة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/numbered/portrait": {
+  "verdict": "ready",
+  "fingerprint": "465ccba615a881f2",
+  "note": "الرقم أسود كبير (لا أخضر) والعنوان تحته بتظليل الكلمة؛ متوازن في القصير والطويل",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/opener/portrait": {
+  "verdict": "ready",
+  "fingerprint": "a6b8af8671304631",
+  "note": "رقم أسود كبير ثم العنوان والكلمة المميزة على الشريط؛ في الطويل يمتد التظليل على سطرين لأن العبارة المميزة طويلة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/outro/portrait": {
+  "verdict": "ready",
+  "fingerprint": "6c890a2e53927720",
+  "note": "الدائرة والحلقة بالأخضر المعتّم، والزران وحساب الهوية واضحة؛ بلا دعوة سحب في الصفحة الأخيرة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/post/portrait": {
+  "verdict": "ready",
+  "fingerprint": "cb6ee969ebffb0f4",
+  "note": "علامات صح خضراء بلا دوائر، وزر الدعوة لوح نعناعي بنص داكن وسهم",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/quote/portrait": {
+  "verdict": "ready",
+  "fingerprint": "4d9f3f01ebacf2cf",
+  "note": "خط جانبي أخضر واقتباس أسود؛ الطويل في 5 أسطر بلا ازدحام",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/sequence:laws-carousel/portrait": {
+  "verdict": "ready",
+  "fingerprint": "ec9231be417c85c5",
+  "note": "كاروسيل القوانين السبعة (10 شرائح) بأحجام الطلب (116/88/44): لا تتكرر التوزيعات المتجاورة، شريط التظليل في النصف السفلي من الكلمة، اللوح والمراحل والخاتمة كما في المرجع؛ بلا فيض ولا كلمة منفردة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/sequence/portrait": {
+  "verdict": "ready",
+  "fingerprint": "6959716215d856bc",
+  "note": "كاروسيل الإنصات بالأسلوب: عدّاد «1/8» نصّي، اسم الحساب يمينًا و«اسحب واكتشف» يسارًا، الأرقام سوداء والكلمات مظلّلة؛ عنوان الغلاف ينتهي بكلمة منفردة (حد الغلاف الطباعي المعروف)",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/stat/portrait": {
+  "verdict": "ready",
+  "fingerprint": "23d70d66d14da6d5",
+  "note": "الرقم أسود، والمعنى بتظليل الكلمة، والمصدر تحت خط رفيع؛ «5 ثوانٍ» بعلاماتها كاملة، والعنوان الطويل في 3 أسطر بلا كلمة منفردة",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
+ "mint-highlight/statement/portrait": {
+  "verdict": "ready",
+  "fingerprint": "6bc7227becd78d3e",
+  "note": "جملة كبيرة والكلمة المميزة على الشريط؛ الطويل في 4 أسطر والسطر الداعم تحته",
+  "by": "assistant",
+  "at": "2026-10-03"
+ },
  "monochrome-editorial/framework/portrait": {
   "verdict": "ready",
   "fingerprint": "ed01f4362b3119d1",

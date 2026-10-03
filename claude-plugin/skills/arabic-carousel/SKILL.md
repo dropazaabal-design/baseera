@@ -36,6 +36,9 @@ Every command prints JSON. Data persists in `~/.baseera` (or `BASEERA_HOME`).
 - The current request always beats memory and the library.
 
 If the user attached a reference image, read `references/roles/reference-analysis.md` first.
+If the user gives only a topic and wants the whole carousel decided for them (audience, angle,
+titles, storyboard, a prompt per slide, a brief for a designer), follow the `carousel-director`
+skill: it uses this studio and adds the strategy and the 13-part file.
 
 ## 2. Plan before generating
 
@@ -61,8 +64,9 @@ Details and judgement calls: `references/roles/director.md` and `references/role
 3. **Spec**: write `spec.json` (format in `references/studio-format.md`; `studio compositions`
    lists layouts and fields). Pick the composition from the content's relation (steps, framework,
    comparison, evidence…), then a visual style with `studio styles` if the user asked for a look
-   («كولاج تحريري»، «داكن وفاتح بالتناوب»، «بسيط») or the identity has one it approved. Offer only
-   styles listed there (status `reusable`); a style that declines a composition says why.
+   («كولاج تحريري»، «داكن وفاتح بالتناوب»، «بسيط»، «تعليمي أبيض بتظليل نعناعي» → `mint-highlight`)
+   or the identity has one it approved. Offer only styles listed there (status `reusable`); a style
+   that declines a composition says why.
 4. `studio compose spec.json --request "<request>" --out design.json --html design.html`
 
 ## 4. Check before delivering
@@ -104,6 +108,10 @@ returns `needs`:
 - `recompose` → `studio library remix <id>` or a new spec reusing the reference's compositions.
 
 Re-check after each edit (`studio check design.json`), and `studio render design.json design.html`.
+
+`studio prompts design.json --out prompts.md` writes the storyboard table, the ready copy of every
+slide and one generation prompt per slide (with the negative prompt), read from the design itself:
+use it when the user asks for prompts, a storyboard or a file for a designer.
 
 ## Library, projects, workflows
 

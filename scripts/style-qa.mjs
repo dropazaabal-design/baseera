@@ -23,11 +23,11 @@ import { KITABWBS_PRESET } from '../lib/studio/memory.js';
 import { COMPOSITIONS } from '../lib/studio/compositions.js';
 import { STYLES } from '../lib/studio/styles/catalog.js';
 import { validateStyle } from '../lib/studio/styles.js';
-import { SAMPLES } from '../lib/studio/library/samples.js';
+import { SAMPLES, sampleOf } from '../lib/studio/library/samples.js';
 import { seedQaArt, withArt } from '../lib/studio/library/art.js';
 import { documentHtml } from '../lib/studio/htmlPreview.js';
 import { FONTS } from '../lib/fonts.js';
-import { ROLE_OF, claims, pairFingerprint, pairStatus, sequenceFingerprint, sequencePages } from '../lib/studio/library/matrix.js';
+import { ROLE_OF, claims, declinedWhy, pairFingerprint, pairStatus, sequenceFingerprint, sequenceKey, sequencePages, sequenceReviewKey, sequencesFor } from '../lib/studio/library/matrix.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const argv = process.argv.slice(2);
@@ -61,8 +61,9 @@ function fontCss() {
 function build(styleId, compositionId, size, format, mode = null) {
   const studio = openStudio(new MemoryStore());
   studio.memory.saveBrand('default', KITABWBS_PRESET);
-  const content = withArt(SAMPLES[compositionId][size], seedQaArt(studio));
-  const pages = [{ composition: compositionId, content }];
+  const sample = sampleOf(compositionId, size);
+  const content = withArt(sample.content, seedQaArt(studio));
+  const pages = [{ composition: compositionId, content, ...(sample.variant && { variant: sample.variant }) }];
   const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa ${styleId ?? 'classic'}/${compositionId}/${size}`, ...(styleId && { style: { id: styleId, ...(mode && { mode }) } }), intent: { mode: 'post', format, pages: 1, platform: 'instagram' }, pages }, { save: false });
   return { doc, quality };
 }
@@ -82,14 +83,15 @@ for (const styleId of styles) {
     // Formats the style does not declare are not tested (nor counted).
     for (const format of formats.filter((f) => style.formats.includes(f))) {
       const claimed = claims(style, compositionId, format);
-      const pair = { ...(!claimed && { why: style.notFor?.[ROLE_OF[compositionId]] ?? null }), style: styleId, styleVersion: style.version, composition: compositionId, compositionVersion: COMPOSITIONS[compositionId]?.version ?? null, format, claimed, fingerprint: pairFingerprint(style, compositionId), samples: {} };
+      const pair = { ...(!claimed && { why: declinedWhy(style, compositionId) }), style: styleId, styleVersion: style.version, composition: compositionId, compositionVersion: COMPOSITIONS[compositionId]?.version ?? null, format, claimed, fingerprint: pairFingerprint(style, compositionId), samples: {} };
       // A style with light and dark pages is checked in both modes: the
       // same composition must work wherever the sequence puts it.
       const modes = style.tokens.light && style.tokens.dark ? ['light', 'dark'] : [null];
-      for (const [size, mode] of ['short', 'long'].flatMap((z) => modes.map((m) => [z, m]))) {
+      // short and long, then any other layout the samples carry.
+      for (const [size, mode] of Object.keys(SAMPLES[compositionId]).flatMap((z) => modes.map((m) => [z, m]))) {
         const sample = mode ? `${size}-${mode}` : size;
         const { doc, quality } = build(styleId, compositionId, size, format, mode);
-        pair.samples[sample] = { errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code), chars: JSON.stringify(SAMPLES[compositionId][size]).length };
+        pair.samples[sample] = { errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code), chars: JSON.stringify(sampleOf(compositionId, size).content).length };
         // A sample that fails the same way without the style is a limit of
         // the composition in this format (too much text for the page), not a
         // style defect: recorded as such, with the gate's own suggestion.
@@ -109,16 +111,22 @@ for (const styleId of styles) {
 // The acceptance carousel per style (portrait): the sequence, with
 // pagination and light/dark alternation, built and checked like a pair.
 const sequences = {};
+const sequenceDefs = {};
 for (const styleId of styles) {
   const style = STYLES.find((s) => s.id === styleId);
   if (!style || validateStyle(style).length || !style.formats.includes('portrait')) continue;
-  const studio = openStudio(new MemoryStore());
-  studio.memory.saveBrand('default', KITABWBS_PRESET);
-  const ids = seedQaArt(studio);
-  const pages = sequencePages(style).map((p) => ({ ...p, content: withArt(p.content, ids) }));
-  const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa sequence ${styleId}`, style: { id: styleId }, intent: { mode: 'carousel', format: 'portrait', pages: pages.length, platform: 'instagram' }, pages }, { save: false });
-  sequences[styleId] = { fingerprint: sequenceFingerprint(style), pages: pages.map((p) => p.composition), modes: doc.pages.map((p) => p.styleMode ?? 'light'), errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code) };
-  sheets[`${styleId}.sequence`] = [{ doc, key: 'sequence', label: 'sequence' }];
+  for (const def of sequencesFor(style)) {
+    const studio = openStudio(new MemoryStore());
+    studio.memory.saveBrand('default', KITABWBS_PRESET);
+    const ids = seedQaArt(studio);
+    const pages = sequencePages(style, 'portrait', def).map((p) => ({ ...p, content: withArt(p.content, ids) }));
+    const { doc, quality } = buildDesign(studio, { brandId: 'kitabwbs', brief: `qa sequence ${styleId} ${def.id}`, style: { id: styleId }, intent: { mode: 'carousel', format: 'portrait', pages: pages.length, platform: 'instagram' }, pages }, { save: false });
+    const key = sequenceKey(styleId, def);
+    sequenceDefs[key] = { styleId, def };
+    sequences[key] = { sequence: def.id, fingerprint: sequenceFingerprint(style, def), pages: pages.map((p) => p.variant ? `${p.composition}/${p.variant}` : p.composition), modes: doc.pages.map((p) => p.styleMode ?? 'light'), errors: quality.errors, warnings: quality.warnings, issues: quality.issues.filter((i) => i.severity === 'error').map((i) => i.code) };
+    // Sheet names: <style>.sequence (listening carousel), <style>.<id>.
+    sheets[key === styleId ? `${styleId}.sequence` : `${styleId}.${def.id}`] = [{ doc, key: 'sequence', label: 'sequence', seqKey: key }];
+  }
 }
 
 let overflow = {};
@@ -139,7 +147,7 @@ if (render) {
     await page.waitForFunction(() => Array.isArray(window.__fit), null, { timeout: 30000 });
     const fit = await page.evaluate(() => window.__fit);
     for (const o of await page.evaluate(() => window.__orphans ?? [])) (orphans[styleId] ??= []).push({ ...o, sheet });
-    if (sheet.endsWith('.sequence')) sequences[styleId].browserOverflow = fit.map((o) => ({ page: o.page, element: o.el }));
+    if (items[0].seqKey) sequences[items[0].seqKey].browserOverflow = fit.map((o) => ({ page: o.page, element: o.el }));
     else overflow[styleId] = [...(overflow[styleId] ?? []), ...fit];
     await page.screenshot({ path: path.join(outDir, 'previews', `${sheet}.png`), fullPage: true });
     // Where each page sits on the sheet, in image pixels: lets a later run
@@ -180,8 +188,8 @@ for (const r of results) {
   r.review = review && { ...review, current: review.fingerprint === r.fingerprint };
   r.status = pairStatus({ claimed: r.claimed, automated, rendered: render, review, fingerprint: r.fingerprint });
 }
-for (const [styleId, seq] of Object.entries(sequences)) {
-  const review = reviews[`${styleId}/sequence/portrait`] ?? null;
+for (const [key, seq] of Object.entries(sequences)) {
+  const review = reviews[sequenceReviewKey(sequenceDefs[key].styleId, sequenceDefs[key].def)] ?? null;
   const automated = seq.errors === 0 && (!render || (seq.browserOverflow ?? []).length === 0);
   seq.review = review && { ...review, current: review.fingerprint === seq.fingerprint };
   seq.status = pairStatus({ claimed: true, automated, rendered: render, review, fingerprint: seq.fingerprint });
@@ -201,7 +209,7 @@ for (const [styleId, st] of Object.entries(byStyle)) {
   const rows = results.filter((r) => r.style === styleId && !r.error);
   for (const c of [...new Set(rows.map((r) => r.composition))]) {
     const cr = rows.filter((r) => r.composition === c);
-    if (cr.every((r) => r.status === 'not_claimed')) st.notClaimed.push({ composition: c, why: STYLES.find((x) => x.id === styleId)?.notFor?.[ROLE_OF[c]] ?? null });
+    if (cr.every((r) => r.status === 'not_claimed')) st.notClaimed.push({ composition: c, why: declinedWhy(STYLES.find((x) => x.id === styleId), c) });
     else if (cr.every((r) => r.status === 'ready')) st.ready.push(c);
     else st.notReady.push(`${c} (${cr.filter((r) => r.status !== 'ready').map((r) => `${r.format}: ${r.status}`).join(', ')})`);
   }

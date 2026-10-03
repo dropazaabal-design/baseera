@@ -2,16 +2,17 @@
 
 | الملف | ما فيه | يُكتب بـ |
 |---|---|---|
-| `matrix.json` | لكل زوج أسلوب × تكوين × مقاس: هل يدّعيه الأسلوب، ونتائج العيّنات القصيرة والطويلة (وفي الوضعين للأساليب ذات الوضعين)، وفيض المتصفح، والكلمة الأخيرة المنفردة، والبصمة، والحكم، والحالة. ثم `byStyle` (الجاهز والمرفوض بسببه لكل أسلوب)، و`totals` (الأزواج الجاهزة محسوبة بالتكوين لا بضرب المقاسات)، و`sequences` (كاروسيل القبول لكل أسلوب)، و`titleOrphans` | `node scripts/style-qa.mjs --formats portrait,square,story --render` |
-| `review.json` | حكمي بعد النظر في الأوراق: `ready` أو `unsuitable` أو `needs_work`، مع ملاحظة وتاريخ وبصمة ما رأيته | `node scripts/style-review.mjs <style> <composition…\|all\|sequence> <formats> <verdict> "<note>"` |
+| `matrix.json` | لكل زوج أسلوب × تكوين × مقاس: هل يدّعيه الأسلوب، ونتائج العيّنات القصيرة والطويلة (وفي الوضعين للأساليب ذات الوضعين)، وفيض المتصفح، والكلمة الأخيرة المنفردة، والبصمة، والحكم، والحالة. ثم `byStyle` (الجاهز والمرفوض بسببه لكل أسلوب)، و`totals` (الأزواج الجاهزة محسوبة بالتكوين لا بضرب المقاسات)، و`sequences` (كاروسيل القبول لكل أسلوب بمفتاح اسمه، وكاروسيل القوانين السبعة بمفتاح `<style>:laws-carousel` لكل أسلوب يدّعي كل تكويناته)، و`titleOrphans` | `node scripts/style-qa.mjs --formats portrait,square,story --render` |
+| `review.json` | حكمي بعد النظر في الأوراق: `ready` أو `unsuitable` أو `needs_work`، مع ملاحظة وتاريخ وبصمة ما رأيته | `node scripts/style-review.mjs <style> <composition…\|all\|sequence\|sequence:laws-carousel> <formats> <verdict> "<note>"` |
 | `previews/<style>.<format>.png` | ورقة معاينة لكل أسلوب ومقاس (ربع الحجم)، و`.pages.json` بمواضع الصفحات فيها | مع `style-qa --render` |
 | `previews/<style>.sequence.png` | كاروسيل القبول (8 شرائح) بذلك الأسلوب | مع `style-qa --render` |
+| `previews/<style>.laws-carousel.png` | كاروسيل القوانين السبعة (10 شرائح) للأسلوب الذي يدّعي المجموعة التعليمية | مع `style-qa --render` |
 | `sources/*.json` | ما استخرجه المحوّل من كل مصدر مثبَّت: قيم صريحة، وقواعد، وغامض، وما لا يناسب العربية | `node scripts/extract-style-sources.mjs --clone <repo>=<dir>` |
 
 ## الحالات
 
-- زوج: `not_claimed` (الأسلوب لا يدّعي دوره أو مقاسه)، `failed` (فشل فحص آلي)، `needs_review` (نجح آليًا ولم يُنظر إليه منذ آخر تغيير)، `ready`، `unsuitable`.
-- أسلوب: `source_catalog` ← `normalized` ← `rtl_adapted` ← `preview_verified` (كل أزواجه جاهزة) ← `reusable` (وكل مقاساته في المصفوفة وكاروسيله مراجَع). `rejected` و`needs_review` خارج التسلسل. الاختبار `tests/styles.test.js` يرفض أي حالة لا تسندها المصفوفة الملتزَمة.
+- زوج: `not_claimed` (الأسلوب لا يدّعي دوره أو مقاسه، والسبب مكتوب: قرار تصميم في `notFor`، أو تكوين أُضيف بعد مراجعة الأسلوب)، `failed` (فشل فحص آلي)، `needs_review` (نجح آليًا ولم يُنظر إليه منذ آخر تغيير)، `ready`، `unsuitable`.
+- أسلوب: `source_catalog` ← `normalized` ← `rtl_adapted` ← `preview_verified` (كل أزواجه جاهزة) ← `reusable` (وكل مقاساته في المصفوفة وكل كاروسيل يلزمه مراجَع). `rejected` و`needs_review` خارج التسلسل. الاختبار `tests/styles.test.js` يرفض أي حالة لا تسندها المصفوفة الملتزَمة.
 
 ## البصمة
 

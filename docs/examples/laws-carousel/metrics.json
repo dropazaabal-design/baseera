@@ -1,0 +1,24 @@
+{
+ "kind": "metrics",
+ "machine": "same container, Node 22; in-process times are the median of 5 warm runs after one cold run",
+ "lawsCarousel": {
+  "composeMsCold": 40,
+  "composeMs": 12,
+  "composeViaCliMs": 142,
+  "pages": 10,
+  "size": "1080x1350",
+  "typeSizesPx": { "coverTitle": 116, "coverFigure": 240, "titles": 88, "panelTitle": 92, "closingTitle": 100, "body": 44, "kicker": 36, "counterAndFooter": [26, 28] },
+  "elements": 96,
+  "errors": 0,
+  "warnings": 0,
+  "browser": { "overflow": 0, "loneLastWordTitles": 0 },
+  "localEditMs": 1.7,
+  "pptx": { "bytes": 113313, "nativeTexts": 68, "nativeShapes": 28, "rtlTexts": 68, "readbackMismatches": 0 },
+  "blueVariant": { "errors": 0, "warnings": 0, "spec": "spec-blue.json" },
+  "aiImageGenerations": 0,
+  "externalOperations": 0,
+  "tokens": null,
+  "costUsd": null,
+  "tokensNote": "not measurable locally: the provider does not expose them to this pipeline"
+ }
+}
