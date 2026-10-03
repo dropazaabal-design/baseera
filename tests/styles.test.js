@@ -338,3 +338,34 @@ test('committed matrix: counts are per composition, every declined pair says why
   for (const p of m.pairs.filter((x) => !x.claimed)) assert.ok(p.why, `${p.style}/${p.composition}: declined without a reason`);
   for (const s of STYLES) if (s.status === 'reusable') assert.equal(m.sequences[s.id]?.status, 'ready', s.id);
 });
+
+import { runCommand } from '../lib/studio/commands.js';
+
+test('acceptance edits: «كبّر العنوان الثاني» touches page 2 only; «غيّر الجرافيك الرابع» counts graphics across the carousel', () => {
+  const pages = SEQUENCE.pages.map(({ fallback, ...p }) => p);
+  const { doc } = carousel('collage-cutout', pages);
+  const snapshot = (d) => Object.fromEntries(d.pages.flatMap((p) => p.elements.map((e) => [`${p.id}/${e.id}`, JSON.stringify(e)])));
+  const changed = (a, b) => {
+    const A = snapshot(a);
+    const B = snapshot(b);
+    return [...new Set([...Object.keys(A), ...Object.keys(B)])].filter((k) => A[k] !== B[k]);
+  };
+  const r1 = runCommand(doc, 'كبّر العنوان الثاني', { brand: KITABWBS_PRESET });
+  assert.equal(r1.intent, 'resize_text');
+  const touched = changed(doc, r1.doc);
+  assert.ok(touched.includes(`${doc.pages[1].id}/title`));
+  assert.ok(touched.every((k) => k.startsWith(`${doc.pages[1].id}/`)), `only page 2: ${touched}`);
+  assert.match(r1.reply, /\d/, 'Western digits in the reply for a brand that uses them');
+  // Without a page, the fourth graphic is the first one after the cover's three.
+  const ask = runCommand(r1.doc, 'غيّر الجرافيك الرابع', {});
+  assert.equal(ask.needs, 'asset');
+  assert.equal(ask.target.pageId, doc.pages[6].id);
+  // With a current page (the editor), ordinals count within that page.
+  const onCover = runCommand(r1.doc, 'غيّر الجرافيك الثالث', { pageId: doc.pages[0].id });
+  assert.equal(onCover.target.pageId, doc.pages[0].id);
+  const newArt = Object.keys(r1.doc.assets).find((id) => id !== ask.target.currentAssetId);
+  const r2 = runCommand(r1.doc, `غيّر الجرافيك الرابع ${newArt}`, {});
+  assert.equal(r2.intent, 'replace_asset');
+  assert.deepEqual(changed(r1.doc, r2.doc), [`${doc.pages[6].id}/art`]);
+  assert.equal(runCommand(r1.doc, 'كبّر العنوان التاسع', {}).needs, 'clarify', 'no ninth title in an eight-page carousel');
+});

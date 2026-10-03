@@ -1,0 +1,3651 @@
+{
+  "schemaVersion": 2,
+  "kind": "design",
+  "id": "d_a5xldixjxy98",
+  "revision": 3,
+  "createdAt": "2026-10-02T21:06:15.084Z",
+  "updatedAt": "2026-10-03T00:32:20.283Z",
+  "creatorId": "default",
+  "brandId": "kitabwbs",
+  "brandKit": {
+    "id": "kitabwbs",
+    "name": "كتاب وبس",
+    "handle": "@kitabwbs",
+    "colors": [
+      {
+        "hex": "#2E7BC5",
+        "role": "accent",
+        "name": "الأزرق الأساسي"
+      },
+      {
+        "hex": "#FFFFFF",
+        "role": "bg",
+        "name": "أبيض"
+      },
+      {
+        "hex": "#0E2A5C",
+        "role": "dark",
+        "name": "أزرق ليلي (مشتق للصفحات الداكنة)"
+      },
+      {
+        "hex": "#E63946",
+        "role": "negative",
+        "name": "أحمر وظيفي"
+      },
+      {
+        "hex": "#10B981",
+        "role": "positive",
+        "name": "أخضر وظيفي"
+      }
+    ],
+    "fonts": {
+      "heading": "cairo",
+      "body": "tajawal",
+      "fallbacks": [
+        "almarai"
+      ],
+      "allowed": [
+        "cairo",
+        "tajawal"
+      ]
+    },
+    "voice": {
+      "tone": "ودودة ومشجّعة على القراءة",
+      "dialect": "فصحى مبسطة",
+      "titles": "عناوين قوية قصيرة، ومتن واضح بلا ازدحام"
+    },
+    "imagery": {
+      "style": "كولاج تحريري أزرق: كتب وصفحات ونظارات قراءة وأقلام، أشكال مسطحة بلا نصوص",
+      "notes": "بلا وجوه أو صور بشرية"
+    },
+    "constraints": [
+      "no-yellow",
+      "no-orange",
+      "no-faces",
+      "no-latin-words",
+      "western-digits",
+      "fonts-only"
+    ],
+    "version": 1
+  },
+  "brief": "كاروسيل «كيف تتكلم فينصت لك الآخرون؟»: غلاف، 6 عادات، ختام — كولاج تحريري يتناوب داكن/فاتح",
+  "intent": {
+    "mode": "carousel",
+    "platform": "instagram",
+    "format": "portrait",
+    "pages": 8,
+    "destination": "local"
+  },
+  "theme": {
+    "paletteId": "style:collage-cutout",
+    "colors": {
+      "bg": "#FFFFFF",
+      "surface": "#E9F0F8",
+      "text": "#14181F",
+      "muted": "#4E5866",
+      "accent": "#2C76BD",
+      "onAccent": "#FFFFFF"
+    },
+    "dark": {
+      "bg": "#0E2A5C",
+      "surface": "#1B4282",
+      "text": "#FFFFFF",
+      "muted": "#C7D3E4",
+      "accent": "#609BD3",
+      "onAccent": "#0E2A5C"
+    },
+    "derived": [
+      {
+        "role": "accent",
+        "mode": "light",
+        "from": "#2E7BC5",
+        "to": "#2C76BD",
+        "why": "نص أبيض على لون التمييز بتباين 4.5 على الأقل"
+      },
+      {
+        "role": "accent",
+        "mode": "dark",
+        "from": "#2E7BC5",
+        "to": "#609BD3",
+        "why": "لون التمييز مقروء على الخلفية الداكنة بتباين 4.5 على الأقل"
+      }
+    ],
+    "fonts": {
+      "heading": "cairo",
+      "body": "tajawal"
+    },
+    "numerals": "latn"
+  },
+  "brand": {
+    "name": "كتاب وبس",
+    "handle": "@kitabwbs"
+  },
+  "chrome": {
+    "pagination": {
+      "enabled": true,
+      "style": "words",
+      "showBar": true,
+      "showCounter": true
+    },
+    "swipe": {
+      "enabled": true,
+      "text": "اسحب لليسار",
+      "lastText": "احفظ البوست 📌",
+      "showArrow": true
+    },
+    "watermark": {
+      "enabled": true,
+      "showLogo": true,
+      "showBadge": true
+    }
+  },
+  "governance": {
+    "institutional": false,
+    "locked": false
+  },
+  "style": {
+    "id": "collage-cutout",
+    "version": 1,
+    "mode": "alternate"
+  },
+  "pages": [
+    {
+      "id": "pg_br9ir8y6s8",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "collage",
+        "version": 1,
+        "variant": "top"
+      },
+      "content": {
+        "kicker": "دليل عملي",
+        "title": "كيف تتكلم *فيُنصت* لك الآخرون؟",
+        "subtitle": "6 عادات بسيطة تجعل لكلامك وزنًا — احفظه وارجع إليه.",
+        "art": [
+          "a_a59044c6c405a289",
+          "a_63a7cbc4a9212cb8",
+          "a_c414541405f959c4"
+        ],
+        "artAlt": [
+          "فقاعة حوار",
+          "موجة صوت",
+          "فقاعة صامتة"
+        ]
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-cover-0",
+          "kind": "shape",
+          "frame": {
+            "x": 72,
+            "y": 114,
+            "width": 936,
+            "height": 1094
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": -1.6
+        },
+        {
+          "id": "style-cover-1",
+          "kind": "shape",
+          "frame": {
+            "x": 776,
+            "y": 92,
+            "width": 160,
+            "height": 40
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": -8
+        },
+        {
+          "id": "collage-paper",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 235.5,
+            "width": 888,
+            "height": 396
+          },
+          "z": 10,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "rotation": -2,
+          "role": "decor",
+          "name": "ورقة الكولاج",
+          "anim": "fade"
+        },
+        {
+          "id": "collage-1",
+          "kind": "image",
+          "frame": {
+            "x": 137.5,
+            "y": 195.9,
+            "width": 368.3,
+            "height": 306.9
+          },
+          "z": 11,
+          "locked": false,
+          "assetId": "a_a59044c6c405a289",
+          "alt": "فقاعة حوار",
+          "fit": "contain",
+          "rotation": -5,
+          "role": "art",
+          "slot": "art.0",
+          "name": "قصاصة 1",
+          "anim": "pop"
+        },
+        {
+          "id": "collage-1-tape",
+          "kind": "shape",
+          "frame": {
+            "x": 249,
+            "y": 177.9,
+            "width": 145.2,
+            "height": 40
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "rotation": 7.5,
+          "opacity": 0.75,
+          "radius": 4,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "anim": "pop"
+        },
+        {
+          "id": "collage-2",
+          "kind": "image",
+          "frame": {
+            "x": 540,
+            "y": 235.4,
+            "width": 386.4,
+            "height": 257.6
+          },
+          "z": 13,
+          "locked": false,
+          "assetId": "a_63a7cbc4a9212cb8",
+          "alt": "موجة صوت",
+          "fit": "contain",
+          "rotation": 4,
+          "role": "art",
+          "slot": "art.1",
+          "name": "قصاصة 2",
+          "anim": "pop"
+        },
+        {
+          "id": "collage-2-tape",
+          "kind": "shape",
+          "frame": {
+            "x": 663.6,
+            "y": 207.6,
+            "width": 139.1,
+            "height": 40
+          },
+          "z": 14,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "rotation": -6,
+          "opacity": 0.75,
+          "radius": 4,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "anim": "pop"
+        },
+        {
+          "id": "collage-3",
+          "kind": "image",
+          "frame": {
+            "x": 393,
+            "y": 393.9,
+            "width": 277.2,
+            "height": 277.2
+          },
+          "z": 15,
+          "locked": false,
+          "assetId": "a_c414541405f959c4",
+          "alt": "فقاعة صامتة",
+          "fit": "contain",
+          "rotation": -2,
+          "role": "art",
+          "slot": "art.2",
+          "name": "قصاصة 3",
+          "anim": "pop"
+        },
+        {
+          "id": "collage-3-tape",
+          "kind": "shape",
+          "frame": {
+            "x": 468.1,
+            "y": 375.9,
+            "width": 127,
+            "height": 40
+          },
+          "z": 16,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "rotation": 3,
+          "opacity": 0.75,
+          "radius": 4,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "anim": "pop"
+        },
+        {
+          "id": "kicker-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 762.8,
+            "y": 717.5,
+            "width": 197.2,
+            "height": 60.9
+          },
+          "z": 17,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 4,
+          "role": "decor",
+          "name": "خلفية الشارة",
+          "anim": "pop"
+        },
+        {
+          "id": "kicker",
+          "kind": "text",
+          "frame": {
+            "x": 788.9,
+            "y": 727.7,
+            "width": 145,
+            "height": 40.6
+          },
+          "z": 18,
+          "locked": false,
+          "text": "دليل عملي",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 29,
+            "minFontSize": 28,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "kicker",
+          "slot": "kicker",
+          "name": "الشارة",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 804,
+            "width": 840,
+            "height": 249.6
+          },
+          "z": 19,
+          "locked": false,
+          "text": "كيف تتكلم *فيُنصت* لك الآخرون؟",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 96,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 1082.7,
+            "width": 840,
+            "height": 61.2
+          },
+          "z": 20,
+          "locked": false,
+          "text": "6 عادات بسيطة تجعل لكلامك وزنًا — احفظه وارجع إليه.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.7
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 945,
+            "y": 0,
+            "width": 135,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 256,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 204,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 1 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "dark",
+      "layout": {
+        "variant": "top",
+        "art": "pref",
+        "scale": 0.912,
+        "fits": true,
+        "decisions": [
+          {
+            "code": "scaled",
+            "message": "صغّرت النص إلى 91٪ من حجمه المفضّل (العنوان 96px، المتن 36px)، وهو فوق حد القراءة."
+          }
+        ],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_bcut1euiph",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "number": "1",
+        "title": "ابدأ *بالسؤال* لا بالجواب",
+        "subtitle": "سؤال مفتوح واحد يجعل محدّثك شريكًا في الحديث لا مستمعًا له."
+      },
+      "overrides": {
+        "title": {
+          "style": {
+            "fontSize": 129,
+            "minFontSize": 56
+          }
+        }
+      },
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 231.9,
+            "width": 840,
+            "height": 330
+          },
+          "z": 10,
+          "locked": false,
+          "text": "1",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 300,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 194,
+            "y": 585.9,
+            "width": 766,
+            "height": 335.4
+          },
+          "z": 11,
+          "locked": false,
+          "text": "ابدأ *بالسؤال* لا بالجواب",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 129,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 957.3,
+            "width": 840,
+            "height": 140.8
+          },
+          "z": 12,
+          "locked": false,
+          "text": "سؤال مفتوح واحد يجعل محدّثك شريكًا في الحديث لا مستمعًا له.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 810,
+            "y": 0,
+            "width": 270,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 259,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 207,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 2 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "light",
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_ii0xanglbn",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "number": "2",
+        "title": "أنصِت حتى *النهاية*",
+        "subtitle": "لا تجهّز ردّك أثناء حديثه؛ الفكرة الكاملة قد تغيّر ما ستقوله."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 257.9,
+            "width": 840,
+            "height": 330
+          },
+          "z": 10,
+          "locked": false,
+          "text": "2",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 300,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 312,
+            "y": 611.9,
+            "width": 648,
+            "height": 283.4
+          },
+          "z": 11,
+          "locked": false,
+          "text": "أنصِت حتى *النهاية*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 109,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 931.3,
+            "width": 840,
+            "height": 140.8
+          },
+          "z": 12,
+          "locked": false,
+          "text": "لا تجهّز ردّك أثناء حديثه؛ الفكرة الكاملة قد تغيّر ما ستقوله.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 675,
+            "y": 0,
+            "width": 405,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 260,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 208,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 3 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "dark",
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_hvjfvjbuc4",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "number": "3",
+        "title": "اختصر في *3 نقاط*",
+        "subtitle": "الفكرة التي لا تُقال في ثلاث نقاط تحتاج ترتيبًا قبل أن تحتاج وقتًا."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 257.9,
+            "width": 840,
+            "height": 330
+          },
+          "z": 10,
+          "locked": false,
+          "text": "3",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 300,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 459,
+            "y": 611.9,
+            "width": 501,
+            "height": 283.4
+          },
+          "z": 11,
+          "locked": false,
+          "text": "اختصر في *3 نقاط*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 109,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 931.3,
+            "width": 840,
+            "height": 140.8
+          },
+          "z": 12,
+          "locked": false,
+          "text": "الفكرة التي لا تُقال في ثلاث نقاط تحتاج ترتيبًا قبل أن تحتاج وقتًا.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 540,
+            "y": 0,
+            "width": 540,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 262,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 210,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 4 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "light",
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_cfyc2tq60k",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "number": "4",
+        "title": "ابدأ *بـ«لماذا»*",
+        "subtitle": "حين يفهم الناس السبب، يتابعون التفاصيل بانتباه."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 328.8,
+            "width": 840,
+            "height": 330
+          },
+          "z": 10,
+          "locked": false,
+          "text": "4",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 300,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 682.8,
+            "width": 840,
+            "height": 141.7
+          },
+          "z": 11,
+          "locked": false,
+          "text": "ابدأ *بـ«لماذا»*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 109,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 860.5,
+            "width": 840,
+            "height": 140.8
+          },
+          "z": 12,
+          "locked": false,
+          "text": "حين يفهم الناس السبب، يتابعون التفاصيل بانتباه.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 405,
+            "y": 0,
+            "width": 675,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 260,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 208,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 5 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "dark",
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_iblzg4mde2",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "type"
+      },
+      "content": {
+        "number": "5",
+        "title": "تكلّم *بنبرة* هادئة",
+        "subtitle": "النبرة الهادئة تُسمَع أوضح من الصوت المرتفع."
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 328.8,
+            "width": 840,
+            "height": 330
+          },
+          "z": 10,
+          "locked": false,
+          "text": "5",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 300,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 682.8,
+            "width": 840,
+            "height": 141.7
+          },
+          "z": 11,
+          "locked": false,
+          "text": "تكلّم *بنبرة* هادئة",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 109,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 860.5,
+            "width": 840,
+            "height": 140.8
+          },
+          "z": 12,
+          "locked": false,
+          "text": "النبرة الهادئة تُسمَع أوضح من الصوت المرتفع.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 44,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 270,
+            "y": 0,
+            "width": 810,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 261,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 209,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 6 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "light",
+      "layout": {
+        "variant": "type",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_sh9amzqurs",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "numbered",
+        "version": 1,
+        "variant": "art",
+        "keepArt": true
+      },
+      "content": {
+        "number": "6",
+        "title": "اختم *بسؤال*",
+        "subtitle": "السؤال الأخير يفتح الحوار بدل أن يغلقه بخطبة.",
+        "art": "a_4c180577448ea435",
+        "artAlt": "فقاعة حوار"
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-content-0",
+          "kind": "shape",
+          "frame": {
+            "x": 76,
+            "y": 122,
+            "width": 928,
+            "height": 1078
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": 1.1
+        },
+        {
+          "id": "style-content-1",
+          "kind": "shape",
+          "frame": {
+            "x": 144,
+            "y": 100,
+            "width": 150,
+            "height": 38
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": 7
+        },
+        {
+          "id": "number",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 199.2,
+            "width": 840,
+            "height": 319
+          },
+          "z": 10,
+          "locked": false,
+          "text": "6",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 290,
+            "minFontSize": 160,
+            "color": "@accent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.1
+          },
+          "role": "number",
+          "slot": "number",
+          "name": "الرقم",
+          "anim": "pop"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 541.3,
+            "width": 840,
+            "height": 136.5
+          },
+          "z": 11,
+          "locked": false,
+          "text": "اختم *بسؤال*",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 105,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "الجملة",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 712.6,
+            "width": 840,
+            "height": 67.2
+          },
+          "z": 12,
+          "locked": false,
+          "text": "السؤال الأخير يفتح الحوار بدل أن يغلقه بخطبة.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 42,
+            "minFontSize": 32,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.6
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "السطر الداعم",
+          "anim": "rise"
+        },
+        {
+          "id": "art",
+          "kind": "image",
+          "frame": {
+            "x": 378,
+            "y": 833.8,
+            "width": 324,
+            "height": 297
+          },
+          "z": 13,
+          "locked": false,
+          "assetId": "a_4c180577448ea435",
+          "alt": "فقاعة حوار",
+          "fit": "contain",
+          "role": "art",
+          "slot": "art",
+          "name": "الرسم",
+          "anim": "fade"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 135,
+            "y": 0,
+            "width": 945,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 258,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 206,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 7 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        },
+        {
+          "id": "sys-swipe-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 1220,
+            "width": 304,
+            "height": 70
+          },
+          "z": 104,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 35,
+          "role": "system",
+          "name": "خلفية دعوة السحب"
+        },
+        {
+          "id": "sys-swipe",
+          "kind": "text",
+          "frame": {
+            "x": 168,
+            "y": 1234,
+            "width": 202,
+            "height": 42
+          },
+          "z": 105,
+          "locked": true,
+          "text": "اسحب لليسار",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "دعوة السحب"
+        },
+        {
+          "id": "sys-swipe-arrow",
+          "kind": "shape",
+          "frame": {
+            "x": 120,
+            "y": 1238,
+            "width": 34,
+            "height": 34
+          },
+          "z": 106,
+          "locked": true,
+          "shape": "path",
+          "fill": "none",
+          "path": "M20 12h-15M11 6l-6 6l6 6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.5,
+          "role": "system",
+          "name": "سهم السحب"
+        },
+        {
+          "id": "sys-avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 900,
+            "y": 1210,
+            "width": 84,
+            "height": 84
+          },
+          "z": 107,
+          "locked": true,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "system",
+          "name": "دائرة الحساب"
+        },
+        {
+          "id": "sys-avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 900,
+            "y": 1225.4,
+            "width": 84,
+            "height": 53.2
+          },
+          "z": 108,
+          "locked": true,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 38,
+            "minFontSize": 38,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "الحرف الأول"
+        },
+        {
+          "id": "sys-brand-name",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1214.2,
+            "width": 145,
+            "height": 40.5
+          },
+          "z": 109,
+          "locked": true,
+          "text": "كتاب وبس",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 30,
+            "minFontSize": 30,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "اسم الحساب"
+        },
+        {
+          "id": "sys-brand-handle",
+          "kind": "text",
+          "frame": {
+            "x": 737,
+            "y": 1254.7,
+            "width": 145,
+            "height": 35.1
+          },
+          "z": 110,
+          "locked": true,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 26,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "start",
+            "lineHeight": 1.35,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "معرّف الحساب"
+        }
+      ],
+      "styleMode": "dark",
+      "layout": {
+        "variant": "art",
+        "art": "pref",
+        "scale": 0.965,
+        "fits": true,
+        "decisions": [
+          {
+            "code": "scaled",
+            "message": "صغّرت النص إلى 97٪ من حجمه المفضّل (العنوان 105px، المتن 42px)، وهو فوق حد القراءة."
+          }
+        ],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 990
+        }
+      }
+    },
+    {
+      "id": "pg_z9kxbfayal",
+      "widthPx": 1080,
+      "heightPx": 1350,
+      "composition": {
+        "id": "outro",
+        "version": 1,
+        "variant": "center"
+      },
+      "content": {
+        "title": "أيّ عادة *ستبدأ* بها اليوم؟",
+        "subtitle": "احفظ المنشور وشاركه مع صديق، وتابع @kitabwbs لمزيد من أفكار الذكاء الاجتماعي.",
+        "save": "احفظه",
+        "follow": "تابعنا",
+        "socials": [
+          "@kitabwbs"
+        ]
+      },
+      "overrides": {},
+      "elements": [
+        {
+          "id": "style-cta-0",
+          "kind": "shape",
+          "frame": {
+            "x": 72,
+            "y": 114,
+            "width": 936,
+            "height": 1164
+          },
+          "z": 0,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 6,
+          "role": "decor",
+          "name": "ورقة القصاصة",
+          "rotation": -1.2
+        },
+        {
+          "id": "style-cta-1",
+          "kind": "shape",
+          "frame": {
+            "x": 776,
+            "y": 92,
+            "width": 160,
+            "height": 40
+          },
+          "z": 1,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 3,
+          "role": "decor",
+          "name": "شريط لاصق",
+          "opacity": 0.85,
+          "rotation": -8
+        },
+        {
+          "id": "avatar-ring",
+          "kind": "shape",
+          "frame": {
+            "x": 422,
+            "y": 242.2,
+            "width": 236,
+            "height": 236
+          },
+          "z": 10,
+          "locked": false,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "decor",
+          "name": "حلقة الصورة",
+          "anim": "pop"
+        },
+        {
+          "id": "avatar-gap",
+          "kind": "shape",
+          "frame": {
+            "x": 430,
+            "y": 250.2,
+            "width": 220,
+            "height": 220
+          },
+          "z": 11,
+          "locked": false,
+          "shape": "ellipse",
+          "fill": "@bg",
+          "role": "decor",
+          "name": "فاصل الحلقة",
+          "anim": "pop"
+        },
+        {
+          "id": "avatar-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 440,
+            "y": 260.2,
+            "width": 200,
+            "height": 200
+          },
+          "z": 12,
+          "locked": false,
+          "shape": "ellipse",
+          "fill": "@accent",
+          "role": "brand",
+          "name": "دائرة الحساب",
+          "anim": "pop"
+        },
+        {
+          "id": "avatar-initial",
+          "kind": "text",
+          "frame": {
+            "x": 440,
+            "y": 297.2,
+            "width": 200,
+            "height": 126
+          },
+          "z": 13,
+          "locked": false,
+          "text": "ك",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 90,
+            "minFontSize": 90,
+            "color": "@onAccent",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "brand",
+          "name": "الحرف الأول",
+          "anim": "pop"
+        },
+        {
+          "id": "brand-line",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 504.2,
+            "width": 840,
+            "height": 51
+          },
+          "z": 14,
+          "locked": false,
+          "text": "كتاب وبس @kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 34,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5
+          },
+          "role": "brand",
+          "name": "الحساب",
+          "anim": "fade"
+        },
+        {
+          "id": "title",
+          "kind": "text",
+          "frame": {
+            "x": 209,
+            "y": 577.2,
+            "width": 662,
+            "height": 252.2
+          },
+          "z": 15,
+          "locked": false,
+          "text": "أيّ عادة *ستبدأ* بها اليوم؟",
+          "style": {
+            "fontFamily": "@heading",
+            "fontSize": 97,
+            "minFontSize": 56,
+            "color": "@text",
+            "weight": 800,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.3
+          },
+          "role": "title",
+          "slot": "title",
+          "name": "العنوان",
+          "anim": "rise"
+        },
+        {
+          "id": "subtitle",
+          "kind": "text",
+          "frame": {
+            "x": 120,
+            "y": 851.4,
+            "width": 840,
+            "height": 122.4
+          },
+          "z": 16,
+          "locked": false,
+          "text": "احفظ المنشور وشاركه مع صديق، وتابع @kitabwbs لمزيد من أفكار الذكاء الاجتماعي.",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 36,
+            "minFontSize": 30,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.7
+          },
+          "role": "subtitle",
+          "slot": "subtitle",
+          "name": "العنوان الفرعي",
+          "anim": "rise"
+        },
+        {
+          "id": "action-save-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 538.1,
+            "y": 1007.8,
+            "width": 218,
+            "height": 67.2
+          },
+          "z": 17,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@accent",
+          "radius": 4,
+          "role": "decor",
+          "name": "خلفية زر الحفظ"
+        },
+        {
+          "id": "action-save",
+          "kind": "text",
+          "frame": {
+            "x": 613.3,
+            "y": 1019,
+            "width": 114,
+            "height": 44.8
+          },
+          "z": 18,
+          "locked": false,
+          "text": "احفظه",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 32,
+            "minFontSize": 28,
+            "color": "@onAccent",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "label",
+          "slot": "save",
+          "name": "زر الحفظ"
+        },
+        {
+          "id": "action-save-icon",
+          "kind": "shape",
+          "frame": {
+            "x": 566.9,
+            "y": 1024.6,
+            "width": 33.6,
+            "height": 33.6
+          },
+          "z": 19,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M6.5 3.5h11a1 1 0 0 1 1 1V21l-6.5-4.2L5.5 21V4.5a1 1 0 0 1 1-1z",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@onAccent",
+          "strokeWidth": 2.4,
+          "role": "decor",
+          "name": "أيقونة"
+        },
+        {
+          "id": "action-follow-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 323.9,
+            "y": 1007.8,
+            "width": 203,
+            "height": 67.2
+          },
+          "z": 20,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 4,
+          "role": "decor",
+          "name": "خلفية زر المتابعة"
+        },
+        {
+          "id": "action-follow",
+          "kind": "text",
+          "frame": {
+            "x": 399.1,
+            "y": 1019,
+            "width": 99,
+            "height": 44.8
+          },
+          "z": 21,
+          "locked": false,
+          "text": "تابعنا",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 32,
+            "minFontSize": 28,
+            "color": "@text",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "label",
+          "slot": "follow",
+          "name": "زر المتابعة"
+        },
+        {
+          "id": "action-follow-icon",
+          "kind": "shape",
+          "frame": {
+            "x": 352.7,
+            "y": 1024.6,
+            "width": 33.6,
+            "height": 33.6
+          },
+          "z": 22,
+          "locked": false,
+          "shape": "path",
+          "fill": "none",
+          "path": "M15 19c0-2.8-2.7-5-6-5s-6 2.2-6 5M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19 8v6M16 11h6",
+          "viewBox": [
+            24,
+            24
+          ],
+          "stroke": "@text",
+          "strokeWidth": 2.4,
+          "role": "decor",
+          "name": "أيقونة"
+        },
+        {
+          "id": "social-1-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 444.3,
+            "y": 1099,
+            "width": 191.4,
+            "height": 58.8
+          },
+          "z": 23,
+          "locked": false,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 4,
+          "role": "decor",
+          "name": "خلفية حساب 1"
+        },
+        {
+          "id": "social-1",
+          "kind": "text",
+          "frame": {
+            "x": 469.5,
+            "y": 1108.8,
+            "width": 141,
+            "height": 39.2
+          },
+          "z": 24,
+          "locked": false,
+          "text": "@kitabwbs",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 26,
+            "color": "@muted",
+            "weight": 400,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.4,
+            "nowrap": true
+          },
+          "role": "label",
+          "slot": "socials.0",
+          "name": "حساب 1"
+        },
+        {
+          "id": "sys-progress-track",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 100,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "role": "system",
+          "name": "مسار شريط التقدّم"
+        },
+        {
+          "id": "sys-progress",
+          "kind": "shape",
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 12
+          },
+          "z": 101,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@accent",
+          "role": "system",
+          "name": "شريط التقدّم"
+        },
+        {
+          "id": "sys-counter-bg",
+          "kind": "shape",
+          "frame": {
+            "x": 96,
+            "y": 52,
+            "width": 261,
+            "height": 58
+          },
+          "z": 102,
+          "locked": true,
+          "shape": "rect",
+          "fill": "@surface",
+          "radius": 29,
+          "role": "system",
+          "name": "خلفية العداد"
+        },
+        {
+          "id": "sys-counter",
+          "kind": "text",
+          "frame": {
+            "x": 122,
+            "y": 60,
+            "width": 209,
+            "height": 42
+          },
+          "z": 103,
+          "locked": true,
+          "text": "الشريحة 8 من 8",
+          "style": {
+            "fontFamily": "@body",
+            "fontSize": 28,
+            "minFontSize": 28,
+            "color": "@muted",
+            "weight": 700,
+            "direction": "rtl",
+            "align": "center",
+            "lineHeight": 1.5,
+            "nowrap": true
+          },
+          "role": "system",
+          "name": "عدّاد الشرائح"
+        }
+      ],
+      "styleMode": "light",
+      "layout": {
+        "variant": "center",
+        "art": "pref",
+        "scale": 1,
+        "fits": true,
+        "decisions": [],
+        "overflow": null,
+        "region": {
+          "x": 120,
+          "y": 170,
+          "width": 840,
+          "height": 1060
+        }
+      }
+    }
+  ],
+  "assets": {
+    "a_a59044c6c405a289": {
+      "id": "a_a59044c6c405a289",
+      "contentHash": "a59044c6c405a2892d5141c97ee800ab16bf8f6bb0d11523c08bd5cffe5dbac7",
+      "storageRef": "assets/objects/a5/a59044c6c405a2892d5141c97ee800ab16bf8f6bb0d11523c08bd5cffe5dbac7.svg",
+      "mediaType": "image/svg+xml",
+      "widthPx": 240,
+      "heightPx": 200,
+      "transparent": true,
+      "colorable": true,
+      "tags": [
+        "حوار",
+        "إنصات"
+      ],
+      "provenance": {
+        "kind": "generated",
+        "source": "baseera QA art (hand-written SVG)",
+        "rightsNote": "original artwork for this project"
+      },
+      "usage": "insertable",
+      "name": "bubble.svg",
+      "version": 1,
+      "createdAt": "2026-10-02T21:05:58.861Z",
+      "bytes": 409,
+      "dataUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjAwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTI0IDMwIEgyMTYgQTE0IDE0IDAgMCAxIDIzMCA0NCBWMTI4IEExNCAxNCAwIDAgMSAyMTYgMTQyIEg5MiBMNTIgMTg0IEw1OCAxNDIgSDI0IEExNCAxNCAwIDAgMSAxMCAxMjggVjQ0IEExNCAxNCAwIDAgMSAyNCAzMCBaIiBmaWxsPSIjMkU3QkM1IiBkYXRhLXRva2VuPSJhY2NlbnQiLz48ZyBmaWxsPSIjRkZGRkZGIiBkYXRhLXRva2VuPSJvbkFjY2VudCI+PGNpcmNsZSBjeD0iNzgiIGN5PSI4NiIgcj0iMTIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSI4NiIgcj0iMTIiLz48Y2lyY2xlIGN4PSIxNjIiIGN5PSI4NiIgcj0iMTIiLz48L2c+PC9zdmc+Cg=="
+    },
+    "a_63a7cbc4a9212cb8": {
+      "id": "a_63a7cbc4a9212cb8",
+      "contentHash": "63a7cbc4a9212cb86e6f05cdecc30355ddc5d88fa2370640712fc2c31d3a772e",
+      "storageRef": "assets/objects/63/63a7cbc4a9212cb86e6f05cdecc30355ddc5d88fa2370640712fc2c31d3a772e.svg",
+      "mediaType": "image/svg+xml",
+      "widthPx": 240,
+      "heightPx": 160,
+      "transparent": true,
+      "colorable": true,
+      "tags": [
+        "حوار",
+        "إنصات"
+      ],
+      "provenance": {
+        "kind": "generated",
+        "source": "baseera QA art (hand-written SVG)",
+        "rightsNote": "original artwork for this project"
+      },
+      "usage": "insertable",
+      "name": "wave.svg",
+      "version": 1,
+      "createdAt": "2026-10-02T21:05:58.944Z",
+      "bytes": 586,
+      "dataUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMTYwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjE2MCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNjAiIHJ4PSIxOCIgZmlsbD0iI0ZGRkZGRiIgZGF0YS10b2tlbj0ic3VyZmFjZSIvPjxnIGZpbGw9IiMyRTdCQzUiIGRhdGEtdG9rZW49ImFjY2VudCI+PHJlY3QgeD0iMzAiIHk9IjY2IiB3aWR0aD0iMTQiIGhlaWdodD0iMjgiIHJ4PSI3Ii8+PHJlY3QgeD0iNTYiIHk9IjQ2IiB3aWR0aD0iMTQiIGhlaWdodD0iNjgiIHJ4PSI3Ii8+PHJlY3QgeD0iODIiIHk9IjI4IiB3aWR0aD0iMTQiIGhlaWdodD0iMTA0IiByeD0iNyIvPjxyZWN0IHg9IjEwOCIgeT0iNTQiIHdpZHRoPSIxNCIgaGVpZ2h0PSI1MiIgcng9IjciLz48cmVjdCB4PSIxMzQiIHk9IjM2IiB3aWR0aD0iMTQiIGhlaWdodD0iODgiIHJ4PSI3Ii8+PHJlY3QgeD0iMTYwIiB5PSI1OCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iNyIvPjxyZWN0IHg9IjE4NiIgeT0iNzAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIyMCIgcng9IjciLz48L2c+PC9zdmc+Cg=="
+    },
+    "a_c414541405f959c4": {
+      "id": "a_c414541405f959c4",
+      "contentHash": "c414541405f959c43a5f764840dbf3ae349efe7ad30af7155b3f77f9726c78da",
+      "storageRef": "assets/objects/c4/c414541405f959c43a5f764840dbf3ae349efe7ad30af7155b3f77f9726c78da.svg",
+      "mediaType": "image/svg+xml",
+      "widthPx": 220,
+      "heightPx": 220,
+      "transparent": true,
+      "colorable": true,
+      "tags": [
+        "حوار",
+        "إنصات"
+      ],
+      "provenance": {
+        "kind": "generated",
+        "source": "baseera QA art (hand-written SVG)",
+        "rightsNote": "original artwork for this project"
+      },
+      "usage": "insertable",
+      "name": "quiet.svg",
+      "version": 1,
+      "createdAt": "2026-10-02T21:05:59.027Z",
+      "bytes": 433,
+      "dataUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgMjIwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjIyMCI+PHBhdGggZD0iTTMwIDQwIEgxOTAgQTEyIDEyIDAgMCAxIDIwMiA1MiBWMTQwIEExMiAxMiAwIDAgMSAxOTAgMTUyIEgxMjAgTDg0IDE5MiBMODggMTUyIEgzMCBBMTIgMTIgMCAwIDEgMTggMTQwIFY1MiBBMTIgMTIgMCAwIDEgMzAgNDAgWiIgZmlsbD0iI0ZGRkZGRiIgZGF0YS10b2tlbj0ic3VyZmFjZSIgc3Ryb2tlPSIjMUMxQTE3IiBkYXRhLXRva2VuLXN0cm9rZT0idGV4dCIgc3Ryb2tlLXdpZHRoPSI2Ii8+PHBhdGggZD0iTTcwIDk2IEgxNTAiIHN0cm9rZT0iIzFDMUExNyIgZGF0YS10b2tlbi1zdHJva2U9InRleHQiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+Cg=="
+    },
+    "a_4c180577448ea435": {
+      "id": "a_4c180577448ea435",
+      "contentHash": "4c180577448ea43563f429f63c54041d2004853fdaccdeb3302a14a0a7ae57d8",
+      "storageRef": "assets/objects/4c/4c180577448ea43563f429f63c54041d2004853fdaccdeb3302a14a0a7ae57d8.svg",
+      "mediaType": "image/svg+xml",
+      "widthPx": 240,
+      "heightPx": 220,
+      "transparent": true,
+      "colorable": true,
+      "tags": [
+        "سؤال",
+        "حوار"
+      ],
+      "provenance": {
+        "kind": "generated",
+        "source": "baseera example art (hand-written SVG)",
+        "promptHash": "b1606433a4de66f075107f9f105237b637088a93917b7e95f56071a738a6746e",
+        "rightsNote": "original artwork for this project"
+      },
+      "usage": "insertable",
+      "name": "question.svg",
+      "prompt": "فقاعة حوار فيها علامة استفهام عربية «؟»، بلا أشخاص",
+      "version": 1,
+      "createdAt": "2026-10-03T00:32:06.273Z",
+      "bytes": 587,
+      "dataUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjIwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIyMCI+PHBhdGggZD0iTTI2IDI0IEgyMTQgQTE2IDE2IDAgMCAxIDIzMCA0MCBWMTUwIEExNiAxNiAwIDAgMSAyMTQgMTY2IEgxNzIgTDE5MCAyMDYgTDEzNiAxNjYgSDI2IEExNiAxNiAwIDAgMSAxMCAxNTAgVjQwIEExNiAxNiAwIDAgMSAyNiAyNCBaIiBmaWxsPSIjRkZGRkZGIiBkYXRhLXRva2VuPSJzdXJmYWNlIiBzdHJva2U9IiMyRTdCQzUiIGRhdGEtdG9rZW4tc3Ryb2tlPSJhY2NlbnQiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNDYgNzYgQzE0NiA1MiA5OCA0OCA5NCA3NCBDOTEgOTQgMTIwIDk2IDEyMCAxMTYgVjEyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkU3QkM1IiBkYXRhLXRva2VuLXN0cm9rZT0iYWNjZW50IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxNDYiIHI9IjgiIGZpbGw9IiMyRTdCQzUiIGRhdGEtdG9rZW49ImFjY2VudCIvPjwvc3ZnPgo="
+    }
+  }
+}

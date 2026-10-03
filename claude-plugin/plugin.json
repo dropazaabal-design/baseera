@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "arabic-carousel",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Arabic design studio for social media: single posts, carousels and 9:16 reels in RTL Arabic. The assistant plans, writes and draws; the studio lays out independent editable elements, reflows content without unreadable text, checks every word, and delivers an offline editor (PNG, ZIP, PDF, video) or a real Canva design built and edited element by element, with a per-session capability registry, letter-by-letter Arabic read-back checks and reel scene plans. In ChatGPT and Codex this package provides the skills and a Node CLI for the Canva tools; it does not connect an MCP server. It reuses the creator's design library, assets and saved taste before generating anything new.",
   "author": {
     "name": "dropazaabal-design",

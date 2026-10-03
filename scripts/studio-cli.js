@@ -21,6 +21,8 @@ import { recolorSvg } from '../lib/studio/render.js';
 import { exportSnapshot, importSnapshot } from '../lib/studio/store.js';
 import { validateDocument } from '../lib/studio/contracts.js';
 import { compositionList } from '../lib/studio/compositions.js';
+import { STYLES } from '../lib/studio/styles/catalog.js';
+import { ROLE_OF } from '../lib/studio/library/matrix.js';
 import { setFormat } from '../lib/studio/document.js';
 import { hashOf } from '../lib/studio/util.js';
 
@@ -31,6 +33,8 @@ const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
   studio plan "<request>" [--brand ID] [--brief brief.json] [--project ID]
                                                 route (reuse/partial/recompose/new), cache, memory
   studio compositions                           layouts and their content fields
+  studio styles [--all]                         visual styles ready to use (status reusable), what
+                                                each suits and declines; put { "style": { "id": … } } in a spec
   studio asset add FILE --kind generated|user_upload|licensed [--tags a,b] [--prompt TEXT]
                     [--source TEXT] [--model TEXT] [--rights TEXT] [--style TEXT] [--reference] [--parent ID]
   studio asset seed [DIR]                       import the starter illustrations
@@ -150,6 +154,25 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
     case 'compositions':
       return out(compositionList.map((c) => ({ id: c.id, label: c.label, type: c.type, description: c.description, variants: c.variants, capacity: c.capacity, fields: c.fields.map(({ key, label, type, required }) => ({ key, label, type, ...(required && { required }) })) })));
 
+    case 'styles': {
+      // Only reusable styles are offered as ready; --all lists every record
+      // with its status. Compositions a style declines come with the reason.
+      const list = STYLES.filter((st) => opt.all || st.status === 'reusable');
+      return out(
+        list.map((st) => ({
+          id: st.id,
+          name: st.name,
+          status: st.status,
+          purpose: st.purpose,
+          modes: Object.keys(st.tokens),
+          defaultMode: st.defaultMode ?? 'light',
+          formats: st.formats,
+          compositions: Object.keys(ROLE_OF).filter((c) => st.roles.includes(ROLE_OF[c])),
+          declines: Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why })),
+        })),
+      );
+    }
+
     case 'asset': {
       if (sub === 'add') {
         const file = rest[0];
@@ -225,12 +248,18 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
     case 'edit': {
       const file = sub;
       const command = rest.join(' ');
-      const doc = withAssets(studio, loadDesign(file));
+      let doc = withAssets(studio, loadDesign(file));
+      // An asset named in the command («غيّر الجرافيك الرابع a_…») comes from
+      // the store: embed it so the patch can use it; unknown ids stay an error.
+      const named = [...command.matchAll(/\b(a_[a-z0-9]{6,})\b/gi)].map((x) => x[1]).filter((id) => !doc.assets?.[id] && studio.assets.get(id));
+      if (named.length) doc = { ...doc, assets: { ...doc.assets, ...studio.assets.embed(named) } };
       const pageIndex = opt.page ? Number(opt.page) - 1 : 0;
       const brand = doc.brandId ? studio.memory.brand(doc.brandId) : null;
       const before = fingerprint(doc);
       const t0 = Date.now();
-      const r = runCommand(doc, command, { pageId: doc.pages[pageIndex]?.id, brand });
+      // A current page only when one is given: without it, ordinals such as
+      // «الجرافيك الرابع» count across the whole design.
+      const r = runCommand(doc, command, { pageId: opt.page ? doc.pages[pageIndex]?.id : undefined, brand });
       studio.ledger.record({ kind: r.local ? 'local.edit' : 'needs.assistant', durationMs: Date.now() - t0, designId: doc.id, note: `${r.intent}${r.needs ? ` → ${r.needs}` : ''}` });
       const changed = diffFingerprints(before, fingerprint(r.doc));
       if (r.local && r.doc !== doc) {

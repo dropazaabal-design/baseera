@@ -5032,6 +5032,7 @@ function elementsFor(page, target) {
   if (target.roles) return page.elements.filter((e) => target.roles.includes(e.role));
   return [];
 }
+var SINGLE_PER_PAGE = ["title", "subtitle", "kicker", "cta", "quote", "author"];
 var artOrder = (page) => page.elements.filter((e) => ["art", "art-placeholder", "photo"].includes(e.role)).sort((a, b) => a.z - b.z);
 function choosePages(doc, m, ctx, target) {
   const n2 = pageOrdinal(m);
@@ -5042,7 +5043,8 @@ function choosePages(doc, m, ctx, target) {
   if (target?.system && !m.has(["\u0647\u0630\u0647 \u0627\u0644\u0634\u0631\u064A\u062D\u0647", "\u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0647", "\u0647\u0646\u0627"])) return doc.pages;
   return [doc.pages.find((p) => p.id === ctx.pageId) ?? doc.pages[0]];
 }
-var fmt2 = (n2) => formatNumber(n2, "arab");
+var replyNumerals = "arab";
+var fmt2 = (n2) => formatNumber(n2, replyNumerals);
 var FONT_WORDS = { cairo: ["cairo", "\u0643\u0627\u064A\u0631\u0648", "\u0627\u0644\u0642\u0627\u0647\u0631\u0647"], tajawal: ["tajawal", "\u062A\u062C\u0648\u0627\u0644", "\u062A\u062C\u0648\u0644", "\u062A\u0627\u062C\u0648\u0627\u0644"], almarai: ["almarai", "\u0627\u0644\u0645\u0631\u0627\u0639\u064A"], readex: ["readex", "\u0631\u064A\u062F\u0643\u0633"] };
 var FONT_LABEL = { cairo: "Cairo", tajawal: "Tajawal", almarai: "Almarai", readex: "Readex Pro" };
 function colorFromWords(m, doc, brand) {
@@ -5063,6 +5065,7 @@ function colorFromWords(m, doc, brand) {
   return { entry, matches, wantsBrand };
 }
 function parseCommand(doc, text, ctx = {}) {
+  replyNumerals = doc.theme?.numerals ?? "arab";
   const m = matcher(text);
   const targets = findTargets(m);
   const target = targets[0];
@@ -5111,27 +5114,38 @@ function parseCommand(doc, text, ctx = {}) {
   if (!target) {
     return result({ intent: "clarify", local: false, needs: "clarify", reply: "\u0644\u0645 \u0623\u062D\u062F\u062F \u0627\u0644\u0639\u0646\u0635\u0631 \u0627\u0644\u0645\u0642\u0635\u0648\u062F. \u0627\u0630\u0643\u0631\u0647 \u0628\u0627\u0644\u0627\u0633\u0645: \u0627\u0644\u0639\u0646\u0648\u0627\u0646\u060C \u0627\u0644\u0628\u0646\u0648\u062F\u060C \u0627\u0644\u0631\u0633\u0645 \u0627\u0644\u0631\u0627\u0628\u0639\u060C \u0627\u0644\u0634\u0639\u0627\u0631\u060C \u0627\u0644\u062E\u0644\u0641\u064A\u0629\u2026" });
   }
-  const pages = choosePages(doc, m, ctx, target);
+  let pages = choosePages(doc, m, ctx, target);
+  if (SINGLE_PER_PAGE.includes(target.id) && !pageOrdinal(m)) {
+    const n2 = ordinalAfter(m, target.forms);
+    if (n2) {
+      const withTarget = doc.pages.filter((p) => elementsFor(p, target).length);
+      const page = withTarget[n2 === -1 ? withTarget.length - 1 : n2 - 1];
+      if (!page) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \xAB${target.forms[0]}\xBB \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A \u0627\u0644\u062A\u0635\u0645\u064A\u0645 ${fmt2(withTarget.length)} \u0641\u0642\u0637.` });
+      pages = [page];
+    }
+  }
   if (target.id === "art") {
     const n2 = ordinalAfter(m, target.forms);
-    const page = pages[0];
-    const arts = artOrder(page);
-    if (!arts.length) return result({ intent: "clarify", local: false, needs: "clarify", reply: "\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0629." });
+    const across = Boolean(n2) && !pageOrdinal(m) && !ctx.pageId && doc.pages.length > 1;
+    const pool = across ? doc.pages.flatMap((p) => artOrder(p).map((el2) => ({ page: p, el: el2 }))) : artOrder(pages[0]).map((el2) => ({ page: pages[0], el: el2 }));
+    const where = across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0627\u0644\u0635\u0641\u062D\u0629";
+    if (!pool.length) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0641\u064A ${across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0629"}.` });
     if (hasVerb(m, VERBS.remove) || hasVerb(m, VERBS.hide)) {
-      const picks = n2 ? [arts[n2 === -1 ? arts.length - 1 : n2 - 1]].filter(Boolean) : arts;
-      return result({ intent: "hide", scope: "graphic", patches: picks.map((e) => ({ pageId: page.id, elementId: e.id, action: "hide", payload: { hidden: true } })), reply: `\u0623\u062E\u0641\u064A\u062A ${picks.length > 1 ? `${fmt2(picks.length)} \u0631\u0633\u0648\u0645` : "\u0627\u0644\u0631\u0633\u0645"}.` });
+      const picks = n2 ? [pool[n2 === -1 ? pool.length - 1 : n2 - 1]].filter(Boolean) : pool;
+      return result({ intent: "hide", scope: "graphic", patches: picks.map(({ page: page2, el: el2 }) => ({ pageId: page2.id, elementId: el2.id, action: "hide", payload: { hidden: true } })), reply: `\u0623\u062E\u0641\u064A\u062A ${picks.length > 1 ? `${fmt2(picks.length)} \u0631\u0633\u0648\u0645` : "\u0627\u0644\u0631\u0633\u0645"}.` });
     }
-    if (!n2 && arts.length > 1) {
+    if (!n2 && pool.length > 1) {
       return result({
         intent: "clarify",
         local: false,
         needs: "clarify",
-        reply: `\u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0629 ${fmt2(arts.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
-        options: arts.map((e, i) => ({ label: `${e.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page.id, elementId: e.id }))
+        reply: `\u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
+        options: pool.map(({ page: page2, el: el2 }, i) => ({ label: `${el2.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page2.id, elementId: el2.id }))
       });
     }
-    const el = arts[n2 === -1 ? arts.length - 1 : (n2 ?? 1) - 1];
-    if (!el) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0629 ${fmt2(arts.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    const pick2 = pool[n2 === -1 ? pool.length - 1 : (n2 ?? 1) - 1];
+    if (!pick2) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    const { page, el } = pick2;
     const assetId = /\b(a_[a-z0-9]{6,})\b/i.exec(text)?.[1];
     if (assetId) {
       return result({ intent: "replace_asset", scope: "graphic", patches: [{ pageId: page.id, elementId: el.id, action: "replace_asset", payload: { assetId } }], reply: `\u0627\u0633\u062A\u0628\u062F\u0644\u062A ${el.name ?? "\u0627\u0644\u0631\u0633\u0645"} \u0648\u062D\u062F\u0647.` });
@@ -5591,6 +5605,9 @@ function renderArtSvg(doc, page, { background = true } = {}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${page.widthPx}" height="${page.heightPx}" viewBox="0 0 ${page.widthPx} ${page.heightPx}">${parts.join("")}</svg>`;
 }
 
+// lib/studio/library/matrix.js
+var ROLE_OF = { hero: "cover", collage: "collage", list: "list", post: "list", quote: "quote", comparison: "comparison", statement: "statement", numbered: "steps", outro: "cta", stat: "evidence", framework: "framework" };
+
 // scripts/studio-cli.js
 var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
 
@@ -5599,6 +5616,8 @@ var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
   studio plan "<request>" [--brand ID] [--brief brief.json] [--project ID]
                                                 route (reuse/partial/recompose/new), cache, memory
   studio compositions                           layouts and their content fields
+  studio styles [--all]                         visual styles ready to use (status reusable), what
+                                                each suits and declines; put { "style": { "id": \u2026 } } in a spec
   studio asset add FILE --kind generated|user_upload|licensed [--tags a,b] [--prompt TEXT]
                     [--source TEXT] [--model TEXT] [--rights TEXT] [--style TEXT] [--reference] [--parent ID]
   studio asset seed [DIR]                       import the starter illustrations
@@ -5705,6 +5724,22 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
     }
     case "compositions":
       return out(compositionList.map((c) => ({ id: c.id, label: c.label, type: c.type, description: c.description, variants: c.variants, capacity: c.capacity, fields: c.fields.map(({ key, label, type, required }) => ({ key, label, type, ...required && { required } })) })));
+    case "styles": {
+      const list2 = STYLES.filter((st) => opt.all || st.status === "reusable");
+      return out(
+        list2.map((st) => ({
+          id: st.id,
+          name: st.name,
+          status: st.status,
+          purpose: st.purpose,
+          modes: Object.keys(st.tokens),
+          defaultMode: st.defaultMode ?? "light",
+          formats: st.formats,
+          compositions: Object.keys(ROLE_OF).filter((c) => st.roles.includes(ROLE_OF[c])),
+          declines: Object.entries(st.notFor ?? {}).map(([role, why]) => ({ compositions: Object.keys(ROLE_OF).filter((c) => ROLE_OF[c] === role), why }))
+        }))
+      );
+    }
     case "asset": {
       if (sub === "add") {
         const file = rest[0];
@@ -5776,12 +5811,14 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
     case "edit": {
       const file = sub;
       const command = rest.join(" ");
-      const doc = withAssets(studio, loadDesign(file));
+      let doc = withAssets(studio, loadDesign(file));
+      const named = [...command.matchAll(/\b(a_[a-z0-9]{6,})\b/gi)].map((x) => x[1]).filter((id) => !doc.assets?.[id] && studio.assets.get(id));
+      if (named.length) doc = { ...doc, assets: { ...doc.assets, ...studio.assets.embed(named) } };
       const pageIndex = opt.page ? Number(opt.page) - 1 : 0;
       const brand = doc.brandId ? studio.memory.brand(doc.brandId) : null;
       const before = fingerprint(doc);
       const t0 = Date.now();
-      const r = runCommand(doc, command, { pageId: doc.pages[pageIndex]?.id, brand });
+      const r = runCommand(doc, command, { pageId: opt.page ? doc.pages[pageIndex]?.id : void 0, brand });
       studio.ledger.record({ kind: r.local ? "local.edit" : "needs.assistant", durationMs: Date.now() - t0, designId: doc.id, note: `${r.intent}${r.needs ? ` \u2192 ${r.needs}` : ""}` });
       const changed = diffFingerprints(before, fingerprint(r.doc));
       if (r.local && r.doc !== doc) {

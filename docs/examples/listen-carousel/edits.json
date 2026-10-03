@@ -1,0 +1,36 @@
+{
+ "kind": "edit-log",
+ "design": "d_a5xldixjxy98",
+ "note": "Commands as a person types them, run with `studio edit` (no --page). Changed elements are compared element by element between revisions.",
+ "edits": [
+  {
+   "command": "كبّر العنوان الثاني",
+   "intent": "resize_text",
+   "reply": "كبّرت العنوان من 109 إلى 129 بكسل، وأعدت توزيع الصفحة حوله.",
+   "changed": ["page 2/title", "page 2/number", "page 2/subtitle"],
+   "otherPages": "unchanged",
+   "generation": "none (local edit)"
+  },
+  {
+   "command": "غيّر الجرافيك الرابع",
+   "intent": "replace_asset",
+   "resolvedTo": "page 7/art (the fourth graphic in reading order: three on the cover, then this one)",
+   "reply": "سيُولَّد رسم جديد لـ«الرسم» وحده، ويبقى النص وبقية الرسوم كما هي.",
+   "needs": "asset",
+   "then": {
+    "asset": "a_4c180577448ea435 (art/question.svg: speech bubble with an Arabic question mark «؟», hand-written SVG, no people)",
+    "command": "غيّر الجرافيك الرابع a_4c180577448ea435",
+    "changed": ["page 7/art"],
+    "otherElements": "unchanged (texts, the cover's three graphics)"
+   },
+   "generation": "one graphic, for this element only"
+  }
+ ],
+ "fixedOnTheWay": [
+  "«العنوان الثاني» first enlarged the cover's title: an ordinal after a one-per-page element now counts pages (lib/studio/commands.js)",
+  "«الجرافيك الرابع» counted only the current page: with no page named it now counts the design's graphics in reading order",
+  "the CLI passed page 1 as the current page when --page was absent; it now passes none",
+  "an asset named in the command had to be in the document already; the CLI now embeds it from the store",
+  "replies used Arabic-Indic digits for a brand that uses Western digits; they now follow the design"
+ ]
+}

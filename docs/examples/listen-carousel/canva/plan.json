@@ -1,0 +1,2734 @@
+{
+  "ok": true,
+  "editability": "native",
+  "mode": "native",
+  "limitations": [
+    "الموصل لا يختار الخط: النصوص بخط Canva الافتراضي. غيّرها يدويًا إلى خط التصميم.",
+    "تلوين كلمة داخل نص غير مدعوم في الموصل: كل نص بلون واحد، والكلمات المميزة تفقد لونها."
+  ],
+  "scale": 1,
+  "steps": [
+    {
+      "n": 1,
+      "tool": "create-design",
+      "args": {
+        "brief": "كاروسيل «كيف تتكلم فينصت لك الآخرون؟»: غلاف، 6 عادات، ختام — كولاج تحريري يتناوب داكن/فاتح — صفحة فارغة بخلفية #FFFFFF للنشر على انستقرام",
+        "format": "Instagram Post (Portrait)"
+      },
+      "save": "designId",
+      "note": "ينشئ Canva تصميمًا مولّدًا؛ ستُحذف عناصره في الخطوة التالية. استطلع get-create-design-async-job حتى يكتمل إن لم تظهر الواجهة."
+    },
+    {
+      "n": 2,
+      "tool": "resize-design",
+      "args": {
+        "design_id": "$designId",
+        "design_type": {
+          "type": "custom",
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      "save": "designId",
+      "note": "مقاس مطابق بالبكسل؛ يُنشئ نسخة بالمقاس المطلوب."
+    },
+    {
+      "n": 3,
+      "tool": "read-design",
+      "args": {
+        "design_id": "$designId",
+        "open_transaction": true,
+        "filter": {
+          "fields": [
+            "page_metadata",
+            "design_content",
+            "thumbnails"
+          ]
+        }
+      },
+      "save": "transactionId",
+      "note": "سجّل مقاس كل صفحة ومعرّف الصفحة الأولى ومعرّفات عناصرها."
+    },
+    {
+      "n": 4,
+      "action": "clear-page",
+      "page_index": 1,
+      "note": "احذف كل عنصر في الصفحة ١ بعملية delete_element لكل locator ظهر في read-design."
+    },
+    {
+      "n": 5,
+      "tool": "create-upload-url",
+      "args": {},
+      "then": {
+        "action": "POST raw bytes",
+        "file": "docs/examples/listen-carousel/canva/a_a59044c6c405a289.svg",
+        "header": "Content-Type: application/octet-stream"
+      },
+      "save": "media:a_a59044c6c405a289",
+      "note": "ارفع الملف كما هو (بايتات خام) ثم احفظ معرّف الوسائط من الرد."
+    },
+    {
+      "n": 6,
+      "tool": "create-upload-url",
+      "args": {},
+      "then": {
+        "action": "POST raw bytes",
+        "file": "docs/examples/listen-carousel/canva/a_63a7cbc4a9212cb8.svg",
+        "header": "Content-Type: application/octet-stream"
+      },
+      "save": "media:a_63a7cbc4a9212cb8",
+      "note": "ارفع الملف كما هو (بايتات خام) ثم احفظ معرّف الوسائط من الرد."
+    },
+    {
+      "n": 7,
+      "tool": "create-upload-url",
+      "args": {},
+      "then": {
+        "action": "POST raw bytes",
+        "file": "docs/examples/listen-carousel/canva/a_c414541405f959c4.svg",
+        "header": "Content-Type: application/octet-stream"
+      },
+      "save": "media:a_c414541405f959c4",
+      "note": "ارفع الملف كما هو (بايتات خام) ثم احفظ معرّف الوسائط من الرد."
+    },
+    {
+      "n": 8,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 1,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "page_id": "$page:1",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 1350,
+            "path": "M0 0H1080V1350H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 1350,
+            "color": "#0E2A5C",
+            "_element": "page-bg"
+          },
+          {
+            "type": "insert_shape",
+            "top": 114,
+            "left": 72,
+            "width": 936,
+            "height": 1094,
+            "color": "#1B4282",
+            "rotation": -1.6,
+            "path": "M6 0H930A6 6 0 0 1 936 6V1088A6 6 0 0 1 930 1094H6A6 6 0 0 1 0 1088V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 936,
+            "view_box_height": 1094,
+            "page_id": "$page:1",
+            "_element": "style-cover-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 92,
+            "left": 776,
+            "width": 160,
+            "height": 40,
+            "color": "#609BD3",
+            "opacity": 0.85,
+            "rotation": -8,
+            "path": "M3 0H157A3 3 0 0 1 160 3V37A3 3 0 0 1 157 40H3A3 3 0 0 1 0 37V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 160,
+            "view_box_height": 40,
+            "page_id": "$page:1",
+            "_element": "style-cover-1"
+          },
+          {
+            "type": "insert_shape",
+            "top": 235.5,
+            "left": 96,
+            "width": 888,
+            "height": 396,
+            "color": "#1B4282",
+            "rotation": -2,
+            "path": "M6 0H882A6 6 0 0 1 888 6V390A6 6 0 0 1 882 396H6A6 6 0 0 1 0 390V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 888,
+            "view_box_height": 396,
+            "page_id": "$page:1",
+            "_element": "collage-paper"
+          },
+          {
+            "type": "insert_fill",
+            "page_id": "$page:1",
+            "asset_type": "image",
+            "asset_id": "$media:a_a59044c6c405a289",
+            "alt_text": "فقاعة حوار",
+            "top": 195.9,
+            "left": 137.5,
+            "width": 368.3,
+            "height": 306.9,
+            "rotation": -5,
+            "_element": "collage-1"
+          },
+          {
+            "type": "insert_shape",
+            "top": 177.9,
+            "left": 249,
+            "width": 145.2,
+            "height": 40,
+            "color": "#609BD3",
+            "opacity": 0.75,
+            "rotation": 7.5,
+            "path": "M4 0H141.2A4 4 0 0 1 145.2 4V36A4 4 0 0 1 141.2 40H4A4 4 0 0 1 0 36V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 145.2,
+            "view_box_height": 40,
+            "page_id": "$page:1",
+            "_element": "collage-1-tape"
+          },
+          {
+            "type": "insert_fill",
+            "page_id": "$page:1",
+            "asset_type": "image",
+            "asset_id": "$media:a_63a7cbc4a9212cb8",
+            "alt_text": "موجة صوت",
+            "top": 235.4,
+            "left": 540,
+            "width": 386.4,
+            "height": 257.6,
+            "rotation": 4,
+            "_element": "collage-2"
+          },
+          {
+            "type": "insert_shape",
+            "top": 207.6,
+            "left": 663.6,
+            "width": 139.1,
+            "height": 40,
+            "color": "#609BD3",
+            "opacity": 0.75,
+            "rotation": -6,
+            "path": "M4 0H135.1A4 4 0 0 1 139.1 4V36A4 4 0 0 1 135.1 40H4A4 4 0 0 1 0 36V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 139.1,
+            "view_box_height": 40,
+            "page_id": "$page:1",
+            "_element": "collage-2-tape"
+          },
+          {
+            "type": "insert_fill",
+            "page_id": "$page:1",
+            "asset_type": "image",
+            "asset_id": "$media:a_c414541405f959c4",
+            "alt_text": "فقاعة صامتة",
+            "top": 393.9,
+            "left": 393,
+            "width": 277.2,
+            "height": 277.2,
+            "rotation": -2,
+            "_element": "collage-3"
+          },
+          {
+            "type": "insert_shape",
+            "top": 375.9,
+            "left": 468.1,
+            "width": 127,
+            "height": 40,
+            "color": "#609BD3",
+            "opacity": 0.75,
+            "rotation": 3,
+            "path": "M4 0H123A4 4 0 0 1 127 4V36A4 4 0 0 1 123 40H4A4 4 0 0 1 0 36V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 127,
+            "view_box_height": 40,
+            "page_id": "$page:1",
+            "_element": "collage-3-tape"
+          },
+          {
+            "type": "insert_shape",
+            "top": 717.5,
+            "left": 762.8,
+            "width": 197.2,
+            "height": 60.9,
+            "color": "#609BD3",
+            "path": "M4 0H193.2A4 4 0 0 1 197.2 4V56.9A4 4 0 0 1 193.2 60.9H4A4 4 0 0 1 0 56.9V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 197.2,
+            "view_box_height": 60.9,
+            "page_id": "$page:1",
+            "_element": "kicker-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "دليل عملي",
+            "top": 727.7,
+            "left": 770.8,
+            "width": 181.3,
+            "_element": "kicker",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/kicker",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 29,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "كيف تتكلم فيُنصت لك الآخرون؟",
+            "top": 804,
+            "left": 120,
+            "width": 840,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/title",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 96,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "6 عادات بسيطة تجعل لكلامك وزنًا — احفظه وارجع إليه.",
+            "top": 1082.7,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/subtitle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 36,
+                "font_weight": "normal",
+                "line_height": 1.7,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#1B4282",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:1",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 945,
+            "width": 135,
+            "height": 12,
+            "color": "#609BD3",
+            "path": "M0 0H135V12H0Z",
+            "view_box_width": 135,
+            "view_box_height": 12,
+            "page_id": "$page:1",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 256,
+            "height": 58,
+            "color": "#1B4282",
+            "path": "M29 0H227A29 29 0 0 1 256 29V29A29 29 0 0 1 227 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 256,
+            "view_box_height": 58,
+            "page_id": "$page:1",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "الشريحة 1 من 8",
+            "top": 60,
+            "left": 96.5,
+            "width": 255,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/sys-counter",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#609BD3",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:1",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/sys-swipe",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 9,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 1,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#0E2A5C",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:1",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#609BD3",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:1",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/sys-avatar-initial",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/sys-brand-name",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:1",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_br9ir8y6s8/sys-brand-handle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 10,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 1,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#FFFFFF"
+          }
+        ]
+      },
+      "save": "page:2",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 11,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 2,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#E9F0F8",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:2",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#2C76BD",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:2",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "1",
+            "top": 231.9,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/number",
+              "formatting": {
+                "color": "#2C76BD",
+                "font_size": 300,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "ابدأ بالسؤال لا بالجواب",
+            "top": 585.9,
+            "left": 194,
+            "width": 766,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/title",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 129,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "سؤال مفتوح واحد يجعل محدّثك شريكًا في الحديث لا مستمعًا له.",
+            "top": 957.3,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/subtitle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 44,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#E9F0F8",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:2",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 810,
+            "width": 270,
+            "height": 12,
+            "color": "#2C76BD",
+            "path": "M0 0H270V12H0Z",
+            "view_box_width": 270,
+            "view_box_height": 12,
+            "page_id": "$page:2",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 259,
+            "height": 58,
+            "color": "#E9F0F8",
+            "path": "M29 0H230A29 29 0 0 1 259 29V29A29 29 0 0 1 230 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 259,
+            "view_box_height": 58,
+            "page_id": "$page:2",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "الشريحة 2 من 8",
+            "top": 60,
+            "left": 96.1,
+            "width": 258.8,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/sys-counter",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#2C76BD",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:2",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/sys-swipe",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#FFFFFF",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:2",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#2C76BD",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:2",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/sys-avatar-initial",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/sys-brand-name",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:2",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_bcut1euiph/sys-brand-handle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 12,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 2,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#0E2A5C"
+          }
+        ]
+      },
+      "save": "page:3",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 13,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 3,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#1B4282",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:3",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#609BD3",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:3",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "2",
+            "top": 257.9,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/number",
+              "formatting": {
+                "color": "#609BD3",
+                "font_size": 300,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "أنصِت حتى النهاية",
+            "top": 611.9,
+            "left": 312,
+            "width": 648,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/title",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 109,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "لا تجهّز ردّك أثناء حديثه؛ الفكرة الكاملة قد تغيّر ما ستقوله.",
+            "top": 931.3,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/subtitle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 44,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#1B4282",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:3",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 675,
+            "width": 405,
+            "height": 12,
+            "color": "#609BD3",
+            "path": "M0 0H405V12H0Z",
+            "view_box_width": 405,
+            "view_box_height": 12,
+            "page_id": "$page:3",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 260,
+            "height": 58,
+            "color": "#1B4282",
+            "path": "M29 0H231A29 29 0 0 1 260 29V29A29 29 0 0 1 231 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 260,
+            "view_box_height": 58,
+            "page_id": "$page:3",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "الشريحة 3 من 8",
+            "top": 60,
+            "left": 96,
+            "width": 260,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/sys-counter",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#609BD3",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:3",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/sys-swipe",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#0E2A5C",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:3",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#609BD3",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:3",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/sys-avatar-initial",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/sys-brand-name",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:3",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_ii0xanglbn/sys-brand-handle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 14,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 3,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#FFFFFF"
+          }
+        ]
+      },
+      "save": "page:4",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 15,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 4,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#E9F0F8",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:4",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#2C76BD",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:4",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "3",
+            "top": 257.9,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/number",
+              "formatting": {
+                "color": "#2C76BD",
+                "font_size": 300,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "اختصر في 3 نقاط",
+            "top": 611.9,
+            "left": 459,
+            "width": 501,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/title",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 109,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "الفكرة التي لا تُقال في ثلاث نقاط تحتاج ترتيبًا قبل أن تحتاج وقتًا.",
+            "top": 931.3,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/subtitle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 44,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#E9F0F8",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:4",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 540,
+            "width": 540,
+            "height": 12,
+            "color": "#2C76BD",
+            "path": "M0 0H540V12H0Z",
+            "view_box_width": 540,
+            "view_box_height": 12,
+            "page_id": "$page:4",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 262,
+            "height": 58,
+            "color": "#E9F0F8",
+            "path": "M29 0H233A29 29 0 0 1 262 29V29A29 29 0 0 1 233 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 262,
+            "view_box_height": 58,
+            "page_id": "$page:4",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "الشريحة 4 من 8",
+            "top": 60,
+            "left": 95.8,
+            "width": 262.5,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/sys-counter",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#2C76BD",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:4",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/sys-swipe",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#FFFFFF",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:4",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#2C76BD",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:4",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/sys-avatar-initial",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/sys-brand-name",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:4",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_hvjfvjbuc4/sys-brand-handle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 16,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 4,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#0E2A5C"
+          }
+        ]
+      },
+      "save": "page:5",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 17,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 5,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#1B4282",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:5",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#609BD3",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:5",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "4",
+            "top": 328.8,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/number",
+              "formatting": {
+                "color": "#609BD3",
+                "font_size": 300,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "ابدأ بـ«لماذا»",
+            "top": 682.8,
+            "left": 120,
+            "width": 840,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/title",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 109,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "حين يفهم الناس السبب، يتابعون التفاصيل بانتباه.",
+            "top": 860.5,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/subtitle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 44,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#1B4282",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:5",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 405,
+            "width": 675,
+            "height": 12,
+            "color": "#609BD3",
+            "path": "M0 0H675V12H0Z",
+            "view_box_width": 675,
+            "view_box_height": 12,
+            "page_id": "$page:5",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 260,
+            "height": 58,
+            "color": "#1B4282",
+            "path": "M29 0H231A29 29 0 0 1 260 29V29A29 29 0 0 1 231 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 260,
+            "view_box_height": 58,
+            "page_id": "$page:5",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "الشريحة 5 من 8",
+            "top": 60,
+            "left": 96,
+            "width": 260,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/sys-counter",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#609BD3",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:5",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/sys-swipe",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#0E2A5C",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:5",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#609BD3",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:5",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/sys-avatar-initial",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/sys-brand-name",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:5",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_cfyc2tq60k/sys-brand-handle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 18,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 5,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#FFFFFF"
+          }
+        ]
+      },
+      "save": "page:6",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 19,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 6,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#E9F0F8",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:6",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#2C76BD",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:6",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "5",
+            "top": 328.8,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/number",
+              "formatting": {
+                "color": "#2C76BD",
+                "font_size": 300,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "تكلّم بنبرة هادئة",
+            "top": 682.8,
+            "left": 120,
+            "width": 840,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/title",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 109,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "النبرة الهادئة تُسمَع أوضح من الصوت المرتفع.",
+            "top": 860.5,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/subtitle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 44,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#E9F0F8",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:6",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 270,
+            "width": 810,
+            "height": 12,
+            "color": "#2C76BD",
+            "path": "M0 0H810V12H0Z",
+            "view_box_width": 810,
+            "view_box_height": 12,
+            "page_id": "$page:6",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 261,
+            "height": 58,
+            "color": "#E9F0F8",
+            "path": "M29 0H232A29 29 0 0 1 261 29V29A29 29 0 0 1 232 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 261,
+            "view_box_height": 58,
+            "page_id": "$page:6",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "الشريحة 6 من 8",
+            "top": 60,
+            "left": 95.9,
+            "width": 261.3,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/sys-counter",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#2C76BD",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:6",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/sys-swipe",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#FFFFFF",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:6",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#2C76BD",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:6",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/sys-avatar-initial",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/sys-brand-name",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:6",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_iblzg4mde2/sys-brand-handle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 20,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 6,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#0E2A5C"
+          }
+        ]
+      },
+      "save": "page:7",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 21,
+      "tool": "create-upload-url",
+      "args": {},
+      "then": {
+        "action": "POST raw bytes",
+        "file": "docs/examples/listen-carousel/canva/a_4c180577448ea435.svg",
+        "header": "Content-Type: application/octet-stream"
+      },
+      "save": "media:a_4c180577448ea435",
+      "note": "ارفع الملف كما هو (بايتات خام) ثم احفظ معرّف الوسائط من الرد."
+    },
+    {
+      "n": 22,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 7,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 122,
+            "left": 76,
+            "width": 928,
+            "height": 1078,
+            "color": "#1B4282",
+            "rotation": 1.1,
+            "path": "M6 0H922A6 6 0 0 1 928 6V1072A6 6 0 0 1 922 1078H6A6 6 0 0 1 0 1072V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 928,
+            "view_box_height": 1078,
+            "page_id": "$page:7",
+            "_element": "style-content-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 100,
+            "left": 144,
+            "width": 150,
+            "height": 38,
+            "color": "#609BD3",
+            "opacity": 0.85,
+            "rotation": 7,
+            "path": "M3 0H147A3 3 0 0 1 150 3V35A3 3 0 0 1 147 38H3A3 3 0 0 1 0 35V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 150,
+            "view_box_height": 38,
+            "page_id": "$page:7",
+            "_element": "style-content-1"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "6",
+            "top": 199.2,
+            "left": 120,
+            "width": 840,
+            "_element": "number",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/number",
+              "formatting": {
+                "color": "#609BD3",
+                "font_size": 290,
+                "font_weight": "bold",
+                "line_height": 1.1,
+                "text_align": "end"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "اختم بسؤال",
+            "top": 541.3,
+            "left": 120,
+            "width": 840,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/title",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 105,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "السؤال الأخير يفتح الحوار بدل أن يغلقه بخطبة.",
+            "top": 712.6,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/subtitle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 42,
+                "font_weight": "normal",
+                "line_height": 1.6,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "insert_fill",
+            "page_id": "$page:7",
+            "asset_type": "image",
+            "asset_id": "$media:a_4c180577448ea435",
+            "alt_text": "فقاعة حوار",
+            "top": 833.8,
+            "left": 378,
+            "width": 324,
+            "height": 297,
+            "_element": "art"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#1B4282",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:7",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 135,
+            "width": 945,
+            "height": 12,
+            "color": "#609BD3",
+            "path": "M0 0H945V12H0Z",
+            "view_box_width": 945,
+            "view_box_height": 12,
+            "page_id": "$page:7",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 258,
+            "height": 58,
+            "color": "#1B4282",
+            "path": "M29 0H229A29 29 0 0 1 258 29V29A29 29 0 0 1 229 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 258,
+            "view_box_height": 58,
+            "page_id": "$page:7",
+            "_element": "sys-counter-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "الشريحة 7 من 8",
+            "top": 60,
+            "left": 96.3,
+            "width": 257.5,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/sys-counter",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1220,
+            "left": 96,
+            "width": 304,
+            "height": 70,
+            "color": "#609BD3",
+            "path": "M35 0H269A35 35 0 0 1 304 35V35A35 35 0 0 1 269 70H35A35 35 0 0 1 0 35V35A35 35 0 0 1 35 0Z",
+            "view_box_width": 304,
+            "view_box_height": 70,
+            "page_id": "$page:7",
+            "_element": "sys-swipe-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "اسحب لليسار",
+            "top": 1234,
+            "left": 142.8,
+            "width": 252.5,
+            "_element": "sys-swipe",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/sys-swipe",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1238,
+            "left": 120,
+            "width": 34,
+            "height": 34,
+            "stroke_color": "#0E2A5C",
+            "path": "M20 12h-15M11 6l-6 6l6 6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.5,
+            "page_id": "$page:7",
+            "_element": "sys-swipe-arrow"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1210,
+            "left": 900,
+            "width": 84,
+            "height": 84,
+            "color": "#609BD3",
+            "path": "M0 42A42 42 0 1 0 84 42A42 42 0 1 0 0 42Z",
+            "view_box_width": 84,
+            "view_box_height": 84,
+            "page_id": "$page:7",
+            "_element": "sys-avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "ك",
+            "top": 1225.4,
+            "left": 889.5,
+            "width": 105,
+            "_element": "sys-avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/sys-avatar-initial",
+              "formatting": {
+                "color": "#0E2A5C",
+                "font_size": 38,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "كتاب وبس",
+            "top": 1214.2,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-name",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/sys-brand-name",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 30,
+                "font_weight": "bold",
+                "line_height": 1.35,
+                "text_align": "start"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:7",
+            "text": "@kitabwbs",
+            "top": 1254.7,
+            "left": 700.8,
+            "width": 181.3,
+            "_element": "sys-brand-handle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_sh9amzqurs/sys-brand-handle",
+              "formatting": {
+                "color": "#C7D3E4",
+                "font_size": 26,
+                "font_weight": "normal",
+                "line_height": 1.35,
+                "text_align": "end"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 23,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 7,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_page",
+            "width": 1080,
+            "height": 1350,
+            "background_color": "#FFFFFF"
+          }
+        ]
+      },
+      "save": "page:8",
+      "note": "سجّل معرّف الصفحة الجديدة."
+    },
+    {
+      "n": 24,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 8,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "insert_shape",
+            "top": 114,
+            "left": 72,
+            "width": 936,
+            "height": 1164,
+            "color": "#E9F0F8",
+            "rotation": -1.2,
+            "path": "M6 0H930A6 6 0 0 1 936 6V1158A6 6 0 0 1 930 1164H6A6 6 0 0 1 0 1158V6A6 6 0 0 1 6 0Z",
+            "view_box_width": 936,
+            "view_box_height": 1164,
+            "page_id": "$page:8",
+            "_element": "style-cta-0"
+          },
+          {
+            "type": "insert_shape",
+            "top": 92,
+            "left": 776,
+            "width": 160,
+            "height": 40,
+            "color": "#2C76BD",
+            "opacity": 0.85,
+            "rotation": -8,
+            "path": "M3 0H157A3 3 0 0 1 160 3V37A3 3 0 0 1 157 40H3A3 3 0 0 1 0 37V3A3 3 0 0 1 3 0Z",
+            "view_box_width": 160,
+            "view_box_height": 40,
+            "page_id": "$page:8",
+            "_element": "style-cta-1"
+          },
+          {
+            "type": "insert_shape",
+            "top": 242.2,
+            "left": 422,
+            "width": 236,
+            "height": 236,
+            "color": "#2C76BD",
+            "path": "M0 118A118 118 0 1 0 236 118A118 118 0 1 0 0 118Z",
+            "view_box_width": 236,
+            "view_box_height": 236,
+            "page_id": "$page:8",
+            "_element": "avatar-ring"
+          },
+          {
+            "type": "insert_shape",
+            "top": 250.2,
+            "left": 430,
+            "width": 220,
+            "height": 220,
+            "color": "#FFFFFF",
+            "path": "M0 110A110 110 0 1 0 220 110A110 110 0 1 0 0 110Z",
+            "view_box_width": 220,
+            "view_box_height": 220,
+            "page_id": "$page:8",
+            "_element": "avatar-gap"
+          },
+          {
+            "type": "insert_shape",
+            "top": 260.2,
+            "left": 440,
+            "width": 200,
+            "height": 200,
+            "color": "#2C76BD",
+            "path": "M0 100A100 100 0 1 0 200 100A100 100 0 1 0 0 100Z",
+            "view_box_width": 200,
+            "view_box_height": 200,
+            "page_id": "$page:8",
+            "_element": "avatar-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "ك",
+            "top": 297.2,
+            "left": 415,
+            "width": 250,
+            "_element": "avatar-initial",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/avatar-initial",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 90,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "كتاب وبس ‎@kitabwbs",
+            "top": 504.2,
+            "left": 120,
+            "width": 840,
+            "_element": "brand-line",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/brand-line",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 34,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "أيّ عادة ستبدأ بها اليوم؟",
+            "top": 577.2,
+            "left": 209,
+            "width": 662,
+            "_element": "title",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/title",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 97,
+                "font_weight": "bold",
+                "line_height": 1.3,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "احفظ المنشور وشاركه مع صديق، وتابع ‎@kitabwbs لمزيد من أفكار الذكاء الاجتماعي.",
+            "top": 851.4,
+            "left": 120,
+            "width": 840,
+            "_element": "subtitle",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/subtitle",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 36,
+                "font_weight": "normal",
+                "line_height": 1.7,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1007.8,
+            "left": 538.1,
+            "width": 218,
+            "height": 67.2,
+            "color": "#2C76BD",
+            "path": "M4 0H214A4 4 0 0 1 218 4V63.2A4 4 0 0 1 214 67.2H4A4 4 0 0 1 0 63.2V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 218,
+            "view_box_height": 67.2,
+            "page_id": "$page:8",
+            "_element": "action-save-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "احفظه",
+            "top": 1019,
+            "left": 599.1,
+            "width": 142.5,
+            "_element": "action-save",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/action-save",
+              "formatting": {
+                "color": "#FFFFFF",
+                "font_size": 32,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1024.6,
+            "left": 566.9,
+            "width": 33.6,
+            "height": 33.6,
+            "stroke_color": "#FFFFFF",
+            "path": "M6.5 3.5h11a1 1 0 0 1 1 1V21l-6.5-4.2L5.5 21V4.5a1 1 0 0 1 1-1z",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.4,
+            "page_id": "$page:8",
+            "_element": "action-save-icon"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1007.8,
+            "left": 323.9,
+            "width": 203,
+            "height": 67.2,
+            "color": "#E9F0F8",
+            "path": "M4 0H199A4 4 0 0 1 203 4V63.2A4 4 0 0 1 199 67.2H4A4 4 0 0 1 0 63.2V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 203,
+            "view_box_height": 67.2,
+            "page_id": "$page:8",
+            "_element": "action-follow-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "تابعنا",
+            "top": 1019,
+            "left": 386.7,
+            "width": 123.8,
+            "_element": "action-follow",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/action-follow",
+              "formatting": {
+                "color": "#14181F",
+                "font_size": 32,
+                "font_weight": "bold",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 1024.6,
+            "left": 352.7,
+            "width": 33.6,
+            "height": 33.6,
+            "stroke_color": "#14181F",
+            "path": "M15 19c0-2.8-2.7-5-6-5s-6 2.2-6 5M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19 8v6M16 11h6",
+            "view_box_width": 24,
+            "view_box_height": 24,
+            "stroke_weight": 3.4,
+            "page_id": "$page:8",
+            "_element": "action-follow-icon"
+          },
+          {
+            "type": "insert_shape",
+            "top": 1099,
+            "left": 444.3,
+            "width": 191.4,
+            "height": 58.8,
+            "color": "#E9F0F8",
+            "path": "M4 0H187.4A4 4 0 0 1 191.4 4V54.8A4 4 0 0 1 187.4 58.8H4A4 4 0 0 1 0 54.8V4A4 4 0 0 1 4 0Z",
+            "view_box_width": 191.4,
+            "view_box_height": 58.8,
+            "page_id": "$page:8",
+            "_element": "social-1-bg"
+          },
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "@kitabwbs",
+            "top": 1108.8,
+            "left": 451.9,
+            "width": 176.3,
+            "_element": "social-1",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/social-1",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 28,
+                "font_weight": "normal",
+                "line_height": 1.4,
+                "text_align": "center"
+              }
+            }
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#E9F0F8",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:8",
+            "_element": "sys-progress-track"
+          },
+          {
+            "type": "insert_shape",
+            "top": 0,
+            "left": 0,
+            "width": 1080,
+            "height": 12,
+            "color": "#2C76BD",
+            "path": "M0 0H1080V12H0Z",
+            "view_box_width": 1080,
+            "view_box_height": 12,
+            "page_id": "$page:8",
+            "_element": "sys-progress"
+          },
+          {
+            "type": "insert_shape",
+            "top": 52,
+            "left": 96,
+            "width": 261,
+            "height": 58,
+            "color": "#E9F0F8",
+            "path": "M29 0H232A29 29 0 0 1 261 29V29A29 29 0 0 1 232 58H29A29 29 0 0 1 0 29V29A29 29 0 0 1 29 0Z",
+            "view_box_width": 261,
+            "view_box_height": 58,
+            "page_id": "$page:8",
+            "_element": "sys-counter-bg"
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 25,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "page_index": 8,
+        "finalize": "keep_open",
+        "operations": [
+          {
+            "type": "add_text",
+            "page_id": "$page:8",
+            "text": "الشريحة 8 من 8",
+            "top": 60,
+            "left": 95.9,
+            "width": 261.3,
+            "_element": "sys-counter",
+            "_then": {
+              "type": "format_text",
+              "locator_id": "$el:pg_z9kxbfayal/sys-counter",
+              "formatting": {
+                "color": "#4E5866",
+                "font_size": 28,
+                "font_weight": "bold",
+                "line_height": 1.5,
+                "text_align": "center"
+              }
+            }
+          }
+        ]
+      },
+      "note": "كل add_text يتبعه format_text بالقيم في _then على العنصر الجديد؛ احفظ locator كل نص جديد باسم _element ($el:…). العناصر تُضاف بالترتيب من الخلف إلى الأمام."
+    },
+    {
+      "n": 26,
+      "tool": "read-design",
+      "args": {
+        "design_id": "$designId",
+        "transaction_id": "$transactionId",
+        "filter": {
+          "fields": [
+            "page_metadata",
+            "design_content",
+            "thumbnails"
+          ]
+        }
+      },
+      "save": "readback",
+      "note": "اكتب readback.json ثم شغّل: studio canva verify design.json readback.json"
+    },
+    {
+      "n": 27,
+      "tool": "edit-design",
+      "args": {
+        "transaction_id": "$transactionId",
+        "finalize": "commit"
+      },
+      "requiresApproval": true,
+      "note": "اعرض المعاينة على المستخدم، ولا تحفظ إلا بموافقته الصريحة."
+    }
+  ],
+  "fingerprint": "e2d2e73bcaf6c1303470567bb290587816a9a985fbad14f6c303db487d6e4c11"
+}

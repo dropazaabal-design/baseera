@@ -31,6 +31,7 @@ does not fit, runs the quality gate and saves the design to the library.
 - `intent.pages` is the page count the user asked for; the gate fails if it differs.
 - `intent.format`: `portrait` 1080×1350 (default), `square` 1080×1080, `story` 1080×1920.
 - Theme: `brandId` (a saved identity), or `paletteId` (`midnight`, `sand`, `emerald`, `ink`, `violet`, `coral`, `agency-navy`, `agency-light`), or `theme` in full. Fonts: `"fonts": { "heading": "cairo", "body": "tajawal" }` (`cairo`, `tajawal`, `almarai`, `readex`).
+- Style (optional): `"style": { "id": "collage-cutout", "mode": "alternate" }`. `studio styles` lists the ready ones (status `reusable`), the compositions each suits, and the ones it declines with the reason; do not put a declined composition in a styled spec. `mode` is `light`, `dark` or `alternate` (from the cover, dark first); left out, the style's own default applies (some styles make the cover and closing dark). The identity still gives the accent and fonts; derived shades (a darker blue under white labels, a lighter one on navy) are recorded in `theme.derived`. Without `style`, a design renders as before.
 - `keepArt: true` keeps the art when space is tight (reflow then reduces it to its minimum size instead of removing it). Use it when the user asked for strong graphics.
 - `*word*` colours one key word with the accent (one per title).
 - Asset fields (`art`, `itemArt`, `photo`, collage `art` list) take **asset ids** from `studio asset add` / `studio asset list`. Ids not in the store fail the build.
@@ -48,6 +49,9 @@ Run `node scripts/studio.mjs compositions` for the live list. In short:
 | `quote` | quotation | `bar` | `quote`*, `author`, `role`, `photo` |
 | `statement` | one big sentence (typographic) | `block` | `kicker`, `title`*, `subtitle` |
 | `collage` | editorial collage of cut-outs | `top`, `bottom` | `kicker`, `title`*, `subtitle`, `art[]` (2–4) |
+| `numbered` | one step or figure per page («3 دقائق»، «الخطوة 2») | `type`, `center`, `art` | `number`*, `title`*, `subtitle`, `art` |
+| `stat` | evidence: a figure, its meaning, its source | `type`, `center` | `kicker`, `figure`*, `title`*, `source` (never invented: leave it out if there is none) |
+| `framework` | named parts, each with a short explanation | `grid`, `chain` (joined, one after the other) | `title`*, `parts`* (≤ 6, short names), `details` (one line per part, same order) |
 | `outro` | follow / save CTA with identity | `center` | `title`*, `subtitle`, `save`, `share`, `follow`, `socials` |
 
 `*` required. Capacity (what reads well): list/post up to 6 items of ≤ 60–70 characters;

@@ -3459,6 +3459,7 @@ function elementsFor(page, target) {
   if (target.roles) return page.elements.filter((e) => target.roles.includes(e.role));
   return [];
 }
+var SINGLE_PER_PAGE = ["title", "subtitle", "kicker", "cta", "quote", "author"];
 var artOrder = (page) => page.elements.filter((e) => ["art", "art-placeholder", "photo"].includes(e.role)).sort((a, b) => a.z - b.z);
 function choosePages(doc, m, ctx2, target) {
   const n3 = pageOrdinal(m);
@@ -3469,7 +3470,8 @@ function choosePages(doc, m, ctx2, target) {
   if (target?.system && !m.has(["\u0647\u0630\u0647 \u0627\u0644\u0634\u0631\u064A\u062D\u0647", "\u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0647", "\u0647\u0646\u0627"])) return doc.pages;
   return [doc.pages.find((p) => p.id === ctx2.pageId) ?? doc.pages[0]];
 }
-var fmt2 = (n3) => formatNumber(n3, "arab");
+var replyNumerals = "arab";
+var fmt2 = (n3) => formatNumber(n3, replyNumerals);
 var FONT_WORDS = { cairo: ["cairo", "\u0643\u0627\u064A\u0631\u0648", "\u0627\u0644\u0642\u0627\u0647\u0631\u0647"], tajawal: ["tajawal", "\u062A\u062C\u0648\u0627\u0644", "\u062A\u062C\u0648\u0644", "\u062A\u0627\u062C\u0648\u0627\u0644"], almarai: ["almarai", "\u0627\u0644\u0645\u0631\u0627\u0639\u064A"], readex: ["readex", "\u0631\u064A\u062F\u0643\u0633"] };
 var FONT_LABEL = { cairo: "Cairo", tajawal: "Tajawal", almarai: "Almarai", readex: "Readex Pro" };
 function colorFromWords(m, doc, brand) {
@@ -3490,6 +3492,7 @@ function colorFromWords(m, doc, brand) {
   return { entry, matches, wantsBrand };
 }
 function parseCommand(doc, text, ctx2 = {}) {
+  replyNumerals = doc.theme?.numerals ?? "arab";
   const m = matcher(text);
   const targets = findTargets(m);
   const target = targets[0];
@@ -3538,27 +3541,38 @@ function parseCommand(doc, text, ctx2 = {}) {
   if (!target) {
     return result({ intent: "clarify", local: false, needs: "clarify", reply: "\u0644\u0645 \u0623\u062D\u062F\u062F \u0627\u0644\u0639\u0646\u0635\u0631 \u0627\u0644\u0645\u0642\u0635\u0648\u062F. \u0627\u0630\u0643\u0631\u0647 \u0628\u0627\u0644\u0627\u0633\u0645: \u0627\u0644\u0639\u0646\u0648\u0627\u0646\u060C \u0627\u0644\u0628\u0646\u0648\u062F\u060C \u0627\u0644\u0631\u0633\u0645 \u0627\u0644\u0631\u0627\u0628\u0639\u060C \u0627\u0644\u0634\u0639\u0627\u0631\u060C \u0627\u0644\u062E\u0644\u0641\u064A\u0629\u2026" });
   }
-  const pages = choosePages(doc, m, ctx2, target);
+  let pages = choosePages(doc, m, ctx2, target);
+  if (SINGLE_PER_PAGE.includes(target.id) && !pageOrdinal(m)) {
+    const n3 = ordinalAfter(m, target.forms);
+    if (n3) {
+      const withTarget = doc.pages.filter((p) => elementsFor(p, target).length);
+      const page = withTarget[n3 === -1 ? withTarget.length - 1 : n3 - 1];
+      if (!page) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \xAB${target.forms[0]}\xBB \u0631\u0642\u0645 ${fmt2(n3)}\u061B \u0641\u064A \u0627\u0644\u062A\u0635\u0645\u064A\u0645 ${fmt2(withTarget.length)} \u0641\u0642\u0637.` });
+      pages = [page];
+    }
+  }
   if (target.id === "art") {
     const n3 = ordinalAfter(m, target.forms);
-    const page = pages[0];
-    const arts = artOrder(page);
-    if (!arts.length) return result({ intent: "clarify", local: false, needs: "clarify", reply: "\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0641\u064A \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0629." });
+    const across = Boolean(n3) && !pageOrdinal(m) && !ctx2.pageId && doc.pages.length > 1;
+    const pool = across ? doc.pages.flatMap((p) => artOrder(p).map((el2) => ({ page: p, el: el2 }))) : artOrder(pages[0]).map((el2) => ({ page: pages[0], el: el2 }));
+    const where = across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0627\u0644\u0635\u0641\u062D\u0629";
+    if (!pool.length) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0641\u064A ${across ? "\u0627\u0644\u062A\u0635\u0645\u064A\u0645" : "\u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062D\u0629"}.` });
     if (hasVerb(m, VERBS.remove) || hasVerb(m, VERBS.hide)) {
-      const picks = n3 ? [arts[n3 === -1 ? arts.length - 1 : n3 - 1]].filter(Boolean) : arts;
-      return result({ intent: "hide", scope: "graphic", patches: picks.map((e) => ({ pageId: page.id, elementId: e.id, action: "hide", payload: { hidden: true } })), reply: `\u0623\u062E\u0641\u064A\u062A ${picks.length > 1 ? `${fmt2(picks.length)} \u0631\u0633\u0648\u0645` : "\u0627\u0644\u0631\u0633\u0645"}.` });
+      const picks = n3 ? [pool[n3 === -1 ? pool.length - 1 : n3 - 1]].filter(Boolean) : pool;
+      return result({ intent: "hide", scope: "graphic", patches: picks.map(({ page: page2, el: el2 }) => ({ pageId: page2.id, elementId: el2.id, action: "hide", payload: { hidden: true } })), reply: `\u0623\u062E\u0641\u064A\u062A ${picks.length > 1 ? `${fmt2(picks.length)} \u0631\u0633\u0648\u0645` : "\u0627\u0644\u0631\u0633\u0645"}.` });
     }
-    if (!n3 && arts.length > 1) {
+    if (!n3 && pool.length > 1) {
       return result({
         intent: "clarify",
         local: false,
         needs: "clarify",
-        reply: `\u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0629 ${fmt2(arts.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
-        options: arts.map((e, i) => ({ label: `${e.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page.id, elementId: e.id }))
+        reply: `\u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645. \u0623\u064A\u0647\u0627 \u062A\u0642\u0635\u062F\u061F`,
+        options: pool.map(({ page: page2, el: el2 }, i) => ({ label: `${el2.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page2.id, elementId: el2.id }))
       });
     }
-    const el = arts[n3 === -1 ? arts.length - 1 : (n3 ?? 1) - 1];
-    if (!el) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n3)}\u061B \u0641\u064A \u0627\u0644\u0635\u0641\u062D\u0629 ${fmt2(arts.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    const pick = pool[n3 === -1 ? pool.length - 1 : (n3 ?? 1) - 1];
+    if (!pick) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n3)}\u061B \u0641\u064A ${where} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    const { page, el } = pick;
     const assetId = /\b(a_[a-z0-9]{6,})\b/i.exec(text)?.[1];
     if (assetId) {
       return result({ intent: "replace_asset", scope: "graphic", patches: [{ pageId: page.id, elementId: el.id, action: "replace_asset", payload: { assetId } }], reply: `\u0627\u0633\u062A\u0628\u062F\u0644\u062A ${el.name ?? "\u0627\u0644\u0631\u0633\u0645"} \u0648\u062D\u062F\u0647.` });
@@ -8352,7 +8366,7 @@ function detectSceneCuts(file2, { threshold = 0.3 } = {}) {
 }
 
 // scripts/canva-mcp.js
-var SERVER = { name: "baseera-canva", version: "1.3.0" };
+var SERVER = { name: "baseera-canva", version: "1.4.0" };
 var PROTOCOLS = ["2025-06-18", "2025-03-26", "2024-11-05"];
 var ctx = null;
 var context = () => ctx ??= nodeContext();

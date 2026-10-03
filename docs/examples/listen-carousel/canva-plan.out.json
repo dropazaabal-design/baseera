@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "editability": "native",
+  "mode": "native",
+  "limitations": [
+    "الموصل لا يختار الخط: النصوص بخط Canva الافتراضي. غيّرها يدويًا إلى خط التصميم.",
+    "تلوين كلمة داخل نص غير مدعوم في الموصل: كل نص بلون واحد، والكلمات المميزة تفقد لونها."
+  ],
+  "steps": 27,
+  "plan": "docs/examples/listen-carousel/canva/plan.json"
+}

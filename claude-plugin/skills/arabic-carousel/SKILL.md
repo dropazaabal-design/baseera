@@ -59,7 +59,10 @@ Details and judgement calls: `references/roles/director.md` and `references/role
    `studio asset add file.svg --kind generated --tags … --prompt "<spec>"` (this records the call).
    Reuse `library` slots as given.
 3. **Spec**: write `spec.json` (format in `references/studio-format.md`; `studio compositions`
-   lists layouts and fields).
+   lists layouts and fields). Pick the composition from the content's relation (steps, framework,
+   comparison, evidence…), then a visual style with `studio styles` if the user asked for a look
+   («كولاج تحريري»، «داكن وفاتح بالتناوب»، «بسيط») or the identity has one it approved. Offer only
+   styles listed there (status `reusable`); a style that declines a composition says why.
 4. `studio compose spec.json --request "<request>" --out design.json --html design.html`
 
 ## 4. Check before delivering
@@ -87,9 +90,13 @@ Then ask what they think. Their words go to `studio feedback <designId> "<words>
 ## Edits by conversation
 
 `studio edit design.json "<أمر>" --page N` applies local edits (sizes, identity colours,
-moves, locks, typed text, columns, format) without any generation. When it returns `needs`:
+moves, locks, typed text, columns, format) without any generation. Ordinals follow the user's
+words: «العنوان الثاني» is the second page's title; «الجرافيك الرابع» without `--page` is the
+fourth graphic in reading order across the design (with `--page`, within that page). When it
+returns `needs`:
 
-- `asset` → generate **only** `target.elementId`'s art, add it, then
+- `asset` → generate **only** `target.elementId`'s art, add it, then either
+  `studio edit design.json "<same command> <assetId>"` or
   `studio patch design.json patches.json --scope graphic` with one `replace_asset`.
 - `rewrite` → write shorter text within each target's `maxChars`, then
   `studio patch … --scope text` with `replace_text`. Never touch art for a text request.

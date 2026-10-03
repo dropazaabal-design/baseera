@@ -33,3 +33,16 @@ automated test or a live run named in the evidence column; "exists" alone means 
 |---|---|---|---|---|---|---|---|
 | `example-studio.json` | 28 ms | 1 | 25 | passed, 0 warnings | 0 | 0 | null (not measured locally) |
 | same, «كتاب وبس» preset | 13 ms | 1 | 29 | passed, 2 warnings | 0 | 0 | null |
+
+## After V2 (same machine; medians of 5 in-process runs; details in `docs/examples/listen-carousel/metrics.json`)
+
+| Example | Compose time | Pages | Elements | Quality | AI generations | External ops | Tokens / cost |
+|---|---|---|---|---|---|---|---|
+| `example-studio.json` (unstyled) | 12 ms | 1 | 25 | passed, 0 warnings | 0 | 0 | null |
+| same, «كتاب وبس» preset | 8 ms | 1 | 29 | passed, 2 warnings | 0 | 0 | null |
+| acceptance carousel, `collage-cutout`, alternating | 17 ms (47 cold; 150 via the CLI process) | 8 | 142 | passed, 1 warning (tatweel in the source text) | 0 image generations; 1 hand-written graphic for the «غيّر الجرافيك الرابع» request | 0 | null |
+
+Unstyled designs keep the same elements and warnings. The times are medians against single
+runs before, so they are not a speed claim. Library state: 8 styles (all `reusable`), 11
+compositions, 75 of 88 style × composition pairs ready in every format each style declares,
+13 declined with a reason (`docs/library/matrix.json`).

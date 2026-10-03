@@ -1,0 +1,33 @@
+{
+ "kind": "metrics",
+ "machine": "same container, Node 22, median of 5 in-process runs unless noted",
+ "baselineBeforeV2": {
+  "source": "docs/research/library-v2-audit.md (single runs)",
+  "example-studio": { "composeMs": 28, "pages": 1, "elements": 25, "warnings": 0, "aiGenerations": 0 },
+  "kitabwbs-preset": { "composeMs": 13, "pages": 1, "elements": 29, "warnings": 2, "aiGenerations": 0 }
+ },
+ "sameBaselineAfterV2": {
+  "example-studio": { "composeMs": 12, "pages": 1, "elements": 25, "warnings": 0 },
+  "kitabwbs-preset": { "composeMs": 8, "pages": 1, "elements": 29, "warnings": 2 },
+  "note": "unstyled designs keep the same elements and warnings; times are medians, the baseline single runs, so they are not a speed claim"
+ },
+ "acceptanceCarousel": {
+  "composeMs": 17,
+  "composeMsCold": 47,
+  "composeViaCliMs": 150,
+  "pages": 8,
+  "size": "1080x1350",
+  "elements": 142,
+  "errors": 0,
+  "warnings": 1,
+  "warningCodes": ["text.tatweel (in the source text «بـ«لماذا»», not added by the engine)"],
+  "browser": { "overflow": 0, "loneLastWordTitles": 0 },
+  "localEditMs": 1.9,
+  "aiImageGenerations": 0,
+  "handWrittenGraphics": 1,
+  "externalOperations": 0,
+  "tokens": null,
+  "costUsd": null,
+  "tokensNote": "not measurable locally: the provider does not expose them to this pipeline"
+ }
+}

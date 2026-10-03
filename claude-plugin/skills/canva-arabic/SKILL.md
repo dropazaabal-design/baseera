@@ -145,5 +145,10 @@ what was verified and how, the open items, and the generation count from the jou
 - No motion, page transition, page duration or audio operation on the connector; the reel plan
   goes into each page's speaker notes and the manual steps (see `arabic-reels`).
 - The connector's upload rejects .pptx and turns a .pdf into a file id only.
+- Styled designs (`doc.style`) transfer element by element like any other: decoration shapes,
+  tilted paper sheets and per-page dark/light backgrounds are plain shapes and page fills. The
+  style's accent words are what the connector loses (one colour per text box); say so before
+  building, or offer the .pptx, which keeps them. A title's line breaks come from its frame
+  width; Canva's own text metrics can still move a word, so read back and look at the preview.
 - Layer separation of a flat image («تحويل صورة إلى طبقات») re-types Arabic and can change
   words; never the default. If the user asks for it, validate the result letter by letter.

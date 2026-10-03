@@ -1,0 +1,32 @@
+{
+ "design": "d_a5xldixjxy98",
+ "revision": 3,
+ "pages": 8,
+ "size": "1080×1350",
+ "browser": {
+  "overflow": [],
+  "loneLastWord": []
+ },
+ "pptx": {
+  "file": "listen-carousel.pptx",
+  "bytes": 136379,
+  "native": {
+   "text": 64,
+   "shape": 74,
+   "vectorGroup": 4,
+   "picture": 0
+  },
+  "fonts": [
+   "Tajawal",
+   "Cairo"
+  ],
+  "degraded": 0,
+  "skipped": 0,
+  "limitations": [],
+  "readback": {
+   "slides": 8,
+   "rtlTexts": 64,
+   "mismatches": []
+  }
+ }
+}

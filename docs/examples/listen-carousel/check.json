@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "issues": [
+    {
+      "code": "text.tatweel",
+      "severity": "warning",
+      "message": "«الجملة» يحوي تطويلًا (ـ).",
+      "pageId": "pg_cfyc2tq60k",
+      "elementId": "title"
+    }
+  ]
+}

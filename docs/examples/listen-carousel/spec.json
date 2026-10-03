@@ -1,0 +1,97 @@
+{
+ "brief": "كاروسيل «كيف تتكلم فينصت لك الآخرون؟»: غلاف، 6 عادات، ختام — كولاج تحريري يتناوب داكن/فاتح",
+ "brandId": "kitabwbs",
+ "style": {
+  "id": "collage-cutout"
+ },
+ "intent": {
+  "mode": "carousel",
+  "format": "portrait",
+  "pages": 8,
+  "platform": "instagram"
+ },
+ "pages": [
+  {
+   "composition": "collage",
+   "content": {
+    "kicker": "دليل عملي",
+    "title": "كيف تتكلم *فيُنصت* لك الآخرون؟",
+    "subtitle": "6 عادات بسيطة تجعل لكلامك وزنًا — احفظه وارجع إليه.",
+    "art": [
+     "a_a59044c6c405a289",
+     "a_63a7cbc4a9212cb8",
+     "a_c414541405f959c4"
+    ],
+    "artAlt": [
+     "فقاعة حوار",
+     "موجة صوت",
+     "فقاعة صامتة"
+    ]
+   }
+  },
+  {
+   "composition": "numbered",
+   "content": {
+    "number": "1",
+    "title": "ابدأ *بالسؤال* لا بالجواب",
+    "subtitle": "سؤال مفتوح واحد يجعل محدّثك شريكًا في الحديث لا مستمعًا له."
+   }
+  },
+  {
+   "composition": "numbered",
+   "content": {
+    "number": "2",
+    "title": "أنصِت حتى *النهاية*",
+    "subtitle": "لا تجهّز ردّك أثناء حديثه؛ الفكرة الكاملة قد تغيّر ما ستقوله."
+   }
+  },
+  {
+   "composition": "numbered",
+   "content": {
+    "number": "3",
+    "title": "اختصر في *3 نقاط*",
+    "subtitle": "الفكرة التي لا تُقال في ثلاث نقاط تحتاج ترتيبًا قبل أن تحتاج وقتًا."
+   }
+  },
+  {
+   "composition": "numbered",
+   "content": {
+    "number": "4",
+    "title": "ابدأ *بـ«لماذا»*",
+    "subtitle": "حين يفهم الناس السبب، يتابعون التفاصيل بانتباه."
+   }
+  },
+  {
+   "composition": "numbered",
+   "content": {
+    "number": "5",
+    "title": "تكلّم *بنبرة* هادئة",
+    "subtitle": "النبرة الهادئة تُسمَع أوضح من الصوت المرتفع."
+   }
+  },
+  {
+   "composition": "numbered",
+   "variant": "art",
+   "keepArt": true,
+   "content": {
+    "number": "6",
+    "title": "اختم *بسؤال*",
+    "subtitle": "السؤال الأخير يفتح الحوار بدل أن يغلقه بخطبة.",
+    "art": "a_a59044c6c405a289",
+    "artAlt": "فقاعة حوار"
+   }
+  },
+  {
+   "composition": "outro",
+   "content": {
+    "title": "أيّ عادة *ستبدأ* بها اليوم؟",
+    "subtitle": "احفظ المنشور وشاركه مع صديق، وتابع @kitabwbs لمزيد من أفكار الذكاء الاجتماعي.",
+    "save": "احفظه",
+    "follow": "تابعنا",
+    "socials": [
+     "@kitabwbs"
+    ]
+   }
+  }
+ ]
+}
