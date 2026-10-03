@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "baseera": {
+      "source": {
+        "source": "github",
+        "repo": "dropazaabal-design/baseera"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "arabic-carousel@baseera": true
+  }
+}

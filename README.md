@@ -419,6 +419,8 @@ npm run build:plugin   # → dist/arabic-carousel-plugin.zip
 /plugin install arabic-carousel@baseera
 ```
 
+وداخل هذا المستودع لا حاجة للأمرين: `.claude/settings.json` يعلن السوق ويفعّل الإضافة على مستوى المشروع، فيعرض Claude Code تثبيتها عند فتح المستودع (في الجهاز أو في جلسة سحابية).
+
 **أدوات Canva حسب المنصة:**
 
 | المنصة | الحزمة | ربط الأدوات | ما اختُبر |
