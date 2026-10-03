@@ -1,40 +1,10 @@
-import { Fragment } from 'react';
-import { richLines } from '../lib/bidi.js';
+import { ArabicRuns } from './ArabicText';
+import { fromMarkedText } from '../lib/arabic-text/spec.js';
 
-// Renders user text with: LTR runs isolated in <bdi dir="ltr">
-// (unicode-bidi: isolate), *accent* spans, and line breaks. With
-// `highlight` (a colour), accent spans are drawn on a marker band in the
-// text's own colour instead of the accent colour.
-const marker = (color) => ({
-  background: `linear-gradient(to bottom, transparent 52%, ${color} 52%, ${color} 84%, transparent 84%)`,
-  WebkitBoxDecorationBreak: 'clone',
-  boxDecorationBreak: 'clone',
-  padding: '0 .16em',
-  margin: '0 -.16em',
-});
-
+// Stored studio text uses *word* markers: they become mark spans (accent
+// colour, or the marker band when the element has a highlight colour) and
+// ArabicText renders the runs. The stored text itself is never changed.
 export default function RichText({ text, highlight = null }) {
-  return richLines(text ?? '').map((line, li) => (
-    <Fragment key={li}>
-      {li > 0 && <br />}
-      {line.map((seg, si) => {
-        const parts = seg.parts.map((p, pi) =>
-          p.accent ? (
-            <span key={pi} className={highlight ? undefined : 'text-(--c-accent)'} style={highlight ? marker(highlight) : undefined}>
-              {p.text}
-            </span>
-          ) : (
-            <Fragment key={pi}>{p.text}</Fragment>
-          ),
-        );
-        return seg.ltr ? (
-          <bdi key={si} dir="ltr">
-            {parts}
-          </bdi>
-        ) : (
-          <Fragment key={si}>{parts}</Fragment>
-        );
-      })}
-    </Fragment>
-  ));
+  const { text: plain, spans } = fromMarkedText(text ?? '', { mark: highlight ? 'highlight' : 'accent' });
+  return <ArabicRuns text={plain} spans={spans} highlight={highlight} />;
 }

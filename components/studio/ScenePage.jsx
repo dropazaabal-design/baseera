@@ -53,7 +53,7 @@ function TextEl({ el, color, family, highlight }) {
         textAlign: style.align,
       }}
     >
-      <div ref={inner} style={{ whiteSpace: style.nowrap ? 'nowrap' : 'pre-line' }}>
+      <div ref={inner} data-at-p="" style={{ whiteSpace: style.nowrap ? 'nowrap' : 'pre-line' }}>
         <RichText text={el.text} highlight={highlight} />
       </div>
     </div>

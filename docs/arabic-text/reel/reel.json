@@ -1,0 +1,771 @@
+{
+ "file": "reel.mp4",
+ "codec": "vp9",
+ "size": "1080×1920",
+ "fps": 30,
+ "frames": 900,
+ "duration": 30,
+ "bytes": 3616188,
+ "captureMs": 1917,
+ "encodeMs": 10903,
+ "scenes": [
+  {
+   "scene": 1,
+   "id": "intro",
+   "title": "النص العربي في الفيديو",
+   "text": "النص العربي\nفي الفيديو",
+   "motion": [
+    {
+     "effect": "fade",
+     "unit": "block",
+     "duration": 18
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 104,
+   "lines": 2,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 18,
+   "layoutKey": "517613bed12c2b68a1a7ceb9",
+   "captured": [
+    {
+     "x": 42,
+     "y": 726,
+     "width": 996,
+     "height": 388,
+     "text": true,
+     "words": 4,
+     "lines": 2,
+     "segments": 1,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 2,
+   "id": "procrastinate",
+   "title": "كلمة كلمة · صعود",
+   "text": "لا تؤجّل ما تستطيع فعله اليوم",
+   "motion": [
+    {
+     "effect": "rise",
+     "unit": "word",
+     "duration": 14,
+     "stagger": 5
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 88,
+   "lines": 2,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 39,
+   "layoutKey": "7a2df846c3399556bc6a4b92",
+   "captured": [
+    {
+     "x": 42,
+     "y": 740,
+     "width": 996,
+     "height": 360,
+     "text": true,
+     "words": 6,
+     "lines": 2,
+     "segments": 6,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 160,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 3,
+   "id": "saved",
+   "title": "الكتلة · تكبير",
+   "text": "وفّرت 25% خلال 3 أشهر",
+   "motion": [
+    {
+     "effect": "scale",
+     "unit": "block",
+     "duration": 16,
+     "from": 0.85
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 88,
+   "lines": 1,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 16,
+   "layoutKey": "b586ab120fc30d93b59ce339",
+   "captured": [
+    {
+     "x": 42,
+     "y": 806,
+     "width": 996,
+     "height": 228,
+     "text": true,
+     "words": 5,
+     "lines": 1,
+     "segments": 1,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 4,
+   "id": "follow",
+   "title": "السطر · كشف بقناع",
+   "text": "تابع @kitabwbs للمزيد",
+   "motion": [
+    {
+     "effect": "reveal",
+     "unit": "line",
+     "duration": 24
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 88,
+   "lines": 1,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 24,
+   "layoutKey": "5aab1ad86fa58633d4bd27c0",
+   "captured": [
+    {
+     "x": 42,
+     "y": 806,
+     "width": 996,
+     "height": 228,
+     "text": true,
+     "words": 3,
+     "lines": 1,
+     "segments": 1,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 5,
+   "id": "price",
+   "title": "كلمة كلمة · ظهور",
+   "text": "السعر: 1,250.50 درهم",
+   "motion": [
+    {
+     "effect": "fade",
+     "unit": "word",
+     "duration": 12,
+     "stagger": 6
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 88,
+   "lines": 1,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 24,
+   "layoutKey": "331d425cf833bf60e300981b",
+   "captured": [
+    {
+     "x": 42,
+     "y": 806,
+     "width": 996,
+     "height": 228,
+     "text": true,
+     "words": 3,
+     "lines": 1,
+     "segments": 3,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 6,
+   "id": "quote",
+   "title": "تظليل الكلمات",
+   "text": "قال: «ابدأ الآن»",
+   "motion": [
+    {
+     "effect": "fade",
+     "unit": "block",
+     "duration": 10
+    },
+    {
+     "effect": "highlight",
+     "words": "marked",
+     "start": 14,
+     "duration": 16,
+     "color": "#D9F4EB"
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 88,
+   "lines": 1,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 30,
+   "layoutKey": "28063953265925e28e476b10",
+   "captured": [
+    {
+     "x": 42,
+     "y": 806,
+     "width": 996,
+     "height": 228,
+     "text": true,
+     "words": 3,
+     "lines": 1,
+     "segments": 1,
+     "bands": 1,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 7,
+   "id": "diacritics",
+   "title": "التشكيل · صعود الكتلة",
+   "text": "قُوَّةُ التَّرْكِيزِ",
+   "motion": [
+    {
+     "effect": "rise",
+     "unit": "block",
+     "duration": 16
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 120,
+   "lines": 1,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 16,
+   "layoutKey": "457234bcbce04af38e020878",
+   "captured": [
+    {
+     "x": 42,
+     "y": 770,
+     "width": 996,
+     "height": 300,
+     "text": true,
+     "words": 2,
+     "lines": 1,
+     "segments": 1,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 8,
+   "id": "paragraph",
+   "title": "نص متعدد الأسطر · سطرًا سطرًا",
+   "text": "القراءة اليومية لا تحتاج وقتًا طويلًا.\nعشر دقائق قبل النوم تكفي لتبني عادة تبقى معك، وتابع @kitabwbs لتجد كتابًا جديدًا كل أسبوع.",
+   "motion": [
+    {
+     "effect": "rise",
+     "unit": "line",
+     "duration": 14,
+     "stagger": 8
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Tajawal",
+    "weight": 500
+   },
+   "fontSize": 56,
+   "lines": 4,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 38,
+   "layoutKey": "88aa51bfd2670b0daf623f25",
+   "captured": [
+    {
+     "x": 42,
+     "y": 682,
+     "width": 996,
+     "height": 477,
+     "text": true,
+     "words": 22,
+     "lines": 4,
+     "segments": 4,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 9,
+   "id": "narrow",
+   "title": "صندوق ضيق",
+   "text": "لا تؤجّل ما تستطيع فعله اليوم",
+   "motion": [
+    {
+     "effect": "reveal",
+     "unit": "line",
+     "duration": 16
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Cairo",
+    "weight": 800
+   },
+   "fontSize": 64,
+   "lines": 3,
+   "warnings": [
+    "text.lone-word"
+   ],
+   "motionWarnings": [],
+   "endFrame": 48,
+   "layoutKey": "cb643c911fee5c9e82817bf8",
+   "captured": [
+    {
+     "x": 282,
+     "y": 718,
+     "width": 516,
+     "height": 404,
+     "text": true,
+     "words": 6,
+     "lines": 3,
+     "segments": 3,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  },
+  {
+   "scene": 10,
+   "id": "refused",
+   "title": "ما رفضه المكوّن بدل أن يرسم بديلًا",
+   "text": "صندوق ضيق بارتفاع محدود: رُفض (اقتراح: ارتفاع 308 أو توسيع العرض إلى 554 أو تقسيم النص).\nكلمة أعرض من الصندوق: رُفض (اقتراح: توسيع العرض إلى 346).\nخط مفقود: رُفض.\nوزن غير متوفر: رُفض.\nملف خط لا يُحمَّل: رُفض.\nتصغير حتى الحد فقط: رُفض (اقتراح: ارتفاع 359 أو توسيع العرض إلى 1258 أو تقسيم النص).",
+   "motion": [
+    {
+     "effect": "rise",
+     "unit": "line",
+     "duration": 12,
+     "stagger": 6
+    }
+   ],
+   "font": {
+    "style": "normal",
+    "family": "Tajawal",
+    "weight": 500
+   },
+   "fontSize": 40,
+   "lines": 9,
+   "warnings": [],
+   "motionWarnings": [],
+   "endFrame": 60,
+   "layoutKey": "3a31ae6e6b4618334acf2174",
+   "captured": [
+    {
+     "x": 42,
+     "y": 566,
+     "width": 996,
+     "height": 708,
+     "text": true,
+     "words": 54,
+     "lines": 9,
+     "segments": 9,
+     "bands": 0,
+     "warnings": []
+    },
+    {
+     "x": 42,
+     "y": 1322,
+     "width": 996,
+     "height": 224,
+     "text": false,
+     "words": 0,
+     "lines": 0,
+     "segments": 0,
+     "bands": 0,
+     "warnings": []
+    }
+   ]
+  }
+ ],
+ "refused": [
+  {
+   "id": "narrow-tall",
+   "code": "overflow.height",
+   "line": "صندوق ضيق بارتفاع محدود: رُفض (اقتراح: ارتفاع 308 أو توسيع العرض إلى 554 أو تقسيم النص)."
+  },
+  {
+   "id": "narrow-word",
+   "code": "overflow.width",
+   "line": "كلمة أعرض من الصندوق: رُفض (اقتراح: توسيع العرض إلى 346)."
+  },
+  {
+   "id": "missing-font",
+   "code": "font.missing",
+   "line": "خط مفقود: رُفض."
+  },
+  {
+   "id": "missing-weight",
+   "code": "font.weight-unavailable",
+   "line": "وزن غير متوفر: رُفض."
+  },
+  {
+   "id": "broken-file",
+   "code": "font.load-failed",
+   "line": "ملف خط لا يُحمَّل: رُفض."
+  },
+  {
+   "id": "shrink-floor",
+   "code": "overflow.height",
+   "line": "تصغير حتى الحد فقط: رُفض (اقتراح: ارتفاع 359 أو توسيع العرض إلى 1258 أو تقسيم النص)."
+  }
+ ],
+ "keyframes": [
+  {
+   "scene": 0,
+   "name": "start",
+   "frame": 8,
+   "time": 0.267,
+   "file": "keyframes/scene-01-start.png"
+  },
+  {
+   "scene": 0,
+   "name": "middle",
+   "frame": 17,
+   "time": 0.567,
+   "file": "keyframes/scene-01-middle.png"
+  },
+  {
+   "scene": 0,
+   "name": "end",
+   "frame": 26,
+   "time": 0.867,
+   "file": "keyframes/scene-01-end.png"
+  },
+  {
+   "scene": 1,
+   "name": "start",
+   "frame": 98,
+   "time": 3.267,
+   "file": "keyframes/scene-02-start.png"
+  },
+  {
+   "scene": 1,
+   "name": "middle",
+   "frame": 118,
+   "time": 3.933,
+   "file": "keyframes/scene-02-middle.png"
+  },
+  {
+   "scene": 1,
+   "name": "end",
+   "frame": 137,
+   "time": 4.567,
+   "file": "keyframes/scene-02-end.png"
+  },
+  {
+   "scene": 2,
+   "name": "start",
+   "frame": 188,
+   "time": 6.267,
+   "file": "keyframes/scene-03-start.png"
+  },
+  {
+   "scene": 2,
+   "name": "middle",
+   "frame": 196,
+   "time": 6.533,
+   "file": "keyframes/scene-03-middle.png"
+  },
+  {
+   "scene": 2,
+   "name": "end",
+   "frame": 204,
+   "time": 6.8,
+   "file": "keyframes/scene-03-end.png"
+  },
+  {
+   "scene": 3,
+   "name": "start",
+   "frame": 278,
+   "time": 9.267,
+   "file": "keyframes/scene-04-start.png"
+  },
+  {
+   "scene": 3,
+   "name": "middle",
+   "frame": 290,
+   "time": 9.667,
+   "file": "keyframes/scene-04-middle.png"
+  },
+  {
+   "scene": 3,
+   "name": "end",
+   "frame": 302,
+   "time": 10.067,
+   "file": "keyframes/scene-04-end.png"
+  },
+  {
+   "scene": 4,
+   "name": "start",
+   "frame": 368,
+   "time": 12.267,
+   "file": "keyframes/scene-05-start.png"
+  },
+  {
+   "scene": 4,
+   "name": "middle",
+   "frame": 380,
+   "time": 12.667,
+   "file": "keyframes/scene-05-middle.png"
+  },
+  {
+   "scene": 4,
+   "name": "end",
+   "frame": 392,
+   "time": 13.067,
+   "file": "keyframes/scene-05-end.png"
+  },
+  {
+   "scene": 5,
+   "name": "start",
+   "frame": 458,
+   "time": 15.267,
+   "file": "keyframes/scene-06-start.png"
+  },
+  {
+   "scene": 5,
+   "name": "middle",
+   "frame": 473,
+   "time": 15.767,
+   "file": "keyframes/scene-06-middle.png"
+  },
+  {
+   "scene": 5,
+   "name": "end",
+   "frame": 488,
+   "time": 16.267,
+   "file": "keyframes/scene-06-end.png"
+  },
+  {
+   "scene": 6,
+   "name": "start",
+   "frame": 548,
+   "time": 18.267,
+   "file": "keyframes/scene-07-start.png"
+  },
+  {
+   "scene": 6,
+   "name": "middle",
+   "frame": 556,
+   "time": 18.533,
+   "file": "keyframes/scene-07-middle.png"
+  },
+  {
+   "scene": 6,
+   "name": "end",
+   "frame": 564,
+   "time": 18.8,
+   "file": "keyframes/scene-07-end.png"
+  },
+  {
+   "scene": 7,
+   "name": "start",
+   "frame": 638,
+   "time": 21.267,
+   "file": "keyframes/scene-08-start.png"
+  },
+  {
+   "scene": 7,
+   "name": "middle",
+   "frame": 657,
+   "time": 21.9,
+   "file": "keyframes/scene-08-middle.png"
+  },
+  {
+   "scene": 7,
+   "name": "end",
+   "frame": 676,
+   "time": 22.533,
+   "file": "keyframes/scene-08-end.png"
+  },
+  {
+   "scene": 8,
+   "name": "start",
+   "frame": 728,
+   "time": 24.267,
+   "file": "keyframes/scene-09-start.png"
+  },
+  {
+   "scene": 8,
+   "name": "middle",
+   "frame": 752,
+   "time": 25.067,
+   "file": "keyframes/scene-09-middle.png"
+  },
+  {
+   "scene": 8,
+   "name": "end",
+   "frame": 776,
+   "time": 25.867,
+   "file": "keyframes/scene-09-end.png"
+  },
+  {
+   "scene": 9,
+   "name": "start",
+   "frame": 818,
+   "time": 27.267,
+   "file": "keyframes/scene-10-start.png"
+  },
+  {
+   "scene": 9,
+   "name": "middle",
+   "frame": 848,
+   "time": 28.267,
+   "file": "keyframes/scene-10-middle.png"
+  },
+  {
+   "scene": 9,
+   "name": "end",
+   "frame": 878,
+   "time": 29.267,
+   "file": "keyframes/scene-10-end.png"
+  }
+ ]
+}

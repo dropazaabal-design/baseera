@@ -37,6 +37,12 @@ bdi {
   visibility: hidden;
 }
 
+/* A text layer whose highlight is animated is captured without its static
+   marker band: the reel draws the band itself (lib/arabic-text/video.js). */
+.slide-root[data-video-solo] [data-video-nomarks] [data-at-mark='highlight'] {
+  background: none !important;
+}
+
 .slide-root[data-video-solo] [data-video-show],
 .slide-root[data-video-solo] [data-video-show] * {
   visibility: visible;

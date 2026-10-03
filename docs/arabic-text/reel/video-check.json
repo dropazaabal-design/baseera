@@ -1,0 +1,195 @@
+{
+ "run": true,
+ "tool": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+ "container": "mp4",
+ "codec": "vp9 (Profile 0) (vp09 / 0x39307076)",
+ "size": "1080×1920",
+ "fps": 30,
+ "frames": 900,
+ "expectedFrames": 900,
+ "duration": 30,
+ "keyframes": [
+  {
+   "scene": 1,
+   "name": "start",
+   "frame": 8,
+   "ssim": 0.99983
+  },
+  {
+   "scene": 1,
+   "name": "middle",
+   "frame": 17,
+   "ssim": 0.999647
+  },
+  {
+   "scene": 1,
+   "name": "end",
+   "frame": 26,
+   "ssim": 0.99954
+  },
+  {
+   "scene": 2,
+   "name": "start",
+   "frame": 98,
+   "ssim": 0.999953
+  },
+  {
+   "scene": 2,
+   "name": "middle",
+   "frame": 118,
+   "ssim": 0.999885
+  },
+  {
+   "scene": 2,
+   "name": "end",
+   "frame": 137,
+   "ssim": 0.999848
+  },
+  {
+   "scene": 3,
+   "name": "start",
+   "frame": 188,
+   "ssim": 0.999955
+  },
+  {
+   "scene": 3,
+   "name": "middle",
+   "frame": 196,
+   "ssim": 0.999911
+  },
+  {
+   "scene": 3,
+   "name": "end",
+   "frame": 204,
+   "ssim": 0.999898
+  },
+  {
+   "scene": 4,
+   "name": "start",
+   "frame": 278,
+   "ssim": 0.999938
+  },
+  {
+   "scene": 4,
+   "name": "middle",
+   "frame": 290,
+   "ssim": 0.999883
+  },
+  {
+   "scene": 4,
+   "name": "end",
+   "frame": 302,
+   "ssim": 0.999865
+  },
+  {
+   "scene": 5,
+   "name": "start",
+   "frame": 368,
+   "ssim": 0.999945
+  },
+  {
+   "scene": 5,
+   "name": "middle",
+   "frame": 380,
+   "ssim": 0.999916
+  },
+  {
+   "scene": 5,
+   "name": "end",
+   "frame": 392,
+   "ssim": 0.999882
+  },
+  {
+   "scene": 6,
+   "name": "start",
+   "frame": 458,
+   "ssim": 0.999942
+  },
+  {
+   "scene": 6,
+   "name": "middle",
+   "frame": 473,
+   "ssim": 0.999906
+  },
+  {
+   "scene": 6,
+   "name": "end",
+   "frame": 488,
+   "ssim": 0.999847
+  },
+  {
+   "scene": 7,
+   "name": "start",
+   "frame": 548,
+   "ssim": 0.999921
+  },
+  {
+   "scene": 7,
+   "name": "middle",
+   "frame": 556,
+   "ssim": 0.999889
+  },
+  {
+   "scene": 7,
+   "name": "end",
+   "frame": 564,
+   "ssim": 0.999865
+  },
+  {
+   "scene": 8,
+   "name": "start",
+   "frame": 638,
+   "ssim": 0.999898
+  },
+  {
+   "scene": 8,
+   "name": "middle",
+   "frame": 657,
+   "ssim": 0.999811
+  },
+  {
+   "scene": 8,
+   "name": "end",
+   "frame": 676,
+   "ssim": 0.999825
+  },
+  {
+   "scene": 9,
+   "name": "start",
+   "frame": 728,
+   "ssim": 0.99994
+  },
+  {
+   "scene": 9,
+   "name": "middle",
+   "frame": 752,
+   "ssim": 0.999886
+  },
+  {
+   "scene": 9,
+   "name": "end",
+   "frame": 776,
+   "ssim": 0.999871
+  },
+  {
+   "scene": 10,
+   "name": "start",
+   "frame": 818,
+   "ssim": 0.999885
+  },
+  {
+   "scene": 10,
+   "name": "middle",
+   "frame": 848,
+   "ssim": 0.999812
+  },
+  {
+   "scene": 10,
+   "name": "end",
+   "frame": 878,
+   "ssim": 0.999791
+  }
+ ],
+ "minSsim": 0.99954,
+ "ok": true
+}

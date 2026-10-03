@@ -8771,7 +8771,7 @@ function detectSceneCuts(file2, { threshold = 0.3 } = {}) {
 }
 
 // scripts/canva-mcp.js
-var SERVER = { name: "baseera-canva", version: "1.5.0" };
+var SERVER = { name: "baseera-canva", version: "1.6.0" };
 var PROTOCOLS = ["2025-06-18", "2025-03-26", "2024-11-05"];
 var ctx = null;
 var context = () => ctx ??= nodeContext();

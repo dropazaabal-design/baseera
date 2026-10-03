@@ -1,0 +1,959 @@
+{
+ "renderer": "chromium/141.0.7390.37",
+ "fontsHash": "a4c2cd9a3c36782d",
+ "generatedAt": "2026-10-03",
+ "cases": [
+  {
+   "id": "procrastinate",
+   "title": "كلمة كلمة · صعود",
+   "text": "لا تؤجّل ما تستطيع فعله اليوم",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 2,
+   "fontSize": 88,
+   "layer": {
+    "x": -22,
+    "y": -22,
+    "width": 944,
+    "height": 308
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "none",
+    "isolates": []
+   },
+   "key": {
+    "layout": "7a2df846c3399556bc6a4b92",
+    "raster": "1ec2c18472bbcb37bf48e5c2"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "rise",
+      "unit": "word",
+      "duration": 14,
+      "stagger": 5
+     }
+    ],
+    "warnings": [],
+    "endFrame": 39,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      308,
+      944,
+      308
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      308,
+      944,
+      308
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 47,
+     "meanDiff": 0.1762,
+     "pixelsOverTolerance": 1317,
+     "ratioOver": 0.00453,
+     "size": [
+      944,
+      308,
+      944,
+      308
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "saved",
+   "title": "الكتلة · تكبير",
+   "text": "وفّرت 25% خلال 3 أشهر",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "visualOrder": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 1,
+   "fontSize": 88,
+   "layer": {
+    "x": -22,
+    "y": -22,
+    "width": 944,
+    "height": 176
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "auto",
+    "isolates": [
+     {
+      "start": 6,
+      "end": 9,
+      "dir": "ltr",
+      "label": "number",
+      "auto": true
+     },
+     {
+      "start": 15,
+      "end": 16,
+      "dir": "ltr",
+      "label": "number",
+      "auto": true
+     }
+    ]
+   },
+   "key": {
+    "layout": "b586ab120fc30d93b59ce339",
+    "raster": "13fc4f77230d65b16ae1e4d0"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "scale",
+      "unit": "block",
+      "duration": 16,
+      "from": 0.85
+     }
+    ],
+    "warnings": [],
+    "endFrame": 16,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 255,
+     "meanDiff": 2.7185,
+     "pixelsOverTolerance": 6669,
+     "ratioOver": 0.04014,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "follow",
+   "title": "السطر · كشف بقناع",
+   "text": "تابع @kitabwbs للمزيد",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "visualOrder": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 1,
+   "fontSize": 88,
+   "layer": {
+    "x": -22,
+    "y": -22,
+    "width": 947,
+    "height": 176
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 2.89,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "explicit",
+    "isolates": [
+     {
+      "start": 5,
+      "end": 14,
+      "dir": "ltr",
+      "label": "handle"
+     }
+    ]
+   },
+   "key": {
+    "layout": "5aab1ad86fa58633d4bd27c0",
+    "raster": "40d58fb8b18b92106e0c8357"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "reveal",
+      "unit": "line",
+      "duration": 24
+     }
+    ],
+    "warnings": [],
+    "endFrame": 24,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      947,
+      176,
+      947,
+      176
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      947,
+      176,
+      947,
+      176
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 97,
+     "meanDiff": 0.0321,
+     "pixelsOverTolerance": 56,
+     "ratioOver": 0.000336,
+     "size": [
+      947,
+      176,
+      947,
+      176
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "price",
+   "title": "كلمة كلمة · ظهور",
+   "text": "السعر: 1,250.50 درهم",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "visualOrder": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 1,
+   "fontSize": 88,
+   "layer": {
+    "x": -22,
+    "y": -22,
+    "width": 944,
+    "height": 176
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "auto",
+    "isolates": [
+     {
+      "start": 7,
+      "end": 15,
+      "dir": "ltr",
+      "label": "number",
+      "auto": true
+     }
+    ]
+   },
+   "key": {
+    "layout": "331d425cf833bf60e300981b",
+    "raster": "871f606f87be2a5acccce69d"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "fade",
+      "unit": "word",
+      "duration": 12,
+      "stagger": 6
+     }
+    ],
+    "warnings": [],
+    "endFrame": 24,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "quote",
+   "title": "تظليل الكلمات",
+   "text": "قال: «ابدأ الآن»",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "visualOrder": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 1,
+   "fontSize": 88,
+   "layer": {
+    "x": -22,
+    "y": -22,
+    "width": 944,
+    "height": 176
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "none",
+    "isolates": []
+   },
+   "key": {
+    "layout": "28063953265925e28e476b10",
+    "raster": "bc746b5cd714c10ede924bc2"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "fade",
+      "unit": "block",
+      "duration": 10
+     },
+     {
+      "effect": "highlight",
+      "words": "marked",
+      "start": 14,
+      "duration": 16,
+      "color": "#D9F4EB"
+     }
+    ],
+    "warnings": [],
+    "endFrame": 30,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 245,
+     "meanDiff": 0.7006,
+     "pixelsOverTolerance": 729,
+     "ratioOver": 0.004388,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 220,
+     "meanDiff": 0.1652,
+     "pixelsOverTolerance": 144,
+     "ratioOver": 0.000867,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 245,
+     "meanDiff": 0.1048,
+     "pixelsOverTolerance": 135,
+     "ratioOver": 0.000813,
+     "size": [
+      944,
+      176,
+      944,
+      176
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "diacritics",
+   "title": "التشكيل · صعود الكتلة",
+   "text": "قُوَّةُ التَّرْكِيزِ",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "visualOrder": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true,
+    "diacriticsDrawn": true,
+    "diacriticsKeptInText": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 1,
+   "fontSize": 120,
+   "layer": {
+    "x": -30,
+    "y": -30,
+    "width": 960,
+    "height": 264
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "none",
+    "isolates": []
+   },
+   "key": {
+    "layout": "457234bcbce04af38e020878",
+    "raster": "8e4f97a2aad6b57f1ba3f6af"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "rise",
+      "unit": "block",
+      "duration": 16
+     }
+    ],
+    "warnings": [],
+    "endFrame": 16,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      960,
+      264,
+      960,
+      264
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      960,
+      264,
+      960,
+      264
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 112,
+     "meanDiff": 1.0028,
+     "pixelsOverTolerance": 3647,
+     "ratioOver": 0.01439,
+     "size": [
+      960,
+      264,
+      960,
+      264
+     ]
+    },
+    "middleInkHtmlVsCanvas": 1,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "paragraph",
+   "title": "نص متعدد الأسطر · سطرًا سطرًا",
+   "text": "القراءة اليومية لا تحتاج وقتًا طويلًا.\nعشر دقائق قبل النوم تكفي لتبني عادة تبقى معك، وتابع @kitabwbs لتجد كتابًا جديدًا كل أسبوع.",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [],
+   "lines": 4,
+   "fontSize": 56,
+   "layer": {
+    "x": -14,
+    "y": -16,
+    "width": 928,
+    "height": 410.75
+   },
+   "inkOverflow": {
+    "top": 1.99,
+    "left": 0,
+    "right": 0,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "auto",
+    "isolates": [
+     {
+      "start": 91,
+      "end": 100,
+      "dir": "ltr",
+      "label": "handle",
+      "auto": true
+     }
+    ]
+   },
+   "key": {
+    "layout": "88aa51bfd2670b0daf623f25",
+    "raster": "6a3374f5addfd450d9082180"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "rise",
+      "unit": "line",
+      "duration": 14,
+      "stagger": 8
+     }
+    ],
+    "warnings": [],
+    "endFrame": 38,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      928,
+      411,
+      928,
+      411
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      928,
+      411,
+      928,
+      411
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 81,
+     "meanDiff": 0.7629,
+     "pixelsOverTolerance": 6715,
+     "ratioOver": 0.017606,
+     "size": [
+      928,
+      411,
+      928,
+      411
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  },
+  {
+   "id": "narrow",
+   "title": "صندوق ضيق",
+   "text": "لا تؤجّل ما تستطيع فعله اليوم",
+   "ok": true,
+   "checks": {
+    "typeset": true,
+    "storedEqualsApproved": true,
+    "pageEqualsStored": true,
+    "lettersJoin": true,
+    "previewEqualsExport": true,
+    "noClippedInk": true,
+    "inkInsideLayer": true,
+    "inkEstimateCoversRaster": true
+   },
+   "errors": [],
+   "warnings": [
+    "text.lone-word"
+   ],
+   "lines": 3,
+   "fontSize": 64,
+   "layer": {
+    "x": -16,
+    "y": -16,
+    "width": 455,
+    "height": 339.17
+   },
+   "inkOverflow": {
+    "top": 0,
+    "left": 0,
+    "right": 2.45,
+    "bottom": 0
+   },
+   "bidi": {
+    "source": "none",
+    "isolates": []
+   },
+   "key": {
+    "layout": "cb643c911fee5c9e82817bf8",
+    "raster": "a58bbcffa3860c46cd808474"
+   },
+   "motion": {
+    "motion": [
+     {
+      "effect": "reveal",
+      "unit": "line",
+      "duration": 16
+     }
+    ],
+    "warnings": [],
+    "endFrame": 48,
+    "firstFrameEmpty": true,
+    "endCanvasVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      455,
+      339,
+      455,
+      340
+     ]
+    },
+    "endHtmlVsStatic": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      455,
+      339,
+      455,
+      340
+     ]
+    },
+    "middleHtmlVsCanvas": {
+     "sameSize": true,
+     "maxDiff": 0,
+     "meanDiff": 0,
+     "pixelsOverTolerance": 0,
+     "ratioOver": 0,
+     "size": [
+      455,
+      339,
+      455,
+      339
+     ]
+    },
+    "middleInkHtmlVsCanvas": 0,
+    "middleNotEmpty": true,
+    "layoutStable": true
+   }
+  }
+ ],
+ "failures": [
+  {
+   "id": "narrow-tall",
+   "title": "صندوق ضيق بارتفاع محدود",
+   "expected": "overflow.height",
+   "ok": true,
+   "errors": [
+    {
+     "code": "overflow.height",
+     "message": "النص يحتاج 308 بكسل والصندوق 220: لا يُصغَّر تحت الحد ولا يُعاد صياغته تلقائيًا.",
+     "suggestions": [
+      {
+       "kind": "expand-height",
+       "to": 308
+      },
+      {
+       "kind": "expand-width",
+       "to": 546
+      },
+      {
+       "kind": "split",
+       "atIndex": 24,
+       "afterLine": 2,
+       "why": "يتسع الصندوق لـ 2 من الأسطر؛ انقل ما يبدأ من «اليوم» إلى صندوق أو شريحة تالية"
+      }
+     ]
+    }
+   ],
+   "warnings": [
+    "text.lone-word"
+   ]
+  },
+  {
+   "id": "narrow-word",
+   "title": "كلمة أعرض من الصندوق",
+   "expected": "overflow.width",
+   "ok": true,
+   "errors": [
+    {
+     "code": "overflow.width",
+     "message": "كلمة أعرض من الصندوق: لا تُكسر الكلمة العربية ولا يُصغَّر النص تحت الحد.",
+     "suggestions": [
+      {
+       "kind": "expand-width",
+       "to": 346,
+       "why": "كلمة أعرض من الصندوق"
+      }
+     ]
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "id": "missing-font",
+   "title": "خط مفقود",
+   "expected": "font.missing",
+   "ok": true,
+   "errors": [
+    {
+     "code": "font.missing",
+     "message": "الخط «Amiri» غير مُعلَن في هذه الصفحة: لا يُستبدل بغيره."
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "id": "missing-weight",
+   "title": "وزن غير متوفر",
+   "expected": "font.weight-unavailable",
+   "ok": true,
+   "errors": [
+    {
+     "code": "font.weight-unavailable",
+     "message": "الوزن 600 غير متوفر لخط Tajawal؛ المتوفر: 200، 300، 400، 500، 700، 800، 900. لا يُركَّب وزن صناعي.",
+     "available": [
+      200,
+      300,
+      400,
+      500,
+      700,
+      800,
+      900
+     ]
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "id": "broken-file",
+   "title": "ملف خط لا يُحمَّل",
+   "expected": "font.load-failed",
+   "ok": true,
+   "errors": [
+    {
+     "code": "font.load-failed",
+     "message": "تعذّر تحميل ملف خط BrokenArabic 400: A network error occurred."
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "id": "shrink-floor",
+   "title": "تصغير حتى الحد فقط",
+   "expected": "overflow.height",
+   "ok": true,
+   "errors": [
+    {
+     "code": "overflow.height",
+     "message": "النص يحتاج 359 بكسل والصندوق 300: لا يُصغَّر تحت الحد ولا يُعاد صياغته تلقائيًا.",
+     "suggestions": [
+      {
+       "kind": "expand-height",
+       "to": 359
+      },
+      {
+       "kind": "expand-width",
+       "to": 1258
+      },
+      {
+       "kind": "split",
+       "atIndex": 101,
+       "afterLine": 3,
+       "why": "يتسع الصندوق لـ 3 من الأسطر؛ انقل ما يبدأ من «لتجد» إلى صندوق أو شريحة تالية"
+      }
+     ]
+    }
+   ],
+   "warnings": []
+  }
+ ],
+ "summary": {
+  "cases": 8,
+  "casesPassing": 8,
+  "motionPassing": 8,
+  "failuresAsExpected": 6,
+  "failures": 6,
+  "cache": true
+ },
+ "cache": {
+  "sameSpecCached": true,
+  "changedTextNotCached": true
+ }
+}

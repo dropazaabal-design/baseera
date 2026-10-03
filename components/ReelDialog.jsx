@@ -12,13 +12,13 @@ const STORY = FORMATS.story;
 const DURATIONS = [10, 14, 20, 30];
 const CODEC_LABEL = { avc: 'MP4 · H.264', vp9: 'WebM · VP9', vp8: 'WebM · VP8', MediaRecorder: 'MediaRecorder' };
 
-function Player({ scenes, timeline, accent, paused, fmt }) {
+function Player({ scenes, timeline, accent, highlight, paused, fmt }) {
   const canvas = useRef(null);
   const { time, playing, setPlaying, seek } = usePlayhead(timeline.duration, paused);
 
   useEffect(() => {
-    drawFrame(canvas.current.getContext('2d'), scenes, timeline, time, { accent, insetTop: STORY.inset.top });
-  }, [scenes, timeline, time, accent]);
+    drawFrame(canvas.current.getContext('2d'), scenes, timeline, time, { accent, highlight, insetTop: STORY.inset.top });
+  }, [scenes, timeline, time, accent, highlight]);
 
   return (
     <div className="flex h-full flex-col items-center gap-3">
@@ -98,6 +98,7 @@ export default function ReelDialog({ stage, words, colors, font, numerals, onClo
         width: STORY.width,
         height: STORY.height,
         accent: colors.accent,
+        highlight: colors.highlight,
         insetTop: STORY.inset.top,
         onProgress: (done, total) => setPhase({ step: 'encoding', done, total }),
         signal: controller.signal,
@@ -134,7 +135,7 @@ export default function ReelDialog({ stage, words, colors, font, numerals, onClo
 
         <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto p-5 md:flex-row">
           <div className="relative min-h-[420px] min-w-0 flex-1">
-            {scenes && <Player scenes={scenes} timeline={timeline} accent={colors.accent} paused={working} fmt={fmt} />}
+            {scenes && <Player scenes={scenes} timeline={timeline} accent={colors.accent} highlight={colors.highlight} paused={working} fmt={fmt} />}
             {working && (
               <div className="absolute inset-0 grid place-items-center rounded-lg bg-white/85 backdrop-blur-sm">
                 <div className="w-64 text-center" role="status" aria-live="polite">

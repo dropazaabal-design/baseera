@@ -1,6 +1,6 @@
 {
   "name": "arabic-carousel",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Arabic design studio for social media: single posts, carousels and 9:16 reels in RTL Arabic. Claude plans, writes and draws; the studio lays out independent editable elements, reflows content without unreadable text, checks every word, and delivers an offline editor (PNG, ZIP, PDF, video) or a real Canva design built and edited element by element, with a per-session capability registry, letter-by-letter Arabic read-back checks and reel scene plans. In Claude Code the Canva tools run as a local MCP server declared in .mcp.json. It reuses the creator's design library, assets and saved taste before generating anything new. From a topic alone it can decide audience, angle, titles and storyboard, design an educational white-and-mint carousel, and write one generation prompt per slide.",
   "author": {
     "name": "dropazaabal-design"
