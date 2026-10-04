@@ -5,3 +5,7 @@ next-env.d.ts
 *.log
 .DS_Store
 dist/
+# Platform API credentials stay local (see .env.example)
+.env
+.env.*
+!.env.example

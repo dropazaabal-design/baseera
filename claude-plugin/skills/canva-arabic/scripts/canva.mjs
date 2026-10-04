@@ -7764,7 +7764,7 @@ import zlib from "node:zlib";
 import { spawnSync } from "node:child_process";
 
 // lib/studio/budget.js
-var CACHE_KINDS = ["text", "asset", "layout", "export"];
+var CACHE_KINDS = ["text", "asset", "layout", "export", "semantic"];
 var Cache = class {
   constructor(store, ledger) {
     this.store = store;
@@ -7807,7 +7807,7 @@ var Cache = class {
     return removed;
   }
 };
-var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr"];
+var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr", "ai.semantic"];
 var Ledger = class {
   constructor(store, path3 = "ledger.jsonl") {
     this.store = store;

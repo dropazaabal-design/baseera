@@ -10,6 +10,7 @@ import LayersPanel from './LayersPanel';
 import QualityPanel from './QualityPanel';
 import TastePanel from './TastePanel';
 import HistoryPanel from './HistoryPanel';
+import AlgorithmPanel from './AlgorithmPanel';
 import useStudio, { initialStudioDoc } from './useStudio';
 import useBeforeUnload from '../../hooks/useBeforeUnload.js';
 import { exportCarouselPdf, exportCarouselZip, exportSlidePng, slideFilename } from '../../lib/exportEngine.js';
@@ -31,6 +32,7 @@ const TABS = [
   { id: 'content', label: 'المحتوى' },
   { id: 'layers', label: 'العناصر' },
   { id: 'quality', label: 'الجودة' },
+  { id: 'algorithm', label: 'ذكاء المنصات' },
   { id: 'taste', label: 'ذوقي وهويتي' },
   { id: 'history', label: 'السجل' },
 ];
@@ -398,6 +400,16 @@ export default function StudioEditor({ onClassic }) {
                 onJump={(pageId, elementId) => {
                   setActive(pageIndexOf(pageId));
                   setSelected(elementId ?? null);
+                }}
+              />
+            )}
+            {tab === 'algorithm' && (
+              <AlgorithmPanel
+                studio={studio}
+                doc={doc}
+                onJump={(pageId) => {
+                  setActive(pageIndexOf(pageId));
+                  setSelected(null);
                 }}
               />
             )}

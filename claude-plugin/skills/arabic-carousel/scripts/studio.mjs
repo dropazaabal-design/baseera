@@ -13,7 +13,7 @@ import path from "node:path";
 
 // lib/studio/util.js
 var encoder = new TextEncoder();
-var utf8 = (text) => encoder.encode(text);
+var utf8 = (text2) => encoder.encode(text2);
 var K = new Uint32Array([
   1116352408,
   1899447441,
@@ -149,9 +149,9 @@ function base64Encode(bytes) {
   for (let i = 0; i < bytes.length; i += 32768) s += String.fromCharCode(...bytes.subarray(i, i + 32768));
   return btoa(s);
 }
-function base64Decode(text) {
-  if (typeof Buffer !== "undefined") return new Uint8Array(Buffer.from(text, "base64"));
-  const s = atob(text);
+function base64Decode(text2) {
+  if (typeof Buffer !== "undefined") return new Uint8Array(Buffer.from(text2, "base64"));
+  const s = atob(text2);
   const out = new Uint8Array(s.length);
   for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
   return out;
@@ -267,8 +267,8 @@ var FsStore = class extends ByteStore {
         const full = path.join(dir, e.name);
         if (e.isDirectory()) walk(full);
         else if (!e.name.endsWith(".tmp")) {
-          const rel = path.relative(this.root, full).split(path.sep).join("/");
-          if (rel.startsWith(prefix)) out.push(rel);
+          const rel2 = path.relative(this.root, full).split(path.sep).join("/");
+          if (rel2.startsWith(prefix)) out.push(rel2);
         }
       }
     };
@@ -328,7 +328,7 @@ function table(font, weight) {
   }
   return tables[key];
 }
-var plainText = (text) => String(text ?? "").replace(/\*/g, "").replace(BIDI_CONTROLS, "");
+var plainText = (text2) => String(text2 ?? "").replace(/\*/g, "").replace(BIDI_CONTROLS, "");
 function charWidth(t, ch) {
   if (ch === " ") return t.space;
   const known = t.map.get(ch);
@@ -338,28 +338,28 @@ function charWidth(t, ch) {
   if (/[؀-ۿݐ-ݿﭐ-﻿]/.test(ch)) return t.avgArabic;
   return 0.55;
 }
-function textWidth(text, { font = "cairo", weight = 400, size }) {
+function textWidth(text2, { font = "cairo", weight = 400, size }) {
   const t = table(font, weight);
   let em = 0;
-  for (const ch of plainText(text)) em += charWidth(t, ch);
+  for (const ch of plainText(text2)) em += charWidth(t, ch);
   return em * size * SAFETY;
 }
-function wrapLines(text, style, width) {
+function wrapLines(text2, style, width) {
   const t = table(style.font, style.weight);
   const spaceWidth = t.space * style.size * SAFETY;
-  const lines = [];
-  for (const paragraph of plainText(text).split("\n")) {
-    const words2 = paragraph.split(/ +/).filter(Boolean);
-    if (!words2.length) {
-      lines.push({ text: "", width: 0 });
+  const lines2 = [];
+  for (const paragraph of plainText(text2).split("\n")) {
+    const words3 = paragraph.split(/ +/).filter(Boolean);
+    if (!words3.length) {
+      lines2.push({ text: "", width: 0 });
       continue;
     }
     let current = "";
     let currentWidth = 0;
-    for (const word of words2) {
+    for (const word of words3) {
       const w = textWidth(word, style);
       if (current && currentWidth + spaceWidth + w > width) {
-        lines.push({ text: current, width: currentWidth });
+        lines2.push({ text: current, width: currentWidth });
         current = word;
         currentWidth = w;
       } else {
@@ -367,17 +367,17 @@ function wrapLines(text, style, width) {
         currentWidth = current === word ? w : currentWidth + spaceWidth + w;
       }
     }
-    lines.push({ text: current, width: currentWidth });
+    lines2.push({ text: current, width: currentWidth });
   }
-  return lines;
+  return lines2;
 }
-function estimateMeasure(text, style, width) {
-  const lines = wrapLines(text, style, width);
-  const maxLineWidth = Math.max(0, ...lines.map((l) => l.width));
-  const longestWord = Math.max(0, ...plainText(text).split(/\s+/).map((w) => textWidth(w, style)));
+function estimateMeasure(text2, style, width) {
+  const lines2 = wrapLines(text2, style, width);
+  const maxLineWidth = Math.max(0, ...lines2.map((l) => l.width));
+  const longestWord = Math.max(0, ...plainText(text2).split(/\s+/).map((w) => textWidth(w, style)));
   return {
-    lines: lines.length,
-    height: lines.length * style.size * (style.lineHeight ?? 1.4),
+    lines: lines2.length,
+    height: lines2.length * style.size * (style.lineHeight ?? 1.4),
     width: maxLineWidth,
     // A word wider than the box cannot wrap: it would be clipped.
     clipped: longestWord > width + 0.5
@@ -596,8 +596,8 @@ function validatePatch(patch, path3 = "patch") {
     out.push(err(`${path3}.payload`, "must be an object"));
     return out;
   }
-  const problem = PATCH_PAYLOAD[patch.action](patch.payload);
-  if (problem) out.push(err(`${path3}.payload`, problem));
+  const problem2 = PATCH_PAYLOAD[patch.action](patch.payload);
+  if (problem2) out.push(err(`${path3}.payload`, problem2));
   return out;
 }
 function validateStylePayload(kind, payload, path3) {
@@ -694,14 +694,14 @@ var u32be = (b, o) => (b[o] << 24 >>> 0) + (b[o + 1] << 16) + (b[o + 2] << 8) + 
 var u16be = (b, o) => (b[o] << 8) + b[o + 1];
 var u16le = (b, o) => b[o] + (b[o + 1] << 8);
 var u24le = (b, o) => b[o] + (b[o + 1] << 8) + (b[o + 2] << 16);
-function checkSvg(text) {
-  if (!/<svg[\s>]/i.test(text)) return { ok: false, reason: "not an SVG document" };
-  if (/<script[\s>]/i.test(text)) return { ok: false, reason: "SVG contains <script>" };
-  if (/\son[a-z]+\s*=/i.test(text)) return { ok: false, reason: "SVG contains event handlers" };
-  if (/javascript:/i.test(text)) return { ok: false, reason: "SVG contains a javascript: URL" };
-  if (/<foreignObject[\s>]/i.test(text)) return { ok: false, reason: "SVG contains <foreignObject>" };
-  if (/(?:xlink:)?href\s*=\s*["'](?!#|data:image\/)/i.test(text)) return { ok: false, reason: "SVG references external files" };
-  if (/<text[\s>]/i.test(text)) return { ok: false, reason: "SVG contains <text>: keep words out of artwork, add them as text elements" };
+function checkSvg(text2) {
+  if (!/<svg[\s>]/i.test(text2)) return { ok: false, reason: "not an SVG document" };
+  if (/<script[\s>]/i.test(text2)) return { ok: false, reason: "SVG contains <script>" };
+  if (/\son[a-z]+\s*=/i.test(text2)) return { ok: false, reason: "SVG contains event handlers" };
+  if (/javascript:/i.test(text2)) return { ok: false, reason: "SVG contains a javascript: URL" };
+  if (/<foreignObject[\s>]/i.test(text2)) return { ok: false, reason: "SVG contains <foreignObject>" };
+  if (/(?:xlink:)?href\s*=\s*["'](?!#|data:image\/)/i.test(text2)) return { ok: false, reason: "SVG references external files" };
+  if (/<text[\s>]/i.test(text2)) return { ok: false, reason: "SVG contains <text>: keep words out of artwork, add them as text elements" };
   return { ok: true };
 }
 function probeImage(bytes) {
@@ -743,19 +743,19 @@ function probeImage(bytes) {
   }
   const head = new TextDecoder().decode(b.subarray(0, Math.min(b.length, 2048)));
   if (/^\s*(<\?xml[^>]*>\s*)?(<!--[\s\S]*?-->\s*)*<svg[\s>]/i.test(head)) {
-    const text = new TextDecoder().decode(b);
-    const check = checkSvg(text);
+    const text2 = new TextDecoder().decode(b);
+    const check = checkSvg(text2);
     if (!check.ok) throw new AssetError(check.reason, "unsafe");
-    const tag = /<svg[^>]*>/i.exec(text)[0];
-    const num2 = (name) => {
+    const tag = /<svg[^>]*>/i.exec(text2)[0];
+    const num3 = (name) => {
       const m = new RegExp(`\\s${name}="([\\d.]+)(px)?"`).exec(tag);
       return m ? Number(m[1]) : null;
     };
     const vb = /viewBox="\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)\s*"/.exec(tag);
-    const width = num2("width") ?? (vb ? Number(vb[1]) : null);
-    const height = num2("height") ?? (vb ? Number(vb[2]) : null);
+    const width = num3("width") ?? (vb ? Number(vb[1]) : null);
+    const height = num3("height") ?? (vb ? Number(vb[2]) : null);
     if (!width || !height) throw new AssetError("SVG needs width/height or a viewBox", "corrupt");
-    return { mediaType: "image/svg+xml", widthPx: width, heightPx: height, transparent: true, colorable: isColorable(text) };
+    return { mediaType: "image/svg+xml", widthPx: width, heightPx: height, transparent: true, colorable: isColorable(text2) };
   }
   throw new AssetError("unsupported or corrupt image (PNG, JPEG, WebP, GIF or SVG)", "unsupported");
 }
@@ -1000,16 +1000,16 @@ var RULES = [
   { fg: "onAccent", bg: "accent", min: 4.5, label: "\u0627\u0644\u0646\u0635 \u0639\u0644\u0649 \u0627\u0644\u0623\u0632\u0631\u0627\u0631" }
 ];
 function derivePalette({ bg, accent }) {
-  const text = mix(bestOn(bg), bg, 0.06);
-  return { bg, surface: mix(bg, text, 0.08), text, muted: mix(text, bg, 0.35), accent, onAccent: bestOn(accent) };
+  const text2 = mix(bestOn(bg), bg, 0.06);
+  return { bg, surface: mix(bg, text2, 0.08), text: text2, muted: mix(text2, bg, 0.35), accent, onAccent: bestOn(accent) };
 }
 function resolvePalette(input) {
   const colors = { ...input };
   const report = RULES.map(({ fg, bg, min, label }) => {
     const before = contrastRatio(colors[fg], colors[bg]);
     colors[fg] = ensureContrast(colors[fg], colors[bg], min);
-    const ratio = contrastRatio(colors[fg], colors[bg]);
-    return { label, min, before, ratio, fixed: ratio !== before, pass: ratio >= min };
+    const ratio2 = contrastRatio(colors[fg], colors[bg]);
+    return { label, min, before, ratio: ratio2, fixed: ratio2 !== before, pass: ratio2 >= min };
   });
   return { colors, report };
 }
@@ -1560,14 +1560,14 @@ function ellipsePath(w, h) {
 // lib/studio/arabic.js
 var DIACRITICS2 = /[ً-ٰٟـ]/g;
 var BIDI = /[‎‏‪-‮⁦-⁩؜]/g;
-function normalizeArabic(text) {
-  return String(text ?? "").replace(DIACRITICS2, "").replace(BIDI, "").replace(/[أإآٱ]/g, "\u0627").replace(/ى/g, "\u064A").replace(/ة/g, "\u0647").replace(/ؤ/g, "\u0648").replace(/ئ/g, "\u064A").replace(/[٠-٩]/g, (d) => String("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".indexOf(d))).replace(/[۰-۹]/g, (d) => String("\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9".indexOf(d))).toLowerCase().replace(/[،؛؟!?.,:;«»"'()*]/g, " ").replace(/\s+/g, " ").trim();
+function normalizeArabic(text2) {
+  return String(text2 ?? "").replace(DIACRITICS2, "").replace(BIDI, "").replace(/[أإآٱ]/g, "\u0627").replace(/ى/g, "\u064A").replace(/ة/g, "\u0647").replace(/ؤ/g, "\u0648").replace(/ئ/g, "\u064A").replace(/[٠-٩]/g, (d) => String("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".indexOf(d))).replace(/[۰-۹]/g, (d) => String("\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9".indexOf(d))).toLowerCase().replace(/[،؛؟!?.,:;«»"'()*]/g, " ").replace(/\s+/g, " ").trim();
 }
-function canonicalText(text) {
-  return String(text ?? "").normalize("NFC").replace(/[ﭐ-﷿ﹰ-﻿]/g, (ch) => ch.normalize("NFKC")).replace(BIDI, "").replace(/ـ/g, "").replace(/\*/g, "").replace(/\s+/g, " ").trim();
+function canonicalText(text2) {
+  return String(text2 ?? "").normalize("NFC").replace(/[ﭐ-﷿ﹰ-﻿]/g, (ch) => ch.normalize("NFKC")).replace(BIDI, "").replace(/ـ/g, "").replace(/\*/g, "").replace(/\s+/g, " ").trim();
 }
 var toWesternDigits = (s) => String(s).replace(/[٠-٩]/g, (d) => String("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".indexOf(d))).replace(/[۰-۹]/g, (d) => String("\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9".indexOf(d)));
-var words = (text) => canonicalText(text).split(" ").filter(Boolean);
+var words = (text2) => canonicalText(text2).split(" ").filter(Boolean);
 var stripMarks = (w) => w.replace(/[ً-ٰٟ]/g, "");
 var letters = (w) => [...stripMarks(w)].sort().join("");
 var PUNCT = /[،؛؟!?.,:;«»"'()\-–—…]/g;
@@ -1589,8 +1589,8 @@ function compareText(expected, observed) {
   const a = words(expected);
   const b = words(observed);
   if (a.join(" ") === b.join(" ")) return [];
-  const L = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
-  for (let i2 = a.length - 1; i2 >= 0; i2--) for (let j2 = b.length - 1; j2 >= 0; j2--) L[i2][j2] = a[i2] === b[j2] ? L[i2 + 1][j2 + 1] + 1 : Math.max(L[i2 + 1][j2], L[i2][j2 + 1]);
+  const L2 = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
+  for (let i2 = a.length - 1; i2 >= 0; i2--) for (let j2 = b.length - 1; j2 >= 0; j2--) L2[i2][j2] = a[i2] === b[j2] ? L2[i2 + 1][j2 + 1] + 1 : Math.max(L2[i2 + 1][j2], L2[i2][j2 + 1]);
   const ops = [];
   let i = 0;
   let j = 0;
@@ -1598,21 +1598,21 @@ function compareText(expected, observed) {
     if (i < a.length && j < b.length && a[i] === b[j]) {
       i++;
       j++;
-    } else if (j < b.length && (i === a.length || L[i][j + 1] >= L[i + 1][j])) ops.push({ op: "add", word: b[j++], at: i });
+    } else if (j < b.length && (i === a.length || L2[i][j + 1] >= L2[i + 1][j])) ops.push({ op: "add", word: b[j++], at: i });
     else ops.push({ op: "del", word: a[i++], at: i - 1 });
   }
   const out = [];
-  const used = /* @__PURE__ */ new Set();
+  const used2 = /* @__PURE__ */ new Set();
   ops.forEach((d, k) => {
-    if (d.op !== "del" || used.has(k)) return;
-    const pair = ops.findIndex((x, n2) => !used.has(n2) && x.op === "add" && Math.abs(x.at - d.at) <= 1);
+    if (d.op !== "del" || used2.has(k)) return;
+    const pair = ops.findIndex((x, n2) => !used2.has(n2) && x.op === "add" && Math.abs(x.at - d.at) <= 1);
     if (pair < 0) {
       out.push({ kind: "missing-word", expected: d.word });
-      used.add(k);
+      used2.add(k);
       return;
     }
-    used.add(k);
-    used.add(pair);
+    used2.add(k);
+    used2.add(pair);
     const got = ops[pair].word;
     const en = toWesternDigits(d.word);
     const gn = toWesternDigits(got);
@@ -1630,7 +1630,7 @@ function compareText(expected, observed) {
     out.push({ kind, expected: d.word, observed: got });
   });
   ops.forEach((x, k) => {
-    if (!used.has(k) && x.op === "add") out.push({ kind: "extra-word", observed: x.word });
+    if (!used2.has(k) && x.op === "add") out.push({ kind: "extra-word", observed: x.word });
   });
   return out;
 }
@@ -1737,9 +1737,9 @@ function matchesColorWord(hex, entry) {
   const [from, to] = entry.hue;
   return from <= to ? h >= from && h <= to : h >= from || h <= to;
 }
-function colorWordIn(text) {
-  const norm = ` ${normalizeArabic(text)} `;
-  return COLOR_WORDS.find((entry) => entry.words.some((w) => norm.includes(normalizeArabic(w)))) ?? null;
+function colorWordIn(text2) {
+  const norm2 = ` ${normalizeArabic(text2)} `;
+  return COLOR_WORDS.find((entry) => entry.words.some((w) => norm2.includes(normalizeArabic(w)))) ?? null;
 }
 
 // lib/studio/layout.js
@@ -1756,28 +1756,28 @@ function textStyle(ctx, { font = "@body", weightRole = "regular", size, lineHeig
   const fontId = resolveFont(font, ctx.theme.fonts);
   return { font: fontId, weight: weightOf(fontId, weightRole), size, lineHeight };
 }
-var measureText = (ctx, text, style, width) => (ctx.measure ?? estimateMeasure)(text, style, width);
+var measureText = (ctx, text2, style, width) => (ctx.measure ?? estimateMeasure)(text2, style, width);
 var startX = (box, w, ctx) => ctx.rtl === false ? box.x : box.x + box.width - w;
 var endX = (box, w, ctx) => ctx.rtl === false ? box.x + box.width - w : box.x;
 var alignedX = (box, w, align, ctx) => align === "center" ? box.x + (box.width - w) / 2 : align === "end" ? endX(box, w, ctx) : startX(box, w, ctx);
 var frame = (x, y, width, height) => ({ x: round(x, 1), y: round(y, 1), width: round(Math.max(1, width), 1), height: round(Math.max(1, height), 1) });
 var treat = (ctx) => ctx.style?.treatment ?? {};
 var cornerOf = (value, auto) => value === void 0 || value === null || value === "auto" ? auto : value === "full" ? auto : Number(value);
-var markerOf = (ctx, text, color, role) => {
+var markerOf = (ctx, text2, color, role) => {
   const t = ctx.style?.treatment;
-  if (t?.accentMode !== "highlight" || role === "system" || !String(text ?? "").includes("*")) return null;
+  if (t?.accentMode !== "highlight" || role === "system" || !String(text2 ?? "").includes("*")) return null;
   return color === "@accent" || color === "@onAccent" ? null : t.highlightFill ?? "@highlight";
 };
-function textElement(id, f3, text, ctx, { font = "@body", weightRole = "regular", size, min, lineHeight, color = "@text", align = "start", nowrap = false, marker = true, ...extra }) {
+function textElement(id, f3, text2, ctx, { font = "@body", weightRole = "regular", size, min, lineHeight, color = "@text", align = "start", nowrap = false, marker = true, ...extra }) {
   const fontId = resolveFont(font, ctx.theme.fonts);
-  const highlight = marker ? markerOf(ctx, text, color, extra.role) : null;
+  const highlight = marker ? markerOf(ctx, text2, color, extra.role) : null;
   return {
     id,
     kind: "text",
     frame: f3,
     z: 0,
     locked: false,
-    text,
+    text: text2,
     style: {
       fontFamily: font,
       fontSize: size,
@@ -1824,7 +1824,7 @@ var pillMetrics = (b, s, ctx, maxWidth) => {
   const m = measureText(ctx, b.text, style, inner);
   return { size, style, padX, padY, icon, iconGap, textW: inner, textH: m.height, w: inner + padX * 2 + icon + iconGap, h: m.height + padY * 2, oneLine: natural === inner };
 };
-var labelWidth = (text, style) => Math.ceil(textWidth(text, style) * 1.08 + 2);
+var labelWidth = (text2, style) => Math.ceil(textWidth(text2, style) * 1.08 + 2);
 function emitPill(b, box, s, ctx, at) {
   const p = pillMetrics(b, s, ctx, box.width);
   const x = at?.x ?? alignedX(box, p.w, b.align ?? "start", ctx);
@@ -1930,27 +1930,27 @@ function tileRows(b, width, s, ctx) {
   return { rows, colGap, gap, total: rows.reduce((t, r) => t + r.h, 0) + gap * Math.max(0, rows.length - 1) };
 }
 var RENDER_RATIO = 0.965;
-function stableWrap(ctx, text, style, width) {
-  const plain = plainText(text);
-  const words2 = (line) => line.text.trim().split(/\s+/).filter(Boolean);
-  let lines = wrapLines(plain, style, width);
-  if (lines.length < 2) return { frame: width, lone: false };
-  const count = lines.length;
-  for (let k = 0; k < 6 && words2(lines[count - 1]).length < 2; k++) {
-    const next = wrapLines(plain, style, lines[count - 2].width - 1);
+function stableWrap(ctx, text2, style, width) {
+  const plain = plainText(text2);
+  const words3 = (line) => line.text.trim().split(/\s+/).filter(Boolean);
+  let lines2 = wrapLines(plain, style, width);
+  if (lines2.length < 2) return { frame: width, lone: false };
+  const count = lines2.length;
+  for (let k = 0; k < 6 && words3(lines2[count - 1]).length < 2; k++) {
+    const next = wrapLines(plain, style, lines2[count - 2].width - 1);
     if (next.length !== count) break;
-    lines = next;
+    lines2 = next;
   }
-  const lone = words2(lines[count - 1]).length < 2;
-  const lo = Math.max(...lines.map((l) => l.width));
+  const lone = words3(lines2[count - 1]).length < 2;
+  const lo = Math.max(...lines2.map((l) => l.width));
   let hi = Infinity;
-  for (let i = 0; i < lines.length - 1; i++) hi = Math.min(hi, textWidth(`${lines[i].text} ${words2(lines[i + 1])[0]}`, style));
-  if (!(hi > lo * 1.05)) return { frame: width, lone: words2(wrapLines(plain, style, width).at(-1)).length < 2 };
+  for (let i = 0; i < lines2.length - 1; i++) hi = Math.min(hi, textWidth(`${lines2[i].text} ${words3(lines2[i + 1])[0]}`, style));
+  if (!(hi > lo * 1.05)) return { frame: width, lone: words3(wrapLines(plain, style, width).at(-1)).length < 2 };
   return { frame: Math.min(width, Math.round(RENDER_RATIO * (lo + hi) / 2)), lone };
 }
 function titleLayout(ctx, b, width, s) {
   const base = sizeAt(b.size, s);
-  const words2 = plainText(b.text).trim().split(/\s+/).filter(Boolean).length;
+  const words3 = plainText(b.text).trim().split(/\s+/).filter(Boolean).length;
   let first = null;
   for (const k of [1, 0.94, 0.88]) {
     const size = Math.max(b.size[1], Math.round(base * k));
@@ -1958,7 +1958,7 @@ function titleLayout(ctx, b, width, s) {
     const r = stableWrap(ctx, b.text, style, width);
     const result = { size, frame: r.frame, height: measureText(ctx, b.text, style, width).height };
     first ??= result;
-    if (!r.lone || words2 < 4) return result;
+    if (!r.lone || words3 < 4) return result;
     if (size === b.size[1]) break;
   }
   return first;
@@ -2060,22 +2060,22 @@ var BLOCKS = {
   list: {
     height: (b, width, s, ctx) => listRows(b, width, s, ctx).total,
     emit(b, box, s, ctx) {
-      let L = listRows(b, box.width, s, ctx);
+      let L2 = listRows(b, box.width, s, ctx);
       if (b.align === "center" && !b.card && (b.columns ?? 1) === 1) {
-        const used = Math.ceil(Math.max(...L.rows.flatMap((r) => r.items.map((m) => m.badge + m.gap + Math.min(m.textW, m.lineW))))) + 2;
-        if (used < box.width) {
-          box = { ...box, x: box.x + (box.width - used) / 2, width: used };
-          L = listRows(b, box.width, s, ctx);
+        const used2 = Math.ceil(Math.max(...L2.rows.flatMap((r) => r.items.map((m) => m.badge + m.gap + Math.min(m.textW, m.lineW))))) + 2;
+        if (used2 < box.width) {
+          box = { ...box, x: box.x + (box.width - used2) / 2, width: used2 };
+          L2 = listRows(b, box.width, s, ctx);
         }
       }
       const els = [];
       let y = box.y;
-      for (const row of L.rows) {
+      for (const row of L2.rows) {
         row.items.forEach((m, k) => {
           const i = row.start + k;
           const n2 = i + 1;
-          const colX = ctx.rtl === false ? box.x + k * (L.colW + L.colGap) : box.x + box.width - (k + 1) * L.colW - k * L.colGap;
-          const cell2 = { x: colX, y, width: L.colW, height: row.h };
+          const colX = ctx.rtl === false ? box.x + k * (L2.colW + L2.colGap) : box.x + box.width - (k + 1) * L2.colW - k * L2.colGap;
+          const cell2 = { x: colX, y, width: L2.colW, height: row.h };
           const name = `\u0627\u0644\u0628\u0646\u062F ${formatNumber(n2, ctx.theme.numerals)}`;
           if (b.card) els.push(...cardShapes(`${b.id}-${n2}`, { ...cell2, height: row.h }, m.size, ctx, name, b.anim ?? "rise", b.cardFill));
           const inner = { x: cell2.x + m.padX, y: cell2.y + m.padY, width: cell2.width - m.padX * 2, height: row.h - m.padY * 2 };
@@ -2129,7 +2129,7 @@ var BLOCKS = {
             })
           );
         });
-        y += row.h + L.gap;
+        y += row.h + L2.gap;
       }
       return els;
     }
@@ -2137,15 +2137,15 @@ var BLOCKS = {
   tiles: {
     height: (b, width, s, ctx) => tileRows(b, width, s, ctx).total,
     emit(b, box, s, ctx) {
-      const L = tileRows(b, box.width, s, ctx);
+      const L2 = tileRows(b, box.width, s, ctx);
       const anim = b.anim ?? "rise";
       const els = [];
       let y = box.y;
-      L.rows.forEach((row, r) => {
+      L2.rows.forEach((row, r) => {
         row.items.forEach((m, k) => {
           const i = row.start + k;
           const n2 = i + 1;
-          const colX = ctx.rtl === false ? box.x + k * (row.colW + L.colGap) : box.x + box.width - (k + 1) * row.colW - k * L.colGap;
+          const colX = ctx.rtl === false ? box.x + k * (row.colW + L2.colGap) : box.x + box.width - (k + 1) * row.colW - k * L2.colGap;
           const cell2 = { x: colX, y, width: row.colW, height: row.h };
           const name = `\u0627\u0644\u062C\u0632\u0621 ${formatNumber(n2, ctx.theme.numerals)}`;
           els.push(...cardShapes(`${b.id}-${n2}`, cell2, m.size, ctx, name, anim));
@@ -2159,12 +2159,12 @@ var BLOCKS = {
           if (b.bodies?.[i]) {
             els.push(textElement(`${b.id}-${n2}-body`, frame(inner.x, inner.y + m.headH + m.hbGap, m.innerW, m.bodyH), b.bodies[i], ctx, { size: m.size, min: b.size[1], lineHeight: 1.6, color: "@muted", role: "item", slot: `${b.bodySlot}.${i}`, name: `\u0634\u0631\u062D ${name}`, anim }));
           }
-          if ((b.columns ?? 2) === 1 && b.connect && r < L.rows.length - 1) {
+          if ((b.columns ?? 2) === 1 && b.connect && r < L2.rows.length - 1) {
             const cx = startX(inner, b.numbered ? m.numW : 4, ctx) + (b.numbered ? m.numW / 2 : 2) - 2;
-            els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx, cell2.y + row.h, 4, L.gap), "rect", "@accent", { role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
+            els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx, cell2.y + row.h, 4, L2.gap), "rect", "@accent", { role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
           }
         });
-        y += row.h + L.gap;
+        y += row.h + L2.gap;
       });
       return els;
     }
@@ -2190,27 +2190,27 @@ var BLOCKS = {
       return this.layout(b, width, s, ctx).h;
     },
     emit(b, box, s, ctx) {
-      const L = this.layout(b, box.width, s, ctx);
+      const L2 = this.layout(b, box.width, s, ctx);
       const els = [];
       let y = box.y;
-      L.cards.forEach((card, k) => {
+      L2.cards.forEach((card, k) => {
         const col = b.columns[k];
-        const x = b.stacked ? box.x : ctx.rtl === false ? box.x + k * (L.cardW + L.gap) : box.x + box.width - (k + 1) * L.cardW - k * L.gap;
+        const x = b.stacked ? box.x : ctx.rtl === false ? box.x + k * (L2.cardW + L2.gap) : box.x + box.width - (k + 1) * L2.cardW - k * L2.gap;
         const cy = b.stacked ? y : box.y;
-        const h = b.stacked ? card.h : L.h;
+        const h = b.stacked ? card.h : L2.h;
         const id = `${b.id}-${k + 1}`;
         const mode = treat(ctx).cardMode ?? "fill";
         const open = mode === "outline" || mode === "rule";
         els.push(
-          shapeElement(`${id}-card`, frame(x, cy, L.cardW, h), "rect", open ? "none" : treat(ctx).cardFill ?? "@surface", {
-            radius: cornerOf(treat(ctx).cardRadius, Math.round(L.size * 0.9)),
+          shapeElement(`${id}-card`, frame(x, cy, L2.cardW, h), "rect", open ? "none" : treat(ctx).cardFill ?? "@surface", {
+            radius: cornerOf(treat(ctx).cardRadius, Math.round(L2.size * 0.9)),
             role: "decor",
             name: `\u0628\u0637\u0627\u0642\u0629 ${col.label.text}`,
             ...col.positive ? { stroke: "@accent", strokeWidth: 4 } : mode === "outline" && { stroke: treat(ctx).cardStroke ?? "@muted", strokeWidth: 2 },
             anim: "rise"
           })
         );
-        const inner = { x: x + L.pad, y: cy + L.pad, width: L.cardW - L.pad * 2, height: h - L.pad * 2 };
+        const inner = { x: x + L2.pad, y: cy + L2.pad, width: L2.cardW - L2.pad * 2, height: h - L2.pad * 2 };
         els.push(
           ...emitPill(
             {
@@ -2239,17 +2239,17 @@ var BLOCKS = {
               badgeColor: col.positive ? "@onAccent" : "@muted",
               anim: "rise"
             },
-            { x: inner.x, y: inner.y + card.label.h + L.size * 0.6, width: inner.width },
+            { x: inner.x, y: inner.y + card.label.h + L2.size * 0.6, width: inner.width },
             s,
             ctx
           )
         );
-        y += card.h + L.gap;
+        y += card.h + L2.gap;
       });
-      const d = L.size * 1.35;
+      const d = L2.size * 1.35;
       const cx = b.stacked ? box.x + box.width / 2 : box.x + box.width / 2;
-      const cyMid = b.stacked ? box.y + L.cards[0].h + L.gap / 2 : box.y + L.h / 2;
-      els.push(shapeElement(`${b.id}-arrow-bg`, frame(cx - d / 2, cyMid - d / 2, d, d), "ellipse", "@accent", { stroke: "@bg", strokeWidth: Math.round(L.size * 0.25), role: "decor", name: "\u0633\u0647\u0645 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629", anim: "pop" }));
+      const cyMid = b.stacked ? box.y + L2.cards[0].h + L2.gap / 2 : box.y + L2.h / 2;
+      els.push(shapeElement(`${b.id}-arrow-bg`, frame(cx - d / 2, cyMid - d / 2, d, d), "ellipse", "@accent", { stroke: "@bg", strokeWidth: Math.round(L2.size * 0.25), role: "decor", name: "\u0633\u0647\u0645 \u0627\u0644\u0645\u0642\u0627\u0631\u0646\u0629", anim: "pop" }));
       els.push(
         iconElement(`${b.id}-arrow`, frame(cx - d * 0.28, cyMid - d * 0.28, d * 0.56, d * 0.56), "arrow", "@onAccent", ctx, {
           directional: !b.stacked,
@@ -2290,31 +2290,31 @@ var BLOCKS = {
       return this.layout(b, width, s, ctx).h;
     },
     emit(b, box, s, ctx) {
-      const L = this.layout(b, box.width, s, ctx);
+      const L2 = this.layout(b, box.width, s, ctx);
       const anim = b.anim ?? "rise";
       const els = [];
       let y = box.y;
-      L.items.forEach((it, i) => {
+      L2.items.forEach((it, i) => {
         const n2 = i + 1;
-        const last = i === L.items.length - 1;
+        const last = i === L2.items.length - 1;
         const name = `\u0627\u0644\u0645\u0631\u062D\u0644\u0629 ${formatNumber(n2, ctx.theme.numerals)}`;
         els.push(boxShape(`${b.id}-${n2}-box`, frame(box.x, y, box.width, it.h), b.emphasis === "fill" && last ? "panel" : "outline", ctx, `\u0625\u0637\u0627\u0631 ${name}`, anim));
-        const inner = { x: box.x + L.padX, y: y + L.padY };
+        const inner = { x: box.x + L2.padX, y: y + L2.padY };
         if (b.emphasis === "mark") {
-          els.push(shapeElement(`${b.id}-${n2}-mark`, frame(box.x + L.padX * 0.5, inner.y + it.headH * 0.3, box.width - L.padX, it.headH * 0.6), "rect", treat(ctx).highlightFill ?? "@highlight", { role: "decor", name: `\u062A\u0638\u0644\u064A\u0644 ${name}`, anim }));
+          els.push(shapeElement(`${b.id}-${n2}-mark`, frame(box.x + L2.padX * 0.5, inner.y + it.headH * 0.3, box.width - L2.padX, it.headH * 0.6), "rect", treat(ctx).highlightFill ?? "@highlight", { role: "decor", name: `\u062A\u0638\u0644\u064A\u0644 ${name}`, anim }));
         }
-        els.push(textElement(`${b.id}-${n2}`, frame(inner.x, inner.y, L.innerW, it.headH), b.heads[i], ctx, { font: "@heading", weightRole: "bold", size: L.headSize, min: b.size[1], lineHeight: 1.5, role: "item", slot: `${b.slot}.${i}`, name, anim }));
+        els.push(textElement(`${b.id}-${n2}`, frame(inner.x, inner.y, L2.innerW, it.headH), b.heads[i], ctx, { font: "@heading", weightRole: "bold", size: L2.headSize, min: b.size[1], lineHeight: 1.5, role: "item", slot: `${b.slot}.${i}`, name, anim }));
         if (b.bodies?.[i]) {
-          els.push(textElement(`${b.id}-${n2}-body`, frame(inner.x, inner.y + it.headH + it.hb, L.innerW, it.bodyH), b.bodies[i], ctx, { size: L.size, min: b.size[1], lineHeight: 1.6, color: "@muted", role: "item", slot: `${b.bodySlot}.${i}`, name: `\u0634\u0631\u062D ${name}`, anim }));
+          els.push(textElement(`${b.id}-${n2}-body`, frame(inner.x, inner.y + it.headH + it.hb, L2.innerW, it.bodyH), b.bodies[i], ctx, { size: L2.size, min: b.size[1], lineHeight: 1.6, color: "@muted", role: "item", slot: `${b.bodySlot}.${i}`, name: `\u0634\u0631\u062D ${name}`, anim }));
         }
         y += it.h;
         if (!last) {
           const cx = box.x + box.width / 2;
-          const cy = y + L.gap / 2;
-          els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx - L.d / 2, cy - L.d / 2, L.d, L.d), "ellipse", "@bg", { stroke: treat(ctx).boxStroke ?? "@line", strokeWidth: 2, role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
-          const a = Math.round(L.d * 0.5);
+          const cy = y + L2.gap / 2;
+          els.push(shapeElement(`${b.id}-${n2}-link`, frame(cx - L2.d / 2, cy - L2.d / 2, L2.d, L2.d), "ellipse", "@bg", { stroke: treat(ctx).boxStroke ?? "@line", strokeWidth: 2, role: "decor", name: `\u0648\u0635\u0644\u0629 ${name}`, anim: "fade" }));
+          const a = Math.round(L2.d * 0.5);
           els.push(iconElement(`${b.id}-${n2}-arrow`, frame(cx - a / 2, cy - a / 2, a, a), "arrow", "@accent", ctx, { rotation: 90, role: "decor", name: `\u0633\u0647\u0645 ${name}`, strokeWidth: 2.2, anim: "fade" }));
-          y += L.gap;
+          y += L2.gap;
         }
       });
       return els;
@@ -2342,20 +2342,20 @@ var BLOCKS = {
     },
     emit(b, box, s, ctx) {
       if (!b.items.length) return [];
-      const L = this.layout(b, box.width, s, ctx);
+      const L2 = this.layout(b, box.width, s, ctx);
       const els = [];
       let y = box.y;
       b.items.forEach((it, i) => {
-        const r = L.rows[i];
+        const r = L2.rows[i];
         const primary = i === 0;
         const id = it.id ?? `${b.id}-${i + 1}`;
         els.push(boxShape(`${id}-bg`, frame(box.x, y, box.width, r.h), primary ? "panel" : "outline", ctx, `\u062E\u0644\u0641\u064A\u0629 ${it.name ?? ""}`.trim(), "pop"));
-        els.push(textElement(id, frame(box.x + (box.width - L.textW) / 2, y + L.padY, L.textW, r.textH), it.text, ctx, { font: "@heading", weightRole: "bold", size: L.size, min: b.size[1], lineHeight: 1.5, align: "center", role: "cta", slot: it.slot, name: it.name, anim: "pop" }));
+        els.push(textElement(id, frame(box.x + (box.width - L2.textW) / 2, y + L2.padY, L2.textW, r.textH), it.text, ctx, { font: "@heading", weightRole: "bold", size: L2.size, min: b.size[1], lineHeight: 1.5, align: "center", role: "cta", slot: it.slot, name: it.name, anim: "pop" }));
         if (it.icon) {
-          const ix = ctx.rtl === false ? box.x + box.width - L.padX - L.icon : box.x + L.padX;
-          els.push(iconElement(`${id}-icon`, frame(ix, y + (r.h - L.icon) / 2, L.icon, L.icon), it.icon, primary ? "@accent" : "@muted", ctx, { directional: it.icon === "share", role: "decor", name: `\u0623\u064A\u0642\u0648\u0646\u0629 ${it.name ?? ""}`.trim(), strokeWidth: 1.8, anim: "pop" }));
+          const ix = ctx.rtl === false ? box.x + box.width - L2.padX - L2.icon : box.x + L2.padX;
+          els.push(iconElement(`${id}-icon`, frame(ix, y + (r.h - L2.icon) / 2, L2.icon, L2.icon), it.icon, primary ? "@accent" : "@muted", ctx, { directional: it.icon === "share", role: "decor", name: `\u0623\u064A\u0642\u0648\u0646\u0629 ${it.name ?? ""}`.trim(), strokeWidth: 1.8, anim: "pop" }));
         }
-        y += r.h + L.gap;
+        y += r.h + L2.gap;
       });
       return els;
     }
@@ -2377,21 +2377,21 @@ var BLOCKS = {
       return this.layout(b, width, s, ctx).h;
     },
     emit(b, box, s, ctx) {
-      const L = this.layout(b, box.width, s, ctx);
+      const L2 = this.layout(b, box.width, s, ctx);
       const els = [];
-      const lead = L.photo || L.bar;
+      const lead = L2.photo || L2.bar;
       const lx = startX(box, lead, ctx);
-      if (L.photo) {
-        els.push(imageElement(`${b.id}-photo`, frame(lx, box.y + (L.h - L.photo) / 2, L.photo, L.photo), b.photoAssetId, b.name, { fit: "cover", radius: L.photo / 2, role: "photo", slot: "photo", name: "\u0635\u0648\u0631\u0629 \u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" }));
+      if (L2.photo) {
+        els.push(imageElement(`${b.id}-photo`, frame(lx, box.y + (L2.h - L2.photo) / 2, L2.photo, L2.photo), b.photoAssetId, b.name, { fit: "cover", radius: L2.photo / 2, role: "photo", slot: "photo", name: "\u0635\u0648\u0631\u0629 \u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" }));
       } else {
-        els.push(shapeElement(`${b.id}-bar`, frame(lx, box.y + L.h / 2 - 2, L.bar, 4), "rect", "@accent", { radius: 2, role: "decor", name: "\u062E\u0637", anim: "fade" }));
+        els.push(shapeElement(`${b.id}-bar`, frame(lx, box.y + L2.h / 2 - 2, L2.bar, 4), "rect", "@accent", { radius: 2, role: "decor", name: "\u062E\u0637", anim: "fade" }));
       }
-      const tx = ctx.rtl === false ? box.x + lead + L.gap : box.x + box.width - lead - L.gap - L.textW;
-      const ty = box.y + (L.h - L.nh - L.rh) / 2;
-      els.push(textElement(`${b.id}-name`, frame(tx, ty, L.textW, L.nh), b.name, ctx, { weightRole: "bold", size: L.nameStyle.size, min: b.size[1], lineHeight: 1.5, role: "author", slot: "author", name: "\u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" }));
+      const tx = ctx.rtl === false ? box.x + lead + L2.gap : box.x + box.width - lead - L2.gap - L2.textW;
+      const ty = box.y + (L2.h - L2.nh - L2.rh) / 2;
+      els.push(textElement(`${b.id}-name`, frame(tx, ty, L2.textW, L2.nh), b.name, ctx, { weightRole: "bold", size: L2.nameStyle.size, min: b.size[1], lineHeight: 1.5, role: "author", slot: "author", name: "\u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" }));
       if (b.role) {
         els.push(
-          textElement(`${b.id}-role`, frame(tx, ty + L.nh, L.textW, L.rh), b.role, ctx, { size: L.roleStyle.size, min: b.size[1], lineHeight: 1.5, color: "@muted", role: "caption", slot: "role", name: "\u0635\u0641\u0629 \u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" })
+          textElement(`${b.id}-role`, frame(tx, ty + L2.nh, L2.textW, L2.rh), b.role, ctx, { size: L2.roleStyle.size, min: b.size[1], lineHeight: 1.5, color: "@muted", role: "caption", slot: "role", name: "\u0635\u0641\u0629 \u0627\u0644\u0642\u0627\u0626\u0644", anim: "fade" })
         );
       }
       return els;
@@ -2426,38 +2426,38 @@ var BLOCKS = {
     layout(b, width, s, ctx) {
       const items = b.items.map((it) => ({ it, m: pillMetrics({ ...it, size: b.size, icon: it.icon }, s, ctx, width) }));
       const gap = sizeAt(b.size, s) * 0.35;
-      const lines = [];
+      const lines2 = [];
       let line = [];
       let w = 0;
       for (const x of items) {
         if (line.length && w + gap + x.m.w > width) {
-          lines.push({ items: line, w });
+          lines2.push({ items: line, w });
           line = [];
           w = 0;
         }
         w += (line.length ? gap : 0) + x.m.w;
         line.push(x);
       }
-      if (line.length) lines.push({ items: line, w });
+      if (line.length) lines2.push({ items: line, w });
       const lh = Math.max(0, ...items.map((x) => x.m.h));
-      return { lines, gap, lh, h: lines.length * lh + Math.max(0, lines.length - 1) * gap };
+      return { lines: lines2, gap, lh, h: lines2.length * lh + Math.max(0, lines2.length - 1) * gap };
     },
     height(b, width, s, ctx) {
       return b.items.length ? this.layout(b, width, s, ctx).h : 0;
     },
     emit(b, box, s, ctx) {
       if (!b.items.length) return [];
-      const L = this.layout(b, box.width, s, ctx);
+      const L2 = this.layout(b, box.width, s, ctx);
       const els = [];
       let y = box.y;
-      for (const line of L.lines) {
+      for (const line of L2.lines) {
         let x = ctx.rtl === false ? box.x + (box.width - line.w) / 2 : box.x + (box.width + line.w) / 2;
         for (const { it, m } of line.items) {
           const px2 = ctx.rtl === false ? x : x - m.w;
           els.push(...emitPill({ ...it, size: b.size }, box, s, ctx, { x: px2, y }).elements);
-          x = ctx.rtl === false ? x + m.w + L.gap : x - m.w - L.gap;
+          x = ctx.rtl === false ? x + m.w + L2.gap : x - m.w - L2.gap;
         }
-        y += L.lh + L.gap;
+        y += L2.lh + L2.gap;
       }
       return els;
     }
@@ -2530,9 +2530,9 @@ function blockTexts(b) {
 }
 
 // lib/studio/compositions.js
-var hasArabicLetters = (text) => /[\u0600-\u06FF]/.test(text ?? "");
-var figureType = (text) => hasArabicLetters(text) ? { size: [170, 110], lineHeight: 1.6 } : null;
-var afterFigure = (text, gap) => hasArabicLetters(text) ? Math.max(gap, 56) : gap;
+var hasArabicLetters = (text2) => /[\u0600-\u06FF]/.test(text2 ?? "");
+var figureType = (text2) => hasArabicLetters(text2) ? { size: [170, 110], lineHeight: 1.6 } : null;
+var afterFigure = (text2, gap) => hasArabicLetters(text2) ? Math.max(gap, 56) : gap;
 var nonEmpty = (list2) => (Array.isArray(list2) ? list2 : []).filter((s) => typeof s === "string" && s.trim());
 var f = (x, y, width, height) => ({ x, y, width, height });
 var atEnd = (ctx, W, x, w) => ctx.rtl === false ? W - x - w : x;
@@ -2759,12 +2759,12 @@ var COMPOSITIONS = {
     decor: () => [],
     blocks: (c, v) => {
       const collage = { type: "collage", id: "collage", assets: Array.isArray(c.art) ? c.art : c.art ? [c.art] : [], alts: c.artAlt, share: 0.5, minShare: 0.34, optional: true, gap: 48 };
-      const text = [
+      const text2 = [
         c.kicker && { type: "pill", id: "kicker", text: c.kicker, size: [32, 28], slot: "kicker", role: "kicker", name: "\u0627\u0644\u0634\u0627\u0631\u0629", anim: "pop", gap: 40 },
         { type: "text", id: "title", text: c.title ?? "", font: "@heading", weightRole: "black", size: [100, FLOOR.title], lineHeight: 1.3, slot: "title", role: "title", name: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", gap: 28, anim: "rise" },
         c.subtitle && { type: "text", id: "subtitle", text: c.subtitle, size: [40, FLOOR.body], lineHeight: 1.7, color: "@muted", slot: "subtitle", role: "subtitle", name: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", gap: 32, anim: "rise" }
       ];
-      return v === "bottom" ? [...text, collage] : [collage, ...text];
+      return v === "bottom" ? [...text2, collage] : [collage, ...text2];
     }
   },
   // A big number or short figure with one line of meaning: reel scenes and
@@ -3194,7 +3194,7 @@ function evaluate(expr, vars) {
   const src = String(expr).replace(/\s+/g, "");
   let i = 0;
   const peek = () => src[i];
-  const num2 = () => {
+  const num3 = () => {
     const m = /^(\d+(\.\d+)?)/.exec(src.slice(i));
     if (m) {
       i += m[0].length;
@@ -3213,13 +3213,13 @@ function evaluate(expr, vars) {
     }
     if (peek() === "-") {
       i++;
-      return -num2();
+      return -num3();
     }
     throw new Error(`bad style expression "${expr}"`);
   };
   const prod = () => {
-    let r2 = num2();
-    while (peek() === "*" || peek() === "/") r2 = src[i++] === "*" ? r2 * num2() : r2 / num2();
+    let r2 = num3();
+    while (peek() === "*" || peek() === "/") r2 = src[i++] === "*" ? r2 * num3() : r2 / num3();
     return r2;
   };
   const sum = () => {
@@ -3264,8 +3264,8 @@ function styleDecor(style, ctx, comp, { textElement: textElement2, shapeElement:
     const base = { role: "decor", name: d.name ?? "\u0632\u062E\u0631\u0641\u0629 \u0627\u0644\u0623\u0633\u0644\u0648\u0628", ...d.opacity !== void 0 && { opacity: d.opacity }, ...d.rotation && { rotation: d.rotation }, ...d.anim && { anim: d.anim } };
     if (d.shape === "ghost-number" && comp.fields?.some((x2) => x2.key === "number" || x2.key === "figure")) return;
     if (d.shape === "ghost-number") {
-      const text = formatNumber(ctx.index + 1, ctx.theme.numerals);
-      els.push(textElement2(id, f3, text, ctx, { font: "@heading", weightRole: "black", size: Math.round(h * 0.8), min: Math.round(h * 0.8), lineHeight: 1.1, color: d.fill ?? "@text", align: fromStart ? "start" : "end", nowrap: true, ...base, role: "decor" }));
+      const text2 = formatNumber(ctx.index + 1, ctx.theme.numerals);
+      els.push(textElement2(id, f3, text2, ctx, { font: "@heading", weightRole: "black", size: Math.round(h * 0.8), min: Math.round(h * 0.8), lineHeight: 1.1, color: d.fill ?? "@text", align: fromStart ? "start" : "end", nowrap: true, ...base, role: "decor" }));
     } else if (d.shape === "path") {
       els.push(shapeElement2(id, f3, "path", "none", { path: d.path, viewBox: d.viewBox, stroke: d.stroke ?? "@accent", strokeWidth: d.strokeWidth ?? 4, ...base }));
     } else if (d.shape === "frame") {
@@ -3303,7 +3303,7 @@ function styleBlocks(style, blocks) {
 
 // lib/studio/budget.js
 var VERSIONS = { copy: 1, layout: 3, measure: 1, renderer: 1 };
-var CACHE_KINDS = ["text", "asset", "layout", "export"];
+var CACHE_KINDS = ["text", "asset", "layout", "export", "semantic"];
 var Cache = class {
   constructor(store, ledger) {
     this.store = store;
@@ -3346,7 +3346,7 @@ var Cache = class {
     return removed;
   }
 };
-var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr"];
+var AI_KINDS = ["ai.copy", "ai.concept", "ai.asset", "ai.rewrite", "ai.critique", "ai.ocr", "ai.semantic"];
 var Ledger = class {
   constructor(store, path3 = "ledger.jsonl") {
     this.store = store;
@@ -3440,19 +3440,19 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
     els.push(shapeElement("sys-progress", f2(rtl ? W - filled : 0, top, filled, 12), "rect", "@accent", { role: "system", name: "\u0634\u0631\u064A\u0637 \u0627\u0644\u062A\u0642\u062F\u0651\u0645" }));
   }
   if (bands.pagination && settings.pagination.showCounter && look.counter === "plain") {
-    const text = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
+    const text2 = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
     const size = 26;
-    const tw = labelWidth(text, { font: body, weight: 700, size });
-    els.push(textElement("sys-counter", f2(rtl ? MARGIN : W - MARGIN - tw, top + 56, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@muted", align: "center", nowrap: true, role: "system", name: "\u0639\u062F\u0651\u0627\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D" }));
+    const tw = labelWidth(text2, { font: body, weight: 700, size });
+    els.push(textElement("sys-counter", f2(rtl ? MARGIN : W - MARGIN - tw, top + 56, tw, size * 1.5), text2, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@muted", align: "center", nowrap: true, role: "system", name: "\u0639\u062F\u0651\u0627\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D" }));
   } else if (bands.pagination && settings.pagination.showCounter) {
-    const text = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
+    const text2 = counterLabel(index, total, settings.pagination.style, ctx.theme.numerals);
     const size = 28;
-    const tw = labelWidth(text, { font: body, weight: 700, size });
+    const tw = labelWidth(text2, { font: body, weight: 700, size });
     const w = tw + 52;
     const h = size * 1.5 + 16;
     const x = rtl ? MARGIN : W - MARGIN - w;
     els.push(shapeElement("sys-counter-bg", f2(x, top + 52, w, h), "rect", "@surface", { radius: h / 2, role: "system", name: "\u062E\u0644\u0641\u064A\u0629 \u0627\u0644\u0639\u062F\u0627\u062F" }));
-    els.push(textElement("sys-counter", f2(x + 26, top + 60, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@muted", align: "center", nowrap: true, role: "system", name: "\u0639\u062F\u0651\u0627\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D" }));
+    els.push(textElement("sys-counter", f2(x + 26, top + 60, tw, size * 1.5), text2, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@muted", align: "center", nowrap: true, role: "system", name: "\u0639\u062F\u0651\u0627\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D" }));
   }
   if (bands.logo) {
     const asset = assets?.[brand.logoAssetId];
@@ -3462,35 +3462,35 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
   }
   if (bands.swipe && look.swipe === "text") {
     const size = 28;
-    const text = bands.swipeText;
-    const tw = labelWidth(text, { font: body, weight: 700, size });
+    const text2 = bands.swipeText;
+    const tw = labelWidth(text2, { font: body, weight: 700, size });
     const arrow = index < total - 1 && settings.swipe.showArrow ? 26 : 0;
     const w = tw + (arrow ? arrow + 12 : 0);
     const x = rtl ? MARGIN : W - MARGIN - w;
-    els.push(textElement("sys-swipe", f2(rtl ? x + w - tw : x, footer, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@accent", align: "center", nowrap: true, role: "system", name: "\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
+    els.push(textElement("sys-swipe", f2(rtl ? x + w - tw : x, footer, tw, size * 1.5), text2, ctx, { weightRole: "bold", size, lineHeight: 1.5, color: "@accent", align: "center", nowrap: true, role: "system", name: "\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
     if (arrow) {
       els.push(iconElement("sys-swipe-arrow", f2(rtl ? x : x + w - arrow, footer + (size * 1.5 - arrow) / 2 + 2, arrow, arrow), "arrow", "@accent", ctx, { directional: true, role: "system", name: "\u0633\u0647\u0645 \u0627\u0644\u0633\u062D\u0628", strokeWidth: 2 }));
     }
   } else if (bands.swipe) {
     const size = 30;
-    const text = bands.swipeText;
-    const tw = labelWidth(text, { font: body, weight: 700, size });
+    const text2 = bands.swipeText;
+    const tw = labelWidth(text2, { font: body, weight: 700, size });
     const arrow = index < total - 1 && settings.swipe.showArrow ? 34 : 0;
     const w = tw + 30 + 24 + (arrow ? arrow + 14 : 0);
     const h = size * 1.4 + 28;
     const x = rtl ? MARGIN : W - MARGIN - w;
     const y = bottom - 60 - h;
     els.push(shapeElement("sys-swipe-bg", f2(x, y, w, h), "rect", "@accent", { radius: h / 2, role: "system", name: "\u062E\u0644\u0641\u064A\u0629 \u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
-    els.push(textElement("sys-swipe", f2(rtl ? x + w - 30 - tw : x + 30, y + 14, tw, size * 1.4), text, ctx, { weightRole: "bold", size, lineHeight: 1.4, color: "@onAccent", align: "center", nowrap: true, role: "system", name: "\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
+    els.push(textElement("sys-swipe", f2(rtl ? x + w - 30 - tw : x + 30, y + 14, tw, size * 1.4), text2, ctx, { weightRole: "bold", size, lineHeight: 1.4, color: "@onAccent", align: "center", nowrap: true, role: "system", name: "\u062F\u0639\u0648\u0629 \u0627\u0644\u0633\u062D\u0628" }));
     if (arrow) {
       els.push(iconElement("sys-swipe-arrow", f2(rtl ? x + 24 : x + w - 24 - arrow, y + (h - arrow) / 2, arrow, arrow), "arrow", "@onAccent", ctx, { directional: true, role: "system", name: "\u0633\u0647\u0645 \u0627\u0644\u0633\u062D\u0628", strokeWidth: 2.5 }));
     }
   }
   if (bands.badge && look.badge === "name") {
-    const text = brand.name || brand.handle || "";
+    const text2 = brand.name || brand.handle || "";
     const size = 28;
-    const tw = labelWidth(text, { font: body, weight: 700, size });
-    if (text) els.push(textElement("sys-brand-name", f2(rtl ? W - MARGIN - tw : MARGIN, footer, tw, size * 1.5), text, ctx, { weightRole: "bold", size, lineHeight: 1.5, align: "center", nowrap: true, role: "system", name: "\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628" }));
+    const tw = labelWidth(text2, { font: body, weight: 700, size });
+    if (text2) els.push(textElement("sys-brand-name", f2(rtl ? W - MARGIN - tw : MARGIN, footer, tw, size * 1.5), text2, ctx, { weightRole: "bold", size, lineHeight: 1.5, align: "center", nowrap: true, role: "system", name: "\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628" }));
   } else if (bands.badge) {
     const d = 84;
     const y = bottom - 56 - d;
@@ -3505,8 +3505,8 @@ function chromeElements({ settings, bands, index, total, format, ctx, brand, ass
     const handle = brand.handle ?? "";
     const tw = Math.max(labelWidth(name, { font: body, weight: 700, size: 30 }), labelWidth(handle, { font: body, weight: 400, size: 26 }));
     const tx = rtl ? ax - 18 - tw : ax + d + 18;
-    const lines = (name ? 30 * 1.35 : 0) + (handle ? 26 * 1.35 : 0);
-    let ty = y + (d - lines) / 2;
+    const lines2 = (name ? 30 * 1.35 : 0) + (handle ? 26 * 1.35 : 0);
+    let ty = y + (d - lines2) / 2;
     if (name) {
       els.push(textElement("sys-brand-name", f2(tx, ty, tw, 30 * 1.35), name, ctx, { weightRole: "bold", size: 30, lineHeight: 1.35, nowrap: true, role: "system", name: "\u0627\u0633\u0645 \u0627\u0644\u062D\u0633\u0627\u0628" }));
       ty += 30 * 1.35;
@@ -3549,10 +3549,10 @@ function overflowSuggestions(blocks, region, ctx, deficit) {
     const size = t.size[1];
     const lineH = size * (t.block.lineHeight ?? 1.5);
     const share = deficit * weights[i] / total;
-    const lines = Math.ceil(share / lineH);
-    if (!lines) return;
+    const lines2 = Math.ceil(share / lineH);
+    if (!lines2) return;
     const perLine = Math.max(8, Math.floor(region.width / (0.5 * size)));
-    const chars = Math.min(plainText(t.text).length - 1, lines * perLine);
+    const chars = Math.min(plainText(t.text).length - 1, lines2 * perLine);
     if (chars <= 0) return;
     out.push({ elementId: t.id, slot: t.slot, removeChars: chars, removeWords: Math.max(1, Math.round(chars / 5.5)) });
   });
@@ -3561,7 +3561,7 @@ function overflowSuggestions(blocks, region, ctx, deficit) {
 function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant = false } = {}) {
   const region = ctx.region;
   const requested = variant && comp.variants[variant] ? variant : comp.defaultVariant;
-  const variants = [requested, ...lockVariant ? [] : comp.reflow?.[requested] ?? []];
+  const variants2 = [requested, ...lockVariant ? [] : comp.reflow?.[requested] ?? []];
   const hasArt = buildBlocks(comp, content, requested, "pref", ctx).some((b) => b.optional);
   const attempts = [
     { variant: requested, art: "pref", sMin: COMFORT },
@@ -3569,8 +3569,8 @@ function solveLayout(comp, content, ctx, { variant, keepArt = false, lockVariant
     { variant: requested, art: hasArt ? "min" : "pref", sMin: 0 },
     // A denser variant that has no place for the art would drop it
     // silently: with keepArt only variants that still carry it are tried.
-    ...variants.slice(1).filter((v) => !keepArt || !hasArt || buildBlocks(comp, content, v, "min", ctx).some((b) => b.optional)).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
-    ...hasArt && !keepArt ? variants.map((v) => ({ variant: v, art: "none", sMin: 0, note: "art-removed" })) : []
+    ...variants2.slice(1).filter((v) => !keepArt || !hasArt || buildBlocks(comp, content, v, "min", ctx).some((b) => b.optional)).map((v) => ({ variant: v, art: hasArt ? "min" : "pref", sMin: 0, note: "variant" })),
+    ...hasArt && !keepArt ? variants2.map((v) => ({ variant: v, art: "none", sMin: 0, note: "art-removed" })) : []
   ].filter(Boolean);
   const maxScale = Math.min(ctx.style?.layout?.capScale ?? Infinity, Math.max(comp.maxScale ?? 1, ctx.style?.layout?.maxScale ?? 1));
   const decisions = [];
@@ -3874,11 +3874,11 @@ for (const [id, list2] of Object.entries(CONCEPTS)) {
     LOOKUP.get(n2).add(id);
   }
 }
-function extractConcepts(text) {
+function extractConcepts(text2) {
   const found = /* @__PURE__ */ new Set();
-  for (const raw of normalizeArabic(text).split(" ")) {
-    const variants = [raw, raw.replace(/^ال/, ""), raw.replace(/^[وفبل]ال/, ""), raw.replace(/^[وف]/, "")];
-    for (const v of variants) for (const id of LOOKUP.get(v) ?? []) found.add(id);
+  for (const raw of normalizeArabic(text2).split(" ")) {
+    const variants2 = [raw, raw.replace(/^ال/, ""), raw.replace(/^[وفبل]ال/, ""), raw.replace(/^[وف]/, "")];
+    for (const v of variants2) for (const id of LOOKUP.get(v) ?? []) found.add(id);
   }
   return [...found];
 }
@@ -3958,10 +3958,10 @@ var Library = class {
     const stored = { ...clone(doc), revision, assets: Object.fromEntries(Object.entries(doc.assets ?? {}).map(([id, a]) => [id, (({ dataUrl, ...rest }) => rest)(a)])) };
     this.store.writeJson(VERSION(doc.id, revision), stored);
     const at = now();
-    const summary = summarize(doc, { concepts, metaphor, goal, topic, title });
+    const summary2 = summarize(doc, { concepts, metaphor, goal, topic, title });
     const meta = {
       ...existing ?? { createdAt: at, status: "candidate", contexts: [], feedback: [], usage: [], lineage: { parent: doc.parent ?? null, children: [] } },
-      ...summary,
+      ...summary2,
       ...existing?.concepts && !concepts ? { concepts: existing.concepts } : {},
       ...existing?.metaphor && !metaphor ? { metaphor: existing.metaphor } : {},
       updatedAt: at,
@@ -4056,10 +4056,10 @@ var Library = class {
   }
   // Feedback tied to elements and aspects, e.g. { verdict: 'like',
   // aspects: ['graphics'] } + { verdict: 'dislike', aspects: ['text.size'] }.
-  addFeedback(id, { verdict, aspects = [], elementIds = [], text = "", scope } = {}) {
+  addFeedback(id, { verdict, aspects = [], elementIds = [], text: text2 = "", scope } = {}) {
     const meta = this.meta(id);
     if (!meta) throw new Error(`no design ${id}`);
-    meta.feedback.push({ at: now(), verdict, aspects, elementIds, text, ...scope && { scope }, revision: meta.current });
+    meta.feedback.push({ at: now(), verdict, aspects, elementIds, text: text2, ...scope && { scope }, revision: meta.current });
     this.store.writeJson(META(id), meta);
     this.reindex(meta);
     return meta;
@@ -4130,8 +4130,8 @@ var Library = class {
     if (!base) throw new Error(`no design ${id}`);
     const pages = base.pages.map((p, i) => {
       const comp = compositionOf(p.composition.id);
-      const variants = Object.keys(comp.variants);
-      const next = variants[(variants.indexOf(p.composition.variant) + variantShift + variants.length) % variants.length];
+      const variants2 = Object.keys(comp.variants);
+      const next = variants2[(variants2.indexOf(p.composition.variant) + variantShift + variants2.length) % variants2.length];
       return { ...p, id: p.id, composition: { ...p.composition, variant: next, lockVariant: false }, content: content?.[i] ?? p.content, overrides: {} };
     });
     const doc = { ...clone(base), id: randomId("d_", 12), revision: 1, createdAt: now(), updatedAt: now(), parent: { id: base.id, revision: base.revision, relation: "remix" }, pages };
@@ -4310,8 +4310,8 @@ var Memory = class {
       if (value !== void 0 && value !== null) applied[key] = { value, source: "instruction" };
     }
     const candidates = p.preferences.filter((r) => scopeApplies(r.scope, context) && (r.origin === "explicit_feedback" || r.confirmed)).sort((a, b) => {
-      const rank = (r) => r.origin === "explicit_feedback" ? 2 : 1;
-      return rank(b) - rank(a) || specificity(b.scope) - specificity(a.scope) || (b.updatedAt > a.updatedAt ? 1 : -1);
+      const rank2 = (r) => r.origin === "explicit_feedback" ? 2 : 1;
+      return rank2(b) - rank2(a) || specificity(b.scope) - specificity(a.scope) || (b.updatedAt > a.updatedAt ? 1 : -1);
     });
     for (const r of candidates) {
       if (applied[r.key]) continue;
@@ -4322,31 +4322,31 @@ var Memory = class {
   }
   // A few lines for the assistant's context: only what applies here.
   summary(p, applied, context) {
-    const lines = [];
+    const lines2 = [];
     const account = p.facts.accounts.find((a) => !context.brandId || a.brandId === context.brandId);
-    if (account) lines.push(`\u0627\u0644\u062D\u0633\u0627\u0628: ${account.handle} \u0639\u0644\u0649 ${account.platform}`);
-    if (p.facts.audience) lines.push(`\u0627\u0644\u062C\u0645\u0647\u0648\u0631: ${p.facts.audience}`);
-    if (p.facts.tone) lines.push(`\u0627\u0644\u0646\u0628\u0631\u0629: ${p.facts.tone}`);
-    if (p.facts.pillars.length) lines.push(`\u0627\u0644\u0645\u062D\u0627\u0648\u0631: ${p.facts.pillars.slice(0, 5).join("\u060C ")}`);
+    if (account) lines2.push(`\u0627\u0644\u062D\u0633\u0627\u0628: ${account.handle} \u0639\u0644\u0649 ${account.platform}`);
+    if (p.facts.audience) lines2.push(`\u0627\u0644\u062C\u0645\u0647\u0648\u0631: ${p.facts.audience}`);
+    if (p.facts.tone) lines2.push(`\u0627\u0644\u0646\u0628\u0631\u0629: ${p.facts.tone}`);
+    if (p.facts.pillars.length) lines2.push(`\u0627\u0644\u0645\u062D\u0627\u0648\u0631: ${p.facts.pillars.slice(0, 5).join("\u060C ")}`);
     for (const [key, a] of Object.entries(applied)) {
-      lines.push(`${PREFERENCE_KEYS[key]?.label ?? key}: ${a.value} (${a.source === "instruction" ? "\u0627\u0644\u0637\u0644\u0628 \u0627\u0644\u062D\u0627\u0644\u064A" : a.source === "explicit" ? "\u062A\u0641\u0636\u064A\u0644 \u0635\u0631\u064A\u062D" : "\u0646\u0645\u0637 \u0645\u0624\u0643\u064E\u0651\u062F"})`);
+      lines2.push(`${PREFERENCE_KEYS[key]?.label ?? key}: ${a.value} (${a.source === "instruction" ? "\u0627\u0644\u0637\u0644\u0628 \u0627\u0644\u062D\u0627\u0644\u064A" : a.source === "explicit" ? "\u062A\u0641\u0636\u064A\u0644 \u0635\u0631\u064A\u062D" : "\u0646\u0645\u0637 \u0645\u0624\u0643\u064E\u0651\u062F"})`);
     }
-    return lines.join("\n").slice(0, 900);
+    return lines2.join("\n").slice(0, 900);
   }
   // Optional post results the creator imports (CSV/JSON rows with a design
   // id). Stored as given; never invented, and too few rows say nothing.
   importResults(creatorId, rows) {
     const p = this.profile(creatorId);
-    const clean2 = rows.filter((r) => r && typeof r.designId === "string").map((r) => ({
+    const clean3 = rows.filter((r) => r && typeof r.designId === "string").map((r) => ({
       designId: r.designId,
       platform: r.platform ?? null,
       postedAt: r.postedAt ?? null,
       metrics: Object.fromEntries(Object.entries(r.metrics ?? r).filter(([k, v]) => typeof v === "number" && Number.isFinite(v) && !["designId"].includes(k))),
       importedAt: now()
     }));
-    p.results = [...p.results, ...clean2];
+    p.results = [...p.results, ...clean3];
     this.save(p);
-    return clean2.length;
+    return clean3.length;
   }
   resultsSummary(creatorId, { minRows = 5 } = {}) {
     const rows = this.profile(creatorId).results;
@@ -4419,9 +4419,9 @@ var ASPECTS = [
 var POSITIVE = ["\u0627\u062D\u0628", "\u062D\u0628\u064A\u062A", "\u062C\u0645\u064A\u0644", "\u0631\u0627\u0626\u0639", "\u0645\u0645\u062A\u0627\u0632", "\u062D\u0644\u0648", "\u0639\u062C\u0628\u0646\u064A", "\u0627\u0639\u062C\u0628\u0646\u064A", "\u0645\u0646\u0627\u0633\u0628", "\u064A\u0639\u062C\u0628\u0646\u064A", "\u062A\u0645\u0627\u0645", "\u0632\u064A\u0646"];
 var NEGATIVE = ["\u0644\u0627 \u064A\u0646\u0627\u0633\u0628", "\u0645\u0627 \u064A\u0646\u0627\u0633\u0628", "\u0644\u0627 \u0627\u062D\u0628", "\u0645\u0627 \u062D\u0628\u064A\u062A", "\u0633\u064A\u0621", "\u0645\u0632\u062F\u062D\u0645", "\u0635\u063A\u064A\u0631", "\u0636\u0639\u064A\u0641", "\u0644\u0627 \u064A\u0639\u062C\u0628\u0646\u064A", "\u0645\u0627 \u0639\u062C\u0628\u0646\u064A", "\u063A\u064A\u0631 \u0645\u0646\u0627\u0633\u0628", "\u0643\u0628\u064A\u0631 \u062C\u062F\u0627", "\u0628\u0627\u0647\u062A"];
 var APPROVE = ["\u0627\u0639\u062A\u0645\u062F", "\u0645\u0639\u062A\u0645\u062F", "\u0648\u0627\u0641\u0642\u062A", "\u0627\u0646\u0634\u0631\u0647", "\u0646\u0634\u0631\u062A\u0647", "\u0647\u0630\u0627 \u0627\u0644\u0646\u0647\u0627\u0626\u064A", "\u0645\u0645\u062A\u0627\u0632 \u0627\u0639\u062A\u0645\u062F\u0647"];
-function parseFeedback(text) {
-  const norm = normalizeArabic(text);
-  const clauses = norm.split(/\s(?:لكن|ولكن|بس|الا ان|غير ان)\s/);
+function parseFeedback(text2) {
+  const norm2 = normalizeArabic(text2);
+  const clauses = norm2.split(/\s(?:لكن|ولكن|بس|الا ان|غير ان)\s/);
   const aspects = [];
   for (const clause of clauses) {
     const neg = NEGATIVE.some((w) => clause.includes(normalizeArabic(w)));
@@ -4434,9 +4434,9 @@ function parseFeedback(text) {
       aspects.push({ aspect: a.aspect, sentiment, ...fix && { fix } });
     }
   }
-  const approved = APPROVE.some((w) => norm.includes(normalizeArabic(w)));
-  const topicScoped = /(هذا|هالموضوع|الموضوع)/.test(norm) && NEGATIVE.some((w) => norm.includes(normalizeArabic(w)));
-  const general = /(دائما|دايم|كل التصاميم|في كل|ابدا|لا تستخدم)/.test(norm);
+  const approved = APPROVE.some((w) => norm2.includes(normalizeArabic(w)));
+  const topicScoped = /(هذا|هالموضوع|الموضوع)/.test(norm2) && NEGATIVE.some((w) => norm2.includes(normalizeArabic(w)));
+  const general = /(دائما|دايم|كل التصاميم|في كل|ابدا|لا تستخدم)/.test(norm2);
   return {
     aspects,
     verdict: approved ? "approved" : aspects.some((a) => a.sentiment < 0) ? aspects.some((a) => a.sentiment > 0) ? "mixed" : "dislike" : aspects.some((a) => a.sentiment > 0) ? "like" : "note",
@@ -4470,11 +4470,11 @@ var Projects = class {
     this.store.writeJson(PROJECT(id), next);
     return next;
   }
-  decide(id, text) {
-    return this.update(id, (p) => void p.decisions.push({ at: now(), text }));
+  decide(id, text2) {
+    return this.update(id, (p) => void p.decisions.push({ at: now(), text: text2 }));
   }
-  note(id, text, { designId, elementIds } = {}) {
-    return this.update(id, (p) => void p.notes.push({ at: now(), text, ...designId && { designId }, ...elementIds?.length && { elementIds } }));
+  note(id, text2, { designId, elementIds } = {}) {
+    return this.update(id, (p) => void p.notes.push({ at: now(), text: text2, ...designId && { designId }, ...elementIds?.length && { elementIds } }));
   }
   linkDesign(id, designId, revision, role = "main") {
     return this.update(id, (p) => {
@@ -4572,8 +4572,8 @@ function checkBrandRules(doc, brand, { overrides = [] } = {}) {
     for (const el of page.elements) {
       if (el.hidden) continue;
       if (banned.size) {
-        const used = [el.kind === "shape" && el.fill !== "none" && resolveColor(el.fill, colors), el.stroke && resolveColor(el.stroke, colors), el.kind === "text" && resolveColor(el.style.color, colors)].filter(Boolean);
-        for (const hex of used) {
+        const used2 = [el.kind === "shape" && el.fill !== "none" && resolveColor(el.fill, colors), el.stroke && resolveColor(el.stroke, colors), el.kind === "text" && resolveColor(el.style.color, colors)].filter(Boolean);
+        for (const hex of used2) {
           const fam = warmFamily(hex);
           if (fam && banned.has(fam)) add(`no-${fam}`, `color-${fam}`, `\xAB${el.name ?? el.id}\xBB \u0628\u0644\u0648\u0646 ${fam === "yellow" ? "\u0623\u0635\u0641\u0631" : "\u0628\u0631\u062A\u0642\u0627\u0644\u064A"} (${hex}).`, page.id, el.id);
         }
@@ -4584,12 +4584,12 @@ function checkBrandRules(doc, brand, { overrides = [] } = {}) {
         if (FACE_TAGS.test(tags)) add("no-faces", "faces", `\xAB${el.name ?? el.id}\xBB \u0645\u0648\u0633\u0648\u0645 \u0628\u0648\u062C\u0648\u0647 \u0623\u0648 \u0623\u0634\u062E\u0627\u0635: \u0627\u0644\u0647\u0648\u064A\u0629 \u0628\u0644\u0627 \u0648\u062C\u0648\u0647 \u0628\u0634\u0631\u064A\u0629.`, page.id, el.id);
       }
       if (el.kind !== "text") continue;
-      const text = plainText(el.text);
+      const text2 = plainText(el.text);
       if (rules.includes("no-latin-words")) {
-        const latin = (text.match(/[@#]?[A-Za-z][A-Za-z0-9_.'-]*/g) ?? []).filter((w) => !allowedLatin.includes(w.toLowerCase()));
+        const latin = (text2.match(/[@#]?[A-Za-z][A-Za-z0-9_.'-]*/g) ?? []).filter((w) => !allowedLatin.includes(w.toLowerCase()));
         if (latin.length) add("no-latin-words", "latin-word", `\xAB${el.name ?? el.id}\xBB \u0641\u064A\u0647 \u0643\u0644\u0645\u0627\u062A \u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629: ${[...new Set(latin)].join("\u060C ")}. \u0627\u0644\u0645\u0633\u0645\u0648\u062D: ${allowedLatin.join("\u060C ") || "\u0644\u0627 \u0634\u064A\u0621"}.`, page.id, el.id, Boolean(el.slot));
       }
-      if (rules.includes("western-digits") && /[٠-٩۰-۹]/.test(text)) add("western-digits", "digits", `\xAB${el.name ?? el.id}\xBB \u0628\u0623\u0631\u0642\u0627\u0645 \u0639\u0631\u0628\u064A\u0629 \u0645\u0634\u0631\u0642\u064A\u0629 (\u0660-\u0669): \u0627\u0644\u0647\u0648\u064A\u0629 \u062A\u0633\u062A\u062E\u062F\u0645 0-9.`, page.id, el.id, Boolean(el.slot));
+      if (rules.includes("western-digits") && /[٠-٩۰-۹]/.test(text2)) add("western-digits", "digits", `\xAB${el.name ?? el.id}\xBB \u0628\u0623\u0631\u0642\u0627\u0645 \u0639\u0631\u0628\u064A\u0629 \u0645\u0634\u0631\u0642\u064A\u0629 (\u0660-\u0669): \u0627\u0644\u0647\u0648\u064A\u0629 \u062A\u0633\u062A\u062E\u062F\u0645 0-9.`, page.id, el.id, Boolean(el.slot));
       if (rules.includes("fonts-only") && brand.fonts?.allowed?.length) {
         const font = resolveFont(el.style.fontFamily, doc.theme.fonts);
         if (!brand.fonts.allowed.includes(font)) add("fonts-only", "font", `\xAB${el.name ?? el.id}\xBB \u0628\u062E\u0637 ${font}\u060C \u0648\u0627\u0644\u0645\u0633\u0645\u0648\u062D ${brand.fonts.allowed.join(" \u0623\u0648 ")}.`, page.id, el.id);
@@ -4676,19 +4676,19 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
         const min = el.role === "title" ? 18 : 10.5;
         if (phone < min) issues.push(issue("text.too-small", "error", `\xAB${el.name ?? el.id}\xBB \u0628\u062D\u062C\u0645 ${Math.round(size)}px \u064A\u0638\u0647\u0631 \u0639\u0644\u0649 \u0627\u0644\u0647\u0627\u062A\u0641 \u0628\u0646\u062D\u0648 ${phone.toFixed(1)}pt\u060C \u0623\u0642\u0644 \u0645\u0646 ${min}pt \u0627\u0644\u0645\u0642\u0631\u0648\u0621.`, page.id, el.id));
       }
-      const words2 = plainText(el.text).split(/\s+/).filter(Boolean);
-      if (!isLabel && !el.style.nowrap && words2.length > 2) {
+      const words3 = plainText(el.text).split(/\s+/).filter(Boolean);
+      if (!isLabel && !el.style.nowrap && words3.length > 2) {
         const perLine = el.frame.width / (0.5 * size);
         if (perLine < 9) issues.push(issue("text.narrow", "warning", `\xAB${el.name ?? el.id}\xBB \u0636\u064A\u0651\u0642: \u0646\u062D\u0648 ${n(Math.floor(perLine))} \u0623\u062D\u0631\u0641 \u0641\u064A \u0627\u0644\u0633\u0637\u0631. \u0648\u0633\u0651\u0639 \u0645\u0646\u0637\u0642\u062A\u0647 \u0623\u0648 \u0642\u0644\u0651\u0644 \u062D\u062C\u0645\u0647.`, page.id, el.id));
       }
       if ((el.role === "body" || el.role === "subtitle") && !el.style.nowrap) {
         const lone = plainText(el.text).split("\n").filter((para) => {
-          const lines = wrapLines(para, { font, weight: el.style.weight, size }, el.frame.width);
-          return lines.length > 1 && lines.at(-1).text.trim().split(/\s+/).length < 2;
+          const lines2 = wrapLines(para, { font, weight: el.style.weight, size }, el.frame.width);
+          return lines2.length > 1 && lines2.at(-1).text.trim().split(/\s+/).length < 2;
         });
         if (lone.length) issues.push(issue("text.lone-word", "warning", `\xAB${el.name ?? el.id}\xBB: \u0633\u0637\u0631 \u064A\u0646\u062A\u0647\u064A \u0628\u0643\u0644\u0645\u0629 \u0648\u062D\u064A\u062F\u0629 (\xAB${lone[0].trim().split(/\s+/).at(-1)}\xBB). \u0627\u0642\u0633\u0645 \u0627\u0644\u0633\u0637\u0648\u0631 \u0628\u0646\u0641\u0633\u0643 \u0623\u0648 \u0627\u062E\u062A\u0635\u0631\u0647\u0627.`, page.id, el.id));
       }
-      const longest = Math.max(0, ...words2.map((w) => textWidth(w, { font, weight: el.style.weight, size })));
+      const longest = Math.max(0, ...words3.map((w) => textWidth(w, { font, weight: el.style.weight, size })));
       if (longest > el.frame.width * 1.02 && !el.style.nowrap) {
         issues.push(issue("text.clipped-word", "error", `\xAB${el.name ?? el.id}\xBB: \u0643\u0644\u0645\u0629 \u0623\u0639\u0631\u0636 \u0645\u0646 \u0645\u0633\u0627\u062D\u062A\u0647\u0627 \u0648\u0633\u062A\u064F\u0642\u0635.`, page.id, el.id));
       }
@@ -4707,9 +4707,9 @@ function checkDesign(doc, { expectedPages, expectedFormat, source, readback, exp
       const fg = resolveColor(el.style.color, theme.colors);
       const bg = backgroundOf(page, el, theme.colors);
       const large = size >= 48 || size >= 37 && el.style.weight >= 700;
-      const ratio = contrastRatio(fg, bg);
-      if (ratio < (large ? 3 : 4.5)) {
-        issues.push(issue("contrast.low", "error", `\xAB${el.name ?? el.id}\xBB: \u062A\u0628\u0627\u064A\u0646 ${ratio.toFixed(2)}:1 \u0623\u0642\u0644 \u0645\u0646 ${large ? 3 : 4.5}:1.`, page.id, el.id));
+      const ratio2 = contrastRatio(fg, bg);
+      if (ratio2 < (large ? 3 : 4.5)) {
+        issues.push(issue("contrast.low", "error", `\xAB${el.name ?? el.id}\xBB: \u062A\u0628\u0627\u064A\u0646 ${ratio2.toFixed(2)}:1 \u0623\u0642\u0644 \u0645\u0646 ${large ? 3 : 4.5}:1.`, page.id, el.id));
       }
       if (el.style.highlight && el.text.includes("*")) {
         const hl = contrastRatio(fg, resolveColor(el.style.highlight, theme.colors));
@@ -4803,16 +4803,16 @@ function textDiffIssue(code, d, pageId, elementId, pageIndex, fromOcr = false) {
 
 // lib/studio/router.js
 var ORDINAL_WORDS = { \u0648\u0627\u062D\u062F: 1, \u0648\u0627\u062D\u062F\u0647: 1, \u0627\u062B\u0646\u064A\u0646: 2, \u0627\u062B\u0646\u062A\u064A\u0646: 2, \u062B\u0644\u0627\u062B: 3, \u062B\u0644\u0627\u062B\u0647: 3, \u0627\u0631\u0628\u0639: 4, \u0627\u0631\u0628\u0639\u0647: 4, \u062E\u0645\u0633: 5, \u062E\u0645\u0633\u0647: 5, \u0633\u062A: 6, \u0633\u062A\u0647: 6, \u0633\u0628\u0639: 7, \u0633\u0628\u0639\u0647: 7, \u062B\u0645\u0627\u0646: 8, \u062B\u0645\u0627\u0646\u064A: 8, \u062B\u0645\u0627\u0646\u064A\u0647: 8, \u062A\u0633\u0639: 9, \u062A\u0633\u0639\u0647: 9, \u0639\u0634\u0631: 10, \u0639\u0634\u0631\u0647: 10 };
-function parseIntent(text) {
-  const raw = String(text ?? "");
-  const norm = normalizeArabic(raw);
-  const has = (...forms) => forms.some((f3) => norm.includes(normalizeArabic(f3)));
+function parseIntent(text2) {
+  const raw = String(text2 ?? "");
+  const norm2 = normalizeArabic(raw);
+  const has = (...forms) => forms.some((f3) => norm2.includes(normalizeArabic(f3)));
   const intent = { mode: null, pages: null, destination: "local", format: null, platform: null, quality: "normal", fresh: false, items: null };
   if (has("\u0628\u0648\u0633\u062A \u0645\u0641\u0631\u062F", "\u0645\u0646\u0634\u0648\u0631 \u0645\u0641\u0631\u062F", "\u0645\u0646\u0634\u0648\u0631 \u0648\u0627\u062D\u062F", "\u0628\u0648\u0633\u062A \u0648\u0627\u062D\u062F", "\u0635\u0648\u0631\u0647 \u0648\u0627\u062D\u062F\u0647", "\u062A\u0635\u0645\u064A\u0645 \u0648\u0627\u062D\u062F", "single post")) {
     intent.mode = "post";
     intent.pages = 1;
   }
-  const pagesMatch = /(\d{1,2}|[؀-ۿ]+)\s*(?:شرايح|شريحه|سلايدات|سلايد|صفحات|صفحه|slides?)/.exec(toWesternDigits(norm));
+  const pagesMatch = /(\d{1,2}|[؀-ۿ]+)\s*(?:شرايح|شريحه|سلايدات|سلايد|صفحات|صفحه|slides?)/.exec(toWesternDigits(norm2));
   if (pagesMatch) {
     const n2 = /^\d+$/.test(pagesMatch[1]) ? Number(pagesMatch[1]) : ORDINAL_WORDS[pagesMatch[1]];
     if (n2) intent.pages = n2;
@@ -4833,7 +4833,7 @@ function parseIntent(text) {
   else if (has("\u0627\u0646\u0633\u062A\u0642\u0631\u0627\u0645", "\u0627\u0646\u0633\u062A\u063A\u0631\u0627\u0645", "\u0627\u0646\u0633\u062A\u0627", "instagram")) intent.platform = "instagram";
   else if (has("\u062A\u064A\u0643 \u062A\u0648\u0643", "tiktok")) intent.platform = "tiktok";
   else if (has("\u062A\u0648\u064A\u062A\u0631", "\u0645\u0646\u0635\u0647 \u0627\u0643\u0633", " x ")) intent.platform = "x";
-  const items = /(\d{1,2})\s*(?:نقاط|نقطه|بنود|بند|عادات|خطوات|نصائح|اسرار|اخطاء|طرق)/.exec(toWesternDigits(norm)) ?? new RegExp(`(${Object.keys(ORDINAL_WORDS).join("|")})\\s+(?:\u0646\u0642\u0627\u0637|\u0628\u0646\u0648\u062F|\u0639\u0627\u062F\u0627\u062A|\u062E\u0637\u0648\u0627\u062A|\u0646\u0635\u0627\u0626\u062D|\u0627\u0633\u0631\u0627\u0631|\u0627\u062E\u0637\u0627\u0621|\u0637\u0631\u0642)`).exec(norm);
+  const items = /(\d{1,2})\s*(?:نقاط|نقطه|بنود|بند|عادات|خطوات|نصائح|اسرار|اخطاء|طرق)/.exec(toWesternDigits(norm2)) ?? new RegExp(`(${Object.keys(ORDINAL_WORDS).join("|")})\\s+(?:\u0646\u0642\u0627\u0637|\u0628\u0646\u0648\u062F|\u0639\u0627\u062F\u0627\u062A|\u062E\u0637\u0648\u0627\u062A|\u0646\u0635\u0627\u0626\u062D|\u0627\u0633\u0631\u0627\u0631|\u0627\u062E\u0637\u0627\u0621|\u0637\u0631\u0642)`).exec(norm2);
   if (items) intent.items = /^\d+$/.test(items[1]) ? Number(items[1]) : ORDINAL_WORDS[items[1]];
   intent.concepts = extractConcepts(raw);
   return intent;
@@ -5018,7 +5018,7 @@ var Workflows = class {
     if (problems.length) return { ok: false, problems, workflow: wf };
     const assetSlots = pages.flatMap((p, i) => {
       const slots = [];
-      if (p.variant === "illustrated") (p.content.items ?? p.content.points ?? []).forEach((text, k) => slots.push({ page: i, slot: `itemArt.${k}`, text }));
+      if (p.variant === "illustrated") (p.content.items ?? p.content.points ?? []).forEach((text2, k) => slots.push({ page: i, slot: `itemArt.${k}`, text: text2 }));
       if ((p.variant === "art" || p.composition === "collage") && !p.content.art) slots.push({ page: i, slot: "art", text: p.content.title ?? p.content.hook ?? "" });
       return slots;
     });
@@ -5335,14 +5335,14 @@ function stem(word) {
   if (/^[بلك]ال/.test(w)) w = w.slice(1);
   return w;
 }
-function matcher(text) {
-  const norm = normalizeArabic(text);
-  const words2 = norm.split(" ").map(stem);
+function matcher(text2) {
+  const norm2 = normalizeArabic(text2);
+  const words3 = norm2.split(" ").map(stem);
   const has = (forms) => forms.some((f3) => {
     const nf = normalizeArabic(f3);
-    return nf.includes(" ") ? norm.includes(nf) : words2.some((w) => w === nf || w === `\u0627\u0644${nf}`);
+    return nf.includes(" ") ? norm2.includes(nf) : words3.some((w) => w === nf || w === `\u0627\u0644${nf}`);
   });
-  return { norm, words: words2, has };
+  return { norm: norm2, words: words3, has };
 }
 var TARGETS = [
   { id: "subtitle", forms: ["\u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0641\u0631\u0639\u064A", "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", "\u0627\u0644\u0648\u0635\u0641", "\u0627\u0644\u0646\u0635 \u0627\u0644\u0641\u0631\u0639\u064A"], roles: ["subtitle"] },
@@ -5399,10 +5399,10 @@ function pageOrdinal(m) {
   return null;
 }
 var quoteRe = /[«"“](.+?)[»"”]/s;
-function quotedText(text) {
-  const q = quoteRe.exec(text);
+function quotedText(text2) {
+  const q = quoteRe.exec(text2);
   if (q) return q[1].trim();
-  const colon = /(?:إلى|الى|ليصبح|لتصبح|:)\s*(.+)$/s.exec(text);
+  const colon = /(?:إلى|الى|ليصبح|لتصبح|:)\s*(.+)$/s.exec(text2);
   return colon ? colon[1].trim() : null;
 }
 function amount(m) {
@@ -5465,19 +5465,19 @@ function colorFromWords(m, doc, brand) {
   const said = entry.words.map((w) => normalizeArabic(w).replace(/^ال/, "")).filter((w) => m.norm.includes(w));
   const commandWords = new Set(m.words.map((w) => w.replace(/^ال/, "")));
   const named = (c) => {
-    const words2 = normalizeArabic(c.name ?? "").split(" ").map((w) => w.replace(/^ال/, "")).filter(Boolean);
-    if (!said.some((w) => words2.includes(w))) return 0;
-    return words2.filter((w) => commandWords.has(w)).length;
+    const words3 = normalizeArabic(c.name ?? "").split(" ").map((w) => w.replace(/^ال/, "")).filter(Boolean);
+    if (!said.some((w) => words3.includes(w))) return 0;
+    return words3.filter((w) => commandWords.has(w)).length;
   };
   const matches = pool.filter((c) => named(c) || matchesColorWord(c.hex, entry)).sort((a, b) => named(b) - named(a));
   return { entry, matches, wantsBrand };
 }
-function parseCommand(doc, text, ctx = {}) {
+function parseCommand(doc, text2, ctx = {}) {
   replyNumerals = doc.theme?.numerals ?? "arab";
-  const m = matcher(text);
+  const m = matcher(text2);
   const targets = findTargets(m);
   const target = targets[0];
-  const result = (props) => ({ text, local: true, patches: [], scope: "any", ...props });
+  const result = (props) => ({ text: text2, local: true, patches: [], scope: "any", ...props });
   if (hasVerb(m, VERBS.undo)) return result({ intent: "undo", reply: "\u062A\u0631\u0627\u062C\u0639\u062A \u0639\u0646 \u0622\u062E\u0631 \u062A\u0639\u062F\u064A\u0644." });
   if (m.norm === "\u0627\u0639\u062F" || m.norm.startsWith("\u0627\u0639\u062F \u0627\u0644\u062A\u0639\u062F\u064A\u0644")) return result({ intent: "redo", reply: "\u0623\u0639\u062F\u062A \u0627\u0644\u062A\u0639\u062F\u064A\u0644." });
   if (m.has(["\u0634\u064A \u062C\u062F\u064A\u062F", "\u0634\u064A\u0621 \u062C\u062F\u064A\u062F", "\u0634\u064A\u0626\u0627 \u062C\u062F\u064A\u062F\u0627", "\u0641\u0643\u0631\u0647 \u062C\u062F\u064A\u062F\u0647", "\u0627\u062A\u062C\u0627\u0647 \u062C\u062F\u064A\u062F", "\u062A\u0635\u0645\u064A\u0645 \u062C\u062F\u064A\u062F", "\u062C\u0631\u0627\u0641\u064A\u0643 \u0627\u0642\u0648\u064A", "\u0631\u0633\u0648\u0645 \u0627\u0642\u0648\u064A", "\u0627\u0642\u0648\u064A \u0628\u0635\u0631\u064A\u0627"])) {
@@ -5551,10 +5551,10 @@ function parseCommand(doc, text, ctx = {}) {
         options: pool.map(({ page: page2, el: el2 }, i) => ({ label: `${el2.name ?? "\u0631\u0633\u0645"} (${fmt2(i + 1)})`, pageId: page2.id, elementId: el2.id }))
       });
     }
-    const pick2 = pool[n2 === -1 ? pool.length - 1 : (n2 ?? 1) - 1];
-    if (!pick2) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A ${where2} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
-    const { page, el } = pick2;
-    const assetId = /\b(a_[a-z0-9]{6,})\b/i.exec(text)?.[1];
+    const pick3 = pool[n2 === -1 ? pool.length - 1 : (n2 ?? 1) - 1];
+    if (!pick3) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0631\u0633\u0645 \u0631\u0642\u0645 ${fmt2(n2)}\u061B \u0641\u064A ${where2} ${fmt2(pool.length)} \u0631\u0633\u0648\u0645 \u0641\u0642\u0637.` });
+    const { page, el } = pick3;
+    const assetId = /\b(a_[a-z0-9]{6,})\b/i.exec(text2)?.[1];
     if (assetId) {
       return result({ intent: "replace_asset", scope: "graphic", patches: [{ pageId: page.id, elementId: el.id, action: "replace_asset", payload: { assetId } }], reply: `\u0627\u0633\u062A\u0628\u062F\u0644\u062A ${el.name ?? "\u0627\u0644\u0631\u0633\u0645"} \u0648\u062D\u062F\u0647.` });
     }
@@ -5572,9 +5572,9 @@ function parseCommand(doc, text, ctx = {}) {
   const nth = target.id === "items" ? ordinalAfter(m, target.forms) : null;
   if (nth) {
     const items = els.filter(({ el }) => el.role === "item");
-    const pick2 = items[nth === -1 ? items.length - 1 : nth - 1];
-    if (!pick2) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0628\u0646\u062F \u0631\u0642\u0645 ${fmt2(nth)}.` });
-    els = [pick2];
+    const pick3 = items[nth === -1 ? items.length - 1 : nth - 1];
+    if (!pick3) return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0644\u0627 \u064A\u0648\u062C\u062F \u0628\u0646\u062F \u0631\u0642\u0645 ${fmt2(nth)}.` });
+    els = [pick3];
   }
   const textEls = els.filter(({ el }) => el.kind === "text");
   const label = nth ? `\u0627\u0644\u0628\u0646\u062F ${fmt2(nth === -1 ? els.length : nth)}` : target.id === "items" && els.every(({ el }) => el.role === "body") ? "\u0627\u0644\u0646\u0635" : target.forms[0];
@@ -5621,7 +5621,7 @@ function parseCommand(doc, text, ctx = {}) {
     return result({ intent: "color", patches: patch("update_style", { color: value }, textEls), reply: `\u0644\u0648\u0651\u0646\u062A ${label} \u0628\u0640${value}.` });
   }
   if (hasVerb(m, VERBS.replace) && textEls.length) {
-    const newText = quotedText(text);
+    const newText = quotedText(text2);
     if (newText) {
       if (textEls.length > 1 && !nth) {
         return result({
@@ -5640,8 +5640,8 @@ function parseCommand(doc, text, ctx = {}) {
   return result({ intent: "clarify", local: false, needs: "clarify", reply: `\u0641\u0647\u0645\u062A \u0623\u0646\u0643 \u062A\u0642\u0635\u062F ${label}\u060C \u0644\u0643\u0646 \u0644\u0645 \u0623\u0641\u0647\u0645 \u0627\u0644\u062A\u0639\u062F\u064A\u0644 \u0627\u0644\u0645\u0637\u0644\u0648\u0628. \u062C\u0631\u0651\u0628: \xAB\u0643\u0628\u0651\u0631 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0642\u0644\u064A\u0644\u064B\u0627\xBB \u0623\u0648 \xAB\u063A\u064A\u0651\u0631 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0625\u0644\u0649 \xAB\u2026\xBB\xBB.` });
 }
 var COLUMN_VARIANT = { list: "grid", post: "grid", comparison: "columns" };
-function runCommand(doc, text, ctx = {}) {
-  const cmd = parseCommand(doc, text, ctx);
+function runCommand(doc, text2, ctx = {}) {
+  const cmd = parseCommand(doc, text2, ctx);
   if (cmd.intent === "format") return { ...cmd, doc: setFormat({ ...doc, revision: doc.revision + 1, updatedAt: now() }, cmd.format, ctx) };
   if (cmd.intent === "font") {
     const fonts = { ...doc.theme.fonts, ...cmd.role !== "body" && { heading: cmd.fontId }, ...cmd.role !== "heading" && { body: cmd.fontId } };
@@ -5713,15 +5713,15 @@ var where = (f3, H) => {
   return c < 0.36 ? "\u0641\u064A \u0627\u0644\u062B\u0644\u062B \u0627\u0644\u0639\u0644\u0648\u064A" : c < 0.64 ? "\u0641\u064A \u0627\u0644\u0648\u0633\u0637" : "\u0641\u064A \u0627\u0644\u062B\u0644\u062B \u0627\u0644\u0633\u0641\u0644\u064A";
 };
 var alignOf = (el) => el.style.align === "center" ? "\u0641\u064A \u0627\u0644\u0648\u0633\u0637" : el.style.direction === "ltr" ? "\u0645\u0646 \u0627\u0644\u064A\u0633\u0627\u0631" : "\u0645\u0646 \u0627\u0644\u064A\u0645\u064A\u0646";
-var marked = (text) => [...String(text ?? "").matchAll(/\*([^*]+)\*/g)].map((m) => m[1].trim());
-var clean = (text) => plainText(text).replace(/\n/g, " / ");
+var marked = (text2) => [...String(text2 ?? "").matchAll(/\*([^*]+)\*/g)].map((m) => m[1].trim());
+var clean = (text2) => plainText(text2).replace(/\n/g, " / ");
 var LABEL = { kicker: "\u0627\u0644\u062A\u0645\u0647\u064A\u062F", title: "\u0627\u0644\u0639\u0646\u0648\u0627\u0646", number: "\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0643\u0628\u064A\u0631", subtitle: "\u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u062F\u0627\u0639\u0645", body: "\u0627\u0644\u0646\u0635", item: "\u0628\u0646\u062F", quote: "\u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633", author: "\u0627\u0644\u0642\u0627\u0626\u0644", caption: "\u0627\u0644\u0635\u0641\u0629", source: "\u0627\u0644\u0645\u0635\u062F\u0631", cta: "\u0632\u0631", label: "\u0634\u0627\u0631\u0629", brand: "\u0627\u0644\u062D\u0633\u0627\u0628", role: "\u0627\u0644\u0635\u0641\u0629" };
 function describePage(doc, page, i) {
   const { colors, fonts } = pageTheme(doc, page);
   const H = page.heightPx;
   const els = page.elements.filter((e) => !e.hidden);
   const texts = els.filter((e) => e.kind === "text" && e.role !== "system" && e.role !== "decor" && plainText(e.text).trim()).sort((a, b) => a.frame.y - b.frame.y || b.frame.x - a.frame.x);
-  const lines = texts.map((e) => {
+  const lines2 = texts.map((e) => {
     const font = resolveFont(e.style.fontFamily, fonts);
     return {
       id: e.id,
@@ -5748,13 +5748,13 @@ function describePage(doc, page, i) {
   if (has(/-band$/)) visual.push(`\u0634\u0631\u064A\u0637 \u062A\u0638\u0644\u064A\u0644 \u0623\u0641\u0642\u064A \u0628\u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0648\u062F \u0628\u0627\u0644\u0644\u0648\u0646 ${resolveColor("@highlight", colors)} \u062E\u0644\u0641 \u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0643\u0628\u064A\u0631`);
   for (const s of shapes) {
     if (!/-box$/.test(s.id) || /^step-/.test(s.id)) continue;
-    const owner = lines.find((l) => s.id === `${l.id}-box`)?.text ?? "\u0627\u0644\u0641\u0643\u0631\u0629";
+    const owner = lines2.find((l) => s.id === `${l.id}-box`)?.text ?? "\u0627\u0644\u0641\u0643\u0631\u0629";
     visual.push(s.fill === "none" ? `\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 \u0628\u0644\u0648\u0646 ${resolveColor(s.stroke ?? "@line", colors)} \u062D\u0648\u0644 \xAB${owner}\xBB` : `\u0644\u0648\u062D ${s.stroke ? "\u0628\u0625\u0637\u0627\u0631 \u0631\u0641\u064A\u0639 " : ""}\u0645\u0645\u0644\u0648\u0621 \u0628\u0627\u0644\u0644\u0648\u0646 ${resolveColor(s.fill, colors)} \u062E\u0644\u0641 \xAB${owner}\xBB`);
   }
   if (has(/-rule$/)) visual.push(`\u062E\u0637 \u0641\u0627\u0635\u0644 \u0631\u0641\u064A\u0639 \u0623\u0641\u0642\u064A \u0628\u0644\u0648\u0646 ${resolveColor(shapes.find((e) => /-rule$/.test(e.id)).fill, colors)}`);
   if (els.some((e) => e.kind === "image")) visual.push("\u0631\u0633\u0645 \u0645\u0633\u0637\u062D \u0628\u0633\u064A\u0637 \u0628\u0644\u0627 \u0646\u0635\u0648\u0635 \u0648\u0644\u0627 \u0648\u062C\u0648\u0647");
   const sys = els.filter((e) => e.role === "system" && e.kind === "text").map((e) => ({ name: e.name, text: plainText(e.text), where: where(e.frame, H), side: e.frame.x + e.frame.width / 2 < page.widthPx / 2 ? "\u064A\u0633\u0627\u0631" : "\u064A\u0645\u064A\u0646" }));
-  return { index: i + 1, total: doc.pages.length, type: typeOf(page), goal: goalOf(page, i, doc.pages.length), size: `${page.widthPx}\xD7${H}`, bg: colors.bg, colors, lines, visual: [...new Set(visual)], system: sys };
+  return { index: i + 1, total: doc.pages.length, type: typeOf(page), goal: goalOf(page, i, doc.pages.length), size: `${page.widthPx}\xD7${H}`, bg: colors.bg, colors, lines: lines2, visual: [...new Set(visual)], system: sys };
 }
 function promptOf(d, style) {
   const out = [];
@@ -5797,8 +5797,8 @@ function promptsMarkdown(doc) {
       else groups.push({ where: l.where, labels: [l.label] });
     }
     const layout = groups.map((g) => `${g.labels.join(" \u0648")} ${g.where}`).join("\u060C ");
-    const words2 = d.lines.flatMap((l) => l.marked).map((w) => `\xAB${w}\xBB`).join(" ") || "\u2014";
-    md.push(`| ${d.index} | ${cell(d.goal)} | ${cell(title?.text)} | ${cell(d.type)} | ${cell(layout)} | ${cell(d.visual[0] ?? "\u0645\u0633\u0627\u062D\u0629 \u0628\u064A\u0636\u0627\u0621 \u0648\u0646\u0635 \u0641\u0642\u0637")} | ${cell(words2)} | ${cell(title ? `\u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${title.align} \u0628\u062E\u0637 ${title.font} ${title.weight} ${title.size} \u0628\u0643\u0633\u0644` : "")} |`);
+    const words3 = d.lines.flatMap((l) => l.marked).map((w) => `\xAB${w}\xBB`).join(" ") || "\u2014";
+    md.push(`| ${d.index} | ${cell(d.goal)} | ${cell(title?.text)} | ${cell(d.type)} | ${cell(layout)} | ${cell(d.visual[0] ?? "\u0645\u0633\u0627\u062D\u0629 \u0628\u064A\u0636\u0627\u0621 \u0648\u0646\u0635 \u0641\u0642\u0637")} | ${cell(words3)} | ${cell(title ? `\u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${title.align} \u0628\u062E\u0637 ${title.font} ${title.weight} ${title.size} \u0628\u0643\u0633\u0644` : "")} |`);
   }
   md.push("", "## \u0627\u0644\u0646\u0633\u062E\u0629 \u0627\u0644\u0646\u0647\u0627\u0626\u064A\u0629 \u0627\u0644\u062C\u0627\u0647\u0632\u0629 \u0644\u0644\u062A\u0635\u0645\u064A\u0645", "");
   for (const d of list2) {
@@ -5877,18 +5877,18 @@ var px = (n2) => Math.round(n2 * 10) / 10;
 var stripMarkers = (t) => t.replace(/\*/g, "");
 var RTL_CHARS = /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/;
 var LEAD = /[\p{L}\p{N}]/u;
-function canvaTextRtl(text) {
-  const lead = String(text ?? "").replace(/\*/g, "").match(LEAD);
+function canvaTextRtl(text2) {
+  const lead = String(text2 ?? "").replace(/\*/g, "").match(LEAD);
   return lead ? RTL_CHARS.test(lead[0]) : null;
 }
 var LRM = "\u200E";
 var HANDLE = /(^|[^\u200E\p{L}\p{N}_])([@#][A-Za-z0-9_][A-Za-z0-9_.]*)/gu;
-function markHandles(text) {
-  const raw = String(text ?? "");
+function markHandles(text2) {
+  const raw = String(text2 ?? "");
   if (!RTL_CHARS.test(raw)) return raw;
   return raw.replace(HANDLE, (_, pre, handle) => `${pre}${LRM}${handle}`);
 }
-var canvaText = (text) => stripMarkers(markHandles(text));
+var canvaText = (text2) => stripMarkers(markHandles(text2));
 function canvaAlign(el) {
   const align = el.style?.align ?? "start";
   if (align === "center") return "center";
@@ -6157,6 +6157,3721 @@ var ROLE_OF = { hero: "cover", collage: "collage", list: "list", post: "list", q
 var LATER_ROLES = ["cover-figure", "concept", "flow", "cta-actions"];
 var declinedWhy = (style, compositionId) => style.notFor?.[ROLE_OF[compositionId]] ?? (LATER_ROLES.includes(ROLE_OF[compositionId]) ? "\u0645\u0646 \u0627\u0644\u0645\u062C\u0645\u0648\u0639\u0629 \u0627\u0644\u062A\u0639\u0644\u064A\u0645\u064A\u0629 \u0627\u0644\u062A\u064A \u0623\u064F\u0636\u064A\u0641\u062A \u0628\u0639\u062F \u0645\u0631\u0627\u062C\u0639\u0629 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628: \u0644\u0627 \u064A\u064F\u062F\u0651\u0639\u0649 \u062D\u062A\u0649 \u064A\u064F\u0628\u0646\u0649 \u0648\u064A\u064F\u0631\u0627\u062C\u064E\u0639 \u0645\u0639\u0647" : null);
 
+// lib/studio/canva/reel.js
+var REEL_LIMITS = { hookWords: 7, titleWords: 11, subtitleWords: 14, minScene: 2, maxScene: 6, hook: [1.8, 2.6], cta: [2.5, 3.5], maxScenes: 9 };
+
+// lib/algorithm-intelligence/config.js
+var ENGINE_VERSION = "basira-ai-engine-1";
+var FEATURES_VERSION = 1;
+var DEFAULT_CONFIG = {
+  thresholds: {
+    // [hardLow, low, high, hardHigh] bands: full marks inside [low, high].
+    hookWords: [2, 4, 12, 18],
+    openingSentence: { good: 18, bad: 35 },
+    sentenceWords: { good: 18, bad: 32 },
+    postWords: [3, 12, 120, 320],
+    carousel: {
+      slides: [2, 5, 10, 15],
+      // Words a slide can carry and still read on a phone (1080 px wide).
+      density: { cover: { ideal: 12, max: 20 }, body: { ideal: 30, max: 45 }, cta: { ideal: 18, max: 30 } },
+      strongestLateFrom: 4
+    },
+    reel: {
+      wordsPerSecond: 2.5,
+      hookWords: REEL_LIMITS.hookWords,
+      firstSeconds: 3,
+      duration: [5, 10, 35, 60],
+      minScene: REEL_LIMITS.minScene
+    },
+    x: { maxLength: 280 },
+    instagram: { captionPreviewChars: 125 },
+    facebook: { showMoreChars: 250 },
+    hashtagsMany: 6
+  },
+  // Where each threshold comes from, for explanations.
+  thresholdProvenance: {
+    "x.maxLength": { provenance: "official", note: "X: 280 characters per post without a subscription" },
+    "reel.hookWords": { provenance: "heuristic", note: "Basira reel planner limit (lib/studio/canva/reel.js)" },
+    default: { provenance: "heuristic", note: "Basira's phone-reading rules of thumb" }
+  },
+  platforms: {
+    x: {
+      modelVersion: "basira-x-v1",
+      scoreTypes: {
+        hook: { "x.hook_strength": 2, "x.opening_fit": 1 },
+        retention: { "x.dwell_potential": 1 },
+        conversation: { "x.reply_potential": 2, "x.quote_potential": 1 },
+        share: { "x.repost_potential": 1, "x.share_potential": 1 },
+        save: { "x.bookmark_potential": 1 },
+        click: { "x.profile_click_potential": 1, "x.follow_potential": 1, "x.click_potential": 1 },
+        contentQuality: { "x.clarity": 1, "x.specificity": 1, "x.novelty": 1 },
+        negativeRisk: { "x.negative_feedback_risk": 1 },
+        platformFit: { "x.length_fit": 2, "x.opening_fit": 1 }
+      },
+      // Score = weighted positive actions − weighted negative actions
+      //       + content-quality modifier + historical account modifier.
+      blend: {
+        positive: {
+          "x.like_potential": 1,
+          "x.reply_potential": 2.5,
+          "x.repost_potential": 1.5,
+          "x.quote_potential": 1.5,
+          "x.share_potential": 1.5,
+          "x.bookmark_potential": 1,
+          "x.profile_click_potential": 1,
+          "x.follow_potential": 1,
+          "x.dwell_potential": 1,
+          "x.click_potential": 0.5
+        },
+        negative: { "x.negative_feedback_risk": 1 },
+        negativeScale: 0.6,
+        qualityScale: 0.2,
+        fitScale: 0.1,
+        historicalMaxShift: 10
+      }
+    },
+    instagram: {
+      modelVersion: "basira-instagram-v1",
+      scoreTypes: {
+        hook: { "instagram.hook_strength": 2, "instagram.reel_hook": 2 },
+        retention: { "instagram.carousel_completion": 2, "instagram.time_spent_potential": 1, "instagram.reel_completion": 2 },
+        conversation: { "instagram.comment_potential": 1 },
+        share: { "instagram.share_potential": 1 },
+        save: { "instagram.save_potential": 1 },
+        click: { "instagram.profile_visit_potential": 1 },
+        contentQuality: { "instagram.content_clarity": 1, "instagram.specificity": 1, "instagram.visual_density": 1 },
+        negativeRisk: { "instagram.skip_risk": 1, "instagram.negative_feedback_risk": 1 },
+        platformFit: { "instagram.format_fit": 2, "instagram.visual_density": 1, "instagram.caption_fit": 1 }
+      },
+      blend: {
+        positive: {
+          "instagram.share_potential": 2,
+          "instagram.save_potential": 1.5,
+          "instagram.comment_potential": 1,
+          "instagram.profile_visit_potential": 1,
+          "instagram.carousel_completion": 1.5,
+          "instagram.time_spent_potential": 1,
+          "instagram.reel_completion": 1.5,
+          "instagram.hook_strength": 1,
+          "instagram.reel_hook": 1
+        },
+        negative: { "instagram.skip_risk": 1, "instagram.negative_feedback_risk": 1 },
+        negativeScale: 0.5,
+        qualityScale: 0.2,
+        fitScale: 0.1,
+        historicalMaxShift: 10
+      }
+    },
+    facebook: {
+      modelVersion: "basira-facebook-v1",
+      scoreTypes: {
+        hook: { "facebook.hook_strength": 2 },
+        retention: { "facebook.watch_retention": 2, "facebook.show_more_potential": 1 },
+        conversation: { "facebook.meaningful_comment_potential": 2, "facebook.conversation_potential": 1 },
+        share: { "facebook.share_potential": 1 },
+        save: {},
+        click: { "facebook.click_potential": 1 },
+        contentQuality: { "facebook.caption_readability": 1, "facebook.specificity": 1 },
+        negativeRisk: { "facebook.scroll_past_risk": 1, "facebook.negative_feedback_risk": 1.5 },
+        platformFit: { "facebook.format_fit": 1, "facebook.caption_readability": 1 }
+      },
+      blend: {
+        positive: {
+          "facebook.meaningful_comment_potential": 2,
+          "facebook.share_potential": 2,
+          "facebook.conversation_potential": 1,
+          "facebook.show_more_potential": 0.5,
+          "facebook.click_potential": 0.5,
+          "facebook.watch_retention": 1.5,
+          "facebook.hook_strength": 1
+        },
+        negative: { "facebook.scroll_past_risk": 1, "facebook.negative_feedback_risk": 1.5 },
+        negativeScale: 0.5,
+        qualityScale: 0.2,
+        fitScale: 0.1,
+        historicalMaxShift: 10
+      }
+    }
+  },
+  // Signal on/off switches and weight overrides, by signal id:
+  // { "x.quote_potential": { enabled: false } } or { weight: 2 }.
+  signals: {},
+  confidence: {
+    // Trust in a value by where it comes from (before history).
+    provenance: { official: 0.6, "public-source-code": 0.55, research: 0.5, historical: 0.7, derived: 0.6, heuristic: 0.35 },
+    // Without account history a platform score never reads above this.
+    genericCap: 0.44,
+    historyFullAt: 40,
+    recencyHalfLifeDays: 120
+  },
+  history: {
+    minSample: 8,
+    minEffect: 0.1,
+    // A pattern is reported only when a Mann–Whitney test supports it.
+    maxP: 0.1,
+    recentDays: 45,
+    recentPosts: 20,
+    adaptive: { minSample: 20, maxShift: 0.3, shrinkK: 30 }
+  }
+};
+function mergeConfig(base = DEFAULT_CONFIG, override = {}) {
+  const out = clone(base);
+  const walk = (dst, src) => {
+    for (const [k, v] of Object.entries(src ?? {})) {
+      if (isObject(v) && isObject(dst[k])) walk(dst[k], v);
+      else dst[k] = clone(v);
+    }
+  };
+  walk(out, override);
+  return out;
+}
+function modelVersions(config = DEFAULT_CONFIG) {
+  return Object.fromEntries(Object.entries(config.platforms).map(([p, c]) => [p, c.modelVersion]));
+}
+
+// lib/algorithm-intelligence/types.js
+var PLATFORMS = ["x", "instagram", "facebook"];
+var CONTENT_TYPES = ["post", "carousel", "reel", "thread", "caption", "hook", "article-summary"];
+var INTENTS = ["education", "entertainment", "controversy", "motivation", "story", "opinion", "news", "list", "tutorial", "comparison", "warning", "myth-busting", "personal-insight"];
+var problem = (path3, message) => ({ path: path3, message });
+function validateContentInput(input) {
+  const out = [];
+  if (!input || typeof input !== "object") return [problem("content", "must be an object")];
+  if (!CONTENT_TYPES.includes(input.type)) out.push(problem("type", `must be one of ${CONTENT_TYPES.join(", ")}`));
+  const texts = [input.text, input.caption, ...input.thread ?? [], ...(input.slides ?? []).flatMap((s) => [s?.title, s?.body]), ...(input.scenes ?? []).map((s) => s?.text)];
+  if (!texts.some((t) => typeof t === "string" && t.trim())) out.push(problem("content", "has no text to analyze"));
+  if (input.type === "carousel" && !Array.isArray(input.slides)) out.push(problem("slides", "a carousel needs slides"));
+  if (input.type === "reel" && !Array.isArray(input.scenes) && typeof input.text !== "string") out.push(problem("scenes", "a reel needs scenes or a script"));
+  if (input.type === "thread" && input.thread && !input.thread.every((t) => typeof t === "string")) out.push(problem("thread", "must be strings"));
+  for (const [i, s] of (input.slides ?? []).entries()) if (!s || typeof s !== "object") out.push(problem(`slides[${i}]`, "must be an object"));
+  return out;
+}
+function confidenceLabel(c) {
+  if (c >= 0.7) return "high";
+  if (c >= 0.45) return "medium";
+  return "low";
+}
+
+// lib/algorithm-intelligence/core/content-input.js
+var text = (v) => typeof v === "string" ? plainText(v).trim() : "";
+var join = (parts) => parts.map(text).filter(Boolean).join("\n");
+function splitThread(raw) {
+  const t = String(raw ?? "").replace(/\r/g, "").trim();
+  const byMarks = t.split(/\n(?=\s*\(?[0-9٠-٩]{1,2}\s*[/)]\s*)/).map((s) => s.trim()).filter(Boolean);
+  if (byMarks.length > 1) return byMarks;
+  return t.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean);
+}
+function fromText(raw, type = "post", extra = {}) {
+  if (!CONTENT_TYPES.includes(type)) throw new Error(`unknown content type "${type}"`);
+  if (type === "thread") return { type, thread: splitThread(raw), ...extra };
+  if (type === "reel") return { type, text: String(raw ?? ""), ...extra };
+  return { type, text: String(raw ?? ""), ...extra };
+}
+function fromDesign(doc, { caption } = {}) {
+  if (doc?.schemaVersion !== 2 || !Array.isArray(doc.pages)) throw new Error("not a studio design (schemaVersion 2)");
+  const slides = doc.pages.map((p, i) => {
+    const c = p.content ?? {};
+    const id = p.composition?.id;
+    const type = compositionOf(id)?.type;
+    const figure = typeof c.figure === "string" ? c.figure : typeof c.number === "string" || typeof c.number === "number" ? String(c.number) : "";
+    const title = join([figure, c.title ?? c.hook ?? c.quote]).replace(/\n/g, " ");
+    const items = [...c.items ?? [], ...c.points ?? [], ...c.parts ?? [], ...c.steps ?? []].map(text).filter(Boolean);
+    const body = join([c.subtitle, c.body, c.takeaway, ...c.details ?? [], c.beforeLabel, ...c.before ?? [], c.afterLabel, ...c.after ?? [], c.author, c.cta, c.save, c.share, c.follow, c.source]);
+    const role = i === 0 ? "cover" : type === "outro" ? "cta" : void 0;
+    return {
+      ...text(c.kicker) && { kicker: text(c.kicker) },
+      title,
+      body,
+      ...items.length && { items },
+      ...role && { role },
+      visual: {
+        composition: `${id}/${p.layout?.variant ?? p.composition?.variant ?? ""}`,
+        elements: p.elements?.length ?? 0,
+        images: p.elements?.filter((e) => e.kind === "image").length ?? 0,
+        ...typeof p.layout?.scale === "number" && { scale: p.layout.scale },
+        ...typeof p.layout?.fits === "boolean" && { fits: p.layout.fits }
+      }
+    };
+  });
+  return {
+    type: slides.length > 1 ? "carousel" : "post",
+    ...slides.length > 1 ? { slides } : { text: join([slides[0].kicker, slides[0].title, slides[0].body, ...slides[0].items ?? []]) },
+    ...caption && { caption },
+    topic: doc.brief ?? void 0,
+    meta: { designId: doc.id, format: doc.intent?.format, brandId: doc.brandId ?? void 0, platform: doc.intent?.platform, source: "studio-design" }
+  };
+}
+function fromReelPlan(plan2, { caption } = {}) {
+  if (plan2?.kind !== "reel-plan") throw new Error("not a reel plan");
+  return {
+    type: "reel",
+    scenes: plan2.scenes.map((s) => ({ text: s.text.map((t) => text(t.text)).filter(Boolean).join("\n"), durationSec: s.seconds, visualChange: true, role: s.role })),
+    spoken: false,
+    ...caption && { caption },
+    topic: plan2.title,
+    meta: { designId: plan2.sourceDoc ?? void 0, source: "reel-plan" }
+  };
+}
+function toContentInput(input, { type } = {}) {
+  if (typeof input === "string") return fromText(input, type ?? "post");
+  if (input?.schemaVersion === 2) return fromDesign(input);
+  if (input?.kind === "reel-plan") return fromReelPlan(input);
+  const out = { ...input };
+  if (type && !out.type) out.type = type;
+  if (!out.type) out.type = out.slides ? "carousel" : out.scenes ? "reel" : out.thread ? "thread" : "post";
+  if (out.type === "thread" && !out.thread && typeof out.text === "string") out.thread = splitThread(out.text);
+  const problems = validateContentInput(out);
+  if (problems.length) {
+    const err2 = new Error(`invalid content: ${problems.map((p) => `${p.path} ${p.message}`).join("; ")}`);
+    err2.problems = problems;
+    throw err2;
+  }
+  return out;
+}
+function contentKey(input) {
+  const { type, text: t, caption, slides, scenes, thread, spoken } = input;
+  return hashOf({ type, text: t ?? null, caption: caption ?? null, slides: slides ?? null, scenes: scenes ?? null, thread: thread ?? null, spoken: spoken ?? null });
+}
+function allText(input) {
+  if (input.type === "carousel") return input.slides.map((s) => join([s.kicker, s.title, s.body, ...s.items ?? []])).filter(Boolean).join("\n\n");
+  if (input.type === "reel" && input.scenes) return input.scenes.map((s) => s.text).join("\n");
+  if (input.type === "thread") return (input.thread ?? []).join("\n\n");
+  return String(input.text ?? "");
+}
+
+// lib/algorithm-intelligence/core/lexicon.js
+var RAW = {
+  question: ["\u0644\u0645\u0627\u0630\u0627", "\u0644\u064A\u0634", "\u0643\u064A\u0641", "\u0647\u0644", "\u0645\u0627\u0630\u0627", "\u0645\u062A\u0649", "\u0623\u064A\u0646", "\u0643\u0645", "\u0623\u064A", "\u0623\u064A\u0647\u0645\u0627", "\u0645\u0627 \u0627\u0644\u0630\u064A", "\u0645\u0646 \u0627\u0644\u0630\u064A"],
+  ctaComment: ["\u0627\u0643\u062A\u0628", "\u0627\u0643\u062A\u0628\u0648\u0627", "\u0627\u0643\u062A\u0628\u064A", "\u0639\u0644\u0642", "\u0639\u0644\u0642\u0648\u0627", "\u0623\u062E\u0628\u0631\u0646\u064A", "\u0623\u062E\u0628\u0631\u0646\u0627", "\u0642\u0644 \u0644\u064A", "\u0642\u0648\u0644\u0648\u0627", "\u0645\u0627 \u0631\u0623\u064A\u0643", "\u0631\u0623\u064A\u0643", "\u0634\u0627\u0631\u0643\u0646\u0627 \u0631\u0623\u064A\u0643", "\u0641\u064A \u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A", "\u0628\u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A", "\u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A", "\u062C\u0627\u0648\u0628", "\u0623\u062C\u0628"],
+  ctaSave: ["\u0627\u062D\u0641\u0638", "\u0627\u062D\u0641\u0638\u0647", "\u0627\u062D\u0641\u0638\u0647\u0627", "\u0627\u062D\u0641\u0638\u0648\u0627", "\u0627\u062D\u0641\u0638\u064A", "\u0644\u0644\u0631\u062C\u0648\u0639", "\u0627\u0631\u062C\u0639 \u0625\u0644\u064A\u0647", "\u0627\u0631\u062C\u0639 \u0625\u0644\u064A\u0647\u0627", "\u062E\u0632\u0646\u0647"],
+  ctaShare: ["\u0634\u0627\u0631\u0643", "\u0634\u0627\u0631\u0643\u0647", "\u0634\u0627\u0631\u0643\u0647\u0627", "\u0634\u0627\u0631\u0643\u0648\u0627", "\u0623\u0631\u0633\u0644\u0647", "\u0623\u0631\u0633\u0644\u0647\u0627", "\u0623\u0631\u0633\u0644", "\u0627\u0628\u0639\u062B\u0647", "\u0645\u0646\u0634\u0646", "\u0644\u0634\u062E\u0635", "\u0644\u0635\u062F\u064A\u0642"],
+  ctaFollow: ["\u062A\u0627\u0628\u0639", "\u062A\u0627\u0628\u0639\u0646\u0627", "\u062A\u0627\u0628\u0639\u0646\u064A", "\u062A\u0627\u0628\u0639\u0648\u0627", "\u0644\u0644\u0645\u0632\u064A\u062F"],
+  ctaClick: ["\u0627\u0644\u0631\u0627\u0628\u0637", "\u0627\u0636\u063A\u0637", "\u0627\u0644\u0628\u0627\u064A\u0648", "\u0631\u0627\u0628\u0637", "\u0627\u0642\u0631\u0623 \u0627\u0644\u0645\u0632\u064A\u062F", "\u0633\u062C\u0644"],
+  // CTAs that ask for an action without a reason or a specific prompt.
+  genericCta: ["\u062A\u0627\u0628\u0639\u0646\u0627 \u0644\u0644\u0645\u0632\u064A\u062F", "\u062A\u0627\u0628\u0639 \u0644\u0644\u0645\u0632\u064A\u062F", "\u062A\u0627\u0628\u0639\u0646\u064A \u0644\u0644\u0645\u0632\u064A\u062F", "\u0634\u0627\u0631\u0643\u0646\u0627 \u0631\u0623\u064A\u0643", "\u0645\u0627 \u0631\u0623\u064A\u0643", "\u0631\u0623\u064A\u0643 \u064A\u0647\u0645\u0646\u0627", "\u0644\u0627 \u062A\u0646\u0633 \u0627\u0644\u0645\u062A\u0627\u0628\u0639\u0629", "\u0644\u0627 \u062A\u0646\u0633\u0649 \u0627\u0644\u0645\u062A\u0627\u0628\u0639\u0629", "\u0644\u0627 \u062A\u0646\u0633 \u0627\u0644\u0644\u0627\u064A\u0643", "\u0627\u0639\u0645\u0644 \u0644\u0627\u064A\u0643", "\u0634\u0627\u0631\u0643 \u0627\u0644\u0645\u0646\u0634\u0648\u0631", "\u0634\u0627\u0631\u0643\u0646\u0627", "\u0627\u0646\u062A\u0638\u0631\u0648\u0627 \u0627\u0644\u0645\u0632\u064A\u062F"],
+  // Engagement bait: asking for a reaction as the point of the post.
+  bait: ["\u0627\u0643\u062A\u0628 \u0646\u0639\u0645", "\u0639\u0644\u0642 \u0628\u0646\u0639\u0645", "\u0639\u0644\u0642 \u0628", "\u0644\u0627\u064A\u0643 \u0625\u0630\u0627", "\u0644\u0627\u064A\u0643 \u0644\u0648", "\u0631\u062A\u0648\u064A\u062A \u0625\u0630\u0627", "\u0631\u062A\u0648\u064A\u062A \u0644\u0648", "\u0634\u064A\u0631 \u0625\u0630\u0627", "\u0627\u0639\u0645\u0644 \u0634\u064A\u0631", "\u0645\u0646\u0634\u0646 3", "\u0645\u0646\u0634\u0646 \u062B\u0644\u0627\u062B\u0629", "\u0645\u0646\u0634\u0646 \u0635\u062F\u064A\u0642", "\u0634\u0627\u0631\u0643 \u0644\u062A\u0635\u0644", "\u0627\u0646\u0634\u0631\u0647\u0627 \u062A\u0624\u062C\u0631", "\u0644\u0627 \u062A\u062E\u0631\u062C \u0642\u0628\u0644"],
+  curiosity: ["\u0644\u0645\u0627\u0630\u0627", "\u0627\u0644\u0633\u0628\u0628", "\u0633\u0631", "\u0623\u0633\u0631\u0627\u0631", "\u0645\u0627 \u0644\u0627", "\u0644\u0646 \u062A\u0635\u062F\u0642", "\u062F\u0648\u0646 \u0623\u0646 \u062A\u0634\u0639\u0631", "\u0648\u0623\u0646\u062A \u0644\u0627 \u062A\u0634\u0639\u0631", "\u0644\u0627 \u062A\u0634\u0639\u0631", "\u0644\u0627 \u064A\u0639\u0631\u0641\u0647", "\u0644\u0627 \u064A\u062E\u0628\u0631\u0643", "\u0627\u0644\u0645\u0641\u0627\u062C\u0623\u0629", "\u0627\u0643\u062A\u0634\u0641", "\u0645\u0627\u0630\u0627 \u064A\u062D\u062F\u062B", "\u0645\u0627 \u0627\u0644\u0630\u064A", "\u0647\u0644 \u062A\u0639\u0644\u0645", "\u062A\u062E\u064A\u0644", "\u0627\u0644\u062D\u0642\u064A\u0642\u0629", "\u062E\u0641\u064A\u0629", "\u0633\u0631\u0627"],
+  warning: ["\u0627\u062D\u0630\u0631", "\u062A\u062C\u0646\u0628", "\u062E\u0637\u0631", "\u062E\u0637\u064A\u0631", "\u062E\u0637\u064A\u0631\u0629", "\u064A\u062F\u0645\u0631", "\u062A\u062F\u0645\u0631", "\u064A\u0642\u062A\u0644", "\u0623\u062E\u0637\u0627\u0621", "\u062E\u0637\u0623", "\u0623\u0639\u062F\u0627\u0621", "\u0639\u062F\u0648", "\u0644\u0627 \u062A\u0641\u0639\u0644", "\u062A\u0648\u0642\u0641", "\u064A\u0633\u0631\u0642", "\u062A\u0633\u0631\u0642", "\u064A\u0636\u0631", "\u0636\u0627\u0631", "\u064A\u0641\u0633\u062F", "\u062A\u0641\u0633\u062F", "\u064A\u0647\u062F\u0645"],
+  emotional: ["\u064A\u062F\u0645\u0631", "\u062A\u062F\u0645\u0631", "\u0635\u0627\u062F\u0645", "\u0635\u0627\u062F\u0645\u0629", "\u0645\u0631\u0639\u0628", "\u062E\u0637\u064A\u0631", "\u0645\u0630\u0647\u0644", "\u0623\u0633\u0648\u0623", "\u0623\u062C\u0645\u0644", "\u0623\u0628\u062F\u0627", "\u062F\u0627\u0626\u0645\u0627", "\u0641\u0648\u0631\u0627", "\u062D\u0642\u0627", "\u062C\u062F\u0627", "\u0645\u062F\u0647\u0634", "\u0643\u0627\u0631\u062B\u0629", "\u0645\u0624\u0644\u0645", "\u064A\u063A\u064A\u0631 \u062D\u064A\u0627\u062A\u0643", "\u0644\u0646 \u062A\u0635\u062F\u0642", "\u0623\u062B\u0645\u0646", "\u0623\u062E\u0637\u0631", "\u0623\u0642\u0648\u0649"],
+  units: ["\u062F\u0642\u064A\u0642\u0629", "\u062F\u0642\u0627\u0626\u0642", "\u062B\u0627\u0646\u064A\u0629", "\u062B\u0648\u0627\u0646", "\u0633\u0627\u0639\u0629", "\u0633\u0627\u0639\u0627\u062A", "\u064A\u0648\u0645", "\u0623\u064A\u0627\u0645", "\u0623\u0633\u0628\u0648\u0639", "\u0623\u0633\u0627\u0628\u064A\u0639", "\u0634\u0647\u0631", "\u0623\u0634\u0647\u0631", "\u0633\u0646\u0629", "\u0633\u0646\u0648\u0627\u062A", "\u062F\u0631\u0647\u0645", "\u0631\u064A\u0627\u0644", "\u062F\u0648\u0644\u0627\u0631", "\u062F\u064A\u0646\u0627\u0631", "\u062C\u0646\u064A\u0647", "\u0643\u064A\u0644\u0648", "\u0644\u062A\u0631", "\u0645\u0631\u0629", "\u0645\u0631\u0627\u062A", "\u0635\u0641\u062D\u0629", "\u0635\u0641\u062D\u0627\u062A", "\u062E\u0637\u0648\u0629"],
+  generic: ["\u0623\u0634\u064A\u0627\u0621", "\u0623\u0645\u0648\u0631", "\u0643\u062B\u064A\u0631", "\u0643\u062B\u064A\u0631\u0629", "\u0628\u0639\u0636", "\u0645\u0647\u0645", "\u0645\u0647\u0645\u0629", "\u0631\u0627\u0626\u0639", "\u062C\u0645\u064A\u0644", "\u0634\u064A\u0621", "\u062D\u0627\u062C\u0627\u062A", "\u0623\u0641\u0636\u0644", "\u0639\u0638\u064A\u0645", "\u0645\u0641\u064A\u062F"],
+  myth: ["\u062E\u0631\u0627\u0641\u0629", "\u062E\u0631\u0627\u0641\u0627\u062A", "\u0634\u0627\u0626\u0639", "\u0627\u0644\u0634\u0627\u0626\u0639", "\u0644\u064A\u0633 \u0635\u062D\u064A\u062D\u0627", "\u0644\u064A\u0633 \u0643\u0645\u0627", "\u0639\u0643\u0633", "\u064A\u0639\u062A\u0642\u062F", "\u064A\u0638\u0646", "\u0627\u0644\u0643\u062B\u064A\u0631\u0648\u0646", "\u0627\u0644\u062C\u0645\u064A\u0639 \u064A\u0642\u0648\u0644", "\u0648\u0647\u0645", "\u0643\u0630\u0628\u0629"],
+  comparison: ["\u0645\u0642\u0627\u0628\u0644", "\u0645\u0642\u0627\u0631\u0646\u0629", "\u0627\u0644\u0641\u0631\u0642", "\u0623\u0641\u0636\u0644 \u0645\u0646", "\u0623\u0633\u0648\u0623 \u0645\u0646", "\u0628\u064A\u0646", "\u0642\u0628\u0644", "\u0628\u0639\u062F", "\u0628\u062F\u0644\u0627 \u0645\u0646", "\u0628\u062F\u0644"],
+  tutorial: ["\u062E\u0637\u0648\u0629", "\u062E\u0637\u0648\u0627\u062A", "\u0627\u0644\u062E\u0637\u0648\u0629", "\u0637\u0631\u064A\u0642\u0629", "\u0643\u064A\u0641", "\u0627\u062A\u0628\u0639", "\u062F\u0644\u064A\u0644", "\u0634\u0631\u062D", "\u062C\u0631\u0628", "\u0637\u0628\u0642"],
+  education: ["\u062A\u0639\u0644\u0645", "\u0645\u0639\u0644\u0648\u0645\u0629", "\u062F\u0631\u0627\u0633\u0629", "\u062F\u0631\u0627\u0633\u0627\u062A", "\u0627\u0644\u062F\u0645\u0627\u063A", "\u062F\u0645\u0627\u063A\u0643", "\u0627\u0644\u0639\u0644\u0645", "\u064A\u0639\u0646\u064A", "\u062A\u0639\u0631\u064A\u0641", "\u062D\u0642\u064A\u0642\u0629", "\u0623\u062B\u0646\u0627\u0621", "\u064A\u0631\u0633\u062E", "\u0627\u0644\u0630\u0627\u0643\u0631\u0629", "\u0627\u0644\u062A\u0631\u0643\u064A\u0632", "\u0627\u0644\u0645\u0639\u0631\u0641\u064A"],
+  motivation: ["\u0627\u0628\u062F\u0623", "\u0644\u0627 \u062A\u0633\u062A\u0633\u0644\u0645", "\u062A\u0633\u062A\u0637\u064A\u0639", "\u062D\u0644\u0645\u0643", "\u0646\u062C\u0627\u062D", "\u0627\u0644\u0646\u062C\u0627\u062D", "\u0642\u0648\u0629", "\u0627\u0633\u062A\u0645\u0631", "\u062B\u0642", "\u0647\u062F\u0641\u0643", "\u0623\u0646\u062A \u0642\u0627\u062F\u0631", "\u062D\u0645\u0627\u0633"],
+  story: ["\u0642\u0635\u0629", "\u062D\u0643\u0627\u064A\u0629", "\u0643\u0627\u0646", "\u0643\u0646\u062A", "\u0639\u0646\u062F\u0645\u0627", "\u0630\u0627\u062A \u064A\u0648\u0645", "\u062D\u062F\u062B", "\u0641\u062C\u0623\u0629", "\u0642\u0628\u0644 \u0633\u0646\u0648\u0627\u062A"],
+  opinion: ["\u0623\u0631\u0649", "\u0623\u0639\u062A\u0642\u062F", "\u0631\u0623\u064A\u064A", "\u0628\u0631\u0623\u064A\u064A", "\u0641\u064A \u0646\u0638\u0631\u064A", "\u0623\u0638\u0646", "\u0623\u0624\u0645\u0646"],
+  news: ["\u0639\u0627\u062C\u0644", "\u062E\u0628\u0631", "\u0623\u0639\u0644\u0646\u062A", "\u0623\u0639\u0644\u0646", "\u0631\u0633\u0645\u064A\u0627", "\u0623\u0637\u0644\u0642\u062A", "\u0625\u0637\u0644\u0627\u0642", "\u0627\u0644\u064A\u0648\u0645"],
+  entertainment: ["\u0636\u062D\u0643", "\u0645\u0636\u062D\u0643", "\u0637\u0631\u064A\u0641", "\u0646\u0643\u062A\u0629", "\u062A\u062D\u062F\u064A", "\u0647\u0647\u0647\u0647"],
+  controversy: ["\u063A\u064A\u0631 \u0634\u0639\u0628\u064A", "\u0644\u0646 \u064A\u0639\u062C\u0628\u0643", "\u0631\u0623\u064A \u062C\u0631\u064A\u0621", "\u0627\u0644\u062C\u0645\u064A\u0639 \u0645\u062E\u0637\u0626", "\u0644\u0627 \u0623\u062D\u062F \u064A\u0642\u0648\u0644", "\u0645\u062B\u064A\u0631 \u0644\u0644\u062C\u062F\u0644", "\u0635\u0627\u062F\u0645"],
+  personal: ["\u062A\u0639\u0644\u0645\u062A", "\u0623\u062F\u0631\u0643\u062A", "\u0627\u0643\u062A\u0634\u0641\u062A", "\u062A\u062C\u0631\u0628\u062A\u064A", "\u062F\u0631\u0633", "\u0628\u0639\u062F \u0633\u0646\u0648\u0627\u062A", "\u062C\u0631\u0628\u062A", "\u0642\u0635\u062A\u064A"],
+  research: ["\u062F\u0631\u0627\u0633\u0629", "\u062F\u0631\u0627\u0633\u0627\u062A", "\u0623\u0628\u062D\u0627\u062B", "\u0627\u0644\u0639\u0644\u0645\u0627\u0621", "\u0648\u0641\u0642", "\u0628\u062D\u0633\u0628", "\u0623\u0634\u0627\u0631\u062A", "\u0623\u0638\u0647\u0631\u062A", "\u0628\u062D\u062B"],
+  hostile: ["\u063A\u0628\u064A", "\u0623\u063A\u0628\u064A\u0627\u0621", "\u062A\u0627\u0641\u0647", "\u062A\u0627\u0641\u0647\u064A\u0646", "\u062D\u0642\u064A\u0631", "\u0641\u0627\u0634\u0644", "\u0641\u0627\u0634\u0644\u064A\u0646", "\u0643\u0630\u0627\u0628", "\u062D\u0645\u0627\u0631"],
+  firstPerson: ["\u0623\u0646\u0627", "\u0646\u062D\u0646", "\u0643\u0646\u062A", "\u062C\u0631\u0628\u062A", "\u062A\u0639\u0644\u0645\u062A", "\u0623\u062F\u0631\u0643\u062A", "\u0627\u0643\u062A\u0634\u0641\u062A", "\u062A\u062C\u0631\u0628\u062A\u064A", "\u0642\u0635\u062A\u064A"],
+  secondPerson: ["\u0623\u0646\u062A", "\u0623\u0646\u062A\u0645", "\u0644\u0643", "\u0644\u0643\u0645", "\u0639\u0644\u064A\u0643", "\u0625\u0644\u064A\u0643", "\u0645\u0646\u0643", "\u0639\u0646\u062F\u0643", "\u0646\u0641\u0633\u0643", "\u0628\u064A\u062F\u0643"],
+  imperative: ["\u0627\u0628\u062F\u0623", "\u062A\u0648\u0642\u0641", "\u062A\u062C\u0646\u0628", "\u0627\u062D\u0630\u0631", "\u062C\u0631\u0628", "\u0627\u0642\u0631\u0623", "\u0627\u0643\u062A\u0628", "\u0627\u062D\u0641\u0638", "\u0634\u0627\u0631\u0643", "\u062A\u0630\u0643\u0631", "\u062E\u0630", "\u0627\u0639\u0631\u0641", "\u0627\u0646\u062A\u0628\u0647", "\u0627\u0633\u0623\u0644", "\u0631\u0643\u0632", "\u0646\u0645", "\u0627\u0634\u0631\u0628", "\u062A\u062D\u0631\u0643", "\u0627\u0645\u0634"],
+  payoff: ["\u0627\u0644\u062D\u0644", "\u0627\u0644\u0633\u0628\u0628 \u0647\u0648", "\u0625\u0630\u0646", "\u0627\u0644\u062E\u0644\u0627\u0635\u0629", "\u0627\u0644\u0646\u062A\u064A\u062C\u0629", "\u0648\u0627\u0644\u0633\u0631", "\u0627\u0644\u062C\u0648\u0627\u0628", "\u0628\u0627\u062E\u062A\u0635\u0627\u0631", "\u0644\u0630\u0644\u0643"],
+  openLoop: ["\u0644\u0643\u0646", "\u0648\u0627\u0644\u0633\u0628\u0628", "\u0627\u0644\u0633\u0628\u0628", "\u0627\u0646\u062A\u0638\u0631", "\u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629", "\u0633\u0623\u062E\u0628\u0631\u0643", "\u0625\u0644\u064A\u0643", "\u0645\u0627\u0630\u0627", "\u0644\u0645\u0627\u0630\u0627", "\u0643\u064A\u0641"],
+  contrast: ["\u0644\u0643\u0646", "\u0628\u0644", "\u0628\u064A\u0646\u0645\u0627", "\u0631\u063A\u0645", "\u0639\u0643\u0633", "\u0644\u064A\u0633"],
+  // Openers of two-clause maxims («كلما … خسرت …», «من … حمى …»).
+  maxim: ["\u0643\u0644\u0645\u0627", "\u0645\u0646 \u062D\u0645\u0649", "\u0645\u0646 \u0623\u0647\u0645\u0644", "\u0644\u0627 \u062A\u0642\u0627\u0633", "\u0644\u064A\u0633 \u0643\u0644", "\u0627\u0644\u062D\u064A\u0627\u0629", "\u0646\u0641\u0633\u0643", "\u0630\u0627\u062A\u0643", "\u062A\u0630\u0643\u0631 \u0623\u0646"],
+  numberWords: ["\u0648\u0627\u062D\u062F", "\u0648\u0627\u062D\u062F\u0629", "\u0627\u062B\u0646\u0627\u0646", "\u0627\u062B\u0646\u064A\u0646", "\u0627\u062B\u0646\u062A\u0627\u0646", "\u062B\u0644\u0627\u062B", "\u062B\u0644\u0627\u062B\u0629", "\u0623\u0631\u0628\u0639", "\u0623\u0631\u0628\u0639\u0629", "\u062E\u0645\u0633", "\u062E\u0645\u0633\u0629", "\u0633\u062A", "\u0633\u062A\u0629", "\u0633\u0628\u0639", "\u0633\u0628\u0639\u0629", "\u062B\u0645\u0627\u0646", "\u062B\u0645\u0627\u0646\u064A", "\u062B\u0645\u0627\u0646\u064A\u0629", "\u062A\u0633\u0639", "\u062A\u0633\u0639\u0629", "\u0639\u0634\u0631", "\u0639\u0634\u0631\u0629"],
+  stop: ["\u0641\u064A", "\u0645\u0646", "\u0639\u0644\u0649", "\u0625\u0644\u0649", "\u0639\u0646", "\u0645\u0639", "\u0647\u0630\u0627", "\u0647\u0630\u0647", "\u0630\u0644\u0643", "\u062A\u0644\u0643", "\u0627\u0644\u062A\u064A", "\u0627\u0644\u0630\u064A", "\u0627\u0644\u0630\u064A\u0646", "\u0648", "\u0623\u0648", "\u062B\u0645", "\u0644\u0627", "\u0644\u0645", "\u0644\u0646", "\u0645\u0627", "\u0647\u0648", "\u0647\u064A", "\u0647\u0645", "\u0623\u0646\u062A", "\u0623\u0646\u0627", "\u0646\u062D\u0646", "\u0643\u0644", "\u0628\u0639\u0636", "\u0642\u062F", "\u0643\u0627\u0646", "\u0643\u0627\u0646\u062A", "\u0625\u0646", "\u0623\u0646", "\u0625\u0630\u0627", "\u0644\u0643\u0646", "\u0628\u0644", "\u062D\u062A\u0649", "\u0639\u0646\u062F", "\u0643\u0645\u0627", "\u0623\u064A", "\u0647\u0644", "\u064A\u0627", "\u0644\u0643", "\u0628\u0647", "\u0628\u0647\u0627", "\u0644\u0647", "\u0644\u0647\u0627", "\u0645\u0646\u0647\u0627", "\u0641\u064A\u0647", "\u0641\u064A\u0647\u0627", "\u0645\u0646\u0647", "\u0628\u0645\u0627", "\u0645\u0645\u0627", "\u0643\u064A", "\u0644\u0643\u064A", "\u062F\u0648\u0646", "\u0628\u064A\u0646", "\u0639\u0628\u0631", "\u0623\u0643\u062B\u0631", "\u0623\u0642\u0644", "\u062C\u062F\u0627", "\u0644\u064A\u0633"]
+};
+var norm = (w) => normalizeArabic(w);
+var LEXICON = Object.fromEntries(
+  Object.entries(RAW).map(([k, list2]) => {
+    const words3 = /* @__PURE__ */ new Set();
+    const phrases = [];
+    for (const w of list2) {
+      const n2 = norm(w);
+      if (n2.includes(" ")) phrases.push(n2);
+      else words3.add(n2);
+    }
+    return [k, { words: words3, phrases }];
+  })
+);
+function variants(token) {
+  const t = norm(token);
+  const out = /* @__PURE__ */ new Set([t]);
+  const peel = (w) => {
+    if (w.startsWith("\u0627\u0644") && w.length > 3) out.add(w.slice(2));
+    for (const p of ["\u0648", "\u0641", "\u0628", "\u0644", "\u0643"]) {
+      if (w.startsWith(p) && w.length > 3) {
+        const rest = w.slice(1);
+        out.add(rest);
+        if (rest.startsWith("\u0627\u0644") && rest.length > 3) out.add(rest.slice(2));
+      }
+    }
+  };
+  peel(t);
+  for (const v of [...out]) if (v.startsWith("\u0644") && v.length > 3) out.add(`\u0627${v}`);
+  return [...out];
+}
+function hits(kind, tokens, normalizedText) {
+  const lex = LEXICON[kind];
+  let n2 = 0;
+  const found = [];
+  for (const tok of tokens) {
+    if (variants(tok).some((v) => lex.words.has(v))) {
+      n2++;
+      found.push(tok);
+    }
+  }
+  for (const p of lex.phrases) {
+    if (` ${normalizedText} `.includes(` ${p} `) || normalizedText.includes(p)) {
+      n2++;
+      found.push(p);
+    }
+  }
+  return { n: n2, found };
+}
+var isStopword = (tok) => variants(tok).some((v) => LEXICON.stop.words.has(v));
+var isNumberWord = (tok) => variants(tok).some((v) => LEXICON.numberWords.words.has(v));
+
+// lib/algorithm-intelligence/core/normalization.js
+var clamp01 = (x) => Number.isFinite(x) ? Math.min(1, Math.max(0, x)) : 0;
+var round2 = (x, digits = 2) => Number.isFinite(x) ? Math.round(x * 10 ** digits) / 10 ** digits : x;
+function lowerIsBetter(x, good, bad) {
+  if (!Number.isFinite(x)) return null;
+  if (x <= good) return 1;
+  if (x >= bad) return 0;
+  return 1 - (x - good) / (bad - good);
+}
+function band(x, [hardLo, lo, hi, hardHi]) {
+  if (!Number.isFinite(x)) return null;
+  if (x >= lo && x <= hi) return 1;
+  if (x < lo) return x <= hardLo ? 0 : (x - hardLo) / (lo - hardLo);
+  return x >= hardHi ? 0 : 1 - (x - hi) / (hardHi - hi);
+}
+var saturate = (n2, k = 1) => Number.isFinite(n2) && n2 > 0 ? 1 - 1 / (1 + n2 / k) : 0;
+
+// lib/algorithm-intelligence/core/text-stats.js
+var ARABIC_LETTER = /[ء-يٮ-ۓۺ-ۿ]/;
+var LATIN_WORD = /^[A-Za-z][A-Za-z'’-]*$/;
+var DIACRITIC = /[ً-ٰٟ]/g;
+var PUNCT2 = /[.,،؛;:!?؟…«»"'()\-–—/]/g;
+var SENTENCE_END = /[.!?؟…]+|\n+/;
+var EMOJI2 = new RegExp("\\p{Extended_Pictographic}", "gu");
+var URL = /\bhttps?:\/\/\S+|\bwww\.\S+/gi;
+var LIST_LINE = /^\s*(?:[-•▪◦●*]|\(?[0-9٠-٩]{1,2}[).\-:]|[0-9٠-٩]{1,2}\s*[-–—/]\s)/;
+var NUMBERED_LINE = /^\s*\(?[0-9٠-٩]{1,2}[).\-:/]/;
+var readabilityOf = (avgSentenceWords, longWordRatio) => Math.round(100 * (0.6 * (lowerIsBetter(avgSentenceWords, 10, 30) ?? 1) + 0.4 * (lowerIsBetter(longWordRatio, 0.15, 0.45) ?? 1)));
+var clean2 = (text2) => plainText(String(text2 ?? "")).replace(/\r/g, "");
+function tokenize(text2) {
+  return canonicalText(clean2(text2)).split(" ").map((t) => t.replace(/^[.,،؛;:!?؟…«»"'()\-–—/]+|[.,،؛;:!?؟…«»"'()\-–—/]+$/g, "")).filter((t) => /[\p{L}\p{N}]/u.test(t));
+}
+function sentences(text2) {
+  return clean2(text2).split(SENTENCE_END).map((s) => s.trim()).filter((s) => tokenize(s).length);
+}
+var lines = (text2) => clean2(text2).split("\n").map((l) => l.trim()).filter(Boolean);
+var lettersOf = (tok) => tok.replace(DIACRITIC, "").replace(/[^\p{L}]/gu, "");
+var isNumeric = (tok) => /[0-9٠-٩]/.test(tok) || /%/.test(tok);
+function xWeightedLength(text2) {
+  const t = clean2(text2);
+  const urls = t.match(URL) ?? [];
+  let rest = t.replace(URL, "");
+  const emoji = rest.match(EMOJI2)?.length ?? 0;
+  rest = rest.replace(EMOJI2, "");
+  return [...rest].length + emoji * 2 + urls.length * 23;
+}
+function textStats(text2) {
+  const raw = clean2(text2);
+  const tokens = tokenize(raw);
+  const normalized = normalizeArabic(raw);
+  const sents = sentences(raw);
+  const ls = lines(raw);
+  const words3 = tokens.length;
+  const sentenceWords = sents.map((s) => tokenize(s).length);
+  const letters2 = tokens.map(lettersOf).join("");
+  const arabicLetters = [...letters2].filter((c) => ARABIC_LETTER.test(c)).length;
+  const latinWords = tokens.filter((t) => LATIN_WORD.test(t) && !t.startsWith("@") && !t.startsWith("#")).length;
+  const punctuation = (raw.match(PUNCT2) ?? []).length;
+  const questions = (raw.match(/[?؟]/g) ?? []).length;
+  const exclamations = (raw.match(/!/g) ?? []).length;
+  const ellipses = (raw.match(/…|\.\.\./g) ?? []).length;
+  const numericTokens = tokens.filter(isNumeric);
+  const numberWords = tokens.filter(isNumberWord);
+  const listItems = ls.filter((l) => LIST_LINE.test(l)).length;
+  const numberedItems = ls.filter((l) => NUMBERED_LINE.test(l)).length;
+  const content = tokens.filter((t) => !isStopword(t) && !isNumeric(t));
+  const longWords = content.filter((t) => lettersOf(t).length > 6).length;
+  const counts = /* @__PURE__ */ new Map();
+  for (const t of content) {
+    const v = variants(t).sort((a, b) => a.length - b.length)[0];
+    if (v.length < 3) continue;
+    counts.set(v, (counts.get(v) ?? 0) + 1);
+  }
+  const repeated = [...counts.values()].filter((n2) => n2 > 1).reduce((s, n2) => s + n2 - 1, 0);
+  const maxRepeat = Math.max(0, ...counts.values());
+  const lex = (kind) => hits(kind, tokens, normalized);
+  const NOT_SUFFIX = /* @__PURE__ */ new Set(["\u0630\u0644\u0643", "\u0643\u0630\u0644\u0643", "\u0644\u0630\u0644\u0643", "\u0647\u0646\u0627\u0643", "\u0647\u0646\u0627\u0644\u0643", "\u062A\u0644\u0643", "\u0627\u0648\u0644\u0626\u0643", "\u0645\u0628\u0627\u0631\u0643", "\u0645\u0644\u0643", "\u0633\u0645\u0643", "\u0634\u0628\u0643", "\u0645\u0634\u062A\u0631\u0643", "\u0645\u0645\u0627\u0644\u0643"]);
+  const directAddress = tokens.filter((t) => {
+    const n2 = normalizeArabic(t);
+    if (hits("secondPerson", [t], n2).n) return true;
+    return n2.length >= 4 && /ك$/.test(n2) && !NOT_SUFFIX.has(n2) && ARABIC_LETTER.test(n2);
+  }).length;
+  const firstPerson = lex("firstPerson").n;
+  const imperatives = lex("imperative").n;
+  const emotional = lex("emotional").n + exclamations;
+  const curiosityCues = lex("curiosity").n + (ellipses ? 1 : 0);
+  const units = lex("units").n + (raw.match(/%/g) ?? []).length;
+  const generic = lex("generic").n;
+  const research = lex("research").n;
+  const hostile = lex("hostile").n;
+  const bait = lex("bait");
+  const avgSentenceWords = sentenceWords.length ? words3 / sentenceWords.length : words3;
+  const maxSentenceWords = Math.max(0, ...sentenceWords);
+  const longWordRatio = content.length ? longWords / content.length : 0;
+  const readability = words3 ? readabilityOf(avgSentenceWords, longWordRatio) : null;
+  const specificity2 = clamp01(0.45 * saturate(numericTokens.length + numberWords.length, 1.5) + 0.35 * saturate(units, 1) + 0.2 * (words3 ? clamp01(1 - generic / Math.max(1, words3 / 8)) : 0));
+  const informationDensity = words3 ? content.length / words3 : 0;
+  return {
+    chars: [...raw.replace(/\s/g, "")].length,
+    words: words3,
+    sentences: sentenceWords.length,
+    avgSentenceWords: round2(avgSentenceWords, 1),
+    maxSentenceWords,
+    firstSentenceWords: sentenceWords[0] ?? 0,
+    lines: ls.length,
+    lineBreaks: Math.max(0, ls.length - 1),
+    paragraphs: raw.split(/\n\s*\n/).filter((p) => p.trim()).length,
+    arabicRatio: letters2.length ? round2(arabicLetters / letters2.length) : 0,
+    latinWords,
+    diacritics: (raw.match(DIACRITIC) ?? []).length,
+    punctuationDensity: words3 ? round2(punctuation / words3) : 0,
+    questions,
+    exclamations,
+    ellipses,
+    numbers: numericTokens.length + numberWords.length,
+    digits: { latn: (raw.match(/[0-9]/g) ?? []).length, arab: (raw.match(/[٠-٩]/g) ?? []).length },
+    hashtags: (raw.match(/(^|\s)#[\p{L}\p{N}_]+/gu) ?? []).length,
+    mentions: (raw.match(/(^|\s)@[A-Za-z0-9_]+/g) ?? []).length,
+    links: (raw.match(URL) ?? []).length,
+    emojis: (raw.match(EMOJI2) ?? []).length,
+    listItems,
+    numberedList: numberedItems >= 2,
+    directAddress,
+    firstPerson,
+    imperatives,
+    emotionalCues: emotional,
+    curiosityCues,
+    units,
+    genericWords: generic,
+    researchClaims: research,
+    hostileWords: hostile,
+    baitPhrases: bait.found,
+    contentWords: content.length,
+    longWordRatio: round2(longWordRatio),
+    readability,
+    specificity: round2(specificity2),
+    informationDensity: round2(informationDensity),
+    redundancy: content.length ? round2(repeated / content.length) : 0,
+    maxRepeat,
+    conversationality: round2(clamp01(0.35 * saturate(questions, 1) + 0.35 * saturate(directAddress, 2) + 0.15 * saturate(firstPerson, 1) + 0.15 * saturate(imperatives, 1))),
+    emotionalIntensity: round2(clamp01(saturate(emotional, 1.5))),
+    xLength: xWeightedLength(raw)
+  };
+}
+function cues(text2) {
+  const tokens = tokenize(text2);
+  const normalized = normalizeArabic(clean2(text2));
+  const out = {};
+  for (const kind of ["question", "curiosity", "warning", "myth", "comparison", "tutorial", "education", "motivation", "story", "opinion", "news", "entertainment", "controversy", "personal", "research", "contrast", "payoff", "openLoop", "maxim"]) {
+    out[kind] = hits(kind, tokens, normalized).n;
+  }
+  return out;
+}
+var startsWithNumber = (text2) => {
+  const first = tokenize(text2)[0] ?? "";
+  return /^[0-9٠-٩]/.test(first) || isNumberWord(first);
+};
+
+// lib/algorithm-intelligence/core/structure-features.js
+var NUMBER_WORDS = { \u0648\u0627\u062D\u062F: 1, \u0648\u0627\u062D\u062F\u0647: 1, \u0627\u062B\u0646\u0627\u0646: 2, \u0627\u062B\u0646\u064A\u0646: 2, \u0627\u062B\u0646\u062A\u0627\u0646: 2, \u062B\u0644\u0627\u062B: 3, \u062B\u0644\u0627\u062B\u0647: 3, \u0627\u0631\u0628\u0639: 4, \u0627\u0631\u0628\u0639\u0647: 4, \u062E\u0645\u0633: 5, \u062E\u0645\u0633\u0647: 5, \u0633\u062A: 6, \u0633\u062A\u0647: 6, \u0633\u0628\u0639: 7, \u0633\u0628\u0639\u0647: 7, \u062B\u0645\u0627\u0646: 8, \u062B\u0645\u0627\u0646\u064A: 8, \u062B\u0645\u0627\u0646\u064A\u0647: 8, \u062A\u0633\u0639: 9, \u062A\u0633\u0639\u0647: 9, \u0639\u0634\u0631: 10, \u0639\u0634\u0631\u0647: 10 };
+function promisedCount(text2) {
+  for (const tok of tokenize(text2).slice(0, 4)) {
+    const d = toWesternDigits(tok).match(/^\d{1,2}$/);
+    if (d) return Number(d[0]);
+    if (isNumberWord(tok)) {
+      for (const v of variants(tok)) if (NUMBER_WORDS[v]) return NUMBER_WORDS[v];
+    }
+  }
+  return null;
+}
+function ordinalOf(slide) {
+  for (const t of [slide.kicker, slide.title]) {
+    if (!t) continue;
+    const m = toWesternDigits(clean2(t)).match(/(?:^|\s|#)(\d{1,2})(?:[.)\-:/]|\s|$)/);
+    if (m && clean2(t).split(/\s+/).length <= 6) return Number(m[1]);
+  }
+  return null;
+}
+var slideText = (s) => [s.kicker, s.title, s.body, ...s.items ?? []].filter(Boolean).join("\n");
+function carouselFeatures(input, config) {
+  const slides = input.slides;
+  const n2 = slides.length;
+  const asksAction = (t) => /[?؟]/.test(t) || ["ctaComment", "ctaSave", "ctaShare", "ctaFollow"].some((k) => hits(k, tokenize(t), normalizeArabic(t)).n > 0);
+  const roleOf = (s, i) => s.role ?? (i === 0 ? "cover" : i === n2 - 1 && asksAction(slideText(s)) ? "cta" : "body");
+  const perSlide = slides.map((s, i) => {
+    const role = roleOf(s, i);
+    const stats = textStats(slideText(s));
+    const titleWords = tokenize(s.title ?? "").length;
+    const density = slideDensity(stats.words, role, s.visual, config);
+    const c = cues(slideText(s));
+    const insight = clamp01(0.45 * stats.specificity + 0.2 * saturate(c.myth + c.research, 1) + 0.2 * saturate(c.contrast + c.warning, 1) + 0.15 * saturate(stats.numbers, 1));
+    return {
+      slide: i + 1,
+      role,
+      words: stats.words,
+      titleWords,
+      ...density,
+      visual: s.visual ?? null,
+      sentences: stats.sentences,
+      maxSentenceWords: stats.maxSentenceWords,
+      ordinal: role === "cover" ? null : ordinalOf(s),
+      insight: round2(insight),
+      question: stats.questions > 0,
+      endsOpen: /[…:؟?]\s*$/.test(clean2(slideText(s))),
+      composition: s.visual?.composition ?? null,
+      scale: s.visual?.scale ?? null
+    };
+  });
+  const listItems = slides.reduce((m, s) => Math.max(m, s.items?.length ?? 0), 0);
+  return summarizeCarousel(perSlide, { promiseCount: promisedCount(slides[0]?.title ?? ""), listItems }, config);
+}
+function slideDensity(words3, role, visual, config) {
+  const limits = config.thresholds.carousel.density[role] ?? config.thresholds.carousel.density.body;
+  const shrunk = typeof visual?.scale === "number" && visual.scale < 0.9;
+  const densityScore = Math.round(Math.min(130, 100 * words3 / limits.max + (shrunk ? (1 - visual.scale) * 60 : 0)));
+  const empty = words3 === 0 && !(visual?.images > 0);
+  const warning = empty ? "empty" : words3 > limits.max || visual?.fits === false ? "too_dense" : words3 > limits.ideal ? "dense" : null;
+  return { densityScore, warning, targetWords: limits.ideal, recommendedWordReduction: warning === "too_dense" || warning === "dense" ? Math.max(0, words3 - limits.ideal) : 0 };
+}
+function summarizeCarousel(perSlide, { promiseCount, listItems = 0 }, config) {
+  const th = config.thresholds.carousel;
+  const n2 = perSlide.length;
+  const words3 = perSlide.map((p) => p.words);
+  const body = perSlide.filter((p) => p.role === "body");
+  const ordinals = perSlide.map((p) => p.ordinal).filter((x) => x !== null);
+  const sequential = ordinals.length >= 2 && ordinals.every((x, i) => i === 0 || x === ordinals[i - 1] + 1);
+  const delivered = ordinals.length >= 2 ? ordinals.length : listItems || body.length;
+  let run = 1;
+  let maxRun = 1;
+  for (let i = 1; i < perSlide.length; i++) {
+    run = perSlide[i].composition && perSlide[i].composition === perSlide[i - 1].composition ? run + 1 : 1;
+    maxRun = Math.max(maxRun, run);
+  }
+  const strongest = body.length ? body.reduce((a, b) => b.insight > a.insight ? b : a) : null;
+  const continuity = body.length ? body.filter((p) => p.ordinal !== null || p.endsOpen || p.question).length / body.length : 0;
+  const cover = perSlide[0];
+  const scales = perSlide.map((p) => p.scale).filter((x) => typeof x === "number");
+  return {
+    slideCount: n2,
+    wordsPerSlide: words3,
+    totalWords: words3.reduce((a, b) => a + b, 0),
+    avgWords: round2(words3.reduce((a, b) => a + b, 0) / Math.max(1, n2), 1),
+    maxWords: Math.max(0, ...words3),
+    coverWords: cover?.words ?? 0,
+    coverTitleWords: cover?.titleWords ?? 0,
+    overloaded: perSlide.filter((p) => p.warning === "too_dense").map((p) => p.slide),
+    dense: perSlide.filter((p) => p.warning === "dense").map((p) => p.slide),
+    empty: perSlide.filter((p) => p.warning === "empty").map((p) => p.slide),
+    slides: perSlide,
+    listItems,
+    promise: { count: promiseCount, delivered, matches: promiseCount === null ? null : promiseCount === delivered },
+    progression: { numbered: ordinals.length >= 2, sequential, ordinals },
+    curiosityContinuity: round2(continuity),
+    repeatedStructureRun: maxRun,
+    strongestSlide: strongest?.slide ?? null,
+    strongestInsight: strongest?.insight ?? 0,
+    secondSlideInsight: perSlide[1]?.insight ?? 0,
+    revealPacing: !strongest ? null : strongest.slide <= 3 ? "early" : strongest.slide >= th.strongestLateFrom ? "late" : "middle",
+    finalCta: perSlide.at(-1)?.role === "cta",
+    avgScale: scales.length ? round2(scales.reduce((a, b) => a + b, 0) / scales.length) : null,
+    slideCountFit: round2(band(n2, th.slides) ?? 0),
+    densityFit: round2(1 - perSlide.reduce((s, p) => s + (p.warning === "too_dense" ? 1 : p.warning === "dense" ? 0.4 : p.warning === "empty" ? 1 : 0), 0) / Math.max(1, n2))
+  };
+}
+function reelFeatures(input, config) {
+  const th = config.thresholds.reel;
+  const wps = th.wordsPerSecond;
+  const scenes = input.scenes?.length ? input.scenes : sentences(input.text ?? "").map((t) => ({ text: t }));
+  const per = scenes.map((s) => {
+    const words3 = tokenize(s.text).length;
+    const seconds = typeof s.durationSec === "number" ? s.durationSec : Math.max(th.minScene * 0.75, words3 / wps + 0.3);
+    return { words: words3, seconds, text: clean2(s.text), visualChange: s.visualChange };
+  });
+  const duration = per.reduce((a, b) => a + b.seconds, 0);
+  let acc = 0;
+  let firstWords = 0;
+  const firstTexts = [];
+  for (const p of per) {
+    if (acc >= th.firstSeconds) break;
+    const share = Math.min(1, (th.firstSeconds - acc) / p.seconds);
+    firstWords += Math.round(p.words * share);
+    firstTexts.push(p.text);
+    acc += p.seconds;
+  }
+  const firstText = firstTexts.join(" ");
+  const fc = cues(firstText);
+  const fs3 = textStats(firstText);
+  const promise = fs3.numbers > 0 || fc.curiosity > 0 || fs3.questions > 0 || fc.warning > 0 || fc.question > 0;
+  const hookWords = per[0]?.words ?? 0;
+  const half = Math.ceil(per.length / 2);
+  const firstHalf = per.slice(0, half).map((p) => p.text).join("\n");
+  const lastThird = per.slice(Math.floor(per.length * 2 / 3)).map((p) => p.text).join("\n");
+  const openLoops = cues(firstHalf).openLoop + textStats(firstHalf).questions;
+  const lt = cues(lastThird);
+  const payoff = lt.payoff > 0 || openLoops > 0 && textStats(lastThird).numbers > 0;
+  const secs = per.map((p) => p.seconds);
+  const mean = duration / Math.max(1, per.length);
+  const cv = per.length > 1 ? Math.sqrt(secs.reduce((s, x) => s + (x - mean) ** 2, 0) / per.length) / mean : 0;
+  const changes = per.filter((p, i) => i > 0 && p.visualChange !== false).length;
+  const names = (t) => ["ctaComment", "ctaFollow", "ctaSave", "ctaShare"].some((k) => hits(k, tokenize(t), normalizeArabic(t)).n > 0);
+  const ctaIdx = per.findLastIndex((p, i) => names(p.text) || i === per.length - 1 && /[?؟]/.test(p.text));
+  const totalContent = per.reduce((s, p) => s + textStats(p.text).contentWords, 0);
+  const compression = duration ? totalContent / duration : 0;
+  const lastRefersBack = per.length > 1 && /(ابدأ من جديد|أعد|من البداية|أول)/.test(per.at(-1).text);
+  return {
+    sceneCount: per.length,
+    wordsPerScene: per.map((p) => p.words),
+    totalWords: per.reduce((a, b) => a + b.words, 0),
+    durationSec: round2(duration, 1),
+    durationSource: input.scenes?.some((s) => typeof s.durationSec === "number") ? "planned" : "estimated-speech",
+    hookWords,
+    hookFits: hookWords <= th.hookWords,
+    hookInFirstSentence: hookWords <= th.hookWords * 1.7 && promise,
+    firstSecondsWords: firstWords,
+    firstSecondsHasPromise: promise,
+    sceneRhythmCv: round2(cv),
+    rhythmFit: round2(band(cv, [0, 0.1, 0.6, 1.2]) ?? 0),
+    openLoops,
+    payoff,
+    visualChangesPer10s: duration ? round2(changes / duration * 10, 1) : 0,
+    ctaPlacement: ctaIdx < 0 ? "none" : ctaIdx === per.length - 1 ? "end" : ctaIdx <= 1 ? "early" : "middle",
+    compression: round2(compression),
+    durationFit: round2(band(duration, th.duration) ?? 0),
+    replayPotential: round2(clamp01(0.45 * (lowerIsBetter(duration, 15, 45) ?? 0) + 0.25 * (lastRefersBack ? 1 : 0) + 0.3 * (band(compression, [0.3, 0.8, 2, 3]) ?? 0)))
+  };
+}
+function threadFeatures(input, config) {
+  const posts = input.thread ?? [];
+  const lengths = posts.map((p) => xWeightedLength(p));
+  return {
+    posts: posts.length,
+    firstPostLength: lengths[0] ?? 0,
+    overLimit: lengths.filter((l) => l > config.thresholds.x.maxLength).length,
+    numbered: posts.filter((p) => /^\s*\(?[0-9٠-٩]{1,2}\s*[/)]/.test(p)).length >= Math.min(2, posts.length),
+    avgPostWords: round2(posts.reduce((s, p) => s + tokenize(p).length, 0) / Math.max(1, posts.length), 1),
+    firstPostEndsOpen: /[…:؟?]\s*$/.test(clean2(posts[0] ?? "")) || startsWithNumber(posts[0] ?? ""),
+    postCountFit: round2(band(posts.length, [1, 3, 12, 25]) ?? 0),
+    lines: lines(posts.join("\n")).length
+  };
+}
+
+// lib/algorithm-intelligence/core/audience.js
+var AUDIENCE_MIX = {
+  commentWorthiness: { question: 0.3, ctaSpecific: 0.2, opinion: 0.15, directAddress: 0.15, conversationality: 0.1, personal: 0.1 },
+  replyWorthiness: { question: 0.35, opinion: 0.2, directAddress: 0.15, conversationality: 0.15, ctaSpecific: 0.15 },
+  shareWorthiness: { usefulness: 0.25, specificity: 0.2, listOrEducation: 0.15, novelty: 0.15, emotion: 0.1, quotability: 0.15 },
+  saveWorthiness: { usefulness: 0.3, densityInBand: 0.25, listStructure: 0.2, specificity: 0.15, depth: 0.1 },
+  quoteWorthiness: { opinion: 0.4, quotability: 0.3, emotion: 0.3 },
+  clickWorthiness: { link: 0.4, curiosity: 0.3, specificity: 0.3 },
+  profileWorthiness: { personal: 0.4, series: 0.3, specificity: 0.3 }
+};
+function audienceInputs(f3) {
+  const s = f3.semantic;
+  const i = f3.intent.scores;
+  const words3 = f3.text.words;
+  return {
+    question: f3.hook.question || f3.cta.question ? 1 : saturate(f3.text.questions, 1),
+    ctaSpecific: f3.cta.specific ? 1 : f3.cta.present && !f3.cta.generic ? 0.5 : 0,
+    // A stance worth replying to or quoting: opinion, controversy, myth-busting, a maxim.
+    opinion: Math.max(i.opinion ?? 0, i.controversy ?? 0, (i["myth-busting"] ?? 0) * 0.7, (i["personal-insight"] ?? 0) * 0.6),
+    directAddress: saturate(f3.text.directAddress, 2),
+    conversationality: f3.text.conversationality,
+    personal: Math.max(i["personal-insight"] ?? 0, i.story ?? 0),
+    usefulness: s.usefulness,
+    specificity: f3.text.specificity,
+    listOrEducation: Math.max(i.list ?? 0, i.education ?? 0, i.tutorial ?? 0),
+    novelty: s.novelty,
+    // Moderate emotion helps sharing; extreme framing is counted as risk elsewhere.
+    emotion: band(s.emotion, [0, 0.2, 0.75, 1]) ?? 0,
+    quotability: s.quotability,
+    densityInBand: f3.carousel ? f3.carousel.densityFit : band(words3, [10, 40, 220, 400]) ?? 0,
+    listStructure: f3.text.numberedList || f3.carousel?.progression?.numbered || (i.list ?? 0) >= 0.6 ? 1 : saturate(f3.text.listItems, 2),
+    depth: f3.carousel ? band(f3.carousel.slideCount, [2, 5, 10, 15]) ?? 0 : f3.thread ? band(f3.thread.posts, [1, 3, 10, 20]) ?? 0 : band(words3, [20, 60, 250, 450]) ?? 0,
+    link: f3.text.links > 0 ? 1 : 0,
+    curiosity: s.curiosity,
+    series: f3.thread?.numbered || f3.carousel?.progression?.sequential ? 1 : 0
+  };
+}
+var AUDIENCE_PRIOR = 0.15;
+function audienceFeatures(features) {
+  const x = audienceInputs(features);
+  const out = {};
+  for (const [name, mix2] of Object.entries(AUDIENCE_MIX)) {
+    const v = Object.entries(mix2).reduce((s, [k, w]) => s + w * (x[k] ?? 0), 0);
+    out[name] = round2(clamp01(AUDIENCE_PRIOR + (1 - AUDIENCE_PRIOR) * v));
+  }
+  return out;
+}
+
+// lib/algorithm-intelligence/core/semantic.js
+var SEMANTIC_VERSION = 1;
+var SEMANTIC_FIELDS = ["curiosity", "emotion", "novelty", "usefulness", "ctaQuality", "quotability"];
+function lexicalSemantic({ text: text2, body, hook, cta, intent }) {
+  const c = cues(text2);
+  const quotable = sentences(text2).filter((s) => {
+    const st = textStats(s);
+    const sc = cues(s);
+    const twoClauses = /[،,]/.test(s) && sc.maxim > 0;
+    return st.words >= 5 && st.words <= 14 && (sc.contrast > 0 || st.emotionalCues > 0 || sc.warning > 0 || twoClauses);
+  }).length;
+  const best = (...ks) => Math.max(...ks.map((k) => intent.scores[k] ?? 0));
+  return {
+    curiosity: round2(clamp01(0.6 * hook.parts.curiosity + 0.2 * (hook.number ? 1 : 0) + 0.2 * saturate(body.curiosityCues, 2))),
+    emotion: round2(Math.max(body.emotionalIntensity * 0.7, hook.emotionalIntensity)),
+    novelty: round2(clamp01(0.5 * saturate(c.myth, 1) + 0.3 * saturate(c.contrast, 2) + 0.2 * saturate(c.research, 1))),
+    usefulness: round2(clamp01(0.35 * best("education", "tutorial", "list") + 0.25 * saturate(body.imperatives, 1) + 0.2 * body.specificity + 0.2 * (intent.scores.warning ?? 0))),
+    ctaQuality: round2(!cta.present ? 0.2 : cta.bait ? 0.1 : cta.specific ? 0.95 : cta.generic ? 0.35 : 0.6),
+    quotability: round2(saturate(quotable, 1)),
+    provenance: "heuristic",
+    source: "local-lexicon",
+    version: SEMANTIC_VERSION
+  };
+}
+function semanticRequest(input, features) {
+  return {
+    version: SEMANTIC_VERSION,
+    instructions: 'Judge this Arabic social-media content. Return JSON only: {"curiosity":0..1,"emotion":0..1,"novelty":0..1,"usefulness":0..1,"ctaQuality":0..1,"quotability":0..1,"intent":{"primary":"<one of the intents>","secondary":["\u2026"]},"topics":["\u2026"],"notes":"<one sentence>"}. curiosity = an open question the reader wants answered; emotion = emotional framing strength; novelty = how unexpected the claim is for a general Arabic audience; usefulness = practical value to keep or apply; ctaQuality = how specific and natural the call to action is (0.2 if none); quotability = a line worth quoting alone. Do not judge length, density or formatting: those are measured locally.',
+    intents: INTENTS,
+    content: { type: features.type, hook: features.hook.text, cta: features.cta.text, text: allText(input).slice(0, 6e3) }
+  };
+}
+function parseSemantic(answer, { analyzerId = "ai", model = null } = {}) {
+  const data = typeof answer === "string" ? JSON.parse(answer.replace(/^```(?:json)?|```$/g, "").trim()) : answer;
+  const out = {};
+  for (const f3 of SEMANTIC_FIELDS) {
+    const v = Number(data?.[f3]);
+    if (!Number.isFinite(v) || v < 0 || v > 1) throw new Error(`semantic result: ${f3} must be a number 0..1`);
+    out[f3] = round2(v);
+  }
+  const primary = INTENTS.includes(data?.intent?.primary) ? data.intent.primary : null;
+  return {
+    ...out,
+    ...primary && { intent: { primary, secondary: (data.intent.secondary ?? []).filter((x) => INTENTS.includes(x)) } },
+    topics: Array.isArray(data?.topics) ? data.topics.filter((t) => typeof t === "string").slice(0, 8) : [],
+    notes: typeof data?.notes === "string" ? data.notes.slice(0, 300) : "",
+    provenance: "derived",
+    source: `ai:${analyzerId}${model ? `/${model}` : ""}`,
+    version: SEMANTIC_VERSION
+  };
+}
+function cachedSemantic(studio, contentKeyHash, analyzerId) {
+  if (!studio?.cache) return null;
+  const key = studio.cache.key("semantic", { content: contentKeyHash, analyzer: analyzerId }, { version: SEMANTIC_VERSION });
+  return studio.cache.get("semantic", key);
+}
+function storeSemantic(studio, contentKeyHash, analyzerId, result, { tokens = null, costUsd = null, durationMs = null, tool = null } = {}) {
+  if (!studio?.cache) return result;
+  const key = studio.cache.key("semantic", { content: contentKeyHash, analyzer: analyzerId }, { version: SEMANTIC_VERSION });
+  studio.cache.set("semantic", key, result, { deps: { analyzer: analyzerId } });
+  studio.ledger?.record({ kind: "ai.semantic", tool: tool ?? analyzerId, tokens, costUsd, durationMs, note: contentKeyHash.slice(0, 12) });
+  return result;
+}
+async function semanticWithCache(studio, input, features, analyzer) {
+  if (!analyzer) return null;
+  const hit = cachedSemantic(studio, features.key, analyzer.id);
+  if (hit) return hit;
+  const t0 = Date.now();
+  const raw = await analyzer.analyze(semanticRequest(input, features));
+  const result = parseSemantic(raw.answer ?? raw, { analyzerId: analyzer.id, model: raw.model ?? analyzer.model ?? null });
+  return storeSemantic(studio, features.key, analyzer.id, result, { tokens: raw.tokens ?? null, costUsd: raw.costUsd ?? null, durationMs: Date.now() - t0 });
+}
+
+// lib/algorithm-intelligence/core/feature-extractor.js
+function hookTextOf(input) {
+  if (input.type === "carousel") {
+    const cover = input.slides[0] ?? {};
+    const title = String(cover.title ?? "").trim();
+    const sub = String(cover.body ?? "").split("\n")[0].trim();
+    return sub && tokenize(`${title} ${sub}`).length <= 14 ? `${title} ${sub}` : title;
+  }
+  if (input.type === "reel" && input.scenes?.length) return input.scenes[0].text;
+  if (input.type === "thread") return sentences(input.thread?.[0] ?? "")[0] ?? "";
+  const raw = String(input.text ?? "");
+  const first = lines(raw)[0] ?? "";
+  return tokenize(first).length >= 2 ? first : sentences(raw)[0] ?? first;
+}
+function hookFeatures(hookText, config = DEFAULT_CONFIG) {
+  const t = clean2(hookText);
+  const stats = textStats(t);
+  const c = cues(t);
+  const first = tokenize(t)[0] ?? "";
+  const question = stats.questions > 0 || first && cues(first).question > 0;
+  const number = startsWithNumber(t) || stats.numbers > 0;
+  const types = [];
+  if (startsWithNumber(t) || number && tokenize(t).slice(0, 3).some((w) => /[0-9٠-٩]/.test(w))) types.push("list");
+  if (question) types.push("question");
+  if (c.myth) types.push("myth");
+  if (c.warning) types.push("warning");
+  if (c.tutorial) types.push("how-to");
+  if (c.curiosity || stats.ellipses) types.push("curiosity");
+  const type = types[0] ?? "statement";
+  const lengthFit = band(stats.words, config.thresholds.hookWords) ?? 0;
+  const curiosity = clamp01(saturate(c.curiosity + stats.ellipses, 1) * 0.7 + (question ? 0.3 : 0));
+  const tension = clamp01((c.warning ? 0.5 : 0) + (question ? 0.3 : 0) + (c.contrast ? 0.2 : 0));
+  const parts = {
+    lengthFit: round2(lengthFit),
+    curiosity: round2(curiosity),
+    specificity: round2(number ? Math.max(0.6, stats.specificity) : stats.specificity),
+    directAddress: round2(saturate(stats.directAddress, 1)),
+    tension: round2(tension),
+    clarity: round2(lowerIsBetter(stats.longWordRatio, 0.2, 0.5) ?? 1)
+  };
+  const strength = hookStrengthOf(parts);
+  return { text: t, words: stats.words, chars: stats.chars, type, types, question, number, startsWithNumber: startsWithNumber(t), warning: c.warning > 0, curiosityCues: c.curiosity, directAddress: stats.directAddress, emotionalIntensity: stats.emotionalIntensity, parts, strength: round2(strength) };
+}
+var HOOK_MIX = { lengthFit: 0.25, curiosity: 0.2, specificity: 0.2, directAddress: 0.15, tension: 0.1, clarity: 0.1 };
+var hookStrengthOf = (parts) => round2(Object.entries(HOOK_MIX).reduce((s, [k, w]) => s + w * (parts[k] ?? 0), 0));
+function ctaFeatures(input) {
+  let candidates;
+  if (input.type === "carousel") candidates = [{ text: [input.slides.at(-1)?.title, input.slides.at(-1)?.body, ...input.slides.at(-1)?.items ?? []].filter(Boolean).join("\n"), where: "end" }, ...input.caption ? [{ text: lines(input.caption).slice(-2).join("\n"), where: "caption" }] : []];
+  else if (input.type === "reel" && input.scenes?.length) candidates = [{ text: input.scenes.at(-1).text, where: "end" }, ...input.scenes.slice(0, 2).map((s) => ({ text: s.text, where: "early" })), ...input.caption ? [{ text: input.caption, where: "caption" }] : []];
+  else {
+    const raw = input.type === "thread" ? (input.thread ?? []).at(-1) ?? "" : String(input.text ?? "");
+    const ls = lines(raw);
+    candidates = [{ text: ls.slice(-2).join("\n"), where: "end" }, { text: ls.slice(0, 1).join("\n"), where: "start" }];
+  }
+  for (const cand of candidates) {
+    const tokens = tokenize(cand.text);
+    const normalized = normalizeArabic(clean2(cand.text));
+    const kinds = ["ctaComment", "ctaSave", "ctaShare", "ctaFollow", "ctaClick"].map((k) => [k, hits(k, tokens, normalized).n]).filter(([, n2]) => n2 > 0);
+    const question = /[?؟]/.test(cand.text);
+    if (!kinds.length && !question) continue;
+    const kind = kinds.sort((a, b) => b[1] - a[1])[0]?.[0] ?? "ctaComment";
+    const parts = sentences(cand.text).concat(lines(cand.text)).filter((x) => /[?؟]/.test(x) || ["ctaComment", "ctaSave", "ctaShare", "ctaFollow", "ctaClick"].some((k) => hits(k, tokenize(x), normalizeArabic(clean2(x))).n));
+    const ctaText = clean2(parts.sort((a, b) => cand.text.lastIndexOf(b) - cand.text.lastIndexOf(a))[0] ?? cand.text);
+    const type = { ctaComment: "comment", ctaSave: "save", ctaShare: "share", ctaFollow: "follow", ctaClick: "click" }[kind];
+    const generic = hits("genericCta", tokens, normalized).n > 0;
+    const bait = hits("bait", tokens, normalized).n > 0;
+    const specific = !generic && question && (/(^|\s)(أي|اي|أيهما|ايهما|كم)(\s|$)/.test(cand.text) || /رقم|اختر|كلمة/.test(normalized));
+    return { present: true, type, where: cand.where, text: ctaText, question, generic, specific, bait, words: tokenize(ctaText).length };
+  }
+  return { present: false, type: null, where: null, text: "", question: false, generic: false, specific: false, bait: false, words: 0 };
+}
+function intentScores(text2, { hook, carousel } = {}) {
+  const c = cues(text2);
+  const s = textStats(text2);
+  const sat = (n2) => saturate(n2, 1);
+  const scores = {
+    list: clamp01((hook?.startsWithNumber ? 0.6 : 0) + (s.numberedList ? 0.4 : 0) + (carousel?.progression?.sequential ? 0.4 : 0)),
+    tutorial: sat(c.tutorial) * 0.9,
+    education: clamp01(sat(c.education) * 0.7 + sat(c.research) * 0.3),
+    warning: sat(c.warning),
+    "myth-busting": sat(c.myth),
+    comparison: sat(c.comparison) * 0.8,
+    motivation: sat(c.motivation),
+    story: sat(c.story) * 0.8,
+    opinion: sat(c.opinion),
+    news: sat(c.news) * 0.7,
+    entertainment: sat(c.entertainment),
+    controversy: sat(c.controversy),
+    "personal-insight": clamp01(sat(c.personal) + 0.5 * sat(c.maxim))
+  };
+  for (const k of Object.keys(scores)) scores[k] = round2(scores[k]);
+  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  return { scores, primary: ranked[0][1] > 0.2 ? ranked[0][0] : "education", secondary: ranked.slice(1).filter(([, v]) => v >= 0.5).map(([k]) => k) };
+}
+function extractFeatures(rawInput, { config = DEFAULT_CONFIG, semantic } = {}) {
+  const input = toContentInput(rawInput);
+  const text2 = allText(input);
+  const body = textStats(text2);
+  const hook = hookFeatures(hookTextOf(input), config);
+  const cta = ctaFeatures(input);
+  const carousel = input.type === "carousel" ? carouselFeatures(input, config) : null;
+  const reel = input.type === "reel" ? reelFeatures(input, config) : null;
+  const thread = input.type === "thread" ? threadFeatures(input, config) : null;
+  const caption = input.caption ? textStats(input.caption) : null;
+  const intent = intentScores(text2, { hook, carousel });
+  const topics = extractConcepts(input.type === "carousel" ? `${input.topic ?? ""} ${input.slides.map((s) => `${s.kicker ?? ""} ${s.title ?? ""}`).join(" ")}` : `${input.topic ?? ""} ${text2}`);
+  const sem = semantic ?? lexicalSemantic({ text: text2, body, hook, cta, intent, carousel });
+  const features = {
+    version: FEATURES_VERSION,
+    key: contentKey(input),
+    type: input.type,
+    text: body,
+    hook,
+    cta,
+    intent: semantic?.intent ? { ...intent, ...semantic.intent, provenance: semantic.provenance } : { ...intent, provenance: "heuristic" },
+    topics: semantic?.topics?.length ? semantic.topics : topics,
+    semantic: sem,
+    caption,
+    carousel,
+    reel,
+    thread,
+    meta: input.meta ?? {}
+  };
+  features.audience = audienceFeatures(features);
+  return features;
+}
+function featureVector(features) {
+  const out = {};
+  const put = (prefix, obj) => {
+    for (const [k, v] of Object.entries(obj ?? {})) {
+      const key = prefix ? `${prefix}.${k}` : k;
+      if (typeof v === "number" && Number.isFinite(v)) out[key] = v;
+      else if (typeof v === "boolean") out[key] = v ? 1 : 0;
+    }
+  };
+  put("text", features.text);
+  put("hook", features.hook);
+  put("hook.parts", features.hook.parts);
+  put("cta", features.cta);
+  put("intent", features.intent.scores);
+  put("semantic", features.semantic);
+  put("audience", features.audience);
+  if (features.carousel) put("carousel", features.carousel);
+  if (features.reel) put("reel", features.reel);
+  if (features.thread) put("thread", features.thread);
+  out[`type.${features.type}`] = 1;
+  return out;
+}
+
+// lib/algorithm-intelligence/core/counterfactual.js
+function finish(f3) {
+  f3.hook.strength = hookStrengthOf(f3.hook.parts);
+  f3.audience = audienceFeatures(f3);
+  return f3;
+}
+var counterfactual = {
+  slideWords(f0, slideNo, words3, config) {
+    const f3 = clone(f0);
+    const c = f3.carousel;
+    const row = c.slides[slideNo - 1];
+    const visual = { ...row.visual ?? {}, fits: true, scale: 1 };
+    Object.assign(row, { words: words3, ...slideDensity(words3, row.role, visual, config), visual, scale: 1 });
+    f3.carousel = summarizeCarousel(c.slides, { promiseCount: c.promise.count, listItems: c.listItems }, config);
+    if (slideNo === 1) {
+      f3.hook.parts.lengthFit = Math.max(f3.hook.parts.lengthFit, 1);
+    }
+    return finish(f3);
+  },
+  removeSlide(f0, slideNo, config) {
+    const f3 = clone(f0);
+    const c = f3.carousel;
+    const rows = c.slides.filter((r) => r.slide !== slideNo).map((r, i) => ({ ...r, slide: i + 1 }));
+    f3.carousel = summarizeCarousel(rows, { promiseCount: c.promise.count, listItems: c.listItems }, config);
+    return finish(f3);
+  },
+  promiseKept(f0) {
+    const f3 = clone(f0);
+    f3.carousel.promise = { ...f3.carousel.promise, matches: true, delivered: f3.carousel.promise.count };
+    return finish(f3);
+  },
+  hookParts(f0, parts) {
+    const f3 = clone(f0);
+    for (const [k, v] of Object.entries(parts)) f3.hook.parts[k] = Math.max(f3.hook.parts[k], v);
+    return finish(f3);
+  },
+  openingSentence(f0, words3) {
+    const f3 = clone(f0);
+    f3.text.firstSentenceWords = words3;
+    if (f3.hook.words > words3) {
+      f3.hook.words = words3;
+      f3.hook.parts.lengthFit = 1;
+    }
+    return finish(f3);
+  },
+  sentences(f0, avg) {
+    const f3 = clone(f0);
+    f3.text.avgSentenceWords = Math.min(f3.text.avgSentenceWords, avg);
+    f3.text.maxSentenceWords = Math.min(f3.text.maxSentenceWords, Math.round(avg * 1.4));
+    f3.text.readability = readabilityOf(f3.text.avgSentenceWords, f3.text.longWordRatio);
+    return finish(f3);
+  },
+  specificCta(f0, { type = "comment" } = {}, config) {
+    const f3 = clone(f0);
+    f3.cta = { ...f3.cta, present: true, type: f3.cta.type ?? type, generic: false, specific: type === "comment", question: type === "comment" ? true : f3.cta.question, bait: false };
+    f3.semantic = { ...f3.semantic, ctaQuality: type === "comment" ? 0.95 : 0.6 };
+    if (f3.carousel && f3.carousel.slides.at(-1)?.role !== "cta") {
+      f3.carousel.slides.at(-1).role = "cta";
+      f3.carousel = summarizeCarousel(f3.carousel.slides, { promiseCount: f3.carousel.promise.count, listItems: f3.carousel.listItems }, config);
+    }
+    return finish(f3);
+  },
+  specificity(f0, value) {
+    const f3 = clone(f0);
+    f3.text.specificity = Math.max(f3.text.specificity, value);
+    f3.hook.parts.specificity = Math.max(f3.hook.parts.specificity, Math.min(value, 0.6));
+    return finish(f3);
+  },
+  removeBait(f0) {
+    const f3 = clone(f0);
+    f3.text.baitPhrases = [];
+    f3.cta = { ...f3.cta, bait: false };
+    f3.semantic = { ...f3.semantic, ctaQuality: Math.max(f3.semantic.ctaQuality, 0.6) };
+    return finish(f3);
+  },
+  removeHostile(f0) {
+    const f3 = clone(f0);
+    f3.text.hostileWords = 0;
+    return finish(f3);
+  },
+  xLength(f0, length) {
+    const f3 = clone(f0);
+    if (f3.caption && (f3.type === "carousel" || f3.type === "reel")) f3.caption.xLength = length;
+    else f3.text.xLength = length;
+    return finish(f3);
+  },
+  reel(f0, patch) {
+    const f3 = clone(f0);
+    Object.assign(f3.reel, patch);
+    return finish(f3);
+  },
+  captionOpening(f0, words3) {
+    const f3 = clone(f0);
+    if (f3.caption) f3.caption.firstSentenceWords = words3;
+    return finish(f3);
+  },
+  showMoreOpening(f0) {
+    const f3 = clone(f0);
+    f3.hook.parts.curiosity = Math.max(f3.hook.parts.curiosity, 0.6);
+    f3.semantic = { ...f3.semantic, curiosity: Math.max(f3.semantic.curiosity, 0.6) };
+    return finish(f3);
+  },
+  question(f0) {
+    const f3 = clone(f0);
+    f3.cta = { ...f3.cta, present: true, question: true, type: f3.cta.type ?? "comment", specific: true, generic: false };
+    f3.semantic = { ...f3.semantic, ctaQuality: Math.max(f3.semantic.ctaQuality, 0.8) };
+    return finish(f3);
+  }
+};
+var effectOf = (before, after, scoreType2) => ({
+  scoreType: scoreType2,
+  deltaPoints: typeof before.scores[scoreType2]?.score === "number" && typeof after.scores[scoreType2]?.score === "number" ? after.scores[scoreType2].score - before.scores[scoreType2].score : null,
+  overallDelta: after.overall.score - before.overall.score,
+  basis: "model-counterfactual",
+  note: round2(after.overall.score - before.overall.score, 0) === 0 ? "no change under the current model" : void 0
+});
+
+// lib/algorithm-intelligence/core/recommendation-engine.js
+var T = (ar, en) => ({ ar, en });
+var pick2 = (msg, lang) => typeof msg === "string" ? msg : msg[lang] ?? msg.en;
+var PART_LABEL = {
+  lengthFit: T("\u0627\u0644\u0637\u0648\u0644", "length"),
+  curiosity: T("\u0627\u0644\u0641\u0636\u0648\u0644", "curiosity"),
+  specificity: T("\u0627\u0644\u062A\u062D\u062F\u064A\u062F", "specificity"),
+  directAddress: T("\u0645\u062E\u0627\u0637\u0628\u0629 \u0627\u0644\u0642\u0627\u0631\u0626", "direct address"),
+  tension: T("\u0645\u0627 \u0639\u0644\u0649 \u0627\u0644\u0645\u062D\u0643", "stakes"),
+  clarity: T("\u0627\u0644\u0648\u0636\u0648\u062D", "clarity")
+};
+var HOOK_FIX = {
+  lengthFit: (f3) => f3.hook.words > 12 ? T(`\u0627\u062E\u062A\u0635\u0631 \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0625\u0644\u0649 12 \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644 (\u0627\u0644\u0622\u0646 ${f3.hook.words}): \u0636\u0639 \u0627\u0644\u0646\u062A\u064A\u062C\u0629 \u0623\u0648\u0644\u064B\u0627 \u0648\u0627\u062D\u0630\u0641 \u0627\u0644\u062A\u0645\u0647\u064A\u062F.`, `Cut the opening to \u2264 12 words (now ${f3.hook.words}): lead with the consequence and drop the setup.`) : T(`\u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 ${f3.hook.words} \u0643\u0644\u0645\u0627\u062A \u0641\u0642\u0637: \u0623\u0636\u0641 \u0645\u0627 \u0639\u0644\u0649 \u0627\u0644\u0645\u062D\u0643 (\u0627\u0644\u0646\u062A\u064A\u062C\u0629 \u0623\u0648 \u0627\u0644\u0631\u0642\u0645).`, `The opening has only ${f3.hook.words} words: add what is at stake (the consequence or the number).`),
+  curiosity: () => T("\u0644\u0627 \u064A\u0648\u062C\u062F \u0633\u0624\u0627\u0644 \u0648\u0644\u0627 \u0641\u062C\u0648\u0629 \u0641\u0636\u0648\u0644 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629: \u0627\u0630\u0643\u0631 \u0627\u0644\u0646\u062A\u064A\u062C\u0629 \u0648\u0627\u062A\u0631\u0643 \u0627\u0644\u0633\u0628\u0628 \u0644\u0644\u0634\u0631\u0627\u0626\u062D \u0627\u0644\u062A\u0627\u0644\u064A\u0629.", "No question or curiosity gap in the opening: state the consequence and hold back the reason for the next slides."),
+  specificity: () => T("\u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0628\u0644\u0627 \u0631\u0642\u0645 \u0623\u0648 \u062A\u0641\u0635\u064A\u0644 \u0645\u062D\u062F\u062F: \u0636\u0639 \u0627\u0644\u0631\u0642\u0645 \u0623\u0648 \u0627\u0644\u0645\u062F\u0629 \u0623\u0648 \u0627\u0644\u0645\u062B\u0627\u0644 \u0641\u064A \u0627\u0644\u0633\u0637\u0631 \u0627\u0644\u0623\u0648\u0644.", "The opening has no number or concrete detail: put the number, duration or example in the first line."),
+  directAddress: () => T("\u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0644\u0627 \u062A\u062E\u0627\u0637\u0628 \u0627\u0644\u0642\u0627\u0631\u0626: \u0627\u062C\u0639\u0644 \u0627\u0644\u0636\u0645\u064A\u0631 \u0644\u0647 (\xAB\u062F\u0645\u0627\u063A\u0643\xBB\u060C \xAB\u064A\u0648\u0645\u0643\xBB).", "The opening does not address the reader: make it theirs (\xAB\u062F\u0645\u0627\u063A\u0643\xBB, \xAB\u064A\u0648\u0645\u0643\xBB)."),
+  tension: () => T("\u0644\u0627 \u064A\u0638\u0647\u0631 \u0645\u0627 \u0639\u0644\u0649 \u0627\u0644\u0645\u062D\u0643: \u0623\u0636\u0641 \u062A\u062D\u0630\u064A\u0631\u064B\u0627 \u0623\u0648 \u0645\u0642\u0627\u0628\u0644\u0629 \u0628\u064A\u0646 \u062D\u0627\u0644\u064A\u0646.", "Nothing is at stake yet: add a warning or a contrast between two states."),
+  clarity: () => T("\u0643\u0644\u0645\u0627\u062A \u0637\u0648\u064A\u0644\u0629 \u0643\u062B\u064A\u0631\u0629 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629: \u0627\u0633\u062A\u0628\u062F\u0644\u0647\u0627 \u0628\u0623\u0642\u0635\u0631 \u0645\u0646\u0647\u0627.", "Many long words in the opening: use shorter ones.")
+};
+var SHARED_RULES = [
+  {
+    id: "slide_overloaded",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["carousel"],
+    detect: (f3) => f3.carousel.slides.filter((s) => s.warning === "too_dense" || s.warning === "dense" && s.recommendedWordReduction >= 3).map((s) => ({
+      key: `slide-${s.slide}`,
+      severity: s.warning === "too_dense" ? 0.8 : 0.4,
+      params: { slide: s.slide, words: s.words, target: s.targetWords, reduce: s.recommendedWordReduction, densityScore: s.densityScore, role: s.role },
+      evidence: [{ feature: `carousel.slides[${s.slide}].words`, value: s.words, target: s.targetWords, provenance: "derived" }]
+    })),
+    edit: (f3, x, ctx) => counterfactual.slideWords(f3, x.params.slide, x.params.target, ctx.config),
+    text: (p) => ({
+      issue: T(`\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0645\u0632\u062F\u062D\u0645\u0629`, `Slide ${p.slide} is overloaded`),
+      reason: T(`${p.words} \u0643\u0644\u0645\u0629\u061B \u0627\u0644\u0634\u0631\u064A\u062D\u0629 \u062A\u064F\u0642\u0631\u0623 \u0628\u0631\u0627\u062D\u0629 \u0639\u0644\u0649 \u0627\u0644\u0647\u0627\u062A\u0641 \u062D\u062A\u0649 ${p.target} \u0643\u0644\u0645\u0629 (\u0643\u062B\u0627\u0641\u0629 ${p.densityScore}).`, `${p.words} words; this slide reads comfortably on a phone up to ${p.target} (density ${p.densityScore}).`),
+      fix: T(`\u0627\u062E\u062A\u0635\u0631 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0645\u0646 ${p.words} \u0625\u0644\u0649 ${p.target} \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644 (\u0627\u062D\u0630\u0641 ${p.reduce})\u060C \u0623\u0648 \u0642\u0633\u0651\u0645\u0647\u0627 \u0639\u0644\u0649 \u0634\u0631\u064A\u062D\u062A\u064A\u0646.`, `Reduce slide ${p.slide} from ${p.words} words to \u2264 ${p.target} (\u2212${p.reduce}), or split it into two slides.`)
+    }),
+    rewrite: (p) => `Shorten slide ${p.slide} to at most ${p.target} words without losing its point.`
+  },
+  {
+    id: "empty_slide",
+    scoreType: "retention",
+    basis: "derived",
+    types: ["carousel"],
+    detect: (f3) => f3.carousel.empty.map((n2) => ({ key: `slide-${n2}`, severity: 0.9, params: { slide: n2 }, evidence: [{ feature: `carousel.slides[${n2}].words`, value: 0, target: "> 0", provenance: "derived" }] })),
+    edit: (f3, x, ctx) => counterfactual.removeSlide(f3, x.params.slide, ctx.config),
+    text: (p) => ({ issue: T(`\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0641\u0627\u0631\u063A\u0629`, `Slide ${p.slide} is empty`), reason: T("\u0644\u0627 \u0646\u0635 \u0641\u064A\u0647\u0627 \u0648\u0644\u0627 \u0635\u0648\u0631\u0629.", "It has no text and no image."), fix: T(`\u0627\u062D\u0630\u0641 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0623\u0648 \u0636\u0639 \u0641\u064A\u0647\u0627 \u0641\u0643\u0631\u0629 \u0648\u0627\u062D\u062F\u0629.`, `Remove slide ${p.slide} or give it one idea.`) })
+  },
+  {
+    id: "weak_opening",
+    scoreType: "hook",
+    basis: "heuristic",
+    detect: (f3) => {
+      if (f3.hook.strength >= 0.55) return [];
+      const weakest = Object.entries(HOOK_MIX).map(([k, w]) => [k, w * (1 - f3.hook.parts[k])]).filter(([, gap]) => gap >= 0.05).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([k]) => k);
+      if (!weakest.length) return [];
+      return [
+        {
+          key: f3.type === "carousel" ? "cover" : "opening",
+          severity: 0.6 + (0.55 - f3.hook.strength),
+          params: { parts: weakest, strength: f3.hook.strength, cover: f3.type === "carousel" },
+          evidence: weakest.map((k) => ({ feature: `hook.parts.${k}`, value: f3.hook.parts[k], target: 0.8, provenance: "heuristic" }))
+        }
+      ];
+    },
+    edit: (f3, x) => counterfactual.hookParts(f3, Object.fromEntries(x.params.parts.map((k) => [k, 0.8]))),
+    topic: (x) => x.params.parts.includes("lengthFit") ? "opening-length" : null,
+    text: (p, f3, lang) => ({
+      issue: p.cover ? T("\u063A\u0644\u0627\u0641 \u0636\u0639\u064A\u0641 \u0627\u0644\u062C\u0630\u0628", "Weak cover hook") : T("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0636\u0639\u064A\u0641\u0629", "Weak opening"),
+      reason: T(`\u0642\u0648\u0629 \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 ${p.strength} \u0645\u0646 1\u061B \u0623\u0636\u0639\u0641 \u0623\u062C\u0632\u0627\u0626\u0647\u0627: ${p.parts.map((k) => PART_LABEL[k].ar).join("\u060C ")}.`, `Opening strength ${p.strength}/1; weakest parts: ${p.parts.map((k) => PART_LABEL[k].en).join(", ")}.`),
+      fix: { ar: p.parts.map((k) => HOOK_FIX[k](f3).ar).join(" "), en: p.parts.map((k) => HOOK_FIX[k](f3).en).join(" ") }
+    }),
+    rewrite: (p) => `Rewrite the opening: improve ${p.parts.map((k) => PART_LABEL[k].en).join(" and ")}; keep it under 12 words and keep the meaning.`
+  },
+  {
+    id: "generic_cta",
+    scoreType: "conversation",
+    basis: "heuristic",
+    detect: (f3) => f3.cta.present && f3.cta.generic ? [{ severity: 0.5, params: { text: f3.cta.text, count: f3.carousel?.promise?.count ?? null }, evidence: [{ feature: "cta.generic", value: true, target: false, provenance: "heuristic" }] }] : [],
+    edit: (f3, x, ctx) => counterfactual.specificCta(f3, { type: "comment" }, ctx.config),
+    text: (p) => ({
+      issue: T("\u062F\u0639\u0648\u0629 \u0639\u0627\u0645\u0629 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", "Generic call to action"),
+      reason: T(`\xAB${p.text.split("\n")[0]}\xBB \u062A\u0637\u0644\u0628 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u062F\u0648\u0646 \u0633\u0624\u0627\u0644 \u0645\u062D\u062F\u062F \u064A\u0633\u0647\u0644 \u0627\u0644\u0625\u062C\u0627\u0628\u0629 \u0639\u0646\u0647.`, `"${p.text.split("\n")[0]}" asks for engagement without a specific, easy-to-answer prompt.`),
+      fix: p.count ? T(`\u0627\u0633\u062A\u0628\u062F\u0644\u0647\u0627 \u0628\u0633\u0624\u0627\u0644 \u064A\u062D\u062F\u062F \u0627\u0644\u0625\u062C\u0627\u0628\u0629: \xAB\u0623\u064A\u0651 ${p.count} \u0645\u0646\u0647\u0627 \u064A\u062D\u062F\u062B \u0645\u0639\u0643 \u0623\u0643\u062B\u0631\u061F \u0627\u0643\u062A\u0628 \u0631\u0642\u0645\u0647\xBB.`, `Replace it with a question that bounds the answer: "Which of the ${p.count} happens to you most? Write its number."`) : T("\u0627\u0633\u062A\u0628\u062F\u0644\u0647\u0627 \u0628\u0633\u0624\u0627\u0644 \u064A\u062D\u062F\u062F \u0627\u0644\u0625\u062C\u0627\u0628\u0629 (\u0627\u062E\u062A\u064A\u0627\u0631\u060C \u0631\u0642\u0645\u060C \u062A\u062C\u0631\u0628\u0629 \u0648\u0627\u062D\u062F\u0629).", "Replace it with a question that bounds the answer (a choice, a number, one experience).")
+    }),
+    rewrite: () => "Replace the call to action with one specific question the reader can answer in a word or a number."
+  },
+  {
+    id: "missing_cta",
+    scoreType: "conversation",
+    basis: "heuristic",
+    types: ["carousel", "post", "caption", "reel", "thread"],
+    detect: (f3) => {
+      if (f3.cta.present) return [];
+      const save = f3.audience.saveWorthiness >= f3.audience.commentWorthiness;
+      return [{ severity: 0.45, params: { kind: save ? "save" : "comment", count: f3.carousel?.promise?.count ?? null }, evidence: [{ feature: "cta.present", value: false, target: true, provenance: "derived" }, { feature: save ? "audience.saveWorthiness" : "audience.commentWorthiness", value: save ? f3.audience.saveWorthiness : f3.audience.commentWorthiness, provenance: "heuristic" }] }];
+    },
+    edit: (f3, x, ctx) => counterfactual.specificCta(f3, { type: x.params.kind }, ctx.config),
+    text: (p) => ({
+      issue: T("\u0644\u0627 \u062A\u0648\u062C\u062F \u062F\u0639\u0648\u0629 \u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629", "No call to action at the end"),
+      reason: p.kind === "save" ? T("\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0645\u0631\u062C\u0639\u064A (\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062D\u0641\u0638 \u0623\u0639\u0644\u0649 \u0645\u0646 \u0627\u0644\u062A\u0639\u0644\u064A\u0642) \u0648\u0644\u0627 \u064A\u0630\u0643\u0651\u0631 \u0627\u0644\u0642\u0627\u0631\u0626 \u0628\u0627\u0644\u062D\u0641\u0638.", "The content is reference material (save potential above comment potential) and never prompts a save.") : T("\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u064A\u062F\u0639\u0648 \u0644\u0644\u0646\u0642\u0627\u0634 \u0644\u0643\u0646\u0647 \u0644\u0627 \u064A\u0637\u0631\u062D \u0633\u0624\u0627\u0644\u064B\u0627 \u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629.", "The content invites discussion but ends without a question."),
+      fix: p.kind === "save" ? T("\u0627\u062E\u062A\u0645 \u0628\u062F\u0639\u0648\u0629 \u062D\u0641\u0638 \u0645\u0631\u062A\u0628\u0637\u0629 \u0628\u0627\u0644\u0627\u0633\u062A\u062E\u062F\u0627\u0645 (\xAB\u0627\u062D\u0641\u0638\u0647 \u0644\u062A\u0639\u0648\u062F \u0625\u0644\u064A\u0647 \u0642\u0628\u0644\u2026\xBB).", 'End with a save prompt tied to its use ("save it for when\u2026").') : T(`\u0627\u062E\u062A\u0645 \u0628\u0633\u0624\u0627\u0644 \u0645\u062D\u062F\u062F${p.count ? ` (\xAB\u0623\u064A\u0651 ${p.count} \u0645\u0646\u0647\u0627\u2026\u061F\xBB)` : ""}.`, `End with a specific question${p.count ? ` ("which of the ${p.count}\u2026?")` : ""}.`)
+    })
+  },
+  {
+    id: "promise_mismatch",
+    scoreType: "retention",
+    basis: "derived",
+    types: ["carousel"],
+    detect: (f3) => f3.carousel.promise.matches === false ? [{ severity: 0.7, params: { ...f3.carousel.promise }, evidence: [{ feature: "carousel.promise", value: `${f3.carousel.promise.count}\u2192${f3.carousel.promise.delivered}`, target: "equal", provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.promiseKept(f3),
+    text: (p) => ({
+      issue: T("\u0627\u0644\u063A\u0644\u0627\u0641 \u064A\u0639\u062F \u0628\u0639\u062F\u062F \u0644\u0627 \u062A\u0642\u062F\u0651\u0645\u0647 \u0627\u0644\u0634\u0631\u0627\u0626\u062D", "The cover promises a count the slides do not deliver"),
+      reason: T(`\u0627\u0644\u063A\u0644\u0627\u0641 \u064A\u0639\u062F \u0628\u0640 ${p.count} \u0648\u0627\u0644\u0634\u0631\u0627\u0626\u062D \u062A\u0642\u062F\u0651\u0645 ${p.delivered}.`, `The cover promises ${p.count}; the slides deliver ${p.delivered}.`),
+      fix: T(`\u0627\u062C\u0639\u0644 \u0627\u0644\u0639\u062F\u062F\u064A\u0646 \u0645\u062A\u0633\u0627\u0648\u064A\u064A\u0646: \u0639\u062F\u0651\u0644 \u0631\u0642\u0645 \u0627\u0644\u063A\u0644\u0627\u0641 \u0625\u0644\u0649 ${p.delivered} \u0623\u0648 \u0623\u0643\u0645\u0644 \u0627\u0644\u0628\u0646\u0648\u062F \u0625\u0644\u0649 ${p.count}.`, `Make them equal: change the cover to ${p.delivered} or complete the items to ${p.count}.`)
+    })
+  },
+  {
+    id: "strongest_insight_late",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["carousel"],
+    detect: (f3) => {
+      const c = f3.carousel;
+      if (c.revealPacing !== "late" || c.strongestInsight - c.secondSlideInsight < 0.15) return [];
+      return [{ severity: 0.35, params: { slide: c.strongestSlide, insight: c.strongestInsight, second: c.secondSlideInsight }, evidence: [{ feature: `carousel.slides[${c.strongestSlide}].insight`, value: c.strongestInsight, provenance: "heuristic" }, { feature: "carousel.slides[2].insight", value: c.secondSlideInsight, provenance: "heuristic" }] }];
+    },
+    text: (p) => ({
+      issue: T("\u0623\u0642\u0648\u0649 \u0641\u0643\u0631\u0629 \u0645\u062A\u0623\u062E\u0631\u0629", "The strongest insight comes late"),
+      reason: T(`\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0647\u064A \u0627\u0644\u0623\u0643\u062B\u0631 \u062A\u062D\u062F\u064A\u062F\u064B\u0627 (${p.insight}) \u0648\u0627\u0644\u0634\u0631\u064A\u062D\u0629 2 \u0623\u0636\u0639\u0641 (${p.second}).`, `Slide ${p.slide} is the most specific (${p.insight}); slide 2 is weaker (${p.second}).`),
+      fix: T(`\u0627\u0646\u0642\u0644 \u0641\u0643\u0631\u0629 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${p.slide} \u0625\u0644\u0649 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 2 \u062D\u062A\u0649 \u064A\u0631\u0649 \u0627\u0644\u0642\u0627\u0631\u0626 \u0627\u0644\u0642\u064A\u0645\u0629 \u0642\u0628\u0644 \u0623\u0646 \u064A\u0642\u0631\u0631 \u0627\u0644\u0645\u062A\u0627\u0628\u0639\u0629.`, `Move slide ${p.slide}'s idea to slide 2 so readers see the value before deciding to keep swiping.`)
+    })
+  },
+  {
+    id: "long_sentences",
+    scoreType: "contentQuality",
+    basis: "derived",
+    detect: (f3, ctx) => {
+      const th = ctx.config.thresholds.sentenceWords;
+      if (f3.text.avgSentenceWords <= th.good && f3.text.maxSentenceWords <= th.bad) return [];
+      return [{ severity: f3.text.maxSentenceWords > th.bad ? 0.5 : 0.3, params: { avg: f3.text.avgSentenceWords, max: f3.text.maxSentenceWords, good: th.good }, evidence: [{ feature: "text.avgSentenceWords", value: f3.text.avgSentenceWords, target: th.good, provenance: "derived" }, { feature: "text.maxSentenceWords", value: f3.text.maxSentenceWords, target: th.bad, provenance: "derived" }] }];
+    },
+    edit: (f3, x) => counterfactual.sentences(f3, x.params.good),
+    text: (p) => ({
+      issue: T("\u062C\u0645\u0644 \u0637\u0648\u064A\u0644\u0629", "Long sentences"),
+      reason: T(`\u0645\u062A\u0648\u0633\u0637 \u0627\u0644\u062C\u0645\u0644\u0629 ${p.avg} \u0643\u0644\u0645\u0629 \u0648\u0623\u0637\u0648\u0644\u0647\u0627 ${p.max}.`, `Average sentence ${p.avg} words, longest ${p.max}.`),
+      fix: T(`\u0642\u0633\u0651\u0645 \u0627\u0644\u062C\u0645\u0644 \u0627\u0644\u0637\u0648\u064A\u0644\u0629 \u062D\u062A\u0649 \u064A\u0635\u0628\u062D \u0627\u0644\u0645\u062A\u0648\u0633\u0637 ${p.good} \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644.`, `Split long sentences until the average is \u2264 ${p.good} words.`)
+    })
+  },
+  {
+    id: "low_specificity",
+    scoreType: "share",
+    basis: "heuristic",
+    detect: (f3) => f3.text.specificity < 0.25 && f3.text.words >= 12 ? [{ severity: 0.4, params: { value: f3.text.specificity, numbers: f3.text.numbers }, evidence: [{ feature: "text.specificity", value: f3.text.specificity, target: 0.4, provenance: "derived" }, { feature: "text.numbers", value: f3.text.numbers, provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.specificity(f3, 0.5),
+    text: (p) => ({
+      issue: T("\u0645\u062D\u062A\u0648\u0649 \u0639\u0627\u0645 \u0628\u0644\u0627 \u062A\u0641\u0627\u0635\u064A\u0644 \u0645\u062D\u062F\u062F\u0629", "Generic content without specifics"),
+      reason: T(`\u062F\u0631\u062C\u0629 \u0627\u0644\u062A\u062D\u062F\u064A\u062F ${p.value}\u061B ${p.numbers} \u0623\u0631\u0642\u0627\u0645 \u0648\u0644\u0627 \u0648\u062D\u062F\u0627\u062A \u0642\u064A\u0627\u0633 \u062A\u0642\u0631\u064A\u0628\u064B\u0627.`, `Specificity ${p.value}; ${p.numbers} numbers and almost no units.`),
+      fix: T("\u0623\u0636\u0641 \u0631\u0642\u0645\u064B\u0627 \u0648\u0627\u062D\u062F\u064B\u0627 \u0623\u0648 \u0645\u062F\u0629 \u0623\u0648 \u0645\u062B\u0627\u0644\u064B\u0627 \u0645\u0644\u0645\u0648\u0633\u064B\u0627 \u0644\u0643\u0644 \u0641\u0643\u0631\u0629 \u0631\u0626\u064A\u0633\u064A\u0629.", "Add one number, duration or concrete example to each main idea.")
+    })
+  },
+  {
+    id: "clickbait_gap",
+    scoreType: "negativeRisk",
+    basis: "heuristic",
+    detect: (f3) => f3.semantic.curiosity > 0.6 && f3.text.specificity < 0.25 ? [{ severity: 0.55, params: { curiosity: f3.semantic.curiosity, specificity: f3.text.specificity }, evidence: [{ feature: "semantic.curiosity", value: f3.semantic.curiosity, provenance: f3.semantic.provenance }, { feature: "text.specificity", value: f3.text.specificity, target: 0.45, provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.specificity(f3, 0.45),
+    text: (p) => ({
+      issue: T("\u0641\u0636\u0648\u0644 \u0623\u0643\u0628\u0631 \u0645\u0646 \u0627\u0644\u0645\u0636\u0645\u0648\u0646", "More curiosity than substance"),
+      reason: T(`\u0627\u0644\u0641\u0636\u0648\u0644 ${p.curiosity} \u0648\u0627\u0644\u062A\u062D\u062F\u064A\u062F ${p.specificity}: \u0642\u062F \u064A\u0634\u0639\u0631 \u0627\u0644\u0642\u0627\u0631\u0626 \u0623\u0646 \u0627\u0644\u0648\u0639\u062F \u0644\u0645 \u064A\u064F\u0648\u0641\u064E.`, `Curiosity ${p.curiosity} vs specificity ${p.specificity}: readers may feel the promise was not kept.`),
+      fix: T("\u0642\u062F\u0651\u0645 \u062A\u0641\u0635\u064A\u0644\u064B\u0627 \u0645\u0644\u0645\u0648\u0633\u064B\u0627 \u0648\u0627\u062D\u062F\u064B\u0627 \u0645\u0628\u0643\u0631\u064B\u0627 \u064A\u062B\u0628\u062A \u0623\u0646 \u0627\u0644\u0648\u0639\u062F \u062D\u0642\u064A\u0642\u064A.", "Deliver one concrete detail early to show the promise is real.")
+    })
+  },
+  {
+    id: "engagement_bait",
+    scoreType: "negativeRisk",
+    basis: "heuristic",
+    detect: (f3) => f3.cta.bait || f3.text.baitPhrases.length ? [{ severity: 0.9, params: { phrases: f3.text.baitPhrases }, evidence: [{ feature: "text.baitPhrases", value: f3.text.baitPhrases.join("\u060C ") || "cta", target: "none", provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.removeBait(f3),
+    text: (p) => ({
+      issue: T("\u0627\u0633\u062A\u062C\u062F\u0627\u0621 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", "Engagement bait"),
+      reason: T(`\u0639\u0628\u0627\u0631\u0627\u062A \u062A\u0637\u0644\u0628 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0644\u0630\u0627\u062A\u0647: ${p.phrases.join("\u060C ") || "\u0641\u064A \u0627\u0644\u062F\u0639\u0648\u0629"}.`, `Wording that asks for engagement for its own sake: ${p.phrases.join(", ") || "in the CTA"}.`),
+      fix: T("\u0627\u062D\u0630\u0641\u0647\u0627 \u0648\u0627\u0637\u0631\u062D \u0633\u0624\u0627\u0644\u064B\u0627 \u062D\u0642\u064A\u0642\u064A\u064B\u0627 \u0639\u0646 \u0627\u0644\u0645\u0648\u0636\u0648\u0639.", "Remove it and ask a real question about the topic.")
+    })
+  },
+  {
+    id: "hostile_words",
+    scoreType: "negativeRisk",
+    basis: "heuristic",
+    detect: (f3) => f3.text.hostileWords ? [{ severity: 0.7, params: { n: f3.text.hostileWords }, evidence: [{ feature: "text.hostileWords", value: f3.text.hostileWords, target: 0, provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.removeHostile(f3),
+    text: (p) => ({ issue: T("\u0643\u0644\u0645\u0627\u062A \u062C\u0627\u0631\u062D\u0629", "Hostile wording"), reason: T(`${p.n} \u0643\u0644\u0645\u0627\u062A \u062C\u0627\u0631\u062D\u0629 \u0642\u062F \u062A\u062F\u0641\u0639 \u0625\u0644\u0649 \u0627\u0644\u0625\u062E\u0641\u0627\u0621 \u0623\u0648 \u0627\u0644\u0625\u0628\u0644\u0627\u063A.`, `${p.n} hostile words can lead to hides or reports.`), fix: T("\u0627\u0633\u062A\u0628\u062F\u0644\u0647\u0627 \u0628\u0648\u0635\u0641 \u0644\u0644\u0633\u0644\u0648\u0643 \u0644\u0627 \u0644\u0644\u0623\u0634\u062E\u0627\u0635.", "Describe the behaviour, not the people.") })
+  },
+  {
+    id: "redundancy",
+    scoreType: "contentQuality",
+    basis: "derived",
+    detect: (f3) => f3.text.redundancy > 0.3 && f3.text.contentWords >= 15 ? [{ severity: 0.25, params: { redundancy: f3.text.redundancy, maxRepeat: f3.text.maxRepeat }, evidence: [{ feature: "text.redundancy", value: f3.text.redundancy, target: 0.3, provenance: "derived" }] }] : [],
+    text: (p) => ({ issue: T("\u062A\u0643\u0631\u0627\u0631 \u0643\u062B\u064A\u0631", "Heavy repetition"), reason: T(`${Math.round(p.redundancy * 100)}% \u0645\u0646 \u0627\u0644\u0643\u0644\u0645\u0627\u062A \u0627\u0644\u0645\u0636\u0645\u0648\u0646\u064A\u0629 \u0645\u0643\u0631\u0631\u0629 (\u0623\u0643\u062B\u0631\u0647\u0627 ${p.maxRepeat} \u0645\u0631\u0627\u062A).`, `${Math.round(p.redundancy * 100)}% of content words repeat (most frequent ${p.maxRepeat} times).`), fix: T("\u0627\u062D\u0630\u0641 \u0627\u0644\u062A\u0643\u0631\u0627\u0631 \u0623\u0648 \u0627\u0633\u062A\u0628\u062F\u0644 \u0628\u0639\u0636\u0647 \u0628\u0645\u0631\u0627\u062F\u0641 \u0623\u0648 \u0628\u0636\u0645\u064A\u0631.", "Remove repeats or replace some with a synonym or pronoun.") })
+  },
+  // Reels
+  {
+    id: "reel_promise_late",
+    scoreType: "hook",
+    basis: "heuristic",
+    types: ["reel"],
+    detect: (f3, ctx) => f3.reel.firstSecondsHasPromise ? [] : [{ severity: 0.7, params: { seconds: ctx.config.thresholds.reel.firstSeconds, words: f3.reel.firstSecondsWords }, evidence: [{ feature: "reel.firstSecondsHasPromise", value: false, target: true, provenance: "derived" }] }],
+    edit: (f3) => counterfactual.reel(f3, { firstSecondsHasPromise: true }),
+    text: (p) => ({ issue: T("\u0627\u0644\u0648\u0639\u062F \u0645\u062A\u0623\u062E\u0631 \u0641\u064A \u0627\u0644\u0631\u064A\u0644", "The reel's promise comes late"), reason: T(`\u0623\u0648\u0644 ${p.seconds} \u062B\u0648\u0627\u0646\u064D (${p.words} \u0643\u0644\u0645\u0629) \u0628\u0644\u0627 \u0631\u0642\u0645 \u0648\u0644\u0627 \u0633\u0624\u0627\u0644 \u0648\u0644\u0627 \u062A\u062D\u0630\u064A\u0631.`, `The first ${p.seconds} seconds (${p.words} words) have no number, question or warning.`), fix: T("\u0627\u0641\u062A\u062D \u0628\u0627\u0644\u0646\u062A\u064A\u062C\u0629 \u0623\u0648 \u0627\u0644\u0631\u0642\u0645 \u0641\u064A \u0627\u0644\u0645\u0634\u0647\u062F \u0627\u0644\u0623\u0648\u0644\u060C \u0648\u0627\u062A\u0631\u0643 \u0627\u0644\u0634\u0631\u062D \u0644\u0645\u0627 \u0628\u0639\u062F\u0647.", "Open with the consequence or the number in the first scene; explain afterwards.") })
+  },
+  {
+    id: "reel_first_scene_long",
+    scoreType: "hook",
+    basis: "heuristic",
+    types: ["reel"],
+    detect: (f3, ctx) => f3.reel.hookFits ? [] : [{ severity: 0.5, params: { words: f3.reel.hookWords, target: ctx.config.thresholds.reel.hookWords }, evidence: [{ feature: "reel.hookWords", value: f3.reel.hookWords, target: ctx.config.thresholds.reel.hookWords, provenance: "derived" }] }],
+    edit: (f3) => counterfactual.reel(f3, { hookFits: true, hookWords: 7 }),
+    text: (p) => ({ issue: T("\u0627\u0644\u0645\u0634\u0647\u062F \u0627\u0644\u0623\u0648\u0644 \u0637\u0648\u064A\u0644", "First scene too long"), reason: T(`${p.words} \u0643\u0644\u0645\u0629 \u0641\u064A \u0627\u0644\u0645\u0634\u0647\u062F \u0627\u0644\u0623\u0648\u0644.`, `${p.words} words in the first scene.`), fix: T(`\u0627\u062E\u062A\u0635\u0631\u0647 \u0625\u0644\u0649 ${p.target} \u0643\u0644\u0645\u0627\u062A \u0623\u0648 \u0623\u0642\u0644.`, `Cut it to \u2264 ${p.target} words.`) })
+  },
+  {
+    id: "reel_no_payoff",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["reel"],
+    detect: (f3) => f3.reel.openLoops > 0 && !f3.reel.payoff ? [{ severity: 0.55, params: { loops: f3.reel.openLoops }, evidence: [{ feature: "reel.openLoops", value: f3.reel.openLoops, provenance: "derived" }, { feature: "reel.payoff", value: false, target: true, provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.reel(f3, { payoff: true }),
+    text: (p) => ({ issue: T("\u0633\u0624\u0627\u0644 \u0628\u0644\u0627 \u0625\u062C\u0627\u0628\u0629 \u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629", "Open loop without payoff"), reason: T(`${p.loops} \u062D\u0644\u0642\u0627\u062A \u0641\u0636\u0648\u0644 \u0641\u064A \u0627\u0644\u0646\u0635\u0641 \u0627\u0644\u0623\u0648\u0644 \u0648\u0644\u0627 \u062E\u0644\u0627\u0635\u0629 \u0641\u064A \u0627\u0644\u062B\u0644\u062B \u0627\u0644\u0623\u062E\u064A\u0631.`, `${p.loops} open loops in the first half and no payoff in the last third.`), fix: T("\u0623\u062C\u0628 \u0639\u0646 \u0633\u0624\u0627\u0644 \u0627\u0644\u0628\u062F\u0627\u064A\u0629 \u0635\u0631\u0627\u062D\u0629 \u0642\u0628\u0644 \u0627\u0644\u062F\u0639\u0648\u0629 \u0627\u0644\u0623\u062E\u064A\u0631\u0629.", "Answer the opening question explicitly before the final call to action.") })
+  },
+  {
+    id: "reel_duration",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["reel"],
+    detect: (f3, ctx) => f3.reel.durationFit >= 0.6 ? [] : [{ severity: 0.45, params: { seconds: f3.reel.durationSec, range: ctx.config.thresholds.reel.duration.slice(1, 3) }, evidence: [{ feature: "reel.durationSec", value: f3.reel.durationSec, target: ctx.config.thresholds.reel.duration.slice(1, 3).join("\u2013"), provenance: "derived" }] }],
+    edit: (f3) => counterfactual.reel(f3, { durationFit: 1 }),
+    text: (p) => ({ issue: T("\u0645\u062F\u0629 \u0627\u0644\u0631\u064A\u0644 \u062E\u0627\u0631\u062C \u0627\u0644\u0645\u062F\u0649", "Reel duration out of range"), reason: T(`\u0627\u0644\u0645\u062F\u0629 \u0627\u0644\u0645\u0642\u062F\u0651\u0631\u0629 ${p.seconds} \u062B.`, `Estimated duration ${p.seconds}s.`), fix: T(`\u0627\u062C\u0639\u0644\u0647\u0627 \u0628\u064A\u0646 ${p.range[0]} \u0648${p.range[1]} \u062B\u0627\u0646\u064A\u0629 \u0628\u062D\u0630\u0641 \u0627\u0644\u0645\u0634\u0627\u0647\u062F \u0627\u0644\u0623\u0636\u0639\u0641 \u0623\u0648 \u062F\u0645\u062C\u0647\u0627.`, `Bring it to ${p.range[0]}\u2013${p.range[1]}s by cutting or merging the weakest scenes.`) })
+  }
+];
+var RULE_BASIS_CONFIDENCE = (config, basis) => config.confidence.provenance[basis] ?? 0.35;
+function priorityOf(severity, effect, basis, backed) {
+  const d = effect?.overallDelta ?? 0;
+  let p = d >= 3 || severity >= 0.8 ? "high" : d >= 1 || severity >= 0.5 ? "medium" : "low";
+  if (p === "high" && basis === "heuristic" && !backed) p = "medium";
+  return p;
+}
+function platformRecommendations({ features, report, engine, rules, config, history, lang = "ar" }) {
+  const out = [];
+  for (const rule of rules) {
+    if (rule.types && !rule.types.includes(features.type)) continue;
+    if (rule.platforms && !rule.platforms.includes(report.platform)) continue;
+    const ctx = { config, platform: report.platform, history, report };
+    for (const finding of rule.detect(features, ctx) ?? []) {
+      if (!finding.evidence?.length) continue;
+      const edited = rule.edit ? rule.edit(features, finding, ctx) : null;
+      const effect = edited ? effectOf(report, engine.rescore(edited), rule.scoreType) : null;
+      const text2 = rule.text(finding.params, features, lang);
+      const accountEvidence = rule.history?.(finding, history, lang) ?? null;
+      const confidence = round2(Math.max(RULE_BASIS_CONFIDENCE(config, rule.basis), accountEvidence?.confidence ?? 0));
+      out.push({
+        topic: rule.topic?.(finding) ?? null,
+        id: `${report.platform}:${rule.id}${finding.key ? `:${finding.key}` : ""}`,
+        rule: rule.id,
+        platform: report.platform,
+        issue: rule.id,
+        title: pick2(text2.issue, lang),
+        reason: pick2(text2.reason, lang),
+        suggestedFix: pick2(text2.fix, lang),
+        priority: priorityOf(finding.severity, effect, rule.basis, Boolean(accountEvidence)),
+        expectedEffect: effect,
+        confidence,
+        basis: rule.basis,
+        evidence: finding.evidence,
+        ...accountEvidence && { accountEvidence },
+        ...rule.rewrite && { rewrite: rule.rewrite(finding.params) },
+        severity: round2(finding.severity)
+      });
+    }
+  }
+  return collapseTopics(rank(out));
+}
+function collapseTopics(recs) {
+  const kept = /* @__PURE__ */ new Map();
+  const out = [];
+  for (const r of recs) {
+    if (!r.topic) {
+      out.push(r);
+      continue;
+    }
+    const first = kept.get(r.topic);
+    if (!first) {
+      kept.set(r.topic, r);
+      out.push(r);
+    } else if (r.accountEvidence && !first.accountEvidence) first.accountEvidence = r.accountEvidence;
+  }
+  return out;
+}
+var P = { high: 0, medium: 1, low: 2 };
+var rank = (recs) => recs.sort((a, b) => P[a.priority] - P[b.priority] || (b.expectedEffect?.overallDelta ?? 0) - (a.expectedEffect?.overallDelta ?? 0) || b.severity - a.severity);
+function mergeRecommendations(lists) {
+  const by = /* @__PURE__ */ new Map();
+  for (const r of lists.flat()) {
+    const key = r.id.split(":").slice(1).join(":");
+    const prev = by.get(key);
+    if (!prev) by.set(key, { ...r, id: key, platforms: [r.platform], effects: { [r.platform]: r.expectedEffect } });
+    else {
+      prev.platforms.push(r.platform);
+      prev.effects[r.platform] = r.expectedEffect;
+      if (P[r.priority] < P[prev.priority]) prev.priority = r.priority;
+      prev.confidence = Math.max(prev.confidence, r.confidence);
+      if (r.accountEvidence && !prev.accountEvidence) prev.accountEvidence = r.accountEvidence;
+    }
+  }
+  return rank([...by.values()].map((r) => ({ ...r, platform: r.platforms.length > 1 ? "all" : r.platforms[0] })));
+}
+
+// lib/algorithm-intelligence/research/signal-catalog.js
+var S = (id, platform, category, provenance, relevance, label, description) => ({ id, platform, category, provenance, relevance, label, description, enabled: true });
+var rel = (provenance, sources, note) => ({ provenance, sources, note });
+var X_ACTION = (action) => rel("public-source-code", ["x-algorithm"], `X's ranker predicts P(${action}) per viewer (home-mixer/params/param.rs). Basira estimates the content's potential for it; no viewer-level prediction is made.`);
+var SIGNAL_CATALOG = [
+  // ---------------------------------------------------------------- X
+  S("x.hook_strength", "x", "attention", "heuristic", rel("heuristic", ["basira-heuristics"], "The opening decides whether a reader dwells; X predicts dwell and not-dwelled."), { ar: "\u0642\u0648\u0629 \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "Opening strength" }, "Length, curiosity, specificity, direct address and tension of the first line."),
+  S("x.opening_fit", "x", "format", "derived", rel("heuristic", ["basira-heuristics"], "A long first sentence delays the claim in a fast-scrolling feed."), { ar: "\u0637\u0648\u0644 \u0627\u0644\u062C\u0645\u0644\u0629 \u0627\u0644\u0623\u0648\u0644\u0649", en: "Opening sentence length" }, "Words in the first sentence against the configured range."),
+  S("x.length_fit", "x", "format", "derived", rel("official", ["x-api-metrics"], "280 characters per post without a subscription (X counts URLs as 23, emoji as 2)."), { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0637\u0648\u0644", en: "Length fit" }, "Weighted length within the post limit, or thread posts within it."),
+  S("x.like_potential", "x", "positive_engagement", "heuristic", X_ACTION("favorite"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0625\u0639\u062C\u0627\u0628", en: "Like potential" }, "Opening strength, clarity and moderate emotion."),
+  S("x.reply_potential", "x", "positive_engagement", "heuristic", X_ACTION("reply"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0631\u062F", en: "Reply potential" }, "Questions, opinion, direct address, a specific prompt."),
+  S("x.repost_potential", "x", "positive_engagement", "heuristic", X_ACTION("retweet"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0625\u0639\u0627\u062F\u0629 \u0627\u0644\u0646\u0634\u0631", en: "Repost potential" }, "Share-worthiness and quotable lines."),
+  S("x.quote_potential", "x", "positive_engagement", "heuristic", X_ACTION("quote"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0627\u0642\u062A\u0628\u0627\u0633", en: "Quote potential" }, "A stance others want to add to: opinion, quotable claim."),
+  S("x.share_potential", "x", "positive_engagement", "heuristic", X_ACTION("share / share via DM / copy link"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", en: "Share potential" }, "Useful, specific content people send to someone."),
+  S("x.bookmark_potential", "x", "positive_engagement", "heuristic", rel("official", ["x-api-metrics"], "bookmark_count is an official public metric; its ranking weight is not in the public code."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062D\u0641\u0638", en: "Bookmark potential" }, "Reference value: lists, steps, numbers."),
+  S("x.profile_click_potential", "x", "positive_engagement", "heuristic", X_ACTION("profile click"), { ar: "\u0632\u064A\u0627\u0631\u0629 \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062E\u0635\u064A", en: "Profile-click potential" }, "Personal insight, a series, specific expertise."),
+  S("x.follow_potential", "x", "positive_engagement", "heuristic", X_ACTION("follow author"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0645\u062A\u0627\u0628\u0639\u0629", en: "Follow potential" }, "Profile-click potential plus consistency with the account's topics when history exists."),
+  S("x.dwell_potential", "x", "attention", "heuristic", X_ACTION("dwell / dwell time"), { ar: "\u0632\u0645\u0646 \u0627\u0644\u0628\u0642\u0627\u0621", en: "Dwell potential" }, "Enough substance to read, structured with line breaks or a list."),
+  S("x.click_potential", "x", "positive_engagement", "heuristic", X_ACTION("click / open link"), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0646\u0642\u0631", en: "Click potential" }, "Only when the post has a link: curiosity and specificity of the setup."),
+  S("x.clarity", "x", "quality", "derived", rel("research", ["osman-readability"], "Readable sentences; Arabic readability proxy."), { ar: "\u0627\u0644\u0648\u0636\u0648\u062D", en: "Clarity" }, "Sentence length and long-word ratio."),
+  S("x.specificity", "x", "quality", "derived", rel("heuristic", ["basira-heuristics"], "Concrete numbers and units make claims checkable and shareable."), { ar: "\u0627\u0644\u062A\u062D\u062F\u064A\u062F", en: "Specificity" }, "Numbers, units, few vague words."),
+  S("x.novelty", "x", "quality", "heuristic", rel("public-source-code", ["x-algorithm"], 'X weighs a "post unexplored" head; Basira can only estimate novelty from cues or an AI judgement.'), { ar: "\u0627\u0644\u062C\u0650\u062F\u0651\u0629", en: "Novelty" }, "Myth-busting, contrast and research cues (or AI judgement)."),
+  S("x.negative_feedback_risk", "x", "negative_feedback", "heuristic", X_ACTION("not interested / mute / block / report"), { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0627\u0644\u0633\u0644\u0628\u064A", en: "Negative-feedback risk" }, "Engagement bait, hostile words, curiosity without substance, hashtag and mention excess."),
+  S("x.author_affinity", "x", "historical", "historical", rel("public-source-code", ["the-algorithm", "x-algorithm"], "Real-graph style affinity: viewers who engaged with an author before are likelier to again. Measured here as the topic's performance on this account."), { ar: "\u0623\u0644\u0641\u0629 \u0627\u0644\u062C\u0645\u0647\u0648\u0631 \u0628\u0627\u0644\u0645\u0648\u0636\u0648\u0639", en: "Audience-topic affinity" }, "This topic's median outcome against the account baseline."),
+  S("x.network_relevance", "x", "context", "historical", rel("public-source-code", ["x-algorithm"], "In-network versus out-of-network reach is decided per viewer from the follow graph, which creators cannot see."), { ar: "\u0627\u0644\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0634\u0628\u0643\u064A\u0629", en: "Network relevance" }, "Requires follower-graph data that X does not expose to creators: always unavailable."),
+  S("x.historical_performance", "x", "historical", "historical", rel("historical", ["account-history"], "Patterns that beat this account's own baseline."), { ar: "\u0623\u062F\u0627\u0621 \u0627\u0644\u062D\u0633\u0627\u0628 \u0627\u0644\u062A\u0627\u0631\u064A\u062E\u064A", en: "Historical performance" }, "Matching account patterns, weighted by their confidence."),
+  // ---------------------------------------------------------- Instagram
+  S("instagram.hook_strength", "instagram", "attention", "heuristic", rel("official", ["meta-ig-feed-card"], "Instagram predicts whether you skip a post and whether you spend more than 10 seconds on the first post."), { ar: "\u0642\u0648\u0629 \u0627\u0644\u063A\u0644\u0627\u0641", en: "Cover strength" }, "The cover (or first line): length, curiosity, specificity, address."),
+  S("instagram.share_potential", "instagram", "positive_engagement", "heuristic", rel("official", ["meta-ig-feed-card", "instagram-ranking-explained"], "Instagram predicts sharing a post in a direct message (Feed) and resharing a reel (Reels)."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0625\u0631\u0633\u0627\u0644 \u0648\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", en: "Share potential" }, "Usefulness, specificity, novelty, quotable lines."),
+  S("instagram.save_potential", "instagram", "positive_engagement", "heuristic", rel("official", ["ig-graph-media-insights"], '"saved" is an official media metric; its ranking weight is not published.'), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062D\u0641\u0638", en: "Save potential" }, "Reference value: steps, lists, density in range, depth."),
+  S("instagram.comment_potential", "instagram", "positive_engagement", "heuristic", rel("official", ["instagram-ranking-explained"], "Feed predictions include how likely you are to comment."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062A\u0639\u0644\u064A\u0642", en: "Comment potential" }, "Questions, specific prompts, opinion, direct address."),
+  S("instagram.profile_visit_potential", "instagram", "positive_engagement", "heuristic", rel("official", ["meta-ig-feed-card", "instagram-ranking-explained"], "Instagram predicts time on the author's profile after a post, and tapping the profile photo."), { ar: "\u0632\u064A\u0627\u0631\u0629 \u0627\u0644\u062D\u0633\u0627\u0628", en: "Profile-visit potential" }, "Personal insight, series, specificity."),
+  S("instagram.carousel_completion", "instagram", "attention", "heuristic", rel("official", ["meta-ig-feed-card"], "Instagram predicts how likely you are to swipe through the whole carousel."), { ar: "\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644", en: "Carousel completion" }, "Slide count in range, density, promise kept, continuity between slides."),
+  S("instagram.time_spent_potential", "instagram", "attention", "heuristic", rel("official", ["meta-ig-feed-card"], "Instagram predicts how much time you will spend on a post."), { ar: "\u0632\u0645\u0646 \u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0629", en: "Time-spent potential" }, "Depth and readable density."),
+  S("instagram.skip_risk", "instagram", "negative_feedback", "heuristic", rel("official", ["meta-ig-feed-card"], "Instagram predicts how likely you are to skip a post."), { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u062E\u0637\u064A", en: "Skip risk" }, "A weak or overloaded cover."),
+  S("instagram.reel_completion", "instagram", "attention", "heuristic", rel("official", ["instagram-ranking-explained"], "Reels predictions include watching a reel all the way through."), { ar: "\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u0631\u064A\u0644", en: "Reel completion" }, "Duration in range, rhythm, open loop with a payoff."),
+  S("instagram.reel_hook", "instagram", "attention", "derived", rel("heuristic", ["basira-heuristics"], "The first seconds decide whether a reel is skipped (reels_skip_rate is an official metric)."), { ar: "\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0627\u0644\u0631\u064A\u0644", en: "Reel opening" }, "A promise within the first seconds and a short first scene."),
+  S("instagram.content_clarity", "instagram", "quality", "derived", rel("research", ["osman-readability"], "Readable text on a phone."), { ar: "\u0648\u0636\u0648\u062D \u0627\u0644\u0645\u062D\u062A\u0648\u0649", en: "Content clarity" }, "Readability proxy."),
+  S("instagram.specificity", "instagram", "quality", "derived", rel("heuristic", ["basira-heuristics"], "Concrete claims."), { ar: "\u0627\u0644\u062A\u062D\u062F\u064A\u062F", en: "Specificity" }, "Numbers, units, few vague words."),
+  S("instagram.visual_density", "instagram", "quality", "derived", rel("official", ["meta-ig-feed-card"], "Media characteristics such as text overlay are listed signals; Basira measures text load per slide."), { ar: "\u0643\u062B\u0627\u0641\u0629 \u0627\u0644\u0646\u0635 \u0641\u064A \u0627\u0644\u0634\u0631\u0627\u0626\u062D", en: "Slide text density" }, "Share of slides within their readable word budget."),
+  S("instagram.caption_fit", "instagram", "format", "heuristic", rel("heuristic", ["basira-heuristics"], "Captions are truncated in the feed; the first line should carry the point."), { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0648\u0635\u0641", en: "Caption fit" }, "Caption opening within the preview length."),
+  S("instagram.format_fit", "instagram", "format", "derived", rel("heuristic", ["basira-heuristics"], "Slide count, reel duration or post length within Basira's ranges."), { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0635\u064A\u063A\u0629", en: "Format fit" }, "Structure of the chosen format."),
+  S("instagram.negative_feedback_risk", "instagram", "negative_feedback", "heuristic", rel("heuristic", ["basira-heuristics"], "Bait and hostile wording invite hiding or reporting."), { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0627\u0644\u0633\u0644\u0628\u064A", en: "Negative-feedback risk" }, "Engagement bait, hostile words, curiosity without substance."),
+  S("instagram.topic_affinity", "instagram", "historical", "historical", rel("historical", ["account-history"], "The account's results for this topic."), { ar: "\u0623\u0644\u0641\u0629 \u0627\u0644\u062C\u0645\u0647\u0648\u0631 \u0628\u0627\u0644\u0645\u0648\u0636\u0648\u0639", en: "Audience-topic affinity" }, "This topic's median outcome against the account baseline."),
+  S("instagram.historical_performance", "instagram", "historical", "historical", rel("historical", ["account-history"], "Patterns that beat this account's baseline."), { ar: "\u0623\u062F\u0627\u0621 \u0627\u0644\u062D\u0633\u0627\u0628 \u0627\u0644\u062A\u0627\u0631\u064A\u062E\u064A", en: "Historical performance" }, "Matching account patterns."),
+  // ----------------------------------------------------------- Facebook
+  S("facebook.hook_strength", "facebook", "attention", "heuristic", rel("official", ["meta-fb-feed-card"], "Facebook predicts whether you scroll past a post rather than engage."), { ar: "\u0642\u0648\u0629 \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "Opening strength" }, "First line: length, curiosity, specificity, address."),
+  S("facebook.meaningful_comment_potential", "facebook", "positive_engagement", "heuristic", rel("official", ["meta-fb-feed-card"], "Comment metrics and the intent to engage with posts from a connection are listed in the system card."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062A\u0639\u0644\u064A\u0642 \u0627\u0644\u0647\u0627\u062F\u0641", en: "Meaningful-comment potential" }, "Questions, personal stories, specific prompts."),
+  S("facebook.share_potential", "facebook", "positive_engagement", "heuristic", rel("heuristic", ["basira-heuristics"], "Shares are a reported post metric; no weight is published."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", en: "Share potential" }, "Usefulness, specificity, relatable lines."),
+  S("facebook.conversation_potential", "facebook", "positive_engagement", "heuristic", rel("official", ["meta-fb-feed-card"], "Strong intent to interact with connections is a listed prediction."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0646\u0642\u0627\u0634", en: "Conversation potential" }, "Opinion, questions, direct address."),
+  S("facebook.scroll_past_risk", "facebook", "negative_feedback", "heuristic", rel("official", ["meta-fb-feed-card"], "Facebook predicts how likely you are to scroll past a post rather than engage with it."), { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u0645\u0631\u064A\u0631 \u062F\u0648\u0646 \u062A\u0648\u0642\u0641", en: "Scroll-past risk" }, "A weak first line."),
+  S("facebook.show_more_potential", "facebook", "attention", "heuristic", rel("official", ["meta-fb-feed-card"], 'Facebook predicts clicking "Show more" when it is offered.'), { ar: "\u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649 \xAB\u0639\u0631\u0636 \u0627\u0644\u0645\u0632\u064A\u062F\xBB", en: '"Show more" potential' }, "Only for long posts: the first lines must pull the reader in."),
+  S("facebook.click_potential", "facebook", "positive_engagement", "heuristic", rel("official", ["meta-fb-feed-card"], "Facebook predicts clicking a link and time spent on the website."), { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649 \u0627\u0644\u0631\u0627\u0628\u0637", en: "Link-click potential" }, "Only for link posts."),
+  S("facebook.watch_retention", "facebook", "attention", "heuristic", rel("official", ["meta-fb-feed-card"], "Video watch-duration thresholds are listed signals."), { ar: "\u0627\u0644\u0627\u062D\u062A\u0641\u0627\u0638 \u0628\u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0629", en: "Watch retention" }, "Reels and video only: duration, rhythm, payoff."),
+  S("facebook.caption_readability", "facebook", "quality", "derived", rel("research", ["osman-readability"], "Readable captions."), { ar: "\u0633\u0647\u0648\u0644\u0629 \u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u0646\u0635", en: "Caption readability" }, "Readability proxy."),
+  S("facebook.specificity", "facebook", "quality", "derived", rel("heuristic", ["basira-heuristics"], "Concrete claims."), { ar: "\u0627\u0644\u062A\u062D\u062F\u064A\u062F", en: "Specificity" }, "Numbers, units, few vague words."),
+  S("facebook.format_fit", "facebook", "format", "derived", rel("heuristic", ["basira-heuristics"], "Structure of the chosen format."), { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0635\u064A\u063A\u0629", en: "Format fit" }, "Post length, slide count or video duration within range."),
+  S("facebook.negative_feedback_risk", "facebook", "negative_feedback", "heuristic", rel("heuristic", ["basira-heuristics"], "Engagement bait and hostile wording invite hiding or reporting."), { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0627\u0644\u0633\u0644\u0628\u064A", en: "Negative-feedback risk" }, "Engagement bait, hostile words, curiosity without substance."),
+  S("facebook.topic_affinity", "facebook", "historical", "historical", rel("historical", ["account-history"], "The account's results for this topic."), { ar: "\u0623\u0644\u0641\u0629 \u0627\u0644\u062C\u0645\u0647\u0648\u0631 \u0628\u0627\u0644\u0645\u0648\u0636\u0648\u0639", en: "Audience-topic affinity" }, "This topic's median outcome against the account baseline."),
+  S("facebook.historical_performance", "facebook", "historical", "historical", rel("historical", ["account-history"], "Patterns that beat this account's baseline."), { ar: "\u0623\u062F\u0627\u0621 \u0627\u0644\u062D\u0633\u0627\u0628 \u0627\u0644\u062A\u0627\u0631\u064A\u062E\u064A", en: "Historical performance" }, "Matching account patterns.")
+];
+
+// lib/algorithm-intelligence/research/provenance.js
+var SOURCES2 = {
+  "x-algorithm": {
+    sourceType: "public-source-code",
+    source: "xai-org/x-algorithm",
+    url: "https://github.com/xai-org/x-algorithm",
+    commit: "b412112d03f27acbfd668e0cc040abcafa1080c1",
+    retrievedAt: "2026-10-04",
+    files: ["README.md", "home-mixer/params/param.rs", "xai-value-model/scoring.rs", "home-mixer/scorers/value_model.rs"],
+    notes: "Used as conceptual basis; no claim of identical production weighting. Phoenix predicts, per viewer, the probability of each action (favorite, reply, repost, quote, share, share via DM, share via copy link, clicks, profile click, dwell, follow author; negative: not interested, mute, block, report, not dwelled). RankingScorer sums weight \xD7 P(action), then applies an author-diversity decay, an out-of-network discount and a new-author boost. The published weights multiply calibrated per-viewer probabilities whose base rates differ by orders of magnitude (the repository says so explicitly), so they are recorded as reference only and never applied to Basira's content-level estimates."
+  },
+  "the-algorithm": {
+    sourceType: "public-source-code",
+    source: "twitter/the-algorithm",
+    url: "https://github.com/twitter/the-algorithm",
+    commit: "c54bec0d4e029fe34926ef3258a86ccacc0d0182",
+    retrievedAt: "2026-10-04",
+    files: ["README.md"],
+    notes: "Architecture reference (2023 release): in-network candidates from the search index, out-of-network candidates (UTEG, SimClusters, follow recommendations), light and heavy rankers, home-mixer, visibility filters, RealGraph (likelihood of interacting with an author). Used for the concepts of in/out-of-network reach and author affinity only."
+  },
+  "the-algorithm-ml": {
+    sourceType: "public-source-code",
+    source: "twitter/the-algorithm-ml",
+    url: "https://github.com/twitter/the-algorithm-ml",
+    commit: "b85210863f7a94efded0ef5c5ccf4ff42767876c",
+    retrievedAt: "2026-10-04",
+    files: ["projects/home/recap/README.md"],
+    notes: "Heavy ranker (2023): a weighted sum of predicted engagement probabilities (favorite, retweet, reply, good profile click, video playback 50%, reply engaged by author, good click, good click v2, negative feedback, report). The README notes the weights were set so each weighted probability contributes roughly equally on average, then tuned. Historical reference only."
+  },
+  "generative-recommenders": {
+    sourceType: "research",
+    source: "meta-recsys/generative-recommenders",
+    url: "https://github.com/meta-recsys/generative-recommenders",
+    commit: "25e032d6f1e29b7f7652aa2b0a9f75499a4b1940",
+    retrievedAt: "2026-10-04",
+    files: ["README.md"],
+    notes: 'Research (ICML 2024, "Actions Speak Louder than Words"): recommendation reformulated as sequential transduction over user actions (HSTU). Basis for modelling each audience action as its own prediction rather than one engagement number. No claim that Instagram or Facebook run this code or these settings.'
+  },
+  torchrec: {
+    sourceType: "research",
+    source: "meta-pytorch/torchrec",
+    url: "https://github.com/meta-pytorch/torchrec",
+    commit: null,
+    retrievedAt: null,
+    consulted: false,
+    notes: "Listed as a possible training stack for a future MLPredictor (embedding tables, multi-task heads). Not consulted for any signal in this version."
+  },
+  "meta-ig-feed-card": {
+    sourceType: "official",
+    source: "Meta Transparency Center \u2014 Instagram Feed AI system card",
+    url: "https://transparency.meta.com/features/explaining-ranking/ig-feed",
+    publishedAt: "2026-06-29",
+    retrievedAt: "2026-10-04",
+    notes: "Lists predictions including: swipe through the whole carousel, enjoy the post, skip the post, time on the author's profile after seeing the post, share the post in a direct message, time spent on the post. Signals include engagement actions, time spent, content type, recency, creator information and media characteristics such as text overlay. No weights are published."
+  },
+  "meta-fb-feed-card": {
+    sourceType: "official",
+    source: "Meta Transparency Center \u2014 Facebook Feed AI system card",
+    url: "https://transparency.meta.com/features/explaining-ranking/fb-feed",
+    publishedAt: "2026-06-24",
+    retrievedAt: "2026-10-04",
+    notes: 'Lists predictions including: scroll past a post rather than engage, click "Show more", deep/strong intent to engage with posts from a connection, click a link and time on the website. Signals include time spent per post, video watch duration thresholds, topic relevance and comment metrics. No weights are published.'
+  },
+  "instagram-ranking-explained": {
+    sourceType: "official",
+    source: 'Instagram \u2014 "Instagram Ranking Explained"',
+    url: "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+    publishedAt: "2023-05-31",
+    retrievedAt: "2026-10-04",
+    notes: "Feed predictions: spend a few seconds on a post, comment, like, share, tap the profile photo. Reels predictions: reshare a reel, watch it all the way through, like it, go to the audio page. No weights are published."
+  },
+  "ig-graph-media-insights": {
+    sourceType: "official",
+    source: "Instagram Platform \u2014 IG Media Insights reference",
+    url: "https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights/",
+    retrievedAt: "2026-10-04",
+    notes: "Media metrics: reach, views, likes, comments, saved, shares, reposts, total_interactions, profile_visits, profile_activity, follows (FEED), ig_reels_avg_watch_time, ig_reels_video_view_total_time, reels_skip_rate (REELS). impressions is deprecated for media created after 2024-07-02. Metrics can be delayed up to 48 hours."
+  },
+  "fb-page-insights": {
+    sourceType: "official",
+    source: "Facebook Pages API \u2014 Page Insights (and deprecated metrics list)",
+    url: "https://developers.facebook.com/documentation/pages-api/platforminsights/page/deprecated-metrics",
+    retrievedAt: "2026-10-04",
+    notes: "post_impressions \u2192 post_media_view (2025-11-15), post_impressions_unique \u2192 post_total_media_view_unique (2025-06-15). Still documented: post_reactions_by_type_total, post_clicks, post_video_avg_time_watched, post_video_views."
+  },
+  "x-api-metrics": {
+    sourceType: "official",
+    source: "X API v2 \u2014 Metrics",
+    url: "https://docs.x.com/x-api/fundamentals/metrics",
+    retrievedAt: "2026-10-04",
+    notes: "public_metrics: retweet_count, reply_count, like_count, quote_count, bookmark_count, impression_count. non_public_metrics (own posts, user context, last 30 days): impression_count, url_link_clicks, user_profile_clicks, engagements. organic_metrics likewise."
+  },
+  "osman-readability": {
+    sourceType: "research",
+    source: 'El-Haj & Rayson (2016), "OSMAN \u2013 A Novel Arabic Readability Metric", LREC 2016',
+    url: "https://aclanthology.org/L16-1038/",
+    retrievedAt: null,
+    notes: "Arabic readability from words per sentence and long or hard words. Basira computes a simplified proxy without syllable counts; it is not the OSMAN score."
+  },
+  "basira-heuristics": {
+    sourceType: "heuristic",
+    source: "Basira",
+    url: null,
+    retrievedAt: null,
+    notes: "Basira's own rules of thumb about phone reading and Arabic copy. Low confidence until the creator's history confirms them."
+  },
+  "account-history": {
+    sourceType: "historical",
+    source: "The creator's imported post metrics",
+    url: null,
+    retrievedAt: null,
+    notes: "Medians, MADs and patterns computed from the account's own posts. Only as strong as the sample size reported with each claim."
+  }
+};
+var X_PUBLIC_WEIGHTS = {
+  source: "x-algorithm",
+  file: "home-mixer/params/param.rs",
+  weights: {
+    favorite: 0.5,
+    reply: 5,
+    retweet: 1,
+    quote: 5,
+    share: 2,
+    share_via_dm: 5,
+    share_via_copy_link: 20,
+    click: 0.3,
+    open_link: 0.2,
+    profile_click: 0,
+    photo_expand: 0.05,
+    video_open: 0.07,
+    dwell: 0.05,
+    follow_author: 4,
+    not_interested: -47.52,
+    block_author: -31.2,
+    mute_author: -58.8,
+    report: -234,
+    not_dwelled: -0.02
+  },
+  coldStartImpressionThreshold: 200
+};
+
+// lib/algorithm-intelligence/core/signal-registry.js
+var SignalRegistry = class _SignalRegistry {
+  constructor({ catalog = SIGNAL_CATALOG, config = DEFAULT_CONFIG, adaptive = null } = {}) {
+    this.config = config;
+    this.adaptive = adaptive;
+    this.byId = /* @__PURE__ */ new Map();
+    for (const s of catalog) {
+      const override = config.signals?.[s.id] ?? {};
+      this.byId.set(s.id, { ...s, enabled: override.enabled ?? s.enabled, ...override.weight !== void 0 && { weightOverride: override.weight } });
+    }
+  }
+  get(id) {
+    return this.byId.get(id) ?? null;
+  }
+  has(id) {
+    return this.byId.has(id);
+  }
+  enabled(id) {
+    return Boolean(this.byId.get(id)?.enabled);
+  }
+  list({ platform } = {}) {
+    return [...this.byId.values()].filter((s) => !platform || s.platform === platform);
+  }
+  // A signal's weight in a group of the platform config (a score type or
+  // the positive/negative blend): config weight, then the signal override,
+  // then the account's adaptive factor. Disabled signals weigh 0.
+  weight(id, base) {
+    const s = this.byId.get(id);
+    if (!s?.enabled) return 0;
+    const w = s.weightOverride ?? base ?? 0;
+    const factor = this.adaptive?.factors?.[id] ?? 1;
+    return w * factor;
+  }
+  withAdaptive(adaptive) {
+    const r = new _SignalRegistry({ catalog: [...this.byId.values()].map(({ weightOverride, ...s }) => s), config: this.config, adaptive });
+    return r;
+  }
+};
+
+// lib/algorithm-intelligence/explainability/messages.js
+var PLATFORM_LABEL = {
+  x: { ar: "\u0625\u0643\u0633", en: "X" },
+  instagram: { ar: "\u0625\u0646\u0633\u062A\u063A\u0631\u0627\u0645", en: "Instagram" },
+  facebook: { ar: "\u0641\u064A\u0633\u0628\u0648\u0643", en: "Facebook" },
+  all: { ar: "\u0643\u0644 \u0627\u0644\u0645\u0646\u0635\u0627\u062A", en: "All platforms" }
+};
+var SCORE_LABEL = {
+  overall: { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0645\u0646\u0635\u0629", en: "Platform Fit" },
+  contentQuality: { ar: "\u062C\u0648\u062F\u0629 \u0627\u0644\u0645\u062D\u062A\u0648\u0649", en: "Content quality" },
+  hook: { ar: "\u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "Hook" },
+  retention: { ar: "\u0627\u0644\u0627\u0633\u062A\u0628\u0642\u0627\u0621", en: "Retention" },
+  conversation: { ar: "\u0627\u0644\u0646\u0642\u0627\u0634", en: "Conversation" },
+  share: { ar: "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", en: "Share potential" },
+  save: { ar: "\u0627\u0644\u062D\u0641\u0638", en: "Save potential" },
+  click: { ar: "\u0627\u0644\u0646\u0642\u0631 \u0648\u0627\u0644\u0632\u064A\u0627\u0631\u0629", en: "Click potential" },
+  negativeRisk: { ar: "\u062E\u0637\u0631 \u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0627\u0644\u0633\u0644\u0628\u064A", en: "Negative-feedback risk" },
+  platformFit: { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0635\u064A\u063A\u0629", en: "Format fit" },
+  historicalFit: { ar: "\u0627\u0644\u062A\u0648\u0627\u0641\u0642 \u0645\u0639 \u062A\u0627\u0631\u064A\u062E \u0627\u0644\u062D\u0633\u0627\u0628", en: "Historical fit" },
+  "score.contentQuality": { ar: "\u062C\u0648\u062F\u0629 \u0627\u0644\u0645\u062D\u062A\u0648\u0649", en: "Content quality" },
+  "score.platformFit": { ar: "\u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0635\u064A\u063A\u0629", en: "Format fit" },
+  "score.historicalFit": { ar: "\u062A\u0627\u0631\u064A\u062E \u0627\u0644\u062D\u0633\u0627\u0628", en: "Account history" }
+};
+var LEVEL = (v) => v >= 0.7 ? { ar: "\u0645\u0631\u062A\u0641\u0639", en: "High" } : v >= 0.45 ? { ar: "\u0645\u062A\u0648\u0633\u0637", en: "Medium" } : { ar: "\u0645\u0646\u062E\u0641\u0636", en: "Low" };
+var PROVENANCE_LABEL = {
+  official: { ar: "\u0645\u0635\u062F\u0631 \u0631\u0633\u0645\u064A", en: "official" },
+  "public-source-code": { ar: "\u0643\u0648\u062F \u0645\u0646\u0634\u0648\u0631", en: "public source code" },
+  research: { ar: "\u0628\u062D\u062B \u0645\u0646\u0634\u0648\u0631", en: "research" },
+  historical: { ar: "\u062A\u0627\u0631\u064A\u062E \u0627\u0644\u062D\u0633\u0627\u0628", en: "account history" },
+  derived: { ar: "\u0642\u064A\u0627\u0633 \u0645\u0646 \u0627\u0644\u0645\u062D\u062A\u0648\u0649", en: "measured from the content" },
+  heuristic: { ar: "\u062A\u0642\u062F\u064A\u0631 \u0642\u0627\u0639\u062F\u064A", en: "rule-of-thumb estimate" }
+};
+var FEATURE_LABEL = {
+  "hook.words": { ar: "\u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 %v \u0643\u0644\u0645\u0627\u062A", en: "opening of %v words" },
+  "hook.number": { ar: "\u0631\u0642\u0645 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "a number in the opening" },
+  "hook.question": { ar: "\u0633\u0624\u0627\u0644 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "a question in the opening" },
+  "hook.curiosity": { ar: "\u0641\u062C\u0648\u0629 \u0641\u0636\u0648\u0644 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "a curiosity gap in the opening" },
+  "hook.directAddress": { ar: "\u0645\u062E\u0627\u0637\u0628\u0629 \u0627\u0644\u0642\u0627\u0631\u0626 \u0645\u0628\u0627\u0634\u0631\u0629", en: "direct address to the reader" },
+  "hook.specificity": { ar: "\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0639\u0627\u0645\u0629 \u0628\u0644\u0627 \u062A\u0641\u0627\u0635\u064A\u0644 \u0645\u062D\u062F\u062F\u0629", en: "a generic opening without specifics" },
+  "text.question": { ar: "\u0648\u062C\u0648\u062F \u0633\u0624\u0627\u0644 \u0644\u0644\u0642\u0627\u0631\u0626", en: "a question to the reader" },
+  "text.directAddress": { ar: "\u0645\u062E\u0627\u0637\u0628\u0629 \u0627\u0644\u0642\u0627\u0631\u0626 (%v)", en: "direct address (%v)" },
+  "text.specificity": { ar: "\u062F\u0631\u062C\u0629 \u0627\u0644\u062A\u062D\u062F\u064A\u062F %v", en: "specificity %v" },
+  "text.readability": { ar: "\u0633\u0647\u0648\u0644\u0629 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 %v/100", en: "readability %v/100" },
+  "text.avgSentenceWords": { ar: "\u0645\u062A\u0648\u0633\u0637 \u0627\u0644\u062C\u0645\u0644\u0629 %v \u0643\u0644\u0645\u0627\u062A", en: "average sentence of %v words" },
+  "text.firstSentenceWords": { ar: "\u0627\u0644\u062C\u0645\u0644\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 %v \u0643\u0644\u0645\u0629", en: "first sentence of %v words" },
+  "text.words": { ar: "%v \u0643\u0644\u0645\u0629", en: "%v words" },
+  "text.chars": { ar: "%v \u062D\u0631\u0641\u064B\u0627", en: "%v characters" },
+  "text.lineBreaks": { ar: "%v \u0641\u0648\u0627\u0635\u0644 \u0623\u0633\u0637\u0631", en: "%v line breaks" },
+  "text.links": { ar: "\u0631\u0627\u0628\u0637 \u0641\u064A \u0627\u0644\u0645\u0646\u0634\u0648\u0631", en: "a link in the post" },
+  "text.xLength": { ar: "\u0627\u0644\u0637\u0648\u0644 %v \u062D\u0631\u0641\u064B\u0627 (\u062D\u062F \u0625\u0643\u0633 280)", en: "length %v characters (X limit 280)" },
+  "text.baitPhrases": { ar: "\u0639\u0628\u0627\u0631\u0627\u062A \u0627\u0633\u062A\u062C\u062F\u0627\u0621 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", en: "engagement-bait wording" },
+  "text.hostileWords": { ar: "\u0643\u0644\u0645\u0627\u062A \u062C\u0627\u0631\u062D\u0629", en: "hostile words" },
+  "text.hashtags": { ar: "%v \u0648\u0633\u0648\u0645", en: "%v hashtags" },
+  "text.mentions": { ar: "%v \u0625\u0634\u0627\u0631\u0627\u062A \u0644\u062D\u0633\u0627\u0628\u0627\u062A", en: "%v mentions" },
+  "semantic.usefulness": { ar: "\u0641\u0627\u0626\u062F\u0629 \u0639\u0645\u0644\u064A\u0629 %v", en: "practical usefulness %v" },
+  "semantic.novelty": { ar: "\u062C\u0650\u062F\u0651\u0629 \u0627\u0644\u0641\u0643\u0631\u0629 %v", en: "novelty %v" },
+  "semantic.quotability": { ar: "\u0633\u0637\u0631 \u0642\u0627\u0628\u0644 \u0644\u0644\u0627\u0642\u062A\u0628\u0627\u0633", en: "a quotable line" },
+  "semantic.emotion": { ar: "\u0634\u062D\u0646\u0629 \u0639\u0627\u0637\u0641\u064A\u0629 \u0639\u0627\u0644\u064A\u0629 \u062C\u062F\u064B\u0627", en: "very strong emotional framing" },
+  "semantic.clickbaitGap": { ar: "\u0641\u0636\u0648\u0644 \u0623\u0639\u0644\u0649 \u0645\u0646 \u0645\u0636\u0645\u0648\u0646 \u0645\u062D\u062F\u062F", en: "more curiosity than concrete substance" },
+  "cta.specific": { ar: "\u062F\u0639\u0648\u0629 \u0645\u062D\u062F\u062F\u0629 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", en: "a specific call to action" },
+  "cta.generic": { ar: "\u062F\u0639\u0648\u0629 \u0639\u0627\u0645\u0629 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", en: "a generic call to action" },
+  "cta.present": { ar: "\u0644\u0627 \u062A\u0648\u062C\u062F \u062F\u0639\u0648\u0629 \u0644\u0644\u062A\u0641\u0627\u0639\u0644", en: "no call to action" },
+  "intent.list": { ar: "\u0628\u0646\u064A\u0629 \u0642\u0627\u0626\u0645\u0629 \u0645\u0631\u0642\u0651\u0645\u0629", en: "a numbered-list structure" },
+  "intent.opinion": { ar: "\u0631\u0623\u064A \u0623\u0648 \u0645\u0648\u0642\u0641", en: "an opinion or stance" },
+  "intent.personal": { ar: "\u062A\u062C\u0631\u0628\u0629 \u0623\u0648 \u062A\u0623\u0645\u0644 \u0634\u062E\u0635\u064A", en: "a personal insight or story" },
+  "carousel.slideCount": { ar: "%v \u0634\u0631\u0627\u0626\u062D", en: "%v slides" },
+  "carousel.densityFit": { ar: "\u0643\u062B\u0627\u0641\u0629 \u0627\u0644\u0634\u0631\u0627\u0626\u062D %v", en: "slide density fit %v" },
+  "carousel.promise": { ar: "\u0648\u0639\u062F \u0627\u0644\u063A\u0644\u0627\u0641/\u0627\u0644\u0645\u0646\u0641\u0651\u0630 %v", en: "cover promise/delivered %v" },
+  "carousel.curiosityContinuity": { ar: "\u062A\u0633\u0644\u0633\u0644 \u064A\u0634\u062F\u0651 \u0644\u0644\u0634\u0631\u064A\u062D\u0629 \u0627\u0644\u062A\u0627\u0644\u064A\u0629 %v", en: "slide-to-slide continuity %v" },
+  "carousel.empty": { ar: "\u0634\u0631\u0627\u0626\u062D \u0641\u0627\u0631\u063A\u0629: %v", en: "empty slides: %v" },
+  "carousel.coverWords": { ar: "\u0627\u0644\u063A\u0644\u0627\u0641 %v \u0643\u0644\u0645\u0629", en: "cover of %v words" },
+  "carousel.progression": { ar: "\u062A\u0631\u0642\u064A\u0645 \u0645\u062A\u0633\u0644\u0633\u0644", en: "sequential numbering" },
+  "reel.durationSec": { ar: "\u0627\u0644\u0645\u062F\u0629 %v \u062B", en: "duration %vs" },
+  "reel.openLoops": { ar: "\u062D\u0644\u0642\u0627\u062A \u0641\u0636\u0648\u0644 \u0645\u0641\u062A\u0648\u062D\u0629: %v", en: "open loops: %v" },
+  "reel.payoff": { ar: "\u0625\u062C\u0627\u0628\u0629/\u062E\u0644\u0627\u0635\u0629 \u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629", en: "a payoff at the end" },
+  "reel.sceneRhythmCv": { ar: "\u062A\u0646\u0648\u0651\u0639 \u0625\u064A\u0642\u0627\u0639 \u0627\u0644\u0645\u0634\u0627\u0647\u062F %v", en: "scene-rhythm variation %v" },
+  "reel.firstSecondsHasPromise": { ar: "\u0648\u0639\u062F \u0641\u064A \u0627\u0644\u062B\u0648\u0627\u0646\u064A \u0627\u0644\u0623\u0648\u0644\u0649", en: "a promise in the first seconds" },
+  "reel.hookWords": { ar: "\u0627\u0644\u0645\u0634\u0647\u062F \u0627\u0644\u0623\u0648\u0644 %v \u0643\u0644\u0645\u0627\u062A", en: "first scene of %v words" },
+  "reel.maxWordsPerScene": { ar: "\u0623\u0643\u062B\u0631 \u0645\u0634\u0647\u062F \u0643\u0644\u0627\u0645\u064B\u0627 %v \u0643\u0644\u0645\u0629", en: "busiest scene %v words" },
+  "thread.posts": { ar: "%v \u062A\u063A\u0631\u064A\u062F\u0627\u062A", en: "%v posts" },
+  "thread.overLimit": { ar: "%v \u062A\u063A\u0631\u064A\u062F\u0627\u062A \u0641\u0648\u0642 \u0627\u0644\u062D\u062F", en: "%v posts over the limit" },
+  "thread.firstPostEndsOpen": { ar: "\u0627\u0644\u062A\u063A\u0631\u064A\u062F\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u062A\u0641\u062A\u062D \u0641\u0636\u0648\u0644\u064B\u0627", en: "first post opens a loop" },
+  "caption.firstSentenceWords": { ar: "\u0623\u0648\u0644 \u062C\u0645\u0644\u0629 \u0641\u064A \u0627\u0644\u0648\u0635\u0641 %v \u0643\u0644\u0645\u0629", en: "caption opening of %v words" },
+  "history.topicAffinity": { ar: "\u0623\u062F\u0627\u0621 \u0647\u0630\u0627 \u0627\u0644\u0645\u0648\u0636\u0648\u0639 \u0641\u064A \u062D\u0633\u0627\u0628\u0643 %v", en: "this topic on your account %v" }
+};
+var FEATURE_ABSENT = {
+  "text.question": { ar: "\u0644\u0627 \u0633\u0624\u0627\u0644 \u0644\u0644\u0642\u0627\u0631\u0626", en: "no question to the reader" },
+  "hook.question": { ar: "\u0644\u0627 \u0633\u0624\u0627\u0644 \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629", en: "no question in the opening" },
+  "reel.payoff": { ar: "\u0644\u0627 \u062E\u0644\u0627\u0635\u0629 \u0641\u064A \u0627\u0644\u0646\u0647\u0627\u064A\u0629", en: "no payoff at the end" },
+  "reel.firstSecondsHasPromise": { ar: "\u0644\u0627 \u0648\u0639\u062F \u0641\u064A \u0627\u0644\u062B\u0648\u0627\u0646\u064A \u0627\u0644\u0623\u0648\u0644\u0649", en: "no promise in the first seconds" },
+  "thread.firstPostEndsOpen": { ar: "\u0627\u0644\u062A\u063A\u0631\u064A\u062F\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0644\u0627 \u062A\u0641\u062A\u062D \u0641\u0636\u0648\u0644\u064B\u0627", en: "the first post does not open a loop" },
+  "cta.specific": { ar: "\u062F\u0639\u0648\u0629 \u063A\u064A\u0631 \u0645\u062D\u062F\u062F\u0629", en: "a non-specific call to action" }
+};
+var SIGNAL_LABEL = Object.fromEntries(SIGNAL_CATALOG.map((s) => [s.id, s.label]));
+var HOOK_PART = { lengthFit: { ar: "\u0627\u0644\u0637\u0648\u0644", en: "length" }, curiosity: { ar: "\u0627\u0644\u0641\u0636\u0648\u0644", en: "curiosity" }, specificity: { ar: "\u0627\u0644\u062A\u062D\u062F\u064A\u062F", en: "specificity" }, directAddress: { ar: "\u0645\u062E\u0627\u0637\u0628\u0629 \u0627\u0644\u0642\u0627\u0631\u0626", en: "direct address" }, tension: { ar: "\u0645\u0627 \u0639\u0644\u0649 \u0627\u0644\u0645\u062D\u0643", en: "stakes" }, clarity: { ar: "\u0627\u0644\u0648\u0636\u0648\u062D", en: "clarity" } };
+var AUDIENCE = { commentWorthiness: { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062A\u0639\u0644\u064A\u0642", en: "comment-worthiness" }, saveWorthiness: { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u062D\u0641\u0638", en: "save-worthiness" }, shareWorthiness: { ar: "\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629", en: "share-worthiness" } };
+var show = (v) => typeof v === "number" ? String(Math.round(v * 100) / 100) : String(v);
+function featureLabel(feature, value, lang = "ar") {
+  if (value === false && FEATURE_ABSENT[feature]) return FEATURE_ABSENT[feature][lang];
+  let m = feature.match(/^carousel\.slides\[(\d+)\]\.(words|insight)$/);
+  if (m) return m[2] === "words" ? lang === "ar" ? `\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${m[1]}: ${show(value)} \u0643\u0644\u0645\u0629` : `slide ${m[1]}: ${show(value)} words` : lang === "ar" ? `\u0642\u0648\u0629 \u0641\u0643\u0631\u0629 \u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${m[1]}: ${show(value)}` : `slide ${m[1]} insight: ${show(value)}`;
+  m = feature.match(/^hook\.parts\.(\w+)$/);
+  if (m && HOOK_PART[m[1]]) return lang === "ar" ? `${HOOK_PART[m[1]].ar} \u0641\u064A \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629: ${show(value)}` : `opening ${HOOK_PART[m[1]].en}: ${show(value)}`;
+  m = feature.match(/^audience\.(\w+)$/);
+  if (m && AUDIENCE[m[1]]) return `${AUDIENCE[m[1]][lang]}: ${show(value)}`;
+  if (SIGNAL_LABEL[feature]) return `${SIGNAL_LABEL[feature][lang]}: ${show(value)}`;
+  if (feature === "caption") return lang === "ar" ? "\u0644\u0627 \u0646\u0635 \u0645\u0631\u0627\u0641\u0642" : "no accompanying text";
+  if (feature === "text.maxSentenceWords") return lang === "ar" ? `\u0623\u0637\u0648\u0644 \u062C\u0645\u0644\u0629 ${show(value)} \u0643\u0644\u0645\u0629` : `longest sentence ${show(value)} words`;
+  if (feature === "text.numbers") return lang === "ar" ? `${show(value)} \u0623\u0631\u0642\u0627\u0645` : `${show(value)} numbers`;
+  if (feature === "text.redundancy") return lang === "ar" ? `\u0646\u0633\u0628\u0629 \u0627\u0644\u062A\u0643\u0631\u0627\u0631 ${show(value)}` : `repetition ${show(value)}`;
+  if (feature === "semantic.curiosity") return lang === "ar" ? `\u0627\u0644\u0641\u0636\u0648\u0644 ${show(value)}` : `curiosity ${show(value)}`;
+  if (feature === "cta.generic" && value === true) return FEATURE_LABEL["cta.generic"][lang];
+  const key = feature.replace(/^carousel\.slide(\d+)\.(words|empty)$/, (_, n2, k) => `carousel.slide.${k}`);
+  if (key === "carousel.slide.words") return lang === "ar" ? `\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${feature.match(/\d+/)[0]}: ${value} \u0643\u0644\u0645\u0629` : `slide ${feature.match(/\d+/)[0]}: ${value} words`;
+  if (key === "carousel.slide.empty") return lang === "ar" ? `\u0627\u0644\u0634\u0631\u064A\u062D\u0629 ${feature.match(/\d+/)[0]} \u0641\u0627\u0631\u063A\u0629` : `slide ${feature.match(/\d+/)[0]} is empty`;
+  if (feature.startsWith("history.pattern.")) return lang === "ar" ? `\u0646\u0645\u0637 \u0645\u0646 \u062A\u0627\u0631\u064A\u062E \u062D\u0633\u0627\u0628\u0643 (${value >= 0 ? "+" : ""}${Math.round(value * 100)}%)` : `a pattern from your account (${value >= 0 ? "+" : ""}${Math.round(value * 100)}%)`;
+  const l = FEATURE_LABEL[feature];
+  if (!l) return `${feature}: ${value}`;
+  return l[lang].replace("%v", typeof value === "number" ? String(Math.round(value * 100) / 100) : String(value));
+}
+
+// lib/algorithm-intelligence/explainability/score-explanation.js
+var DISCLAIMER = {
+  en: "Basira does not claim access to private platform ranking algorithms. Scores are estimates generated from public platform information, content features and account-specific historical performance. A Platform Fit Score is a relative compatibility score under the current model, not a probability of reach or virality.",
+  ar: "\u0644\u0627 \u062A\u062F\u0651\u0639\u064A \u0628\u0635\u064A\u0631\u0629 \u0627\u0644\u0648\u0635\u0648\u0644 \u0625\u0644\u0649 \u062E\u0648\u0627\u0631\u0632\u0645\u064A\u0627\u062A \u0627\u0644\u062A\u0631\u062A\u064A\u0628 \u0627\u0644\u062E\u0627\u0635\u0629 \u0628\u0627\u0644\u0645\u0646\u0635\u0627\u062A. \u0627\u0644\u062F\u0631\u062C\u0627\u062A \u062A\u0642\u062F\u064A\u0631\u0627\u062A \u0645\u0628\u0646\u064A\u0629 \u0639\u0644\u0649 \u0645\u0639\u0644\u0648\u0645\u0627\u062A \u0627\u0644\u0645\u0646\u0635\u0627\u062A \u0627\u0644\u0645\u0646\u0634\u0648\u0631\u0629 \u0648\u062E\u0635\u0627\u0626\u0635 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0623\u062F\u0627\u0621 \u062D\u0633\u0627\u0628\u0643 \u0627\u0644\u0633\u0627\u0628\u0642. \u062F\u0631\u062C\u0629 \u0645\u0644\u0627\u0621\u0645\u0629 \u0627\u0644\u0645\u0646\u0635\u0629 \u0645\u0642\u064A\u0627\u0633 \u0646\u0633\u0628\u064A \u0644\u0644\u062A\u0648\u0627\u0641\u0642 \u0648\u0641\u0642 \u0627\u0644\u0646\u0645\u0648\u0630\u062C \u0627\u0644\u062D\u0627\u0644\u064A\u060C \u0648\u0644\u064A\u0633\u062A \u0627\u062D\u062A\u0645\u0627\u0644 \u0648\u0635\u0648\u0644 \u0623\u0648 \u0627\u0646\u062A\u0634\u0627\u0631."
+};
+function signalLine(registry, c, signals, lang, scores = {}) {
+  if (c.signalId.startsWith("score.")) {
+    const type = c.signalId.slice(6);
+    const sign2 = c.contribution >= 0 ? 1 : -1;
+    const why2 = (scores[type]?.contributions ?? []).filter((x) => sign2 * x.contribution > 0).sort((a, b) => sign2 * (b.contribution - a.contribution)).slice(0, 2).map((x) => `${registry.get(x.signalId)?.label?.[lang] ?? x.signalId} ${LEVEL(x.value)[lang]}`);
+    return { id: c.signalId, label: SCORE_LABEL[c.signalId][lang], points: c.contribution, provenance: c.provenance, provenanceLabel: PROVENANCE_LABEL[c.provenance][lang], why: why2 };
+  }
+  const def = registry.get(c.signalId);
+  const s = signals[c.signalId];
+  const sign = c.contribution >= 0 ? "+" : "-";
+  const negative = def?.category === "negative_feedback";
+  const wanted = negative ? sign === "+" ? "-" : "+" : sign;
+  const why = (s?.evidence ?? []).filter((e) => e.effect === wanted).slice(0, 3).map((e) => featureLabel(e.feature, e.value, lang));
+  return {
+    id: c.signalId,
+    label: def?.label?.[lang] ?? c.signalId,
+    level: LEVEL(s?.value ?? 0)[lang],
+    value: s?.value ?? null,
+    points: c.contribution,
+    provenance: s?.provenance ?? c.provenance,
+    provenanceLabel: PROVENANCE_LABEL[s?.provenance ?? c.provenance]?.[lang],
+    why
+  };
+}
+function explainPlatform(report, registry, { lang = "ar", limit = 5, threshold = 1 } = {}) {
+  const lines2 = report.overall.contributions.map((c) => signalLine(registry, c, report.signals, lang, report.scores));
+  const positives = lines2.filter((l) => l.points >= threshold).slice(0, limit);
+  const negatives = lines2.filter((l) => l.points <= -threshold).slice(0, limit);
+  const scoreTypes = Object.fromEntries(
+    Object.entries(report.scores).filter(([, s]) => typeof s.score === "number").map(([type, s]) => [type, { label: SCORE_LABEL[type]?.[lang] ?? type, score: s.score, top: s.contributions.slice().sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution)).slice(0, 3).map((c) => signalLine(registry, c, report.signals, lang)) }])
+  );
+  const unavailable = Object.values(report.signals).filter((s) => s.value === null && s.note).map((s) => ({ id: s.id, label: registry.get(s.id)?.label?.[lang] ?? s.id, note: s.note }));
+  return {
+    platform: report.platform,
+    title: `${PLATFORM_LABEL[report.platform][lang]} \u2014 ${SCORE_LABEL.overall[lang]}: ${report.overall.score}/100`,
+    positives,
+    negatives,
+    scoreTypes,
+    confidence: { value: report.confidence.confidence, label: report.confidence.confidenceLabel, reasons: report.confidence.reasons.map((r) => r[lang]) },
+    unavailable,
+    disclaimer: DISCLAIMER[lang]
+  };
+}
+
+// lib/algorithm-intelligence/core/confidence.js
+function signalConfidence(provenance, config = DEFAULT_CONFIG, { semanticSource } = {}) {
+  const base = config.confidence.provenance[provenance] ?? 0.3;
+  if (semanticSource?.startsWith("ai:") && provenance === "heuristic") return 0.5;
+  return base;
+}
+var sampleConfidence = (n2, full = 40) => round2(clamp01(Math.sqrt(Math.max(0, n2) / full)) * 0.9);
+function historyStrength(history, config = DEFAULT_CONFIG) {
+  const { n: n2 = 0, comparable = 0, lastAt = null, now: now2 = (/* @__PURE__ */ new Date()).toISOString() } = history ?? {};
+  if (!n2) return { value: 0, quantity: 0, recency: 0, similarity: 0, ageDays: null };
+  const quantity = clamp01(n2 / config.confidence.historyFullAt);
+  const ageDays = lastAt ? Math.max(0, (Date.parse(now2) - Date.parse(lastAt)) / 864e5) : null;
+  const recency = ageDays === null ? 0.5 : Math.pow(0.5, ageDays / config.confidence.recencyHalfLifeDays);
+  const similarity = n2 ? clamp01(comparable / n2) : 0;
+  const value = clamp01(quantity * recency * (0.4 + 0.6 * similarity));
+  return { value: round2(value), quantity: round2(quantity), recency: round2(recency), similarity: round2(similarity), ageDays: ageDays === null ? null : Math.round(ageDays) };
+}
+function platformConfidence({ contentConfidence, history, config = DEFAULT_CONFIG, heuristicShare = 0 }) {
+  const cap = config.confidence.genericCap;
+  const h = historyStrength(history, config);
+  const content = Math.min(contentConfidence ?? 0, cap);
+  const value = round2(clamp01(content + (0.9 - cap) * h.value));
+  const reasons = [];
+  if (!history?.n) reasons.push({ code: "no-history", ar: "\u0646\u0645\u0648\u0630\u062C \u0627\u0644\u0645\u0646\u0635\u0629 \u0627\u0644\u0639\u0627\u0645 \u0641\u0642\u0637: \u0644\u0627 \u062A\u0648\u062C\u062F \u0628\u064A\u0627\u0646\u0627\u062A \u0623\u062F\u0627\u0621 \u0644\u0647\u0630\u0627 \u0627\u0644\u062D\u0633\u0627\u0628 \u0628\u0639\u062F.", en: "Generic platform model only: no account history yet." });
+  else {
+    reasons.push({ code: "history", ar: `${history.n} \u0645\u0646\u0634\u0648\u0631\u064B\u0627 \u0633\u0627\u0628\u0642\u064B\u0627\u060C \u0645\u0646\u0647\u0627 ${history.comparable ?? 0} \u0645\u0646 \u0627\u0644\u0635\u064A\u063A\u0629 \u0646\u0641\u0633\u0647\u0627.`, en: `${history.n} past posts, ${history.comparable ?? 0} in the same format.` });
+    if (h.ageDays !== null && h.ageDays > config.confidence.recencyHalfLifeDays) reasons.push({ code: "stale", ar: `\u0622\u062E\u0631 \u0628\u064A\u0627\u0646\u0627\u062A \u0645\u0646\u0630 ${h.ageDays} \u064A\u0648\u0645\u064B\u0627.`, en: `Latest data is ${h.ageDays} days old.` });
+    if (history.n < config.history.minSample) reasons.push({ code: "small-sample", ar: "\u0627\u0644\u0639\u064A\u0646\u0629 \u0635\u063A\u064A\u0631\u0629: \u0644\u0627 \u0627\u0633\u062A\u0646\u062A\u0627\u062C\u0627\u062A \u0639\u0646 \u0627\u0644\u0623\u0646\u0645\u0627\u0637 \u0628\u0639\u062F.", en: "Small sample: no pattern claims yet." });
+  }
+  if (heuristicShare > 0.5) reasons.push({ code: "heuristic-share", ar: `${Math.round(heuristicShare * 100)}% \u0645\u0646 \u0648\u0632\u0646 \u0627\u0644\u062F\u0631\u062C\u0629 \u062A\u0642\u062F\u064A\u0631\u0627\u062A \u0642\u0627\u0639\u062F\u064A\u0629 \u0648\u0644\u064A\u0633\u062A \u0642\u064A\u0627\u0633\u064B\u0627 \u0645\u0628\u0627\u0634\u0631\u064B\u0627.`, en: `${Math.round(heuristicShare * 100)}% of the score's weight rests on rule-of-thumb estimates.` });
+  return { confidence: value, confidenceLabel: confidenceLabel(value), history: h, reasons };
+}
+
+// lib/algorithm-intelligence/history/normalization.js
+var nums = (xs) => xs.filter((x) => typeof x === "number" && Number.isFinite(x));
+function quantile(xs, q) {
+  const a = nums(xs).sort((x, y) => x - y);
+  if (!a.length) return null;
+  const pos = (a.length - 1) * q;
+  const lo = Math.floor(pos);
+  const hi = Math.ceil(pos);
+  return a[lo] + (a[hi] - a[lo]) * (pos - lo);
+}
+var median = (xs) => quantile(xs, 0.5);
+function mad(xs) {
+  const m = median(xs);
+  if (m === null) return null;
+  return median(nums(xs).map((x) => Math.abs(x - m)));
+}
+function summary(xs) {
+  const a = nums(xs);
+  if (!a.length) return { n: 0, median: null, mad: null, p25: null, p75: null, p90: null, min: null, max: null };
+  return { n: a.length, median: median(a), mad: mad(a), p25: quantile(a, 0.25), p75: quantile(a, 0.75), p90: quantile(a, 0.9), min: Math.min(...a), max: Math.max(...a) };
+}
+var ratio = (x, base) => typeof x === "number" && typeof base === "number" && base > 0 ? x / base : null;
+var per1k = (count, exposure) => typeof count === "number" && typeof exposure === "number" && exposure > 0 ? 1e3 * count / exposure : null;
+function rollingMedian(xs, size = 10) {
+  const a = nums(xs);
+  const out = [];
+  for (let i = size - 1; i < a.length; i++) out.push(median(a.slice(i - size + 1, i + 1)));
+  return out;
+}
+var ranks = (xs) => {
+  const idx = xs.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0]);
+  const r = new Array(xs.length);
+  for (let i = 0; i < idx.length; ) {
+    let j = i;
+    while (j + 1 < idx.length && idx[j + 1][0] === idx[i][0]) j++;
+    const avg = (i + j) / 2 + 1;
+    for (let k = i; k <= j; k++) r[idx[k][1]] = avg;
+    i = j + 1;
+  }
+  return r;
+};
+function normalCdf(z) {
+  const t = 1 / (1 + 0.3275911 * (Math.abs(z) / Math.SQRT2));
+  const y = 1 - ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-(z * z) / 2);
+  return z >= 0 ? 0.5 * (1 + y) : 0.5 * (1 - y);
+}
+function mannWhitney(a, b) {
+  const x = nums(a);
+  const y = nums(b);
+  const n1 = x.length;
+  const n2 = y.length;
+  if (!n1 || !n2) return { u: null, z: null, p: 1, superiority: null };
+  const all = [...x, ...y];
+  const r = ranks(all);
+  const r1 = r.slice(0, n1).reduce((s, v) => s + v, 0);
+  const u1 = r1 - n1 * (n1 + 1) / 2;
+  const counts = /* @__PURE__ */ new Map();
+  for (const v of all) counts.set(v, (counts.get(v) ?? 0) + 1);
+  const ties = [...counts.values()].reduce((s, t) => s + (t ** 3 - t), 0);
+  const n3 = n1 + n2;
+  const sigma = Math.sqrt(n1 * n2 / 12 * (n3 + 1 - ties / (n3 * (n3 - 1))));
+  const z = sigma ? (u1 - n1 * n2 / 2) / sigma : 0;
+  return { u: u1, z, p: Math.min(1, 2 * (1 - normalCdf(Math.abs(z)))), superiority: u1 / (n1 * n2) };
+}
+function spearman(a, b) {
+  const pairs = a.map((x, i) => [x, b[i]]).filter(([x, y]) => typeof x === "number" && typeof y === "number" && Number.isFinite(x) && Number.isFinite(y));
+  const n2 = pairs.length;
+  if (n2 < 3) return { rho: null, n: n2 };
+  const rx = ranks(pairs.map((p) => p[0]));
+  const ry = ranks(pairs.map((p) => p[1]));
+  const mx = rx.reduce((s, v) => s + v, 0) / n2;
+  const my = ry.reduce((s, v) => s + v, 0) / n2;
+  let num3 = 0;
+  let dx = 0;
+  let dy = 0;
+  for (let i = 0; i < n2; i++) {
+    num3 += (rx[i] - mx) * (ry[i] - my);
+    dx += (rx[i] - mx) ** 2;
+    dy += (ry[i] - my) ** 2;
+  }
+  return { rho: dx && dy ? num3 / Math.sqrt(dx * dy) : 0, n: n2 };
+}
+
+// lib/algorithm-intelligence/history/post-history.js
+var METRICS2 = {
+  instagram: ["views", "reach", "impressions", "likes", "comments", "shares", "saves", "reposts", "engagements", "profileVisits", "follows", "watchTime", "averageWatchTime", "skipRate"],
+  facebook: ["views", "reach", "likes", "comments", "shares", "linkClicks", "engagements", "watchTime", "averageWatchTime", "negativeFeedback"],
+  x: ["impressions", "views", "likes", "replies", "reposts", "quotes", "bookmarks", "profileVisits", "linkClicks", "engagements"]
+};
+var EXPOSURE = { instagram: ["reach", "views"], facebook: ["views", "reach"], x: ["impressions", "views"] };
+var OUTCOMES = {
+  instagram: ["sharesPer1k", "savesPer1k", "commentsPer1k", "profileVisitsPer1k", "reach"],
+  facebook: ["sharesPer1k", "commentsPer1k", "likesPer1k", "views"],
+  x: ["repliesPer1k", "repostsPer1k", "profileVisitsPer1k", "likesPer1k", "impressions"]
+};
+var PRIMARY_OUTCOME = { instagram: "sharesPer1k", facebook: "sharesPer1k", x: "repliesPer1k" };
+var OUTCOME_LABEL = {
+  sharesPer1k: { ar: "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062A \u0644\u0643\u0644 1000 \u0648\u0635\u0648\u0644", en: "shares per 1k reach" },
+  savesPer1k: { ar: "\u0627\u0644\u062D\u0641\u0638 \u0644\u0643\u0644 1000 \u0648\u0635\u0648\u0644", en: "saves per 1k reach" },
+  commentsPer1k: { ar: "\u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A \u0644\u0643\u0644 1000", en: "comments per 1k" },
+  likesPer1k: { ar: "\u0627\u0644\u0625\u0639\u062C\u0627\u0628\u0627\u062A \u0644\u0643\u0644 1000", en: "likes per 1k" },
+  repliesPer1k: { ar: "\u0627\u0644\u0631\u062F\u0648\u062F \u0644\u0643\u0644 1000 \u0638\u0647\u0648\u0631", en: "replies per 1k impressions" },
+  repostsPer1k: { ar: "\u0625\u0639\u0627\u062F\u0627\u062A \u0627\u0644\u0646\u0634\u0631 \u0644\u0643\u0644 1000 \u0638\u0647\u0648\u0631", en: "reposts per 1k impressions" },
+  profileVisitsPer1k: { ar: "\u0632\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u0645\u0644\u0641 \u0644\u0643\u0644 1000", en: "profile visits per 1k" },
+  reach: { ar: "\u0627\u0644\u0648\u0635\u0648\u0644", en: "reach" },
+  views: { ar: "\u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0627\u062A", en: "views" },
+  impressions: { ar: "\u0645\u0631\u0627\u062A \u0627\u0644\u0638\u0647\u0648\u0631", en: "impressions" }
+};
+var CONTENT_TYPE_ALIASES = { CAROUSEL_ALBUM: "carousel", IMAGE: "post", VIDEO: "reel", REELS: "reel", FEED: "post", photo: "post", video: "reel", link: "post", status: "post", text: "post" };
+function exposureOf(record) {
+  for (const k of EXPOSURE[record.platform] ?? []) if (typeof record.metrics?.[k] === "number" && record.metrics[k] > 0) return { metric: k, value: record.metrics[k] };
+  return null;
+}
+function outcomesOf(record) {
+  const m = record.metrics ?? {};
+  const exp = exposureOf(record);
+  const out = {};
+  for (const o of OUTCOMES[record.platform] ?? []) {
+    if (o.endsWith("Per1k")) out[o] = exp ? per1k(m[o.replace("Per1k", "")], exp.value) : null;
+    else out[o] = typeof m[o] === "number" ? m[o] : null;
+  }
+  return out;
+}
+var num2 = (v) => {
+  if (v === null || v === void 0 || v === "") return null;
+  const n2 = typeof v === "number" ? v : Number(String(v).replace(/[,\s]/g, ""));
+  return Number.isFinite(n2) ? n2 : null;
+};
+function normalizeRecord(raw, { source = "manual" } = {}) {
+  const platform = String(raw.platform ?? "").toLowerCase();
+  if (!PLATFORMS.includes(platform)) throw new Error(`unknown platform "${raw.platform}" (one of ${PLATFORMS.join(", ")})`);
+  const postId = String(raw.postId ?? raw.id ?? "").trim();
+  if (!postId) throw new Error("a post record needs postId");
+  const metrics = {};
+  for (const k of METRICS2[platform]) metrics[k] = num2(raw.metrics?.[k] ?? raw[k]);
+  const type = CONTENT_TYPE_ALIASES[raw.contentType] ?? raw.contentType ?? "post";
+  const postedAt = raw.postedAt ? new Date(raw.postedAt).toISOString() : null;
+  return {
+    id: `${platform}:${postId}`,
+    platform,
+    postId,
+    postedAt,
+    // The local hour as published, when the timestamp carried an offset.
+    postedHour: raw.postedHour ?? (typeof raw.postedAt === "string" && /[+-]\d{2}:?\d{2}$|Z$/.test(raw.postedAt) ? Number(raw.postedAt.match(/T(\d{2})/)?.[1]) : null),
+    contentType: ["post", "carousel", "reel", "thread", "caption"].includes(type) ? type : "post",
+    designId: raw.designId ?? null,
+    text: typeof raw.text === "string" ? raw.text : typeof raw.caption === "string" ? raw.caption : null,
+    topic: raw.topic ?? null,
+    permalink: raw.permalink ?? null,
+    metrics,
+    features: raw.features ?? null,
+    source: raw.source ?? source,
+    importedAt: now()
+  };
+}
+function mergeRecord(prev, next) {
+  if (!prev) return next;
+  const metrics = { ...prev.metrics };
+  for (const [k, v] of Object.entries(next.metrics)) if (v !== null) metrics[k] = v;
+  return {
+    ...prev,
+    ...Object.fromEntries(Object.entries(next).filter(([k, v]) => v !== null && v !== void 0 && !["metrics", "importedAt", "features"].includes(k))),
+    features: next.features ?? prev.features,
+    metrics,
+    snapshots: [...prev.snapshots ?? [], { at: prev.importedAt, metrics: prev.metrics }].slice(-10),
+    importedAt: next.importedAt
+  };
+}
+
+// lib/algorithm-intelligence/learning/adaptive-weights.js
+var T2 = (ar, en) => ({ ar, en });
+var words2 = (f3) => f3.hook?.words ?? null;
+var PATTERN_FEATURES = [
+  {
+    id: "hookType",
+    feature: "hook.type",
+    value: (f3) => f3.hook?.type ?? null,
+    bucket: (f3) => f3.hook?.type ? ["list", "question", "warning", "curiosity", "how-to", "myth"].includes(f3.hook.type) ? f3.hook.type : "statement" : null,
+    labels: {
+      list: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0627\u0644\u0642\u0648\u0627\u0626\u0645 \u0627\u0644\u0645\u0631\u0642\u0651\u0645\u0629", "numbered-list hooks"),
+      question: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0627\u0644\u0633\u0624\u0627\u0644", "question hooks"),
+      warning: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0627\u0644\u062A\u062D\u0630\u064A\u0631", "warning hooks"),
+      curiosity: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0627\u0644\u0641\u0636\u0648\u0644", "curiosity hooks"),
+      "how-to": T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \xAB\u0643\u064A\u0641\xBB", "how-to hooks"),
+      myth: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u062A\u0635\u062D\u064A\u062D \u0627\u0644\u062E\u0631\u0627\u0641\u0627\u062A", "myth-busting hooks"),
+      statement: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0627\u0644\u0639\u0628\u0627\u0631\u0629 \u0627\u0644\u0645\u0628\u0627\u0634\u0631\u0629", "plain-statement hooks")
+    },
+    apply: (f3, b) => b === "list" ? counterfactual.hookParts({ ...f3, hook: { ...f3.hook, type: "list", number: true, startsWithNumber: true } }, { specificity: 0.6 }) : b === "question" ? counterfactual.question(f3) : null,
+    fix: {
+      list: T2("\u0627\u0641\u062A\u062D \u0628\u0639\u062F\u062F \u0645\u0627 \u0633\u062A\u0642\u062F\u0651\u0645\u0647 (\xAB6 \u2026\xBB).", 'Open with the number of items you deliver ("6 \u2026").'),
+      question: T2("\u0627\u0641\u062A\u062D \u0628\u0633\u0624\u0627\u0644 \u064A\u0645\u0633 \u0627\u0644\u0642\u0627\u0631\u0626 \u0645\u0628\u0627\u0634\u0631\u0629.", "Open with a question that concerns the reader directly.")
+    }
+  },
+  {
+    id: "hookLength",
+    feature: "hook.words",
+    value: words2,
+    bucket: (f3) => words2(f3) === null ? null : words2(f3) <= 8 ? "short" : words2(f3) <= 14 ? "medium" : "long",
+    labels: { short: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0645\u0646 8 \u0643\u0644\u0645\u0627\u062A \u0623\u0648 \u0623\u0642\u0644", "openings of 8 words or fewer"), medium: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0645\u0646 9 \u0625\u0644\u0649 14 \u0643\u0644\u0645\u0629", "openings of 9\u201314 words"), long: T2("\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0627\u062A \u0645\u0646 15 \u0643\u0644\u0645\u0629 \u0641\u0623\u0643\u062B\u0631", "openings of 15+ words") },
+    apply: (f3, b) => b === "short" ? counterfactual.openingSentence(counterfactual.hookParts(f3, { lengthFit: 1 }), 8) : null,
+    fix: { short: T2("\u0627\u062E\u062A\u0635\u0631 \u0627\u0644\u0627\u0641\u062A\u062A\u0627\u062D\u064A\u0629 \u0625\u0644\u0649 8 \u0643\u0644\u0645\u0627\u062A \u0623\u0648 \u0623\u0642\u0644.", "Cut the opening to 8 words or fewer.") }
+  },
+  {
+    id: "slideCount",
+    feature: "carousel.slideCount",
+    types: ["carousel"],
+    value: (f3) => f3.carousel?.slideCount ?? null,
+    bucket: (f3) => !f3.carousel ? null : f3.carousel.slideCount <= 4 ? "few" : f3.carousel.slideCount <= 7 ? "mid" : f3.carousel.slideCount <= 10 ? "many" : "max",
+    labels: { few: T2("\u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A \u0645\u0646 4 \u0634\u0631\u0627\u0626\u062D \u0623\u0648 \u0623\u0642\u0644", "carousels of \u2264 4 slides"), mid: T2("\u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A \u0645\u0646 5 \u0625\u0644\u0649 7 \u0634\u0631\u0627\u0626\u062D", "5\u20137 slide carousels"), many: T2("\u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A \u0645\u0646 8 \u0625\u0644\u0649 10 \u0634\u0631\u0627\u0626\u062D", "8\u201310 slide carousels"), max: T2("\u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A \u0645\u0646 11 \u0634\u0631\u064A\u062D\u0629 \u0641\u0623\u0643\u062B\u0631", "11+ slide carousels") },
+    apply: (f3, b, config) => {
+      if (!f3.carousel) return null;
+      const n2 = { few: 4, mid: 6, many: 9, max: 12 }[b];
+      return { ...f3, carousel: { ...f3.carousel, slideCount: n2, slideCountFit: band(n2, config.thresholds.carousel.slides) ?? 0 } };
+    },
+    fix: { few: T2("\u0627\u062C\u0645\u0639 \u0627\u0644\u0641\u0643\u0631\u0629 \u0641\u064A 4 \u0634\u0631\u0627\u0626\u062D \u0623\u0648 \u0623\u0642\u0644.", "Fit the idea in 4 slides or fewer."), mid: T2("\u0627\u062C\u0639\u0644 \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u0628\u064A\u0646 5 \u06487 \u0634\u0631\u0627\u0626\u062D.", "Keep the carousel to 5\u20137 slides."), many: T2("\u0627\u062C\u0639\u0644 \u0627\u0644\u0643\u0627\u0631\u0648\u0633\u064A\u0644 \u0628\u064A\u0646 8 \u064810 \u0634\u0631\u0627\u0626\u062D.", "Use 8\u201310 slides.") }
+  },
+  {
+    id: "postLength",
+    feature: "text.words",
+    types: ["post", "caption", "hook", "article-summary", "thread"],
+    value: (f3) => f3.text?.words ?? null,
+    bucket: (f3) => !f3.text ? null : f3.text.words <= 40 ? "short" : f3.text.words <= 120 ? "medium" : "long",
+    labels: { short: T2("\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0645\u0646 40 \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644", "posts of \u2264 40 words"), medium: T2("\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0645\u0646 41 \u0625\u0644\u0649 120 \u0643\u0644\u0645\u0629", "posts of 41\u2013120 words"), long: T2("\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0645\u0646 121 \u0643\u0644\u0645\u0629 \u0641\u0623\u0643\u062B\u0631", "posts of 121+ words") },
+    fix: { short: T2("\u0627\u062E\u062A\u0635\u0631 \u0627\u0644\u0645\u0646\u0634\u0648\u0631 \u0625\u0644\u0649 40 \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644.", "Keep the post to 40 words or fewer."), medium: T2("\u0627\u062C\u0639\u0644 \u0627\u0644\u0645\u0646\u0634\u0648\u0631 \u0628\u064A\u0646 41 \u0648120 \u0643\u0644\u0645\u0629.", "Keep the post to 41\u2013120 words.") }
+  },
+  {
+    id: "question",
+    feature: "cta.question",
+    value: (f3) => Boolean(f3.hook?.question || f3.cta?.question),
+    bucket: (f3) => f3.hook ? f3.hook.question || f3.cta?.question ? "yes" : "no" : null,
+    labels: { yes: T2("\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0641\u064A\u0647\u0627 \u0633\u0624\u0627\u0644 \u0644\u0644\u0642\u0627\u0631\u0626", "posts that ask the reader a question"), no: T2("\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0628\u0644\u0627 \u0633\u0624\u0627\u0644", "posts without a question") },
+    apply: (f3, b) => b === "yes" ? counterfactual.question(f3) : null,
+    fix: { yes: T2("\u0627\u0637\u0631\u062D \u0633\u0624\u0627\u0644\u064B\u0627 \u0645\u062D\u062F\u062F\u064B\u0627 \u0639\u0644\u0649 \u0627\u0644\u0642\u0627\u0631\u0626.", "Ask the reader one specific question.") }
+  },
+  {
+    id: "ctaSpecific",
+    feature: "cta.specific",
+    value: (f3) => Boolean(f3.cta?.specific),
+    bucket: (f3) => f3.cta ? f3.cta.specific ? "yes" : "no" : null,
+    labels: { yes: T2("\u062F\u0639\u0648\u0627\u062A \u062A\u0641\u0627\u0639\u0644 \u0645\u062D\u062F\u062F\u0629", "specific calls to action"), no: T2("\u062F\u0639\u0648\u0627\u062A \u0639\u0627\u0645\u0629 \u0623\u0648 \u063A\u0627\u0626\u0628\u0629", "generic or missing calls to action") },
+    apply: (f3, b, config) => b === "yes" ? counterfactual.specificCta(f3, { type: "comment" }, config) : null,
+    fix: { yes: T2("\u0627\u062E\u062A\u0645 \u0628\u0633\u0624\u0627\u0644 \u064A\u062D\u062F\u062F \u0627\u0644\u0625\u062C\u0627\u0628\u0629 (\u0631\u0642\u0645 \u0623\u0648 \u0627\u062E\u062A\u064A\u0627\u0631).", "End with a question that bounds the answer (a number or a choice).") }
+  },
+  {
+    id: "intent",
+    feature: "intent.primary",
+    value: (f3) => f3.intent?.primary ?? null,
+    bucket: (f3) => f3.intent?.primary ?? null,
+    labels: {},
+    labelOf: (b) => T2(`\u0645\u062D\u062A\u0648\u0649 \u0645\u0646 \u0646\u0648\u0639 \xAB${b}\xBB`, `${b} content`),
+    fix: {}
+  },
+  {
+    id: "publishHour",
+    feature: "postedHour",
+    scope: "scheduling",
+    value: (f3, r) => r?.postedHour ?? null,
+    bucket: (f3, r) => typeof r?.postedHour !== "number" ? null : r.postedHour >= 5 && r.postedHour < 12 ? "morning" : r.postedHour < 17 ? "afternoon" : r.postedHour < 22 ? "evening" : "night",
+    labels: { morning: T2("\u0627\u0644\u0646\u0634\u0631 \u0635\u0628\u0627\u062D\u064B\u0627 (5\u201311)", "posting in the morning (5\u201311)"), afternoon: T2("\u0627\u0644\u0646\u0634\u0631 \u0638\u0647\u0631\u064B\u0627 (12\u201316)", "posting in the afternoon (12\u201316)"), evening: T2("\u0627\u0644\u0646\u0634\u0631 \u0645\u0633\u0627\u0621\u064B (17\u201321)", "posting in the evening (17\u201321)"), night: T2("\u0627\u0644\u0646\u0634\u0631 \u0644\u064A\u0644\u064B\u0627 (22\u20134)", "posting at night (22\u20134)") },
+    fix: {}
+  }
+];
+var labelOf = (pf, b) => pf.labels[b] ?? pf.labelOf?.(b) ?? T2(b, b);
+var pct = (x) => `${x >= 0 ? "+" : ""}${Math.round(x * 100)}%`;
+function discoverPatterns(rows, platform, metrics, config) {
+  const { minSample, minEffect } = config.history;
+  const out = [];
+  for (const pf of PATTERN_FEATURES) {
+    const applicable = rows.filter((r) => r.features && (!pf.types || pf.types.includes(r.features.type)));
+    const buckets = /* @__PURE__ */ new Map();
+    for (const r of applicable) {
+      const b = pf.bucket(r.features, r.record);
+      if (b === null || b === void 0) continue;
+      if (!buckets.has(b)) buckets.set(b, []);
+      buckets.get(b).push(r);
+    }
+    if (buckets.size < 2) continue;
+    for (const [b, group] of buckets) {
+      const rest = applicable.filter((r) => !group.includes(r) && pf.bucket(r.features, r.record) !== null);
+      for (const metric of metrics) {
+        const g = group.map((r) => r.ratios[metric]).filter((x) => typeof x === "number");
+        const h = rest.map((r) => r.ratios[metric]).filter((x) => typeof x === "number");
+        if (g.length < minSample || h.length < minSample) continue;
+        const mg = median(g);
+        const mh = median(h);
+        if (!mh) continue;
+        const effect = mg / mh - 1;
+        if (Math.abs(effect) < minEffect) continue;
+        const test = mannWhitney(g, h);
+        if (test.p > (config.history.maxP ?? 0.1)) continue;
+        const size = Math.min(g.length, h.length);
+        const confidence = Math.round(Math.min(0.95, (1 - test.p) * (size / (size + 8)) * 1.1) * 100) / 100;
+        if (confidence < 0.3) continue;
+        const dates = group.map((r) => r.record.postedAt).filter(Boolean).sort();
+        const label = labelOf(pf, b);
+        const metricLabel = OUTCOME_LABEL[metric] ?? T2(metric, metric);
+        out.push({
+          id: `${pf.id}:${b}:${metric}`,
+          members: group.map((r) => r.record.id).sort().join(","),
+          feature: pf.feature,
+          patternFeature: pf.id,
+          bucket: b,
+          bucketLabel: label,
+          label,
+          metric,
+          effect: Math.round(effect * 1e3) / 1e3,
+          sampleSize: g.length,
+          comparisonSize: h.length,
+          pValue: Math.round(test.p * 1e3) / 1e3,
+          superiority: test.superiority === null ? null : Math.round(test.superiority * 100) / 100,
+          confidence,
+          dateRange: dates.length ? { from: dates[0], to: dates.at(-1) } : null,
+          scope: pf.scope ?? "content",
+          statement: {
+            ar: `\u0639\u0644\u0649 \u0647\u0630\u0627 \u0627\u0644\u062D\u0633\u0627\u0628\u060C \u062D\u0642\u0642\u062A ${label.ar} ${pct(effect)} \u0641\u064A \u0648\u0633\u064A\u0637 ${metricLabel.ar} \u0645\u0642\u0627\u0631\u0646\u0629 \u0628\u0628\u0642\u064A\u0629 \u0627\u0644\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0627\u0644\u0645\u0645\u0627\u062B\u0644\u0629\u060C \u0639\u0628\u0631 ${g.length} \u0645\u0646\u0634\u0648\u0631\u064B\u0627 (\u0645\u0642\u0627\u0628\u0644 ${h.length})${dates.length ? ` \u0628\u064A\u0646 ${dates[0].slice(0, 10)} \u0648${dates.at(-1).slice(0, 10)}` : ""}.`,
+            en: `On this account, ${label.en} have produced ${pct(effect)} median ${metricLabel.en} versus comparable posts, over the last ${g.length} posts (vs ${h.length})${dates.length ? ` from ${dates[0].slice(0, 10)} to ${dates.at(-1).slice(0, 10)}` : ""}.`
+          },
+          fix: pf.fix[b] ?? T2(`\u0627\u0642\u062A\u0631\u0628 \u0645\u0646: ${label.ar}.`, `Move toward ${label.en}.`)
+        });
+      }
+    }
+  }
+  const best = /* @__PURE__ */ new Map();
+  const seenMembers = /* @__PURE__ */ new Set();
+  const seenFeature = /* @__PURE__ */ new Set();
+  for (const p of out.sort((a, b) => b.confidence * Math.abs(b.effect) - a.confidence * Math.abs(a.effect))) {
+    const k = `${p.patternFeature}:${p.bucket}`;
+    const binary = ["question", "ctaSpecific"].includes(p.patternFeature);
+    if (best.has(k) || seenMembers.has(`${p.metric}|${p.members}`) || binary && seenFeature.has(`${p.patternFeature}|${p.metric}`)) continue;
+    best.set(k, p);
+    seenMembers.add(`${p.metric}|${p.members}`);
+    if (binary) seenFeature.add(`${p.patternFeature}|${p.metric}`);
+  }
+  return [...best.values()].map(({ members, ...p }) => p);
+}
+function livePatterns(patterns) {
+  return patterns.filter((p) => p.scope === "content").map((p) => {
+    const pf = PATTERN_FEATURES.find((x) => x.id === p.patternFeature);
+    return {
+      ...p,
+      appliesTo: (f3) => !pf.types || pf.types.includes(f3.type),
+      matches: (f3) => pf.bucket(f3) === p.bucket,
+      valueOf: (f3) => pf.value(f3),
+      apply: (f3, config) => pf.apply?.(f3, p.bucket, config) ?? null
+    };
+  });
+}
+function patternFitOf(patterns, f3) {
+  const relevant = patterns.filter((p) => p.appliesTo(f3) && p.confidence >= 0.3);
+  if (!relevant.length) return null;
+  let s = 0;
+  let w = 0;
+  const matches = [];
+  for (const p of relevant) {
+    const e = Math.max(-1, Math.min(1, p.effect));
+    const hit = p.matches(f3);
+    s += p.confidence * (hit ? e : -0.5 * e);
+    w += p.confidence;
+    if (hit) matches.push({ id: p.id, effect: p.effect, statement: p.statement });
+  }
+  const z = w ? s / w : 0;
+  return { score: Math.round(50 + 50 * Math.tanh(2 * z)), confidence: Math.round(Math.min(0.9, w / relevant.length) * 100) / 100, matches, considered: relevant.length };
+}
+function learnWeights(rows, platform, config, { scoreRow, metric }) {
+  const { minSample, maxShift, shrinkK } = config.history.adaptive;
+  const usable = rows.filter((r) => r.features && typeof r.ratios[metric] === "number");
+  if (usable.length < minSample) return null;
+  const reports = usable.map((r) => scoreRow(r.features));
+  const blend = { ...config.platforms[platform].blend.positive, ...config.platforms[platform].blend.negative };
+  const factors = {};
+  const correlations = {};
+  for (const id of Object.keys(blend)) {
+    const xs = reports.map((rep) => rep.signals[id]?.value ?? null);
+    const { rho, n: n2 } = spearman(xs, usable.map((r) => r.ratios[metric]));
+    if (rho === null || n2 < minSample) continue;
+    const negative = id in config.platforms[platform].blend.negative;
+    const signed2 = negative ? -rho : rho;
+    const factor = 1 + Math.max(-maxShift, Math.min(maxShift, signed2)) * (n2 / (n2 + shrinkK));
+    factors[id] = Math.round(factor * 1e3) / 1e3;
+    correlations[id] = { rho: Math.round(rho * 1e3) / 1e3, n: n2 };
+  }
+  const dates = usable.map((r) => r.record.postedAt).filter(Boolean).sort();
+  return { platform, metric, factors, correlations, n: usable.length, dateRange: dates.length ? { from: dates[0], to: dates.at(-1) } : null, createdAt: now() };
+}
+var WEIGHTS = (account, platform) => `algorithm/weights/${account}/${platform}.json`;
+function saveAdaptiveWeights(store, account, platform, learned) {
+  const file = store.readJson(WEIGHTS(account, platform)) ?? { versions: [] };
+  const last = file.versions.at(-1);
+  const same = last && JSON.stringify(last.factors) === JSON.stringify(learned.factors);
+  if (same) return last;
+  const version = { ...learned, version: `${account}-${platform}-w${file.versions.length + 1}` };
+  file.versions.push(version);
+  store.writeJson(WEIGHTS(account, platform), file);
+  return version;
+}
+function loadAdaptiveWeights(store, account, platform) {
+  return store?.readJson(WEIGHTS(account, platform))?.versions.at(-1) ?? null;
+}
+
+// lib/algorithm-intelligence/history/baseline-builder.js
+var DAY = 864e5;
+function recentSlice(rows, { recentDays, recentPosts }, nowIso) {
+  const cutoff = Date.parse(nowIso) - recentDays * DAY;
+  const byDate = rows.filter((r) => r.record.postedAt && Date.parse(r.record.postedAt) >= cutoff);
+  return byDate.length >= recentPosts ? byDate : rows.slice(-recentPosts);
+}
+function block(rows, metrics) {
+  return Object.fromEntries(metrics.map((m) => [m, summary(rows.map((r) => r.outcomes[m]))]));
+}
+function buildBaselines(rows, platform, config, nowIso = (/* @__PURE__ */ new Date()).toISOString()) {
+  const metrics = OUTCOMES[platform];
+  const byFormat = {};
+  for (const t of new Set(rows.map((r) => r.record.contentType))) byFormat[t] = block(rows.filter((r) => r.record.contentType === t), metrics);
+  const byTopic = {};
+  for (const r of rows) for (const t of (r.features?.topics ?? []).slice(0, 1)) (byTopic[t] ??= []).push(r);
+  const dates = rows.map((r) => r.record.postedAt).filter(Boolean).sort();
+  return {
+    platform,
+    n: rows.length,
+    dateRange: dates.length ? { from: dates[0], to: dates.at(-1) } : null,
+    account: block(rows, metrics),
+    byFormat,
+    byTopic: Object.fromEntries(Object.entries(byTopic).map(([t, rs]) => [t, { n: rs.length, ...block(rs, metrics) }])),
+    recent: block(recentSlice(rows, config.history, nowIso), metrics),
+    longTerm: block(rows, metrics),
+    rolling: Object.fromEntries(metrics.map((m) => [m, rollingMedian(rows.map((r) => r.outcomes[m]), 10)]))
+  };
+}
+
+// lib/algorithm-intelligence/history/performance-store.js
+var accountSlug = (id = "default") => {
+  const s = String(id).trim().replace(/^@/, "").toLowerCase().replace(/[^a-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "");
+  return s || "default";
+};
+var PerformanceStore = class {
+  constructor(store, accountId = "default") {
+    this.store = store;
+    this.account = accountSlug(accountId);
+  }
+  get path() {
+    return `analytics/${this.account}/posts.json`;
+  }
+  all() {
+    return this.store.readJson(this.path)?.posts ?? [];
+  }
+  list({ platform, contentType } = {}) {
+    return this.all().filter((r) => (!platform || r.platform === platform) && (!contentType || r.contentType === contentType));
+  }
+  get(id) {
+    return this.all().find((r) => r.id === id) ?? null;
+  }
+  // Adds or updates records; returns { added, updated }.
+  upsert(rawRecords, { source } = {}) {
+    const byId = new Map(this.all().map((r) => [r.id, r]));
+    let added = 0;
+    let updated = 0;
+    for (const raw of rawRecords) {
+      const rec = raw.id && raw.metrics && raw.importedAt ? raw : normalizeRecord(raw, { source });
+      if (byId.has(rec.id)) updated++;
+      else added++;
+      byId.set(rec.id, mergeRecord(byId.get(rec.id), rec));
+    }
+    const posts = [...byId.values()].sort((a, b) => String(a.postedAt ?? "").localeCompare(String(b.postedAt ?? "")));
+    this.store.writeJson(this.path, { account: this.account, updatedAt: now(), posts });
+    return { added, updated, total: posts.length };
+  }
+  setFeatures(id, features) {
+    const data = this.store.readJson(this.path);
+    const rec = data?.posts.find((r) => r.id === id);
+    if (!rec) return false;
+    rec.features = features;
+    this.store.writeJson(this.path, data);
+    return true;
+  }
+  // Ties a published post to the Basira design it came from.
+  link(id, designId) {
+    const data = this.store.readJson(this.path);
+    const rec = data?.posts.find((r) => r.id === id || r.postId === id);
+    if (!rec) throw new Error(`no post ${id} on account ${this.account}`);
+    rec.designId = designId;
+    rec.features = null;
+    this.store.writeJson(this.path, data);
+    return rec;
+  }
+  // Rows from the older `studio memory import-results` (memory/creators/*):
+  // { designId, platform, postedAt, metrics } with platform-specific keys.
+  importLegacy(results = []) {
+    const rows = results.filter((r) => ["x", "instagram", "facebook"].includes(r.platform)).map((r, i) => ({ platform: r.platform, postId: r.postId ?? `legacy-${r.designId}-${i}`, postedAt: r.postedAt, designId: r.designId, metrics: r.metrics, source: "legacy" }));
+    return rows.length ? this.upsert(rows, { source: "legacy" }) : { added: 0, updated: 0, total: this.all().length };
+  }
+};
+var AnalysisRuns = class {
+  constructor(store, accountId = "default") {
+    this.store = store;
+    this.account = accountSlug(accountId);
+  }
+  save(report) {
+    const id = report.runId ?? randomId("run_", 12);
+    const at = report.createdAt ?? now();
+    const path3 = `algorithm/runs/${this.account}/${at.slice(0, 7)}/${id}.json`;
+    this.store.writeJson(path3, { ...report, runId: id, createdAt: at });
+    return { runId: id, path: path3 };
+  }
+  list({ limit = 50 } = {}) {
+    return this.store.list(`algorithm/runs/${this.account}/`).slice(-limit).map((p) => this.store.readJson(p)).filter(Boolean).map((r) => ({ runId: r.runId, createdAt: r.createdAt, contentKey: r.features?.key, type: r.features?.type, scores: Object.fromEntries(Object.entries(r.platforms ?? {}).map(([p, x]) => [p, x.overall?.score])), designId: r.features?.meta?.designId ?? null }));
+  }
+  get(runId) {
+    const p = this.store.list(`algorithm/runs/${this.account}/`).find((x) => x.endsWith(`/${runId}.json`));
+    return p ? this.store.readJson(p) : null;
+  }
+};
+
+// lib/algorithm-intelligence/history/account-profile.js
+var PROFILE2 = (account, platform) => `analytics/${account}/profile.${platform}.json`;
+function featuresForRecord(record, { library, config }) {
+  if (record.features?.version === FEATURES_VERSION) return record.features;
+  try {
+    if (record.designId && library) {
+      const doc = library.get(record.designId);
+      if (doc) return extractFeatures(fromDesign(doc, { caption: record.text ?? void 0 }), { config });
+    }
+    if (record.text && record.text.trim()) {
+      const type = ["post", "thread", "caption"].includes(record.contentType) ? record.contentType : record.contentType === "reel" ? "reel" : "caption";
+      return extractFeatures({ type, text: record.text }, { config });
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+function rowsFor(posts, { library, config, perf }) {
+  return posts.map((record) => {
+    let features = featuresForRecord(record, { library, config });
+    if (features && features !== record.features && perf) perf.setFeatures(record.id, features);
+    return { record, features, outcomes: outcomesOf(record) };
+  });
+}
+function withRatios(rows, baselines, platform) {
+  for (const r of rows) {
+    r.ratios = {};
+    for (const m of OUTCOMES[platform]) {
+      const fmt3 = baselines.byFormat[r.record.contentType]?.[m];
+      const base = fmt3?.n >= 5 ? fmt3.median : baselines.account[m]?.median;
+      r.ratios[m] = ratio(r.outcomes[m], base);
+    }
+  }
+  return rows;
+}
+function topRangeOf(rows, path3, metric) {
+  const get = (f3) => path3.split(".").reduce((o, k) => o == null ? o : o[k], f3);
+  const usable = rows.filter((r) => r.features && typeof r.ratios[metric] === "number" && typeof get(r.features) === "number");
+  if (usable.length < 20) return null;
+  const cut = quantile(usable.map((r) => r.ratios[metric]), 0.75);
+  const top = usable.filter((r) => r.ratios[metric] >= cut);
+  const vals = top.map((r) => get(r.features));
+  const dates = top.map((r) => r.record.postedAt).filter(Boolean).sort();
+  return { feature: path3, metric, lo: Math.round(quantile(vals, 0.25)), hi: Math.round(quantile(vals, 0.75)), median: median(vals), n: top.length, of: usable.length, confidence: sampleConfidence(top.length, 20), dateRange: dates.length ? { from: dates[0], to: dates.at(-1) } : null };
+}
+var TOP_FEATURES = ["text.firstSentenceWords", "hook.words", "text.words", "carousel.slideCount", "carousel.avgWords", "reel.durationSec"];
+function historyRows({ store, account = "default", platform, config = DEFAULT_CONFIG }) {
+  const slug = accountSlug(account);
+  const perf = new PerformanceStore(store, slug);
+  const rows = rowsFor(perf.list({ platform }), { library: new Library(store), config, perf });
+  const baselines = buildBaselines(rows, platform, config);
+  withRatios(rows, baselines, platform);
+  return { rows, baselines, slug, perf };
+}
+function buildProfile({ store, account = "default", platform, config = DEFAULT_CONFIG, engines = null, registry = null }) {
+  const { rows, baselines, slug, perf } = historyRows({ store, account, platform, config });
+  const metric = PRIMARY_OUTCOME[platform];
+  const patterns = discoverPatterns(rows, platform, OUTCOMES[platform], config);
+  let adaptive = null;
+  if (engines && registry) {
+    const scoreRow = (features) => engines[platform].score({ features, config, registry, history: null });
+    const learned = learnWeights(rows, platform, config, { scoreRow, metric });
+    if (learned) adaptive = saveAdaptiveWeights(store, slug, platform, learned);
+  }
+  const profile = {
+    kind: "account-performance-profile",
+    account: slug,
+    platform,
+    featuresVersion: FEATURES_VERSION,
+    sourceUpdatedAt: store.readJson(perf.path)?.updatedAt ?? null,
+    n: rows.length,
+    withFeatures: rows.filter((r) => r.features).length,
+    lastAt: baselines.dateRange?.to ?? null,
+    baselines,
+    primaryOutcome: metric,
+    patterns,
+    topRanges: Object.fromEntries(TOP_FEATURES.map((p) => [p, topRangeOf(rows, p, metric)]).filter(([, v]) => v)),
+    topics: Object.fromEntries(Object.entries(baselines.byTopic).map(([t, b]) => [t, { n: b.n, median: b[metric]?.median ?? null }])),
+    weightsVersion: adaptive?.version ?? null
+  };
+  store.writeJson(PROFILE2(slug, platform), profile);
+  return profile;
+}
+function loadProfile(store, account, platform, opts = {}) {
+  const slug = accountSlug(account);
+  const posts = store.readJson(`analytics/${slug}/posts.json`);
+  if (!posts?.posts?.some((p) => p.platform === platform)) return null;
+  const cached = store.readJson(PROFILE2(slug, platform));
+  if (cached && cached.sourceUpdatedAt === posts.updatedAt && cached.featuresVersion === FEATURES_VERSION) return cached;
+  return buildProfile({ store, account: slug, platform, ...opts });
+}
+function historyContext(profile) {
+  if (!profile?.n) return null;
+  const metric = profile.primaryOutcome;
+  const patterns = livePatterns(profile.patterns ?? []);
+  const account = profile.baselines.account;
+  return {
+    platform: profile.platform,
+    n: profile.n,
+    lastAt: profile.lastAt,
+    patterns,
+    comparable: (f3) => profile.baselines.byFormat[f3.type === "caption" || f3.type === "hook" || f3.type === "article-summary" ? "post" : f3.type]?.[metric]?.n ?? 0,
+    medianOf: (m) => account[m]?.median ?? profile.baselines.byFormat.post?.[m]?.median ?? null,
+    topRange: (path3) => profile.topRanges?.[path3] ?? null,
+    topicAffinity: (f3) => {
+      const topic = f3.topics?.[0];
+      const t = topic ? profile.topics?.[topic] : null;
+      const base = account[metric]?.median;
+      if (!t || t.n < 5 || !base || typeof t.median !== "number") return null;
+      const r = t.median / base;
+      return { value: Math.max(0, Math.min(1, 0.5 + 0.5 * Math.log2(r))), n: t.n, ratio: Math.round(r * 100) / 100, confidence: sampleConfidence(t.n) };
+    },
+    patternFit: (f3) => patternFitOf(patterns, f3)
+  };
+}
+function loadHistoryContext(store, account, platform, opts = {}) {
+  return historyContext(loadProfile(store, account, platform, opts));
+}
+
+// lib/algorithm-intelligence/platforms/common-recommendations.js
+var T3 = (ar, en) => ({ ar, en });
+var PLATFORM = { x: T3("\u0625\u0643\u0633", "X"), instagram: T3("\u0625\u0646\u0633\u062A\u063A\u0631\u0627\u0645", "Instagram"), facebook: T3("\u0641\u064A\u0633\u0628\u0648\u0643", "Facebook") };
+var range = (top) => top.lo === top.hi ? `${top.lo}` : `${top.lo}\u2013${top.hi}`;
+var day = (iso) => iso ? iso.slice(0, 10) : "?";
+function topLine(top, platform, verb, unit) {
+  const dates = top.dateRange ? `${day(top.dateRange.from)} \u2192 ${day(top.dateRange.to)}` : "";
+  return {
+    ar: `\u0623\u0641\u0636\u0644 \u0631\u0628\u0639 \u0645\u0646 \u0645\u0646\u0634\u0648\u0631\u0627\u062A\u0643 \u0639\u0644\u0649 ${PLATFORM[platform].ar} ${verb.ar} ${range(top)} ${unit.ar} (n=${top.n} \u0645\u0646 ${top.of}${dates ? `\u060C ${dates}` : ""}).`,
+    en: `Your top-performing quarter of ${PLATFORM[platform].en} posts ${verb.en} ${range(top)} ${unit.en} (n=${top.n} of ${top.of}${dates ? `, ${dates}` : ""}).`
+  };
+}
+var longOpening = {
+  id: "long_opening_sentence",
+  scoreType: "hook",
+  basis: "derived",
+  types: ["post", "caption", "hook", "article-summary", "thread"],
+  detect: (f3, ctx) => {
+    const top = ctx.history?.topRange?.("text.firstSentenceWords") ?? null;
+    const target = top ? Math.max(4, Math.round(top.hi)) : ctx.config.thresholds.openingSentence.good;
+    const words3 = f3.text.firstSentenceWords;
+    if (words3 <= target) return [];
+    return [{ severity: words3 > ctx.config.thresholds.openingSentence.bad ? 0.7 : 0.45, params: { words: words3, target, top, platform: ctx.platform }, evidence: [{ feature: "text.firstSentenceWords", value: words3, target, provenance: top ? "historical" : "derived" }] }];
+  },
+  edit: (f3, x) => counterfactual.openingSentence(f3, x.params.target),
+  topic: () => "opening-length",
+  text: (p) => ({
+    issue: T3("\u0627\u0644\u062C\u0645\u0644\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0637\u0648\u064A\u0644\u0629", "The opening sentence is long"),
+    reason: p.top ? T3(`\u0627\u0644\u062C\u0645\u0644\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 ${p.words} \u0643\u0644\u0645\u0629. \u0623\u0641\u0636\u0644 \u0645\u0646\u0634\u0648\u0631\u0627\u062A\u0643 \u0639\u0644\u0649 ${PLATFORM[p.platform].ar} \u062A\u0641\u062A\u062D \u0628\u0640 ${range(p.top)} \u0643\u0644\u0645\u0629 (n=${p.top.n}).`, `The first sentence is ${p.words} words. Your top-performing ${PLATFORM[p.platform].en} posts open with ${range(p.top)} words (n=${p.top.n}).`) : T3(`\u0627\u0644\u062C\u0645\u0644\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 ${p.words} \u0643\u0644\u0645\u0629\u061B \u064A\u0635\u0644 \u0627\u0644\u0642\u0627\u0631\u0626 \u0625\u0644\u0649 \u0627\u0644\u0641\u0643\u0631\u0629 \u0628\u0639\u062F \u062A\u0645\u0647\u064A\u062F \u0637\u0648\u064A\u0644.`, `The first sentence is ${p.words} words; the reader reaches the claim only after a long setup.`),
+    fix: T3(`\u0627\u062E\u062A\u0635\u0631 \u0627\u0644\u062A\u0645\u0647\u064A\u062F \u0648\u0636\u0639 \u0627\u0644\u0627\u062F\u0639\u0627\u0621 \u0627\u0644\u0645\u0641\u0627\u062C\u0626 \u0623\u0648\u0644\u064B\u0627 \u0641\u064A ${p.target} \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644.`, `Reduce the setup and place the surprising claim first, in \u2264 ${p.target} words.`)
+  }),
+  history: (x) => x.params.top ? { line: topLine(x.params.top, x.params.platform, T3("\u062A\u0641\u062A\u062D \u0628\u0640", "open with"), T3("\u0643\u0644\u0645\u0629", "words")), confidence: x.params.top.confidence, sampleSize: x.params.top.n, dateRange: x.params.top.dateRange } : null,
+  rewrite: (p) => `Rewrite the first sentence in at most ${p.target} words with the claim first.`
+};
+var patternGap = {
+  id: "account_pattern",
+  scoreType: "historicalFit",
+  basis: "historical",
+  detect: (f3, ctx) => (ctx.history?.patterns ?? []).filter((p) => p.effect >= ctx.config.history.minEffect && p.confidence >= 0.5 && p.appliesTo(f3) && !p.matches(f3)).slice(0, 2).map((p) => ({
+    key: p.id,
+    severity: Math.min(0.75, 0.3 + p.effect),
+    params: { pattern: p },
+    topic: p.patternFeature === "hookLength" ? "opening-length" : null,
+    evidence: [{ feature: p.feature, value: p.valueOf(f3), target: p.bucketLabel.en, provenance: "historical" }]
+  })),
+  edit: (f3, x, ctx) => x.params.pattern.apply(f3, ctx.config),
+  topic: (x) => x.topic,
+  text: (p) => ({
+    issue: T3(`\u0646\u0645\u0637 \u0646\u0627\u062C\u062D \u0641\u064A \u062D\u0633\u0627\u0628\u0643 \u063A\u064A\u0631 \u0645\u0633\u062A\u062E\u062F\u0645: ${p.pattern.label.ar}`, `A pattern that works on your account is missing: ${p.pattern.label.en}`),
+    reason: T3(p.pattern.statement.ar, p.pattern.statement.en),
+    fix: T3(p.pattern.fix.ar, p.pattern.fix.en)
+  }),
+  history: (x) => ({ line: x.params.pattern.statement, confidence: x.params.pattern.confidence, sampleSize: x.params.pattern.sampleSize, dateRange: x.params.pattern.dateRange })
+};
+
+// lib/algorithm-intelligence/platforms/facebook/facebook-recommendations.js
+var T4 = (ar, en) => ({ ar, en });
+var FACEBOOK_RULES = [
+  longOpening,
+  patternGap,
+  {
+    id: "fb_show_more",
+    scoreType: "retention",
+    basis: "official",
+    detect: (f3, ctx) => {
+      const s = ctx.report.signals["facebook.show_more_potential"];
+      return s && typeof s.value === "number" && s.value < 0.5 ? [{ severity: 0.45, params: { value: s.value, chars: f3.text.chars }, evidence: [{ feature: "facebook.show_more_potential", value: s.value, target: 0.5, provenance: "heuristic" }, { feature: "text.chars", value: f3.text.chars, provenance: "derived" }] }] : [];
+    },
+    edit: (f3) => counterfactual.showMoreOpening(f3),
+    text: (p) => ({
+      issue: T4("\u0627\u0644\u0633\u0637\u0648\u0631 \u0627\u0644\u0623\u0648\u0644\u0649 \u0644\u0627 \u062A\u062F\u0641\u0639 \u0625\u0644\u0649 \xAB\u0639\u0631\u0636 \u0627\u0644\u0645\u0632\u064A\u062F\xBB", 'The first lines do not earn "Show more"'),
+      reason: T4(`\u0645\u0646\u0634\u0648\u0631 \u0645\u0646 ${p.chars} \u062D\u0631\u0641\u064B\u0627 \u064A\u0637\u0648\u064A\u0647 \u0641\u064A\u0633\u0628\u0648\u0643\u061B \u064A\u062A\u0648\u0642\u0639 \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649 \xAB\u0639\u0631\u0636 \u0627\u0644\u0645\u0632\u064A\u062F\xBB (\u0628\u0637\u0627\u0642\u0629 \u0646\u0638\u0627\u0645 \u0627\u0644\u062E\u0644\u0627\u0635\u0629)\u060C \u0648\u0633\u0637\u0648\u0631\u0647 \u0627\u0644\u0623\u0648\u0644\u0649 \u0636\u0639\u064A\u0641\u0629 \u0627\u0644\u062C\u0630\u0628 (${p.value}).`, `A ${p.chars}-character post Facebook folds; its system card lists predicting "Show more" clicks, and the first lines pull weakly (${p.value}).`),
+      fix: T4("\u0636\u0639 \u0627\u0644\u0627\u062F\u0639\u0627\u0621 \u0648\u0627\u0644\u0633\u0628\u0628 \u0644\u0644\u0642\u0631\u0627\u0621\u0629 \u0641\u064A \u0627\u0644\u0633\u0637\u0631\u064A\u0646 \u0627\u0644\u0623\u0648\u0644\u064A\u0646\u060C \u0648\u0627\u062A\u0631\u0643 \u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644 \u0644\u0645\u0627 \u0628\u0639\u062F \u0627\u0644\u0637\u064A.", "Put the claim and the reason to read in the first two lines; leave details below the fold.")
+    })
+  },
+  {
+    id: "fb_no_question",
+    scoreType: "conversation",
+    basis: "heuristic",
+    detect: (f3, ctx) => {
+      const s = ctx.report.signals["facebook.conversation_potential"];
+      if (f3.hook.question || f3.cta.question || !s || s.value >= 0.45) return [];
+      return [{ severity: 0.3, params: { value: s.value }, evidence: [{ feature: "text.question", value: false, target: true, provenance: "derived" }, { feature: "facebook.conversation_potential", value: s.value, provenance: "heuristic" }] }];
+    },
+    edit: (f3) => counterfactual.question(f3),
+    text: (p) => ({
+      issue: T4("\u0644\u0627 \u0633\u0624\u0627\u0644 \u064A\u0641\u062A\u062D \u0627\u0644\u0646\u0642\u0627\u0634", "Nothing opens the discussion"),
+      reason: T4(`\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0646\u0642\u0627\u0634 ${p.value} \u0648\u0644\u0627 \u064A\u0648\u062C\u062F \u0633\u0624\u0627\u0644 \u0644\u0644\u0642\u0627\u0631\u0626. (\u062A\u0642\u062F\u064A\u0631 \u0642\u0627\u0639\u062F\u064A: \u0627\u0644\u0633\u0624\u0627\u0644 \u0648\u062D\u062F\u0647 \u0644\u0627 \u064A\u0636\u0645\u0646 \u0648\u0635\u0648\u0644\u064B\u0627 \u0623\u0643\u0628\u0631.)`, `Conversation potential ${p.value} and no question to the reader. (Rule of thumb: a question alone does not guarantee reach.)`),
+      fix: T4("\u0627\u062E\u062A\u0645 \u0628\u0633\u0624\u0627\u0644 \u0639\u0646 \u062A\u062C\u0631\u0628\u0629 \u0627\u0644\u0642\u0627\u0631\u0626 \u0646\u0641\u0633\u0647\u060C \u0644\u0627 \u0628\u0633\u0624\u0627\u0644 \u0639\u0627\u0645.", "End with a question about the reader's own experience, not a general one.")
+    })
+  }
+];
+
+// lib/algorithm-intelligence/core/scoring-engine.js
+var used = (signals, weights, registry) => Object.entries(weights ?? {}).map(([id, base]) => ({ id, w: registry.weight(id, base), s: signals[id] })).filter((x) => x.w > 0 && x.s && typeof x.s.value === "number");
+function scoreType(type, weights, signals, registry, { neutral = 0.5 } = {}) {
+  const parts = used(signals, weights, registry);
+  const total = parts.reduce((a, x) => a + x.w, 0);
+  if (!total) return { type, score: null, contributions: [], confidence: null, signals: 0 };
+  const mean = parts.reduce((a, x) => a + x.w * x.s.value, 0) / total;
+  const contributions = parts.map((x) => ({
+    signalId: x.id,
+    contribution: round2(100 * x.w * (x.s.value - neutral) / total, 1),
+    value: x.s.value,
+    weight: round2(x.w, 3),
+    provenance: x.s.provenance
+  }));
+  const confidence = parts.reduce((a, x) => a + x.w * x.s.confidence, 0) / total;
+  return { type, score: Math.round(100 * mean), contributions, confidence: round2(confidence), signals: parts.length };
+}
+function blendScore({ signals, scores, blend, registry, historical = null }) {
+  const pos = used(signals, blend.positive, registry);
+  const neg = used(signals, blend.negative, registry);
+  const pw = pos.reduce((a, x) => a + x.w, 0);
+  const nw = neg.reduce((a, x) => a + x.w, 0);
+  const P2 = pw ? pos.reduce((a, x) => a + x.w * x.s.value, 0) / pw : 0.5;
+  const N = nw ? neg.reduce((a, x) => a + x.w * x.s.value, 0) / nw : 0;
+  const Q = typeof scores.contentQuality?.score === "number" ? scores.contentQuality.score / 100 : 0.5;
+  const F = typeof scores.platformFit?.score === "number" ? scores.platformFit.score / 100 : 0.5;
+  const contributions = [
+    ...pos.map((x) => ({ signalId: x.id, group: "positive", contribution: round2(100 * x.w * (x.s.value - 0.5) / pw, 1), value: x.s.value, provenance: x.s.provenance })),
+    ...neg.map((x) => ({ signalId: x.id, group: "negative", contribution: round2(-100 * blend.negativeScale * x.w * x.s.value / nw, 1), value: x.s.value, provenance: x.s.provenance })),
+    { signalId: "score.contentQuality", group: "quality", contribution: round2(100 * blend.qualityScale * (Q - 0.5), 1), value: round2(Q), provenance: "derived" },
+    { signalId: "score.platformFit", group: "fit", contribution: round2(100 * (blend.fitScale ?? 0) * (F - 0.5), 1), value: round2(F), provenance: "derived" }
+  ];
+  let H = 0;
+  if (historical && typeof historical.score === "number" && historical.confidence > 0) {
+    H = round2(blend.historicalMaxShift * ((historical.score - 50) / 50) * clamp01(historical.confidence), 1);
+    contributions.push({ signalId: "score.historicalFit", group: "historical", contribution: H, value: round2(historical.score / 100), provenance: "historical" });
+  }
+  const raw = 100 * (P2 - blend.negativeScale * N + blend.qualityScale * (Q - 0.5) + (blend.fitScale ?? 0) * (F - 0.5)) + H;
+  const score = Math.round(Math.min(100, Math.max(0, raw)));
+  return {
+    score,
+    clamped: score !== Math.round(raw),
+    parts: { positive: round2(P2), negative: round2(N), quality: round2(Q), fit: round2(F), historicalShift: H },
+    contributions: contributions.filter((c) => c.contribution !== 0).sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution))
+  };
+}
+function scorePlatform({ signals, platformConfig, registry, historical }) {
+  const scores = {};
+  for (const [type, weights] of Object.entries(platformConfig.scoreTypes)) scores[type] = scoreType(type, weights, signals, registry);
+  scores.historicalFit = historical ?? { type: "historicalFit", score: null, contributions: [], confidence: null, signals: 0 };
+  const overall = blendScore({ signals, scores, blend: platformConfig.blend, registry, historical });
+  return { scores, overall };
+}
+
+// lib/algorithm-intelligence/platforms/base.js
+function historicalFit(signals, ids) {
+  const parts = [
+    [signals[ids.patterns], 2],
+    [signals[ids.affinity], 1]
+  ].filter(([s]) => s && typeof s.value === "number");
+  if (!parts.length) return { type: "historicalFit", score: null, contributions: [], confidence: null, signals: 0 };
+  const w = parts.reduce((a, [, wt]) => a + wt, 0);
+  const mean = parts.reduce((a, [s, wt]) => a + wt * s.value, 0) / w;
+  return {
+    type: "historicalFit",
+    score: Math.round(100 * mean),
+    contributions: parts.map(([s, wt]) => ({ signalId: s.id, contribution: round2(100 * wt * (s.value - 0.5) / w, 1), value: s.value, weight: wt, provenance: "historical" })),
+    confidence: round2(parts.reduce((a, [s, wt]) => a + wt * s.confidence, 0) / w),
+    signals: parts.length
+  };
+}
+function runPlatform({ platform, features, config, registry, history = null, computeSignals, historyIds, notes = [] }) {
+  const platformConfig = config.platforms[platform];
+  const semanticSource = features.semantic?.source;
+  const signals = computeSignals(features, { config, history, semanticSource });
+  const historical = historicalFit(signals, historyIds);
+  const { scores, overall } = scorePlatform({ signals, platformConfig, registry, historical });
+  const blendIds = { ...platformConfig.blend.positive, ...platformConfig.blend.negative };
+  let wsum = 0;
+  let csum = 0;
+  let heuristic = 0;
+  for (const [id, base] of Object.entries(blendIds)) {
+    const s = signals[id];
+    const w = registry.weight(id, base);
+    if (!s || s.value === null || !w) continue;
+    wsum += w;
+    csum += w * s.confidence;
+    if (s.provenance === "heuristic") heuristic += w;
+  }
+  const confidence = platformConfidence({
+    contentConfidence: wsum ? csum / wsum : 0,
+    history: history ? { n: history.n, comparable: history.comparable(features), lastAt: history.lastAt } : null,
+    config,
+    heuristicShare: wsum ? heuristic / wsum : 1
+  });
+  const fit = history?.patternFit(features) ?? null;
+  const affinity = history?.topicAffinity(features) ?? null;
+  const accountEvidence = [
+    ...(fit?.matches ?? []).filter((m) => Math.abs(m.effect) >= config.history.minEffect).map((m) => ({ kind: "pattern", id: m.id, effect: m.effect, statement: m.statement })),
+    ...affinity ? [{ kind: "topic", topic: features.topics[0], ratio: affinity.ratio, n: affinity.n, statement: { ar: `\u0645\u0646\u0634\u0648\u0631\u0627\u062A \u0645\u0648\u0636\u0648\u0639 \xAB${features.topics[0]}\xBB \u0639\u0644\u0649 \u062D\u0633\u0627\u0628\u0643: ${affinity.ratio}\xD7 \u0648\u0633\u064A\u0637 \u0627\u0644\u062D\u0633\u0627\u0628 (n=${affinity.n}).`, en: `Posts on "${features.topics[0]}" on your account: ${affinity.ratio}\xD7 the account median (n=${affinity.n}).` } }] : []
+  ];
+  return {
+    platform,
+    modelVersion: platformConfig.modelVersion,
+    accountEvidence,
+    weightsVersion: registry.adaptive?.version ?? "default",
+    signals,
+    scores,
+    overall,
+    confidence,
+    notes
+  };
+}
+
+// lib/algorithm-intelligence/platforms/common.js
+function signal(id, value, provenance, evidence = [], { config, semanticSource, confidence, note } = {}) {
+  const v = value === null || value === void 0 || Number.isNaN(value) ? null : round2(clamp01(value));
+  return {
+    id,
+    value: v,
+    confidence: confidence ?? signalConfidence(provenance, config, { semanticSource }),
+    provenance,
+    evidence: evidence.filter(Boolean),
+    ...note && { note }
+  };
+}
+var ev = (feature, value, effect) => ({ feature, value, effect });
+var emotionBand = (f3) => 0.4 + 0.6 * (band(f3.semantic.emotion, [0, 0.2, 0.75, 1]) ?? 0);
+var clarity = (f3) => typeof f3.text.readability === "number" ? f3.text.readability / 100 : null;
+function negativeRisk(f3, { hashtagsMany = 6 } = {}) {
+  const cues2 = [];
+  if (f3.cta.bait || f3.text.baitPhrases.length) cues2.push([0.6, ev("text.baitPhrases", f3.text.baitPhrases.length || 1, "+")]);
+  if (f3.text.hostileWords) cues2.push([Math.min(0.7, 0.35 * f3.text.hostileWords), ev("text.hostileWords", f3.text.hostileWords, "+")]);
+  if (f3.semantic.curiosity > 0.6 && f3.text.specificity < 0.25) cues2.push([0.35, ev("semantic.clickbaitGap", round2(f3.semantic.curiosity - f3.text.specificity), "+")]);
+  if (f3.text.hashtags >= hashtagsMany) cues2.push([0.2, ev("text.hashtags", f3.text.hashtags, "+")]);
+  if (f3.text.mentions >= 4) cues2.push([0.25, ev("text.mentions", f3.text.mentions, "+")]);
+  if (f3.semantic.emotion > 0.85) cues2.push([0.15, ev("semantic.emotion", f3.semantic.emotion, "+")]);
+  const value = 1 - cues2.reduce((p, [r]) => p * (1 - r), 1);
+  return { value: round2(Math.max(0.05, value)), evidence: cues2.map(([, e]) => e) };
+}
+function formatFit(f3, ranges) {
+  if (f3.carousel) return { value: f3.carousel.slideCountFit, evidence: [ev("carousel.slideCount", f3.carousel.slideCount, f3.carousel.slideCountFit >= 0.8 ? "+" : "-")] };
+  if (f3.reel) return { value: f3.reel.durationFit, evidence: [ev("reel.durationSec", f3.reel.durationSec, f3.reel.durationFit >= 0.8 ? "+" : "-")] };
+  if (f3.thread) return { value: f3.thread.postCountFit, evidence: [ev("thread.posts", f3.thread.posts, f3.thread.postCountFit >= 0.8 ? "+" : "-")] };
+  const v = band(f3.text.words, ranges.postWords) ?? 0;
+  return { value: v, evidence: [ev("text.words", f3.text.words, v >= 0.8 ? "+" : "-")] };
+}
+function reelRetention(f3) {
+  const r = f3.reel;
+  const loop = r.openLoops > 0 ? r.payoff ? 1 : 0.2 : r.payoff ? 0.6 : 0.4;
+  const value = 0.3 * r.durationFit + 0.2 * r.rhythmFit + 0.25 * loop + 0.25 * r.replayPotential;
+  return {
+    value,
+    evidence: [ev("reel.durationSec", r.durationSec, r.durationFit >= 0.8 ? "+" : "-"), ev("reel.openLoops", r.openLoops, r.openLoops ? "+" : "-"), ev("reel.payoff", r.payoff, r.payoff ? "+" : "-"), ev("reel.sceneRhythmCv", r.sceneRhythmCv, r.rhythmFit >= 0.8 ? "+" : "-")]
+  };
+}
+function reelOpening(f3) {
+  const r = f3.reel;
+  return { value: 0.55 * (r.firstSecondsHasPromise ? 1 : 0) + 0.45 * (r.hookFits ? 1 : 0), evidence: [ev("reel.firstSecondsHasPromise", r.firstSecondsHasPromise, r.firstSecondsHasPromise ? "+" : "-"), ev("reel.hookWords", r.hookWords, r.hookFits ? "+" : "-")] };
+}
+function carouselCompletion(f3) {
+  const c = f3.carousel;
+  const promise = c.promise.matches === null ? 0.6 : c.promise.matches ? 1 : 0.2;
+  const value = 0.25 * c.slideCountFit + 0.25 * c.densityFit + 0.2 * promise + 0.2 * c.curiosityContinuity + 0.1 * (c.empty.length ? 0 : 1);
+  return {
+    value,
+    evidence: [
+      ev("carousel.slideCount", c.slideCount, c.slideCountFit >= 0.8 ? "+" : "-"),
+      ev("carousel.densityFit", c.densityFit, c.densityFit >= 0.8 ? "+" : "-"),
+      c.promise.count !== null && ev("carousel.promise", `${c.promise.count}/${c.promise.delivered}`, c.promise.matches ? "+" : "-"),
+      ev("carousel.curiosityContinuity", c.curiosityContinuity, c.curiosityContinuity >= 0.5 ? "+" : "-"),
+      c.empty.length && ev("carousel.empty", c.empty.join(","), "-")
+    ]
+  };
+}
+function hookEvidence(f3) {
+  const p = f3.hook.parts;
+  const out = [];
+  if (p.lengthFit < 0.7) out.push(ev("hook.words", f3.hook.words, "-"));
+  else out.push(ev("hook.words", f3.hook.words, "+"));
+  if (f3.hook.number) out.push(ev("hook.number", true, "+"));
+  if (f3.hook.question) out.push(ev("hook.question", true, "+"));
+  if (p.curiosity >= 0.5) out.push(ev("hook.curiosity", p.curiosity, "+"));
+  if (p.directAddress >= 0.5) out.push(ev("hook.directAddress", f3.hook.directAddress, "+"));
+  if (p.specificity < 0.3) out.push(ev("hook.specificity", p.specificity, "-"));
+  return out;
+}
+var AUDIENCE_EVIDENCE = {
+  question: (f3) => f3.hook.question || f3.cta.question ? ev("text.question", true, "+") : ev("text.question", false, "-"),
+  cta: (f3) => f3.cta.specific ? ev("cta.specific", true, "+") : f3.cta.generic ? ev("cta.generic", true, "-") : !f3.cta.present ? ev("cta.present", false, "-") : null,
+  directAddress: (f3) => f3.text.directAddress ? ev("text.directAddress", f3.text.directAddress, "+") : null,
+  specificity: (f3) => ev("text.specificity", f3.text.specificity, f3.text.specificity >= 0.4 ? "+" : "-"),
+  usefulness: (f3) => ev("semantic.usefulness", f3.semantic.usefulness, f3.semantic.usefulness >= 0.5 ? "+" : "-"),
+  novelty: (f3) => ev("semantic.novelty", f3.semantic.novelty, f3.semantic.novelty >= 0.4 ? "+" : "-"),
+  quotability: (f3) => f3.semantic.quotability >= 0.5 ? ev("semantic.quotability", f3.semantic.quotability, "+") : null,
+  list: (f3) => f3.intent.scores.list >= 0.5 || f3.text.numberedList ? ev("intent.list", true, "+") : null,
+  opinion: (f3) => Math.max(f3.intent.scores.opinion, f3.intent.scores.controversy) >= 0.5 ? ev("intent.opinion", true, "+") : null,
+  personal: (f3) => Math.max(f3.intent.scores["personal-insight"], f3.intent.scores.story) >= 0.5 ? ev("intent.personal", true, "+") : null
+};
+var evidenceOf = (f3, keys) => keys.map((k) => AUDIENCE_EVIDENCE[k](f3)).filter(Boolean);
+
+// lib/algorithm-intelligence/platforms/facebook/facebook-signals.js
+function facebookSignals(f3, { config, history = null, semanticSource } = {}) {
+  const th = config.thresholds;
+  const o = { config, semanticSource };
+  const a = f3.audience;
+  const out = {};
+  const put = (s) => {
+    out[s.id] = s;
+  };
+  put(signal("facebook.hook_strength", f3.hook.strength, "heuristic", hookEvidence(f3), o));
+  put(signal("facebook.scroll_past_risk", 1 - f3.hook.strength, "heuristic", hookEvidence(f3).filter((e) => e.effect === "-"), o));
+  const personal = Math.max(f3.intent.scores["personal-insight"], f3.intent.scores.story);
+  const question = f3.hook.question || f3.cta.question ? 1 : 0;
+  put(signal("facebook.meaningful_comment_potential", 0.6 * a.commentWorthiness + 0.2 * personal + 0.2 * question, "heuristic", evidenceOf(f3, ["question", "personal", "cta", "directAddress"]), o));
+  put(signal("facebook.share_potential", a.shareWorthiness, "heuristic", evidenceOf(f3, ["usefulness", "specificity", "quotability"]), o));
+  const opinion = Math.max(f3.intent.scores.opinion, f3.intent.scores.controversy);
+  put(signal("facebook.conversation_potential", 0.5 * a.replyWorthiness + 0.5 * opinion, "heuristic", evidenceOf(f3, ["opinion", "question", "directAddress"]), o));
+  const longText = (f3.caption?.chars ?? f3.text.chars) > th.facebook.showMoreChars && !f3.carousel;
+  put(
+    signal("facebook.show_more_potential", longText ? 0.5 * f3.hook.strength + 0.3 * f3.semantic.curiosity + 0.2 * (f3.text.lineBreaks >= 1 ? 1 : 0) : null, "heuristic", longText ? [...hookEvidence(f3).slice(0, 2), ev("text.chars", f3.text.chars, "+")] : [], {
+      ...o,
+      note: longText ? void 0 : "text short enough to show in full"
+    })
+  );
+  put(signal("facebook.click_potential", f3.text.links ? a.clickWorthiness : null, "heuristic", f3.text.links ? [ev("text.links", f3.text.links, "+")] : [], { ...o, note: f3.text.links ? void 0 : "no link in the post" }));
+  if (f3.reel) {
+    const r = reelRetention(f3);
+    put(signal("facebook.watch_retention", r.value, "heuristic", r.evidence, o));
+  } else put(signal("facebook.watch_retention", null, "heuristic", [], { ...o, note: "not a video" }));
+  put(signal("facebook.caption_readability", clarity(f3), "derived", [ev("text.readability", f3.text.readability, f3.text.readability >= 60 ? "+" : "-")], o));
+  put(signal("facebook.specificity", f3.text.specificity, "derived", evidenceOf(f3, ["specificity"]), o));
+  const fmt3 = formatFit(f3, { ...th, postWords: [3, 15, 250, 500] });
+  put(signal("facebook.format_fit", fmt3.value, "derived", fmt3.evidence, o));
+  const risk = negativeRisk(f3, { hashtagsMany: th.hashtagsMany });
+  put(signal("facebook.negative_feedback_risk", risk.value, "heuristic", risk.evidence, o));
+  const affinity = history?.topicAffinity(f3) ?? null;
+  put(signal("facebook.topic_affinity", affinity?.value ?? null, "historical", affinity ? [ev("history.topicAffinity", affinity.value, affinity.value >= 0.5 ? "+" : "-")] : [], { ...o, confidence: affinity?.confidence ?? 0, note: affinity ? `n=${affinity.n}` : "no account history for this topic" }));
+  const fit = history?.patternFit(f3) ?? null;
+  put(signal("facebook.historical_performance", fit ? fit.score / 100 : null, "historical", fit ? fit.matches.map((m) => ev(`history.pattern.${m.id}`, m.effect, m.effect >= 0 ? "+" : "-")) : [], { ...o, confidence: fit?.confidence ?? 0 }));
+  return out;
+}
+
+// lib/algorithm-intelligence/platforms/facebook/facebook-scoring.js
+var FACEBOOK_HISTORY_IDS = { patterns: "facebook.historical_performance", affinity: "facebook.topic_affinity" };
+function facebookNotes(features) {
+  const notes = [];
+  if (features.text.links) notes.push({ code: "facebook.link", provenance: "official", ar: "\u0645\u0646\u0634\u0648\u0631 \u0628\u0631\u0627\u0628\u0637: \u064A\u062A\u0648\u0642\u0639 \u0641\u064A\u0633\u0628\u0648\u0643 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649 \u0627\u0644\u0631\u0627\u0628\u0637 \u0648\u0645\u062F\u0629 \u0627\u0644\u0628\u0642\u0627\u0621 \u0641\u064A \u0627\u0644\u0645\u0648\u0642\u0639 (\u0628\u0637\u0627\u0642\u0629 \u0646\u0638\u0627\u0645 \u0627\u0644\u062E\u0644\u0627\u0635\u0629).", en: "Link post: Facebook predicts link clicks and time on the website (Feed system card)." });
+  return notes;
+}
+function scoreFacebook({ features, config, registry, history }) {
+  return runPlatform({ platform: "facebook", features, config, registry, history, computeSignals: facebookSignals, historyIds: FACEBOOK_HISTORY_IDS, notes: facebookNotes(features) });
+}
+
+// lib/algorithm-intelligence/platforms/facebook/facebook-engine.js
+var facebookEngine = {
+  id: "facebook",
+  rules: [...SHARED_RULES, ...FACEBOOK_RULES],
+  score: scoreFacebook
+};
+
+// lib/algorithm-intelligence/platforms/instagram/instagram-recommendations.js
+var T5 = (ar, en) => ({ ar, en });
+var INSTAGRAM_RULES = [
+  patternGap,
+  {
+    id: "ig_slide_count",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["carousel"],
+    detect: (f3, ctx) => {
+      const [, lo, hi] = ctx.config.thresholds.carousel.slides;
+      const top = ctx.history?.topRange?.("carousel.slideCount") ?? null;
+      if (f3.carousel.slideCountFit >= 0.8 && !(top && (f3.carousel.slideCount < top.lo || f3.carousel.slideCount > top.hi))) return [];
+      return [{ severity: 0.35, params: { n: f3.carousel.slideCount, lo: top?.lo ?? lo, hi: top?.hi ?? hi, top }, evidence: [{ feature: "carousel.slideCount", value: f3.carousel.slideCount, target: `${top?.lo ?? lo}\u2013${top?.hi ?? hi}`, provenance: top ? "historical" : "heuristic" }] }];
+    },
+    text: (p) => ({
+      issue: T5("\u0639\u062F\u062F \u0627\u0644\u0634\u0631\u0627\u0626\u062D \u062E\u0627\u0631\u062C \u0627\u0644\u0645\u062F\u0649", "Slide count out of range"),
+      reason: p.top ? T5(`${p.n} \u0634\u0631\u0627\u0626\u062D\u061B \u0623\u0641\u0636\u0644 \u0643\u0627\u0631\u0648\u0633\u064A\u0644\u0627\u062A\u0643 ${p.lo}\u2013${p.hi} \u0634\u0631\u0627\u0626\u062D (n=${p.top.n}).`, `${p.n} slides; your best carousels have ${p.lo}\u2013${p.hi} (n=${p.top.n}).`) : T5(`${p.n} \u0634\u0631\u0627\u0626\u062D\u061B \u0645\u062F\u0649 \u0628\u0635\u064A\u0631\u0629 \u0627\u0644\u0645\u0639\u062A\u0627\u062F ${p.lo}\u2013${p.hi}.`, `${p.n} slides; Basira's usual range is ${p.lo}\u2013${p.hi}.`),
+      fix: T5(`\u0627\u062C\u0639\u0644\u0647\u0627 \u0628\u064A\u0646 ${p.lo} \u0648${p.hi} \u0628\u062F\u0645\u062C \u0627\u0644\u0634\u0631\u0627\u0626\u062D \u0627\u0644\u0642\u0635\u064A\u0631\u0629 \u0623\u0648 \u062A\u0642\u0633\u064A\u0645 \u0627\u0644\u0645\u0632\u062F\u062D\u0645\u0629.`, `Bring it to ${p.lo}\u2013${p.hi} by merging short slides or splitting crowded ones.`)
+    }),
+    history: (x) => x.params.top ? { line: topLine(x.params.top, "instagram", T5("\u062A\u0636\u0645", "have"), T5("\u0634\u0631\u0627\u0626\u062D", "slides")), confidence: x.params.top.confidence, sampleSize: x.params.top.n, dateRange: x.params.top.dateRange } : null
+  },
+  {
+    id: "ig_caption_opening",
+    scoreType: "platformFit",
+    basis: "heuristic",
+    detect: (f3) => f3.caption && f3.caption.firstSentenceWords > 14 ? [{ severity: 0.3, params: { words: f3.caption.firstSentenceWords }, evidence: [{ feature: "caption.firstSentenceWords", value: f3.caption.firstSentenceWords, target: 14, provenance: "derived" }] }] : [],
+    edit: (f3) => counterfactual.captionOpening(f3, 12),
+    text: (p) => ({
+      issue: T5("\u0628\u062F\u0627\u064A\u0629 \u0627\u0644\u0648\u0635\u0641 \u0637\u0648\u064A\u0644\u0629", "Long caption opening"),
+      reason: T5(`\u0623\u0648\u0644 \u062C\u0645\u0644\u0629 \u0641\u064A \u0627\u0644\u0648\u0635\u0641 ${p.words} \u0643\u0644\u0645\u0629\u060C \u0648\u064A\u064F\u0639\u0631\u0636 \u0641\u064A \u0627\u0644\u062E\u0644\u0627\u0635\u0629 \u0633\u0637\u0631\u0647 \u0627\u0644\u0623\u0648\u0644 \u0641\u0642\u0637.`, `The caption's first sentence is ${p.words} words; the feed shows only its first line.`),
+      fix: T5("\u0627\u0628\u062F\u0623 \u0627\u0644\u0648\u0635\u0641 \u0628\u0648\u0639\u062F \u0627\u0644\u063A\u0644\u0627\u0641 \u0641\u064A 12 \u0643\u0644\u0645\u0629 \u0623\u0648 \u0623\u0642\u0644.", "Start the caption with the cover's promise in \u2264 12 words.")
+    })
+  }
+];
+
+// lib/algorithm-intelligence/platforms/instagram/instagram-signals.js
+function instagramSignals(f3, { config, history = null, semanticSource } = {}) {
+  const th = config.thresholds;
+  const o = { config, semanticSource };
+  const a = f3.audience;
+  const out = {};
+  const put = (s) => {
+    out[s.id] = s;
+  };
+  const coverDense = f3.carousel?.slides[0]?.warning === "too_dense" || f3.carousel?.slides[0]?.warning === "dense";
+  const hook = f3.hook.strength * (coverDense ? 0.8 : 1);
+  put(signal("instagram.hook_strength", hook, "heuristic", [...hookEvidence(f3), coverDense && ev("carousel.coverWords", f3.carousel.coverWords, "-")], o));
+  put(signal("instagram.skip_risk", 1 - hook, "heuristic", [...hookEvidence(f3).filter((e) => e.effect === "-"), coverDense && ev("carousel.coverWords", f3.carousel.coverWords, "+")], o));
+  put(signal("instagram.share_potential", a.shareWorthiness, "heuristic", evidenceOf(f3, ["usefulness", "specificity", "novelty", "quotability"]), o));
+  put(signal("instagram.save_potential", a.saveWorthiness, "heuristic", [...evidenceOf(f3, ["usefulness", "list", "specificity"]), f3.carousel && ev("carousel.slideCount", f3.carousel.slideCount, f3.carousel.slideCountFit >= 0.8 ? "+" : "-")], o));
+  put(signal("instagram.comment_potential", a.commentWorthiness, "heuristic", evidenceOf(f3, ["question", "cta", "opinion", "directAddress"]), o));
+  const series = f3.carousel?.progression?.sequential || f3.thread?.numbered ? 1 : 0;
+  put(signal("instagram.profile_visit_potential", 0.7 * a.profileWorthiness + 0.3 * series, "heuristic", [...evidenceOf(f3, ["personal", "specificity"]), series && ev("carousel.progression", "sequential", "+")], o));
+  if (f3.carousel) {
+    const c = carouselCompletion(f3);
+    put(signal("instagram.carousel_completion", c.value, "heuristic", c.evidence, o));
+    put(signal("instagram.time_spent_potential", 0.5 * (band(f3.carousel.slideCount, th.carousel.slides) ?? 0) + 0.5 * f3.carousel.densityFit, "heuristic", [ev("carousel.slideCount", f3.carousel.slideCount, "+"), ev("carousel.densityFit", f3.carousel.densityFit, f3.carousel.densityFit >= 0.8 ? "+" : "-")], o));
+    put(signal("instagram.visual_density", f3.carousel.densityFit, "derived", [...f3.carousel.overloaded.map((n2) => ev(`carousel.slide${n2}.words`, f3.carousel.wordsPerSlide[n2 - 1], "-")), ...f3.carousel.empty.map((n2) => ev(`carousel.slide${n2}.empty`, true, "-"))], o));
+  } else {
+    put(signal("instagram.carousel_completion", null, "heuristic", [], { ...o, note: "not a carousel" }));
+    const spent = f3.reel ? f3.reel.durationFit : band(f3.text.words, [5, 15, 120, 250]) ?? 0;
+    put(signal("instagram.time_spent_potential", spent, "heuristic", [f3.reel ? ev("reel.durationSec", f3.reel.durationSec, spent >= 0.8 ? "+" : "-") : ev("text.words", f3.text.words, spent >= 0.8 ? "+" : "-")], o));
+    const dens = f3.reel ? band(Math.max(0, ...f3.reel.wordsPerScene), [0, 1, 12, 22]) : band(f3.text.words, [1, 5, 60, 140]);
+    put(signal("instagram.visual_density", dens, "derived", [f3.reel ? ev("reel.maxWordsPerScene", Math.max(0, ...f3.reel.wordsPerScene), dens >= 0.8 ? "+" : "-") : ev("text.words", f3.text.words, dens >= 0.8 ? "+" : "-")], o));
+  }
+  if (f3.reel) {
+    const r = reelRetention(f3);
+    put(signal("instagram.reel_completion", r.value, "heuristic", r.evidence, o));
+    const h = reelOpening(f3);
+    put(signal("instagram.reel_hook", h.value, "derived", h.evidence, o));
+  } else {
+    put(signal("instagram.reel_completion", null, "heuristic", [], { ...o, note: "not a reel" }));
+    put(signal("instagram.reel_hook", null, "derived", [], { ...o, note: "not a reel" }));
+  }
+  put(signal("instagram.content_clarity", clarity(f3), "derived", [ev("text.readability", f3.text.readability, f3.text.readability >= 60 ? "+" : "-")], o));
+  put(signal("instagram.specificity", f3.text.specificity, "derived", evidenceOf(f3, ["specificity"]), o));
+  if (f3.caption) {
+    const first = f3.caption.firstSentenceWords;
+    const fits = f3.caption.chars <= th.instagram.captionPreviewChars || first <= 14;
+    put(signal("instagram.caption_fit", fits ? 1 : 0.4, "heuristic", [ev("caption.firstSentenceWords", first, fits ? "+" : "-")], o));
+  } else {
+    put(signal("instagram.caption_fit", null, "heuristic", [], { ...o, note: "no caption given" }));
+  }
+  const fmt3 = formatFit(f3, th);
+  put(signal("instagram.format_fit", fmt3.value, "derived", fmt3.evidence, o));
+  const risk = negativeRisk(f3, { hashtagsMany: th.hashtagsMany });
+  put(signal("instagram.negative_feedback_risk", risk.value, "heuristic", risk.evidence, o));
+  const affinity = history?.topicAffinity(f3) ?? null;
+  put(signal("instagram.topic_affinity", affinity?.value ?? null, "historical", affinity ? [ev("history.topicAffinity", affinity.value, affinity.value >= 0.5 ? "+" : "-")] : [], { ...o, confidence: affinity?.confidence ?? 0, note: affinity ? `n=${affinity.n}` : "no account history for this topic" }));
+  const fit = history?.patternFit(f3) ?? null;
+  put(signal("instagram.historical_performance", fit ? fit.score / 100 : null, "historical", fit ? fit.matches.map((m) => ev(`history.pattern.${m.id}`, m.effect, m.effect >= 0 ? "+" : "-")) : [], { ...o, confidence: fit?.confidence ?? 0 }));
+  return out;
+}
+
+// lib/algorithm-intelligence/platforms/instagram/instagram-scoring.js
+var INSTAGRAM_HISTORY_IDS = { patterns: "instagram.historical_performance", affinity: "instagram.topic_affinity" };
+function instagramNotes(features) {
+  const notes = [];
+  if (features.type === "thread") notes.push({ code: "instagram.thread", provenance: "derived", ar: "\u0627\u0644\u0633\u0644\u0633\u0644\u0629 \u0644\u064A\u0633\u062A \u0635\u064A\u063A\u0629 \u0625\u0646\u0633\u062A\u063A\u0631\u0627\u0645\u061B \u062D\u064F\u0644\u0644\u062A \u0643\u0648\u0635\u0641 \u0648\u0627\u062D\u062F. \u0627\u0644\u0623\u0646\u0633\u0628 \u062A\u062D\u0648\u064A\u0644\u0647\u0627 \u0625\u0644\u0649 \u0643\u0627\u0631\u0648\u0633\u064A\u0644.", en: "Threads are not an Instagram format; analyzed as one caption. A carousel is the closer fit." });
+  if (features.type !== "carousel" && features.type !== "reel" && !features.caption) notes.push({ code: "instagram.single", provenance: "derived", ar: "\u062D\u064F\u0644\u0644 \u0643\u0645\u0646\u0634\u0648\u0631 \u0645\u0641\u0631\u062F (\u0635\u0648\u0631\u0629 \u0648\u0646\u0635).", en: "Analyzed as a single feed post (image and text)." });
+  return notes;
+}
+function scoreInstagram({ features, config, registry, history }) {
+  return runPlatform({ platform: "instagram", features, config, registry, history, computeSignals: instagramSignals, historyIds: INSTAGRAM_HISTORY_IDS, notes: instagramNotes(features) });
+}
+
+// lib/algorithm-intelligence/platforms/instagram/instagram-engine.js
+var instagramEngine = {
+  id: "instagram",
+  rules: [...SHARED_RULES, ...INSTAGRAM_RULES],
+  score: scoreInstagram
+};
+
+// lib/algorithm-intelligence/platforms/x/x-recommendations.js
+var T6 = (ar, en) => ({ ar, en });
+var X_RULES = [
+  longOpening,
+  patternGap,
+  {
+    id: "x_over_limit",
+    scoreType: "platformFit",
+    basis: "official",
+    detect: (f3, ctx) => {
+      const len = f3.type === "carousel" || f3.type === "reel" ? f3.caption?.xLength : f3.thread ? null : f3.text.xLength;
+      const max = ctx.config.thresholds.x.maxLength;
+      return typeof len === "number" && len > max ? [{ severity: 0.85, params: { len, max }, evidence: [{ feature: "text.xLength", value: len, target: max, provenance: "official" }] }] : [];
+    },
+    edit: (f3, x) => counterfactual.xLength(f3, x.params.max),
+    text: (p) => ({
+      issue: T6("\u0623\u0637\u0648\u0644 \u0645\u0646 \u062D\u062F \u0625\u0643\u0633", "Longer than X allows"),
+      reason: T6(`${p.len} \u062D\u0631\u0641\u064B\u0627 \u0648\u0627\u0644\u062D\u062F ${p.max} \u062F\u0648\u0646 \u0627\u0634\u062A\u0631\u0627\u0643.`, `${p.len} characters; the limit without a subscription is ${p.max}.`),
+      fix: T6(`\u0627\u062D\u0630\u0641 ${p.len - p.max} \u062D\u0631\u0641\u064B\u0627 \u0623\u0648 \u062D\u0648\u0651\u0644\u0647 \u0625\u0644\u0649 \u0633\u0644\u0633\u0644\u0629 \u062A\u0628\u062F\u0623 \u0628\u0623\u0642\u0648\u0649 \u0633\u0637\u0631.`, `Cut ${p.len - p.max} characters, or turn it into a thread that opens with the strongest line.`)
+    })
+  },
+  {
+    id: "x_visual_text_missing",
+    scoreType: "hook",
+    basis: "derived",
+    types: ["carousel", "reel"],
+    detect: (f3) => f3.caption ? [] : [{ severity: 0.5, params: {}, evidence: [{ feature: "caption", value: null, target: "text", provenance: "derived" }] }],
+    text: () => ({
+      issue: T6("\u0644\u0627 \u0646\u0635 \u0645\u0631\u0627\u0641\u0642 \u0639\u0644\u0649 \u0625\u0643\u0633", "No post text for X"),
+      reason: T6("\u0639\u0644\u0649 \u0625\u0643\u0633 \u062A\u064F\u0639\u0631\u0636 \u0627\u0644\u0634\u0631\u0627\u0626\u062D \u0623\u0648 \u0627\u0644\u0641\u064A\u062F\u064A\u0648 \u0643\u0648\u0633\u0627\u0626\u0637\u060C \u0648\u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u0631\u0627\u0641\u0642 \u0647\u0648 \u0645\u0627 \u064A\u0642\u0631\u0624\u0647 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0623\u0648\u0644\u064B\u0627.", "On X, slides or video are media; the accompanying text is what people read first."),
+      fix: T6("\u0627\u0643\u062A\u0628 \u0646\u0635\u064B\u0627 \u0645\u0631\u0627\u0641\u0642\u064B\u0627 \u064A\u062D\u0645\u0644 \u0648\u0639\u062F \u0627\u0644\u063A\u0644\u0627\u0641 \u0641\u064A \u062C\u0645\u0644\u0629 \u0642\u0635\u064A\u0631\u0629.", "Write post text that carries the cover's promise in one short sentence.")
+    })
+  },
+  {
+    id: "x_thread_opener",
+    scoreType: "retention",
+    basis: "heuristic",
+    types: ["thread"],
+    detect: (f3) => f3.thread.firstPostEndsOpen ? [] : [{ severity: 0.45, params: { posts: f3.thread.posts }, evidence: [{ feature: "thread.firstPostEndsOpen", value: false, target: true, provenance: "derived" }] }],
+    text: (p) => ({
+      issue: T6("\u0627\u0644\u062A\u063A\u0631\u064A\u062F\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0644\u0627 \u062A\u0641\u062A\u062D \u0627\u0644\u0633\u0644\u0633\u0644\u0629", "The first post does not open the thread"),
+      reason: T6(`\u0633\u0644\u0633\u0644\u0629 \u0645\u0646 ${p.posts} \u062A\u063A\u0631\u064A\u062F\u0627\u062A \u0648\u0623\u0648\u0644\u0647\u0627 \u0644\u0627 \u064A\u0639\u062F \u0628\u0645\u0627 \u064A\u0644\u064A\u0647 (\u0644\u0627 \u0631\u0642\u0645 \u0648\u0644\u0627 \u0633\u0624\u0627\u0644 \u0648\u0644\u0627 \u0646\u0642\u0637\u062A\u0627\u0646).`, `A ${p.posts}-post thread whose first post does not promise what follows (no number, question or colon).`),
+      fix: T6("\u0627\u062E\u062A\u0645 \u0627\u0644\u062A\u063A\u0631\u064A\u062F\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0628\u0645\u0627 \u0633\u064A\u062C\u062F\u0647 \u0627\u0644\u0642\u0627\u0631\u0626 \u0641\u064A \u0627\u0644\u0628\u0642\u064A\u0629\u060C \u0623\u0648 \u0627\u0628\u062F\u0623\u0647\u0627 \u0628\u0639\u062F\u062F \u0627\u0644\u0628\u0646\u0648\u062F.", "End the first post with what the rest delivers, or open it with the number of items.")
+    })
+  }
+];
+
+// lib/algorithm-intelligence/platforms/x/x-signals.js
+function xSignals(f3, { config, history = null, semanticSource } = {}) {
+  const th = config.thresholds;
+  const o = { config, semanticSource };
+  const a = f3.audience;
+  const out = {};
+  const put = (s) => {
+    out[s.id] = s;
+  };
+  const visual = f3.type === "carousel" || f3.type === "reel";
+  const xText = visual ? f3.caption : f3.text;
+  put(signal("x.hook_strength", f3.hook.strength, "heuristic", hookEvidence(f3), o));
+  const opening = visual ? f3.hook.words : f3.text.firstSentenceWords;
+  put(signal("x.opening_fit", lowerIsBetter(opening, th.openingSentence.good, th.openingSentence.bad), "derived", [ev("text.firstSentenceWords", opening, opening <= th.openingSentence.good ? "+" : "-")], o));
+  let lengthFit = null;
+  let lengthEv = [];
+  if (f3.thread) {
+    lengthFit = 1 - f3.thread.overLimit / Math.max(1, f3.thread.posts);
+    lengthEv = [ev("thread.overLimit", f3.thread.overLimit, f3.thread.overLimit ? "-" : "+")];
+  } else if (xText) {
+    const len = xText.xLength;
+    lengthFit = len <= th.x.maxLength ? 1 : Math.max(0, 1 - (len - th.x.maxLength) / th.x.maxLength);
+    lengthEv = [ev("text.xLength", len, len <= th.x.maxLength ? "+" : "-")];
+  }
+  put(signal("x.length_fit", lengthFit, "derived", lengthEv, o));
+  put(signal("x.like_potential", 0.4 * f3.hook.strength + 0.3 * (clarity(f3) ?? 0.5) + 0.3 * emotionBand(f3), "heuristic", [...hookEvidence(f3).slice(0, 2), ev("text.readability", f3.text.readability, f3.text.readability >= 60 ? "+" : "-")], o));
+  put(signal("x.reply_potential", a.replyWorthiness, "heuristic", evidenceOf(f3, ["question", "opinion", "directAddress", "cta"]), o));
+  put(signal("x.repost_potential", 0.7 * a.shareWorthiness + 0.3 * f3.semantic.quotability, "heuristic", evidenceOf(f3, ["usefulness", "specificity", "quotability", "novelty"]), o));
+  put(signal("x.quote_potential", a.quoteWorthiness, "heuristic", evidenceOf(f3, ["opinion", "quotability"]), o));
+  put(signal("x.share_potential", 0.5 * a.saveWorthiness + 0.5 * f3.semantic.usefulness, "heuristic", evidenceOf(f3, ["usefulness", "list", "specificity"]), o));
+  put(signal("x.bookmark_potential", a.saveWorthiness, "heuristic", evidenceOf(f3, ["usefulness", "list", "specificity"]), o));
+  put(signal("x.profile_click_potential", a.profileWorthiness, "heuristic", evidenceOf(f3, ["personal", "specificity"]), o));
+  const affinity = history?.topicAffinity(f3) ?? null;
+  put(signal("x.follow_potential", affinity ? 0.6 * a.profileWorthiness + 0.4 * affinity.value : a.profileWorthiness, affinity ? "historical" : "heuristic", [...evidenceOf(f3, ["personal"]), affinity && ev("history.topicAffinity", affinity.value, affinity.value >= 0.5 ? "+" : "-")], { ...o, ...affinity && { confidence: affinity.confidence } }));
+  let dwell;
+  let dwellEv;
+  if (f3.thread) {
+    dwell = 0.6 * f3.thread.postCountFit + 0.4 * (f3.thread.firstPostEndsOpen ? 1 : 0.3);
+    dwellEv = [ev("thread.posts", f3.thread.posts, f3.thread.postCountFit >= 0.8 ? "+" : "-"), ev("thread.firstPostEndsOpen", f3.thread.firstPostEndsOpen, f3.thread.firstPostEndsOpen ? "+" : "-")];
+  } else {
+    const words3 = band(f3.text.words, [5, 20, 120, 280]) ?? 0;
+    const structure = f3.text.lineBreaks >= 2 || f3.text.listItems >= 2 || f3.carousel ? 1 : 0.4;
+    dwell = 0.6 * words3 + 0.4 * structure;
+    dwellEv = [ev("text.words", f3.text.words, words3 >= 0.8 ? "+" : "-"), ev("text.lineBreaks", f3.text.lineBreaks, structure === 1 ? "+" : "-")];
+  }
+  put(signal("x.dwell_potential", dwell, "heuristic", dwellEv, o));
+  put(signal("x.click_potential", f3.text.links ? a.clickWorthiness : null, "heuristic", f3.text.links ? [ev("text.links", f3.text.links, "+"), ...evidenceOf(f3, ["specificity"])] : [], { ...o, note: f3.text.links ? void 0 : "no link in the post" }));
+  put(signal("x.clarity", clarity(f3), "derived", [ev("text.readability", f3.text.readability, f3.text.readability >= 60 ? "+" : "-"), ev("text.avgSentenceWords", f3.text.avgSentenceWords, f3.text.avgSentenceWords <= th.sentenceWords.good ? "+" : "-")], o));
+  put(signal("x.specificity", f3.text.specificity, "derived", evidenceOf(f3, ["specificity"]), o));
+  put(signal("x.novelty", f3.semantic.novelty, "heuristic", evidenceOf(f3, ["novelty"]), o));
+  const risk = negativeRisk(f3, { hashtagsMany: th.hashtagsMany });
+  put(signal("x.negative_feedback_risk", risk.value, "heuristic", risk.evidence, o));
+  put(signal("x.author_affinity", affinity?.value ?? null, "historical", affinity ? [ev("history.topicAffinity", affinity.value, affinity.value >= 0.5 ? "+" : "-")] : [], { ...o, confidence: affinity?.confidence ?? 0, note: affinity ? `n=${affinity.n}` : "no account history for this topic" }));
+  put(signal("x.network_relevance", null, "historical", [], { ...o, confidence: 0, note: "requires follower-graph data that X does not expose to creators" }));
+  const fit = history?.patternFit(f3) ?? null;
+  put(signal("x.historical_performance", fit ? fit.score / 100 : null, "historical", fit ? fit.matches.map((m) => ev(`history.pattern.${m.id}`, m.effect, m.effect >= 0 ? "+" : "-")) : [], { ...o, confidence: fit?.confidence ?? 0 }));
+  return out;
+}
+
+// lib/algorithm-intelligence/platforms/x/x-scoring.js
+var X_HISTORY_IDS = { patterns: "x.historical_performance", affinity: "x.author_affinity" };
+function xNotes(features, history) {
+  const notes = [];
+  if (features.type === "carousel" || features.type === "reel") {
+    notes.push({ code: "x.visual-format", provenance: "derived", ar: "\u0639\u0644\u0649 \u0625\u0643\u0633 \u062A\u064F\u0639\u0631\u0636 \u0627\u0644\u0634\u0631\u0627\u0626\u062D \u0623\u0648 \u0627\u0644\u0641\u064A\u062F\u064A\u0648 \u0643\u0648\u0633\u0627\u0626\u0637\u061B \u062A\u064F\u0642\u0631\u0623 \u0627\u0644\u062F\u0631\u062C\u0629 \u0645\u0646 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u0631\u0627\u0641\u0642 \u0648\u0627\u0644\u063A\u0644\u0627\u0641 \u0641\u0642\u0637.", en: "On X, slides or video are media; the score reads the accompanying text and the cover only." });
+  }
+  const median2 = history?.medianOf?.("impressions");
+  if (typeof median2 === "number" && median2 < X_PUBLIC_WEIGHTS.coldStartImpressionThreshold) {
+    notes.push({
+      code: "x.new-author",
+      provenance: "public-source-code",
+      ar: `\u0645\u062A\u0648\u0633\u0637 \u0645\u0634\u0627\u0647\u062F\u0627\u062A \u0645\u0646\u0634\u0648\u0631\u0627\u062A\u0643 (${Math.round(median2)}) \u062F\u0648\u0646 \u0639\u062A\u0628\u0629 ${X_PUBLIC_WEIGHTS.coldStartImpressionThreshold} \u0627\u0644\u062A\u064A \u064A\u0630\u0643\u0631\u0647\u0627 \u0643\u0648\u062F \u0625\u0643\u0633 \u0627\u0644\u0645\u0646\u0634\u0648\u0631 \u0644\u062A\u0639\u0632\u064A\u0632 \u0627\u0644\u0645\u0624\u0644\u0641\u064A\u0646 \u0627\u0644\u062C\u062F\u062F. \u0647\u0630\u0627 \u064A\u0624\u062B\u0631 \u0641\u064A \u0627\u0644\u062A\u0648\u0632\u064A\u0639 \u0648\u0644\u064A\u0633 \u0641\u064A \u062C\u0648\u062F\u0629 \u0627\u0644\u0645\u062D\u062A\u0648\u0649\u060C \u0648\u0644\u0627 \u062A\u0636\u064A\u0641\u0647 \u0628\u0635\u064A\u0631\u0629 \u0625\u0644\u0649 \u0627\u0644\u062F\u0631\u062C\u0629.`,
+      en: `Your median impressions (${Math.round(median2)}) are below the ${X_PUBLIC_WEIGHTS.coldStartImpressionThreshold}-impression cold-start threshold in X's public code (new-author boost). It affects distribution, not content quality, and is not added to the score.`
+    });
+  }
+  return notes;
+}
+function scoreX({ features, config, registry, history }) {
+  return runPlatform({ platform: "x", features, config, registry, history, computeSignals: xSignals, historyIds: X_HISTORY_IDS, notes: xNotes(features, history) });
+}
+
+// lib/algorithm-intelligence/platforms/x/x-engine.js
+var xEngine = {
+  id: "x",
+  rules: [...SHARED_RULES, ...X_RULES],
+  score: scoreX
+};
+
+// lib/algorithm-intelligence/engine.js
+var ENGINES = { x: xEngine, instagram: instagramEngine, facebook: facebookEngine };
+function createEngine({ store = null, studio = null, config: override = {}, accountId = "default" } = {}) {
+  const config = mergeConfig(DEFAULT_CONFIG, override);
+  const baseRegistry = new SignalRegistry({ config });
+  const backing = store ?? studio?.store ?? null;
+  function contextFor2(platform, account) {
+    if (!backing) return { history: null, registry: baseRegistry };
+    const slug = accountSlug(account);
+    const history = loadHistoryContext(backing, slug, platform, { config, registry: baseRegistry, engines: ENGINES });
+    const adaptive = history ? loadAdaptiveWeights(backing, slug, platform) : null;
+    return { history, registry: adaptive ? baseRegistry.withAdaptive(adaptive) : baseRegistry };
+  }
+  function scorePlatform2(platform, features, ctx) {
+    const engine = ENGINES[platform];
+    return engine.score({ features, config, registry: ctx.registry, history: ctx.history });
+  }
+  function analyzeFeatures(features, { platforms = PLATFORMS, account = accountId, lang = "ar", recommend = true } = {}) {
+    const out = {};
+    const recLists = [];
+    for (const platform of platforms) {
+      if (!ENGINES[platform]) throw new Error(`unknown platform "${platform}" (one of ${PLATFORMS.join(", ")})`);
+      const ctx = contextFor2(platform, account);
+      const report = scorePlatform2(platform, features, ctx);
+      const engine = { rescore: (edited) => scorePlatform2(platform, edited, ctx) };
+      const recs = recommend ? platformRecommendations({ features, report, engine, rules: ENGINES[platform].rules, config, history: ctx.history, lang }) : [];
+      recLists.push(recs);
+      out[platform] = { ...report, explanation: explainPlatform(report, ctx.registry, { lang }), recommendations: recs, notes: report.notes.map((n2) => ({ code: n2.code, provenance: n2.provenance, text: n2[lang] ?? n2.en })) };
+    }
+    const scored = Object.values(out).map((r) => r.overall.score);
+    const conf = Object.values(out).map((r) => r.confidence.confidence);
+    return {
+      engineVersion: ENGINE_VERSION,
+      modelVersions: Object.fromEntries(platforms.map((p) => [p, config.platforms[p].modelVersion])),
+      createdAt: now(),
+      account,
+      content: { type: features.type, key: features.key, meta: features.meta },
+      overall: {
+        // Mean of the analyzed platforms' Platform Fit Scores: a summary, not
+        // a separate model.
+        score: scored.length ? Math.round(scored.reduce((a, b) => a + b, 0) / scored.length) : null,
+        label: lang === "ar" ? "\u0625\u0645\u0643\u0627\u0646\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0625\u062C\u0645\u0627\u0644\u064B\u0627" : "Overall content potential",
+        confidence: conf.length ? round2(Math.min(...conf)) : null
+      },
+      platforms: out,
+      recommendations: mergeRecommendations(recLists),
+      perSlide: features.carousel ? features.carousel.slides.map((s) => ({ slide: s.slide, role: s.role, words: s.words, densityScore: s.densityScore, warning: s.warning, recommendedWordReduction: s.recommendedWordReduction })) : null,
+      semantic: { source: features.semantic.source, provenance: features.semantic.provenance },
+      features,
+      disclaimer: DISCLAIMER[lang]
+    };
+  }
+  function analyze(content, { type, platforms, account = accountId, lang = "ar", semantic, analyzerId, persist = false, caption } = {}) {
+    const input = toContentInput(content, { type });
+    if (caption && !input.caption) input.caption = caption;
+    let sem = semantic ?? null;
+    if (!sem && analyzerId && studio) {
+      const probe = extractFeatures(input, { config });
+      sem = cachedSemantic(studio, probe.key, analyzerId);
+    }
+    const features = extractFeatures(input, { config, semantic: sem ?? void 0 });
+    const report = analyzeFeatures(features, { platforms, account, lang });
+    if (persist && backing) report.run = new AnalysisRuns(backing, account).save(report);
+    return report;
+  }
+  async function analyzeAsync(content, { analyzer, ...opts } = {}) {
+    const input = toContentInput(content, { type: opts.type });
+    let semantic;
+    if (analyzer) {
+      const features = extractFeatures(input, { config });
+      semantic = await semanticWithCache(studio, input, features, analyzer);
+    }
+    return analyze(input, { ...opts, semantic });
+  }
+  return { config, registry: baseRegistry, versions: modelVersions(config), features: (c, o = {}) => extractFeatures(toContentInput(c, { type: o.type }), { config, semantic: o.semantic }), analyze, analyzeAsync, analyzeFeatures, scorePlatform: (platform, features, account = accountId) => scorePlatform2(platform, features, contextFor2(platform, account)) };
+}
+
+// lib/algorithm-intelligence/explainability/report-text.js
+var LABEL2 = Object.fromEntries(SIGNAL_CATALOG.map((s) => [s.id, s.label]));
+var HIGHLIGHTS = {
+  x: ["x.reply_potential", "x.repost_potential", "x.dwell_potential", "x.profile_click_potential", "x.negative_feedback_risk"],
+  instagram: ["instagram.save_potential", "instagram.share_potential", "instagram.carousel_completion", "instagram.reel_completion", "instagram.skip_risk"],
+  facebook: ["facebook.meaningful_comment_potential", "facebook.share_potential", "facebook.watch_retention", "facebook.show_more_potential", "facebook.caption_readability"]
+};
+var L = {
+  overall: { ar: "\u0625\u0645\u0643\u0627\u0646\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0625\u062C\u0645\u0627\u0644\u064B\u0627", en: "Overall content potential" },
+  confidence: { ar: "\u0627\u0644\u062B\u0642\u0629", en: "confidence" },
+  positives: { ar: "\u0645\u0627 \u0631\u0641\u0639 \u0627\u0644\u062F\u0631\u062C\u0629", en: "Positive contributors" },
+  negatives: { ar: "\u0645\u0627 \u062E\u0641\u0636\u0647\u0627", en: "Negative contributors" },
+  recs: { ar: "\u0627\u0644\u062A\u062D\u0633\u064A\u0646\u0627\u062A \u0627\u0644\u0645\u0642\u062A\u0631\u062D\u0629", en: "Recommended improvements" },
+  expected: { ar: "\u0627\u0644\u0623\u062B\u0631 \u0627\u0644\u0645\u062A\u0648\u0642\u0639 \u0648\u0641\u0642 \u0627\u0644\u0646\u0645\u0648\u0630\u062C \u0627\u0644\u062D\u0627\u0644\u064A", en: "expected effect under the current model" },
+  account: { ar: "\u0645\u0646 \u0628\u064A\u0627\u0646\u0627\u062A \u062D\u0633\u0627\u0628\u0643", en: "Your account data" },
+  density: { ar: "\u062A\u062D\u0630\u064A\u0631 \u0643\u062B\u0627\u0641\u0629", en: "Slide density warning" },
+  slide: { ar: "\u0627\u0644\u0634\u0631\u064A\u062D\u0629", en: "Slide" },
+  unavailable: { ar: "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D", en: "Not available" },
+  labels: { high: { ar: "\u0645\u0631\u062A\u0641\u0639\u0629", en: "high" }, medium: { ar: "\u0645\u062A\u0648\u0633\u0637\u0629", en: "medium" }, low: { ar: "\u0645\u0646\u062E\u0641\u0636\u0629", en: "low" } }
+};
+var signed = (n2) => `${n2 > 0 ? "+" : n2 < 0 ? "\u2212" : "\xB1"}${Math.abs(Math.round(n2 * 10) / 10)}`;
+function formatReport(report, { lang = "en", recommendations = 8 } = {}) {
+  const out = [];
+  const t = (k) => L[k][lang];
+  const confLine = (c) => `${t("confidence")}: ${L.labels[c.confidenceLabel][lang]} (${c.confidence})${c.reasons?.length ? ` \u2014 ${c.reasons.map((r) => r[lang] ?? r).join(" ")}` : ""}`;
+  out.push(`${t("overall")}: ${report.overall.score}/100`);
+  out.push("");
+  for (const [p, r] of Object.entries(report.platforms)) {
+    out.push(`${PLATFORM_LABEL[p][lang]} \u2014 ${SCORE_LABEL.overall[lang]}: ${r.overall.score}/100`);
+    out.push(`  ${confLine(r.confidence)}`);
+    const hl = HIGHLIGHTS[p].map((id) => r.signals[id]).filter((s) => s && s.value !== null).map((s) => `${LABEL2[s.id]?.[lang] ?? s.id}: ${LEVEL(s.value)[lang]}`);
+    if (hl.length) out.push(`  ${hl.join(" \xB7 ")}`);
+    const st = ["hook", "retention", "conversation", "share", "save"].filter((k) => typeof r.scores[k]?.score === "number").map((k) => `${SCORE_LABEL[k][lang]} ${r.scores[k].score}`);
+    if (st.length) out.push(`  ${st.join(" \xB7 ")}`);
+    if (p === "instagram" && report.perSlide) {
+      const dense = report.perSlide.filter((s) => s.warning === "too_dense" || s.warning === "dense" || s.warning === "empty");
+      if (dense.length) out.push(`  ${t("density")}: ${dense.map((s) => `${t("slide")} ${s.slide} (${s.words})`).join(", ")}`);
+    }
+    if (r.explanation.positives.length) out.push(`  ${t("positives")}:`, ...r.explanation.positives.map((l) => `   + ${l.label} (${signed(l.points)})${l.why.length ? `: ${l.why.join("\u061B ")}` : ""}`));
+    if (r.explanation.negatives.length) out.push(`  ${t("negatives")}:`, ...r.explanation.negatives.map((l) => `   \u2212 ${l.label} (${signed(l.points)})${l.why.length ? `: ${l.why.join("\u061B ")}` : ""}`));
+    if (r.accountEvidence?.length) out.push(`  ${t("account")}:`, ...r.accountEvidence.map((e) => `   ${e.effect === void 0 || e.effect >= 0 ? "\u2713" : "\u26A0"} ${e.statement[lang]}`));
+    for (const n2 of r.notes ?? []) out.push(`  \u2022 ${n2.text}`);
+    out.push("");
+  }
+  const recs = report.recommendations.slice(0, recommendations);
+  if (recs.length) {
+    out.push(`${t("recs")}:`);
+    recs.forEach((rec, i) => {
+      out.push(`${i + 1}. [${rec.priority}] ${rec.suggestedFix}`);
+      out.push(`   ${rec.reason}`);
+      const eff = Object.entries(rec.effects ?? { [rec.platform]: rec.expectedEffect }).filter(([, e]) => e && e.overallDelta).map(([p, e]) => `${PLATFORM_LABEL[p][lang]} ${signed(e.overallDelta)}`);
+      if (eff.length) out.push(`   ${t("expected")}: ${eff.join(", ")}`);
+      if (rec.accountEvidence?.line) {
+        const line = rec.accountEvidence.line;
+        out.push(`   ${t("account")}: ${typeof line === "string" ? line : line[lang] ?? ""}`);
+      }
+    });
+    out.push("");
+  }
+  out.push(report.disclaimer);
+  return out.join("\n");
+}
+
+// lib/algorithm-intelligence/learning/feature-dataset.js
+function buildDataset({ store, account = "default", platform, config, metric = PRIMARY_OUTCOME[platform] }) {
+  const { rows } = historyRows({ store, account, platform, config });
+  return rows.filter((r) => r.features && typeof r.ratios[metric] === "number").map((r) => ({ id: r.record.id, platform, postedAt: r.record.postedAt, contentType: r.record.contentType, metric, x: featureVector(r.features), y: r.ratios[metric], label: r.ratios[metric] > 1 ? 1 : 0 }));
+}
+var toJsonl = (rows) => rows.map((r) => JSON.stringify(r)).join("\n") + (rows.length ? "\n" : "");
+function toCsv(rows) {
+  const keys = [...new Set(rows.flatMap((r) => Object.keys(r.x)))].sort();
+  const esc2 = (v) => v === null || v === void 0 ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v);
+  return [["id", "platform", "postedAt", "contentType", "metric", "y", "label", ...keys].join(","), ...rows.map((r) => [r.id, r.platform, r.postedAt, r.contentType, r.metric, r.y, r.label, ...keys.map((k) => r.x[k])].map(esc2).join(","))].join("\n") + "\n";
+}
+
+// lib/algorithm-intelligence/learning/training-interface.js
+var MODEL_TYPES = ["logistic"];
+var MODEL = (id) => `algorithm/models/${id}.json`;
+function timeSplit(rows, holdout = 0.25) {
+  const sorted = [...rows].sort((a, b) => String(a.postedAt ?? "").localeCompare(String(b.postedAt ?? "")));
+  const cut = Math.max(1, Math.floor(sorted.length * (1 - holdout)));
+  return { train: sorted.slice(0, cut), test: sorted.slice(cut) };
+}
+var sigmoid = (z) => 1 / (1 + Math.exp(-z));
+function predictLogistic(model, x) {
+  let z = model.bias;
+  model.featureNames.forEach((k, i) => {
+    const v = typeof x[k] === "number" ? x[k] : model.means[i];
+    z += model.weights[i] * ((v - model.means[i]) / (model.scales[i] || 1));
+  });
+  return sigmoid(z);
+}
+function trainLogistic(rows, { featureNames, l2 = 1, iterations = 600, rate = 0.2, platform = null, metric = null } = {}) {
+  const names = featureNames ?? [...new Set(rows.flatMap((r) => Object.keys(r.x)))].sort();
+  const col = (k) => rows.map((r) => typeof r.x[k] === "number" ? r.x[k] : 0);
+  const means = names.map((k) => col(k).reduce((a, b2) => a + b2, 0) / Math.max(1, rows.length));
+  const scales = names.map((k, i) => Math.sqrt(col(k).reduce((a, v) => a + (v - means[i]) ** 2, 0) / Math.max(1, rows.length)) || 1);
+  const X = rows.map((r) => names.map((k, i) => ((typeof r.x[k] === "number" ? r.x[k] : means[i]) - means[i]) / scales[i]));
+  const y = rows.map((r) => r.label);
+  const w = new Array(names.length).fill(0);
+  let b = 0;
+  const n2 = Math.max(1, rows.length);
+  for (let it = 0; it < iterations; it++) {
+    const gw = new Array(names.length).fill(0);
+    let gb = 0;
+    for (let i = 0; i < X.length; i++) {
+      const p = sigmoid(b + X[i].reduce((s, v, j) => s + v * w[j], 0));
+      const e = p - y[i];
+      gb += e;
+      for (let j = 0; j < w.length; j++) gw[j] += e * X[i][j];
+    }
+    for (let j = 0; j < w.length; j++) w[j] -= rate * (gw[j] / n2 + l2 * w[j] / n2);
+    b -= rate * (gb / n2);
+  }
+  return { type: "logistic", id: `logistic-${platform ?? "any"}-${Date.parse(now()).toString(36)}`, platform, metric, featureNames: names, means, scales, weights: w, bias: b, n: rows.length, trainedAt: now() };
+}
+function auc(scores, labels) {
+  const pos = scores.filter((_, i) => labels[i] === 1);
+  const neg = scores.filter((_, i) => labels[i] === 0);
+  if (!pos.length || !neg.length) return null;
+  let wins = 0;
+  for (const p of pos) for (const q of neg) wins += p > q ? 1 : p === q ? 0.5 : 0;
+  return wins / (pos.length * neg.length);
+}
+function evaluate2(model, rows) {
+  const p = rows.map((r) => predictLogistic(model, r.x));
+  const y = rows.map((r) => r.label);
+  const base = y.reduce((a, b) => a + b, 0) / Math.max(1, y.length);
+  const brier = p.reduce((s, v, i) => s + (v - y[i]) ** 2, 0) / Math.max(1, y.length);
+  const baseBrier = y.reduce((s, v) => s + (base - v) ** 2, 0) / Math.max(1, y.length);
+  return { n: rows.length, auc: auc(p, y), brier, baseBrier, baseRate: base };
+}
+function trainAndEvaluate(rows, opts = {}) {
+  const { train, test } = timeSplit(rows, opts.holdout ?? 0.25);
+  const model = trainLogistic(train, opts);
+  const evaluation = evaluate2(model, test);
+  const accepted = rows.length >= 60 && evaluation.auc !== null && evaluation.auc >= 0.6;
+  return { model: { ...model, evaluation, accepted, calibrated: accepted && evaluation.brier < evaluation.baseBrier }, evaluation, accepted };
+}
+function validateModel(model) {
+  const out = [];
+  if (!MODEL_TYPES.includes(model?.type)) out.push(`type must be one of ${MODEL_TYPES.join(", ")}`);
+  if (!Array.isArray(model?.featureNames) || !model.featureNames.length) out.push("featureNames required");
+  for (const k of ["weights", "means", "scales"]) if (!Array.isArray(model?.[k]) || model[k].length !== model?.featureNames?.length) out.push(`${k} must match featureNames`);
+  if (typeof model?.bias !== "number") out.push("bias must be a number");
+  if (!model?.evaluation) out.push("evaluation required (holdout AUC and Brier score)");
+  return out;
+}
+function saveModel(store, model) {
+  const problems = validateModel(model);
+  if (problems.length) throw new Error(`model: ${problems.join("; ")}`);
+  store.writeJson(MODEL(model.id), model);
+  return model.id;
+}
+
+// lib/algorithm-intelligence/ingestion/csv.js
+function parseCsv(text2) {
+  const src = String(text2 ?? "").replace(/^﻿/, "");
+  const firstLine = src.split(/\r?\n/, 1)[0] ?? "";
+  const sep = [",", ";", "	"].map((s) => [s, firstLine.split(s).length]).sort((a, b) => b[1] - a[1])[0][0];
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+  for (let i = 0; i < src.length; i++) {
+    const c = src[i];
+    if (quoted) {
+      if (c === '"' && src[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else if (c === '"') quoted = false;
+      else field += c;
+    } else if (c === '"') quoted = true;
+    else if (c === sep) {
+      row.push(field);
+      field = "";
+    } else if (c === "\n" || c === "\r") {
+      if (c === "\r" && src[i + 1] === "\n") i++;
+      row.push(field);
+      if (row.some((x) => x !== "")) rows.push(row);
+      row = [];
+      field = "";
+    } else field += c;
+  }
+  row.push(field);
+  if (row.some((x) => x !== "")) rows.push(row);
+  const [head = [], ...body] = rows;
+  const keys = head.map((k) => k.trim());
+  return body.map((r) => Object.fromEntries(keys.map((k, i) => [k, (r[i] ?? "").trim()])));
+}
+function pickColumn(row, aliases) {
+  const norm2 = (s) => String(s).toLowerCase().replace(/[\s_\-()]+/g, "");
+  const keys = Object.keys(row);
+  for (const a of aliases) {
+    const k = keys.find((x) => norm2(x) === norm2(a));
+    if (k !== void 0 && row[k] !== "") return row[k];
+  }
+  return null;
+}
+
+// lib/algorithm-intelligence/ingestion/facebook-insights.js
+function insightValues(insights) {
+  const list2 = Array.isArray(insights) ? insights : insights?.data ?? [];
+  const out = {};
+  const val = (i) => i.values?.[0]?.value ?? i.value;
+  for (const i of list2) {
+    const v = val(i);
+    switch (i.name) {
+      case "post_media_view":
+        if (typeof v === "number") out.views = v;
+        break;
+      case "post_impressions":
+        if (typeof v === "number" && out.views === void 0) out.views = v;
+        break;
+      case "post_total_media_view_unique":
+        if (typeof v === "number") out.reach = v;
+        break;
+      case "post_impressions_unique":
+        if (typeof v === "number" && out.reach === void 0) out.reach = v;
+        break;
+      case "post_reactions_by_type_total":
+        if (v && typeof v === "object") out.likes = Object.values(v).reduce((s, n2) => s + (Number(n2) || 0), 0);
+        break;
+      case "post_clicks_by_type":
+        if (v && typeof v === "object" && typeof v["link clicks"] === "number") out.linkClicks = v["link clicks"];
+        break;
+      case "post_video_avg_time_watched":
+        if (typeof v === "number") out.averageWatchTime = v / 1e3;
+        break;
+      case "post_video_view_time":
+        if (typeof v === "number") out.watchTime = v / 1e3;
+        break;
+      case "post_negative_feedback":
+        if (typeof v === "number") out.negativeFeedback = v;
+        break;
+      default:
+    }
+  }
+  return out;
+}
+var typeOf2 = (p) => {
+  const att = p.attachments?.data?.[0];
+  if (att?.subattachments?.data?.length > 1) return "carousel";
+  if (/video/i.test(p.status_type ?? "") || /video/i.test(att?.media_type ?? "")) return "reel";
+  return "post";
+};
+function fromGraphPost(p) {
+  return {
+    platform: "facebook",
+    postId: p.id,
+    postedAt: p.created_time ?? null,
+    contentType: typeOf2(p),
+    text: p.message ?? null,
+    permalink: p.permalink_url ?? null,
+    metrics: { ...insightValues(p.insights), ...typeof p.shares?.count === "number" && { shares: p.shares.count }, ...typeof p.comments?.summary?.total_count === "number" && { comments: p.comments.summary.total_count } },
+    source: "facebook-graph"
+  };
+}
+var CSV = {
+  postId: ["Post ID", "id", "postId", "\u0645\u0639\u0631\u0641 \u0627\u0644\u0645\u0646\u0634\u0648\u0631"],
+  postedAt: ["Publish time", "Posted", "created_time", "postedAt", "\u0648\u0642\u062A \u0627\u0644\u0646\u0634\u0631"],
+  text: ["Description", "Message", "Title", "text", "\u0627\u0644\u0648\u0635\u0641"],
+  type: ["Post type", "Type", "contentType"],
+  metrics: {
+    views: ["Views", "Impressions", "\u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0627\u062A"],
+    reach: ["Reach", "\u0627\u0644\u0648\u0635\u0648\u0644"],
+    likes: ["Reactions", "Likes", "\u0627\u0644\u062A\u0641\u0627\u0639\u0644\u0627\u062A"],
+    comments: ["Comments", "\u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A"],
+    shares: ["Shares", "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062A"],
+    linkClicks: ["Link clicks", "\u0646\u0642\u0631\u0627\u062A \u0627\u0644\u0631\u0627\u0628\u0637"],
+    averageWatchTime: ["Average seconds viewed", "Average watch time"]
+  }
+};
+function fromCsvRow(row) {
+  const metrics = {};
+  for (const [k, aliases] of Object.entries(CSV.metrics)) metrics[k] = pickColumn(row, aliases);
+  const t = pickColumn(row, CSV.type) ?? "";
+  return { platform: "facebook", postId: pickColumn(row, CSV.postId), postedAt: pickColumn(row, CSV.postedAt), contentType: /video|reel/i.test(t) ? "reel" : /album|carousel/i.test(t) ? "carousel" : "post", text: pickColumn(row, CSV.text), metrics, source: "csv" };
+}
+function parseFacebook(input, { filename = "" } = {}) {
+  if (typeof input === "string" && (filename.endsWith(".csv") || !/^\s*[[{]/.test(input))) return parseCsv(input).map(fromCsvRow).filter((r) => r.postId);
+  const data = typeof input === "string" ? JSON.parse(input) : input;
+  const list2 = Array.isArray(data) ? data : data.data ?? data.posts ?? [];
+  return list2.map((p) => p.metrics && (p.postId || p.id) && !p.insights ? { platform: "facebook", ...p, postId: p.postId ?? p.id } : fromGraphPost(p));
+}
+
+// lib/algorithm-intelligence/ingestion/instagram-insights.js
+var API = {
+  reach: "reach",
+  views: "views",
+  impressions: "impressions",
+  likes: "likes",
+  comments: "comments",
+  saved: "saves",
+  shares: "shares",
+  reposts: "reposts",
+  total_interactions: "engagements",
+  profile_visits: "profileVisits",
+  follows: "follows",
+  ig_reels_avg_watch_time: "averageWatchTime",
+  ig_reels_video_view_total_time: "watchTime",
+  reels_skip_rate: "skipRate"
+};
+var MS = /* @__PURE__ */ new Set(["averageWatchTime", "watchTime"]);
+var typeOf3 = (m) => m.media_type === "CAROUSEL_ALBUM" ? "carousel" : m.media_product_type === "REELS" || m.media_type === "VIDEO" ? "reel" : "post";
+function insightValues2(insights) {
+  const list2 = Array.isArray(insights) ? insights : insights?.data ?? [];
+  const out = {};
+  for (const i of list2) {
+    const key = API[i.name];
+    if (!key) continue;
+    const v = i.values?.[0]?.value ?? i.total_value?.value ?? i.value;
+    if (typeof v === "number") out[key] = MS.has(key) ? v / 1e3 : v;
+  }
+  return out;
+}
+function fromGraphMedia(media) {
+  return {
+    platform: "instagram",
+    postId: media.id,
+    postedAt: media.timestamp ?? null,
+    contentType: typeOf3(media),
+    text: media.caption ?? null,
+    permalink: media.permalink ?? null,
+    metrics: { ...insightValues2(media.insights), ...typeof media.like_count === "number" && { likes: media.like_count }, ...typeof media.comments_count === "number" && { comments: media.comments_count } },
+    source: "instagram-graph"
+  };
+}
+var CSV2 = {
+  postId: ["Post ID", "Media ID", "id", "postId", "\u0645\u0639\u0631\u0641 \u0627\u0644\u0645\u0646\u0634\u0648\u0631"],
+  postedAt: ["Publish time", "Published", "timestamp", "postedAt", "Date", "\u0648\u0642\u062A \u0627\u0644\u0646\u0634\u0631"],
+  text: ["Description", "Caption", "text", "\u0627\u0644\u0648\u0635\u0641"],
+  type: ["Post type", "Media type", "contentType", "\u0646\u0648\u0639 \u0627\u0644\u0645\u0646\u0634\u0648\u0631"],
+  permalink: ["Permalink", "URL"],
+  metrics: {
+    reach: ["Reach", "Accounts reached", "\u0627\u0644\u0648\u0635\u0648\u0644"],
+    views: ["Views", "Plays", "\u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0627\u062A"],
+    impressions: ["Impressions", "\u0645\u0631\u0627\u062A \u0627\u0644\u0638\u0647\u0648\u0631"],
+    likes: ["Likes", "\u0627\u0644\u0625\u0639\u062C\u0627\u0628\u0627\u062A"],
+    comments: ["Comments", "\u0627\u0644\u062A\u0639\u0644\u064A\u0642\u0627\u062A"],
+    shares: ["Shares", "\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062A"],
+    saves: ["Saves", "Saved", "\u0645\u0631\u0627\u062A \u0627\u0644\u062D\u0641\u0638"],
+    follows: ["Follows", "\u0627\u0644\u0645\u062A\u0627\u0628\u0639\u0627\u062A"],
+    profileVisits: ["Profile visits", "\u0632\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062E\u0635\u064A"],
+    averageWatchTime: ["Average watch time (sec)", "Average watch time"]
+  }
+};
+var csvType = (t) => /carousel|album|كاروسيل|دائري/i.test(t ?? "") ? "carousel" : /reel|video|ريل|فيديو/i.test(t ?? "") ? "reel" : "post";
+function fromCsvRow2(row) {
+  const metrics = {};
+  for (const [k, aliases] of Object.entries(CSV2.metrics)) metrics[k] = pickColumn(row, aliases);
+  return { platform: "instagram", postId: pickColumn(row, CSV2.postId), postedAt: pickColumn(row, CSV2.postedAt), contentType: csvType(pickColumn(row, CSV2.type)), text: pickColumn(row, CSV2.text), permalink: pickColumn(row, CSV2.permalink), metrics, source: "csv" };
+}
+function parseInstagram(input, { filename = "" } = {}) {
+  if (typeof input === "string" && (filename.endsWith(".csv") || !/^\s*[[{]/.test(input))) return parseCsv(input).map(fromCsvRow2).filter((r) => r.postId);
+  const data = typeof input === "string" ? JSON.parse(input) : input;
+  const list2 = Array.isArray(data) ? data : data.data ?? data.media?.data ?? data.posts ?? [];
+  return list2.map((m) => m.metrics && (m.postId || m.id) && !m.insights ? { platform: "instagram", ...m, postId: m.postId ?? m.id } : fromGraphMedia(m));
+}
+
+// lib/algorithm-intelligence/ingestion/x-metrics.js
+function fromApiTweet(t) {
+  const pub = t.public_metrics ?? {};
+  const np = t.non_public_metrics ?? {};
+  const org = t.organic_metrics ?? {};
+  const first = (...xs) => xs.find((x) => typeof x === "number") ?? null;
+  return {
+    platform: "x",
+    postId: t.id,
+    postedAt: t.created_at ?? null,
+    contentType: t.conversation_id && t.conversation_id !== t.id ? "thread" : "post",
+    text: t.note_tweet?.text ?? t.text ?? null,
+    metrics: {
+      impressions: first(np.impression_count, org.impression_count, pub.impression_count),
+      likes: first(org.like_count, pub.like_count),
+      replies: first(org.reply_count, pub.reply_count),
+      reposts: first(org.retweet_count, pub.retweet_count),
+      quotes: first(pub.quote_count),
+      bookmarks: first(pub.bookmark_count),
+      profileVisits: first(np.user_profile_clicks, org.user_profile_clicks),
+      linkClicks: first(np.url_link_clicks, org.url_link_clicks),
+      engagements: first(np.engagements)
+    },
+    source: "x-api"
+  };
+}
+var CSV3 = {
+  postId: ["Tweet id", "Post id", "id", "postId"],
+  postedAt: ["time", "Date", "Created at", "postedAt"],
+  text: ["Tweet text", "Post text", "text"],
+  metrics: {
+    impressions: ["impressions", "Impressions"],
+    likes: ["likes", "Likes"],
+    replies: ["replies", "Replies"],
+    reposts: ["retweets", "Reposts", "Retweets"],
+    quotes: ["Quotes"],
+    bookmarks: ["Bookmarks"],
+    profileVisits: ["user profile clicks", "Profile visits"],
+    linkClicks: ["url clicks", "URL clicks", "Link clicks"],
+    engagements: ["engagements", "Engagements"]
+  }
+};
+function fromCsvRow3(row) {
+  const metrics = {};
+  for (const [k, aliases] of Object.entries(CSV3.metrics)) metrics[k] = pickColumn(row, aliases);
+  return { platform: "x", postId: pickColumn(row, CSV3.postId), postedAt: pickColumn(row, CSV3.postedAt), contentType: "post", text: pickColumn(row, CSV3.text), metrics, source: "csv" };
+}
+function parseX(input, { filename = "" } = {}) {
+  if (typeof input === "string" && (filename.endsWith(".csv") || !/^\s*[[{]/.test(input))) return parseCsv(input).map(fromCsvRow3).filter((r) => r.postId);
+  const data = typeof input === "string" ? JSON.parse(input) : input;
+  const list2 = Array.isArray(data) ? data : data.data ?? data.posts ?? [];
+  return list2.map((t) => t.metrics && (t.postId || t.id) && !t.public_metrics ? { platform: "x", ...t, postId: t.postId ?? t.id } : fromApiTweet(t));
+}
+
+// lib/algorithm-intelligence/ingestion/providers.js
+var PARSERS = { instagram: parseInstagram, facebook: parseFacebook, x: parseX };
+var env = (name) => (typeof process !== "undefined" ? process.env?.[name] : void 0) || null;
+function redact(text2, secrets) {
+  let out = String(text2 ?? "");
+  for (const s of secrets.filter((x) => x && x.length >= 6)) out = out.split(s).join("[redacted]");
+  return out.replace(/(access_token|bearer|token)=([^&\s"]+)/gi, "$1=[redacted]");
+}
+var LocalImportProvider = class {
+  constructor(platform, text2, { filename = "" } = {}) {
+    if (!PARSERS[platform]) throw new Error(`unknown platform "${platform}"`);
+    this.id = "local-import";
+    this.platform = platform;
+    this.text = text2;
+    this.filename = filename;
+  }
+  available() {
+    return true;
+  }
+  async fetchPosts() {
+    return PARSERS[this.platform](this.text, { filename: this.filename });
+  }
+};
+var HttpProvider = class {
+  constructor({ fetch: f3 = globalThis.fetch, secrets = [] } = {}) {
+    this.id = "http";
+    this.platform = null;
+    this.required = [];
+    this.fetch = f3;
+    this.secrets = secrets;
+  }
+  available() {
+    return false;
+  }
+  async get(url, headers = {}) {
+    let res;
+    try {
+      res = await this.fetch(url, { headers });
+    } catch (err2) {
+      throw new Error(`${this.id}: network error: ${redact(err2.message, this.secrets)}`);
+    }
+    const body = await res.text();
+    if (!res.ok) throw new Error(`${this.id}: HTTP ${res.status}: ${redact(body.slice(0, 300), this.secrets)}`);
+    return JSON.parse(body);
+  }
+  requireCredentials() {
+    if (!this.available()) throw new Error(`${this.id}: credentials missing (${this.required.join(", ")}); import a file instead: studio analytics import ${this.platform} FILE`);
+  }
+};
+var InstagramProvider = class extends HttpProvider {
+  constructor({ token = env("INSTAGRAM_ACCESS_TOKEN"), userId = env("INSTAGRAM_USER_ID"), apiVersion = env("META_GRAPH_VERSION") ?? "v25.0", baseUrl = env("INSTAGRAM_GRAPH_BASE") ?? "https://graph.facebook.com", ...rest } = {}) {
+    super({ ...rest, secrets: [token] });
+    Object.assign(this, { id: "instagram-graph", platform: "instagram", token, userId, apiVersion, baseUrl, required: ["INSTAGRAM_ACCESS_TOKEN", "INSTAGRAM_USER_ID"] });
+  }
+  available() {
+    return Boolean(this.token && this.userId);
+  }
+  async fetchPosts({ limit = 50 } = {}) {
+    this.requireCredentials();
+    const base = `${this.baseUrl}/${this.apiVersion}`;
+    const auth = { Authorization: `Bearer ${this.token}` };
+    const media = await this.get(`${base}/${this.userId}/media?fields=id,caption,media_type,media_product_type,timestamp,permalink,like_count,comments_count&limit=${Math.min(100, limit)}`, auth);
+    const out = [];
+    for (const m of media.data ?? []) {
+      const reel = m.media_product_type === "REELS";
+      const metrics = reel ? "reach,views,likes,comments,saved,shares,total_interactions,ig_reels_avg_watch_time,ig_reels_video_view_total_time" : "reach,views,likes,comments,saved,shares,total_interactions,profile_visits,follows";
+      try {
+        m.insights = await this.get(`${base}/${m.id}/insights?metric=${metrics}`, auth);
+      } catch (err2) {
+        m.insights = { data: [] };
+        m.insightsError = err2.message;
+      }
+      out.push(m);
+    }
+    return parseInstagram(out);
+  }
+};
+var FacebookProvider = class extends HttpProvider {
+  constructor({ token = env("FACEBOOK_PAGE_ACCESS_TOKEN"), pageId = env("FACEBOOK_PAGE_ID"), apiVersion = env("META_GRAPH_VERSION") ?? "v25.0", baseUrl = "https://graph.facebook.com", ...rest } = {}) {
+    super({ ...rest, secrets: [token] });
+    Object.assign(this, { id: "facebook-graph", platform: "facebook", token, pageId, apiVersion, baseUrl, required: ["FACEBOOK_PAGE_ACCESS_TOKEN", "FACEBOOK_PAGE_ID"] });
+  }
+  available() {
+    return Boolean(this.token && this.pageId);
+  }
+  async fetchPosts({ limit = 50 } = {}) {
+    this.requireCredentials();
+    const base = `${this.baseUrl}/${this.apiVersion}`;
+    const auth = { Authorization: `Bearer ${this.token}` };
+    const fields = "id,message,created_time,permalink_url,status_type,shares,comments.summary(true).limit(0),attachments{media_type,subattachments.limit(20)}";
+    const posts = await this.get(`${base}/${this.pageId}/posts?fields=${encodeURIComponent(fields)}&limit=${Math.min(100, limit)}`, auth);
+    for (const p of posts.data ?? []) {
+      try {
+        p.insights = await this.get(`${base}/${p.id}/insights?metric=post_media_view,post_total_media_view_unique,post_reactions_by_type_total,post_clicks_by_type,post_video_avg_time_watched`, auth);
+      } catch (err2) {
+        p.insights = { data: [] };
+        p.insightsError = err2.message;
+      }
+    }
+    return parseFacebook(posts.data ?? []);
+  }
+};
+var XProvider = class extends HttpProvider {
+  // A user-context token (OAuth 2.0) unlocks non_public and organic metrics
+  // for the account's own posts from the last 30 days; an app bearer token
+  // reads public metrics only.
+  constructor({ userToken = env("X_USER_ACCESS_TOKEN"), bearer = env("X_BEARER_TOKEN"), userId = env("X_USER_ID"), baseUrl = "https://api.x.com", ...rest } = {}) {
+    super({ ...rest, secrets: [userToken, bearer] });
+    Object.assign(this, { id: "x-api", platform: "x", userToken, bearer, userId, baseUrl, required: ["X_USER_ID", "X_USER_ACCESS_TOKEN or X_BEARER_TOKEN"] });
+  }
+  available() {
+    return Boolean(this.userId && (this.userToken || this.bearer));
+  }
+  async fetchPosts({ limit = 100 } = {}) {
+    this.requireCredentials();
+    const fields = this.userToken ? "created_at,conversation_id,public_metrics,non_public_metrics,organic_metrics,note_tweet" : "created_at,conversation_id,public_metrics,note_tweet";
+    const data = await this.get(`${this.baseUrl}/2/users/${this.userId}/tweets?max_results=${Math.min(100, Math.max(5, limit))}&tweet.fields=${fields}`, { Authorization: `Bearer ${this.userToken ?? this.bearer}` });
+    return parseX(data);
+  }
+};
+function providerFor(platform, opts = {}) {
+  if (platform === "instagram") return new InstagramProvider(opts);
+  if (platform === "facebook") return new FacebookProvider(opts);
+  if (platform === "x") return new XProvider(opts);
+  throw new Error(`unknown platform "${platform}"`);
+}
+
 // scripts/studio-cli.js
 var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
 
@@ -6197,6 +9912,24 @@ var HELP = `studio \u2014 Arabic design studio (library, assets, memory, Canva)
   studio migrate CAROUSEL.json OUT.json          classic carousel \u2192 studio design
   studio backup FILE.json | restore FILE.json [--overwrite]
 
+Algorithm intelligence (platform fit scores with reasons; no AI call, no account needed):
+  studio analyze-post FILE.txt|- [--platform x|instagram|facebook|all] [--type post|thread|caption|hook|article-summary]
+  studio analyze-carousel DESIGN.json|DESIGN.html|SLIDES.json [--caption FILE|TEXT]
+  studio analyze-reel PLAN.json|SCENES.json|SCRIPT.txt [--caption FILE|TEXT]
+  studio analyze-content CONTENT.json
+        common: [--account ID] [--lang ar|en] [--format json|text] [--full] [--save]
+                [--semantic ANSWER.json]  an AI semantic judgement for this content (cached by content key)
+                [--semantic-request]      print what to ask the AI semantic layer, then stop
+  studio analytics import instagram|facebook|x FILE.json|FILE.csv [--account ID]
+  studio analytics fetch instagram|facebook|x [--limit N]   (credentials from the environment; see .env.example)
+  studio analytics link POST_ID DESIGN_ID [--platform P]     tie a published post to its Basira design
+  studio analytics import-legacy                             rows from studio memory import-results
+  studio analytics profile [--platform P] [--format text]    baselines, patterns, top ranges
+  studio analytics dataset --platform P --out FILE.jsonl|FILE.csv
+  studio analytics train --platform P                        optional logistic model (kept only if it passes a holdout test)
+  studio analytics runs                                      saved analysis runs
+  studio algorithm signals [--platform P] | sources | config
+
 Global: --home DIR (store location), --creator ID (default "default").`;
 function parseArgs(argv) {
   const pos = [];
@@ -6227,8 +9960,8 @@ function templatePath() {
   return found;
 }
 function loadDesign(file) {
-  const text = fs2.readFileSync(file, "utf8");
-  const doc = file.endsWith(".html") ? readSeed(text) : JSON.parse(text);
+  const text2 = fs2.readFileSync(file, "utf8");
+  const doc = file.endsWith(".html") ? readSeed(text2) : JSON.parse(text2);
   if (!doc || doc.schemaVersion !== 2) throw new Error(`${file} is not a studio design (schemaVersion 2); classic carousels: studio migrate`);
   return doc;
 }
@@ -6242,8 +9975,8 @@ function saveDesignFile(file, doc) {
   if (file.endsWith(".html")) fs2.writeFileSync(file, injectSeed(fs2.readFileSync(templatePath(), "utf8"), doc));
   else writeJson(file, doc);
 }
-function parseCsv(text) {
-  const [head, ...rows] = text.trim().split(/\r?\n/);
+function parseCsv2(text2) {
+  const [head, ...rows] = text2.trim().split(/\r?\n/);
   const keys = head.split(",").map((k) => k.trim());
   return rows.map((r) => {
     const cells = r.split(",");
@@ -6254,6 +9987,150 @@ function parseCsv(text) {
     });
     return row;
   });
+}
+var platformsOf = (v) => !v || v === true || v === "all" ? PLATFORMS : String(v).split(",").map((s) => s.trim());
+var readText = (fileOrText) => typeof fileOrText === "string" && fs2.existsSync(fileOrText) ? fs2.readFileSync(fileOrText, "utf8") : fileOrText;
+function contentFrom(cmd, file, opt) {
+  const text2 = file === "-" ? fs2.readFileSync(0, "utf8") : fs2.readFileSync(file, "utf8");
+  const type = typeof opt.type === "string" ? opt.type : void 0;
+  if (cmd === "analyze-post") return fromText(text2, type ?? "post");
+  if (cmd === "analyze-carousel") {
+    if (file.endsWith(".html")) return loadDesign(file);
+    const data = JSON.parse(text2);
+    return data.schemaVersion === 2 ? data : { type: "carousel", ...data };
+  }
+  if (cmd === "analyze-reel") {
+    if (/^\s*[[{]/.test(text2)) {
+      const data = JSON.parse(text2);
+      return data.kind === "reel-plan" ? fromReelPlan(data) : { type: "reel", ...data };
+    }
+    return { type: "reel", text: text2 };
+  }
+  return JSON.parse(text2);
+}
+function compactReport(report, { full = false } = {}) {
+  if (full) return report;
+  const { features, ...rest } = report;
+  return {
+    ...rest,
+    content: { ...report.content, words: features.text.words, hook: features.hook.text },
+    platforms: Object.fromEntries(
+      Object.entries(report.platforms).map(([p, r]) => [
+        p,
+        {
+          modelVersion: r.modelVersion,
+          weightsVersion: r.weightsVersion,
+          score: r.overall.score,
+          parts: r.overall.parts,
+          confidence: r.confidence,
+          scores: Object.fromEntries(Object.entries(r.scores).map(([k, v]) => [k, v.score])),
+          explanation: r.explanation,
+          recommendations: r.recommendations,
+          accountEvidence: r.accountEvidence,
+          notes: r.notes
+        }
+      ])
+    )
+  };
+}
+async function analyzeCommand(cmd, file, opt, { studio }) {
+  if (!file) throw new Error(`${cmd} FILE`);
+  const engine = createEngine({ studio, accountId: typeof opt.account === "string" ? opt.account : "default" });
+  const content = toContentInput(contentFrom(cmd, file, opt));
+  if (opt.caption) content.caption = readText(opt.caption);
+  const features = engine.features(content);
+  if (opt["semantic-request"]) return semanticRequest(content, features);
+  let semantic = null;
+  if (typeof opt.semantic === "string") {
+    semantic = parseSemantic(fs2.readFileSync(opt.semantic, "utf8"), { analyzerId: typeof opt.analyzer === "string" ? opt.analyzer : "assistant" });
+    storeSemantic(studio, features.key, typeof opt.analyzer === "string" ? opt.analyzer : "assistant", semantic, { tokens: opt.tokens ? Number(opt.tokens) : null, costUsd: opt.cost ? Number(opt.cost) : null });
+  }
+  const lang = opt.lang === "en" ? "en" : "ar";
+  const report = engine.analyze(content, { platforms: platformsOf(opt.platform), lang, semantic: semantic ?? void 0, analyzerId: semantic ? void 0 : "assistant", persist: Boolean(opt.save), account: typeof opt.account === "string" ? opt.account : "default" });
+  if (opt.format === "text") return formatReport(report, { lang });
+  return compactReport(report, { full: Boolean(opt.full) });
+}
+function profileText(profile, lang) {
+  const lines2 = [`${profile.platform} \u2014 ${profile.account}: ${profile.n} ${lang === "ar" ? "\u0645\u0646\u0634\u0648\u0631\u064B\u0627" : "posts"}${profile.baselines.dateRange ? ` (${profile.baselines.dateRange.from.slice(0, 10)} \u2192 ${profile.baselines.dateRange.to.slice(0, 10)})` : ""}`];
+  const b = profile.baselines.account;
+  lines2.push(`  ${lang === "ar" ? "\u062E\u0637 \u0627\u0644\u0623\u0633\u0627\u0633 (\u0627\u0644\u0648\u0633\u064A\u0637)" : "Baseline (median)"}: ${Object.entries(b).filter(([, v]) => v.n).map(([k, v]) => `${k} ${Math.round(v.median * 10) / 10}`).join(" \xB7 ")}`);
+  const content = profile.patterns.filter((p) => p.scope === "content");
+  const line = (p, i) => [`${i + 1}. ${p.label[lang]}`, `   ${p.effect >= 0 ? "+" : ""}${Math.round(p.effect * 100)}% ${p.metric} vs baseline \xB7 n=${p.sampleSize} (vs ${p.comparisonSize}) \xB7 confidence ${p.confidence} \xB7 p=${p.pValue}`];
+  const up = content.filter((p) => p.effect > 0);
+  const down = content.filter((p) => p.effect < 0);
+  lines2.push("", lang === "ar" ? "\u0623\u0646\u0645\u0627\u0637 \u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0627\u0644\u0623\u0641\u0636\u0644 \u0623\u062F\u0627\u0621\u064B" : "Top-performing content patterns");
+  if (!up.length) lines2.push(lang === "ar" ? "  \u0644\u0627 \u0623\u0646\u0645\u0627\u0637 \u0645\u062F\u0639\u0648\u0645\u0629 \u0628\u0639\u064A\u0646\u0629 \u0643\u0627\u0641\u064A\u0629 \u0628\u0639\u062F." : "  No patterns supported by an adequate sample yet.");
+  up.forEach((p, i) => lines2.push(...line(p, i)));
+  if (down.length) {
+    lines2.push("", lang === "ar" ? "\u0623\u0646\u0645\u0627\u0637 \u062F\u0648\u0646 \u062E\u0637 \u0627\u0644\u0623\u0633\u0627\u0633" : "Patterns below baseline");
+    down.forEach((p, i) => lines2.push(...line(p, i)));
+  }
+  const sched = profile.patterns.filter((p) => p.scope === "scheduling");
+  if (sched.length) lines2.push("", lang === "ar" ? "\u0623\u0648\u0642\u0627\u062A \u0627\u0644\u0646\u0634\u0631" : "Publishing times", ...sched.map((p) => `  ${p.label[lang]}: ${p.effect >= 0 ? "+" : ""}${Math.round(p.effect * 100)}% ${p.metric} (n=${p.sampleSize}, p=${p.pValue})`));
+  for (const t of Object.values(profile.topRanges ?? {})) lines2.push(`  ${t.feature}: ${t.lo}\u2013${t.hi} (top quarter, n=${t.n})`);
+  lines2.push("", lang === "ar" ? "\u0627\u0644\u0623\u0646\u0645\u0627\u0637 \u0627\u0631\u062A\u0628\u0627\u0637\u0627\u062A \u0641\u064A \u0628\u064A\u0627\u0646\u0627\u062A \u062D\u0633\u0627\u0628\u0643 \u0648\u0644\u064A\u0633\u062A \u0623\u0633\u0628\u0627\u0628\u064B\u0627 \u0645\u062B\u0628\u062A\u0629." : "Patterns are associations in your own data, not proven causes.");
+  return lines2.join("\n");
+}
+async function analyticsCommand(sub, rest, opt, { studio, store }) {
+  const account = typeof opt.account === "string" ? opt.account : "default";
+  const perf = new PerformanceStore(store, account);
+  const rebuild = (platforms) => Object.fromEntries(platforms.map((p) => {
+    const prof = buildProfile({ store, account, platform: p, config: DEFAULT_CONFIG, engines: ENGINES, registry: new SignalRegistry() });
+    return [p, { n: prof.n, withFeatures: prof.withFeatures, patterns: prof.patterns.length, weightsVersion: prof.weightsVersion }];
+  }));
+  if (sub === "import") {
+    const [platform, file] = rest;
+    if (!PARSERS[platform] || !file) throw new Error("analytics import instagram|facebook|x FILE");
+    const rows = await new LocalImportProvider(platform, fs2.readFileSync(file, "utf8"), { filename: file }).fetchPosts();
+    const result = perf.upsert(rows, { source: file.endsWith(".csv") ? "csv" : "import" });
+    return { ok: true, account: perf.account, platform, ...result, profile: rebuild([platform])[platform] };
+  }
+  if (sub === "fetch") {
+    const platform = rest[0];
+    const provider = providerFor(platform);
+    const rows = await provider.fetchPosts({ limit: opt.limit ? Number(opt.limit) : void 0 });
+    const result = perf.upsert(rows, { source: provider.id });
+    return { ok: true, account: perf.account, platform, provider: provider.id, ...result, profile: rebuild([platform])[platform] };
+  }
+  if (sub === "link") {
+    const [postId, designId] = rest;
+    const id = postId?.includes(":") ? postId : typeof opt.platform === "string" ? `${opt.platform}:${postId}` : postId;
+    const rec = perf.link(id, designId);
+    return { ok: true, post: rec.id, designId, profile: rebuild([rec.platform])[rec.platform] };
+  }
+  if (sub === "import-legacy") {
+    const result = perf.importLegacy(studio.memory.profile(typeof opt.creator === "string" ? opt.creator : "default").results);
+    return { ok: true, ...result };
+  }
+  if (sub === "profile") {
+    const platforms = platformsOf(opt.platform).filter((p) => perf.list({ platform: p }).length);
+    const profiles = platforms.map((p) => buildProfile({ store, account, platform: p, config: DEFAULT_CONFIG, engines: ENGINES, registry: new SignalRegistry() }));
+    if (opt.format === "text") return profiles.length ? profiles.map((p) => profileText(p, opt.lang === "ar" ? "ar" : "en")).join("\n\n") : "No imported posts for this account yet: studio analytics import PLATFORM FILE";
+    return { account: perf.account, profiles };
+  }
+  if (sub === "dataset") {
+    const platform = typeof opt.platform === "string" ? opt.platform : null;
+    if (!platform || typeof opt.out !== "string") throw new Error("analytics dataset --platform P --out FILE.jsonl|FILE.csv");
+    const rows = buildDataset({ store, account, platform, config: DEFAULT_CONFIG });
+    fs2.writeFileSync(opt.out, opt.out.endsWith(".csv") ? toCsv(rows) : toJsonl(rows));
+    return { ok: true, rows: rows.length, file: opt.out };
+  }
+  if (sub === "train") {
+    const platform = typeof opt.platform === "string" ? opt.platform : null;
+    if (!platform) throw new Error("analytics train --platform P");
+    const rows = buildDataset({ store, account, platform, config: DEFAULT_CONFIG });
+    const { model, evaluation, accepted } = trainAndEvaluate(rows, { platform, metric: rows[0]?.metric });
+    if (accepted) saveModel(store, model);
+    return { ok: true, rows: rows.length, accepted, calibrated: model.calibrated, evaluation, modelId: accepted ? model.id : null, note: accepted ? "saved under algorithm/models/" : "not saved: fewer than 60 posts or holdout AUC below 0.6" };
+  }
+  if (sub === "runs") return new AnalysisRuns(store, account).list();
+  throw new Error("analytics import|fetch|link|import-legacy|profile|dataset|train|runs");
+}
+function algorithmCommand(sub, opt) {
+  if (sub === "signals") return new SignalRegistry().list({ platform: typeof opt.platform === "string" ? opt.platform : void 0 }).map(({ id, platform, category, provenance, relevance, label, enabled }) => ({ id, platform, category, provenance, relevance, label: label.en, enabled }));
+  if (sub === "sources") return SOURCES2;
+  if (sub === "config") return DEFAULT_CONFIG;
+  throw new Error("algorithm signals|sources|config");
 }
 async function main(argv = process.argv.slice(2), out = (x) => process.stdout.write(`${typeof x === "string" ? x : JSON.stringify(x, null, 2)}
 `)) {
@@ -6460,27 +10337,27 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
     }
     case "feedback": {
       const id = sub;
-      const text = rest.join(" ");
+      const text2 = rest.join(" ");
       const meta = studio.library.meta(id);
       if (!meta) throw new Error(`no design ${id}`);
-      const parsed = parseFeedback(text);
+      const parsed = parseFeedback(text2);
       const elementIds = list(opt.elements);
       for (const a of parsed.aspects) {
-        studio.library.addFeedback(id, { verdict: a.sentiment > 0 ? "like" : a.sentiment < 0 ? "dislike" : "note", aspects: [a.aspect], elementIds, text, ...parsed.scope === "topic" && { scope: { concepts: meta.concepts } } });
+        studio.library.addFeedback(id, { verdict: a.sentiment > 0 ? "like" : a.sentiment < 0 ? "dislike" : "note", aspects: [a.aspect], elementIds, text: text2, ...parsed.scope === "topic" && { scope: { concepts: meta.concepts } } });
       }
-      if (!parsed.aspects.length) studio.library.addFeedback(id, { verdict: parsed.verdict === "approved" ? "approved" : "note", elementIds, text });
+      if (!parsed.aspects.length) studio.library.addFeedback(id, { verdict: parsed.verdict === "approved" ? "approved" : "note", elementIds, text: text2 });
       const actions = [];
       if (opt.approve || parsed.verdict === "approved") {
-        studio.library.approve(id, text);
+        studio.library.approve(id, text2);
         actions.push("\u0627\u0639\u062A\u064F\u0645\u062F \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0628\u0643\u0644\u0645\u0627\u062A\u0643.");
       }
       if (parsed.scope === "topic" && parsed.aspects.some((a) => a.sentiment < 0 && ["style", "layout", "graphics"].includes(a.aspect))) {
-        studio.library.setStatus(id, "rejected", { scope: { concepts: meta.concepts }, reason: text });
+        studio.library.setStatus(id, "rejected", { scope: { concepts: meta.concepts }, reason: text2 });
         actions.push("\u0631\u064F\u0641\u0636 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0648\u0636\u0648\u0639 \u0641\u0642\u0637\u061B \u064A\u0628\u0642\u0649 \u0645\u062A\u0627\u062D\u064B\u0627 \u0644\u0645\u0648\u0627\u0636\u064A\u0639 \u0623\u062E\u0631\u0649.");
       }
       for (const a of parsed.aspects) {
         if (a.aspect === "text.size" && a.fix) {
-          studio.memory.observe(meta.creatorId, { key: "text.size", value: a.fix === "increase" ? "larger" : "smaller", scope: { brandId: meta.brandId ?? void 0, platform: meta.platform }, designId: id, evidence: text });
+          studio.memory.observe(meta.creatorId, { key: "text.size", value: a.fix === "increase" ? "larger" : "smaller", scope: { brandId: meta.brandId ?? void 0, platform: meta.platform }, designId: id, evidence: text2 });
           actions.push(`\u0633\u064F\u062C\u0651\u0644\u062A \u0625\u0634\u0627\u0631\u0629 \xAB${a.fix === "increase" ? "\u062E\u0637 \u0623\u0643\u0628\u0631" : "\u062E\u0637 \u0623\u0635\u063A\u0631"}\xBB (\u0636\u0639\u064A\u0641\u0629: \u0644\u0627 \u062A\u0635\u0628\u062D \u062A\u0641\u0636\u064A\u0644\u064B\u0627 \u0625\u0644\u0627 \u0625\u0630\u0627 \u062A\u0643\u0631\u0631\u062A \u0648\u0623\u0643\u0651\u062F\u062A\u0647\u0627). \u0623\u0635\u0644\u062D \u0647\u0630\u0627 \u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0628\u0640: studio edit \u2026 "${a.fix === "increase" ? "\u0643\u0628\u0651\u0631" : "\u0635\u063A\u0651\u0631"} \u0627\u0644\u0646\u0635"`);
         }
         if (a.aspect === "graphics" && a.sentiment > 0) actions.push("\u0623\u064F\u0628\u0642\u064A \u0627\u0644\u062C\u0631\u0627\u0641\u064A\u0643 \u0643\u0645\u0627 \u0647\u0648\u060C \u0648\u0633\u064F\u062C\u0651\u0644 \u0627\u0644\u0625\u0639\u062C\u0627\u0628 \u0639\u0644\u0649 \u0639\u0646\u0627\u0635\u0631\u0647.");
@@ -6506,8 +10383,8 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
       }
       if (sub === "observe") return out(studio.memory.observe(creatorId, { key: rest[0], value: rest.slice(1).join(" "), designId: opt.design, scope: { brandId: opt.brand, platform: opt.platform } }));
       if (sub === "import-results") {
-        const text = fs2.readFileSync(rest[0], "utf8");
-        const rows = rest[0].endsWith(".csv") ? parseCsv(text) : JSON.parse(text);
+        const text2 = fs2.readFileSync(rest[0], "utf8");
+        const rows = rest[0].endsWith(".csv") ? parseCsv2(text2) : JSON.parse(text2);
         const n2 = studio.memory.importResults(creatorId, rows);
         return out({ ok: true, imported: n2, summary: studio.memory.resultsSummary(creatorId) });
       }
@@ -6616,6 +10493,15 @@ async function main(argv = process.argv.slice(2), out = (x) => process.stdout.wr
       writeJson(sub, snap);
       return out({ ok: true, file: sub, files: Object.keys(snap.files).length, fingerprint: hashOf(snap).slice(0, 12) });
     }
+    case "analyze-post":
+    case "analyze-carousel":
+    case "analyze-reel":
+    case "analyze-content":
+      return out(await analyzeCommand(cmd, sub, opt, { studio, creatorId }));
+    case "analytics":
+      return out(await analyticsCommand(sub, rest, opt, { studio, store }));
+    case "algorithm":
+      return out(algorithmCommand(sub, opt));
     case "restore":
       return out({ ok: true, written: importSnapshot(store, readJson(sub), { overwrite: Boolean(opt.overwrite) }) });
     default:

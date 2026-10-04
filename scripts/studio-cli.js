@@ -26,6 +26,19 @@ import { STYLES } from '../lib/studio/styles/catalog.js';
 import { LATER_ROLES, ROLE_OF, declinedWhy } from '../lib/studio/library/matrix.js';
 import { setFormat } from '../lib/studio/document.js';
 import { hashOf } from '../lib/studio/util.js';
+import { createEngine, ENGINES } from '../lib/algorithm-intelligence/engine.js';
+import { DEFAULT_CONFIG } from '../lib/algorithm-intelligence/config.js';
+import { PLATFORMS } from '../lib/algorithm-intelligence/types.js';
+import { fromReelPlan, fromText, toContentInput } from '../lib/algorithm-intelligence/core/content-input.js';
+import { parseSemantic, semanticRequest, storeSemantic } from '../lib/algorithm-intelligence/core/semantic.js';
+import { SignalRegistry } from '../lib/algorithm-intelligence/core/signal-registry.js';
+import { SOURCES } from '../lib/algorithm-intelligence/research/provenance.js';
+import { formatReport } from '../lib/algorithm-intelligence/explainability/report-text.js';
+import { AnalysisRuns, PerformanceStore } from '../lib/algorithm-intelligence/history/performance-store.js';
+import { buildProfile } from '../lib/algorithm-intelligence/history/account-profile.js';
+import { buildDataset, toCsv as datasetToCsv, toJsonl as datasetToJsonl } from '../lib/algorithm-intelligence/learning/feature-dataset.js';
+import { saveModel, trainAndEvaluate } from '../lib/algorithm-intelligence/learning/training-interface.js';
+import { LocalImportProvider, PARSERS, providerFor } from '../lib/algorithm-intelligence/ingestion/providers.js';
 
 const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
 
@@ -65,6 +78,24 @@ const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
   studio ledger report [--since ISO] | ledger add --kind KIND [--tool T] [--duration MS] [--tokens N] [--cost USD] [--note T]
   studio migrate CAROUSEL.json OUT.json          classic carousel → studio design
   studio backup FILE.json | restore FILE.json [--overwrite]
+
+Algorithm intelligence (platform fit scores with reasons; no AI call, no account needed):
+  studio analyze-post FILE.txt|- [--platform x|instagram|facebook|all] [--type post|thread|caption|hook|article-summary]
+  studio analyze-carousel DESIGN.json|DESIGN.html|SLIDES.json [--caption FILE|TEXT]
+  studio analyze-reel PLAN.json|SCENES.json|SCRIPT.txt [--caption FILE|TEXT]
+  studio analyze-content CONTENT.json
+        common: [--account ID] [--lang ar|en] [--format json|text] [--full] [--save]
+                [--semantic ANSWER.json]  an AI semantic judgement for this content (cached by content key)
+                [--semantic-request]      print what to ask the AI semantic layer, then stop
+  studio analytics import instagram|facebook|x FILE.json|FILE.csv [--account ID]
+  studio analytics fetch instagram|facebook|x [--limit N]   (credentials from the environment; see .env.example)
+  studio analytics link POST_ID DESIGN_ID [--platform P]     tie a published post to its Basira design
+  studio analytics import-legacy                             rows from studio memory import-results
+  studio analytics profile [--platform P] [--format text]    baselines, patterns, top ranges
+  studio analytics dataset --platform P --out FILE.jsonl|FILE.csv
+  studio analytics train --platform P                        optional logistic model (kept only if it passes a holdout test)
+  studio analytics runs                                      saved analysis runs
+  studio algorithm signals [--platform P] | sources | config
 
 Global: --home DIR (store location), --creator ID (default "default").`;
 
@@ -131,6 +162,160 @@ function parseCsv(text) {
     });
     return row;
   });
+}
+
+// ---------------------------------------------------------------------------
+// Algorithm intelligence (lib/algorithm-intelligence)
+
+const platformsOf = (v) => (!v || v === true || v === 'all' ? PLATFORMS : String(v).split(',').map((s) => s.trim()));
+const readText = (fileOrText) => (typeof fileOrText === 'string' && fs.existsSync(fileOrText) ? fs.readFileSync(fileOrText, 'utf8') : fileOrText);
+
+function contentFrom(cmd, file, opt) {
+  const text = file === '-' ? fs.readFileSync(0, 'utf8') : fs.readFileSync(file, 'utf8');
+  const type = typeof opt.type === 'string' ? opt.type : undefined;
+  if (cmd === 'analyze-post') return fromText(text, type ?? 'post');
+  if (cmd === 'analyze-carousel') {
+    if (file.endsWith('.html')) return loadDesign(file);
+    const data = JSON.parse(text);
+    return data.schemaVersion === 2 ? data : { type: 'carousel', ...data };
+  }
+  if (cmd === 'analyze-reel') {
+    if (/^\s*[[{]/.test(text)) {
+      const data = JSON.parse(text);
+      return data.kind === 'reel-plan' ? fromReelPlan(data) : { type: 'reel', ...data };
+    }
+    return { type: 'reel', text };
+  }
+  return JSON.parse(text);
+}
+
+function compactReport(report, { full = false } = {}) {
+  if (full) return report;
+  const { features, ...rest } = report;
+  return {
+    ...rest,
+    content: { ...report.content, words: features.text.words, hook: features.hook.text },
+    platforms: Object.fromEntries(
+      Object.entries(report.platforms).map(([p, r]) => [
+        p,
+        {
+          modelVersion: r.modelVersion,
+          weightsVersion: r.weightsVersion,
+          score: r.overall.score,
+          parts: r.overall.parts,
+          confidence: r.confidence,
+          scores: Object.fromEntries(Object.entries(r.scores).map(([k, v]) => [k, v.score])),
+          explanation: r.explanation,
+          recommendations: r.recommendations,
+          accountEvidence: r.accountEvidence,
+          notes: r.notes,
+        },
+      ]),
+    ),
+  };
+}
+
+async function analyzeCommand(cmd, file, opt, { studio }) {
+  if (!file) throw new Error(`${cmd} FILE`);
+  const engine = createEngine({ studio, accountId: typeof opt.account === 'string' ? opt.account : 'default' });
+  const content = toContentInput(contentFrom(cmd, file, opt));
+  if (opt.caption) content.caption = readText(opt.caption);
+  const features = engine.features(content);
+  if (opt['semantic-request']) return semanticRequest(content, features);
+  let semantic = null;
+  if (typeof opt.semantic === 'string') {
+    semantic = parseSemantic(fs.readFileSync(opt.semantic, 'utf8'), { analyzerId: typeof opt.analyzer === 'string' ? opt.analyzer : 'assistant' });
+    storeSemantic(studio, features.key, typeof opt.analyzer === 'string' ? opt.analyzer : 'assistant', semantic, { tokens: opt.tokens ? Number(opt.tokens) : null, costUsd: opt.cost ? Number(opt.cost) : null });
+  }
+  const lang = opt.lang === 'en' ? 'en' : 'ar';
+  const report = engine.analyze(content, { platforms: platformsOf(opt.platform), lang, semantic: semantic ?? undefined, analyzerId: semantic ? undefined : 'assistant', persist: Boolean(opt.save), account: typeof opt.account === 'string' ? opt.account : 'default' });
+  if (opt.format === 'text') return formatReport(report, { lang });
+  return compactReport(report, { full: Boolean(opt.full) });
+}
+
+function profileText(profile, lang) {
+  const lines = [`${profile.platform} — ${profile.account}: ${profile.n} ${lang === 'ar' ? 'منشورًا' : 'posts'}${profile.baselines.dateRange ? ` (${profile.baselines.dateRange.from.slice(0, 10)} → ${profile.baselines.dateRange.to.slice(0, 10)})` : ''}`];
+  const b = profile.baselines.account;
+  lines.push(`  ${lang === 'ar' ? 'خط الأساس (الوسيط)' : 'Baseline (median)'}: ${Object.entries(b).filter(([, v]) => v.n).map(([k, v]) => `${k} ${Math.round(v.median * 10) / 10}`).join(' · ')}`);
+  const content = profile.patterns.filter((p) => p.scope === 'content');
+  const line = (p, i) => [`${i + 1}. ${p.label[lang]}`, `   ${p.effect >= 0 ? '+' : ''}${Math.round(p.effect * 100)}% ${p.metric} vs baseline · n=${p.sampleSize} (vs ${p.comparisonSize}) · confidence ${p.confidence} · p=${p.pValue}`];
+  const up = content.filter((p) => p.effect > 0);
+  const down = content.filter((p) => p.effect < 0);
+  lines.push('', lang === 'ar' ? 'أنماط المحتوى الأفضل أداءً' : 'Top-performing content patterns');
+  if (!up.length) lines.push(lang === 'ar' ? '  لا أنماط مدعومة بعينة كافية بعد.' : '  No patterns supported by an adequate sample yet.');
+  up.forEach((p, i) => lines.push(...line(p, i)));
+  if (down.length) {
+    lines.push('', lang === 'ar' ? 'أنماط دون خط الأساس' : 'Patterns below baseline');
+    down.forEach((p, i) => lines.push(...line(p, i)));
+  }
+  const sched = profile.patterns.filter((p) => p.scope === 'scheduling');
+  if (sched.length) lines.push('', lang === 'ar' ? 'أوقات النشر' : 'Publishing times', ...sched.map((p) => `  ${p.label[lang]}: ${p.effect >= 0 ? '+' : ''}${Math.round(p.effect * 100)}% ${p.metric} (n=${p.sampleSize}, p=${p.pValue})`));
+  for (const t of Object.values(profile.topRanges ?? {})) lines.push(`  ${t.feature}: ${t.lo}–${t.hi} (top quarter, n=${t.n})`);
+  lines.push('', lang === 'ar' ? 'الأنماط ارتباطات في بيانات حسابك وليست أسبابًا مثبتة.' : 'Patterns are associations in your own data, not proven causes.');
+  return lines.join('\n');
+}
+
+async function analyticsCommand(sub, rest, opt, { studio, store }) {
+  const account = typeof opt.account === 'string' ? opt.account : 'default';
+  const perf = new PerformanceStore(store, account);
+  const rebuild = (platforms) => Object.fromEntries(platforms.map((p) => {
+    const prof = buildProfile({ store, account, platform: p, config: DEFAULT_CONFIG, engines: ENGINES, registry: new SignalRegistry() });
+    return [p, { n: prof.n, withFeatures: prof.withFeatures, patterns: prof.patterns.length, weightsVersion: prof.weightsVersion }];
+  }));
+  if (sub === 'import') {
+    const [platform, file] = rest;
+    if (!PARSERS[platform] || !file) throw new Error('analytics import instagram|facebook|x FILE');
+    const rows = await new LocalImportProvider(platform, fs.readFileSync(file, 'utf8'), { filename: file }).fetchPosts();
+    const result = perf.upsert(rows, { source: file.endsWith('.csv') ? 'csv' : 'import' });
+    return { ok: true, account: perf.account, platform, ...result, profile: rebuild([platform])[platform] };
+  }
+  if (sub === 'fetch') {
+    const platform = rest[0];
+    const provider = providerFor(platform);
+    const rows = await provider.fetchPosts({ limit: opt.limit ? Number(opt.limit) : undefined });
+    const result = perf.upsert(rows, { source: provider.id });
+    return { ok: true, account: perf.account, platform, provider: provider.id, ...result, profile: rebuild([platform])[platform] };
+  }
+  if (sub === 'link') {
+    const [postId, designId] = rest;
+    const id = postId?.includes(':') ? postId : typeof opt.platform === 'string' ? `${opt.platform}:${postId}` : postId;
+    const rec = perf.link(id, designId);
+    return { ok: true, post: rec.id, designId, profile: rebuild([rec.platform])[rec.platform] };
+  }
+  if (sub === 'import-legacy') {
+    const result = perf.importLegacy(studio.memory.profile(typeof opt.creator === 'string' ? opt.creator : 'default').results);
+    return { ok: true, ...result };
+  }
+  if (sub === 'profile') {
+    const platforms = platformsOf(opt.platform).filter((p) => perf.list({ platform: p }).length);
+    const profiles = platforms.map((p) => buildProfile({ store, account, platform: p, config: DEFAULT_CONFIG, engines: ENGINES, registry: new SignalRegistry() }));
+    if (opt.format === 'text') return profiles.length ? profiles.map((p) => profileText(p, opt.lang === 'ar' ? 'ar' : 'en')).join('\n\n') : 'No imported posts for this account yet: studio analytics import PLATFORM FILE';
+    return { account: perf.account, profiles };
+  }
+  if (sub === 'dataset') {
+    const platform = typeof opt.platform === 'string' ? opt.platform : null;
+    if (!platform || typeof opt.out !== 'string') throw new Error('analytics dataset --platform P --out FILE.jsonl|FILE.csv');
+    const rows = buildDataset({ store, account, platform, config: DEFAULT_CONFIG });
+    fs.writeFileSync(opt.out, opt.out.endsWith('.csv') ? datasetToCsv(rows) : datasetToJsonl(rows));
+    return { ok: true, rows: rows.length, file: opt.out };
+  }
+  if (sub === 'train') {
+    const platform = typeof opt.platform === 'string' ? opt.platform : null;
+    if (!platform) throw new Error('analytics train --platform P');
+    const rows = buildDataset({ store, account, platform, config: DEFAULT_CONFIG });
+    const { model, evaluation, accepted } = trainAndEvaluate(rows, { platform, metric: rows[0]?.metric });
+    if (accepted) saveModel(store, model);
+    return { ok: true, rows: rows.length, accepted, calibrated: model.calibrated, evaluation, modelId: accepted ? model.id : null, note: accepted ? 'saved under algorithm/models/' : 'not saved: fewer than 60 posts or holdout AUC below 0.6' };
+  }
+  if (sub === 'runs') return new AnalysisRuns(store, account).list();
+  throw new Error('analytics import|fetch|link|import-legacy|profile|dataset|train|runs');
+}
+
+function algorithmCommand(sub, opt) {
+  if (sub === 'signals') return new SignalRegistry().list({ platform: typeof opt.platform === 'string' ? opt.platform : undefined }).map(({ id, platform, category, provenance, relevance, label, enabled }) => ({ id, platform, category, provenance, relevance, label: label.en, enabled }));
+  if (sub === 'sources') return SOURCES;
+  if (sub === 'config') return DEFAULT_CONFIG;
+  throw new Error('algorithm signals|sources|config');
 }
 
 export async function main(argv = process.argv.slice(2), out = (x) => process.stdout.write(`${typeof x === 'string' ? x : JSON.stringify(x, null, 2)}\n`)) {
@@ -528,6 +713,18 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
       writeJson(sub, snap);
       return out({ ok: true, file: sub, files: Object.keys(snap.files).length, fingerprint: hashOf(snap).slice(0, 12) });
     }
+
+    case 'analyze-post':
+    case 'analyze-carousel':
+    case 'analyze-reel':
+    case 'analyze-content':
+      return out(await analyzeCommand(cmd, sub, opt, { studio, creatorId }));
+
+    case 'analytics':
+      return out(await analyticsCommand(sub, rest, opt, { studio, store }));
+
+    case 'algorithm':
+      return out(algorithmCommand(sub, opt));
 
     case 'restore':
       return out({ ok: true, written: importSnapshot(store, readJson(sub), { overwrite: Boolean(opt.overwrite) }) });

@@ -80,6 +80,12 @@ Read `quality` in the compose output. Errors block delivery:
 Warnings (mixed digits, narrow text, punctuation) are fixed unless the user wants them.
 Full list and the delivery checklist: `references/roles/qa-delivery.md`.
 
+Platform fit (when the user asks how it will do, or before publishing): `studio analyze-carousel
+design.json --platform instagram --account @handle --format text` (also `analyze-post`,
+`analyze-reel`). Relay the score with its reasons, confidence and recommendations; it is a relative
+compatibility score under Basira's model, never a reach probability. Apply a recommendation only
+with an edit the user agrees to. Their published results: `studio analytics import PLATFORM FILE`.
+
 ## 5. Deliver
 
 - **Local**: give `design.html`. Tell the user: open it in Chrome, Edge, Firefox or Safari; edit

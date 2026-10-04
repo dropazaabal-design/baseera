@@ -8,7 +8,7 @@ import readline from 'node:readline';
 import { TOOLS, TOOL_DEFS } from '../lib/studio/canva/tools.js';
 import { nodeContext } from '../lib/studio/node/canvaContext.js';
 
-const SERVER = { name: 'baseera-canva', version: '1.6.0' };
+const SERVER = { name: 'baseera-canva', version: '1.7.0' };
 const PROTOCOLS = ['2025-06-18', '2025-03-26', '2024-11-05'];
 
 let ctx = null;
