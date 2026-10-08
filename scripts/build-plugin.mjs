@@ -172,6 +172,13 @@ const [html, schema, cli, canvaCli, canvaMcp, capabilities] = await Promise.all(
 ]);
 await fs.writeFile(path.join(skillDir, 'assets/carousel.html'), html);
 await fs.writeFile(path.join(skillDir, 'scripts/studio.mjs'), cli, { mode: 0o755 });
+// No runtime download: ship the pinned analyzer with its MIT notice.
+const reviewEngineDir = path.join(pluginDir, 'skills/arabic-reels/scripts/review-engine');
+await fs.mkdir(reviewEngineDir, { recursive: true });
+for (const file of ['video_analyzer.py', 'LICENSE', 'provenance.json'])
+  await fs.copyFile(path.join(root, 'lib/reel-review/vendor', file), path.join(reviewEngineDir, file));
+await fs.mkdir(path.join(pluginDir, 'skills/arabic-reels/references'), { recursive: true });
+await fs.copyFile(path.join(root, 'docs/reel-review.md'), path.join(pluginDir, 'skills/arabic-reels/references/review.md'));
 await fs.writeFile(path.join(skillDir, 'references/schema.json'), `${JSON.stringify(schema, null, 2)}\n`);
 await fs.mkdir(path.join(canvaSkillDir, 'scripts'), { recursive: true });
 await fs.mkdir(path.join(canvaSkillDir, 'references'), { recursive: true });

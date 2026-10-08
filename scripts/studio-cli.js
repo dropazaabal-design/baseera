@@ -39,6 +39,7 @@ import { buildProfile } from '../lib/algorithm-intelligence/history/account-prof
 import { buildDataset, toCsv as datasetToCsv, toJsonl as datasetToJsonl } from '../lib/algorithm-intelligence/learning/feature-dataset.js';
 import { saveModel, trainAndEvaluate } from '../lib/algorithm-intelligence/learning/training-interface.js';
 import { LocalImportProvider, PARSERS, providerFor } from '../lib/algorithm-intelligence/ingestion/providers.js';
+import { reviewReel, doctor as reviewDoctor, reviewMarkdown } from '../lib/reel-review/index.js';
 
 const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
 
@@ -83,6 +84,12 @@ Algorithm intelligence (platform fit scores with reasons; no AI call, no account
   studio analyze-post FILE.txt|- [--platform x|instagram|facebook|all] [--type post|thread|caption|hook|article-summary]
   studio analyze-carousel DESIGN.json|DESIGN.html|SLIDES.json [--caption FILE|TEXT]
   studio analyze-reel PLAN.json|SCENES.json|SCRIPT.txt [--caption FILE|TEXT]
+  studio review-reel VIDEO.mp4 [--out-dir DIR] [--plan PLAN.json] [--captions FILE.vtt|FILE.srt|FILE.json]
+        [--script SCRIPT.txt] [--expect-size 1920x1080] [--expect-fps 60] [--expect-duration 90]
+        [--engine ffmpeg|upstream] [--semantic-request] [--no-cache] [--format json|text]
+        [--scene-threshold 0.2] [--timeout-ms 120000] [--ffmpeg PATH] [--ffprobe PATH] [--python PATH]
+        local media review, timestamped evidence, Arabic report, frames and suggested repairs
+  studio review-reel doctor [--engine ffmpeg|upstream]    inspect prerequisites; never installs anything
   studio analyze-content CONTENT.json
         common: [--account ID] [--lang ar|en] [--format json|text] [--full] [--save]
                 [--semantic ANSWER.json]  an AI semantic judgement for this content (cached by content key)
@@ -719,6 +726,29 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
     case 'analyze-reel':
     case 'analyze-content':
       return out(await analyzeCommand(cmd, sub, opt, { studio, creatorId }));
+
+    case 'review-reel': {
+      const options = Object.fromEntries(['engine', 'ffmpeg', 'ffprobe', 'python'].filter((key) => typeof opt[key] === 'string').map((key) => [key, opt[key]]));
+      if (sub === 'doctor') return out(await reviewDoctor(options));
+      if (!sub) throw new Error('review-reel VIDEO.mp4 (use analyze-reel for scripts/plans)');
+      const expectations = {};
+      if (opt['expect-size'] !== undefined) {
+        const match = /^(\d+)x(\d+)$/.exec(opt['expect-size']);
+        if (!match) throw new Error('--expect-size must be WIDTHxHEIGHT');
+        expectations.width = Number(match[1]); expectations.height = Number(match[2]);
+      }
+      for (const key of ['fps', 'duration']) if (opt[`expect-${key}`] !== undefined) expectations[key] = Number(opt[`expect-${key}`]);
+      for (const key of ['out-dir', 'plan', 'captions', 'script', 'engine', 'ffmpeg', 'ffprobe', 'python', 'expect-size', 'expect-fps', 'expect-duration', 'scene-threshold', 'timeout-ms'])
+        if (opt[key] !== undefined && typeof opt[key] !== 'string') throw new Error(`--${key} needs a value`);
+      const result = await reviewReel(sub, { ...options, home: store.root, expectations,
+        outDir: opt['out-dir'], planFile: opt.plan, captionsFile: opt.captions, scriptFile: opt.script,
+        threshold: opt['scene-threshold'] === undefined ? 0.2 : Number(opt['scene-threshold']),
+        timeoutMs: opt['timeout-ms'] === undefined ? 120000 : Number(opt['timeout-ms']),
+        noCache: Boolean(opt['no-cache']), semanticRequest: Boolean(opt['semantic-request']),
+      });
+      studio.ledger.record({ kind: 'reel.review', tool: result.evidence.engine, cache: result.cacheHit ? 'hit' : 'miss', note: result.source.sha256 });
+      return out(opt.format === 'text' ? `${reviewMarkdown(result)}\nالتقرير والأدلة: ${result.directory}` : result);
+    }
 
     case 'analytics':
       return out(await analyticsCommand(sub, rest, opt, { studio, store }));
