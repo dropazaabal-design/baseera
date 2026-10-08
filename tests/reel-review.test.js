@@ -5,8 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parseCaptions } from '../lib/reel-review/captions.js';
-import { parseIntervals } from '../lib/reel-review/detectors.js';
-import { buildReview, planScenes } from '../lib/reel-review/report.js';
+import { parseIntervals, frameTimes } from '../lib/reel-review/detectors.js';
+import { buildReview, planScenes, scriptDifferences } from '../lib/reel-review/report.js';
 import { reviewReel, fileSha256, doctor } from '../lib/reel-review/index.js';
 import { runTool } from '../lib/reel-review/process.js';
 
@@ -44,6 +44,35 @@ test('reports cannot turn captions or technical checks into proof of listening/A
   assert.equal(report.manualChecks.find((check) => check.id === 'arabic-render').status, 'pending');
   assert.ok(report.findings.some((finding) => finding.code === 'captions.fast' && finding.evidenceClass === 'heuristic'));
   assert.equal(report.repairPlan.automatic, false);
+});
+
+test('a finding spanning several plan scenes is not pinned to the first; frames link to findings', () => {
+  const report = buildReview({
+    source: { name: 'test.mp4', sha256: 'source' }, metadata: { duration: 6, width: 1920, height: 1080, fps: 60, audioStreams: 1 },
+    evidence: { shots: [], peakDb: -6, blackIntervals: [{ start: 1.5, end: 2.5, duration: 1 }], quietIntervals: [], freezeIntervals: [] },
+    artifacts: { contactSheet: 'sheet.jpg', frames: [{ time: 0, file: 'frames/a.jpg' }, { time: 2, file: 'frames/b.jpg' }] },
+    plan: { scenes: [{ id: 'hook', seconds: 2 }, { id: 'story', seconds: 4 }] }, expectations: { fps: 30 },
+  });
+  const black = report.findings.find((finding) => finding.code === 'timeline.black');
+  assert.equal(black.sceneId, null);
+  assert.deepEqual(black.sceneIds, ['hook', 'story']);
+  assert.equal(black.frame, 'frames/b.jpg');
+  const fps = report.findings.find((finding) => finding.code === 'technical.fps');
+  assert.deepEqual(fps.sceneIds, ['hook', 'story']);
+  assert.equal(fps.frame, null);
+  assert.equal(report.repairPlan.items.find((item) => item.findingId === black.id).target, 'review the listed project scenes');
+});
+
+test('script differences name the words, after the same normalization as the equality check', () => {
+  const diff = scriptDifferences('كلامٌ عربيّ، واضح جدًا.', 'كلام عربي جميل');
+  assert.deepEqual(diff.items.map((item) => [item.op, item.words]), [['extra-in-captions', 'جميل'], ['missing-from-captions', 'واضح جدا']]);
+  assert.deepEqual(scriptDifferences('نص واحد', 'نص واحد').items, []);
+});
+
+test('review frames: opening, hook and ending always; extras deduplicated, capped and sorted', () => {
+  const times = frameTimes(90, [{ time: 40, reason: 'finding' }, { time: 40.1, reason: 'scene-change' }, { time: 200, reason: 'finding' }]);
+  assert.deepEqual(times.map((frame) => [frame.time, frame.reason]), [[0, 'opening'], [1, 'hook'], [2, 'hook'], [40, 'finding'], [89.9, 'ending']]);
+  assert.equal(frameTimes(90, Array.from({ length: 60 }, (_, i) => ({ time: 3 + i }))).length, 4 + 24);
 });
 
 test('media child processes receive no API credentials, bounded logs and bounded time', async () => {
@@ -84,7 +113,11 @@ test('real 60fps video: measured cuts, black/silence, safe paths, cache invalida
     assert.ok(report.evidence.blackIntervals.some((interval) => Math.abs(interval.start - 4) < 0.03));
     assert.ok(report.evidence.quietIntervals.some((interval) => Math.abs(interval.start - 3) < 0.1 && interval.end === 5));
     assert.ok(report.evidence.audioLevels.length >= 10);
-    assert.equal(report.findings.find((finding) => finding.code === 'timeline.black').sceneId, 'story');
+    const blackFinding = report.findings.find((finding) => finding.code === 'timeline.black');
+    assert.equal(blackFinding.sceneId, 'story');
+    assert.ok(blackFinding.frame && fs.existsSync(path.join(report.directory, blackFinding.frame)), 'black finding links an extracted frame');
+    for (const change of report.evidence.sceneChanges)
+      assert.ok(report.artifacts.frames.some((frame) => Math.abs(frame.time - (change.time + 0.1)) < 0.25), `a frame near the cut at ${change.time}`);
     assert.equal(report.findings.find((finding) => finding.code === 'captions.fast').sceneId, 'hook');
     for (const name of ['review.json', 'review.md', 'repair-plan.json', 'editorial-request.json', 'contact-sheet.jpg']) assert.ok(fs.existsSync(path.join(report.directory, name)), name);
     assert.equal((await reviewReel(video, options)).cacheHit, true);

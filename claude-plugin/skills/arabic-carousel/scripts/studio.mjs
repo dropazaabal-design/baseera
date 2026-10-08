@@ -10074,7 +10074,28 @@ async function scanFfmpeg(source, metadata, directory, { ffmpeg = "ffmpeg", thre
     motionEstimates: null
   };
 }
-async function reviewFrames(source, duration, directory, { ffmpeg = "ffmpeg", timeoutMs = 12e4, videoStreamIndex = 0 } = {}) {
+var MAX_EXTRA_FRAMES = 24;
+function frameTimes(duration, extra = []) {
+  const last = Math.max(0, duration - Math.min(0.1, duration / 10));
+  const chosen = [];
+  const take = (time, reason) => {
+    const t = Math.round(Math.max(0, Math.min(last, time)) * 1e3) / 1e3;
+    if (chosen.some((frame2) => Math.abs(frame2.time - t) < 0.25)) return false;
+    chosen.push({ time: t, reason });
+    return true;
+  };
+  take(0, "opening");
+  take(Math.min(1, duration / 3), "hook");
+  take(Math.min(2, duration / 2), "hook");
+  take(last, "ending");
+  let added = 0;
+  for (const item of extra) {
+    if (added >= MAX_EXTRA_FRAMES) break;
+    if (Number.isFinite(item?.time) && take(item.time, item.reason ?? "finding")) added++;
+  }
+  return chosen.sort((x, y) => x.time - y.time);
+}
+async function reviewFrames(source, duration, directory, { ffmpeg = "ffmpeg", timeoutMs = 12e4, videoStreamIndex = 0, extra = [] } = {}) {
   const frameCount = Math.max(1, Math.min(24, Math.ceil(duration)));
   const columns = Math.min(6, frameCount), rows = Math.ceil(frameCount / columns);
   await runTool(ffmpeg, [
@@ -10094,14 +10115,15 @@ async function reviewFrames(source, duration, directory, { ffmpeg = "ffmpeg", ti
     "1",
     path3.join(directory, "contact-sheet.jpg")
   ], { timeoutMs });
-  const times = [.../* @__PURE__ */ new Set([0, Math.min(1, duration / 3), Math.min(2, duration / 2), Math.max(0, duration - Math.min(0.1, duration / 10))])];
+  const times = frameTimes(duration, extra);
+  fs2.rmSync(path3.join(directory, "frames"), { recursive: true, force: true });
   fs2.mkdirSync(path3.join(directory, "frames"), { recursive: true });
   const frames = [];
   for (let i = 0; i < times.length; i++) {
-    const file = `frames/review-${i + 1}.jpg`;
-    await runTool(ffmpeg, ["-hide_banner", "-loglevel", "error", "-threads", "2", "-y", "-ss", String(times[i]), "-i", source, "-map", `0:${videoStreamIndex}`, "-frames:v", "1", "-vf", "scale=640:-2", path3.join(directory, file)], { timeoutMs });
-    if (!fs2.existsSync(path3.join(directory, file))) throw new Error(`frame extraction produced no image at ${times[i]}`);
-    frames.push({ time: times[i], file });
+    const file = `frames/review-${String(i + 1).padStart(2, "0")}.jpg`;
+    await runTool(ffmpeg, ["-hide_banner", "-loglevel", "error", "-threads", "2", "-y", "-ss", String(times[i].time), "-i", source, "-map", `0:${videoStreamIndex}`, "-frames:v", "1", "-vf", "scale=640:-2", path3.join(directory, file)], { timeoutMs });
+    if (!fs2.existsSync(path3.join(directory, file))) throw new Error(`frame extraction produced no image at ${times[i].time}`);
+    frames.push({ time: times[i].time, reason: times[i].reason, file });
   }
   return { contactSheet: "contact-sheet.jpg", frames };
 }
@@ -10155,10 +10177,39 @@ ${cue.text}
 }
 
 // lib/reel-review/report.js
-var REVIEW_VERSION = "1.0.0";
+var REVIEW_VERSION = "1.1.0";
 var round3 = (n2) => Math.round(n2 * 1e3) / 1e3;
 var words3 = (text2) => text2.trim().split(/\s+/).filter(Boolean).length;
 var normalizeScript = (text2) => text2.normalize("NFC").replace(/[\u064B-\u065F\u0670\u0640]/g, "").replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
+function scriptDifferences(script, captionText, limit = 12) {
+  const a = normalizeScript(script).split(" ").filter(Boolean), b = normalizeScript(captionText).split(" ").filter(Boolean);
+  if (a.length * b.length > 4e6) return { truncated: true, items: [] };
+  const lcs = Array.from({ length: a.length + 1 }, () => new Uint16Array(b.length + 1));
+  for (let i2 = a.length - 1; i2 >= 0; i2--) for (let j2 = b.length - 1; j2 >= 0; j2--)
+    lcs[i2][j2] = a[i2] === b[j2] ? lcs[i2 + 1][j2 + 1] + 1 : Math.max(lcs[i2 + 1][j2], lcs[i2][j2 + 1]);
+  const items = [];
+  const push = (op, word, index) => {
+    const last = items.at(-1);
+    if (last && last.op === op && last.end === index) {
+      last.words.push(word);
+      last.end = index + 1;
+    } else items.push({ op, words: [word], start: index, end: index + 1 });
+  };
+  let i = 0, j = 0;
+  while (i < a.length || j < b.length) {
+    if (i < a.length && j < b.length && a[i] === b[j]) {
+      i++;
+      j++;
+    } else if (j < b.length && (i >= a.length || lcs[i][j + 1] >= lcs[i + 1][j])) {
+      push("extra-in-captions", b[j], j);
+      j++;
+    } else {
+      push("missing-from-captions", a[i], i);
+      i++;
+    }
+  }
+  return { truncated: items.length > limit, items: items.slice(0, limit).map(({ op, words: words4, start }) => ({ op, words: words4.join(" "), wordIndex: start })) };
+}
 function planScenes(plan2) {
   if (!plan2) return [];
   if (!Array.isArray(plan2.scenes) || !plan2.scenes.length) throw new Error("plan needs a nonempty scenes array");
@@ -10174,21 +10225,33 @@ function planScenes(plan2) {
     return { id: scene.id ?? scene.pageId ?? scene.n ?? i + 1, start, end, role: scene.role ?? null };
   });
 }
+var FIELD_NAMES = { width: "\u0627\u0644\u0639\u0631\u0636 \u0628\u0627\u0644\u0628\u0643\u0633\u0644", height: "\u0627\u0644\u0627\u0631\u062A\u0641\u0627\u0639 \u0628\u0627\u0644\u0628\u0643\u0633\u0644", fps: "\u0645\u0639\u062F\u0644 \u0627\u0644\u0625\u0637\u0627\u0631\u0627\u062A \u0641\u064A \u0627\u0644\u062B\u0627\u0646\u064A\u0629", duration: "\u0627\u0644\u0645\u062F\u0629 \u0628\u0627\u0644\u062B\u0648\u0627\u0646\u064A" };
 function buildReview({ source, metadata, evidence, artifacts, expectations = {}, captions = [], plan: plan2 = null, script = null }) {
   const findings = [];
   const scenes = planScenes(plan2);
   const sceneAt = (time) => scenes.find((scene) => time >= scene.start && time < scene.end)?.id ?? null;
-  const add = (code, severity, evidenceClass, start, end, message, recommendation, data = {}) => findings.push({
-    id: `${code}-${findings.length + 1}`,
-    code,
-    severity,
-    evidenceClass,
-    range: { start: round3(start), end: round3(end) },
-    sceneId: sceneAt(start),
-    message,
-    recommendation,
-    evidence: data
-  });
+  const scenesIn = (start, end) => end - start < 1e-6 ? [sceneAt(start)].filter((id) => id !== null) : scenes.filter((scene) => scene.start < end - 1e-6 && scene.end > start + 1e-6).map((scene) => scene.id);
+  const frames = artifacts?.frames ?? [];
+  const frameFor = (start, end) => {
+    const middle = (start + end) / 2;
+    return frames.filter((frame2) => frame2.time >= start - 1e-3 && frame2.time <= end + 1e-3).sort((x, y) => Math.abs(x.time - middle) - Math.abs(y.time - middle))[0]?.file ?? null;
+  };
+  const add = (code, severity, evidenceClass, start, end, message, recommendation, data = {}) => {
+    const sceneIds = scenesIn(start, end);
+    findings.push({
+      id: `${code}-${findings.length + 1}`,
+      code,
+      severity,
+      evidenceClass,
+      range: { start: round3(start), end: round3(end) },
+      sceneId: sceneIds.length === 1 ? sceneIds[0] : null,
+      sceneIds,
+      frame: end - start < metadata.duration / 2 ? frameFor(start, end) : null,
+      message,
+      recommendation,
+      evidence: data
+    });
+  };
   const expected = {
     width: expectations.width ?? plan2?.format?.width,
     height: expectations.height ?? plan2?.format?.height,
@@ -10213,7 +10276,7 @@ function buildReview({ source, metadata, evidence, artifacts, expectations = {},
       "measured",
       0,
       metadata.duration,
-      `\u0627\u0644\u0645\u0648\u0627\u0635\u0641\u0629 ${field}: \u0627\u0644\u0645\u0637\u0644\u0648\u0628 ${requested} \u0648\u0627\u0644\u0645\u0642\u0627\u0633 ${measured ?? "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D"}.`,
+      `${FIELD_NAMES[field]}: \u0627\u0644\u0645\u0637\u0644\u0648\u0628 ${requested} \u0648\u0627\u0644\u0645\u0642\u0627\u0633 ${measured ?? "\u063A\u064A\u0631 \u0645\u062A\u0627\u062D"}.`,
       "\u0639\u062F\u0651\u0644 \u0625\u0639\u062F\u0627\u062F \u0627\u0644\u062A\u0635\u062F\u064A\u0631 \u0648\u0623\u0639\u062F \u0641\u062D\u0635 \u0627\u0644\u0645\u0644\u0641.",
       checks[field]
     );
@@ -10324,6 +10387,7 @@ function buildReview({ source, metadata, evidence, artifacts, expectations = {},
   if (script !== null && captions.length) {
     const equal = normalizeScript(script) === normalizeScript(captions.map((cue) => cue.text).join(" "));
     scriptCheck = { status: equal ? "matched" : "different", scope: "supplied caption text only", ignores: ["punctuation", "diacritics", "tatweel"] };
+    if (!equal) scriptCheck.differences = scriptDifferences(script, captions.map((cue) => cue.text).join(" "));
     if (!equal) add(
       "captions.script-difference",
       "warning",
@@ -10366,9 +10430,10 @@ function buildReview({ source, metadata, evidence, artifacts, expectations = {},
     repairPlan: { automatic: false, sourceSha256: source.sha256, items: findings.map((finding) => ({
       findingId: finding.id,
       sceneId: finding.sceneId,
+      sceneIds: finding.sceneIds,
       range: finding.range,
       action: finding.recommendation,
-      target: finding.sceneId === null ? "review source timeline" : "review matching project scene",
+      target: finding.sceneId !== null ? "review matching project scene" : finding.sceneIds.length ? "review the listed project scenes" : "review source timeline",
       status: "suggested"
     })) }
   };
@@ -10380,6 +10445,7 @@ function timestamp(seconds) {
 var cell2 = (value) => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\|/g, "\\|").replace(/[\r\n]+/g, " ");
 function reviewMarkdown(report) {
   const classes = { measured: "\u0642\u064A\u0627\u0633", heuristic: "\u062A\u0642\u062F\u064A\u0631" };
+  const reasons = { opening: "\u0627\u0644\u0628\u062F\u0627\u064A\u0629", hook: "\u0627\u0644\u062E\u0637\u0627\u0641", ending: "\u0627\u0644\u0646\u0647\u0627\u064A\u0629", finding: "\u0645\u0644\u0627\u062D\u0638\u0629 \u0622\u0644\u064A\u0629", "scene-change": "\u062A\u063A\u064A\u0651\u0631 \u0645\u0634\u0647\u062F" };
   const lines2 = [
     "# \u0628\u0635\u064A\u0631\u0629 \u2014 \u0645\u0631\u0627\u062C\u0639\u0629 \u0627\u0644\u0641\u064A\u062F\u064A\u0648",
     "",
@@ -10389,11 +10455,18 @@ function reviewMarkdown(report) {
     "",
     "## \u0627\u0644\u0645\u0644\u0627\u062D\u0638\u0627\u062A",
     "",
-    "| \u0627\u0644\u062A\u0648\u0642\u064A\u062A | \u0627\u0644\u0646\u0648\u0639 | \u0627\u0644\u0645\u0644\u0627\u062D\u0638\u0629 | \u0627\u0644\u0625\u062C\u0631\u0627\u0621 \u0627\u0644\u0645\u0642\u062A\u0631\u062D |",
-    "|---|---|---|---|"
+    "| \u0627\u0644\u062A\u0648\u0642\u064A\u062A | \u0627\u0644\u0645\u0634\u0647\u062F | \u0627\u0644\u0646\u0648\u0639 | \u0627\u0644\u0645\u0644\u0627\u062D\u0638\u0629 | \u0627\u0644\u0625\u062C\u0631\u0627\u0621 \u0627\u0644\u0645\u0642\u062A\u0631\u062D | \u0644\u0642\u0637\u0629 |",
+    "|---|---|---|---|---|---|"
   ];
-  for (const finding of report.findings) lines2.push(`| ${timestamp(finding.range.start)}\u2013${timestamp(finding.range.end)} | ${classes[finding.evidenceClass]} | ${cell2(finding.message)} | ${cell2(finding.recommendation)} |`);
-  if (!report.findings.length) lines2.push("| \u2014 | \u2014 | \u0644\u0645 \u062A\u0638\u0647\u0631 \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0622\u0644\u064A\u0629\u061B \u0647\u0630\u0627 \u0644\u0627 \u064A\u062B\u0628\u062A \u0627\u0643\u062A\u0645\u0627\u0644 \u0627\u0644\u062C\u0648\u062F\u0629. | \u0623\u0643\u0645\u0644 \u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0629 \u0648\u0627\u0644\u0633\u0645\u0627\u0639. |");
+  for (const finding of report.findings) lines2.push(`| ${timestamp(finding.range.start)}\u2013${timestamp(finding.range.end)} | ${cell2((finding.sceneIds ?? []).join("\u060C ") || "\u2014")} | ${classes[finding.evidenceClass]} | ${cell2(finding.message)} | ${cell2(finding.recommendation)} | ${finding.frame ? `[\u0644\u0642\u0637\u0629](${finding.frame})` : "\u2014"} |`);
+  if (!report.findings.length) lines2.push("| \u2014 | \u2014 | \u2014 | \u0644\u0645 \u062A\u0638\u0647\u0631 \u0645\u0644\u0627\u062D\u0638\u0627\u062A \u0622\u0644\u064A\u0629\u061B \u0647\u0630\u0627 \u0644\u0627 \u064A\u062B\u0628\u062A \u0627\u0643\u062A\u0645\u0627\u0644 \u0627\u0644\u062C\u0648\u062F\u0629. | \u0623\u0643\u0645\u0644 \u0627\u0644\u0645\u0634\u0627\u0647\u062F\u0629 \u0648\u0627\u0644\u0633\u0645\u0627\u0639. | \u2014 |");
+  const differences = report.evidence.scriptCheck?.differences?.items ?? [];
+  if (differences.length) lines2.push(
+    "",
+    "## \u0641\u0631\u0648\u0642 \u0646\u0635 \u0627\u0644\u062A\u0631\u062C\u0645\u0629 \u0639\u0646 \u0627\u0644\u0633\u0643\u0631\u064A\u0628\u062A",
+    "",
+    ...differences.map((item) => `- ${item.op === "missing-from-captions" ? "\u0641\u064A \u0627\u0644\u0633\u0643\u0631\u064A\u0628\u062A \u0648\u0644\u064A\u0633 \u0641\u064A \u0627\u0644\u062A\u0631\u062C\u0645\u0629" : "\u0641\u064A \u0627\u0644\u062A\u0631\u062C\u0645\u0629 \u0648\u0644\u064A\u0633 \u0641\u064A \u0627\u0644\u0633\u0643\u0631\u064A\u0628\u062A"}: \xAB${cell2(item.words)}\xBB`)
+  );
   lines2.push(
     "",
     "## \u0641\u062D\u0648\u0635 \u062A\u062D\u062A\u0627\u062C \u0645\u0631\u0627\u062C\u0639\u0629",
@@ -10404,7 +10477,7 @@ function reviewMarkdown(report) {
     "",
     `![\u0648\u0631\u0642\u0629 \u0627\u0644\u0645\u0634\u0627\u0647\u062F](${report.artifacts.contactSheet})`,
     "",
-    ...report.artifacts.frames.map((frame2) => `- ${timestamp(frame2.time)}: [\u0644\u0642\u0637\u0629](${frame2.file})`),
+    ...report.artifacts.frames.map((frame2) => `- ${timestamp(frame2.time)}: [\u0644\u0642\u0637\u0629](${frame2.file})${frame2.reason ? ` \u2014 ${reasons[frame2.reason] ?? frame2.reason}` : ""}`),
     "",
     "## \u062D\u062F\u0648\u062F \u0627\u0644\u062A\u0642\u0631\u064A\u0631",
     "",
@@ -10565,7 +10638,12 @@ async function reviewReel(file, {
       motionEstimates: advanced.motionEstimates
     };
   }
-  const artifacts = await reviewFrames(sourceFile, metadata.duration, directory, { ...options, videoStreamIndex: metadata.videoStreamIndex });
+  const draft = buildReview({ source, metadata, evidence, artifacts: { contactSheet: "contact-sheet.jpg", frames: [] }, expectations, captions, plan: plan2, script });
+  const extra = [
+    ...draft.findings.filter((finding) => finding.range.end - finding.range.start < metadata.duration / 2).map((finding) => ({ time: (finding.range.start + finding.range.end) / 2, reason: "finding" })),
+    ...(evidence.sceneChanges ?? []).map((change) => ({ time: change.time + 0.1, reason: "scene-change" }))
+  ];
+  const artifacts = await reviewFrames(sourceFile, metadata.duration, directory, { ...options, videoStreamIndex: metadata.videoStreamIndex, extra });
   if (await fileSha256(sourceFile) !== source.sha256) throw new Error("source changed during analysis; rerun on a stable file");
   const report = { ...buildReview({ source, metadata, evidence, artifacts, expectations, captions, plan: plan2, script }), cacheKey, engineVersions: capabilities.checks };
   fs3.writeFileSync(path4.join(directory, "review.md"), reviewMarkdown(report));
