@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/gitethanwoo/video-editing",
+  "commit": "166eed9b1f391af5201a37057924593bf8f413d4",
+  "path": "skills/analyze-video-editing/scripts/video_analyzer.py",
+  "sha256": "cc421896f07d22f1007f0a08fd613a9f1bb0886a4c55524e46c6beacbcff36c8",
+  "license": "MIT",
+  "modifications": "The run() wrapper restricts FFmpeg/FFprobe protocols to file,pipe. All other analyzer code is unchanged. Baseera adds independent FFmpeg measurements and Arabic report policy.",
+  "originalSha256": "31a8889c4d36703856b50e5a65421e02e4fe56a4d966b62d0420b8a2400d1ef3"
+}
