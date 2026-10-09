@@ -13,11 +13,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { main } from './studio-cli.js';
 
-const TEXT_DEFAULT = new Set(['analyze-post', 'analyze-carousel', 'analyze-reel', 'analyze-content', 'review-reel', 'analytics']);
+const TEXT_DEFAULT = new Set(['analyze-post', 'analyze-carousel', 'analyze-reel', 'analyze-content', 'analytics']);
 
 export function withDefaults(argv) {
   const args = [...argv];
-  const textCmd = TEXT_DEFAULT.has(args[0]) && (args[0] !== 'analytics' || args[1] === 'profile') && !(args[0] === 'review-reel' && args[1] === 'doctor');
+  const textCmd = TEXT_DEFAULT.has(args[0]) && (args[0] !== 'analytics' || args[1] === 'profile');
   if (textCmd && !args.includes('--format')) args.push('--format', 'text');
   if (textCmd && !args.includes('--lang')) args.push('--lang', 'en');
   return args;
