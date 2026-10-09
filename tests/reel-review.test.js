@@ -11,7 +11,8 @@ import { reviewReel, fileSha256, doctor } from '../lib/reel-review/index.js';
 import { runTool } from '../lib/reel-review/process.js';
 
 test('subtitles handle short VTT clocks, SRT commas and explicit Remotion milliseconds', () => {
-  assert.deepEqual(parseCaptions('WEBVTT\n\n00:01.000 --> 00:02.500 align:start\nكلام عربي\n'), [{ start: 1, end: 2.5, text: 'كلام عربي' }]);
+  assert.deepEqual(parseCaptions('WEBVTT\n\n00:01.000 --> 00:02.500 align:start\nكلام عربي\n'), [{ start: 1, end: 2.5, text: 'كلام عربي', lines: ['كلام عربي'] }]);
+  assert.deepEqual(parseCaptions('1\n00:00:01,000 --> 00:00:02,000\nسطر أول\nسطر ثان\n')[0].lines, ['سطر أول', 'سطر ثان']);
   assert.equal(parseCaptions('1\n00:00:01,000 --> 00:00:02,000\nنص\n')[0].end, 2);
   assert.equal(parseCaptions(JSON.stringify([{ startMs: 500, endMs: 1200, text: 'نص' }]), { json: true })[0].start, 0.5);
   for (const row of [{ start: 0, end: 0, text: 'نص' }, { start: -1, end: 2, text: 'نص' }, { start: 0, end: 1, text: '' }])
@@ -113,6 +114,7 @@ test('real 60fps video: measured cuts, black/silence, safe paths, cache invalida
     assert.ok(report.evidence.blackIntervals.some((interval) => Math.abs(interval.start - 4) < 0.03));
     assert.ok(report.evidence.quietIntervals.some((interval) => Math.abs(interval.start - 3) < 0.1 && interval.end === 5));
     assert.ok(report.evidence.audioLevels.length >= 10);
+    assert.ok(Number.isFinite(report.evidence.loudness.integratedLufs) && Number.isFinite(report.evidence.loudness.truePeakDbtp), 'EBU R128 loudness and true peak measured');
     const blackFinding = report.findings.find((finding) => finding.code === 'timeline.black');
     assert.equal(blackFinding.sceneId, 'story');
     assert.ok(blackFinding.frame && fs.existsSync(path.join(report.directory, blackFinding.frame)), 'black finding links an extracted frame');

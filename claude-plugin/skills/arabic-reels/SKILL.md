@@ -85,7 +85,21 @@ node <plugin>/skills/arabic-carousel/scripts/studio.mjs review-reel video.mp4 \
   --plan plan.json --captions captions.vtt --script locked-script.txt --semantic-request
 ```
 
-Set expected specifications to the actual request and omit unavailable sidecars.
+Set expected specifications to the actual request and omit unavailable sidecars. The review measures
+loudness (EBU R128 integrated LUFS, LRA, true peak; target -14 LUFS unless `--expect-lufs` says otherwise)
+and caption reading speed in words and in letters per second.
+
+For a reel cut from a real speaker's recording, two more local tools:
+
+```bash
+# captions from ASR word timings; with a locked script its spelling is kept and timed from the speech
+node <plugin>/skills/arabic-carousel/scripts/studio.mjs captions-build words.json --script script.txt --out captions.srt
+# does every cut of a kept-range list land in a pause (not on a word or a breath)?
+node <plugin>/skills/arabic-carousel/scripts/studio.mjs review-cuts original.wav --cuts cuts.json --format text
+```
+
+`review-cuts` is energy in the speech band only: a «clear» cut has not been listened to, and a
+«sound across the cut» note asks for a listen, not an automatic fix.
 Read [references/review.md](references/review.md) for the local engine, inputs,
 optional pinned upstream analyzer, report fields and privacy limits.
 `analyze-reel` reviews a script/plan; `review-reel` inspects the media payload.
