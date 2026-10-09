@@ -39,10 +39,6 @@ import { buildProfile } from '../lib/algorithm-intelligence/history/account-prof
 import { buildDataset, toCsv as datasetToCsv, toJsonl as datasetToJsonl } from '../lib/algorithm-intelligence/learning/feature-dataset.js';
 import { saveModel, trainAndEvaluate } from '../lib/algorithm-intelligence/learning/training-interface.js';
 import { LocalImportProvider, PARSERS, providerFor } from '../lib/algorithm-intelligence/ingestion/providers.js';
-import { reviewReel, doctor as reviewDoctor, reviewMarkdown, localFile } from '../lib/reel-review/index.js';
-import { buildCaptions, captionSrt } from '../lib/reel-review/caption-builder.js';
-import { captionVtt } from '../lib/reel-review/captions.js';
-import { reviewCuts, cutsMarkdown } from '../lib/reel-review/cuts.js';
 
 const HELP = `studio — Arabic design studio (library, assets, memory, Canva)
 
@@ -87,20 +83,6 @@ Algorithm intelligence (platform fit scores with reasons; no AI call, no account
   studio analyze-post FILE.txt|- [--platform x|instagram|facebook|all] [--type post|thread|caption|hook|article-summary]
   studio analyze-carousel DESIGN.json|DESIGN.html|SLIDES.json [--caption FILE|TEXT]
   studio analyze-reel PLAN.json|SCENES.json|SCRIPT.txt [--caption FILE|TEXT]
-  studio review-reel VIDEO.mp4 [--out-dir DIR] [--plan PLAN.json] [--captions FILE.vtt|FILE.srt|FILE.json]
-        [--script SCRIPT.txt] [--expect-size 1920x1080] [--expect-fps 60] [--expect-duration 90] [--expect-lufs -14]
-        [--engine ffmpeg|upstream] [--semantic-request] [--no-cache] [--format json|text]
-        [--scene-threshold 0.2] [--timeout-ms 120000] [--ffmpeg PATH] [--ffprobe PATH] [--python PATH]
-        local media review, timestamped evidence, Arabic report, frames and suggested repairs;
-        loudness (EBU R128 LUFS, true peak) and caption reading speed (words and letters per second)
-  studio review-reel doctor [--engine ffmpeg|upstream]    inspect prerequisites; never installs anything
-  studio captions-build WORDS.json [--script SCRIPT.txt] [--out FILE.srt|FILE.vtt|FILE.json]
-        [--max-words 8] [--max-chars 42] [--line-chars 28] [--duration SECONDS] [--format json|text]
-        Arabic captions from ASR word timings; with --script the locked script's words are timed
-        from the speech (misheard words keep the script's spelling); cues follow the reading policy
-  studio review-cuts SOURCE.mp4|SOURCE.wav --cuts CUTS.json [--min-lead 0.08] [--min-tail 0.12]
-        [--window 1] [--format json|text] [--ffmpeg PATH] [--ffprobe PATH]
-        checks that each cut of a kept-range list lands in a pause, not on a word or a breath
   studio analyze-content CONTENT.json
         common: [--account ID] [--lang ar|en] [--format json|text] [--full] [--save]
                 [--semantic ANSWER.json]  an AI semantic judgement for this content (cached by content key)
@@ -737,63 +719,6 @@ export async function main(argv = process.argv.slice(2), out = (x) => process.st
     case 'analyze-reel':
     case 'analyze-content':
       return out(await analyzeCommand(cmd, sub, opt, { studio, creatorId }));
-
-    case 'review-reel': {
-      const options = Object.fromEntries(['engine', 'ffmpeg', 'ffprobe', 'python'].filter((key) => typeof opt[key] === 'string').map((key) => [key, opt[key]]));
-      if (sub === 'doctor') return out(await reviewDoctor(options));
-      if (!sub) throw new Error('review-reel VIDEO.mp4 (use analyze-reel for scripts/plans)');
-      const expectations = {};
-      if (opt['expect-size'] !== undefined) {
-        const match = /^(\d+)x(\d+)$/.exec(opt['expect-size']);
-        if (!match) throw new Error('--expect-size must be WIDTHxHEIGHT');
-        expectations.width = Number(match[1]); expectations.height = Number(match[2]);
-      }
-      for (const key of ['fps', 'duration', 'lufs']) if (opt[`expect-${key}`] !== undefined) expectations[key] = Number(opt[`expect-${key}`]);
-      for (const key of ['out-dir', 'plan', 'captions', 'script', 'engine', 'ffmpeg', 'ffprobe', 'python', 'expect-size', 'expect-fps', 'expect-duration', 'expect-lufs', 'scene-threshold', 'timeout-ms'])
-        if (opt[key] !== undefined && typeof opt[key] !== 'string') throw new Error(`--${key} needs a value`);
-      const result = await reviewReel(sub, { ...options, home: store.root, expectations,
-        outDir: opt['out-dir'], planFile: opt.plan, captionsFile: opt.captions, scriptFile: opt.script,
-        threshold: opt['scene-threshold'] === undefined ? 0.2 : Number(opt['scene-threshold']),
-        timeoutMs: opt['timeout-ms'] === undefined ? 120000 : Number(opt['timeout-ms']),
-        noCache: Boolean(opt['no-cache']), semanticRequest: Boolean(opt['semantic-request']),
-      });
-      studio.ledger.record({ kind: 'reel.review', tool: result.evidence.engine, cache: result.cacheHit ? 'hit' : 'miss', note: result.source.sha256 });
-      return out(opt.format === 'text' ? `${reviewMarkdown(result)}\nالتقرير والأدلة: ${result.directory}` : result);
-    }
-
-    case 'captions-build': {
-      if (!sub) throw new Error('captions-build WORDS.json [--script SCRIPT.txt] [--out FILE.srt|.vtt|.json]');
-      for (const key of ['script', 'out', 'max-words', 'max-chars', 'line-chars', 'duration'])
-        if (opt[key] !== undefined && typeof opt[key] !== 'string') throw new Error(`--${key} needs a value`);
-      const wordsFile = localFile(sub);
-      const script = opt.script ? fs.readFileSync(localFile(opt.script), 'utf8') : null;
-      const number = (key, fallback) => opt[key] === undefined ? fallback : Number(opt[key]);
-      const result = buildCaptions(JSON.parse(fs.readFileSync(wordsFile, 'utf8')), { script,
-        maxWords: number('max-words', 8), maxChars: number('max-chars', 42), lineChars: number('line-chars', 28), total: number('duration', null) });
-      let file = null;
-      if (opt.out) {
-        file = path.resolve(opt.out);
-        if ([wordsFile, opt.script && localFile(opt.script)].includes(fs.existsSync(file) ? fs.realpathSync(file) : file)) throw new Error('--out must not overwrite an input');
-        const ext = path.extname(file).toLowerCase();
-        if (!['.srt', '.vtt', '.json'].includes(ext)) throw new Error('--out must end in .srt, .vtt or .json');
-        fs.writeFileSync(file, ext === '.srt' ? captionSrt(result.cues) : ext === '.vtt' ? captionVtt(result.cues)
-          : `${JSON.stringify(result.cues.map(({ start, end, text }) => ({ start, end, text })), null, 1)}\n`);
-      }
-      if (opt.format === 'text') return out(`${captionSrt(result.cues)}\n${result.warnings.map((w) => `! ${w.cue}: ${w.message}`).join('\n')}`);
-      return out({ ok: true, file, cues: result.cues.length, alignment: result.alignment, warnings: result.warnings, source: result.source, ...(file ? {} : { captions: result.cues }) });
-    }
-
-    case 'review-cuts': {
-      if (!sub || typeof opt.cuts !== 'string') throw new Error('review-cuts SOURCE.mp4 --cuts CUTS.json');
-      for (const key of ['min-lead', 'min-tail', 'window', 'ffmpeg', 'ffprobe', 'timeout-ms'])
-        if (opt[key] !== undefined && typeof opt[key] !== 'string') throw new Error(`--${key} needs a value`);
-      const number = (key) => opt[key] === undefined ? undefined : Number(opt[key]);
-      const result = await reviewCuts(sub, { cutsData: JSON.parse(fs.readFileSync(localFile(opt.cuts), 'utf8')),
-        ...(typeof opt.ffmpeg === 'string' && { ffmpeg: opt.ffmpeg }), ...(typeof opt.ffprobe === 'string' && { ffprobe: opt.ffprobe }),
-        minLead: number('min-lead'), minTail: number('min-tail'), window: number('window'), timeoutMs: number('timeout-ms') ?? 120000 });
-      studio.ledger.record({ kind: 'reel.cuts', tool: 'ffmpeg', note: result.source.sha256 });
-      return out(opt.format === 'text' ? cutsMarkdown(result) : result);
-    }
 
     case 'analytics':
       return out(await analyticsCommand(sub, rest, opt, { studio, store }));

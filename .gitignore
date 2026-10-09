@@ -5,9 +5,6 @@ next-env.d.ts
 *.log
 .DS_Store
 dist/
-.venv-reel-review/
-reel-reviews/
-review-output/
 # Platform API credentials stay local (see .env.example)
 .env
 .env.*
