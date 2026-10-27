@@ -1,0 +1,33 @@
+{
+  "source_generation": "iSDC1n9ccDfALgdV4Elq",
+  "voice_id": "DhfzvPf0OIN8xdGwcHOk",
+  "model": "eleven_v4",
+  "music": false,
+  "sound_effects": false,
+  "first_pass": {
+    "input_i": "-16.62",
+    "input_tp": "-2.88",
+    "input_lra": "3.00",
+    "input_thresh": "-27.19",
+    "output_i": "-16.18",
+    "output_tp": "-5.00",
+    "output_lra": "3.00",
+    "output_thresh": "-26.73",
+    "normalization_type": "dynamic",
+    "target_offset": "0.18"
+  },
+  "normalization": {
+    "input_i": "-16.62",
+    "input_tp": "-2.88",
+    "input_lra": "3.00",
+    "input_thresh": "-27.19",
+    "output_i": "-16.06",
+    "output_tp": "-5.00",
+    "output_lra": "2.90",
+    "output_thresh": "-26.60",
+    "normalization_type": "dynamic",
+    "target_offset": "0.06"
+  },
+  "chain": "Mono to stereo, mild transient compression, two-pass loudnorm target -16 LUFS and -5 dBTP",
+  "post_gain_db": 0.06
+}

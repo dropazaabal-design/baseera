@@ -1,0 +1,123 @@
+[
+  {
+    "id": "Hook",
+    "name": "مو كل اختيار يعني حرية",
+    "from": 0,
+    "durationInFrames": 589,
+    "startSeconds": 0.0,
+    "initial": "بابان وشخص متردد",
+    "change": "تلتقي المسارات في نتيجة واحدة",
+    "purpose": "يضبط السؤال الافتتاحي معنى حرية الاختيار",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Pressure",
+    "name": "الاختيار المفخخ",
+    "from": 589,
+    "durationInFrames": 1003,
+    "startSeconds": 9.816666666666666,
+    "initial": "حوار افتراضي بين شخصين",
+    "change": "تظهر عبارة أحتاج أفكر بلا تداخل",
+    "purpose": "يحول الضغط العاطفي إلى موقف مفهوم",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Law",
+    "name": "القانون 31",
+    "from": 1592,
+    "durationInFrames": 1090,
+    "startSeconds": 26.533333333333335,
+    "initial": "كتاب توضيحي أصلي",
+    "change": "يحل محله رزم بطاقات وضعها غيرك",
+    "purpose": "يربط المثال بفكرة القانون31 مع قراءة نقدية",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Warning",
+    "name": "التنبيه الأخلاقي",
+    "from": 2682,
+    "durationInFrames": 729,
+    "startSeconds": 44.7,
+    "initial": "إشارة توقف",
+    "change": "الخداع والإكراه والاستغلال ثم الحكم الأخلاقي",
+    "purpose": "تحذير مسموع ومكتوب قبل شرح علامات الفخ",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Signs",
+    "name": "علامات الضغط",
+    "from": 3411,
+    "durationInFrames": 727,
+    "startSeconds": 56.85,
+    "initial": "بابان مرقمان",
+    "change": "يتقاربان مع اتهامات عاطفية",
+    "purpose": "يوضح التضييق بدل الخلاف العادي",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Nuance",
+    "name": "القيود الحقيقية",
+    "from": 4138,
+    "durationInFrames": 555,
+    "startSeconds": 68.96666666666667,
+    "initial": "خياران مرئيان",
+    "change": "تظهر أسئلة القيود والنقاش",
+    "purpose": "يمنع التعميم بأن كل خيارين تلاعب",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Response",
+    "name": "استعادة مساحة القرار",
+    "from": 4693,
+    "durationInFrames": 1047,
+    "startSeconds": 78.21666666666667,
+    "initial": "بابان خافتان ورفض الضغط",
+    "change": "يفتح باب ثالث وتظهر المهلة والرفض",
+    "purpose": "يعيد مساحة القرار ولا يحرض على التصعيد",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Ethics",
+    "name": "الوضوح الأخلاقي",
+    "from": 5740,
+    "durationInFrames": 584,
+    "startSeconds": 95.66666666666667,
+    "initial": "مساحة معلومات مشتركة",
+    "change": "تظهر القيود والكلفة والمعلومات",
+    "purpose": "يقدم بديلا أخلاقيا لمن يعرض الخيارات",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Contrast",
+    "name": "ترتيب أم تلاعب",
+    "from": 6324,
+    "durationInFrames": 572,
+    "startSeconds": 105.4,
+    "initial": "موعدان مع قبول اقتراح آخر",
+    "change": "يتحول الرسم إلى إخفاء البدائل لخدمة طرف",
+    "purpose": "يفرق التنظيم عن الخداع بالوضوح والرفض",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Reading",
+    "name": "قراءة نقدية",
+    "from": 6896,
+    "durationInFrames": 504,
+    "startSeconds": 114.93333333333334,
+    "initial": "الشخص والكتاب",
+    "change": "يكتمل إطار المسؤولية",
+    "purpose": "يفصل فهم ألعاب السلطة عن تبني أخلاقها",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  },
+  {
+    "id": "Ending",
+    "name": "من قال إن هذه كل الأبواب",
+    "from": 7400,
+    "durationInFrames": 489,
+    "startSeconds": 123.33333333333333,
+    "initial": "البابان المفروضان",
+    "change": "يفتح باب ثالث مع حق السؤال والرفض",
+    "purpose": "يختم بسؤال قابل للتذكر مرتبط بالقصة",
+    "verification": "Arabic and geometry checked by sampled frames; details in final-qa.json"
+  }
+]

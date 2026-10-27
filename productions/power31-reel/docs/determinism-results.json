@@ -1,0 +1,20 @@
+[
+  {
+    "frame": "element-000",
+    "pixel_equal": true,
+    "sha256_a": "6ee0a56da526b281964527a5b5b1216024d9c9c0f4443d92cc1280ae5065a047",
+    "sha256_b": "6ee0a56da526b281964527a5b5b1216024d9c9c0f4443d92cc1280ae5065a047"
+  },
+  {
+    "frame": "element-360",
+    "pixel_equal": true,
+    "sha256_a": "098aa7e232d2dd3fc3042bf65c2e6fdb7bc95773094bf7124ac582fcbad42cd1",
+    "sha256_b": "098aa7e232d2dd3fc3042bf65c2e6fdb7bc95773094bf7124ac582fcbad42cd1"
+  },
+  {
+    "frame": "element-719",
+    "pixel_equal": true,
+    "sha256_a": "375fd0be2993b460f3274ef1168375acc0931b38379a9fa45aff6ee6382d44c2",
+    "sha256_b": "375fd0be2993b460f3274ef1168375acc0931b38379a9fa45aff6ee6382d44c2"
+  }
+]

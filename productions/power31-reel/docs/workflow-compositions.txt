@@ -1,0 +1,31 @@
+Bundling code        ━                  8%
+Bundling code        ━━━╸               21%
+Bundling code        ━━━━━━━━━━━        64%
+Bundling code        ━━━━━━━━━━━━       69%
+Bundling code        ━━━━━━━━━━━━━      75%
+Bundling code        ━━━━━━━━━━━━━━     81%
+Bundling code        ━━━━━━━━━━━━━━━╸   87%
+Bundling code        ━━━━━━━━━━━━━━━━╸  93%
+Bundling code        ━━━━━━━━━━━━━━━━━━ 100%
+Bundled code         ━━━━━━━━━━━━━━━━━━ 1462ms
+
+The following compositions are available:
+
+Power31-Cinematic     60      1080x1920      2682 (44.70 sec)
+Cinematic-choice      60      1080x1920      589 (9.82 sec)
+Cinematic-pressure    60      1080x1920      1003 (16.72 sec)
+Cinematic-law         60      1080x1920      1090 (18.17 sec)
+Power31               60      1080x1920      7889 (131.48 sec)
+CinematicDemo         60      1080x1920      720 (12.00 sec)
+EngineProbe           60      1080x1920      240 (4.00 sec)
+Scene-Hook            60      1080x1920      589 (9.82 sec)
+Scene-Pressure        60      1080x1920      1003 (16.72 sec)
+Scene-Law             60      1080x1920      1090 (18.17 sec)
+Scene-Warning         60      1080x1920      729 (12.15 sec)
+Scene-Signs           60      1080x1920      727 (12.12 sec)
+Scene-Nuance          60      1080x1920      555 (9.25 sec)
+Scene-Response        60      1080x1920      1047 (17.45 sec)
+Scene-Ethics          60      1080x1920      584 (9.73 sec)
+Scene-Contrast        60      1080x1920      572 (9.53 sec)
+Scene-Reading         60      1080x1920      504 (8.40 sec)
+Scene-Ending          60      1080x1920      489 (8.15 sec)

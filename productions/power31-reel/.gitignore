@@ -1,0 +1,13 @@
+node_modules
+out
+public/audio/*
+public/fonts/*.ttf
+public/fx/*
+production/qa/
+__pycache__
+production/*.log
+
+.venv-cinematic/
+core
+
+public/projects/*.mp3

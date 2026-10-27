@@ -1,0 +1,17 @@
+{
+  "voice": "Mohammed \u2014 Deep Narrator & Documentary",
+  "voice_id": "DhfzvPf0OIN8xdGwcHOk",
+  "model": "eleven_v4",
+  "generation_id": "iSDC1n9ccDfALgdV4Elq",
+  "take": 3,
+  "generated_takes": 4,
+  "spoken_words": 261,
+  "raw_sha256": "5408907db14e06b4f353ef9396346b33dc48c41a533084facadb5b060707b33b",
+  "processed_sha256": "72f1f5f3742e601cea406bdee1245a7b00ed237b3613dc65cb798dc0ce53c0b8",
+  "audio_inputs": [
+    "public/audio/narration-raw.mp3"
+  ],
+  "music": false,
+  "sound_effects": false,
+  "processing_script": "scripts/prepare_audio.py"
+}

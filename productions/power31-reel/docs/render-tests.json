@@ -1,0 +1,5 @@
+{
+  "same_frame_pixel_identical": true,
+  "previous_video_frame_unchanged": true,
+  "manual_alpha": true
+}
