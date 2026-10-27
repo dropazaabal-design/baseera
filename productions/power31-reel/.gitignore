@@ -9,3 +9,5 @@ production/*.log
 
 .venv-cinematic/
 core
+
+public/projects/*.mp3

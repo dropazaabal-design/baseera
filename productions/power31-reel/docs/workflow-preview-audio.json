@@ -1,0 +1,13 @@
+{
+    "programs": [
+
+    ],
+    "streams": [
+        {
+            "codec_type": "video"
+        },
+        {
+            "codec_type": "audio"
+        }
+    ]
+}

@@ -34,7 +34,10 @@
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
     "check": "tsc --noEmit",
-    "render:final": "node scripts/render.mjs"
+    "render:final": "node scripts/render.mjs",
+    "video:prepare": "node scripts/workflow/prepare-project.cjs",
+    "video:render": "node scripts/workflow/render.mjs",
+    "video:test": "node scripts/workflow/test.cjs"
   },
   "allowScripts": {
     "esbuild": false

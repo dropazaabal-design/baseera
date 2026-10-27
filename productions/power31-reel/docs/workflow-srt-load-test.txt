@@ -1,0 +1,17 @@
+Bundling 8%
+Bundling 21%
+Bundling 64%
+Bundling 70%
+Bundling 75%
+Bundling 81%
+Bundling 87%
+Bundling 93%
+Bundling 100%
+Getting composition
+Composition          Power31-Cinematic
+Format               png
+Output               out/srt-lifecycle-check.png
+Rendered 0/1
+Rendered 0/1
+Rendered 1/1
++                    out/srt-lifecycle-check.png
