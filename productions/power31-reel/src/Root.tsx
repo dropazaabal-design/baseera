@@ -1,3 +1,5 @@
+import { EngineProbe } from "./cinematic/EngineProbe";
+import { CinematicDemo } from "./cinematic/CinematicDemo";
 import { Composition, Folder } from "remotion";
 import { Power31 } from "./Power31";
 import { Hook } from "./scenes/Hook";
@@ -20,6 +22,22 @@ export const RemotionRoot = () => (
       height={1920}
       fps={60}
       durationInFrames={7889}
+    />
+    <Composition
+      id="CinematicDemo"
+      component={CinematicDemo}
+      width={1080}
+      height={1920}
+      fps={60}
+      durationInFrames={720}
+    />
+    <Composition
+      id="EngineProbe"
+      component={EngineProbe}
+      width={1080}
+      height={1920}
+      fps={60}
+      durationInFrames={240}
     />
     <Folder name="Power31-Scenes">
       <Composition

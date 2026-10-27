@@ -1,0 +1,10 @@
+const fs=require('fs'),ts=require('typescript'),Module=require('module'),assert=require('assert');
+const code=ts.transpileModule(fs.readFileSync('src/cinematic/CinematicCameraEngine.tsx','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText;
+const m=new Module(require('path').resolve('engine-test-runtime.cjs'),module);m.filename=require("path").resolve("engine-test-runtime.cjs");m.paths=module.paths;m._compile(code,m.filename);const e=m.exports;
+const keys=[{frame:0,x:0,y:0,zoom:1},{frame:60,x:100,y:50,zoom:2}];assert.equal(e.CameraKeyframes(0,keys).zoom,1);assert.equal(e.CameraKeyframes(60,keys).zoom,2);assert.equal(e.CameraKeyframes(30,keys).x,50);
+for(const f of [0,15,30,60,719])assert.deepStrictEqual(e.CameraShake(f,5,7),e.CameraShake(f,5,7));
+assert.notDeepStrictEqual(e.layerTransform(30,{keys},{id:'bg',depth:-2}),e.layerTransform(30,{keys},{id:'fg',depth:2}));
+assert.throws(()=>e.CameraKeyframes(2,[]));assert.throws(()=>e.CameraKeyframes(2,[{frame:0,x:0,y:0,zoom:0}]));
+assert.equal(e.SmoothCameraFollow(42,keys,12).x,e.CameraKeyframes(30,keys).x);assert.equal(e.FocusTarget(0,{x:3,y:4}).y,4);
+const gsap=require('gsap').gsap;assert.equal(gsap.parseEase('power2.inOut')(.5),.5);const paths=require('@remotion/paths');assert(paths.getLength('M0 0L3 4')===5);assert(require('@remotion/transitions').TransitionSeries);
+console.log(JSON.stringify({cameraEndpoints:true,interpolation:true,depthSeparation:true,shakeDeterminism:true,follow:true,validation:true,gsap:true,paths:true,transitions:true}));

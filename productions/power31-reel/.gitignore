@@ -6,3 +6,6 @@ public/fx/*
 production/qa/
 __pycache__
 production/*.log
+
+.venv-cinematic/
+core
