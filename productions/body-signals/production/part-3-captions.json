@@ -1,0 +1,1738 @@
+[
+  {
+    "text": "كلمة",
+    "startMs": 210,
+    "endMs": 320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "واحدة",
+    "startMs": 400,
+    "endMs": 720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ممكن",
+    "startMs": 960,
+    "endMs": 1280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تورّطك",
+    "startMs": 1400,
+    "endMs": 1760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مع",
+    "startMs": 1840,
+    "endMs": 1920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أعراض",
+    "startMs": 1960,
+    "endMs": 2240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جسمك:",
+    "startMs": 2320,
+    "endMs": 3120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عادي.",
+    "startMs": 3200,
+    "endMs": 4000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خصوصًا",
+    "startMs": 4160,
+    "endMs": 4400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لما",
+    "startMs": 4480,
+    "endMs": 4640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الكلام",
+    "startMs": 4680,
+    "endMs": 5040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عن",
+    "startMs": 5120,
+    "endMs": 5200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحلق",
+    "startMs": 5280,
+    "endMs": 5680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والمعدة",
+    "startMs": 5760,
+    "endMs": 6240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والصدر.",
+    "startMs": 6320,
+    "endMs": 7200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "هذا",
+    "startMs": 7280,
+    "endMs": 7440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الجزء",
+    "startMs": 7560,
+    "endMs": 7760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الثالث،",
+    "startMs": 7840,
+    "endMs": 8560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وخلّنا",
+    "startMs": 8640,
+    "endMs": 9040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نفرّق",
+    "startMs": 9080,
+    "endMs": 9440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بهدوء.",
+    "startMs": 9480,
+    "endMs": 10400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أولًا،",
+    "startMs": 10440,
+    "endMs": 11120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحرقان",
+    "startMs": 11200,
+    "endMs": 11760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بعد",
+    "startMs": 11840,
+    "endMs": 12000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأكل.",
+    "startMs": 12080,
+    "endMs": 12880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "محتويات",
+    "startMs": 12920,
+    "endMs": 13440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المعدة",
+    "startMs": 13560,
+    "endMs": 13920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قد",
+    "startMs": 14080,
+    "endMs": 14160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ترجع",
+    "startMs": 14240,
+    "endMs": 14560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "للمريء",
+    "startMs": 14600,
+    "endMs": 15200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وتسبب",
+    "startMs": 15280,
+    "endMs": 15680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إحساس",
+    "startMs": 15720,
+    "endMs": 16080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحرقان.",
+    "startMs": 16120,
+    "endMs": 17040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وجبة",
+    "startMs": 17120,
+    "endMs": 17360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أصغر،",
+    "startMs": 17400,
+    "endMs": 17920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وتجنب",
+    "startMs": 17960,
+    "endMs": 18400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اللي",
+    "startMs": 18440,
+    "endMs": 18560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يثير",
+    "startMs": 18600,
+    "endMs": 18880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أعراضك،",
+    "startMs": 18920,
+    "endMs": 19600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وترك",
+    "startMs": 19640,
+    "endMs": 20000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وقت",
+    "startMs": 20080,
+    "endMs": 20240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بين",
+    "startMs": 20320,
+    "endMs": 20480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأكل",
+    "startMs": 20600,
+    "endMs": 20880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والنوم،",
+    "startMs": 20960,
+    "endMs": 21520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قد",
+    "startMs": 21600,
+    "endMs": 21680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تساعد.",
+    "startMs": 21800,
+    "endMs": 22560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 22640,
+    "endMs": 22880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حرقان",
+    "startMs": 23000,
+    "endMs": 23360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أغلب",
+    "startMs": 23440,
+    "endMs": 23680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأيام،",
+    "startMs": 23760,
+    "endMs": 24480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 24520,
+    "endMs": 24640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أكل",
+    "startMs": 24800,
+    "endMs": 24960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يعلق،",
+    "startMs": 25000,
+    "endMs": 25600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 25640,
+    "endMs": 25720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نزول",
+    "startMs": 25760,
+    "endMs": 26080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وزن",
+    "startMs": 26160,
+    "endMs": 26320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بلا",
+    "startMs": 26400,
+    "endMs": 26640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قصد،",
+    "startMs": 26800,
+    "endMs": 27200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يحتاج",
+    "startMs": 27240,
+    "endMs": 27600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مراجعة.",
+    "startMs": 27680,
+    "endMs": 28480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ومو",
+    "startMs": 28560,
+    "endMs": 28800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كل",
+    "startMs": 28880,
+    "endMs": 28960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ألم",
+    "startMs": 29040,
+    "endMs": 29200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "في",
+    "startMs": 29280,
+    "endMs": 29360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الصدر",
+    "startMs": 29400,
+    "endMs": 29760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نقول",
+    "startMs": 29840,
+    "endMs": 30160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عنه",
+    "startMs": 30200,
+    "endMs": 30400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حموضة.",
+    "startMs": 30480,
+    "endMs": 31360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ثانيًا،",
+    "startMs": 31400,
+    "endMs": 32080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الكتلة",
+    "startMs": 32200,
+    "endMs": 32560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "في",
+    "startMs": 32600,
+    "endMs": 32640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحلق.",
+    "startMs": 32680,
+    "endMs": 33440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحس",
+    "startMs": 33560,
+    "endMs": 33760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "شيء",
+    "startMs": 33840,
+    "endMs": 34040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "موجود،",
+    "startMs": 34080,
+    "endMs": 34800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مع",
+    "startMs": 34880,
+    "endMs": 34960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أنك",
+    "startMs": 35040,
+    "endMs": 35200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تبلع",
+    "startMs": 35280,
+    "endMs": 35600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأكل",
+    "startMs": 35680,
+    "endMs": 36000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والماء",
+    "startMs": 36040,
+    "endMs": 36400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طبيعي",
+    "startMs": 36440,
+    "endMs": 36880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ومن",
+    "startMs": 36920,
+    "endMs": 37040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "غير",
+    "startMs": 37120,
+    "endMs": 37280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ألم.",
+    "startMs": 37440,
+    "endMs": 37920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أحيانًا",
+    "startMs": 37960,
+    "endMs": 38480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يكون",
+    "startMs": 38640,
+    "endMs": 38880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إحساس",
+    "startMs": 38920,
+    "endMs": 39280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كتلة،",
+    "startMs": 39360,
+    "endMs": 39840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يرتبط",
+    "startMs": 39920,
+    "endMs": 40240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بشد",
+    "startMs": 40320,
+    "endMs": 40640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "العضلات",
+    "startMs": 40720,
+    "endMs": 41280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 41360,
+    "endMs": 41440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تهيج",
+    "startMs": 41520,
+    "endMs": 41920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحلق",
+    "startMs": 42000,
+    "endMs": 42320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والارتجاع.",
+    "startMs": 42400,
+    "endMs": 43280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "التوتر",
+    "startMs": 43360,
+    "endMs": 43920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قد",
+    "startMs": 44000,
+    "endMs": 44160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يزيده.",
+    "startMs": 44240,
+    "endMs": 44960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خذ",
+    "startMs": 45040,
+    "endMs": 45120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "رشفات",
+    "startMs": 45200,
+    "endMs": 45680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ماء",
+    "startMs": 45800,
+    "endMs": 45920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بدل",
+    "startMs": 46000,
+    "endMs": 46240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "التنحنح",
+    "startMs": 46280,
+    "endMs": 46773,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المتكرر.",
+    "startMs": 46827,
+    "endMs": 47680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أما",
+    "startMs": 47800,
+    "endMs": 47920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صعوبة",
+    "startMs": 48000,
+    "endMs": 48400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "البلع",
+    "startMs": 48480,
+    "endMs": 48773,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الحقيقية",
+    "startMs": 48827,
+    "endMs": 49440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 49680,
+    "endMs": 49840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ألم",
+    "startMs": 49960,
+    "endMs": 50080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "البلع",
+    "startMs": 50160,
+    "endMs": 50640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 50680,
+    "endMs": 50760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كتلة",
+    "startMs": 50800,
+    "endMs": 51120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بالرقبة،",
+    "startMs": 51200,
+    "endMs": 51920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فلا",
+    "startMs": 52000,
+    "endMs": 52160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تفسرها",
+    "startMs": 52240,
+    "endMs": 52640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بالتوتر",
+    "startMs": 52720,
+    "endMs": 53200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وحده.",
+    "startMs": 53280,
+    "endMs": 54000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ثالثًا،",
+    "startMs": 54200,
+    "endMs": 54800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الثقل",
+    "startMs": 54880,
+    "endMs": 55280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بعد",
+    "startMs": 55360,
+    "endMs": 55520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الوجبة.",
+    "startMs": 55600,
+    "endMs": 56400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحس",
+    "startMs": 56480,
+    "endMs": 56640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بالشبع",
+    "startMs": 56720,
+    "endMs": 57120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بسرعة،",
+    "startMs": 57200,
+    "endMs": 57840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 57867,
+    "endMs": 57920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "امتلاء",
+    "startMs": 58000,
+    "endMs": 58400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مزعج",
+    "startMs": 58480,
+    "endMs": 58880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وانتفاخ.",
+    "startMs": 58920,
+    "endMs": 59840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "هذا",
+    "startMs": 59920,
+    "endMs": 60240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قد",
+    "startMs": 60320,
+    "endMs": 60480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يدخل",
+    "startMs": 60560,
+    "endMs": 60800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ضمن",
+    "startMs": 60840,
+    "endMs": 61040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عسر",
+    "startMs": 61120,
+    "endMs": 61360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الهضم،",
+    "startMs": 61400,
+    "endMs": 61920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وله",
+    "startMs": 62000,
+    "endMs": 62160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أسباب",
+    "startMs": 62320,
+    "endMs": 62480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مختلفة.",
+    "startMs": 62560,
+    "endMs": 63360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خفف",
+    "startMs": 63480,
+    "endMs": 63760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حجم",
+    "startMs": 63880,
+    "endMs": 64000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الوجبة،",
+    "startMs": 64040,
+    "endMs": 64640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وكل",
+    "startMs": 64720,
+    "endMs": 64960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بهدوء،",
+    "startMs": 65040,
+    "endMs": 65680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وراقب",
+    "startMs": 65760,
+    "endMs": 66080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 66120,
+    "endMs": 66160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يزيد",
+    "startMs": 66240,
+    "endMs": 66480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأعراض.",
+    "startMs": 66560,
+    "endMs": 67360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 67440,
+    "endMs": 67600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الثقل",
+    "startMs": 67680,
+    "endMs": 68080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وحده",
+    "startMs": 68160,
+    "endMs": 68480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 68640,
+    "endMs": 68720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يكشف",
+    "startMs": 68800,
+    "endMs": 69120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كمية",
+    "startMs": 69240,
+    "endMs": 69520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حمض",
+    "startMs": 69600,
+    "endMs": 69800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "معدتك،",
+    "startMs": 69840,
+    "endMs": 70560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وما",
+    "startMs": 70640,
+    "endMs": 70760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يبرر",
+    "startMs": 70800,
+    "endMs": 71120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تجربة",
+    "startMs": 71200,
+    "endMs": 71600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الخل",
+    "startMs": 71680,
+    "endMs": 72000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كعلاج.",
+    "startMs": 72080,
+    "endMs": 72800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وإذا",
+    "startMs": 72840,
+    "endMs": 73040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "استمر",
+    "startMs": 73120,
+    "endMs": 73520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 73600,
+    "endMs": 73680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صار",
+    "startMs": 73760,
+    "endMs": 73920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "معه",
+    "startMs": 74000,
+    "endMs": 74240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قيء",
+    "startMs": 74320,
+    "endMs": 74560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "دموي",
+    "startMs": 74640,
+    "endMs": 75040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 75080,
+    "endMs": 75160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "براز",
+    "startMs": 75200,
+    "endMs": 75520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أسود،",
+    "startMs": 75640,
+    "endMs": 76160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اطلب",
+    "startMs": 76240,
+    "endMs": 76480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تقييمًا",
+    "startMs": 76680,
+    "endMs": 76960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طبيًا",
+    "startMs": 77040,
+    "endMs": 77440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "سريعًا.",
+    "startMs": 77520,
+    "endMs": 78400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "رابعًا،",
+    "startMs": 78560,
+    "endMs": 79200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نغزة",
+    "startMs": 79280,
+    "endMs": 79600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الصدر.",
+    "startMs": 79640,
+    "endMs": 80400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ممكن",
+    "startMs": 80440,
+    "endMs": 80720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يكون",
+    "startMs": 80760,
+    "endMs": 80960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "السبب",
+    "startMs": 81040,
+    "endMs": 81440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 81520,
+    "endMs": 81600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عضلات",
+    "startMs": 81680,
+    "endMs": 82000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جدار",
+    "startMs": 82080,
+    "endMs": 82320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الصدر،",
+    "startMs": 82360,
+    "endMs": 82960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 83040,
+    "endMs": 83280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وصفها",
+    "startMs": 83440,
+    "endMs": 83680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بأنها",
+    "startMs": 83760,
+    "endMs": 84160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نغزة",
+    "startMs": 84280,
+    "endMs": 84640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 84800,
+    "endMs": 84880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يكفي",
+    "startMs": 84960,
+    "endMs": 85200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عشان",
+    "startMs": 85280,
+    "endMs": 85520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نعرف",
+    "startMs": 85560,
+    "endMs": 85760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "السبب.",
+    "startMs": 85840,
+    "endMs": 86560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ألم",
+    "startMs": 86680,
+    "endMs": 86800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مفاجئ",
+    "startMs": 86880,
+    "endMs": 87360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 87440,
+    "endMs": 87520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يروح،",
+    "startMs": 87560,
+    "endMs": 88160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 88200,
+    "endMs": 88280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "معه",
+    "startMs": 88320,
+    "endMs": 88560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ضيق",
+    "startMs": 88640,
+    "endMs": 88880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نفس",
+    "startMs": 89080,
+    "endMs": 89280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 89360,
+    "endMs": 89440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تعرّق،",
+    "startMs": 89520,
+    "endMs": 90160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 90200,
+    "endMs": 90280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يمتد",
+    "startMs": 90320,
+    "endMs": 90640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "للذراع",
+    "startMs": 90760,
+    "endMs": 91200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 91240,
+    "endMs": 91360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الفك:",
+    "startMs": 91480,
+    "endMs": 92000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اطلب",
+    "startMs": 92080,
+    "endMs": 92320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الإسعاف",
+    "startMs": 92400,
+    "endMs": 92800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فورًا.",
+    "startMs": 92880,
+    "endMs": 93520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والألم",
+    "startMs": 93600,
+    "endMs": 94000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اللي",
+    "startMs": 94040,
+    "endMs": 94160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يجي",
+    "startMs": 94280,
+    "endMs": 94440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ويروح",
+    "startMs": 94480,
+    "endMs": 94960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يستحق",
+    "startMs": 95120,
+    "endMs": 95520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مراجعة",
+    "startMs": 95600,
+    "endMs": 96000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أيضًا.",
+    "startMs": 96080,
+    "endMs": 96880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اكتملت",
+    "startMs": 96960,
+    "endMs": 97360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "السلسلة.",
+    "startMs": 97440,
+    "endMs": 98240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لا",
+    "startMs": 98320,
+    "endMs": 98400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحوّل",
+    "startMs": 98480,
+    "endMs": 98800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كل",
+    "startMs": 98880,
+    "endMs": 99040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إحساس",
+    "startMs": 99080,
+    "endMs": 99440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إلى",
+    "startMs": 99520,
+    "endMs": 99680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كارثة،",
+    "startMs": 99760,
+    "endMs": 100400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ولا",
+    "startMs": 100520,
+    "endMs": 100640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كل",
+    "startMs": 100760,
+    "endMs": 100880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عرض",
+    "startMs": 101040,
+    "endMs": 101200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إلى",
+    "startMs": 101280,
+    "endMs": 101440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كلمة",
+    "startMs": 101560,
+    "endMs": 101840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عادي.",
+    "startMs": 101880,
+    "endMs": 102480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ارجع",
+    "startMs": 102560,
+    "endMs": 102800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "للجزء",
+    "startMs": 102880,
+    "endMs": 103200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأول،",
+    "startMs": 103320,
+    "endMs": 103840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وبتشوف",
+    "startMs": 103960,
+    "endMs": 104320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "القاعدة",
+    "startMs": 104360,
+    "endMs": 104800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تتكرر:",
+    "startMs": 104840,
+    "endMs": 105680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "السبب",
+    "startMs": 105760,
+    "endMs": 106080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المحتمل",
+    "startMs": 106160,
+    "endMs": 106720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يساعدك",
+    "startMs": 106800,
+    "endMs": 107320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تفهم،",
+    "startMs": 107360,
+    "endMs": 108000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 108080,
+    "endMs": 108240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الاستمرار",
+    "startMs": 108320,
+    "endMs": 108960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والأعراض",
+    "startMs": 109000,
+    "endMs": 109440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المصاحبة",
+    "startMs": 109520,
+    "endMs": 110160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يغيّران",
+    "startMs": 110400,
+    "endMs": 110880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "القرار.",
+    "startMs": 110960,
+    "endMs": 111569,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

@@ -1,0 +1,18 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+
+# Reproducible EffectCraft overlays and intermediate PCM.
+public/fx/
+public/audio/*.wav
+public/audio/*-raw.mp3
+production/local-*.json
+
+public/audio/*.flac
+public/fonts/*.ttf
+
+production/qa/

@@ -1,0 +1,203 @@
+[
+  {
+    "part": 1,
+    "duration": 97.880816,
+    "frames": 5894,
+    "scenes": [
+      {
+        "id": "intro",
+        "start": 0,
+        "end": 9.16,
+        "from": 0,
+        "frames": 550,
+        "beats": []
+      },
+      {
+        "id": "dizzy",
+        "start": 9.16,
+        "end": 30.2,
+        "from": 550,
+        "frames": 1262,
+        "beats": [5.2, 10.6, 13.88, 16.16]
+      },
+      {
+        "id": "tingles",
+        "start": 30.2,
+        "end": 52.64,
+        "from": 1812,
+        "frames": 1346,
+        "beats": [6.44, 10.36, 12.52, 17.56]
+      },
+      {
+        "id": "stretch",
+        "start": 52.64,
+        "end": 70.4,
+        "from": 3158,
+        "frames": 1066,
+        "beats": [4.84, 8.48, 10.8, 15.12]
+      },
+      {
+        "id": "sleep",
+        "start": 70.4,
+        "end": 87.56,
+        "from": 4224,
+        "frames": 1030,
+        "beats": [5.56, 7.16, 9.0, 13.28]
+      },
+      {
+        "id": "outro",
+        "start": 87.56,
+        "end": 98.233,
+        "from": 5254,
+        "frames": 640,
+        "beats": []
+      }
+    ],
+    "audio_normalization": {
+      "input_i": "-20.29",
+      "input_tp": "-1.54",
+      "input_lra": "3.30",
+      "input_thresh": "-30.83",
+      "output_i": "-17.87",
+      "output_tp": "-4.00",
+      "output_lra": "2.40",
+      "output_thresh": "-28.33",
+      "normalization_type": "dynamic",
+      "target_offset": "1.87"
+    }
+  },
+  {
+    "part": 2,
+    "duration": 105.325714,
+    "frames": 6341,
+    "scenes": [
+      {
+        "id": "intro",
+        "start": 0,
+        "end": 8.04,
+        "from": 0,
+        "frames": 482,
+        "beats": []
+      },
+      {
+        "id": "eye",
+        "start": 8.04,
+        "end": 31.24,
+        "from": 482,
+        "frames": 1392,
+        "beats": [5.28, 11.08, 13.16, 17.08]
+      },
+      {
+        "id": "freeze",
+        "start": 31.24,
+        "end": 51,
+        "from": 1874,
+        "frames": 1186,
+        "beats": [5.88, 9.68, 14.52, 17.6]
+      },
+      {
+        "id": "skin",
+        "start": 51,
+        "end": 70.52,
+        "from": 3060,
+        "frames": 1171,
+        "beats": [7.2, 12.32, 14.96, 17.04]
+      },
+      {
+        "id": "tinnitus",
+        "start": 70.52,
+        "end": 93.84,
+        "from": 4231,
+        "frames": 1399,
+        "beats": [5.32, 8.92, 14.0, 17.4, 19.56]
+      },
+      {
+        "id": "outro",
+        "start": 93.84,
+        "end": 105.683,
+        "from": 5630,
+        "frames": 711,
+        "beats": []
+      }
+    ],
+    "audio_normalization": {
+      "input_i": "-20.42",
+      "input_tp": "-1.44",
+      "input_lra": "4.50",
+      "input_thresh": "-30.89",
+      "output_i": "-18.28",
+      "output_tp": "-4.00",
+      "output_lra": "2.50",
+      "output_thresh": "-28.68",
+      "normalization_type": "dynamic",
+      "target_offset": "2.28"
+    }
+  },
+  {
+    "part": 3,
+    "duration": 111.56898,
+    "frames": 6716,
+    "scenes": [
+      {
+        "id": "intro",
+        "start": 0,
+        "end": 10.44,
+        "from": 0,
+        "frames": 626,
+        "beats": []
+      },
+      {
+        "id": "reflux",
+        "start": 10.44,
+        "end": 31.4,
+        "from": 626,
+        "frames": 1258,
+        "beats": [2.48, 6.68, 12.2, 18.12]
+      },
+      {
+        "id": "globus",
+        "start": 31.4,
+        "end": 54.2,
+        "from": 1884,
+        "frames": 1368,
+        "beats": [6.56, 11.96, 13.64, 16.4]
+      },
+      {
+        "id": "fullness",
+        "start": 54.2,
+        "end": 78.56,
+        "from": 3252,
+        "frames": 1462,
+        "beats": [5.72, 9.28, 13.24, 18.64]
+      },
+      {
+        "id": "chest",
+        "start": 78.56,
+        "end": 96.96,
+        "from": 4714,
+        "frames": 1104,
+        "beats": [1.88, 4.48, 8.12, 13.52, 15.04]
+      },
+      {
+        "id": "outro",
+        "start": 96.96,
+        "end": 111.933,
+        "from": 5818,
+        "frames": 898,
+        "beats": []
+      }
+    ],
+    "audio_normalization": {
+      "input_i": "-18.36",
+      "input_tp": "-0.93",
+      "input_lra": "2.70",
+      "input_thresh": "-28.83",
+      "output_i": "-17.77",
+      "output_tp": "-4.00",
+      "output_lra": "2.10",
+      "output_thresh": "-28.18",
+      "normalization_type": "dynamic",
+      "target_offset": "1.77"
+    }
+  }
+]

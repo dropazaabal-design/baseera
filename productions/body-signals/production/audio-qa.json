@@ -1,0 +1,23 @@
+[
+  {
+    "part": 1,
+    "true_peak_dbtp": -4.65,
+    "lra_lu": 1.9,
+    "mono_master_integrated_lufs": -16.06,
+    "notes": "Mono master; the video uses -3 dB per channel on stereo duplication so its integrated loudness remains near -16 LUFS."
+  },
+  {
+    "part": 2,
+    "true_peak_dbtp": -4.65,
+    "lra_lu": 2.2,
+    "mono_master_integrated_lufs": -16.06,
+    "notes": "Mono master; the video uses -3 dB per channel on stereo duplication so its integrated loudness remains near -16 LUFS."
+  },
+  {
+    "part": 3,
+    "true_peak_dbtp": -4.65,
+    "lra_lu": 1.6,
+    "mono_master_integrated_lufs": -16.03,
+    "notes": "Mono master; the video uses -3 dB per channel on stereo duplication so its integrated loudness remains near -16 LUFS."
+  }
+]
