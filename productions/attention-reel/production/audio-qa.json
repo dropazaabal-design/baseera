@@ -1,0 +1,14 @@
+{
+  "narration": {
+    "integrated_lufs": -16.2,
+    "true_peak_dbtp": -4.65
+  },
+  "original-music": {
+    "integrated_lufs": -34.0,
+    "true_peak_dbtp": -25.01
+  },
+  "mix": {
+    "integrated_lufs": -16.0,
+    "true_peak_dbtp": -7.04
+  }
+}

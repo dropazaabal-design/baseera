@@ -1,0 +1,21 @@
+{
+  "duration_seconds": 80.384,
+  "frames": 4822,
+  "fps": "60/1",
+  "width": 1080,
+  "height": 1920,
+  "codec": "h264",
+  "pixel_format": "yuv420p",
+  "color_space": "bt709",
+  "audio_channels": 2,
+  "audio_codec": "aac",
+  "audio_sample_rate": "48000",
+  "integrated_lufs": -16.0,
+  "true_peak_dbtp": -7.0,
+  "black_intervals": [],
+  "silence_events": [],
+  "audio_start": "0.000000",
+  "video_start": "0.000000",
+  "visual_review": "18 samples across scene states plus targeted checks of revised diagram labels and book geometry; not a manual check of every frame.",
+  "music_source": "Original procedural score with no external recordings, samples, loops or reference songs; no platform Content ID upload test performed."
+}
