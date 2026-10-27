@@ -1,0 +1,41 @@
+{
+  "duration_seconds": 131.499,
+  "picture_duration_seconds": 131.483333,
+  "decoded_frames": 7889,
+  "fps": "60/1",
+  "width": 1080,
+  "height": 1920,
+  "codec": "h264",
+  "pixel_format": "yuv420p",
+  "color_space": "bt709",
+  "audio_codec": "aac",
+  "audio_channels": 2,
+  "sample_rate": "48000",
+  "audio_start_seconds": "0.000000",
+  "video_start_seconds": "0.000000",
+  "integrated_lufs": -16.0,
+  "true_peak_dbtp": -4.8,
+  "loudness_range_lu": 2.9,
+  "black_intervals": [],
+  "freeze_intervals": [],
+  "silence_events": [],
+  "thresholds": {
+    "black_min_seconds": 0.1,
+    "black_pixel_threshold": 0.04,
+    "freeze_min_seconds": 3,
+    "freeze_noise_db": -65,
+    "silence_min_seconds": 0.8,
+    "silence_noise_db": -42
+  },
+  "music": false,
+  "sound_effects": false,
+  "audio_sources": 1,
+  "ethical_warning_interval_seconds": [
+    44.7,
+    56.85
+  ],
+  "visual_review": "22 distributed frames, followed by two targeted checks after fixing a label underline and an icon gap. This is sampled visual review, not a manual review of every frame.",
+  "alignment": "Word timing data drives per-scene captions. Equal audio/video start timestamps verified; full phoneme-level synchronization was not measured.",
+  "sha256": "33b5f25d05bfaf38e36124ac4b9b36f1994aa715536d78b1129e9f27331ba3f7",
+  "effect_visual_review": "The mounted EffectCraft door overlay was also checked in a frame extracted from the final MP4 at 84 seconds."
+}

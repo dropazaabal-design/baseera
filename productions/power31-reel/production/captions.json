@@ -1,0 +1,1869 @@
+[
+  {
+    "text": " مو",
+    "startMs": 160,
+    "endMs": 320,
+    "timestampMs": 240,
+    "confidence": null
+  },
+  {
+    "text": " كل",
+    "startMs": 440,
+    "endMs": 560,
+    "timestampMs": 500,
+    "confidence": null
+  },
+  {
+    "text": " من",
+    "startMs": 640,
+    "endMs": 720,
+    "timestampMs": 680,
+    "confidence": null
+  },
+  {
+    "text": " قال",
+    "startMs": 800,
+    "endMs": 960,
+    "timestampMs": 880,
+    "confidence": null
+  },
+  {
+    "text": " لك:",
+    "startMs": 1120,
+    "endMs": 1480,
+    "timestampMs": 1300,
+    "confidence": null
+  },
+  {
+    "text": " اختر...",
+    "startMs": 1680,
+    "endMs": 2440,
+    "timestampMs": 2060,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " أعطاك",
+    "startMs": 2640,
+    "endMs": 3040,
+    "timestampMs": 2840,
+    "confidence": null
+  },
+  {
+    "text": " حرية.",
+    "startMs": 3120,
+    "endMs": 3960,
+    "timestampMs": 3540,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " أحيانًا",
+    "startMs": 4320,
+    "endMs": 4800,
+    "timestampMs": 4560,
+    "confidence": null
+  },
+  {
+    "text": " يفتح",
+    "startMs": 4880,
+    "endMs": 5120,
+    "timestampMs": 5000,
+    "confidence": null
+  },
+  {
+    "text": " لك",
+    "startMs": 5240,
+    "endMs": 5360,
+    "timestampMs": 5300,
+    "confidence": null
+  },
+  {
+    "text": " بابين...",
+    "startMs": 5480,
+    "endMs": 6320,
+    "timestampMs": 5900,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وكل",
+    "startMs": 6440,
+    "endMs": 6800,
+    "timestampMs": 6620,
+    "confidence": null
+  },
+  {
+    "text": " باب",
+    "startMs": 6880,
+    "endMs": 7200,
+    "timestampMs": 7040,
+    "confidence": null
+  },
+  {
+    "text": " يرجّعك",
+    "startMs": 7600,
+    "endMs": 8160,
+    "timestampMs": 7880,
+    "confidence": null
+  },
+  {
+    "text": " لنفس",
+    "startMs": 8240,
+    "endMs": 8560,
+    "timestampMs": 8400,
+    "confidence": null
+  },
+  {
+    "text": " المكان.",
+    "startMs": 8640,
+    "endMs": 9680,
+    "timestampMs": 9160,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " تخيّل",
+    "startMs": 9820,
+    "endMs": 10120,
+    "timestampMs": 9970,
+    "confidence": null
+  },
+  {
+    "text": " شخصًا",
+    "startMs": 10160,
+    "endMs": 10480,
+    "timestampMs": 10320,
+    "confidence": null
+  },
+  {
+    "text": " يقول",
+    "startMs": 10560,
+    "endMs": 10800,
+    "timestampMs": 10680,
+    "confidence": null
+  },
+  {
+    "text": " لك:",
+    "startMs": 10880,
+    "endMs": 11520,
+    "timestampMs": 11200,
+    "confidence": null
+  },
+  {
+    "text": " إما",
+    "startMs": 11560,
+    "endMs": 11760,
+    "timestampMs": 11660,
+    "confidence": null
+  },
+  {
+    "text": " توافق",
+    "startMs": 11840,
+    "endMs": 12240,
+    "timestampMs": 12040,
+    "confidence": null
+  },
+  {
+    "text": " الآن،",
+    "startMs": 12320,
+    "endMs": 12880,
+    "timestampMs": 12600,
+    "confidence": null
+  },
+  {
+    "text": " أو",
+    "startMs": 12920,
+    "endMs": 13040,
+    "timestampMs": 12980,
+    "confidence": null
+  },
+  {
+    "text": " هذا",
+    "startMs": 13120,
+    "endMs": 13360,
+    "timestampMs": 13240,
+    "confidence": null
+  },
+  {
+    "text": " دليل",
+    "startMs": 13440,
+    "endMs": 13760,
+    "timestampMs": 13600,
+    "confidence": null
+  },
+  {
+    "text": " أنك",
+    "startMs": 13840,
+    "endMs": 14080,
+    "timestampMs": 13960,
+    "confidence": null
+  },
+  {
+    "text": " ما",
+    "startMs": 14160,
+    "endMs": 14200,
+    "timestampMs": 14180,
+    "confidence": null
+  },
+  {
+    "text": " تثق",
+    "startMs": 14240,
+    "endMs": 14560,
+    "timestampMs": 14400,
+    "confidence": null
+  },
+  {
+    "text": " فيني.",
+    "startMs": 14680,
+    "endMs": 15360,
+    "timestampMs": 15020,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " تبدأ",
+    "startMs": 15400,
+    "endMs": 15680,
+    "timestampMs": 15540,
+    "confidence": null
+  },
+  {
+    "text": " تدافع",
+    "startMs": 15760,
+    "endMs": 16080,
+    "timestampMs": 15920,
+    "confidence": null
+  },
+  {
+    "text": " عن",
+    "startMs": 16120,
+    "endMs": 16160,
+    "timestampMs": 16140,
+    "confidence": null
+  },
+  {
+    "text": " نفسك.",
+    "startMs": 16240,
+    "endMs": 16960,
+    "timestampMs": 16600,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " تشرح",
+    "startMs": 17040,
+    "endMs": 17360,
+    "timestampMs": 17200,
+    "confidence": null
+  },
+  {
+    "text": " محبتك.",
+    "startMs": 17480,
+    "endMs": 18320,
+    "timestampMs": 17900,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " تحاول",
+    "startMs": 18400,
+    "endMs": 18720,
+    "timestampMs": 18560,
+    "confidence": null
+  },
+  {
+    "text": " تثبت",
+    "startMs": 18800,
+    "endMs": 19120,
+    "timestampMs": 18960,
+    "confidence": null
+  },
+  {
+    "text": " حسن",
+    "startMs": 19280,
+    "endMs": 19440,
+    "timestampMs": 19360,
+    "confidence": null
+  },
+  {
+    "text": " نيتك.",
+    "startMs": 19560,
+    "endMs": 20320,
+    "timestampMs": 19940,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " ولحظة...",
+    "startMs": 20400,
+    "endMs": 21200,
+    "timestampMs": 20800,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " متى",
+    "startMs": 21280,
+    "endMs": 21520,
+    "timestampMs": 21400,
+    "confidence": null
+  },
+  {
+    "text": " صار",
+    "startMs": 21640,
+    "endMs": 21760,
+    "timestampMs": 21700,
+    "confidence": null
+  },
+  {
+    "text": " قرارك",
+    "startMs": 21840,
+    "endMs": 22240,
+    "timestampMs": 22040,
+    "confidence": null
+  },
+  {
+    "text": " اختبارًا",
+    "startMs": 22480,
+    "endMs": 22800,
+    "timestampMs": 22640,
+    "confidence": null
+  },
+  {
+    "text": " لوفائك؟",
+    "startMs": 22880,
+    "endMs": 23920,
+    "timestampMs": 23400,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وأين",
+    "startMs": 23960,
+    "endMs": 24240,
+    "timestampMs": 24100,
+    "confidence": null
+  },
+  {
+    "text": " خيار:",
+    "startMs": 24320,
+    "endMs": 25040,
+    "timestampMs": 24680,
+    "confidence": null
+  },
+  {
+    "text": " أحتاج",
+    "startMs": 25080,
+    "endMs": 25440,
+    "timestampMs": 25260,
+    "confidence": null
+  },
+  {
+    "text": " أفكّر؟",
+    "startMs": 25520,
+    "endMs": 26400,
+    "timestampMs": 25960,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " في",
+    "startMs": 26533,
+    "endMs": 26560,
+    "timestampMs": 26546,
+    "confidence": null
+  },
+  {
+    "text": " كتاب",
+    "startMs": 26680,
+    "endMs": 26960,
+    "timestampMs": 26820,
+    "confidence": null
+  },
+  {
+    "text": " «ثمانية",
+    "startMs": 27120,
+    "endMs": 27600,
+    "timestampMs": 27360,
+    "confidence": null
+  },
+  {
+    "text": " وأربعون",
+    "startMs": 27760,
+    "endMs": 28240,
+    "timestampMs": 28000,
+    "confidence": null
+  },
+  {
+    "text": " قانونًا",
+    "startMs": 28400,
+    "endMs": 28800,
+    "timestampMs": 28600,
+    "confidence": null
+  },
+  {
+    "text": " للسلطة»",
+    "startMs": 28880,
+    "endMs": 29440,
+    "timestampMs": 29160,
+    "confidence": null
+  },
+  {
+    "text": " لروبرت",
+    "startMs": 29600,
+    "endMs": 30000,
+    "timestampMs": 29800,
+    "confidence": null
+  },
+  {
+    "text": " غرين،",
+    "startMs": 30080,
+    "endMs": 30800,
+    "timestampMs": 30440,
+    "confidence": null
+  },
+  {
+    "text": " القانون",
+    "startMs": 30920,
+    "endMs": 31280,
+    "timestampMs": 31100,
+    "confidence": null
+  },
+  {
+    "text": " الحادي",
+    "startMs": 31360,
+    "endMs": 31760,
+    "timestampMs": 31560,
+    "confidence": null
+  },
+  {
+    "text": " والثلاثون",
+    "startMs": 31840,
+    "endMs": 32480,
+    "timestampMs": 32160,
+    "confidence": null
+  },
+  {
+    "text": " يتناول",
+    "startMs": 32560,
+    "endMs": 33120,
+    "timestampMs": 32840,
+    "confidence": null
+  },
+  {
+    "text": " التحكم",
+    "startMs": 33160,
+    "endMs": 33680,
+    "timestampMs": 33420,
+    "confidence": null
+  },
+  {
+    "text": " بالخيارات.",
+    "startMs": 33760,
+    "endMs": 34720,
+    "timestampMs": 34240,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " فكرته",
+    "startMs": 34880,
+    "endMs": 35360,
+    "timestampMs": 35120,
+    "confidence": null
+  },
+  {
+    "text": " أن",
+    "startMs": 35600,
+    "endMs": 35760,
+    "timestampMs": 35680,
+    "confidence": null
+  },
+  {
+    "text": " من",
+    "startMs": 35840,
+    "endMs": 35920,
+    "timestampMs": 35880,
+    "confidence": null
+  },
+  {
+    "text": " يرسم",
+    "startMs": 36000,
+    "endMs": 36320,
+    "timestampMs": 36160,
+    "confidence": null
+  },
+  {
+    "text": " حدود",
+    "startMs": 36480,
+    "endMs": 36640,
+    "timestampMs": 36560,
+    "confidence": null
+  },
+  {
+    "text": " الاختيار،",
+    "startMs": 36680,
+    "endMs": 37520,
+    "timestampMs": 37100,
+    "confidence": null
+  },
+  {
+    "text": " قد",
+    "startMs": 37600,
+    "endMs": 37680,
+    "timestampMs": 37640,
+    "confidence": null
+  },
+  {
+    "text": " يوجّه",
+    "startMs": 37720,
+    "endMs": 38080,
+    "timestampMs": 37900,
+    "confidence": null
+  },
+  {
+    "text": " النتيجة",
+    "startMs": 38160,
+    "endMs": 38720,
+    "timestampMs": 38440,
+    "confidence": null
+  },
+  {
+    "text": " قبل",
+    "startMs": 38800,
+    "endMs": 39040,
+    "timestampMs": 38920,
+    "confidence": null
+  },
+  {
+    "text": " أن",
+    "startMs": 39080,
+    "endMs": 39120,
+    "timestampMs": 39100,
+    "confidence": null
+  },
+  {
+    "text": " تقرر.",
+    "startMs": 39200,
+    "endMs": 40000,
+    "timestampMs": 39600,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " كأنك",
+    "startMs": 40040,
+    "endMs": 40400,
+    "timestampMs": 40220,
+    "confidence": null
+  },
+  {
+    "text": " تمسك",
+    "startMs": 40480,
+    "endMs": 40800,
+    "timestampMs": 40640,
+    "confidence": null
+  },
+  {
+    "text": " البطاقات...",
+    "startMs": 40840,
+    "endMs": 41760,
+    "timestampMs": 41300,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " لكن",
+    "startMs": 41880,
+    "endMs": 42040,
+    "timestampMs": 41960,
+    "confidence": null
+  },
+  {
+    "text": " شخصًا",
+    "startMs": 42080,
+    "endMs": 42480,
+    "timestampMs": 42280,
+    "confidence": null
+  },
+  {
+    "text": " آخر",
+    "startMs": 42560,
+    "endMs": 42880,
+    "timestampMs": 42720,
+    "confidence": null
+  },
+  {
+    "text": " اختار",
+    "startMs": 43120,
+    "endMs": 43440,
+    "timestampMs": 43280,
+    "confidence": null
+  },
+  {
+    "text": " لك",
+    "startMs": 43520,
+    "endMs": 43680,
+    "timestampMs": 43600,
+    "confidence": null
+  },
+  {
+    "text": " الأوراق.",
+    "startMs": 43760,
+    "endMs": 44560,
+    "timestampMs": 44160,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وتنبيه",
+    "startMs": 44697,
+    "endMs": 45200,
+    "timestampMs": 44948,
+    "confidence": null
+  },
+  {
+    "text": " واضح:",
+    "startMs": 45280,
+    "endMs": 46080,
+    "timestampMs": 45680,
+    "confidence": null
+  },
+  {
+    "text": " هذا",
+    "startMs": 46160,
+    "endMs": 46320,
+    "timestampMs": 46240,
+    "confidence": null
+  },
+  {
+    "text": " الشرح",
+    "startMs": 46400,
+    "endMs": 46800,
+    "timestampMs": 46600,
+    "confidence": null
+  },
+  {
+    "text": " لتكشف",
+    "startMs": 46880,
+    "endMs": 47360,
+    "timestampMs": 47120,
+    "confidence": null
+  },
+  {
+    "text": " التلاعب",
+    "startMs": 47480,
+    "endMs": 48000,
+    "timestampMs": 47740,
+    "confidence": null
+  },
+  {
+    "text": " وتحمي",
+    "startMs": 48080,
+    "endMs": 48480,
+    "timestampMs": 48280,
+    "confidence": null
+  },
+  {
+    "text": " نفسك.",
+    "startMs": 48640,
+    "endMs": 49280,
+    "timestampMs": 48960,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " لا",
+    "startMs": 49360,
+    "endMs": 49440,
+    "timestampMs": 49400,
+    "confidence": null
+  },
+  {
+    "text": " لتخدع",
+    "startMs": 49560,
+    "endMs": 49920,
+    "timestampMs": 49740,
+    "confidence": null
+  },
+  {
+    "text": " الناس،",
+    "startMs": 49960,
+    "endMs": 50560,
+    "timestampMs": 50260,
+    "confidence": null
+  },
+  {
+    "text": " أو",
+    "startMs": 50587,
+    "endMs": 50640,
+    "timestampMs": 50614,
+    "confidence": null
+  },
+  {
+    "text": " تحاصرهم،",
+    "startMs": 50720,
+    "endMs": 51600,
+    "timestampMs": 51160,
+    "confidence": null
+  },
+  {
+    "text": " أو",
+    "startMs": 51627,
+    "endMs": 51680,
+    "timestampMs": 51654,
+    "confidence": null
+  },
+  {
+    "text": " تستغل",
+    "startMs": 51760,
+    "endMs": 52240,
+    "timestampMs": 52000,
+    "confidence": null
+  },
+  {
+    "text": " حاجتهم.",
+    "startMs": 52320,
+    "endMs": 53200,
+    "timestampMs": 52760,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " السيطرة",
+    "startMs": 53280,
+    "endMs": 53720,
+    "timestampMs": 53500,
+    "confidence": null
+  },
+  {
+    "text": " على",
+    "startMs": 53760,
+    "endMs": 53920,
+    "timestampMs": 53840,
+    "confidence": null
+  },
+  {
+    "text": " إنسان",
+    "startMs": 54000,
+    "endMs": 54640,
+    "timestampMs": 54320,
+    "confidence": null
+  },
+  {
+    "text": " ليست",
+    "startMs": 54760,
+    "endMs": 55120,
+    "timestampMs": 54940,
+    "confidence": null
+  },
+  {
+    "text": " إنجازًا",
+    "startMs": 55200,
+    "endMs": 55600,
+    "timestampMs": 55400,
+    "confidence": null
+  },
+  {
+    "text": " أخلاقيًا.",
+    "startMs": 55680,
+    "endMs": 56640,
+    "timestampMs": 56160,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " كيف",
+    "startMs": 56846,
+    "endMs": 56880,
+    "timestampMs": 56863,
+    "confidence": null
+  },
+  {
+    "text": " تلاحظ",
+    "startMs": 56960,
+    "endMs": 57280,
+    "timestampMs": 57120,
+    "confidence": null
+  },
+  {
+    "text": " الفخ؟",
+    "startMs": 57360,
+    "endMs": 58080,
+    "timestampMs": 57720,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " حين",
+    "startMs": 58200,
+    "endMs": 58320,
+    "timestampMs": 58260,
+    "confidence": null
+  },
+  {
+    "text": " يحصر",
+    "startMs": 58400,
+    "endMs": 58640,
+    "timestampMs": 58520,
+    "confidence": null
+  },
+  {
+    "text": " النقاش",
+    "startMs": 58720,
+    "endMs": 59200,
+    "timestampMs": 58960,
+    "confidence": null
+  },
+  {
+    "text": " في",
+    "startMs": 59280,
+    "endMs": 59360,
+    "timestampMs": 59320,
+    "confidence": null
+  },
+  {
+    "text": " خيارين",
+    "startMs": 59440,
+    "endMs": 59920,
+    "timestampMs": 59680,
+    "confidence": null
+  },
+  {
+    "text": " يخدمانه،",
+    "startMs": 60000,
+    "endMs": 60800,
+    "timestampMs": 60400,
+    "confidence": null
+  },
+  {
+    "text": " ويعامل",
+    "startMs": 60880,
+    "endMs": 61360,
+    "timestampMs": 61120,
+    "confidence": null
+  },
+  {
+    "text": " كل",
+    "startMs": 61520,
+    "endMs": 61760,
+    "timestampMs": 61640,
+    "confidence": null
+  },
+  {
+    "text": " بديل",
+    "startMs": 61800,
+    "endMs": 62160,
+    "timestampMs": 61980,
+    "confidence": null
+  },
+  {
+    "text": " آخر",
+    "startMs": 62240,
+    "endMs": 62640,
+    "timestampMs": 62440,
+    "confidence": null
+  },
+  {
+    "text": " كأنه",
+    "startMs": 62720,
+    "endMs": 63200,
+    "timestampMs": 62960,
+    "confidence": null
+  },
+  {
+    "text": " ممنوع.",
+    "startMs": 63240,
+    "endMs": 63920,
+    "timestampMs": 63580,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وحين",
+    "startMs": 64000,
+    "endMs": 64240,
+    "timestampMs": 64120,
+    "confidence": null
+  },
+  {
+    "text": " يربط",
+    "startMs": 64320,
+    "endMs": 64640,
+    "timestampMs": 64480,
+    "confidence": null
+  },
+  {
+    "text": " رفضك",
+    "startMs": 64800,
+    "endMs": 65120,
+    "timestampMs": 64960,
+    "confidence": null
+  },
+  {
+    "text": " بتهمة:",
+    "startMs": 65240,
+    "endMs": 65920,
+    "timestampMs": 65580,
+    "confidence": null
+  },
+  {
+    "text": " أناني،",
+    "startMs": 66000,
+    "endMs": 66720,
+    "timestampMs": 66360,
+    "confidence": null
+  },
+  {
+    "text": " جبان،",
+    "startMs": 66800,
+    "endMs": 67520,
+    "timestampMs": 67160,
+    "confidence": null
+  },
+  {
+    "text": " أو",
+    "startMs": 67547,
+    "endMs": 67600,
+    "timestampMs": 67574,
+    "confidence": null
+  },
+  {
+    "text": " قليل",
+    "startMs": 67680,
+    "endMs": 68000,
+    "timestampMs": 67840,
+    "confidence": null
+  },
+  {
+    "text": " وفاء.",
+    "startMs": 68080,
+    "endMs": 68800,
+    "timestampMs": 68440,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وجود",
+    "startMs": 68960,
+    "endMs": 69120,
+    "timestampMs": 69040,
+    "confidence": null
+  },
+  {
+    "text": " خيارين",
+    "startMs": 69200,
+    "endMs": 69760,
+    "timestampMs": 69480,
+    "confidence": null
+  },
+  {
+    "text": " وحده",
+    "startMs": 69840,
+    "endMs": 70320,
+    "timestampMs": 70080,
+    "confidence": null
+  },
+  {
+    "text": " لا",
+    "startMs": 70400,
+    "endMs": 70480,
+    "timestampMs": 70440,
+    "confidence": null
+  },
+  {
+    "text": " يعني",
+    "startMs": 70560,
+    "endMs": 70800,
+    "timestampMs": 70680,
+    "confidence": null
+  },
+  {
+    "text": " تلاعبًا.",
+    "startMs": 70880,
+    "endMs": 71760,
+    "timestampMs": 71320,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " أحيانًا",
+    "startMs": 71800,
+    "endMs": 72320,
+    "timestampMs": 72060,
+    "confidence": null
+  },
+  {
+    "text": " توجد",
+    "startMs": 72560,
+    "endMs": 72880,
+    "timestampMs": 72720,
+    "confidence": null
+  },
+  {
+    "text": " قيود",
+    "startMs": 72960,
+    "endMs": 73280,
+    "timestampMs": 73120,
+    "confidence": null
+  },
+  {
+    "text": " حقيقية.",
+    "startMs": 73440,
+    "endMs": 74400,
+    "timestampMs": 73920,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " اسأل",
+    "startMs": 74480,
+    "endMs": 74720,
+    "timestampMs": 74600,
+    "confidence": null
+  },
+  {
+    "text": " عن",
+    "startMs": 74800,
+    "endMs": 74880,
+    "timestampMs": 74840,
+    "confidence": null
+  },
+  {
+    "text": " السبب،",
+    "startMs": 74960,
+    "endMs": 75520,
+    "timestampMs": 75240,
+    "confidence": null
+  },
+  {
+    "text": " وراقب",
+    "startMs": 75600,
+    "endMs": 76160,
+    "timestampMs": 75880,
+    "confidence": null
+  },
+  {
+    "text": " إن",
+    "startMs": 76240,
+    "endMs": 76320,
+    "timestampMs": 76280,
+    "confidence": null
+  },
+  {
+    "text": " كان",
+    "startMs": 76440,
+    "endMs": 76560,
+    "timestampMs": 76500,
+    "confidence": null
+  },
+  {
+    "text": " يسمح",
+    "startMs": 76640,
+    "endMs": 76960,
+    "timestampMs": 76800,
+    "confidence": null
+  },
+  {
+    "text": " بالنقاش.",
+    "startMs": 77040,
+    "endMs": 78000,
+    "timestampMs": 77520,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وفي",
+    "startMs": 78210,
+    "endMs": 78240,
+    "timestampMs": 78225,
+    "confidence": null
+  },
+  {
+    "text": " مثالنا،",
+    "startMs": 78440,
+    "endMs": 79040,
+    "timestampMs": 78740,
+    "confidence": null
+  },
+  {
+    "text": " يمكنك",
+    "startMs": 79120,
+    "endMs": 79520,
+    "timestampMs": 79320,
+    "confidence": null
+  },
+  {
+    "text": " أن",
+    "startMs": 79560,
+    "endMs": 79600,
+    "timestampMs": 79580,
+    "confidence": null
+  },
+  {
+    "text": " تقول:",
+    "startMs": 79680,
+    "endMs": 80400,
+    "timestampMs": 80040,
+    "confidence": null
+  },
+  {
+    "text": " ثقتي",
+    "startMs": 80520,
+    "endMs": 80800,
+    "timestampMs": 80660,
+    "confidence": null
+  },
+  {
+    "text": " فيك",
+    "startMs": 80880,
+    "endMs": 81280,
+    "timestampMs": 81080,
+    "confidence": null
+  },
+  {
+    "text": " لا",
+    "startMs": 81360,
+    "endMs": 81440,
+    "timestampMs": 81400,
+    "confidence": null
+  },
+  {
+    "text": " تلغي",
+    "startMs": 81520,
+    "endMs": 81840,
+    "timestampMs": 81680,
+    "confidence": null
+  },
+  {
+    "text": " حقي",
+    "startMs": 81920,
+    "endMs": 82160,
+    "timestampMs": 82040,
+    "confidence": null
+  },
+  {
+    "text": " في",
+    "startMs": 82240,
+    "endMs": 82293,
+    "timestampMs": 82267,
+    "confidence": null
+  },
+  {
+    "text": " التفكير.",
+    "startMs": 82347,
+    "endMs": 83120,
+    "timestampMs": 82733,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " لن",
+    "startMs": 83240,
+    "endMs": 83360,
+    "timestampMs": 83300,
+    "confidence": null
+  },
+  {
+    "text": " أقرر",
+    "startMs": 83400,
+    "endMs": 83760,
+    "timestampMs": 83580,
+    "confidence": null
+  },
+  {
+    "text": " تحت",
+    "startMs": 83840,
+    "endMs": 84160,
+    "timestampMs": 84000,
+    "confidence": null
+  },
+  {
+    "text": " هذا",
+    "startMs": 84200,
+    "endMs": 84320,
+    "timestampMs": 84260,
+    "confidence": null
+  },
+  {
+    "text": " الضغط.",
+    "startMs": 84360,
+    "endMs": 85040,
+    "timestampMs": 84700,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " ثم",
+    "startMs": 85160,
+    "endMs": 85280,
+    "timestampMs": 85220,
+    "confidence": null
+  },
+  {
+    "text": " اسأل",
+    "startMs": 85320,
+    "endMs": 85520,
+    "timestampMs": 85420,
+    "confidence": null
+  },
+  {
+    "text": " نفسك:",
+    "startMs": 85680,
+    "endMs": 86240,
+    "timestampMs": 85960,
+    "confidence": null
+  },
+  {
+    "text": " هل",
+    "startMs": 86320,
+    "endMs": 86400,
+    "timestampMs": 86360,
+    "confidence": null
+  },
+  {
+    "text": " يوجد",
+    "startMs": 86440,
+    "endMs": 86720,
+    "timestampMs": 86580,
+    "confidence": null
+  },
+  {
+    "text": " خيار",
+    "startMs": 86800,
+    "endMs": 87040,
+    "timestampMs": 86920,
+    "confidence": null
+  },
+  {
+    "text": " ثالث؟",
+    "startMs": 87200,
+    "endMs": 87840,
+    "timestampMs": 87520,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " هل",
+    "startMs": 87920,
+    "endMs": 88000,
+    "timestampMs": 87960,
+    "confidence": null
+  },
+  {
+    "text": " أحتاج",
+    "startMs": 88040,
+    "endMs": 88400,
+    "timestampMs": 88220,
+    "confidence": null
+  },
+  {
+    "text": " مهلة؟",
+    "startMs": 88480,
+    "endMs": 89040,
+    "timestampMs": 88760,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وهل",
+    "startMs": 89080,
+    "endMs": 89280,
+    "timestampMs": 89180,
+    "confidence": null
+  },
+  {
+    "text": " أستطيع",
+    "startMs": 89320,
+    "endMs": 89840,
+    "timestampMs": 89580,
+    "confidence": null
+  },
+  {
+    "text": " رفض",
+    "startMs": 89960,
+    "endMs": 90080,
+    "timestampMs": 90020,
+    "confidence": null
+  },
+  {
+    "text": " العرض",
+    "startMs": 90160,
+    "endMs": 90480,
+    "timestampMs": 90320,
+    "confidence": null
+  },
+  {
+    "text": " كله؟",
+    "startMs": 90640,
+    "endMs": 91200,
+    "timestampMs": 90920,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " لا",
+    "startMs": 91280,
+    "endMs": 91360,
+    "timestampMs": 91320,
+    "confidence": null
+  },
+  {
+    "text": " يلزمك",
+    "startMs": 91440,
+    "endMs": 91840,
+    "timestampMs": 91640,
+    "confidence": null
+  },
+  {
+    "text": " أن",
+    "startMs": 91920,
+    "endMs": 92000,
+    "timestampMs": 91960,
+    "confidence": null
+  },
+  {
+    "text": " تختار",
+    "startMs": 92080,
+    "endMs": 92480,
+    "timestampMs": 92280,
+    "confidence": null
+  },
+  {
+    "text": " من",
+    "startMs": 92600,
+    "endMs": 92720,
+    "timestampMs": 92660,
+    "confidence": null
+  },
+  {
+    "text": " قائمة",
+    "startMs": 92760,
+    "endMs": 93280,
+    "timestampMs": 93020,
+    "confidence": null
+  },
+  {
+    "text": " لم",
+    "startMs": 93360,
+    "endMs": 93520,
+    "timestampMs": 93440,
+    "confidence": null
+  },
+  {
+    "text": " توافق",
+    "startMs": 93600,
+    "endMs": 94080,
+    "timestampMs": 93840,
+    "confidence": null
+  },
+  {
+    "text": " أصلًا",
+    "startMs": 94160,
+    "endMs": 94480,
+    "timestampMs": 94320,
+    "confidence": null
+  },
+  {
+    "text": " على",
+    "startMs": 94560,
+    "endMs": 94720,
+    "timestampMs": 94640,
+    "confidence": null
+  },
+  {
+    "text": " حدودها.",
+    "startMs": 94920,
+    "endMs": 95600,
+    "timestampMs": 95260,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وإذا",
+    "startMs": 95667,
+    "endMs": 95840,
+    "timestampMs": 95754,
+    "confidence": null
+  },
+  {
+    "text": " كنت",
+    "startMs": 95920,
+    "endMs": 96240,
+    "timestampMs": 96080,
+    "confidence": null
+  },
+  {
+    "text": " أنت",
+    "startMs": 96280,
+    "endMs": 96560,
+    "timestampMs": 96420,
+    "confidence": null
+  },
+  {
+    "text": " من",
+    "startMs": 96640,
+    "endMs": 96720,
+    "timestampMs": 96680,
+    "confidence": null
+  },
+  {
+    "text": " يعرض",
+    "startMs": 96760,
+    "endMs": 97040,
+    "timestampMs": 96900,
+    "confidence": null
+  },
+  {
+    "text": " الخيارات،",
+    "startMs": 97080,
+    "endMs": 97920,
+    "timestampMs": 97500,
+    "confidence": null
+  },
+  {
+    "text": " فكن",
+    "startMs": 98000,
+    "endMs": 98240,
+    "timestampMs": 98120,
+    "confidence": null
+  },
+  {
+    "text": " واضحًا.",
+    "startMs": 98320,
+    "endMs": 99040,
+    "timestampMs": 98680,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " اشرح",
+    "startMs": 99080,
+    "endMs": 99360,
+    "timestampMs": 99220,
+    "confidence": null
+  },
+  {
+    "text": " القيود",
+    "startMs": 99440,
+    "endMs": 99840,
+    "timestampMs": 99640,
+    "confidence": null
+  },
+  {
+    "text": " الحقيقية،",
+    "startMs": 99920,
+    "endMs": 100800,
+    "timestampMs": 100360,
+    "confidence": null
+  },
+  {
+    "text": " وأظهر",
+    "startMs": 100840,
+    "endMs": 101280,
+    "timestampMs": 101060,
+    "confidence": null
+  },
+  {
+    "text": " كلفة",
+    "startMs": 101360,
+    "endMs": 101840,
+    "timestampMs": 101600,
+    "confidence": null
+  },
+  {
+    "text": " كل",
+    "startMs": 101960,
+    "endMs": 102080,
+    "timestampMs": 102020,
+    "confidence": null
+  },
+  {
+    "text": " بديل،",
+    "startMs": 102160,
+    "endMs": 102720,
+    "timestampMs": 102440,
+    "confidence": null
+  },
+  {
+    "text": " ولا",
+    "startMs": 102840,
+    "endMs": 102960,
+    "timestampMs": 102900,
+    "confidence": null
+  },
+  {
+    "text": " تخفِ",
+    "startMs": 103040,
+    "endMs": 103360,
+    "timestampMs": 103200,
+    "confidence": null
+  },
+  {
+    "text": " معلومةً",
+    "startMs": 103440,
+    "endMs": 104080,
+    "timestampMs": 103760,
+    "confidence": null
+  },
+  {
+    "text": " تغيّر",
+    "startMs": 104240,
+    "endMs": 104480,
+    "timestampMs": 104360,
+    "confidence": null
+  },
+  {
+    "text": " القرار.",
+    "startMs": 104560,
+    "endMs": 105280,
+    "timestampMs": 104920,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " اقتراح",
+    "startMs": 105400,
+    "endMs": 105760,
+    "timestampMs": 105580,
+    "confidence": null
+  },
+  {
+    "text": " موعدين",
+    "startMs": 105840,
+    "endMs": 106320,
+    "timestampMs": 106080,
+    "confidence": null
+  },
+  {
+    "text": " مناسبين،",
+    "startMs": 106560,
+    "endMs": 107280,
+    "timestampMs": 106920,
+    "confidence": null
+  },
+  {
+    "text": " مع",
+    "startMs": 107360,
+    "endMs": 107440,
+    "timestampMs": 107400,
+    "confidence": null
+  },
+  {
+    "text": " قبول",
+    "startMs": 107520,
+    "endMs": 107840,
+    "timestampMs": 107680,
+    "confidence": null
+  },
+  {
+    "text": " اقتراح",
+    "startMs": 107960,
+    "endMs": 108320,
+    "timestampMs": 108140,
+    "confidence": null
+  },
+  {
+    "text": " آخر،",
+    "startMs": 108480,
+    "endMs": 109040,
+    "timestampMs": 108760,
+    "confidence": null
+  },
+  {
+    "text": " ترتيب.",
+    "startMs": 109320,
+    "endMs": 109840,
+    "timestampMs": 109580,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " أما",
+    "startMs": 109960,
+    "endMs": 110080,
+    "timestampMs": 110020,
+    "confidence": null
+  },
+  {
+    "text": " إخفاء",
+    "startMs": 110120,
+    "endMs": 110480,
+    "timestampMs": 110300,
+    "confidence": null
+  },
+  {
+    "text": " البدائل",
+    "startMs": 110560,
+    "endMs": 111120,
+    "timestampMs": 110840,
+    "confidence": null
+  },
+  {
+    "text": " حتى",
+    "startMs": 111200,
+    "endMs": 111440,
+    "timestampMs": 111320,
+    "confidence": null
+  },
+  {
+    "text": " ينتصر",
+    "startMs": 111520,
+    "endMs": 111920,
+    "timestampMs": 111720,
+    "confidence": null
+  },
+  {
+    "text": " طلبك",
+    "startMs": 112000,
+    "endMs": 112480,
+    "timestampMs": 112240,
+    "confidence": null
+  },
+  {
+    "text": " في",
+    "startMs": 112560,
+    "endMs": 112640,
+    "timestampMs": 112600,
+    "confidence": null
+  },
+  {
+    "text": " كل",
+    "startMs": 112760,
+    "endMs": 112880,
+    "timestampMs": 112820,
+    "confidence": null
+  },
+  {
+    "text": " الحالات...",
+    "startMs": 112920,
+    "endMs": 113760,
+    "timestampMs": 113340,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " فتلاعب.",
+    "startMs": 113880,
+    "endMs": 114720,
+    "timestampMs": 114300,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " اقرأ",
+    "startMs": 114926,
+    "endMs": 115120,
+    "timestampMs": 115023,
+    "confidence": null
+  },
+  {
+    "text": " ألعاب",
+    "startMs": 115320,
+    "endMs": 115520,
+    "timestampMs": 115420,
+    "confidence": null
+  },
+  {
+    "text": " السلطة",
+    "startMs": 115600,
+    "endMs": 116000,
+    "timestampMs": 115800,
+    "confidence": null
+  },
+  {
+    "text": " لتفهمها،",
+    "startMs": 116080,
+    "endMs": 117040,
+    "timestampMs": 116560,
+    "confidence": null
+  },
+  {
+    "text": " ثم",
+    "startMs": 117160,
+    "endMs": 117280,
+    "timestampMs": 117220,
+    "confidence": null
+  },
+  {
+    "text": " حاكمها",
+    "startMs": 117360,
+    "endMs": 117840,
+    "timestampMs": 117600,
+    "confidence": null
+  },
+  {
+    "text": " بأخلاقك.",
+    "startMs": 117920,
+    "endMs": 118880,
+    "timestampMs": 118400,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " ولا",
+    "startMs": 119000,
+    "endMs": 119120,
+    "timestampMs": 119060,
+    "confidence": null
+  },
+  {
+    "text": " تجعل",
+    "startMs": 119200,
+    "endMs": 119520,
+    "timestampMs": 119360,
+    "confidence": null
+  },
+  {
+    "text": " معرفتك",
+    "startMs": 119720,
+    "endMs": 120160,
+    "timestampMs": 119940,
+    "confidence": null
+  },
+  {
+    "text": " بنقاط",
+    "startMs": 120280,
+    "endMs": 120640,
+    "timestampMs": 120460,
+    "confidence": null
+  },
+  {
+    "text": " ضعف",
+    "startMs": 120720,
+    "endMs": 120880,
+    "timestampMs": 120800,
+    "confidence": null
+  },
+  {
+    "text": " الناس",
+    "startMs": 120960,
+    "endMs": 121440,
+    "timestampMs": 121200,
+    "confidence": null
+  },
+  {
+    "text": " وسيلةً",
+    "startMs": 121600,
+    "endMs": 122160,
+    "timestampMs": 121880,
+    "confidence": null
+  },
+  {
+    "text": " لكسرهم.",
+    "startMs": 122240,
+    "endMs": 123120,
+    "timestampMs": 122680,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " وتذكّر:",
+    "startMs": 123326,
+    "endMs": 124080,
+    "timestampMs": 123703,
+    "confidence": null
+  },
+  {
+    "text": " السؤال",
+    "startMs": 124160,
+    "endMs": 124640,
+    "timestampMs": 124400,
+    "confidence": null
+  },
+  {
+    "text": " ليس",
+    "startMs": 124800,
+    "endMs": 124960,
+    "timestampMs": 124880,
+    "confidence": null
+  },
+  {
+    "text": " فقط...",
+    "startMs": 125040,
+    "endMs": 125600,
+    "timestampMs": 125320,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " أي",
+    "startMs": 125640,
+    "endMs": 125840,
+    "timestampMs": 125740,
+    "confidence": null
+  },
+  {
+    "text": " باب",
+    "startMs": 125920,
+    "endMs": 126160,
+    "timestampMs": 126040,
+    "confidence": null
+  },
+  {
+    "text": " أختار؟",
+    "startMs": 126240,
+    "endMs": 126800,
+    "timestampMs": 126520,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " السؤال",
+    "startMs": 127040,
+    "endMs": 127520,
+    "timestampMs": 127280,
+    "confidence": null
+  },
+  {
+    "text": " الأهم:",
+    "startMs": 127640,
+    "endMs": 128320,
+    "timestampMs": 127980,
+    "confidence": null
+  },
+  {
+    "text": " من",
+    "startMs": 128400,
+    "endMs": 128560,
+    "timestampMs": 128480,
+    "confidence": null
+  },
+  {
+    "text": " قال",
+    "startMs": 128640,
+    "endMs": 128960,
+    "timestampMs": 128800,
+    "confidence": null
+  },
+  {
+    "text": " إن",
+    "startMs": 129080,
+    "endMs": 129200,
+    "timestampMs": 129140,
+    "confidence": null
+  },
+  {
+    "text": " هذه",
+    "startMs": 129280,
+    "endMs": 129840,
+    "timestampMs": 129560,
+    "confidence": null
+  },
+  {
+    "text": " كل",
+    "startMs": 129920,
+    "endMs": 130160,
+    "timestampMs": 130040,
+    "confidence": null
+  },
+  {
+    "text": " الأبواب؟",
+    "startMs": 130240,
+    "endMs": 131120,
+    "timestampMs": 130680,
+    "confidence": null,
+    "pageBreakAfter": true
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "fps": 60,
+  "durationInFrames": 7889,
+  "audioDuration": 131.04,
+  "scenes": [
+    {
+      "id": "Hook",
+      "name": "مو كل اختيار يعني حرية",
+      "from": 0,
+      "durationInFrames": 589,
+      "startSeconds": 0.0
+    },
+    {
+      "id": "Pressure",
+      "name": "الاختيار المفخخ",
+      "from": 589,
+      "durationInFrames": 1003,
+      "startSeconds": 9.816666666666666
+    },
+    {
+      "id": "Law",
+      "name": "القانون 31",
+      "from": 1592,
+      "durationInFrames": 1090,
+      "startSeconds": 26.533333333333335
+    },
+    {
+      "id": "Warning",
+      "name": "التنبيه الأخلاقي",
+      "from": 2682,
+      "durationInFrames": 729,
+      "startSeconds": 44.7
+    },
+    {
+      "id": "Signs",
+      "name": "علامات الضغط",
+      "from": 3411,
+      "durationInFrames": 727,
+      "startSeconds": 56.85
+    },
+    {
+      "id": "Nuance",
+      "name": "القيود الحقيقية",
+      "from": 4138,
+      "durationInFrames": 555,
+      "startSeconds": 68.96666666666667
+    },
+    {
+      "id": "Response",
+      "name": "استعادة مساحة القرار",
+      "from": 4693,
+      "durationInFrames": 1047,
+      "startSeconds": 78.21666666666667
+    },
+    {
+      "id": "Ethics",
+      "name": "الوضوح الأخلاقي",
+      "from": 5740,
+      "durationInFrames": 584,
+      "startSeconds": 95.66666666666667
+    },
+    {
+      "id": "Contrast",
+      "name": "ترتيب أم تلاعب",
+      "from": 6324,
+      "durationInFrames": 572,
+      "startSeconds": 105.4
+    },
+    {
+      "id": "Reading",
+      "name": "قراءة نقدية",
+      "from": 6896,
+      "durationInFrames": 504,
+      "startSeconds": 114.93333333333334
+    },
+    {
+      "id": "Ending",
+      "name": "من قال إن هذه كل الأبواب",
+      "from": 7400,
+      "durationInFrames": 489,
+      "startSeconds": 123.33333333333333
+    }
+  ]
+}

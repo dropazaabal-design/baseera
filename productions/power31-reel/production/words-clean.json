@@ -1,0 +1,1570 @@
+{
+  "words": [
+    {
+      "text": "مو",
+      "type": "word",
+      "start": 0.16,
+      "end": 0.32
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 0.44,
+      "end": 0.56
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 0.64,
+      "end": 0.72
+    },
+    {
+      "text": "قال",
+      "type": "word",
+      "start": 0.8,
+      "end": 0.96
+    },
+    {
+      "text": "لك:",
+      "type": "word",
+      "start": 1.12,
+      "end": 1.48
+    },
+    {
+      "text": "اختر...",
+      "type": "word",
+      "start": 1.68,
+      "end": 2.44
+    },
+    {
+      "text": "أعطاك",
+      "type": "word",
+      "start": 2.64,
+      "end": 3.04
+    },
+    {
+      "text": "حرية.",
+      "type": "word",
+      "start": 3.12,
+      "end": 3.96
+    },
+    {
+      "text": "أحيانًا",
+      "type": "word",
+      "start": 4.32,
+      "end": 4.8
+    },
+    {
+      "text": "يفتح",
+      "type": "word",
+      "start": 4.88,
+      "end": 5.12
+    },
+    {
+      "text": "لك",
+      "type": "word",
+      "start": 5.24,
+      "end": 5.36
+    },
+    {
+      "text": "بابين...",
+      "type": "word",
+      "start": 5.48,
+      "end": 6.32
+    },
+    {
+      "text": "وكل",
+      "type": "word",
+      "start": 6.44,
+      "end": 6.8
+    },
+    {
+      "text": "باب",
+      "type": "word",
+      "start": 6.88,
+      "end": 7.2
+    },
+    {
+      "text": "يرجّعك",
+      "type": "word",
+      "start": 7.6,
+      "end": 8.16
+    },
+    {
+      "text": "لنفس",
+      "type": "word",
+      "start": 8.24,
+      "end": 8.56
+    },
+    {
+      "text": "المكان.",
+      "type": "word",
+      "start": 8.64,
+      "end": 9.68
+    },
+    {
+      "text": "تخيّل",
+      "type": "word",
+      "start": 9.82,
+      "end": 10.12
+    },
+    {
+      "text": "شخصًا",
+      "type": "word",
+      "start": 10.16,
+      "end": 10.48
+    },
+    {
+      "text": "يقول",
+      "type": "word",
+      "start": 10.56,
+      "end": 10.8
+    },
+    {
+      "text": "لك:",
+      "type": "word",
+      "start": 10.88,
+      "end": 11.52
+    },
+    {
+      "text": "إما",
+      "type": "word",
+      "start": 11.56,
+      "end": 11.76
+    },
+    {
+      "text": "توافق",
+      "type": "word",
+      "start": 11.84,
+      "end": 12.24
+    },
+    {
+      "text": "الآن،",
+      "type": "word",
+      "start": 12.32,
+      "end": 12.88
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 12.92,
+      "end": 13.04
+    },
+    {
+      "text": "هذا",
+      "type": "word",
+      "start": 13.12,
+      "end": 13.36
+    },
+    {
+      "text": "دليل",
+      "type": "word",
+      "start": 13.44,
+      "end": 13.76
+    },
+    {
+      "text": "أنك",
+      "type": "word",
+      "start": 13.84,
+      "end": 14.08
+    },
+    {
+      "text": "ما",
+      "type": "word",
+      "start": 14.16,
+      "end": 14.2
+    },
+    {
+      "text": "تثق",
+      "type": "word",
+      "start": 14.24,
+      "end": 14.56
+    },
+    {
+      "text": "فيني.",
+      "type": "word",
+      "start": 14.68,
+      "end": 15.36
+    },
+    {
+      "text": "تبدأ",
+      "type": "word",
+      "start": 15.4,
+      "end": 15.68
+    },
+    {
+      "text": "تدافع",
+      "type": "word",
+      "start": 15.76,
+      "end": 16.08
+    },
+    {
+      "text": "عن",
+      "type": "word",
+      "start": 16.12,
+      "end": 16.16
+    },
+    {
+      "text": "نفسك.",
+      "type": "word",
+      "start": 16.24,
+      "end": 16.96
+    },
+    {
+      "text": "تشرح",
+      "type": "word",
+      "start": 17.04,
+      "end": 17.36
+    },
+    {
+      "text": "محبتك.",
+      "type": "word",
+      "start": 17.48,
+      "end": 18.32
+    },
+    {
+      "text": "تحاول",
+      "type": "word",
+      "start": 18.4,
+      "end": 18.72
+    },
+    {
+      "text": "تثبت",
+      "type": "word",
+      "start": 18.8,
+      "end": 19.12
+    },
+    {
+      "text": "حسن",
+      "type": "word",
+      "start": 19.28,
+      "end": 19.44
+    },
+    {
+      "text": "نيتك.",
+      "type": "word",
+      "start": 19.56,
+      "end": 20.32
+    },
+    {
+      "text": "ولحظة...",
+      "type": "word",
+      "start": 20.4,
+      "end": 21.2
+    },
+    {
+      "text": "متى",
+      "type": "word",
+      "start": 21.28,
+      "end": 21.52
+    },
+    {
+      "text": "صار",
+      "type": "word",
+      "start": 21.64,
+      "end": 21.76
+    },
+    {
+      "text": "قرارك",
+      "type": "word",
+      "start": 21.84,
+      "end": 22.24
+    },
+    {
+      "text": "اختبارًا",
+      "type": "word",
+      "start": 22.48,
+      "end": 22.8
+    },
+    {
+      "text": "لوفائك؟",
+      "type": "word",
+      "start": 22.88,
+      "end": 23.92
+    },
+    {
+      "text": "وأين",
+      "type": "word",
+      "start": 23.96,
+      "end": 24.24
+    },
+    {
+      "text": "خيار:",
+      "type": "word",
+      "start": 24.32,
+      "end": 25.04
+    },
+    {
+      "text": "أحتاج",
+      "type": "word",
+      "start": 25.08,
+      "end": 25.44
+    },
+    {
+      "text": "أفكّر؟",
+      "type": "word",
+      "start": 25.52,
+      "end": 26.4
+    },
+    {
+      "text": "في",
+      "type": "word",
+      "start": 26.533,
+      "end": 26.56
+    },
+    {
+      "text": "كتاب",
+      "type": "word",
+      "start": 26.68,
+      "end": 26.96
+    },
+    {
+      "text": "«ثمانية",
+      "type": "word",
+      "start": 27.12,
+      "end": 27.6
+    },
+    {
+      "text": "وأربعون",
+      "type": "word",
+      "start": 27.76,
+      "end": 28.24
+    },
+    {
+      "text": "قانونًا",
+      "type": "word",
+      "start": 28.4,
+      "end": 28.8
+    },
+    {
+      "text": "للسلطة»",
+      "type": "word",
+      "start": 28.88,
+      "end": 29.44
+    },
+    {
+      "text": "لروبرت",
+      "type": "word",
+      "start": 29.6,
+      "end": 30
+    },
+    {
+      "text": "غرين،",
+      "type": "word",
+      "start": 30.08,
+      "end": 30.8
+    },
+    {
+      "text": "القانون",
+      "type": "word",
+      "start": 30.92,
+      "end": 31.28
+    },
+    {
+      "text": "الحادي",
+      "type": "word",
+      "start": 31.36,
+      "end": 31.76
+    },
+    {
+      "text": "والثلاثون",
+      "type": "word",
+      "start": 31.84,
+      "end": 32.48
+    },
+    {
+      "text": "يتناول",
+      "type": "word",
+      "start": 32.56,
+      "end": 33.12
+    },
+    {
+      "text": "التحكم",
+      "type": "word",
+      "start": 33.16,
+      "end": 33.68
+    },
+    {
+      "text": "بالخيارات.",
+      "type": "word",
+      "start": 33.76,
+      "end": 34.72
+    },
+    {
+      "text": "فكرته",
+      "type": "word",
+      "start": 34.88,
+      "end": 35.36
+    },
+    {
+      "text": "أن",
+      "type": "word",
+      "start": 35.6,
+      "end": 35.76
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 35.84,
+      "end": 35.92
+    },
+    {
+      "text": "يرسم",
+      "type": "word",
+      "start": 36,
+      "end": 36.32
+    },
+    {
+      "text": "حدود",
+      "type": "word",
+      "start": 36.48,
+      "end": 36.64
+    },
+    {
+      "text": "الاختيار،",
+      "type": "word",
+      "start": 36.68,
+      "end": 37.52
+    },
+    {
+      "text": "قد",
+      "type": "word",
+      "start": 37.6,
+      "end": 37.68
+    },
+    {
+      "text": "يوجّه",
+      "type": "word",
+      "start": 37.72,
+      "end": 38.08
+    },
+    {
+      "text": "النتيجة",
+      "type": "word",
+      "start": 38.16,
+      "end": 38.72
+    },
+    {
+      "text": "قبل",
+      "type": "word",
+      "start": 38.8,
+      "end": 39.04
+    },
+    {
+      "text": "أن",
+      "type": "word",
+      "start": 39.08,
+      "end": 39.12
+    },
+    {
+      "text": "تقرر.",
+      "type": "word",
+      "start": 39.2,
+      "end": 40
+    },
+    {
+      "text": "كأنك",
+      "type": "word",
+      "start": 40.04,
+      "end": 40.4
+    },
+    {
+      "text": "تمسك",
+      "type": "word",
+      "start": 40.48,
+      "end": 40.8
+    },
+    {
+      "text": "البطاقات...",
+      "type": "word",
+      "start": 40.84,
+      "end": 41.76
+    },
+    {
+      "text": "لكن",
+      "type": "word",
+      "start": 41.88,
+      "end": 42.04
+    },
+    {
+      "text": "شخصًا",
+      "type": "word",
+      "start": 42.08,
+      "end": 42.48
+    },
+    {
+      "text": "آخر",
+      "type": "word",
+      "start": 42.56,
+      "end": 42.88
+    },
+    {
+      "text": "اختار",
+      "type": "word",
+      "start": 43.12,
+      "end": 43.44
+    },
+    {
+      "text": "لك",
+      "type": "word",
+      "start": 43.52,
+      "end": 43.68
+    },
+    {
+      "text": "الأوراق.",
+      "type": "word",
+      "start": 43.76,
+      "end": 44.56
+    },
+    {
+      "text": "وتنبيه",
+      "type": "word",
+      "start": 44.697,
+      "end": 45.2
+    },
+    {
+      "text": "واضح:",
+      "type": "word",
+      "start": 45.28,
+      "end": 46.08
+    },
+    {
+      "text": "هذا",
+      "type": "word",
+      "start": 46.16,
+      "end": 46.32
+    },
+    {
+      "text": "الشرح",
+      "type": "word",
+      "start": 46.4,
+      "end": 46.8
+    },
+    {
+      "text": "لتكشف",
+      "type": "word",
+      "start": 46.88,
+      "end": 47.36
+    },
+    {
+      "text": "التلاعب",
+      "type": "word",
+      "start": 47.48,
+      "end": 48
+    },
+    {
+      "text": "وتحمي",
+      "type": "word",
+      "start": 48.08,
+      "end": 48.48
+    },
+    {
+      "text": "نفسك.",
+      "type": "word",
+      "start": 48.64,
+      "end": 49.28
+    },
+    {
+      "text": "لا",
+      "type": "word",
+      "start": 49.36,
+      "end": 49.44
+    },
+    {
+      "text": "لتخدع",
+      "type": "word",
+      "start": 49.56,
+      "end": 49.92
+    },
+    {
+      "text": "الناس،",
+      "type": "word",
+      "start": 49.96,
+      "end": 50.56
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 50.587,
+      "end": 50.64
+    },
+    {
+      "text": "تحاصرهم،",
+      "type": "word",
+      "start": 50.72,
+      "end": 51.6
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 51.627,
+      "end": 51.68
+    },
+    {
+      "text": "تستغل",
+      "type": "word",
+      "start": 51.76,
+      "end": 52.24
+    },
+    {
+      "text": "حاجتهم.",
+      "type": "word",
+      "start": 52.32,
+      "end": 53.2
+    },
+    {
+      "text": "السيطرة",
+      "type": "word",
+      "start": 53.28,
+      "end": 53.72
+    },
+    {
+      "text": "على",
+      "type": "word",
+      "start": 53.76,
+      "end": 53.92
+    },
+    {
+      "text": "إنسان",
+      "type": "word",
+      "start": 54,
+      "end": 54.64
+    },
+    {
+      "text": "ليست",
+      "type": "word",
+      "start": 54.76,
+      "end": 55.12
+    },
+    {
+      "text": "إنجازًا",
+      "type": "word",
+      "start": 55.2,
+      "end": 55.6
+    },
+    {
+      "text": "أخلاقيًا.",
+      "type": "word",
+      "start": 55.68,
+      "end": 56.64
+    },
+    {
+      "text": "كيف",
+      "type": "word",
+      "start": 56.846,
+      "end": 56.88
+    },
+    {
+      "text": "تلاحظ",
+      "type": "word",
+      "start": 56.96,
+      "end": 57.28
+    },
+    {
+      "text": "الفخ؟",
+      "type": "word",
+      "start": 57.36,
+      "end": 58.08
+    },
+    {
+      "text": "حين",
+      "type": "word",
+      "start": 58.2,
+      "end": 58.32
+    },
+    {
+      "text": "يحصر",
+      "type": "word",
+      "start": 58.4,
+      "end": 58.64
+    },
+    {
+      "text": "النقاش",
+      "type": "word",
+      "start": 58.72,
+      "end": 59.2
+    },
+    {
+      "text": "في",
+      "type": "word",
+      "start": 59.28,
+      "end": 59.36
+    },
+    {
+      "text": "خيارين",
+      "type": "word",
+      "start": 59.44,
+      "end": 59.92
+    },
+    {
+      "text": "يخدمانه،",
+      "type": "word",
+      "start": 60,
+      "end": 60.8
+    },
+    {
+      "text": "ويعامل",
+      "type": "word",
+      "start": 60.88,
+      "end": 61.36
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 61.52,
+      "end": 61.76
+    },
+    {
+      "text": "بديل",
+      "type": "word",
+      "start": 61.8,
+      "end": 62.16
+    },
+    {
+      "text": "آخر",
+      "type": "word",
+      "start": 62.24,
+      "end": 62.64
+    },
+    {
+      "text": "كأنه",
+      "type": "word",
+      "start": 62.72,
+      "end": 63.2
+    },
+    {
+      "text": "ممنوع.",
+      "type": "word",
+      "start": 63.24,
+      "end": 63.92
+    },
+    {
+      "text": "وحين",
+      "type": "word",
+      "start": 64,
+      "end": 64.24
+    },
+    {
+      "text": "يربط",
+      "type": "word",
+      "start": 64.32,
+      "end": 64.64
+    },
+    {
+      "text": "رفضك",
+      "type": "word",
+      "start": 64.8,
+      "end": 65.12
+    },
+    {
+      "text": "بتهمة:",
+      "type": "word",
+      "start": 65.24,
+      "end": 65.92
+    },
+    {
+      "text": "أناني،",
+      "type": "word",
+      "start": 66,
+      "end": 66.72
+    },
+    {
+      "text": "جبان،",
+      "type": "word",
+      "start": 66.8,
+      "end": 67.52
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 67.547,
+      "end": 67.6
+    },
+    {
+      "text": "قليل",
+      "type": "word",
+      "start": 67.68,
+      "end": 68
+    },
+    {
+      "text": "وفاء.",
+      "type": "word",
+      "start": 68.08,
+      "end": 68.8
+    },
+    {
+      "text": "وجود",
+      "type": "word",
+      "start": 68.96,
+      "end": 69.12
+    },
+    {
+      "text": "خيارين",
+      "type": "word",
+      "start": 69.2,
+      "end": 69.76
+    },
+    {
+      "text": "وحده",
+      "type": "word",
+      "start": 69.84,
+      "end": 70.32
+    },
+    {
+      "text": "لا",
+      "type": "word",
+      "start": 70.4,
+      "end": 70.48
+    },
+    {
+      "text": "يعني",
+      "type": "word",
+      "start": 70.56,
+      "end": 70.8
+    },
+    {
+      "text": "تلاعبًا.",
+      "type": "word",
+      "start": 70.88,
+      "end": 71.76
+    },
+    {
+      "text": "أحيانًا",
+      "type": "word",
+      "start": 71.8,
+      "end": 72.32
+    },
+    {
+      "text": "توجد",
+      "type": "word",
+      "start": 72.56,
+      "end": 72.88
+    },
+    {
+      "text": "قيود",
+      "type": "word",
+      "start": 72.96,
+      "end": 73.28
+    },
+    {
+      "text": "حقيقية.",
+      "type": "word",
+      "start": 73.44,
+      "end": 74.4
+    },
+    {
+      "text": "اسأل",
+      "type": "word",
+      "start": 74.48,
+      "end": 74.72
+    },
+    {
+      "text": "عن",
+      "type": "word",
+      "start": 74.8,
+      "end": 74.88
+    },
+    {
+      "text": "السبب،",
+      "type": "word",
+      "start": 74.96,
+      "end": 75.52
+    },
+    {
+      "text": "وراقب",
+      "type": "word",
+      "start": 75.6,
+      "end": 76.16
+    },
+    {
+      "text": "إن",
+      "type": "word",
+      "start": 76.24,
+      "end": 76.32
+    },
+    {
+      "text": "كان",
+      "type": "word",
+      "start": 76.44,
+      "end": 76.56
+    },
+    {
+      "text": "يسمح",
+      "type": "word",
+      "start": 76.64,
+      "end": 76.96
+    },
+    {
+      "text": "بالنقاش.",
+      "type": "word",
+      "start": 77.04,
+      "end": 78
+    },
+    {
+      "text": "وفي",
+      "type": "word",
+      "start": 78.21,
+      "end": 78.24
+    },
+    {
+      "text": "مثالنا،",
+      "type": "word",
+      "start": 78.44,
+      "end": 79.04
+    },
+    {
+      "text": "يمكنك",
+      "type": "word",
+      "start": 79.12,
+      "end": 79.52
+    },
+    {
+      "text": "أن",
+      "type": "word",
+      "start": 79.56,
+      "end": 79.6
+    },
+    {
+      "text": "تقول:",
+      "type": "word",
+      "start": 79.68,
+      "end": 80.4
+    },
+    {
+      "text": "ثقتي",
+      "type": "word",
+      "start": 80.52,
+      "end": 80.8
+    },
+    {
+      "text": "فيك",
+      "type": "word",
+      "start": 80.88,
+      "end": 81.28
+    },
+    {
+      "text": "لا",
+      "type": "word",
+      "start": 81.36,
+      "end": 81.44
+    },
+    {
+      "text": "تلغي",
+      "type": "word",
+      "start": 81.52,
+      "end": 81.84
+    },
+    {
+      "text": "حقي",
+      "type": "word",
+      "start": 81.92,
+      "end": 82.16
+    },
+    {
+      "text": "في",
+      "type": "word",
+      "start": 82.24,
+      "end": 82.293
+    },
+    {
+      "text": "التفكير.",
+      "type": "word",
+      "start": 82.347,
+      "end": 83.12
+    },
+    {
+      "text": "لن",
+      "type": "word",
+      "start": 83.24,
+      "end": 83.36
+    },
+    {
+      "text": "أقرر",
+      "type": "word",
+      "start": 83.4,
+      "end": 83.76
+    },
+    {
+      "text": "تحت",
+      "type": "word",
+      "start": 83.84,
+      "end": 84.16
+    },
+    {
+      "text": "هذا",
+      "type": "word",
+      "start": 84.2,
+      "end": 84.32
+    },
+    {
+      "text": "الضغط.",
+      "type": "word",
+      "start": 84.36,
+      "end": 85.04
+    },
+    {
+      "text": "ثم",
+      "type": "word",
+      "start": 85.16,
+      "end": 85.28
+    },
+    {
+      "text": "اسأل",
+      "type": "word",
+      "start": 85.32,
+      "end": 85.52
+    },
+    {
+      "text": "نفسك:",
+      "type": "word",
+      "start": 85.68,
+      "end": 86.24
+    },
+    {
+      "text": "هل",
+      "type": "word",
+      "start": 86.32,
+      "end": 86.4
+    },
+    {
+      "text": "يوجد",
+      "type": "word",
+      "start": 86.44,
+      "end": 86.72
+    },
+    {
+      "text": "خيار",
+      "type": "word",
+      "start": 86.8,
+      "end": 87.04
+    },
+    {
+      "text": "ثالث؟",
+      "type": "word",
+      "start": 87.2,
+      "end": 87.84
+    },
+    {
+      "text": "هل",
+      "type": "word",
+      "start": 87.92,
+      "end": 88
+    },
+    {
+      "text": "أحتاج",
+      "type": "word",
+      "start": 88.04,
+      "end": 88.4
+    },
+    {
+      "text": "مهلة؟",
+      "type": "word",
+      "start": 88.48,
+      "end": 89.04
+    },
+    {
+      "text": "وهل",
+      "type": "word",
+      "start": 89.08,
+      "end": 89.28
+    },
+    {
+      "text": "أستطيع",
+      "type": "word",
+      "start": 89.32,
+      "end": 89.84
+    },
+    {
+      "text": "رفض",
+      "type": "word",
+      "start": 89.96,
+      "end": 90.08
+    },
+    {
+      "text": "العرض",
+      "type": "word",
+      "start": 90.16,
+      "end": 90.48
+    },
+    {
+      "text": "كله؟",
+      "type": "word",
+      "start": 90.64,
+      "end": 91.2
+    },
+    {
+      "text": "لا",
+      "type": "word",
+      "start": 91.28,
+      "end": 91.36
+    },
+    {
+      "text": "يلزمك",
+      "type": "word",
+      "start": 91.44,
+      "end": 91.84
+    },
+    {
+      "text": "أن",
+      "type": "word",
+      "start": 91.92,
+      "end": 92
+    },
+    {
+      "text": "تختار",
+      "type": "word",
+      "start": 92.08,
+      "end": 92.48
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 92.6,
+      "end": 92.72
+    },
+    {
+      "text": "قائمة",
+      "type": "word",
+      "start": 92.76,
+      "end": 93.28
+    },
+    {
+      "text": "لم",
+      "type": "word",
+      "start": 93.36,
+      "end": 93.52
+    },
+    {
+      "text": "توافق",
+      "type": "word",
+      "start": 93.6,
+      "end": 94.08
+    },
+    {
+      "text": "أصلًا",
+      "type": "word",
+      "start": 94.16,
+      "end": 94.48
+    },
+    {
+      "text": "على",
+      "type": "word",
+      "start": 94.56,
+      "end": 94.72
+    },
+    {
+      "text": "حدودها.",
+      "type": "word",
+      "start": 94.92,
+      "end": 95.6
+    },
+    {
+      "text": "وإذا",
+      "type": "word",
+      "start": 95.667,
+      "end": 95.84
+    },
+    {
+      "text": "كنت",
+      "type": "word",
+      "start": 95.92,
+      "end": 96.24
+    },
+    {
+      "text": "أنت",
+      "type": "word",
+      "start": 96.28,
+      "end": 96.56
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 96.64,
+      "end": 96.72
+    },
+    {
+      "text": "يعرض",
+      "type": "word",
+      "start": 96.76,
+      "end": 97.04
+    },
+    {
+      "text": "الخيارات،",
+      "type": "word",
+      "start": 97.08,
+      "end": 97.92
+    },
+    {
+      "text": "فكن",
+      "type": "word",
+      "start": 98,
+      "end": 98.24
+    },
+    {
+      "text": "واضحًا.",
+      "type": "word",
+      "start": 98.32,
+      "end": 99.04
+    },
+    {
+      "text": "اشرح",
+      "type": "word",
+      "start": 99.08,
+      "end": 99.36
+    },
+    {
+      "text": "القيود",
+      "type": "word",
+      "start": 99.44,
+      "end": 99.84
+    },
+    {
+      "text": "الحقيقية،",
+      "type": "word",
+      "start": 99.92,
+      "end": 100.8
+    },
+    {
+      "text": "وأظهر",
+      "type": "word",
+      "start": 100.84,
+      "end": 101.28
+    },
+    {
+      "text": "كلفة",
+      "type": "word",
+      "start": 101.36,
+      "end": 101.84
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 101.96,
+      "end": 102.08
+    },
+    {
+      "text": "بديل،",
+      "type": "word",
+      "start": 102.16,
+      "end": 102.72
+    },
+    {
+      "text": "ولا",
+      "type": "word",
+      "start": 102.84,
+      "end": 102.96
+    },
+    {
+      "text": "تخفِ",
+      "type": "word",
+      "start": 103.04,
+      "end": 103.36
+    },
+    {
+      "text": "معلومةً",
+      "type": "word",
+      "start": 103.44,
+      "end": 104.08
+    },
+    {
+      "text": "تغيّر",
+      "type": "word",
+      "start": 104.24,
+      "end": 104.48
+    },
+    {
+      "text": "القرار.",
+      "type": "word",
+      "start": 104.56,
+      "end": 105.28
+    },
+    {
+      "text": "اقتراح",
+      "type": "word",
+      "start": 105.4,
+      "end": 105.76
+    },
+    {
+      "text": "موعدين",
+      "type": "word",
+      "start": 105.84,
+      "end": 106.32
+    },
+    {
+      "text": "مناسبين،",
+      "type": "word",
+      "start": 106.56,
+      "end": 107.28
+    },
+    {
+      "text": "مع",
+      "type": "word",
+      "start": 107.36,
+      "end": 107.44
+    },
+    {
+      "text": "قبول",
+      "type": "word",
+      "start": 107.52,
+      "end": 107.84
+    },
+    {
+      "text": "اقتراح",
+      "type": "word",
+      "start": 107.96,
+      "end": 108.32
+    },
+    {
+      "text": "آخر،",
+      "type": "word",
+      "start": 108.48,
+      "end": 109.04
+    },
+    {
+      "text": "ترتيب.",
+      "type": "word",
+      "start": 109.32,
+      "end": 109.84
+    },
+    {
+      "text": "أما",
+      "type": "word",
+      "start": 109.96,
+      "end": 110.08
+    },
+    {
+      "text": "إخفاء",
+      "type": "word",
+      "start": 110.12,
+      "end": 110.48
+    },
+    {
+      "text": "البدائل",
+      "type": "word",
+      "start": 110.56,
+      "end": 111.12
+    },
+    {
+      "text": "حتى",
+      "type": "word",
+      "start": 111.2,
+      "end": 111.44
+    },
+    {
+      "text": "ينتصر",
+      "type": "word",
+      "start": 111.52,
+      "end": 111.92
+    },
+    {
+      "text": "طلبك",
+      "type": "word",
+      "start": 112,
+      "end": 112.48
+    },
+    {
+      "text": "في",
+      "type": "word",
+      "start": 112.56,
+      "end": 112.64
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 112.76,
+      "end": 112.88
+    },
+    {
+      "text": "الحالات...",
+      "type": "word",
+      "start": 112.92,
+      "end": 113.76
+    },
+    {
+      "text": "فتلاعب.",
+      "type": "word",
+      "start": 113.88,
+      "end": 114.72
+    },
+    {
+      "text": "اقرأ",
+      "type": "word",
+      "start": 114.926,
+      "end": 115.12
+    },
+    {
+      "text": "ألعاب",
+      "type": "word",
+      "start": 115.32,
+      "end": 115.52
+    },
+    {
+      "text": "السلطة",
+      "type": "word",
+      "start": 115.6,
+      "end": 116
+    },
+    {
+      "text": "لتفهمها،",
+      "type": "word",
+      "start": 116.08,
+      "end": 117.04
+    },
+    {
+      "text": "ثم",
+      "type": "word",
+      "start": 117.16,
+      "end": 117.28
+    },
+    {
+      "text": "حاكمها",
+      "type": "word",
+      "start": 117.36,
+      "end": 117.84
+    },
+    {
+      "text": "بأخلاقك.",
+      "type": "word",
+      "start": 117.92,
+      "end": 118.88
+    },
+    {
+      "text": "ولا",
+      "type": "word",
+      "start": 119,
+      "end": 119.12
+    },
+    {
+      "text": "تجعل",
+      "type": "word",
+      "start": 119.2,
+      "end": 119.52
+    },
+    {
+      "text": "معرفتك",
+      "type": "word",
+      "start": 119.72,
+      "end": 120.16
+    },
+    {
+      "text": "بنقاط",
+      "type": "word",
+      "start": 120.28,
+      "end": 120.64
+    },
+    {
+      "text": "ضعف",
+      "type": "word",
+      "start": 120.72,
+      "end": 120.88
+    },
+    {
+      "text": "الناس",
+      "type": "word",
+      "start": 120.96,
+      "end": 121.44
+    },
+    {
+      "text": "وسيلةً",
+      "type": "word",
+      "start": 121.6,
+      "end": 122.16
+    },
+    {
+      "text": "لكسرهم.",
+      "type": "word",
+      "start": 122.24,
+      "end": 123.12
+    },
+    {
+      "text": "وتذكّر:",
+      "type": "word",
+      "start": 123.326,
+      "end": 124.08
+    },
+    {
+      "text": "السؤال",
+      "type": "word",
+      "start": 124.16,
+      "end": 124.64
+    },
+    {
+      "text": "ليس",
+      "type": "word",
+      "start": 124.8,
+      "end": 124.96
+    },
+    {
+      "text": "فقط...",
+      "type": "word",
+      "start": 125.04,
+      "end": 125.6
+    },
+    {
+      "text": "أي",
+      "type": "word",
+      "start": 125.64,
+      "end": 125.84
+    },
+    {
+      "text": "باب",
+      "type": "word",
+      "start": 125.92,
+      "end": 126.16
+    },
+    {
+      "text": "أختار؟",
+      "type": "word",
+      "start": 126.24,
+      "end": 126.8
+    },
+    {
+      "text": "السؤال",
+      "type": "word",
+      "start": 127.04,
+      "end": 127.52
+    },
+    {
+      "text": "الأهم:",
+      "type": "word",
+      "start": 127.64,
+      "end": 128.32
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 128.4,
+      "end": 128.56
+    },
+    {
+      "text": "قال",
+      "type": "word",
+      "start": 128.64,
+      "end": 128.96
+    },
+    {
+      "text": "إن",
+      "type": "word",
+      "start": 129.08,
+      "end": 129.2
+    },
+    {
+      "text": "هذه",
+      "type": "word",
+      "start": 129.28,
+      "end": 129.84
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 129.92,
+      "end": 130.16
+    },
+    {
+      "text": "الأبواب؟",
+      "type": "word",
+      "start": 130.24,
+      "end": 131.12
+    }
+  ]
+}
