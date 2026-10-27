@@ -1,0 +1,1577 @@
+[
+  {
+    "text": "جفنك",
+    "startMs": 80,
+    "endMs": 400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يسوي",
+    "startMs": 480,
+    "endMs": 800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حركة",
+    "startMs": 880,
+    "endMs": 1200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 1280,
+    "endMs": 1360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طلبتها،",
+    "startMs": 1440,
+    "endMs": 2240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وأذنك",
+    "startMs": 2320,
+    "endMs": 2800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تسمع",
+    "startMs": 2960,
+    "endMs": 3280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صوتًا",
+    "startMs": 3360,
+    "endMs": 3760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 3840,
+    "endMs": 4000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أحد",
+    "startMs": 4040,
+    "endMs": 4240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "شغّله.",
+    "startMs": 4320,
+    "endMs": 5200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أهلًا",
+    "startMs": 5320,
+    "endMs": 5600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "في",
+    "startMs": 5640,
+    "endMs": 5680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الجزء",
+    "startMs": 5760,
+    "endMs": 6080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الثاني",
+    "startMs": 6120,
+    "endMs": 6480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 6560,
+    "endMs": 6640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إشارات",
+    "startMs": 6720,
+    "endMs": 7120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جسمك.",
+    "startMs": 7200,
+    "endMs": 8000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نبدأ",
+    "startMs": 8040,
+    "endMs": 8400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "برفّة",
+    "startMs": 8480,
+    "endMs": 8880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الجفن.",
+    "startMs": 8920,
+    "endMs": 9680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أنت",
+    "startMs": 9760,
+    "endMs": 9920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحاول",
+    "startMs": 10000,
+    "endMs": 10320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تركز،",
+    "startMs": 10560,
+    "endMs": 11120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والجفن",
+    "startMs": 11240,
+    "endMs": 11680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عنده",
+    "startMs": 11760,
+    "endMs": 12000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "برنامج",
+    "startMs": 12240,
+    "endMs": 12480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ثاني.",
+    "startMs": 12520,
+    "endMs": 13200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "غالبًا",
+    "startMs": 13320,
+    "endMs": 13680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "هي",
+    "startMs": 13760,
+    "endMs": 13840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تقلصات",
+    "startMs": 13920,
+    "endMs": 14480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صغيرة",
+    "startMs": 14560,
+    "endMs": 14960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لا",
+    "startMs": 15040,
+    "endMs": 15120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إرادية،",
+    "startMs": 15200,
+    "endMs": 15920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ترتبط",
+    "startMs": 16080,
+    "endMs": 16400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بالتعب",
+    "startMs": 16440,
+    "endMs": 16960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والتوتر",
+    "startMs": 17040,
+    "endMs": 17600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وكثرة",
+    "startMs": 17760,
+    "endMs": 18160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الكافيين.",
+    "startMs": 18200,
+    "endMs": 19040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جرّب",
+    "startMs": 19120,
+    "endMs": 19360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ترتاح",
+    "startMs": 19440,
+    "endMs": 19920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وتخفف",
+    "startMs": 20000,
+    "endMs": 20400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "القهوة.",
+    "startMs": 20440,
+    "endMs": 21120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والرفّة",
+    "startMs": 21200,
+    "endMs": 21520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وحدها",
+    "startMs": 21600,
+    "endMs": 21920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ما",
+    "startMs": 22000,
+    "endMs": 22080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تثبت",
+    "startMs": 22160,
+    "endMs": 22480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نقص",
+    "startMs": 22600,
+    "endMs": 22720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المغنيسيوم،",
+    "startMs": 22800,
+    "endMs": 23520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فلا",
+    "startMs": 23560,
+    "endMs": 23760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تشخّص",
+    "startMs": 23840,
+    "endMs": 24160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نفسك",
+    "startMs": 24280,
+    "endMs": 24480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "منها.",
+    "startMs": 24560,
+    "endMs": 25040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لو",
+    "startMs": 25120,
+    "endMs": 25200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "استمرت",
+    "startMs": 25320,
+    "endMs": 25760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أكثر",
+    "startMs": 25880,
+    "endMs": 26000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 26080,
+    "endMs": 26160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أسبوعين،",
+    "startMs": 26200,
+    "endMs": 26880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 26920,
+    "endMs": 27040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صار",
+    "startMs": 27160,
+    "endMs": 27280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "معها",
+    "startMs": 27400,
+    "endMs": 27600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ضعف",
+    "startMs": 27680,
+    "endMs": 28080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 28160,
+    "endMs": 28240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ظهرت",
+    "startMs": 28320,
+    "endMs": 28640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بأماكن",
+    "startMs": 28720,
+    "endMs": 29120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "متعددة،",
+    "startMs": 29240,
+    "endMs": 30000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "راجع",
+    "startMs": 30160,
+    "endMs": 30320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طبيبًا.",
+    "startMs": 30400,
+    "endMs": 31200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ثانيًا،",
+    "startMs": 31240,
+    "endMs": 31920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صداع",
+    "startMs": 32040,
+    "endMs": 32240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المثلجات.",
+    "startMs": 32360,
+    "endMs": 33360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تأخذ",
+    "startMs": 33440,
+    "endMs": 33680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "رشفة",
+    "startMs": 33760,
+    "endMs": 34080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "باردة",
+    "startMs": 34200,
+    "endMs": 34480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "كبيرة،",
+    "startMs": 34560,
+    "endMs": 35120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وفجأة",
+    "startMs": 35240,
+    "endMs": 35720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جبهتك",
+    "startMs": 35840,
+    "endMs": 36240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحتج.",
+    "startMs": 36360,
+    "endMs": 37040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "البرودة",
+    "startMs": 37120,
+    "endMs": 37600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تلمس",
+    "startMs": 37680,
+    "endMs": 37920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "سقف",
+    "startMs": 38000,
+    "endMs": 38160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الفم،",
+    "startMs": 38240,
+    "endMs": 38800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 38880,
+    "endMs": 39120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الألم",
+    "startMs": 39200,
+    "endMs": 39600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ينحس",
+    "startMs": 39680,
+    "endMs": 40000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "في",
+    "startMs": 40080,
+    "endMs": 40160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الرأس.",
+    "startMs": 40200,
+    "endMs": 40880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "هذا",
+    "startMs": 40920,
+    "endMs": 41120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مثال",
+    "startMs": 41320,
+    "endMs": 41520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "على",
+    "startMs": 41600,
+    "endMs": 41760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الألم",
+    "startMs": 41840,
+    "endMs": 42080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المُحال؛",
+    "startMs": 42160,
+    "endMs": 42880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مكان",
+    "startMs": 42960,
+    "endMs": 43280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الإحساس",
+    "startMs": 43320,
+    "endMs": 43920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مو",
+    "startMs": 44000,
+    "endMs": 44160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "دائمًا",
+    "startMs": 44200,
+    "endMs": 44480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مكان",
+    "startMs": 44640,
+    "endMs": 44800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "البداية.",
+    "startMs": 44840,
+    "endMs": 45600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وقف",
+    "startMs": 45760,
+    "endMs": 45920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "البارد",
+    "startMs": 46000,
+    "endMs": 46320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لحظة،",
+    "startMs": 46440,
+    "endMs": 46880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ودفّي",
+    "startMs": 47000,
+    "endMs": 47320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "سقف",
+    "startMs": 47360,
+    "endMs": 47600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فمك",
+    "startMs": 47680,
+    "endMs": 47920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بلسانك،",
+    "startMs": 48000,
+    "endMs": 48720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وبعدها",
+    "startMs": 48840,
+    "endMs": 49280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خذ",
+    "startMs": 49440,
+    "endMs": 49600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "رشفات",
+    "startMs": 49680,
+    "endMs": 50000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أصغر.",
+    "startMs": 50080,
+    "endMs": 50800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ثالثًا،",
+    "startMs": 51000,
+    "endMs": 51520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "القشعريرة.",
+    "startMs": 51600,
+    "endMs": 52560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تبرد،",
+    "startMs": 52600,
+    "endMs": 53200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تخاف،",
+    "startMs": 53320,
+    "endMs": 53920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 53947,
+    "endMs": 54000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تتأثر",
+    "startMs": 54080,
+    "endMs": 54480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بموقف،",
+    "startMs": 54560,
+    "endMs": 55200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وفجأة",
+    "startMs": 55360,
+    "endMs": 55760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "جلدك",
+    "startMs": 56000,
+    "endMs": 56373,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يتنقّط",
+    "startMs": 56427,
+    "endMs": 56960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والشعر",
+    "startMs": 57040,
+    "endMs": 57360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يرتفع.",
+    "startMs": 57440,
+    "endMs": 58080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عضلات",
+    "startMs": 58200,
+    "endMs": 58480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "دقيقة",
+    "startMs": 58560,
+    "endMs": 58960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عند",
+    "startMs": 59000,
+    "endMs": 59120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بصيلات",
+    "startMs": 59200,
+    "endMs": 59600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الشعر",
+    "startMs": 59680,
+    "endMs": 60080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تنقبض",
+    "startMs": 60160,
+    "endMs": 60640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بإشارة",
+    "startMs": 60720,
+    "endMs": 61200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 61240,
+    "endMs": 61280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الجهاز",
+    "startMs": 61360,
+    "endMs": 61760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "العصبي",
+    "startMs": 61800,
+    "endMs": 62160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اللاإرادي.",
+    "startMs": 62240,
+    "endMs": 63120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حركة",
+    "startMs": 63320,
+    "endMs": 63520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صغيرة،",
+    "startMs": 63560,
+    "endMs": 64160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ونتيجتها",
+    "startMs": 64240,
+    "endMs": 64800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تشوفها",
+    "startMs": 64880,
+    "endMs": 65200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بعينك.",
+    "startMs": 65280,
+    "endMs": 65840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكنها",
+    "startMs": 65960,
+    "endMs": 66240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مو",
+    "startMs": 66280,
+    "endMs": 66320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اختبار",
+    "startMs": 66520,
+    "endMs": 66720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لقوة",
+    "startMs": 66800,
+    "endMs": 67120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "شخصيتك،",
+    "startMs": 67240,
+    "endMs": 67920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ولا",
+    "startMs": 68040,
+    "endMs": 68160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "دليل",
+    "startMs": 68320,
+    "endMs": 68480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أن",
+    "startMs": 68600,
+    "endMs": 68720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "دماغك",
+    "startMs": 68800,
+    "endMs": 69120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أفضل",
+    "startMs": 69200,
+    "endMs": 69440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 69520,
+    "endMs": 69600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "غيرك.",
+    "startMs": 69720,
+    "endMs": 70400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "رابعًا،",
+    "startMs": 70520,
+    "endMs": 71120,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طنين",
+    "startMs": 71200,
+    "endMs": 71440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأذن.",
+    "startMs": 71520,
+    "endMs": 72160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "المكان",
+    "startMs": 72280,
+    "endMs": 72560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ساكت،",
+    "startMs": 72640,
+    "endMs": 73360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 73480,
+    "endMs": 73680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أنت",
+    "startMs": 73760,
+    "endMs": 73920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تسمع",
+    "startMs": 74000,
+    "endMs": 74320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "صفيرًا",
+    "startMs": 74440,
+    "endMs": 74880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 74920,
+    "endMs": 75040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أزيزًا.",
+    "startMs": 75080,
+    "endMs": 75760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "هذا",
+    "startMs": 75840,
+    "endMs": 76080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "اسمه",
+    "startMs": 76160,
+    "endMs": 76400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طنين:",
+    "startMs": 76480,
+    "endMs": 76960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "إحساس",
+    "startMs": 77040,
+    "endMs": 77440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بصوت",
+    "startMs": 77520,
+    "endMs": 77920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "من",
+    "startMs": 78000,
+    "endMs": 78080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "غير",
+    "startMs": 78160,
+    "endMs": 78320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مصدر",
+    "startMs": 78360,
+    "endMs": 78640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خارجي.",
+    "startMs": 78720,
+    "endMs": 79360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "قد",
+    "startMs": 79440,
+    "endMs": 79520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يرتبط",
+    "startMs": 79600,
+    "endMs": 80000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بضعف",
+    "startMs": 80040,
+    "endMs": 80320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "السمع،",
+    "startMs": 80400,
+    "endMs": 80960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 80987,
+    "endMs": 81040,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الضجيج،",
+    "startMs": 81120,
+    "endMs": 81840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وأحيانًا",
+    "startMs": 81920,
+    "endMs": 82480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "شمع",
+    "startMs": 82640,
+    "endMs": 82880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأذن",
+    "startMs": 83000,
+    "endMs": 83280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 83360,
+    "endMs": 83440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "بعض",
+    "startMs": 83520,
+    "endMs": 83680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأدوية.",
+    "startMs": 83760,
+    "endMs": 84400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "خفف",
+    "startMs": 84520,
+    "endMs": 84720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الأصوات",
+    "startMs": 84800,
+    "endMs": 85200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "العالية،",
+    "startMs": 85280,
+    "endMs": 85920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ولا",
+    "startMs": 86000,
+    "endMs": 86080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تدخل",
+    "startMs": 86160,
+    "endMs": 86480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أدوات",
+    "startMs": 86680,
+    "endMs": 86880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "داخل",
+    "startMs": 87040,
+    "endMs": 87200,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أذنك.",
+    "startMs": 87240,
+    "endMs": 87840,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لو",
+    "startMs": 87920,
+    "endMs": 88000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مستمر",
+    "startMs": 88160,
+    "endMs": 88560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "أو",
+    "startMs": 88600,
+    "endMs": 88680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مزعج،",
+    "startMs": 88720,
+    "endMs": 89280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "افحصه.",
+    "startMs": 89360,
+    "endMs": 90000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ومع",
+    "startMs": 90080,
+    "endMs": 90240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فقدان",
+    "startMs": 90400,
+    "endMs": 90640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "سمع",
+    "startMs": 90720,
+    "endMs": 90960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مفاجئ،",
+    "startMs": 91040,
+    "endMs": 91600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تحتاج",
+    "startMs": 91680,
+    "endMs": 92000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مساعدة",
+    "startMs": 92240,
+    "endMs": 92480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "طبية",
+    "startMs": 92560,
+    "endMs": 92960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "عاجلة.",
+    "startMs": 93000,
+    "endMs": 93680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لاحظ",
+    "startMs": 93840,
+    "endMs": 94000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الرابط:",
+    "startMs": 94040,
+    "endMs": 94800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الإحساس",
+    "startMs": 94880,
+    "endMs": 95280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "حقيقي،",
+    "startMs": 95360,
+    "endMs": 96080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لكن",
+    "startMs": 96200,
+    "endMs": 96360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تفسيره",
+    "startMs": 96400,
+    "endMs": 96960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يحتاج",
+    "startMs": 97120,
+    "endMs": 97520,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "سياق.",
+    "startMs": 97560,
+    "endMs": 98320,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "وفي",
+    "startMs": 98400,
+    "endMs": 98480,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الجزء",
+    "startMs": 98600,
+    "endMs": 98800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الثالث",
+    "startMs": 98880,
+    "endMs": 99360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "نروح",
+    "startMs": 99520,
+    "endMs": 99760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "للحلق",
+    "startMs": 99840,
+    "endMs": 100400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والمعدة",
+    "startMs": 100440,
+    "endMs": 100960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "والصدر:",
+    "startMs": 101040,
+    "endMs": 101760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "متى",
+    "startMs": 101840,
+    "endMs": 102000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "يكون",
+    "startMs": 102040,
+    "endMs": 102240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "الوصف",
+    "startMs": 102320,
+    "endMs": 102640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "مألوفًا،",
+    "startMs": 102720,
+    "endMs": 103440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "ومتى",
+    "startMs": 103560,
+    "endMs": 103760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "لازم",
+    "startMs": 103840,
+    "endMs": 104080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "تتصرف",
+    "startMs": 104160,
+    "endMs": 104640,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "فورًا؟",
+    "startMs": 104720,
+    "endMs": 105326,
+    "timestampMs": null,
+    "confidence": null
+  }
+]
