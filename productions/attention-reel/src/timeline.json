@@ -1,0 +1,70 @@
+{
+  "duration": 80.36666666666666,
+  "frames": 4822,
+  "scenes": [
+    {
+      "id": "Hook",
+      "start": 0,
+      "end": 10.08,
+      "from": 0,
+      "frames": 605,
+      "beats": [2.32, 6, 8.8]
+    },
+    {
+      "id": "Science",
+      "start": 10.08,
+      "end": 19.36,
+      "from": 605,
+      "frames": 557,
+      "beats": [3.04, 6.0]
+    },
+    {
+      "id": "Roadmap",
+      "start": 19.36,
+      "end": 22.88,
+      "from": 1162,
+      "frames": 211,
+      "beats": []
+    },
+    {
+      "id": "Triggers",
+      "start": 22.88,
+      "end": 34.44,
+      "from": 1373,
+      "frames": 693,
+      "beats": [2.8, 4.56, 5.72, 7.44, 9.24]
+    },
+    {
+      "id": "Friction",
+      "start": 34.44,
+      "end": 49.32,
+      "from": 2066,
+      "frames": 893,
+      "beats": [4.48, 6.48, 8.28, 11.2, 12.68]
+    },
+    {
+      "id": "Rest",
+      "start": 49.32,
+      "end": 60.48,
+      "from": 2959,
+      "frames": 670,
+      "beats": [3.24, 4.68, 6.0, 7.64]
+    },
+    {
+      "id": "Measure",
+      "start": 60.48,
+      "end": 72.12,
+      "from": 3629,
+      "frames": 698,
+      "beats": [2.36, 5.52, 6.8, 9.08]
+    },
+    {
+      "id": "Ending",
+      "start": 72.12,
+      "end": 80.36666666666666,
+      "from": 4327,
+      "frames": 495,
+      "beats": [2.08, 3.36, 4.96, 6.64]
+    }
+  ]
+}

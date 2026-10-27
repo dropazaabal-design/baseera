@@ -1,0 +1,96 @@
+{
+  "title": "Quiet First Page",
+  "method": "Original procedural composition and oscillator synthesis",
+  "seed": 27102026,
+  "sample_rate": 48000,
+  "channels": 2,
+  "external_recordings": [],
+  "sample_libraries": [],
+  "reference_songs": [],
+  "events": [
+    {
+      "start": 0.0,
+      "duration": 12.8,
+      "midi_notes": [
+        52,
+        59,
+        62,
+        66
+      ]
+    },
+    {
+      "start": 10.5,
+      "duration": 12.8,
+      "midi_notes": [
+        45,
+        52,
+        59,
+        61
+      ]
+    },
+    {
+      "start": 21.0,
+      "duration": 12.8,
+      "midi_notes": [
+        48,
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "start": 31.5,
+      "duration": 12.8,
+      "midi_notes": [
+        43,
+        50,
+        57,
+        59
+      ]
+    },
+    {
+      "start": 42.0,
+      "duration": 12.8,
+      "midi_notes": [
+        52,
+        57,
+        62,
+        66
+      ]
+    },
+    {
+      "start": 52.5,
+      "duration": 12.8,
+      "midi_notes": [
+        45,
+        52,
+        60,
+        64
+      ]
+    },
+    {
+      "start": 63.0,
+      "duration": 12.8,
+      "midi_notes": [
+        48,
+        55,
+        62,
+        67
+      ]
+    },
+    {
+      "start": 73.5,
+      "duration": 6.867,
+      "midi_notes": [
+        47,
+        54,
+        59,
+        62
+      ]
+    }
+  ],
+  "scope": "A custom background score for this reel; no claim of copyright registration or guaranteed Content ID clearance.",
+  "sha256_wav": "75956267c06c151b3c300540af5da25b7545ab426a695044841303390441a374",
+  "sha256_flac": "a4e6bb901b2f87311b3007f64ea04d4fb9fef431b1189e683cc1bf3d698c5c09",
+  "sha256_synthesis_script": "1c1628f17f7481abd5e36c36f987ae7a5d3dca73d0f1a1a4757dee545cb6d0d8"
+}

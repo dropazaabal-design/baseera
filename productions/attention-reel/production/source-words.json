@@ -1,0 +1,1001 @@
+{
+  "words": [
+    {
+      "text": "فتحت",
+      "type": "word",
+      "start": 0,
+      "end": 0.4
+    },
+    {
+      "text": "جوالك",
+      "type": "word",
+      "start": 0.52,
+      "end": 0.96
+    },
+    {
+      "text": "عشان",
+      "type": "word",
+      "start": 1.04,
+      "end": 1.2
+    },
+    {
+      "text": "ترتاح.",
+      "type": "word",
+      "start": 1.28,
+      "end": 1.92
+    },
+    {
+      "text": "وبعد",
+      "type": "word",
+      "start": 2.32,
+      "end": 2.64
+    },
+    {
+      "text": "نصف",
+      "type": "word",
+      "start": 2.76,
+      "end": 2.88
+    },
+    {
+      "text": "ساعة،",
+      "type": "word",
+      "start": 2.96,
+      "end": 3.36
+    },
+    {
+      "text": "أنت",
+      "type": "word",
+      "start": 3.68,
+      "end": 3.84
+    },
+    {
+      "text": "متضايق",
+      "type": "word",
+      "start": 3.96,
+      "end": 4.4
+    },
+    {
+      "text": "لأنك",
+      "type": "word",
+      "start": 4.44,
+      "end": 4.8
+    },
+    {
+      "text": "ما",
+      "type": "word",
+      "start": 4.88,
+      "end": 4.96
+    },
+    {
+      "text": "أنجزت.",
+      "type": "word",
+      "start": 5.04,
+      "end": 5.92
+    },
+    {
+      "text": "فتفتح",
+      "type": "word",
+      "start": 6,
+      "end": 6.4
+    },
+    {
+      "text": "مقطعًا",
+      "type": "word",
+      "start": 6.44,
+      "end": 6.8
+    },
+    {
+      "text": "ثانيًا",
+      "type": "word",
+      "start": 6.88,
+      "end": 7.28
+    },
+    {
+      "text": "عشان",
+      "type": "word",
+      "start": 7.36,
+      "end": 7.6
+    },
+    {
+      "text": "تنسى",
+      "type": "word",
+      "start": 7.68,
+      "end": 7.92
+    },
+    {
+      "text": "الضيق.",
+      "type": "word",
+      "start": 7.96,
+      "end": 8.4
+    },
+    {
+      "text": "شفت",
+      "type": "word",
+      "start": 8.8,
+      "end": 9.04
+    },
+    {
+      "text": "الدائرة؟",
+      "type": "word",
+      "start": 9.08,
+      "end": 9.6
+    },
+    {
+      "text": "الموضوع",
+      "type": "word",
+      "start": 10.08,
+      "end": 10.56
+    },
+    {
+      "text": "مو",
+      "type": "word",
+      "start": 10.64,
+      "end": 10.72
+    },
+    {
+      "text": "إن",
+      "type": "word",
+      "start": 10.84,
+      "end": 10.96
+    },
+    {
+      "text": "دماغك",
+      "type": "word",
+      "start": 11.04,
+      "end": 11.44
+    },
+    {
+      "text": "«محترق",
+      "type": "word",
+      "start": 11.52,
+      "end": 11.92
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 11.96,
+      "end": 12
+    },
+    {
+      "text": "الدوبامين».",
+      "type": "word",
+      "start": 12.08,
+      "end": 12.72
+    },
+    {
+      "text": "الدوبامين",
+      "type": "word",
+      "start": 13.12,
+      "end": 13.76
+    },
+    {
+      "text": "له",
+      "type": "word",
+      "start": 13.92,
+      "end": 14.08
+    },
+    {
+      "text": "دور",
+      "type": "word",
+      "start": 14.2,
+      "end": 14.32
+    },
+    {
+      "text": "في",
+      "type": "word",
+      "start": 14.36,
+      "end": 14.4
+    },
+    {
+      "text": "التعلّم",
+      "type": "word",
+      "start": 14.48,
+      "end": 14.96
+    },
+    {
+      "text": "والتحفيز.",
+      "type": "word",
+      "start": 15.04,
+      "end": 15.68
+    },
+    {
+      "text": "تقليل",
+      "type": "word",
+      "start": 16.08,
+      "end": 16.4
+    },
+    {
+      "text": "التصفح",
+      "type": "word",
+      "start": 16.44,
+      "end": 17.04
+    },
+    {
+      "text": "ما",
+      "type": "word",
+      "start": 17.28,
+      "end": 17.44
+    },
+    {
+      "text": "يعني",
+      "type": "word",
+      "start": 17.52,
+      "end": 17.76
+    },
+    {
+      "text": "تنظيف",
+      "type": "word",
+      "start": 17.92,
+      "end": 18.08
+    },
+    {
+      "text": "دماغك",
+      "type": "word",
+      "start": 18.16,
+      "end": 18.56
+    },
+    {
+      "text": "منه.",
+      "type": "word",
+      "start": 18.68,
+      "end": 18.96
+    },
+    {
+      "text": "المفيد",
+      "type": "word",
+      "start": 19.36,
+      "end": 19.76
+    },
+    {
+      "text": "هنا",
+      "type": "word",
+      "start": 19.84,
+      "end": 20.08
+    },
+    {
+      "text": "تغيّر",
+      "type": "word",
+      "start": 20.32,
+      "end": 20.76
+    },
+    {
+      "text": "عاداتك",
+      "type": "word",
+      "start": 20.8,
+      "end": 21.36
+    },
+    {
+      "text": "بثلاث",
+      "type": "word",
+      "start": 21.44,
+      "end": 21.76
+    },
+    {
+      "text": "خطوات.",
+      "type": "word",
+      "start": 21.88,
+      "end": 22.4
+    },
+    {
+      "text": "أولًا:",
+      "type": "word",
+      "start": 22.88,
+      "end": 23.68
+    },
+    {
+      "text": "اكتشف",
+      "type": "word",
+      "start": 23.8,
+      "end": 24.08
+    },
+    {
+      "text": "اللحظة",
+      "type": "word",
+      "start": 24.16,
+      "end": 24.507
+    },
+    {
+      "text": "اللي",
+      "type": "word",
+      "start": 24.533,
+      "end": 24.64
+    },
+    {
+      "text": "تسحبك.",
+      "type": "word",
+      "start": 24.76,
+      "end": 25.28
+    },
+    {
+      "text": "تفتح",
+      "type": "word",
+      "start": 25.68,
+      "end": 26
+    },
+    {
+      "text": "التطبيق",
+      "type": "word",
+      "start": 26.04,
+      "end": 26.4
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 26.48,
+      "end": 26.56
+    },
+    {
+      "text": "الملل؟",
+      "type": "word",
+      "start": 26.64,
+      "end": 27.04
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 27.44,
+      "end": 27.52
+    },
+    {
+      "text": "التوتر؟",
+      "type": "word",
+      "start": 27.6,
+      "end": 28.48
+    },
+    {
+      "text": "ولا",
+      "type": "word",
+      "start": 28.6,
+      "end": 28.72
+    },
+    {
+      "text": "لأن",
+      "type": "word",
+      "start": 28.76,
+      "end": 29.04
+    },
+    {
+      "text": "الإشعار",
+      "type": "word",
+      "start": 29.08,
+      "end": 29.36
+    },
+    {
+      "text": "نادى؟",
+      "type": "word",
+      "start": 29.44,
+      "end": 30.24
+    },
+    {
+      "text": "راقب",
+      "type": "word",
+      "start": 30.32,
+      "end": 30.72
+    },
+    {
+      "text": "مرة",
+      "type": "word",
+      "start": 30.88,
+      "end": 31.04
+    },
+    {
+      "text": "واحدة",
+      "type": "word",
+      "start": 31.12,
+      "end": 31.36
+    },
+    {
+      "text": "اليوم:",
+      "type": "word",
+      "start": 31.44,
+      "end": 32
+    },
+    {
+      "text": "وش",
+      "type": "word",
+      "start": 32.12,
+      "end": 32.24
+    },
+    {
+      "text": "صار",
+      "type": "word",
+      "start": 32.4,
+      "end": 32.56
+    },
+    {
+      "text": "قبل",
+      "type": "word",
+      "start": 32.64,
+      "end": 32.88
+    },
+    {
+      "text": "ما",
+      "type": "word",
+      "start": 32.92,
+      "end": 32.96
+    },
+    {
+      "text": "تمسك",
+      "type": "word",
+      "start": 33.04,
+      "end": 33.36
+    },
+    {
+      "text": "الجوال؟",
+      "type": "word",
+      "start": 33.4,
+      "end": 34.4
+    },
+    {
+      "text": "ثانيًا:",
+      "type": "word",
+      "start": 34.44,
+      "end": 35.28
+    },
+    {
+      "text": "خلّ",
+      "type": "word",
+      "start": 35.36,
+      "end": 35.52
+    },
+    {
+      "text": "البداية",
+      "type": "word",
+      "start": 35.56,
+      "end": 36
+    },
+    {
+      "text": "أصعب",
+      "type": "word",
+      "start": 36.08,
+      "end": 36.4
+    },
+    {
+      "text": "على",
+      "type": "word",
+      "start": 36.48,
+      "end": 36.56
+    },
+    {
+      "text": "الهاتف،",
+      "type": "word",
+      "start": 36.64,
+      "end": 37.28
+    },
+    {
+      "text": "وأسهل",
+      "type": "word",
+      "start": 37.36,
+      "end": 37.84
+    },
+    {
+      "text": "على",
+      "type": "word",
+      "start": 37.92,
+      "end": 38
+    },
+    {
+      "text": "المهمة.",
+      "type": "word",
+      "start": 38.08,
+      "end": 38.88
+    },
+    {
+      "text": "أطفئ",
+      "type": "word",
+      "start": 38.92,
+      "end": 39.147
+    },
+    {
+      "text": "الإشعارات",
+      "type": "word",
+      "start": 39.173,
+      "end": 39.68
+    },
+    {
+      "text": "غير",
+      "type": "word",
+      "start": 39.76,
+      "end": 39.92
+    },
+    {
+      "text": "الضرورية،",
+      "type": "word",
+      "start": 39.96,
+      "end": 40.8
+    },
+    {
+      "text": "وابعد",
+      "type": "word",
+      "start": 40.92,
+      "end": 41.2
+    },
+    {
+      "text": "الجوال",
+      "type": "word",
+      "start": 41.28,
+      "end": 41.68
+    },
+    {
+      "text": "وقت",
+      "type": "word",
+      "start": 41.76,
+      "end": 41.92
+    },
+    {
+      "text": "العمل.",
+      "type": "word",
+      "start": 41.96,
+      "end": 42.64
+    },
+    {
+      "text": "وبدل",
+      "type": "word",
+      "start": 42.72,
+      "end": 43.2
+    },
+    {
+      "text": "«لازم",
+      "type": "word",
+      "start": 43.44,
+      "end": 43.76
+    },
+    {
+      "text": "أخلص",
+      "type": "word",
+      "start": 43.8,
+      "end": 44.16
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 44.28,
+      "end": 44.4
+    },
+    {
+      "text": "شيء»،",
+      "type": "word",
+      "start": 44.52,
+      "end": 45.04
+    },
+    {
+      "text": "قل:",
+      "type": "word",
+      "start": 45.16,
+      "end": 45.6
+    },
+    {
+      "text": "أبدأ",
+      "type": "word",
+      "start": 45.64,
+      "end": 45.92
+    },
+    {
+      "text": "بخمس",
+      "type": "word",
+      "start": 46,
+      "end": 46.32
+    },
+    {
+      "text": "دقائق.",
+      "type": "word",
+      "start": 46.4,
+      "end": 47.04
+    },
+    {
+      "text": "وبعدها",
+      "type": "word",
+      "start": 47.12,
+      "end": 47.56
+    },
+    {
+      "text": "أختار",
+      "type": "word",
+      "start": 47.6,
+      "end": 47.92
+    },
+    {
+      "text": "إذا",
+      "type": "word",
+      "start": 48,
+      "end": 48.16
+    },
+    {
+      "text": "أكمل.",
+      "type": "word",
+      "start": 48.2,
+      "end": 49.12
+    },
+    {
+      "text": "ثالثًا:",
+      "type": "word",
+      "start": 49.32,
+      "end": 50
+    },
+    {
+      "text": "لا",
+      "type": "word",
+      "start": 50.08,
+      "end": 50.16
+    },
+    {
+      "text": "تجعل",
+      "type": "word",
+      "start": 50.24,
+      "end": 50.56
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 50.64,
+      "end": 50.8
+    },
+    {
+      "text": "راحة",
+      "type": "word",
+      "start": 50.88,
+      "end": 51.28
+    },
+    {
+      "text": "شاشة",
+      "type": "word",
+      "start": 51.36,
+      "end": 51.68
+    },
+    {
+      "text": "ثانية.",
+      "type": "word",
+      "start": 51.72,
+      "end": 52.48
+    },
+    {
+      "text": "جرّب",
+      "type": "word",
+      "start": 52.56,
+      "end": 52.8
+    },
+    {
+      "text": "تمشي",
+      "type": "word",
+      "start": 52.88,
+      "end": 53.12
+    },
+    {
+      "text": "قليلًا،",
+      "type": "word",
+      "start": 53.2,
+      "end": 53.92
+    },
+    {
+      "text": "تتنفس",
+      "type": "word",
+      "start": 54,
+      "end": 54.4
+    },
+    {
+      "text": "بهدوء،",
+      "type": "word",
+      "start": 54.48,
+      "end": 55.28
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 55.32,
+      "end": 55.44
+    },
+    {
+      "text": "تكتب",
+      "type": "word",
+      "start": 55.48,
+      "end": 55.76
+    },
+    {
+      "text": "اللي",
+      "type": "word",
+      "start": 55.8,
+      "end": 56
+    },
+    {
+      "text": "يقلقك.",
+      "type": "word",
+      "start": 56.133,
+      "end": 56.8
+    },
+    {
+      "text": "استراحة",
+      "type": "word",
+      "start": 56.96,
+      "end": 57.52
+    },
+    {
+      "text": "ترجعك",
+      "type": "word",
+      "start": 57.6,
+      "end": 58.16
+    },
+    {
+      "text": "للمهمة،",
+      "type": "word",
+      "start": 58.2,
+      "end": 58.88
+    },
+    {
+      "text": "بدل",
+      "type": "word",
+      "start": 59,
+      "end": 59.12
+    },
+    {
+      "text": "ما",
+      "type": "word",
+      "start": 59.16,
+      "end": 59.2
+    },
+    {
+      "text": "تأخذك",
+      "type": "word",
+      "start": 59.28,
+      "end": 59.68
+    },
+    {
+      "text": "منها.",
+      "type": "word",
+      "start": 59.76,
+      "end": 60.4
+    },
+    {
+      "text": "وما",
+      "type": "word",
+      "start": 60.48,
+      "end": 60.6
+    },
+    {
+      "text": "تحتاج",
+      "type": "word",
+      "start": 60.64,
+      "end": 61.04
+    },
+    {
+      "text": "تحرم",
+      "type": "word",
+      "start": 61.16,
+      "end": 61.36
+    },
+    {
+      "text": "نفسك",
+      "type": "word",
+      "start": 61.44,
+      "end": 61.76
+    },
+    {
+      "text": "من",
+      "type": "word",
+      "start": 61.84,
+      "end": 61.92
+    },
+    {
+      "text": "كل",
+      "type": "word",
+      "start": 62,
+      "end": 62.16
+    },
+    {
+      "text": "متعة،",
+      "type": "word",
+      "start": 62.24,
+      "end": 62.8
+    },
+    {
+      "text": "أو",
+      "type": "word",
+      "start": 62.84,
+      "end": 62.92
+    },
+    {
+      "text": "تنتظر",
+      "type": "word",
+      "start": 62.96,
+      "end": 63.36
+    },
+    {
+      "text": "وعد",
+      "type": "word",
+      "start": 63.44,
+      "end": 63.68
+    },
+    {
+      "text": "«إعادة",
+      "type": "word",
+      "start": 63.92,
+      "end": 64.4
+    },
+    {
+      "text": "ضبط",
+      "type": "word",
+      "start": 64.56,
+      "end": 64.72
+    },
+    {
+      "text": "خلال",
+      "type": "word",
+      "start": 64.8,
+      "end": 64.96
+    },
+    {
+      "text": "أسبوعين».",
+      "type": "word",
+      "start": 65.04,
+      "end": 65.92
+    },
+    {
+      "text": "راقب",
+      "type": "word",
+      "start": 66,
+      "end": 66.24
+    },
+    {
+      "text": "السلوك:",
+      "type": "word",
+      "start": 66.32,
+      "end": 67.2
+    },
+    {
+      "text": "هل",
+      "type": "word",
+      "start": 67.28,
+      "end": 67.36
+    },
+    {
+      "text": "صار",
+      "type": "word",
+      "start": 67.44,
+      "end": 67.52
+    },
+    {
+      "text": "التصفح",
+      "type": "word",
+      "start": 67.6,
+      "end": 68.08
+    },
+    {
+      "text": "أقل",
+      "type": "word",
+      "start": 68.16,
+      "end": 68.48
+    },
+    {
+      "text": "تلقائية؟",
+      "type": "word",
+      "start": 68.52,
+      "end": 69.52
+    },
+    {
+      "text": "وهل",
+      "type": "word",
+      "start": 69.56,
+      "end": 69.76
+    },
+    {
+      "text": "بدأت",
+      "type": "word",
+      "start": 69.84,
+      "end": 70.08
+    },
+    {
+      "text": "المهمة",
+      "type": "word",
+      "start": 70.16,
+      "end": 70.64
+    },
+    {
+      "text": "بدل",
+      "type": "word",
+      "start": 70.76,
+      "end": 70.88
+    },
+    {
+      "text": "تأجيلها؟",
+      "type": "word",
+      "start": 70.96,
+      "end": 72
+    },
+    {
+      "text": "اليوم",
+      "type": "word",
+      "start": 72.12,
+      "end": 72.48
+    },
+    {
+      "text": "اختر",
+      "type": "word",
+      "start": 72.64,
+      "end": 72.96
+    },
+    {
+      "text": "مهمة",
+      "type": "word",
+      "start": 73.04,
+      "end": 73.36
+    },
+    {
+      "text": "واحدة.",
+      "type": "word",
+      "start": 73.44,
+      "end": 74.08
+    },
+    {
+      "text": "حط",
+      "type": "word",
+      "start": 74.2,
+      "end": 74.32
+    },
+    {
+      "text": "الجوال",
+      "type": "word",
+      "start": 74.4,
+      "end": 74.8
+    },
+    {
+      "text": "بعيد،",
+      "type": "word",
+      "start": 74.88,
+      "end": 75.44
+    },
+    {
+      "text": "وافتح",
+      "type": "word",
+      "start": 75.48,
+      "end": 75.84
+    },
+    {
+      "text": "أول",
+      "type": "word",
+      "start": 75.92,
+      "end": 76.16
+    },
+    {
+      "text": "صفحة.",
+      "type": "word",
+      "start": 76.24,
+      "end": 76.96
+    },
+    {
+      "text": "خله",
+      "type": "word",
+      "start": 77.08,
+      "end": 77.28
+    },
+    {
+      "text": "إنجازك",
+      "type": "word",
+      "start": 77.36,
+      "end": 77.76
+    },
+    {
+      "text": "الأول...",
+      "type": "word",
+      "start": 77.84,
+      "end": 78.64
+    },
+    {
+      "text": "قبل",
+      "type": "word",
+      "start": 78.76,
+      "end": 78.88
+    },
+    {
+      "text": "أول",
+      "type": "word",
+      "start": 78.96,
+      "end": 79.2
+    },
+    {
+      "text": "تمريرة.",
+      "type": "word",
+      "start": 79.32,
+      "end": 80
+    }
+  ],
+  "text": "فتحت جوالك عشان ترتاح. وبعد نصف ساعة، أنت متضايق لأنك ما أنجزت. فتفتح مقطعًا ثانيًا عشان تنسى الضيق. شفت الدائرة؟\n\nالموضوع مو إن دماغك «محترق من الدوبامين». الدوبامين له دور في التعلّم والتحفيز. تقليل التصفح ما يعني تنظيف دماغك منه.\n\nالمفيد هنا تغيّر عاداتك بثلاث خطوات.\n\nأولًا: اكتشف اللحظة اللي تسحبك. تفتح التطبيق من الملل؟ من التوتر؟ ولا لأن الإشعار نادى؟ راقب مرة واحدة اليوم: وش صار قبل ما تمسك الجوال؟\n\nثانيًا: خلّ البداية أصعب على الهاتف، وأسهل على المهمة. أطفئ الإشعارات غير الضرورية، وابعد الجوال وقت العمل. وبدل «لازم أخلص كل شيء»، قل: أبدأ بخمس دقائق. وبعدها أختار إذا أكمل.\n\nثالثًا: لا تجعل كل راحة شاشة ثانية. جرّب تمشي قليلًا، تتنفس بهدوء، أو تكتب اللي يقلقك. استراحة ترجعك للمهمة، بدل ما تأخذك منها.\n\nوما تحتاج تحرم نفسك من كل متعة، أو تنتظر وعد «إعادة ضبط خلال أسبوعين». راقب السلوك: هل صار التصفح أقل تلقائية؟ وهل بدأت المهمة بدل تأجيلها؟\n\nاليوم اختر مهمة واحدة. حط الجوال بعيد، وافتح أول صفحة. خله إنجازك الأول... قبل أول تمريرة."
+}
