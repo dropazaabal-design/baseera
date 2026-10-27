@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ethical-power31-reel@1.0.0 video:test
+> node scripts/workflow/test.cjs
+
+{"timeline":true,"presets":5,"srtCRLF":true,"invalidSrtRejected":true,"invalidDurationRejected":true,"unknownPresetRejected":true,"pathTraversalRejected":true}

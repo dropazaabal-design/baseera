@@ -53,3 +53,7 @@ effectcraft-cli --project public/choice-gate.ecproj render --comp ChoiceGate --o
 ## ملفات التسليم
 
 [الفيديو النهائي](https://chatgpt.com/library?file_id=libfile_34c1755d46508191b4ee36b5d3182b4e&account_id=personal) · [حزمة الأصول](https://chatgpt.com/library?file_id=libfile_44b2e78063588191a82c97c919d2faea&account_id=personal) · [السكريبت والكابشن](https://chatgpt.com/library?file_id=libfile_8ad65ea255388191b1a76e70996166a6&account_id=personal) · [SRT](https://chatgpt.com/library?file_id=libfile_b6280e9f1bd481919361845d9d326604&account_id=personal). الروابط خاصة بحساب المالك.
+
+## إنتاج متكرر من JSON
+
+[دليل الإنتاج العربي](docs/production-workflow-ar.md) يشرح سير Power31-Cinematic متعدد المشاهد، واستيراد MP3/SRT، والقوالب الخمسة، وتبديل الرسومات دون إعادة كتابة React. تبقى CinematicDemo كما هي.

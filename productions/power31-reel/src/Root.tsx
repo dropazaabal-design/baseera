@@ -1,3 +1,4 @@
+import { ProductionCompositions } from "./workflow/Compositions";
 import { EngineProbe } from "./cinematic/EngineProbe";
 import { CinematicDemo } from "./cinematic/CinematicDemo";
 import { Composition, Folder } from "remotion";
@@ -15,6 +16,7 @@ import { Reading } from "./scenes/Reading";
 import { Ending } from "./scenes/Ending";
 export const RemotionRoot = () => (
   <>
+    <ProductionCompositions />
     <Composition
       id="Power31"
       component={Power31}

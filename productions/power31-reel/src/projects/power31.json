@@ -1,0 +1,109 @@
+{
+  "name": "Power31-Cinematic",
+  "audio": "projects/power31-voice.mp3",
+  "srt": "projects/power31.srt",
+  "scenes": [
+    {
+      "id": "choice",
+      "title": "مو كل اختيار يعني حرية",
+      "duration": 9.8166666667,
+      "preset": "slowPush",
+      "parallax": 1,
+      "layers": [
+        {
+          "id": "background",
+          "src": "cinematic/background.svg",
+          "depth": -2
+        },
+        {
+          "id": "doors",
+          "src": "cinematic/doors.svg",
+          "depth": 1
+        },
+        {
+          "id": "character",
+          "src": "cinematic/character.svg",
+          "depth": 2
+        },
+        {
+          "id": "foreground",
+          "src": "cinematic/foreground.svg",
+          "depth": 3
+        }
+      ]
+    },
+    {
+      "id": "pressure",
+      "title": "متى صار قرارك اختبارًا لوفائك؟",
+      "duration": 16.7166666666,
+      "preset": "tiltReveal",
+      "parallax": 1,
+      "layers": [
+        {
+          "id": "background",
+          "src": "cinematic/background.svg",
+          "depth": -2
+        },
+        {
+          "id": "controller",
+          "src": "cinematic/controller.svg",
+          "depth": 0
+        },
+        {
+          "id": "doors",
+          "src": "cinematic/doors.svg",
+          "depth": 1
+        },
+        {
+          "id": "character",
+          "src": "cinematic/character.svg",
+          "depth": 2
+        },
+        {
+          "id": "foreground",
+          "src": "cinematic/foreground.svg",
+          "depth": 3
+        }
+      ]
+    },
+    {
+      "id": "law",
+      "title": "من يضع الخيارات… قد يوجّه النتيجة",
+      "duration": 18.1666666667,
+      "preset": "pullBack",
+      "parallax": 1,
+      "layers": [
+        {
+          "id": "background",
+          "src": "cinematic/background.svg",
+          "depth": -2
+        },
+        {
+          "id": "roads",
+          "src": "cinematic/roads.svg",
+          "depth": -1
+        },
+        {
+          "id": "controller",
+          "src": "cinematic/controller.svg",
+          "depth": 0
+        },
+        {
+          "id": "doors",
+          "src": "cinematic/doors.svg",
+          "depth": 1
+        },
+        {
+          "id": "character",
+          "src": "cinematic/character.svg",
+          "depth": 2
+        },
+        {
+          "id": "foreground",
+          "src": "cinematic/foreground.svg",
+          "depth": 3
+        }
+      ]
+    }
+  ]
+}
