@@ -1,0 +1,34 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "approvedPromptSHA256": "140b43699fe7cfcbf7860511d52b05e8decc3c44cf9f3136ef867dd86e712db9",
+  "originalAudioSHA256": "0b4b5415686d0fe02bb5e206bc595923aad233c5dc415ecc0c4e29bb830ea6f7",
+  "voiceId": "dlGxemPxFMTY7iXagmOj",
+  "generationId": "Jq5R2clbbtyYBLh1U5M9",
+  "generationCount": 1,
+  "credits": 1215.8784,
+  "priceCents": 22.10688,
+  "rawScriptUnchanged": true,
+  "actualDurationSeconds": 99.68,
+  "independentASR": [
+    "asr-recording.json",
+    "asr-medium-recording.json"
+  ],
+  "anchors": {
+    "year1661": true,
+    "reception17August": true,
+    "arrest5September": true,
+    "colbert": true,
+    "politicsBeforeParty": true,
+    "rightNotWaived": true,
+    "noFlattery": true
+  },
+  "forcedWords": 209,
+  "forcedAlignmentIssues": [],
+  "orthographyReview": [
+    "Fouquet is transcribed as فوكي / فوكيي; captions retain the approved فوكيه.",
+    "Greene is transcribed as جرين; captions retain غرين.",
+    "Vaux-le-Vicomte word segmentation differs between recognizers; captions retain فو لو فيكونت.",
+    "Numbers normalized by ASR are represented with Western digits in captions."
+  ],
+  "scope": "Two independent local ASR model sizes, source prompt hash and recording-derived alignment. ASR is imperfect and does not constitute a human listening review or a guarantee of every phoneme."
+}

@@ -1,7 +1,7 @@
 {
-  "stage": "VISUAL_REVIEW_NOT_PUBLICATION_READY",
-  "audio_path": null,
-  "final_narration_available": false,
+  "stage": "FINAL_VIDEO_WITH_ACTUAL_AUDIO",
+  "audio_path": "law01/audio/Law01-Narration-Mastered.wav",
+  "final_narration_available": true,
   "local_inventory": {
     "preexisting_tts_engine": false,
     "preexisting_arabic_voice": false,
@@ -17,8 +17,8 @@
     "provider": "ElevenLabs",
     "connected": true,
     "total_count": 22,
-    "generation_invoked": false,
-    "billing_authorized": false,
+    "generation_invoked": true,
+    "billing_authorized": true,
     "candidate_names": [
       "RAED ",
       "Khalid Alghamdi – Natural Saudi Narrator",
@@ -26,10 +26,20 @@
       "Nasser AlJubaily - Authentic Saudi Pro",
       "Abdullah - Saudi Arabic Narrator",
       "Ali - calm & Deep Arabic Saudi Narrator"
-    ]
+    ],
+    "selectedVoiceId": "dlGxemPxFMTY7iXagmOj",
+    "selectedModel": "eleven_v4",
+    "generationRequested": true,
+    "estimateOnlyPerformed": true,
+    "estimatedSingleTakeCredits": 1215.8784,
+    "estimateReportedBlockingErrors": false,
+    "actualGenerationCount": 1,
+    "actualCredits": 1215.8784,
+    "actualPriceCents": 22.10688
   },
   "motionlab_invoked": false,
   "music": false,
-  "srt_status": "estimated review cues only; not aligned to recording",
-  "publication_gate": "BLOCKED_PENDING_APPROVED_NARRATION_AND_ALIGNMENT"
+  "srt_status": "recording-derived local forced alignment; 45 cues",
+  "publication_gate": "PASSED_ACTUAL_AUDIO_CAPTIONS_AND_FINAL_FILE_QA",
+  "pendingRequest": "audio/narration-request.json"
 }

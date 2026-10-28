@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "independentBrowserRenders": [
+    {
+      "shot": "SHOT03",
+      "frame": 211,
+      "before": "repeat-final/SHOT03-a.png",
+      "after": "repeat-final/SHOT03-b.png",
+      "sameDimensions": true,
+      "pixelEqual": true,
+      "maximumChannelDifference": 0,
+      "beforeSHA256": "291764402f78668763118f62db56a48c4a7156ed0e69a531daed3a171ae98722",
+      "afterSHA256": "291764402f78668763118f62db56a48c4a7156ed0e69a531daed3a171ae98722"
+    },
+    {
+      "shot": "SHOT14",
+      "frame": 2634,
+      "before": "repeat-final/SHOT14-a.png",
+      "after": "repeat-final/SHOT14-b.png",
+      "sameDimensions": true,
+      "pixelEqual": true,
+      "maximumChannelDifference": 0,
+      "beforeSHA256": "8b0c978b4fee8f0d88bb84d52866bc789ccb7813bf8336e79bf20f5f2ccd197d",
+      "afterSHA256": "8b0c978b4fee8f0d88bb84d52866bc789ccb7813bf8336e79bf20f5f2ccd197d"
+    },
+    {
+      "shot": "SHOT29",
+      "frame": 5783,
+      "before": "repeat-final/SHOT29-a.png",
+      "after": "repeat-final/SHOT29-b.png",
+      "sameDimensions": true,
+      "pixelEqual": true,
+      "maximumChannelDifference": 0,
+      "beforeSHA256": "979c82385e68472f79e9e68854ea84f9e712bf795dcd866dab13893cc92dd600",
+      "afterSHA256": "979c82385e68472f79e9e68854ea84f9e712bf795dcd866dab13893cc92dd600"
+    }
+  ],
+  "legacyBeforeAfter": [
+    {
+      "composition": "CinematicDemo",
+      "frame": 360,
+      "before": "legacy-before-cinematic.png",
+      "after": "legacy-after-cinematic.png",
+      "sameDimensions": true,
+      "pixelEqual": true,
+      "maximumChannelDifference": 0,
+      "beforeSHA256": "0bb8a8e551d3a20505a417b34088f980992ce27db2881c19438ab1f08d5e4021",
+      "afterSHA256": "0bb8a8e551d3a20505a417b34088f980992ce27db2881c19438ab1f08d5e4021"
+    },
+    {
+      "composition": "Power31-Cinematic",
+      "frame": 300,
+      "before": "legacy-before-workflow.png",
+      "after": "legacy-after-workflow.png",
+      "sameDimensions": true,
+      "pixelEqual": true,
+      "maximumChannelDifference": 0,
+      "beforeSHA256": "c0c5da9774d8698520d3af2b9ca0cc929b9ea07c144e3dd6aa6855ab897b11b6",
+      "afterSHA256": "c0c5da9774d8698520d3af2b9ca0cc929b9ea07c144e3dd6aa6855ab897b11b6"
+    }
+  ],
+  "scope": "Three actual Law01 frames rendered in two independent Chrome instances; two legacy sample frames compared against pre-change renders. Existing Workflow uses the canonical SVG project with unavailable narration/SRT disabled. Full legacy films and legacy audio were not re-rendered."
+}

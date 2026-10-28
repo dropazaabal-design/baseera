@@ -1,8 +1,10 @@
 """Verify rendered frame pixels and make QA-only contact sheets."""
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
-import json,hashlib,numpy as np
+import json,hashlib,numpy as np,sys
 R=Path(__file__).resolve().parents[2];P=R/'projects/law01-cinematic';Q=P/'qa'
+if '--recorded' in sys.argv:Q=Q/'final'
+(Q/'review').mkdir(exist_ok=True)
 data=json.loads((Q/'frame-samples.json').read_text());samples=data['samples']
 records=[]
 for s in samples:

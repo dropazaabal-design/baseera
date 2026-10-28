@@ -1,0 +1,177 @@
+{
+  "renderProcess": "COMPLETED_REQUIRES_FINAL_FILE_QA",
+  "file": "projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4",
+  "publicationReady": false,
+  "projectPublicationGatePassed": true,
+  "audioIncluded": true,
+  "estimatedCaptions": false,
+  "expectedFrames": 5981,
+  "expectedFPS": 60,
+  "recordingSeconds": 99.68,
+  "method": "Frame-identical global Remotion ranges, lossless picture concatenation, one mastered WAV encoded once to AAC at t=0.",
+  "checkpoint": {
+    "inputSHA256": "810094706a0ec7eb0db7d197073612599ffb6dfe1bbcfa393d0d1ce381e556fc",
+    "chunks": [
+      {
+        "index": 0,
+        "startFrame": 0,
+        "endFrameInclusive": 299,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/000.mp4",
+        "sha256": "90437f432141ee87993e7a5c7e130a30888e0388ad611cc85dc73865e259e760"
+      },
+      {
+        "index": 1,
+        "startFrame": 300,
+        "endFrameInclusive": 599,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/001.mp4",
+        "sha256": "dc6d93b4d272ea43b56eaae21fa3d4d7c879dbbdac2e2861f88c5e13ba50d614"
+      },
+      {
+        "index": 2,
+        "startFrame": 600,
+        "endFrameInclusive": 899,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/002.mp4",
+        "sha256": "a996ddfed8377151af008ac3794de6c7b39e4a46fde3fad4b78c092732f7623e"
+      },
+      {
+        "index": 3,
+        "startFrame": 900,
+        "endFrameInclusive": 1199,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/003.mp4",
+        "sha256": "ec452a644404a90326b36c55f059e35af512a7a0dfc8dd777735c5ba770412a0"
+      },
+      {
+        "index": 4,
+        "startFrame": 1200,
+        "endFrameInclusive": 1499,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/004.mp4",
+        "sha256": "2eae2d0d299e400a7a83a596487da8a9332a48c170bba5a1eebeb6ecb9c79e62"
+      },
+      {
+        "index": 5,
+        "startFrame": 1500,
+        "endFrameInclusive": 1799,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/005.mp4",
+        "sha256": "1cd5de81143ee8961c8d5dbda7a1ee3e48b4bf7969be79a763ecfe3f2759397e"
+      },
+      {
+        "index": 6,
+        "startFrame": 1800,
+        "endFrameInclusive": 2099,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/006.mp4",
+        "sha256": "fb8df266e3e7c0e9130daef26caec500a0c6bb3f0b8a00fe0e54a556ff86296d"
+      },
+      {
+        "index": 7,
+        "startFrame": 2100,
+        "endFrameInclusive": 2399,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/007.mp4",
+        "sha256": "07c64bcf0fd1c443ed152b5af93c106cc96a1a8ed3d114ff0e71a6b0ede936cb"
+      },
+      {
+        "index": 8,
+        "startFrame": 2400,
+        "endFrameInclusive": 2699,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/008.mp4",
+        "sha256": "a66adb75ab5c2527aefeb8b49a0da1693707e76e6737f151c18d50af087b11ea"
+      },
+      {
+        "index": 9,
+        "startFrame": 2700,
+        "endFrameInclusive": 2999,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/009.mp4",
+        "sha256": "cf41f7ac30b22514c6594012d33835c5d3225f17a3ac95e9f2d9356edbc5f693"
+      },
+      {
+        "index": 10,
+        "startFrame": 3000,
+        "endFrameInclusive": 3299,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/010.mp4",
+        "sha256": "e8473101d820f24f1a3a8e1e68a50bc161dee1e520a6d5dd83b078df9590cf65"
+      },
+      {
+        "index": 11,
+        "startFrame": 3300,
+        "endFrameInclusive": 3599,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/011.mp4",
+        "sha256": "b4e0724ec9fb140fb45b2c3a2e7fac4847d8ba37cb04244d0ac20045a4444069"
+      },
+      {
+        "index": 12,
+        "startFrame": 3600,
+        "endFrameInclusive": 3899,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/012.mp4",
+        "sha256": "a54c826606a66e1e3c7db843fc43213831698ad9d81d2315d55ae37fd8ae0c14"
+      },
+      {
+        "index": 13,
+        "startFrame": 3900,
+        "endFrameInclusive": 4199,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/013.mp4",
+        "sha256": "380b64ed9da8fd1b19f5792807f6313e664f5b6e9bd7ba3aeb22a94d090cec29"
+      },
+      {
+        "index": 14,
+        "startFrame": 4200,
+        "endFrameInclusive": 4499,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/014.mp4",
+        "sha256": "3da93df807f3c662619dcf4d12cf331e5ce8487368ad2d902627ace1aa483e8c"
+      },
+      {
+        "index": 15,
+        "startFrame": 4500,
+        "endFrameInclusive": 4799,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/015.mp4",
+        "sha256": "e1188cc09beb238a821cbd1f2ac141ba6fc7d5b448fa639ca9bb7ae9994ceded"
+      },
+      {
+        "index": 16,
+        "startFrame": 4800,
+        "endFrameInclusive": 5099,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/016.mp4",
+        "sha256": "696fa712f9a9cb51d999b45b5c66c1543fdb8c05cba760a17d659c22a8ed16a6"
+      },
+      {
+        "index": 17,
+        "startFrame": 5100,
+        "endFrameInclusive": 5399,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/017.mp4",
+        "sha256": "9cb42055571edc7b7a12d36fc91108dc5308e1d633127d8db11c0161ecbf6b97"
+      },
+      {
+        "index": 18,
+        "startFrame": 5400,
+        "endFrameInclusive": 5699,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/018.mp4",
+        "sha256": "17130dcbb27a7031423e21ca1b4bfe574070947acf937405a931a7eb28f7d963"
+      },
+      {
+        "index": 19,
+        "startFrame": 5700,
+        "endFrameInclusive": 5980,
+        "frames": 281,
+        "file": "projects/law01-cinematic/renders/chunks-recorded-v1/019.mp4",
+        "sha256": "0b97fc768d603d566232897eb3570e4223b3425001f7f957ba081868dcf674de"
+      }
+    ]
+  }
+}

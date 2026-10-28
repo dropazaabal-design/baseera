@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "outputs": [
+    {
+      "file": "public/law01/audio/Law01-Narration-Mastered.wav",
+      "integratedLUFS": -16.07,
+      "truePeakDBTP": -5.99,
+      "loudnessPass": true,
+      "truePeakPass": true
+    },
+    {
+      "file": "public/law01/audio/Law01-Narration-Final.mp3",
+      "integratedLUFS": -16.07,
+      "truePeakDBTP": -4.46,
+      "loudnessPass": true,
+      "truePeakPass": true
+    }
+  ]
+}

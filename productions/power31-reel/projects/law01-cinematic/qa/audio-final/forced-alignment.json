@@ -1,0 +1,4467 @@
+{
+  "method": "Local CTranslate2 Whisper small forced cross-attention/DTW alignment of approved tokens, broadly anchored by independent ASR.",
+  "sourceASR": "qa/audio-final/asr-medium-recording.json",
+  "timingResolutionSeconds": 0.02,
+  "groundTruth17msClaim": false,
+  "approvedTextSHA256": "140b43699fe7cfcbf7860511d52b05e8decc3c44cf9f3136ef867dd86e712db9",
+  "audioSHA256": "ce8f35a67b48830b0ceee5c79a25d9b4c3f2f03ed1f4c82273b5374933068951",
+  "duration": 99.68,
+  "words": [
+    {
+      "index": 0,
+      "text": "نجاحك",
+      "segment": 1,
+      "start": 0.0,
+      "end": 0.64,
+      "probability": 0.8965
+    },
+    {
+      "index": 1,
+      "text": "ممكن",
+      "segment": 1,
+      "start": 0.64,
+      "end": 1.1,
+      "probability": 0.92888
+    },
+    {
+      "index": 2,
+      "text": "يطيّحك.",
+      "segment": 1,
+      "start": 1.1,
+      "end": 1.84,
+      "probability": 0.79628
+    },
+    {
+      "index": 3,
+      "text": "بس",
+      "segment": 1,
+      "start": 2.0,
+      "end": 2.42,
+      "probability": 0.80339
+    },
+    {
+      "index": 4,
+      "text": "مو",
+      "segment": 1,
+      "start": 2.42,
+      "end": 2.58,
+      "probability": 0.73566
+    },
+    {
+      "index": 5,
+      "text": "بالطريقة",
+      "segment": 1,
+      "start": 2.58,
+      "end": 3.08,
+      "probability": 0.92601
+    },
+    {
+      "index": 6,
+      "text": "اللي",
+      "segment": 1,
+      "start": 3.08,
+      "end": 3.24,
+      "probability": 0.75366
+    },
+    {
+      "index": 7,
+      "text": "تتخيّلها.",
+      "segment": 1,
+      "start": 3.24,
+      "end": 3.86,
+      "probability": 0.82101
+    },
+    {
+      "index": 8,
+      "text": "سنة",
+      "segment": 2,
+      "start": 4.04,
+      "end": 4.58,
+      "probability": 0.84469
+    },
+    {
+      "index": 9,
+      "text": "ألف",
+      "segment": 2,
+      "start": 4.58,
+      "end": 4.78,
+      "probability": 0.50888
+    },
+    {
+      "index": 10,
+      "text": "وستمية",
+      "segment": 2,
+      "start": 4.78,
+      "end": 5.34,
+      "probability": 0.55069
+    },
+    {
+      "index": 11,
+      "text": "وواحد",
+      "segment": 2,
+      "start": 5.34,
+      "end": 5.7,
+      "probability": 0.51215
+    },
+    {
+      "index": 12,
+      "text": "وستين،",
+      "segment": 2,
+      "start": 5.7,
+      "end": 6.48,
+      "probability": 0.63974
+    },
+    {
+      "index": 13,
+      "text": "نيكولا",
+      "segment": 2,
+      "start": 6.48,
+      "end": 6.92,
+      "probability": 0.81076
+    },
+    {
+      "index": 14,
+      "text": "فوكيه،",
+      "segment": 2,
+      "start": 6.92,
+      "end": 7.5,
+      "probability": 0.66767
+    },
+    {
+      "index": 15,
+      "text": "المسؤول",
+      "segment": 2,
+      "start": 7.5,
+      "end": 8.02,
+      "probability": 0.94363
+    },
+    {
+      "index": 16,
+      "text": "عن",
+      "segment": 2,
+      "start": 8.02,
+      "end": 8.14,
+      "probability": 0.92147
+    },
+    {
+      "index": 17,
+      "text": "مالية",
+      "segment": 2,
+      "start": 8.14,
+      "end": 8.52,
+      "probability": 0.96528
+    },
+    {
+      "index": 18,
+      "text": "فرنسا،",
+      "segment": 2,
+      "start": 8.52,
+      "end": 9.32,
+      "probability": 0.82402
+    },
+    {
+      "index": 19,
+      "text": "استقبل",
+      "segment": 2,
+      "start": 9.32,
+      "end": 9.8,
+      "probability": 0.92955
+    },
+    {
+      "index": 20,
+      "text": "الملك",
+      "segment": 2,
+      "start": 9.8,
+      "end": 10.12,
+      "probability": 0.98359
+    },
+    {
+      "index": 21,
+      "text": "لويس",
+      "segment": 2,
+      "start": 10.12,
+      "end": 10.5,
+      "probability": 0.69591
+    },
+    {
+      "index": 22,
+      "text": "الرابع",
+      "segment": 2,
+      "start": 10.5,
+      "end": 10.9,
+      "probability": 0.82977
+    },
+    {
+      "index": 23,
+      "text": "عشر",
+      "segment": 2,
+      "start": 10.9,
+      "end": 11.22,
+      "probability": 0.97748
+    },
+    {
+      "index": 24,
+      "text": "في",
+      "segment": 2,
+      "start": 11.22,
+      "end": 11.38,
+      "probability": 0.9506
+    },
+    {
+      "index": 25,
+      "text": "قصر",
+      "segment": 2,
+      "start": 11.38,
+      "end": 11.76,
+      "probability": 0.90913
+    },
+    {
+      "index": 26,
+      "text": "فو",
+      "segment": 2,
+      "start": 11.76,
+      "end": 11.98,
+      "probability": 0.4304
+    },
+    {
+      "index": 27,
+      "text": "لو",
+      "segment": 2,
+      "start": 11.98,
+      "end": 12.08,
+      "probability": 0.06427
+    },
+    {
+      "index": 28,
+      "text": "فيكونت.",
+      "segment": 2,
+      "start": 12.08,
+      "end": 12.64,
+      "probability": 0.44545
+    },
+    {
+      "index": 29,
+      "text": "كان",
+      "segment": 2,
+      "start": 12.88,
+      "end": 13.1,
+      "probability": 0.98299
+    },
+    {
+      "index": 30,
+      "text": "يوم",
+      "segment": 2,
+      "start": 13.1,
+      "end": 13.38,
+      "probability": 0.99274
+    },
+    {
+      "index": 31,
+      "text": "سبعتعش",
+      "segment": 2,
+      "start": 13.38,
+      "end": 13.98,
+      "probability": 0.52918
+    },
+    {
+      "index": 32,
+      "text": "أغسطس.",
+      "segment": 2,
+      "start": 13.98,
+      "end": 14.54,
+      "probability": 0.71805
+    },
+    {
+      "index": 33,
+      "text": "حدائق",
+      "segment": 2,
+      "start": 14.82,
+      "end": 15.34,
+      "probability": 0.80711
+    },
+    {
+      "index": 34,
+      "text": "مضاءة،",
+      "segment": 2,
+      "start": 15.34,
+      "end": 16.24,
+      "probability": 0.82054
+    },
+    {
+      "index": 35,
+      "text": "ووليمة،",
+      "segment": 2,
+      "start": 16.24,
+      "end": 16.96,
+      "probability": 0.6125
+    },
+    {
+      "index": 36,
+      "text": "وألعاب",
+      "segment": 2,
+      "start": 16.96,
+      "end": 17.34,
+      "probability": 0.75921
+    },
+    {
+      "index": 37,
+      "text": "نارية…",
+      "segment": 2,
+      "start": 17.34,
+      "end": 18.12,
+      "probability": 0.73075
+    },
+    {
+      "index": 38,
+      "text": "عرض",
+      "segment": 2,
+      "start": 18.12,
+      "end": 18.5,
+      "probability": 0.91288
+    },
+    {
+      "index": 39,
+      "text": "هائل",
+      "segment": 2,
+      "start": 18.5,
+      "end": 19.06,
+      "probability": 0.97241
+    },
+    {
+      "index": 40,
+      "text": "لثروته",
+      "segment": 2,
+      "start": 19.06,
+      "end": 19.66,
+      "probability": 0.74299
+    },
+    {
+      "index": 41,
+      "text": "ونفوذه.",
+      "segment": 2,
+      "start": 19.66,
+      "end": 20.26,
+      "probability": 0.78025
+    },
+    {
+      "index": 42,
+      "text": "يوم",
+      "segment": 3,
+      "start": 20.5,
+      "end": 20.96,
+      "probability": 0.94965
+    },
+    {
+      "index": 43,
+      "text": "خمسة",
+      "segment": 3,
+      "start": 20.96,
+      "end": 21.32,
+      "probability": 0.87891
+    },
+    {
+      "index": 44,
+      "text": "سبتمبر…",
+      "segment": 3,
+      "start": 21.32,
+      "end": 22.1,
+      "probability": 0.74173
+    },
+    {
+      "index": 45,
+      "text": "فوكيه",
+      "segment": 3,
+      "start": 22.1,
+      "end": 22.72,
+      "probability": 0.48878
+    },
+    {
+      "index": 46,
+      "text": "يُعتقل.",
+      "segment": 3,
+      "start": 22.72,
+      "end": 23.3,
+      "probability": 0.74825
+    },
+    {
+      "index": 47,
+      "text": "تقول:",
+      "segment": 4,
+      "start": 23.57,
+      "end": 24.08,
+      "probability": 0.9392
+    },
+    {
+      "index": 48,
+      "text": "أكيد",
+      "segment": 4,
+      "start": 24.32,
+      "end": 24.74,
+      "probability": 0.66379
+    },
+    {
+      "index": 49,
+      "text": "الحفلة!",
+      "segment": 4,
+      "start": 24.74,
+      "end": 25.24,
+      "probability": 0.9824
+    },
+    {
+      "index": 50,
+      "text": "بس",
+      "segment": 4,
+      "start": 25.48,
+      "end": 25.7,
+      "probability": 0.9414
+    },
+    {
+      "index": 51,
+      "text": "المفاجأة؟",
+      "segment": 4,
+      "start": 25.7,
+      "end": 26.62,
+      "probability": 0.8234
+    },
+    {
+      "index": 52,
+      "text": "الملك",
+      "segment": 4,
+      "start": 26.62,
+      "end": 27.0,
+      "probability": 0.90467
+    },
+    {
+      "index": 53,
+      "text": "كان",
+      "segment": 4,
+      "start": 27.0,
+      "end": 27.22,
+      "probability": 0.98932
+    },
+    {
+      "index": 54,
+      "text": "يسعى",
+      "segment": 4,
+      "start": 27.22,
+      "end": 27.62,
+      "probability": 0.94417
+    },
+    {
+      "index": 55,
+      "text": "لإقصائه",
+      "segment": 4,
+      "start": 27.62,
+      "end": 28.26,
+      "probability": 0.88774
+    },
+    {
+      "index": 56,
+      "text": "من",
+      "segment": 4,
+      "start": 28.26,
+      "end": 28.4,
+      "probability": 0.99544
+    },
+    {
+      "index": 57,
+      "text": "قبلها.",
+      "segment": 4,
+      "start": 28.4,
+      "end": 28.92,
+      "probability": 0.89346
+    },
+    {
+      "index": 58,
+      "text": "فيه",
+      "segment": 4,
+      "start": 29.3,
+      "end": 29.54,
+      "probability": 0.49838
+    },
+    {
+      "index": 59,
+      "text": "اتهامات",
+      "segment": 4,
+      "start": 29.54,
+      "end": 30.04,
+      "probability": 0.756
+    },
+    {
+      "index": 60,
+      "text": "مالية،",
+      "segment": 4,
+      "start": 30.04,
+      "end": 30.72,
+      "probability": 0.7297
+    },
+    {
+      "index": 61,
+      "text": "وصراع",
+      "segment": 4,
+      "start": 30.72,
+      "end": 31.1,
+      "probability": 0.93082
+    },
+    {
+      "index": 62,
+      "text": "سياسي",
+      "segment": 4,
+      "start": 31.1,
+      "end": 31.54,
+      "probability": 0.87502
+    },
+    {
+      "index": 63,
+      "text": "مع",
+      "segment": 4,
+      "start": 31.54,
+      "end": 31.7,
+      "probability": 0.9937
+    },
+    {
+      "index": 64,
+      "text": "كولبير.",
+      "segment": 4,
+      "start": 31.7,
+      "end": 32.24,
+      "probability": 0.84815
+    },
+    {
+      "index": 65,
+      "text": "يعني",
+      "segment": 4,
+      "start": 32.52,
+      "end": 32.82,
+      "probability": 0.99068
+    },
+    {
+      "index": 66,
+      "text": "المسألة",
+      "segment": 4,
+      "start": 32.82,
+      "end": 33.38,
+      "probability": 0.93917
+    },
+    {
+      "index": 67,
+      "text": "أعقد",
+      "segment": 4,
+      "start": 33.38,
+      "end": 33.8,
+      "probability": 0.64956
+    },
+    {
+      "index": 68,
+      "text": "من",
+      "segment": 4,
+      "start": 33.8,
+      "end": 34.02,
+      "probability": 0.99561
+    },
+    {
+      "index": 69,
+      "text": "غيرة",
+      "segment": 4,
+      "start": 34.02,
+      "end": 34.28,
+      "probability": 0.50286
+    },
+    {
+      "index": 70,
+      "text": "على",
+      "segment": 4,
+      "start": 34.28,
+      "end": 34.48,
+      "probability": 0.98507
+    },
+    {
+      "index": 71,
+      "text": "قصر.",
+      "segment": 4,
+      "start": 34.48,
+      "end": 34.9,
+      "probability": 0.95139
+    },
+    {
+      "index": 72,
+      "text": "لكنها",
+      "segment": 4,
+      "start": 35.12,
+      "end": 35.64,
+      "probability": 0.98902
+    },
+    {
+      "index": 73,
+      "text": "تبيّن",
+      "segment": 4,
+      "start": 35.64,
+      "end": 36.12,
+      "probability": 0.70578
+    },
+    {
+      "index": 74,
+      "text": "خطورة",
+      "segment": 4,
+      "start": 36.12,
+      "end": 36.62,
+      "probability": 0.99065
+    },
+    {
+      "index": 75,
+      "text": "النفوذ،",
+      "segment": 4,
+      "start": 36.62,
+      "end": 37.22,
+      "probability": 0.77844
+    },
+    {
+      "index": 76,
+      "text": "لما",
+      "segment": 4,
+      "start": 37.22,
+      "end": 37.5,
+      "probability": 0.92698
+    },
+    {
+      "index": 77,
+      "text": "يصير",
+      "segment": 4,
+      "start": 37.5,
+      "end": 37.78,
+      "probability": 0.66096
+    },
+    {
+      "index": 78,
+      "text": "صاحبه",
+      "segment": 4,
+      "start": 37.78,
+      "end": 38.3,
+      "probability": 0.75889
+    },
+    {
+      "index": 79,
+      "text": "منافسًا",
+      "segment": 4,
+      "start": 38.3,
+      "end": 38.92,
+      "probability": 0.76572
+    },
+    {
+      "index": 80,
+      "text": "في",
+      "segment": 4,
+      "start": 38.92,
+      "end": 39.04,
+      "probability": 0.98168
+    },
+    {
+      "index": 81,
+      "text": "عين",
+      "segment": 4,
+      "start": 39.04,
+      "end": 39.3,
+      "probability": 0.95784
+    },
+    {
+      "index": 82,
+      "text": "الحاكم.",
+      "segment": 4,
+      "start": 39.3,
+      "end": 39.72,
+      "probability": 0.99238
+    },
+    {
+      "index": 83,
+      "text": "روبرت",
+      "segment": 5,
+      "start": 40.09,
+      "end": 40.5,
+      "probability": 0.6658
+    },
+    {
+      "index": 84,
+      "text": "غرين",
+      "segment": 5,
+      "start": 40.5,
+      "end": 40.82,
+      "probability": 0.35502
+    },
+    {
+      "index": 85,
+      "text": "يحذّر",
+      "segment": 5,
+      "start": 40.82,
+      "end": 41.34,
+      "probability": 0.7587
+    },
+    {
+      "index": 86,
+      "text": "من",
+      "segment": 5,
+      "start": 41.34,
+      "end": 41.46,
+      "probability": 0.98652
+    },
+    {
+      "index": 87,
+      "text": "هذا",
+      "segment": 5,
+      "start": 41.46,
+      "end": 41.72,
+      "probability": 0.86748
+    },
+    {
+      "index": 88,
+      "text": "في",
+      "segment": 5,
+      "start": 41.72,
+      "end": 41.96,
+      "probability": 0.97348
+    },
+    {
+      "index": 89,
+      "text": "أول",
+      "segment": 5,
+      "start": 41.96,
+      "end": 42.28,
+      "probability": 0.82158
+    },
+    {
+      "index": 90,
+      "text": "قانون",
+      "segment": 5,
+      "start": 42.28,
+      "end": 42.72,
+      "probability": 0.97305
+    },
+    {
+      "index": 91,
+      "text": "من",
+      "segment": 5,
+      "start": 42.72,
+      "end": 42.88,
+      "probability": 0.99166
+    },
+    {
+      "index": 92,
+      "text": "«ثمانية",
+      "segment": 5,
+      "start": 42.88,
+      "end": 43.4,
+      "probability": 0.62535
+    },
+    {
+      "index": 93,
+      "text": "وأربعين",
+      "segment": 5,
+      "start": 43.4,
+      "end": 43.96,
+      "probability": 0.74533
+    },
+    {
+      "index": 94,
+      "text": "قانونًا",
+      "segment": 5,
+      "start": 43.96,
+      "end": 44.48,
+      "probability": 0.78868
+    },
+    {
+      "index": 95,
+      "text": "للسلطة»:",
+      "segment": 5,
+      "start": 44.48,
+      "end": 45.36,
+      "probability": 0.80268
+    },
+    {
+      "index": 96,
+      "text": "«لا",
+      "segment": 5,
+      "start": 45.4,
+      "end": 45.58,
+      "probability": 0.43579
+    },
+    {
+      "index": 97,
+      "text": "تُظهر",
+      "segment": 5,
+      "start": 45.58,
+      "end": 46.02,
+      "probability": 0.69005
+    },
+    {
+      "index": 98,
+      "text": "تفوّقك",
+      "segment": 5,
+      "start": 46.02,
+      "end": 46.7,
+      "probability": 0.73085
+    },
+    {
+      "index": 99,
+      "text": "على",
+      "segment": 5,
+      "start": 46.7,
+      "end": 46.96,
+      "probability": 0.97919
+    },
+    {
+      "index": 100,
+      "text": "رئيسك».",
+      "segment": 5,
+      "start": 46.96,
+      "end": 47.88,
+      "probability": 0.86834
+    },
+    {
+      "index": 101,
+      "text": "بس",
+      "segment": 5,
+      "start": 47.88,
+      "end": 48.12,
+      "probability": 0.88504
+    },
+    {
+      "index": 102,
+      "text": "خذ",
+      "segment": 5,
+      "start": 48.12,
+      "end": 48.3,
+      "probability": 0.84079
+    },
+    {
+      "index": 103,
+      "text": "التحذير،",
+      "segment": 5,
+      "start": 48.3,
+      "end": 49.04,
+      "probability": 0.84856
+    },
+    {
+      "index": 104,
+      "text": "مو",
+      "segment": 5,
+      "start": 49.04,
+      "end": 49.24,
+      "probability": 0.53601
+    },
+    {
+      "index": 105,
+      "text": "دعوة",
+      "segment": 5,
+      "start": 49.24,
+      "end": 49.56,
+      "probability": 0.748
+    },
+    {
+      "index": 106,
+      "text": "إنك",
+      "segment": 5,
+      "start": 49.56,
+      "end": 49.8,
+      "probability": 0.52301
+    },
+    {
+      "index": 107,
+      "text": "تصغّر",
+      "segment": 5,
+      "start": 49.8,
+      "end": 50.24,
+      "probability": 0.71429
+    },
+    {
+      "index": 108,
+      "text": "نفسك.",
+      "segment": 5,
+      "start": 50.24,
+      "end": 50.66,
+      "probability": 0.99447
+    },
+    {
+      "index": 109,
+      "text": "طيب،",
+      "segment": 5,
+      "start": 51.0,
+      "end": 51.56,
+      "probability": 0.82632
+    },
+    {
+      "index": 110,
+      "text": "وش",
+      "segment": 5,
+      "start": 51.56,
+      "end": 51.72,
+      "probability": 0.45182
+    },
+    {
+      "index": 111,
+      "text": "علاقته",
+      "segment": 5,
+      "start": 51.72,
+      "end": 52.16,
+      "probability": 0.65893
+    },
+    {
+      "index": 112,
+      "text": "فيك؟",
+      "segment": 5,
+      "start": 52.16,
+      "end": 52.665,
+      "probability": 0.86669
+    },
+    {
+      "index": 113,
+      "text": "تصحّح",
+      "segment": 6,
+      "start": 52.665,
+      "end": 53.18,
+      "probability": 0.72261
+    },
+    {
+      "index": 114,
+      "text": "خطأ",
+      "segment": 6,
+      "start": 53.18,
+      "end": 53.52,
+      "probability": 0.97223
+    },
+    {
+      "index": 115,
+      "text": "مديرك",
+      "segment": 6,
+      "start": 53.52,
+      "end": 54.0,
+      "probability": 0.93933
+    },
+    {
+      "index": 116,
+      "text": "بطريقة",
+      "segment": 6,
+      "start": 54.0,
+      "end": 54.5,
+      "probability": 0.95705
+    },
+    {
+      "index": 117,
+      "text": "تحرجه",
+      "segment": 6,
+      "start": 54.5,
+      "end": 55.0,
+      "probability": 0.66634
+    },
+    {
+      "index": 118,
+      "text": "قدّام",
+      "segment": 6,
+      "start": 55.0,
+      "end": 55.36,
+      "probability": 0.49195
+    },
+    {
+      "index": 119,
+      "text": "الجميع؟",
+      "segment": 6,
+      "start": 55.36,
+      "end": 55.98,
+      "probability": 0.78148
+    },
+    {
+      "index": 120,
+      "text": "ممكن",
+      "segment": 6,
+      "start": 55.98,
+      "end": 56.42,
+      "probability": 0.92202
+    },
+    {
+      "index": 121,
+      "text": "تتوتر",
+      "segment": 6,
+      "start": 56.42,
+      "end": 57.0,
+      "probability": 0.53526
+    },
+    {
+      "index": 122,
+      "text": "علاقتكم.",
+      "segment": 6,
+      "start": 57.0,
+      "end": 57.62,
+      "probability": 0.88249
+    },
+    {
+      "index": 123,
+      "text": "قل",
+      "segment": 6,
+      "start": 57.9,
+      "end": 58.12,
+      "probability": 0.94009
+    },
+    {
+      "index": 124,
+      "text": "بهدوء:",
+      "segment": 6,
+      "start": 58.12,
+      "end": 58.74,
+      "probability": 0.72611
+    },
+    {
+      "index": 125,
+      "text": "«بحسب",
+      "segment": 6,
+      "start": 58.88,
+      "end": 59.34,
+      "probability": 0.09093
+    },
+    {
+      "index": 126,
+      "text": "التقرير،",
+      "segment": 6,
+      "start": 59.34,
+      "end": 60.12,
+      "probability": 0.83562
+    },
+    {
+      "index": 127,
+      "text": "الرقم",
+      "segment": 6,
+      "start": 60.12,
+      "end": 60.52,
+      "probability": 0.95397
+    },
+    {
+      "index": 128,
+      "text": "الصحيح",
+      "segment": 6,
+      "start": 60.52,
+      "end": 60.98,
+      "probability": 0.97529
+    },
+    {
+      "index": 129,
+      "text": "كذا».",
+      "segment": 6,
+      "start": 60.98,
+      "end": 61.64,
+      "probability": 0.52044
+    },
+    {
+      "index": 130,
+      "text": "الحقيقة",
+      "segment": 6,
+      "start": 61.64,
+      "end": 62.2,
+      "probability": 0.95014
+    },
+    {
+      "index": 131,
+      "text": "وصلت،",
+      "segment": 6,
+      "start": 62.2,
+      "end": 62.86,
+      "probability": 0.73853
+    },
+    {
+      "index": 132,
+      "text": "بدون",
+      "segment": 6,
+      "start": 62.86,
+      "end": 63.24,
+      "probability": 0.98666
+    },
+    {
+      "index": 133,
+      "text": "تجريح.",
+      "segment": 6,
+      "start": 63.24,
+      "end": 63.74,
+      "probability": 0.79525
+    },
+    {
+      "index": 134,
+      "text": "وفي",
+      "segment": 7,
+      "start": 63.93,
+      "end": 64.26,
+      "probability": 0.63121
+    },
+    {
+      "index": 135,
+      "text": "التدريب،",
+      "segment": 7,
+      "start": 64.26,
+      "end": 64.92,
+      "probability": 0.75057
+    },
+    {
+      "index": 136,
+      "text": "تضيف",
+      "segment": 7,
+      "start": 64.92,
+      "end": 65.26,
+      "probability": 0.96768
+    },
+    {
+      "index": 137,
+      "text": "معلومة",
+      "segment": 7,
+      "start": 65.26,
+      "end": 65.76,
+      "probability": 0.9489
+    },
+    {
+      "index": 138,
+      "text": "فاتت",
+      "segment": 7,
+      "start": 65.76,
+      "end": 66.1,
+      "probability": 0.50075
+    },
+    {
+      "index": 139,
+      "text": "المدرّب…",
+      "segment": 7,
+      "start": 66.1,
+      "end": 66.9,
+      "probability": 0.52085
+    },
+    {
+      "index": 140,
+      "text": "أو",
+      "segment": 7,
+      "start": 66.9,
+      "end": 67.02,
+      "probability": 0.80626
+    },
+    {
+      "index": 141,
+      "text": "تسخر:",
+      "segment": 7,
+      "start": 67.02,
+      "end": 67.48,
+      "probability": 0.56899
+    },
+    {
+      "index": 142,
+      "text": "«حتى",
+      "segment": 7,
+      "start": 67.78,
+      "end": 68.16,
+      "probability": 0.40994
+    },
+    {
+      "index": 143,
+      "text": "هذي",
+      "segment": 7,
+      "start": 68.16,
+      "end": 68.42,
+      "probability": 0.27515
+    },
+    {
+      "index": 144,
+      "text": "ما",
+      "segment": 7,
+      "start": 68.42,
+      "end": 68.48,
+      "probability": 0.97422
+    },
+    {
+      "index": 145,
+      "text": "تعرفها؟»",
+      "segment": 7,
+      "start": 68.48,
+      "end": 69.26,
+      "probability": 0.7785
+    },
+    {
+      "index": 146,
+      "text": "نفس",
+      "segment": 7,
+      "start": 69.26,
+      "end": 69.56,
+      "probability": 0.93729
+    },
+    {
+      "index": 147,
+      "text": "المعلومة؛",
+      "segment": 7,
+      "start": 69.56,
+      "end": 70.46,
+      "probability": 0.78335
+    },
+    {
+      "index": 148,
+      "text": "أثر",
+      "segment": 7,
+      "start": 70.46,
+      "end": 70.74,
+      "probability": 0.83757
+    },
+    {
+      "index": 149,
+      "text": "مختلف.",
+      "segment": 7,
+      "start": 70.74,
+      "end": 71.3,
+      "probability": 0.9882
+    },
+    {
+      "index": 150,
+      "text": "الاحترام",
+      "segment": 7,
+      "start": 71.64,
+      "end": 72.3,
+      "probability": 0.84548
+    },
+    {
+      "index": 151,
+      "text": "مو",
+      "segment": 7,
+      "start": 72.3,
+      "end": 72.66,
+      "probability": 0.49877
+    },
+    {
+      "index": 152,
+      "text": "سكوت",
+      "segment": 7,
+      "start": 72.66,
+      "end": 73.0,
+      "probability": 0.87846
+    },
+    {
+      "index": 153,
+      "text": "عن",
+      "segment": 7,
+      "start": 73.0,
+      "end": 73.16,
+      "probability": 0.9845
+    },
+    {
+      "index": 154,
+      "text": "الخطأ.",
+      "segment": 7,
+      "start": 73.16,
+      "end": 73.64,
+      "probability": 0.97993
+    },
+    {
+      "index": 155,
+      "text": "وفي",
+      "segment": 8,
+      "start": 73.85,
+      "end": 74.14,
+      "probability": 0.89111
+    },
+    {
+      "index": 156,
+      "text": "الفريق،",
+      "segment": 8,
+      "start": 74.14,
+      "end": 74.78,
+      "probability": 0.73463
+    },
+    {
+      "index": 157,
+      "text": "حققت",
+      "segment": 8,
+      "start": 74.78,
+      "end": 75.24,
+      "probability": 0.8652
+    },
+    {
+      "index": 158,
+      "text": "إنجازًا؟",
+      "segment": 8,
+      "start": 75.24,
+      "end": 76.04,
+      "probability": 0.53529
+    },
+    {
+      "index": 159,
+      "text": "سمِّ",
+      "segment": 8,
+      "start": 76.04,
+      "end": 76.48,
+      "probability": 0.38529
+    },
+    {
+      "index": 160,
+      "text": "دورك،",
+      "segment": 8,
+      "start": 76.48,
+      "end": 77.04,
+      "probability": 0.70538
+    },
+    {
+      "index": 161,
+      "text": "واذكر",
+      "segment": 8,
+      "start": 77.04,
+      "end": 77.38,
+      "probability": 0.61281
+    },
+    {
+      "index": 162,
+      "text": "مين",
+      "segment": 8,
+      "start": 77.38,
+      "end": 77.66,
+      "probability": 0.69455
+    },
+    {
+      "index": 163,
+      "text": "ساعدك.",
+      "segment": 8,
+      "start": 77.66,
+      "end": 78.22,
+      "probability": 0.70236
+    },
+    {
+      "index": 164,
+      "text": "لو",
+      "segment": 8,
+      "start": 78.46,
+      "end": 78.62,
+      "probability": 0.99143
+    },
+    {
+      "index": 165,
+      "text": "أخذت",
+      "segment": 8,
+      "start": 78.62,
+      "end": 79.02,
+      "probability": 0.71139
+    },
+    {
+      "index": 166,
+      "text": "الفضل",
+      "segment": 8,
+      "start": 79.02,
+      "end": 79.36,
+      "probability": 0.97414
+    },
+    {
+      "index": 167,
+      "text": "كله،",
+      "segment": 8,
+      "start": 79.36,
+      "end": 79.96,
+      "probability": 0.4709
+    },
+    {
+      "index": 168,
+      "text": "يمكن",
+      "segment": 8,
+      "start": 79.96,
+      "end": 80.2,
+      "probability": 0.96183
+    },
+    {
+      "index": 169,
+      "text": "تكسب",
+      "segment": 8,
+      "start": 80.2,
+      "end": 80.58,
+      "probability": 0.82733
+    },
+    {
+      "index": 170,
+      "text": "التصفيق",
+      "segment": 8,
+      "start": 80.58,
+      "end": 81.22,
+      "probability": 0.95979
+    },
+    {
+      "index": 171,
+      "text": "وتخسر",
+      "segment": 8,
+      "start": 81.22,
+      "end": 81.78,
+      "probability": 0.95358
+    },
+    {
+      "index": 172,
+      "text": "الثقة.",
+      "segment": 8,
+      "start": 81.78,
+      "end": 82.14,
+      "probability": 0.93019
+    },
+    {
+      "index": 173,
+      "text": "مو",
+      "segment": 9,
+      "start": 82.25,
+      "end": 82.72,
+      "probability": 0.50516
+    },
+    {
+      "index": 174,
+      "text": "كل",
+      "segment": 9,
+      "start": 82.72,
+      "end": 82.82,
+      "probability": 0.60265
+    },
+    {
+      "index": 175,
+      "text": "مسؤول",
+      "segment": 9,
+      "start": 82.82,
+      "end": 83.26,
+      "probability": 0.8973
+    },
+    {
+      "index": 176,
+      "text": "يخاف",
+      "segment": 9,
+      "start": 83.26,
+      "end": 83.58,
+      "probability": 0.96772
+    },
+    {
+      "index": 177,
+      "text": "المتميّز.",
+      "segment": 9,
+      "start": 83.58,
+      "end": 84.26,
+      "probability": 0.66481
+    },
+    {
+      "index": 178,
+      "text": "بعضهم",
+      "segment": 9,
+      "start": 84.46,
+      "end": 85.02,
+      "probability": 0.95284
+    },
+    {
+      "index": 179,
+      "text": "يشوفك",
+      "segment": 9,
+      "start": 85.02,
+      "end": 85.46,
+      "probability": 0.96133
+    },
+    {
+      "index": 180,
+      "text": "شريكًا،",
+      "segment": 9,
+      "start": 85.46,
+      "end": 86.22,
+      "probability": 0.59071
+    },
+    {
+      "index": 181,
+      "text": "وبعضهم",
+      "segment": 9,
+      "start": 86.22,
+      "end": 86.76,
+      "probability": 0.97231
+    },
+    {
+      "index": 182,
+      "text": "يشوفك",
+      "segment": 9,
+      "start": 86.76,
+      "end": 87.32,
+      "probability": 0.99721
+    },
+    {
+      "index": 183,
+      "text": "تهديدًا",
+      "segment": 9,
+      "start": 87.32,
+      "end": 87.92,
+      "probability": 0.84893
+    },
+    {
+      "index": 184,
+      "text": "لمكانته.",
+      "segment": 9,
+      "start": 87.92,
+      "end": 88.6,
+      "probability": 0.74773
+    },
+    {
+      "index": 185,
+      "text": "المهارة",
+      "segment": 9,
+      "start": 88.84,
+      "end": 89.5,
+      "probability": 0.93234
+    },
+    {
+      "index": 186,
+      "text": "إنك",
+      "segment": 9,
+      "start": 89.5,
+      "end": 89.8,
+      "probability": 0.63372
+    },
+    {
+      "index": 187,
+      "text": "تعرض",
+      "segment": 9,
+      "start": 89.8,
+      "end": 90.14,
+      "probability": 0.96794
+    },
+    {
+      "index": 188,
+      "text": "كفاءتك",
+      "segment": 9,
+      "start": 90.14,
+      "end": 90.78,
+      "probability": 0.88
+    },
+    {
+      "index": 189,
+      "text": "وتحفظ",
+      "segment": 9,
+      "start": 90.78,
+      "end": 91.34,
+      "probability": 0.94798
+    },
+    {
+      "index": 190,
+      "text": "كرامة",
+      "segment": 9,
+      "start": 91.34,
+      "end": 91.78,
+      "probability": 0.8636
+    },
+    {
+      "index": 191,
+      "text": "غيرك؛",
+      "segment": 9,
+      "start": 91.78,
+      "end": 92.44,
+      "probability": 0.78522
+    },
+    {
+      "index": 192,
+      "text": "بدون",
+      "segment": 9,
+      "start": 92.44,
+      "end": 92.76,
+      "probability": 0.96165
+    },
+    {
+      "index": 193,
+      "text": "كذب،",
+      "segment": 9,
+      "start": 92.76,
+      "end": 93.36,
+      "probability": 0.76337
+    },
+    {
+      "index": 194,
+      "text": "ولا",
+      "segment": 9,
+      "start": 93.36,
+      "end": 93.56,
+      "probability": 0.99038
+    },
+    {
+      "index": 195,
+      "text": "تملّق،",
+      "segment": 9,
+      "start": 93.56,
+      "end": 94.32,
+      "probability": 0.5552
+    },
+    {
+      "index": 196,
+      "text": "ولا",
+      "segment": 9,
+      "start": 94.32,
+      "end": 94.52,
+      "probability": 0.9979
+    },
+    {
+      "index": 197,
+      "text": "تنازل",
+      "segment": 9,
+      "start": 94.52,
+      "end": 95.04,
+      "probability": 0.9508
+    },
+    {
+      "index": 198,
+      "text": "عن",
+      "segment": 9,
+      "start": 95.04,
+      "end": 95.16,
+      "probability": 0.97332
+    },
+    {
+      "index": 199,
+      "text": "حقك.",
+      "segment": 9,
+      "start": 95.16,
+      "end": 95.6,
+      "probability": 0.66965
+    },
+    {
+      "index": 200,
+      "text": "لا",
+      "segment": 10,
+      "start": 95.72,
+      "end": 96.1,
+      "probability": 0.86681
+    },
+    {
+      "index": 201,
+      "text": "تطفّي",
+      "segment": 10,
+      "start": 96.1,
+      "end": 96.62,
+      "probability": 0.64149
+    },
+    {
+      "index": 202,
+      "text": "نورك…",
+      "segment": 10,
+      "start": 96.62,
+      "end": 97.12,
+      "probability": 0.7141
+    },
+    {
+      "index": 203,
+      "text": "بس",
+      "segment": 10,
+      "start": 97.12,
+      "end": 97.46,
+      "probability": 0.84751
+    },
+    {
+      "index": 204,
+      "text": "لا",
+      "segment": 10,
+      "start": 97.46,
+      "end": 97.6,
+      "probability": 0.96439
+    },
+    {
+      "index": 205,
+      "text": "تستخدمه",
+      "segment": 10,
+      "start": 97.6,
+      "end": 98.3,
+      "probability": 0.82689
+    },
+    {
+      "index": 206,
+      "text": "عشان",
+      "segment": 10,
+      "start": 98.3,
+      "end": 98.64,
+      "probability": 0.93657
+    },
+    {
+      "index": 207,
+      "text": "تعمي",
+      "segment": 10,
+      "start": 98.64,
+      "end": 99.04,
+      "probability": 0.79711
+    },
+    {
+      "index": 208,
+      "text": "غيرك.",
+      "segment": 10,
+      "start": 99.04,
+      "end": 99.44,
+      "probability": 0.96472
+    }
+  ],
+  "wordCount": 209,
+  "sourceTextExact": true,
+  "ASRCharacterMatchRatio": 0.9769230769230769,
+  "issues": [],
+  "onsetAndOverlapCorrections": [
+    {
+      "index": 8,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 3.92,
+      "to": 4.04
+    },
+    {
+      "index": 42,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 20.3,
+      "to": 20.5
+    },
+    {
+      "index": 47,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 23.32,
+      "to": 23.57
+    },
+    {
+      "index": 83,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 39.72,
+      "to": 40.09
+    },
+    {
+      "index": 113,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 52.32,
+      "to": 52.65
+    },
+    {
+      "index": 134,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 63.76,
+      "to": 63.93
+    },
+    {
+      "index": 155,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 73.58,
+      "to": 73.85
+    },
+    {
+      "index": 173,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 82.04,
+      "to": 82.25
+    },
+    {
+      "index": 200,
+      "kind": "padded-window onset to independent-ASR consensus",
+      "from": 95.5,
+      "to": 95.72
+    },
+    {
+      "index": 113,
+      "kind": "shared boundary for model overlap",
+      "from": [
+        52.68,
+        52.65
+      ],
+      "to": 52.665
+    }
+  ],
+  "chunks": [
+    {
+      "segment": 1,
+      "firstWord": 0,
+      "endWord": 8,
+      "text": "نجاحك ممكن يطيّحك. بس مو بالطريقة اللي تتخيّلها.",
+      "approxStart": 0.0,
+      "approxEnd": 4.24,
+      "audioStart": 0,
+      "audioEnd": 4.59,
+      "rawAlignment": [
+        {
+          "word": " نجاحك",
+          "tokens": [
+            8717,
+            7435,
+            39319,
+            4117
+          ],
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.896495908498764
+        },
+        {
+          "word": " ممكن",
+          "tokens": [
+            3714,
+            43020
+          ],
+          "start": 0.64,
+          "end": 1.1,
+          "probability": 0.928875207901001
+        },
+        {
+          "word": " يطيّحك",
+          "tokens": [
+            7251,
+            9566,
+            1829,
+            11703,
+            5016,
+            4117
+          ],
+          "start": 1.1,
+          "end": 1.84,
+          "probability": 0.7962773697314939
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 1.84,
+          "end": 2.0,
+          "probability": 0.059282880276441574
+        },
+        {
+          "word": " بس",
+          "tokens": [
+            4724,
+            3794
+          ],
+          "start": 2.0,
+          "end": 2.42,
+          "probability": 0.803391844034195
+        },
+        {
+          "word": " مو",
+          "tokens": [
+            3714,
+            2407
+          ],
+          "start": 2.42,
+          "end": 2.58,
+          "probability": 0.7356623709201813
+        },
+        {
+          "word": " بالطريقة",
+          "tokens": [
+            20666,
+            9566,
+            16572,
+            28671
+          ],
+          "start": 2.58,
+          "end": 3.08,
+          "probability": 0.9260105043649673
+        },
+        {
+          "word": " اللي",
+          "tokens": [
+            13672,
+            1829
+          ],
+          "start": 3.08,
+          "end": 3.24,
+          "probability": 0.7536645531654358
+        },
+        {
+          "word": " تتخيّلها",
+          "tokens": [
+            6055,
+            2655,
+            9778,
+            1829,
+            11703,
+            1211,
+            11296
+          ],
+          "start": 3.24,
+          "end": 3.86,
+          "probability": 0.8210077988249915
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 3.86,
+          "end": 4.14,
+          "probability": 0.5852198600769043
+        }
+      ]
+    },
+    {
+      "segment": 2,
+      "firstWord": 8,
+      "endWord": 42,
+      "text": "سنة ألف وستمية وواحد وستين، نيكولا فوكيه، المسؤول عن مالية فرنسا، استقبل الملك لويس الرابع عشر في قصر فو لو فيكونت. كان يوم سبعتعش أغسطس. حدائق مضاءة، ووليمة، وألعاب نارية… عرض هائل لثروته ونفوذه.",
+      "approxStart": 4.24,
+      "approxEnd": 20.21,
+      "audioStart": 3.9200000000000004,
+      "audioEnd": 20.560000000000002,
+      "rawAlignment": [
+        {
+          "word": " سنة",
+          "tokens": [
+            8608,
+            1863,
+            3660
+          ],
+          "start": 0.0,
+          "end": 0.66,
+          "probability": 0.8446897864341736
+        },
+        {
+          "word": " ألف",
+          "tokens": [
+            5551,
+            46538
+          ],
+          "start": 0.66,
+          "end": 0.86,
+          "probability": 0.5088820587843657
+        },
+        {
+          "word": " وستمية",
+          "tokens": [
+            4032,
+            14851,
+            2304,
+            10632
+          ],
+          "start": 0.86,
+          "end": 1.42,
+          "probability": 0.5506874937564135
+        },
+        {
+          "word": " وواحد",
+          "tokens": [
+            4032,
+            14407,
+            24401
+          ],
+          "start": 1.42,
+          "end": 1.78,
+          "probability": 0.5121452112992605
+        },
+        {
+          "word": " وستين،",
+          "tokens": [
+            4032,
+            14851,
+            9957,
+            12399
+          ],
+          "start": 1.78,
+          "end": 2.56,
+          "probability": 0.6397444582544267
+        },
+        {
+          "word": " نيكولا",
+          "tokens": [
+            8717,
+            1829,
+            4117,
+            12610,
+            995
+          ],
+          "start": 2.56,
+          "end": 3.0,
+          "probability": 0.8107584953308106
+        },
+        {
+          "word": " فوكيه،",
+          "tokens": [
+            6156,
+            2407,
+            4117,
+            1829,
+            3224,
+            12399
+          ],
+          "start": 3.0,
+          "end": 3.58,
+          "probability": 0.6676743713517984
+        },
+        {
+          "word": " المسؤول",
+          "tokens": [
+            9673,
+            3794,
+            33604,
+            12610
+          ],
+          "start": 3.58,
+          "end": 4.1,
+          "probability": 0.9436290115118027
+        },
+        {
+          "word": " عن",
+          "tokens": [
+            18871
+          ],
+          "start": 4.1,
+          "end": 4.22,
+          "probability": 0.9214664697647095
+        },
+        {
+          "word": " مالية",
+          "tokens": [
+            3714,
+            6027,
+            10632
+          ],
+          "start": 4.22,
+          "end": 4.6,
+          "probability": 0.9652840693791708
+        },
+        {
+          "word": " فرنسا،",
+          "tokens": [
+            6156,
+            2288,
+            1863,
+            3794,
+            995,
+            12399
+          ],
+          "start": 4.6,
+          "end": 5.4,
+          "probability": 0.8240167746941248
+        },
+        {
+          "word": " استقبل",
+          "tokens": [
+            44713,
+            4587,
+            36150
+          ],
+          "start": 5.4,
+          "end": 5.88,
+          "probability": 0.9295525352160136
+        },
+        {
+          "word": " الملك",
+          "tokens": [
+            9673,
+            23275
+          ],
+          "start": 5.88,
+          "end": 6.2,
+          "probability": 0.9835899770259857
+        },
+        {
+          "word": " لويس",
+          "tokens": [
+            45164,
+            1829,
+            3794
+          ],
+          "start": 6.2,
+          "end": 6.58,
+          "probability": 0.6959114372730255
+        },
+        {
+          "word": " الرابع",
+          "tokens": [
+            34892,
+            16758,
+            3615
+          ],
+          "start": 6.58,
+          "end": 6.98,
+          "probability": 0.8297741214434305
+        },
+        {
+          "word": " عشر",
+          "tokens": [
+            6225,
+            46309
+          ],
+          "start": 6.98,
+          "end": 7.3,
+          "probability": 0.9774823784828186
+        },
+        {
+          "word": " في",
+          "tokens": [
+            8978
+          ],
+          "start": 7.3,
+          "end": 7.46,
+          "probability": 0.9505988359451294
+        },
+        {
+          "word": " قصر",
+          "tokens": [
+            12174,
+            9381,
+            2288
+          ],
+          "start": 7.46,
+          "end": 7.84,
+          "probability": 0.9091317852338155
+        },
+        {
+          "word": " فو",
+          "tokens": [
+            6156,
+            2407
+          ],
+          "start": 7.84,
+          "end": 8.06,
+          "probability": 0.43039528746157885
+        },
+        {
+          "word": " لو",
+          "tokens": [
+            45164
+          ],
+          "start": 8.06,
+          "end": 8.16,
+          "probability": 0.06427065283060074
+        },
+        {
+          "word": " فيكونت",
+          "tokens": [
+            8978,
+            30544,
+            2655
+          ],
+          "start": 8.16,
+          "end": 8.72,
+          "probability": 0.44545089608679217
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 8.72,
+          "end": 8.96,
+          "probability": 0.18128922581672668
+        },
+        {
+          "word": " كان",
+          "tokens": [
+            25961
+          ],
+          "start": 8.96,
+          "end": 9.18,
+          "probability": 0.9829946756362915
+        },
+        {
+          "word": " يوم",
+          "tokens": [
+            7251,
+            20498
+          ],
+          "start": 9.18,
+          "end": 9.46,
+          "probability": 0.9927360713481903
+        },
+        {
+          "word": " سبعتعش",
+          "tokens": [
+            8608,
+            3555,
+            34268,
+            3615,
+            8592
+          ],
+          "start": 9.46,
+          "end": 10.06,
+          "probability": 0.5291809365153313
+        },
+        {
+          "word": " أغسطس",
+          "tokens": [
+            5551,
+            17082,
+            3794,
+            9566,
+            3794
+          ],
+          "start": 10.06,
+          "end": 10.62,
+          "probability": 0.718049305677414
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 10.62,
+          "end": 10.9,
+          "probability": 0.17012827098369598
+        },
+        {
+          "word": " حدائق",
+          "tokens": [
+            11331,
+            3215,
+            16373,
+            4587
+          ],
+          "start": 10.9,
+          "end": 11.42,
+          "probability": 0.807109147310257
+        },
+        {
+          "word": " مضاءة،",
+          "tokens": [
+            3714,
+            11242,
+            16606,
+            3660,
+            12399
+          ],
+          "start": 11.42,
+          "end": 12.32,
+          "probability": 0.8205401122570037
+        },
+        {
+          "word": " ووليمة،",
+          "tokens": [
+            4032,
+            12610,
+            32640,
+            3660,
+            12399
+          ],
+          "start": 12.32,
+          "end": 13.04,
+          "probability": 0.6124986287904903
+        },
+        {
+          "word": " وألعاب",
+          "tokens": [
+            36725,
+            1211,
+            3615,
+            16758
+          ],
+          "start": 13.04,
+          "end": 13.42,
+          "probability": 0.7592051764950156
+        },
+        {
+          "word": " نارية…",
+          "tokens": [
+            8717,
+            9640,
+            10632,
+            1260
+          ],
+          "start": 13.42,
+          "end": 14.2,
+          "probability": 0.7307468012731988
+        },
+        {
+          "word": " عرض",
+          "tokens": [
+            6225,
+            43042
+          ],
+          "start": 14.2,
+          "end": 14.58,
+          "probability": 0.9128840267658234
+        },
+        {
+          "word": " هائل",
+          "tokens": [
+            8032,
+            16373,
+            1211
+          ],
+          "start": 14.58,
+          "end": 15.14,
+          "probability": 0.9724096854527792
+        },
+        {
+          "word": " لثروته",
+          "tokens": [
+            5296,
+            12984,
+            32887,
+            47395
+          ],
+          "start": 15.14,
+          "end": 15.74,
+          "probability": 0.7429850697517395
+        },
+        {
+          "word": " ونفوذه",
+          "tokens": [
+            4032,
+            1863,
+            5172,
+            2407,
+            24192
+          ],
+          "start": 15.74,
+          "end": 16.34,
+          "probability": 0.7802530422806739
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 16.34,
+          "end": 16.5,
+          "probability": 0.8122948408126831
+        }
+      ]
+    },
+    {
+      "segment": 3,
+      "firstWord": 42,
+      "endWord": 47,
+      "text": "يوم خمسة سبتمبر… فوكيه يُعتقل.",
+      "approxStart": 20.62,
+      "approxEnd": 23.64,
+      "audioStart": 20.3,
+      "audioEnd": 23.990000000000002,
+      "rawAlignment": [
+        {
+          "word": " يوم",
+          "tokens": [
+            7251,
+            20498
+          ],
+          "start": 0.0,
+          "end": 0.66,
+          "probability": 0.9496468007564545
+        },
+        {
+          "word": " خمسة",
+          "tokens": [
+            16490,
+            2304,
+            3794,
+            3660
+          ],
+          "start": 0.66,
+          "end": 1.02,
+          "probability": 0.8789139240980148
+        },
+        {
+          "word": " سبتمبر…",
+          "tokens": [
+            8608,
+            3555,
+            39237,
+            26890,
+            1260
+          ],
+          "start": 1.02,
+          "end": 1.8,
+          "probability": 0.7417268850840628
+        },
+        {
+          "word": " فوكيه",
+          "tokens": [
+            6156,
+            2407,
+            4117,
+            1829,
+            3224
+          ],
+          "start": 1.8,
+          "end": 2.42,
+          "probability": 0.4887803182005882
+        },
+        {
+          "word": " يُعتقل",
+          "tokens": [
+            7251,
+            10859,
+            34268,
+            4587,
+            1211
+          ],
+          "start": 2.42,
+          "end": 3.0,
+          "probability": 0.7482523158192634
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 3.0,
+          "end": 3.18,
+          "probability": 0.4003908932209015
+        }
+      ]
+    },
+    {
+      "segment": 4,
+      "firstWord": 47,
+      "endWord": 83,
+      "text": "تقول: أكيد الحفلة! بس المفاجأة؟ الملك كان يسعى لإقصائه من قبلها. فيه اتهامات مالية، وصراع سياسي مع كولبير. يعني المسألة أعقد من غيرة على قصر. لكنها تبيّن خطورة النفوذ، لما يصير صاحبه منافسًا في عين الحاكم.",
+      "approxStart": 23.64,
+      "approxEnd": 40.04,
+      "audioStart": 23.32,
+      "audioEnd": 40.39,
+      "rawAlignment": [
+        {
+          "word": " تقول",
+          "tokens": [
+            6055,
+            39648
+          ],
+          "start": 0.0,
+          "end": 0.76,
+          "probability": 0.9391970932483673
+        },
+        {
+          "word": ":",
+          "tokens": [
+            25
+          ],
+          "start": 0.76,
+          "end": 1.0,
+          "probability": 0.0021669575944542885
+        },
+        {
+          "word": " أكيد",
+          "tokens": [
+            5551,
+            4117,
+            25708
+          ],
+          "start": 1.0,
+          "end": 1.42,
+          "probability": 0.663790245850881
+        },
+        {
+          "word": " الحفلة",
+          "tokens": [
+            21542,
+            5172,
+            37977
+          ],
+          "start": 1.42,
+          "end": 1.92,
+          "probability": 0.9824032386144003
+        },
+        {
+          "word": "!",
+          "tokens": [
+            0
+          ],
+          "start": 1.92,
+          "end": 2.16,
+          "probability": 0.2751833200454712
+        },
+        {
+          "word": " بس",
+          "tokens": [
+            4724,
+            3794
+          ],
+          "start": 2.16,
+          "end": 2.38,
+          "probability": 0.9414036273956299
+        },
+        {
+          "word": " المفاجأة؟",
+          "tokens": [
+            9673,
+            5172,
+            26108,
+            10721,
+            3660,
+            22807
+          ],
+          "start": 2.38,
+          "end": 3.3,
+          "probability": 0.8234030604362488
+        },
+        {
+          "word": " الملك",
+          "tokens": [
+            9673,
+            23275
+          ],
+          "start": 3.3,
+          "end": 3.68,
+          "probability": 0.90467169880867
+        },
+        {
+          "word": " كان",
+          "tokens": [
+            25961
+          ],
+          "start": 3.68,
+          "end": 3.9,
+          "probability": 0.9893196821212769
+        },
+        {
+          "word": " يسعى",
+          "tokens": [
+            7251,
+            3794,
+            3615,
+            7578
+          ],
+          "start": 3.9,
+          "end": 4.3,
+          "probability": 0.9441724866628647
+        },
+        {
+          "word": " لإقصائه",
+          "tokens": [
+            5296,
+            28814,
+            4587,
+            9381,
+            16373,
+            3224
+          ],
+          "start": 4.3,
+          "end": 4.94,
+          "probability": 0.8877364893754324
+        },
+        {
+          "word": " من",
+          "tokens": [
+            9154
+          ],
+          "start": 4.94,
+          "end": 5.08,
+          "probability": 0.9954376816749573
+        },
+        {
+          "word": " قبلها",
+          "tokens": [
+            12174,
+            36150,
+            11296
+          ],
+          "start": 5.08,
+          "end": 5.6,
+          "probability": 0.8934623003005981
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 5.6,
+          "end": 5.98,
+          "probability": 0.5932621955871582
+        },
+        {
+          "word": " فيه",
+          "tokens": [
+            8978,
+            3224
+          ],
+          "start": 5.98,
+          "end": 6.22,
+          "probability": 0.49837511079385877
+        },
+        {
+          "word": " اتهامات",
+          "tokens": [
+            1975,
+            47395,
+            10943,
+            9307
+          ],
+          "start": 6.22,
+          "end": 6.72,
+          "probability": 0.755997009575367
+        },
+        {
+          "word": " مالية،",
+          "tokens": [
+            3714,
+            6027,
+            10632,
+            12399
+          ],
+          "start": 6.72,
+          "end": 7.4,
+          "probability": 0.729704744881019
+        },
+        {
+          "word": " وصراع",
+          "tokens": [
+            4032,
+            9381,
+            23557,
+            3615
+          ],
+          "start": 7.4,
+          "end": 7.78,
+          "probability": 0.930816575884819
+        },
+        {
+          "word": " سياسي",
+          "tokens": [
+            8608,
+            25528,
+            3794,
+            1829
+          ],
+          "start": 7.78,
+          "end": 8.22,
+          "probability": 0.8750200867652893
+        },
+        {
+          "word": " مع",
+          "tokens": [
+            20449
+          ],
+          "start": 8.22,
+          "end": 8.38,
+          "probability": 0.9937006235122681
+        },
+        {
+          "word": " كولبير",
+          "tokens": [
+            9122,
+            12610,
+            3555,
+            13546
+          ],
+          "start": 8.38,
+          "end": 8.92,
+          "probability": 0.8481494933366776
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 8.92,
+          "end": 9.2,
+          "probability": 0.8892548084259033
+        },
+        {
+          "word": " يعني",
+          "tokens": [
+            37495,
+            22653
+          ],
+          "start": 9.2,
+          "end": 9.5,
+          "probability": 0.9906755983829498
+        },
+        {
+          "word": " المسألة",
+          "tokens": [
+            9673,
+            3794,
+            10721,
+            37977
+          ],
+          "start": 9.5,
+          "end": 10.06,
+          "probability": 0.9391724914312363
+        },
+        {
+          "word": " أعقد",
+          "tokens": [
+            5551,
+            3615,
+            28543
+          ],
+          "start": 10.06,
+          "end": 10.48,
+          "probability": 0.6495608588059744
+        },
+        {
+          "word": " من",
+          "tokens": [
+            9154
+          ],
+          "start": 10.48,
+          "end": 10.7,
+          "probability": 0.9956142902374268
+        },
+        {
+          "word": " غيرة",
+          "tokens": [
+            32771,
+            48923
+          ],
+          "start": 10.7,
+          "end": 10.96,
+          "probability": 0.5028563532978296
+        },
+        {
+          "word": " على",
+          "tokens": [
+            15844
+          ],
+          "start": 10.96,
+          "end": 11.16,
+          "probability": 0.9850705862045288
+        },
+        {
+          "word": " قصر",
+          "tokens": [
+            12174,
+            9381,
+            2288
+          ],
+          "start": 11.16,
+          "end": 11.58,
+          "probability": 0.9513896107673645
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 11.58,
+          "end": 11.8,
+          "probability": 0.8221545219421387
+        },
+        {
+          "word": " لكنها",
+          "tokens": [
+            44381,
+            11296
+          ],
+          "start": 11.8,
+          "end": 12.32,
+          "probability": 0.9890204966068268
+        },
+        {
+          "word": " تبيّن",
+          "tokens": [
+            6055,
+            21292,
+            11703,
+            1863
+          ],
+          "start": 12.32,
+          "end": 12.8,
+          "probability": 0.7057830765843391
+        },
+        {
+          "word": " خطورة",
+          "tokens": [
+            16490,
+            9566,
+            13063,
+            3660
+          ],
+          "start": 12.8,
+          "end": 13.3,
+          "probability": 0.9906464666128159
+        },
+        {
+          "word": " النفوذ،",
+          "tokens": [
+            28239,
+            5172,
+            2407,
+            8848,
+            12399
+          ],
+          "start": 13.3,
+          "end": 13.9,
+          "probability": 0.7784376859664917
+        },
+        {
+          "word": " لما",
+          "tokens": [
+            5296,
+            15042
+          ],
+          "start": 13.9,
+          "end": 14.18,
+          "probability": 0.9269750118255615
+        },
+        {
+          "word": " يصير",
+          "tokens": [
+            7251,
+            9381,
+            13546
+          ],
+          "start": 14.18,
+          "end": 14.46,
+          "probability": 0.6609566559394201
+        },
+        {
+          "word": " صاحبه",
+          "tokens": [
+            20328,
+            39319,
+            3555,
+            3224
+          ],
+          "start": 14.46,
+          "end": 14.98,
+          "probability": 0.7588898912072182
+        },
+        {
+          "word": " منافسًا",
+          "tokens": [
+            3714,
+            8315,
+            36178,
+            14111,
+            995
+          ],
+          "start": 14.98,
+          "end": 15.6,
+          "probability": 0.7657156616449357
+        },
+        {
+          "word": " في",
+          "tokens": [
+            8978
+          ],
+          "start": 15.6,
+          "end": 15.72,
+          "probability": 0.9816800355911255
+        },
+        {
+          "word": " عين",
+          "tokens": [
+            6225,
+            9957
+          ],
+          "start": 15.72,
+          "end": 15.98,
+          "probability": 0.9578425288200378
+        },
+        {
+          "word": " الحاكم",
+          "tokens": [
+            21542,
+            995,
+            24793
+          ],
+          "start": 15.98,
+          "end": 16.4,
+          "probability": 0.9923760692278544
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 16.4,
+          "end": 16.74,
+          "probability": 0.9671785235404968
+        }
+      ]
+    },
+    {
+      "segment": 5,
+      "firstWord": 83,
+      "endWord": 113,
+      "text": "روبرت غرين يحذّر من هذا في أول قانون من «ثمانية وأربعين قانونًا للسلطة»: «لا تُظهر تفوّقك على رئيسك». بس خذ التحذير، مو دعوة إنك تصغّر نفسك. طيب، وش علاقته فيك؟",
+      "approxStart": 40.04,
+      "approxEnd": 52.64,
+      "audioStart": 39.72,
+      "audioEnd": 52.99,
+      "rawAlignment": [
+        {
+          "word": " روبرت",
+          "tokens": [
+            12602,
+            2407,
+            26890,
+            2655
+          ],
+          "start": 0.0,
+          "end": 0.78,
+          "probability": 0.6657969057559967
+        },
+        {
+          "word": " غرين",
+          "tokens": [
+            32771,
+            2288,
+            9957
+          ],
+          "start": 0.78,
+          "end": 1.1,
+          "probability": 0.3550188293059667
+        },
+        {
+          "word": " يحذّر",
+          "tokens": [
+            7251,
+            5016,
+            8848,
+            11703,
+            2288
+          ],
+          "start": 1.1,
+          "end": 1.62,
+          "probability": 0.7587021131068468
+        },
+        {
+          "word": " من",
+          "tokens": [
+            9154
+          ],
+          "start": 1.62,
+          "end": 1.74,
+          "probability": 0.9865182042121887
+        },
+        {
+          "word": " هذا",
+          "tokens": [
+            23758
+          ],
+          "start": 1.74,
+          "end": 2.0,
+          "probability": 0.8674820065498352
+        },
+        {
+          "word": " في",
+          "tokens": [
+            8978
+          ],
+          "start": 2.0,
+          "end": 2.24,
+          "probability": 0.9734787940979004
+        },
+        {
+          "word": " أول",
+          "tokens": [
+            5551,
+            12610
+          ],
+          "start": 2.24,
+          "end": 2.56,
+          "probability": 0.8215758502483368
+        },
+        {
+          "word": " قانون",
+          "tokens": [
+            12174,
+            7649,
+            11536
+          ],
+          "start": 2.56,
+          "end": 3.0,
+          "probability": 0.973045269648234
+        },
+        {
+          "word": " من",
+          "tokens": [
+            9154
+          ],
+          "start": 3.0,
+          "end": 3.16,
+          "probability": 0.9916619062423706
+        },
+        {
+          "word": " «ثمانية",
+          "tokens": [
+            4657,
+            12984,
+            2304,
+            7649,
+            10632
+          ],
+          "start": 3.16,
+          "end": 3.68,
+          "probability": 0.6253541304193163
+        },
+        {
+          "word": " وأربعين",
+          "tokens": [
+            36725,
+            25513,
+            3615,
+            9957
+          ],
+          "start": 3.68,
+          "end": 4.24,
+          "probability": 0.7453292049467564
+        },
+        {
+          "word": " قانونًا",
+          "tokens": [
+            12174,
+            7649,
+            11536,
+            14111,
+            995
+          ],
+          "start": 4.24,
+          "end": 4.76,
+          "probability": 0.7886801138520241
+        },
+        {
+          "word": " للسلطة»",
+          "tokens": [
+            24976,
+            3794,
+            1211,
+            9566,
+            3660,
+            5933
+          ],
+          "start": 4.76,
+          "end": 5.64,
+          "probability": 0.8026765187581381
+        },
+        {
+          "word": ":",
+          "tokens": [
+            25
+          ],
+          "start": 5.64,
+          "end": 5.68,
+          "probability": 0.0005944408476352692
+        },
+        {
+          "word": " «لا",
+          "tokens": [
+            4657,
+            15040
+          ],
+          "start": 5.68,
+          "end": 5.86,
+          "probability": 0.43579402088653296
+        },
+        {
+          "word": " تُظهر",
+          "tokens": [
+            6055,
+            10859,
+            19913,
+            3224,
+            2288
+          ],
+          "start": 5.86,
+          "end": 6.3,
+          "probability": 0.6900536686182022
+        },
+        {
+          "word": " تفوّقك",
+          "tokens": [
+            6055,
+            5172,
+            2407,
+            11703,
+            4587,
+            4117
+          ],
+          "start": 6.3,
+          "end": 6.98,
+          "probability": 0.7308507636189461
+        },
+        {
+          "word": " على",
+          "tokens": [
+            15844
+          ],
+          "start": 6.98,
+          "end": 7.24,
+          "probability": 0.979185163974762
+        },
+        {
+          "word": " رئيسك».",
+          "tokens": [
+            12602,
+            19986,
+            1829,
+            3794,
+            4117,
+            12513
+          ],
+          "start": 7.24,
+          "end": 8.16,
+          "probability": 0.8683426727851232
+        },
+        {
+          "word": " بس",
+          "tokens": [
+            4724,
+            3794
+          ],
+          "start": 8.16,
+          "end": 8.4,
+          "probability": 0.8850423991680145
+        },
+        {
+          "word": " خذ",
+          "tokens": [
+            16490,
+            8848
+          ],
+          "start": 8.4,
+          "end": 8.58,
+          "probability": 0.8407856822013855
+        },
+        {
+          "word": " التحذير،",
+          "tokens": [
+            16712,
+            5016,
+            8848,
+            13546,
+            12399
+          ],
+          "start": 8.58,
+          "end": 9.32,
+          "probability": 0.8485562562942505
+        },
+        {
+          "word": " مو",
+          "tokens": [
+            3714,
+            2407
+          ],
+          "start": 9.32,
+          "end": 9.52,
+          "probability": 0.5360076725482941
+        },
+        {
+          "word": " دعوة",
+          "tokens": [
+            11778,
+            3615,
+            2407,
+            3660
+          ],
+          "start": 9.52,
+          "end": 9.84,
+          "probability": 0.7479985915124416
+        },
+        {
+          "word": " إنك",
+          "tokens": [
+            36145,
+            4117
+          ],
+          "start": 9.84,
+          "end": 10.08,
+          "probability": 0.5230133458971977
+        },
+        {
+          "word": " تصغّر",
+          "tokens": [
+            6055,
+            9381,
+            17082,
+            11703,
+            2288
+          ],
+          "start": 10.08,
+          "end": 10.52,
+          "probability": 0.7142910122871399
+        },
+        {
+          "word": " نفسك",
+          "tokens": [
+            8717,
+            36178,
+            4117
+          ],
+          "start": 10.52,
+          "end": 10.94,
+          "probability": 0.9944685300191244
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 10.94,
+          "end": 11.28,
+          "probability": 0.7637190222740173
+        },
+        {
+          "word": " طيب،",
+          "tokens": [
+            23032,
+            1829,
+            3555,
+            12399
+          ],
+          "start": 11.28,
+          "end": 11.84,
+          "probability": 0.8263202235102654
+        },
+        {
+          "word": " وش",
+          "tokens": [
+            4032,
+            8592
+          ],
+          "start": 11.84,
+          "end": 12.0,
+          "probability": 0.45182355493307114
+        },
+        {
+          "word": " علاقته",
+          "tokens": [
+            11203,
+            995,
+            38149,
+            3224
+          ],
+          "start": 12.0,
+          "end": 12.44,
+          "probability": 0.658929705619812
+        },
+        {
+          "word": " فيك؟",
+          "tokens": [
+            8978,
+            4117,
+            22807
+          ],
+          "start": 12.44,
+          "end": 12.96,
+          "probability": 0.8666892647743225
+        }
+      ]
+    },
+    {
+      "segment": 6,
+      "firstWord": 113,
+      "endWord": 134,
+      "text": "تصحّح خطأ مديرك بطريقة تحرجه قدّام الجميع؟ ممكن تتوتر علاقتكم. قل بهدوء: «بحسب التقرير، الرقم الصحيح كذا». الحقيقة وصلت، بدون تجريح.",
+      "approxStart": 52.64,
+      "approxEnd": 63.81,
+      "audioStart": 52.32,
+      "audioEnd": 64.16,
+      "rawAlignment": [
+        {
+          "word": " تصحّح",
+          "tokens": [
+            6055,
+            9381,
+            5016,
+            11703,
+            5016
+          ],
+          "start": 0.0,
+          "end": 0.86,
+          "probability": 0.722606149315834
+        },
+        {
+          "word": " خطأ",
+          "tokens": [
+            16490,
+            9566,
+            10721
+          ],
+          "start": 0.86,
+          "end": 1.2,
+          "probability": 0.9722253481547037
+        },
+        {
+          "word": " مديرك",
+          "tokens": [
+            3714,
+            3215,
+            13546,
+            4117
+          ],
+          "start": 1.2,
+          "end": 1.68,
+          "probability": 0.9393330216407776
+        },
+        {
+          "word": " بطريقة",
+          "tokens": [
+            4724,
+            9566,
+            16572,
+            28671
+          ],
+          "start": 1.68,
+          "end": 2.18,
+          "probability": 0.9570499658584595
+        },
+        {
+          "word": " تحرجه",
+          "tokens": [
+            6055,
+            5016,
+            47341,
+            3224
+          ],
+          "start": 2.18,
+          "end": 2.68,
+          "probability": 0.6663363855332136
+        },
+        {
+          "word": " قدّام",
+          "tokens": [
+            12174,
+            3215,
+            11703,
+            10943
+          ],
+          "start": 2.68,
+          "end": 3.04,
+          "probability": 0.4919465577113442
+        },
+        {
+          "word": " الجميع؟",
+          "tokens": [
+            25724,
+            2304,
+            40228,
+            22807
+          ],
+          "start": 3.04,
+          "end": 3.66,
+          "probability": 0.7814815528690815
+        },
+        {
+          "word": " ممكن",
+          "tokens": [
+            3714,
+            43020
+          ],
+          "start": 3.66,
+          "end": 4.1,
+          "probability": 0.9220153093338013
+        },
+        {
+          "word": " تتوتر",
+          "tokens": [
+            6055,
+            2655,
+            35473,
+            2288
+          ],
+          "start": 4.1,
+          "end": 4.68,
+          "probability": 0.5352603867650032
+        },
+        {
+          "word": " علاقتكم",
+          "tokens": [
+            11203,
+            995,
+            38149,
+            24793
+          ],
+          "start": 4.68,
+          "end": 5.3,
+          "probability": 0.8824941962957382
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 5.3,
+          "end": 5.58,
+          "probability": 0.06801015138626099
+        },
+        {
+          "word": " قل",
+          "tokens": [
+            12174,
+            1211
+          ],
+          "start": 5.58,
+          "end": 5.8,
+          "probability": 0.9400934875011444
+        },
+        {
+          "word": " بهدوء",
+          "tokens": [
+            39627,
+            3215,
+            2407,
+            38207
+          ],
+          "start": 5.8,
+          "end": 6.42,
+          "probability": 0.7261117622256279
+        },
+        {
+          "word": ":",
+          "tokens": [
+            25
+          ],
+          "start": 6.42,
+          "end": 6.56,
+          "probability": 0.0030502653680741787
+        },
+        {
+          "word": " «بحسب",
+          "tokens": [
+            4657,
+            49628,
+            35457
+          ],
+          "start": 6.56,
+          "end": 7.02,
+          "probability": 0.09092969495880728
+        },
+        {
+          "word": " التقرير،",
+          "tokens": [
+            16712,
+            4587,
+            2288,
+            13546,
+            12399
+          ],
+          "start": 7.02,
+          "end": 7.8,
+          "probability": 0.8356166899204254
+        },
+        {
+          "word": " الرقم",
+          "tokens": [
+            34892,
+            4587,
+            2304
+          ],
+          "start": 7.8,
+          "end": 8.2,
+          "probability": 0.9539735118548075
+        },
+        {
+          "word": " الصحيح",
+          "tokens": [
+            31767,
+            5016,
+            1829,
+            5016
+          ],
+          "start": 8.2,
+          "end": 8.66,
+          "probability": 0.9752913117408752
+        },
+        {
+          "word": " كذا».",
+          "tokens": [
+            9122,
+            15730,
+            12513
+          ],
+          "start": 8.66,
+          "end": 9.32,
+          "probability": 0.5204414638380209
+        },
+        {
+          "word": " الحقيقة",
+          "tokens": [
+            21542,
+            38436,
+            28671
+          ],
+          "start": 9.32,
+          "end": 9.88,
+          "probability": 0.9501397411028544
+        },
+        {
+          "word": " وصلت،",
+          "tokens": [
+            4032,
+            36520,
+            2655,
+            12399
+          ],
+          "start": 9.88,
+          "end": 10.54,
+          "probability": 0.738525184802711
+        },
+        {
+          "word": " بدون",
+          "tokens": [
+            47525,
+            11536
+          ],
+          "start": 10.54,
+          "end": 10.92,
+          "probability": 0.9866645932197571
+        },
+        {
+          "word": " تجريح",
+          "tokens": [
+            6055,
+            7435,
+            16572,
+            5016
+          ],
+          "start": 10.92,
+          "end": 11.42,
+          "probability": 0.7952542379498482
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 11.42,
+          "end": 11.62,
+          "probability": 0.3555595278739929
+        }
+      ]
+    },
+    {
+      "segment": 7,
+      "firstWord": 134,
+      "endWord": 155,
+      "text": "وفي التدريب، تضيف معلومة فاتت المدرّب… أو تسخر: «حتى هذي ما تعرفها؟» نفس المعلومة؛ أثر مختلف. الاحترام مو سكوت عن الخطأ.",
+      "approxStart": 64.08,
+      "approxEnd": 73.9,
+      "audioStart": 63.76,
+      "audioEnd": 74.25,
+      "rawAlignment": [
+        {
+          "word": " وفي",
+          "tokens": [
+            4032,
+            41185
+          ],
+          "start": 0.0,
+          "end": 0.5,
+          "probability": 0.6312113404273987
+        },
+        {
+          "word": " التدريب،",
+          "tokens": [
+            16712,
+            3215,
+            16572,
+            3555,
+            12399
+          ],
+          "start": 0.5,
+          "end": 1.16,
+          "probability": 0.7505656138062478
+        },
+        {
+          "word": " تضيف",
+          "tokens": [
+            6055,
+            11242,
+            33911
+          ],
+          "start": 1.16,
+          "end": 1.5,
+          "probability": 0.9676845073699951
+        },
+        {
+          "word": " معلومة",
+          "tokens": [
+            20449,
+            1211,
+            20498,
+            3660
+          ],
+          "start": 1.5,
+          "end": 2.0,
+          "probability": 0.9488959610462189
+        },
+        {
+          "word": " فاتت",
+          "tokens": [
+            6156,
+            9307,
+            2655
+          ],
+          "start": 2.0,
+          "end": 2.34,
+          "probability": 0.5007469827930132
+        },
+        {
+          "word": " المدرّب…",
+          "tokens": [
+            9673,
+            3215,
+            2288,
+            11703,
+            3555,
+            1260
+          ],
+          "start": 2.34,
+          "end": 3.14,
+          "probability": 0.5208522839675425
+        },
+        {
+          "word": " أو",
+          "tokens": [
+            34051
+          ],
+          "start": 3.14,
+          "end": 3.26,
+          "probability": 0.8062627911567688
+        },
+        {
+          "word": " تسخر",
+          "tokens": [
+            6055,
+            3794,
+            34740
+          ],
+          "start": 3.26,
+          "end": 3.72,
+          "probability": 0.5689930419127146
+        },
+        {
+          "word": ":",
+          "tokens": [
+            25
+          ],
+          "start": 3.72,
+          "end": 4.02,
+          "probability": 8.187402272596955e-05
+        },
+        {
+          "word": " «حتى",
+          "tokens": [
+            4657,
+            33753,
+            7578
+          ],
+          "start": 4.02,
+          "end": 4.4,
+          "probability": 0.4099371624761261
+        },
+        {
+          "word": " هذي",
+          "tokens": [
+            8032,
+            8848,
+            1829
+          ],
+          "start": 4.4,
+          "end": 4.66,
+          "probability": 0.2751548960804939
+        },
+        {
+          "word": " ما",
+          "tokens": [
+            19446
+          ],
+          "start": 4.66,
+          "end": 4.72,
+          "probability": 0.9742160439491272
+        },
+        {
+          "word": " تعرفها؟»",
+          "tokens": [
+            37279,
+            28480,
+            11296,
+            22807,
+            5933
+          ],
+          "start": 4.72,
+          "end": 5.5,
+          "probability": 0.7785013854503632
+        },
+        {
+          "word": " نفس",
+          "tokens": [
+            8717,
+            36178
+          ],
+          "start": 5.5,
+          "end": 5.8,
+          "probability": 0.9372877180576324
+        },
+        {
+          "word": " المعلومة؛",
+          "tokens": [
+            9673,
+            30241,
+            20498,
+            3660,
+            148,
+            249
+          ],
+          "start": 5.8,
+          "end": 6.7,
+          "probability": 0.7833454188269874
+        },
+        {
+          "word": " أثر",
+          "tokens": [
+            5551,
+            49115
+          ],
+          "start": 6.7,
+          "end": 6.98,
+          "probability": 0.8375672698020935
+        },
+        {
+          "word": " مختلف",
+          "tokens": [
+            3714,
+            46456,
+            46538
+          ],
+          "start": 6.98,
+          "end": 7.54,
+          "probability": 0.9882049957911173
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 7.54,
+          "end": 7.88,
+          "probability": 0.4265720248222351
+        },
+        {
+          "word": " الاحترام",
+          "tokens": [
+            42963,
+            33753,
+            2288,
+            10943
+          ],
+          "start": 7.88,
+          "end": 8.54,
+          "probability": 0.8454764559864998
+        },
+        {
+          "word": " مو",
+          "tokens": [
+            3714,
+            2407
+          ],
+          "start": 8.54,
+          "end": 8.9,
+          "probability": 0.4987735450267792
+        },
+        {
+          "word": " سكوت",
+          "tokens": [
+            8608,
+            4117,
+            35473
+          ],
+          "start": 8.9,
+          "end": 9.24,
+          "probability": 0.8784605463345846
+        },
+        {
+          "word": " عن",
+          "tokens": [
+            18871
+          ],
+          "start": 9.24,
+          "end": 9.4,
+          "probability": 0.9845036268234253
+        },
+        {
+          "word": " الخطأ",
+          "tokens": [
+            33962,
+            9566,
+            10721
+          ],
+          "start": 9.4,
+          "end": 9.88,
+          "probability": 0.9799344937006632
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 9.88,
+          "end": 10.06,
+          "probability": 0.5623784065246582
+        }
+      ]
+    },
+    {
+      "segment": 8,
+      "firstWord": 155,
+      "endWord": 173,
+      "text": "وفي الفريق، حققت إنجازًا؟ سمِّ دورك، واذكر مين ساعدك. لو أخذت الفضل كله، يمكن تكسب التصفيق وتخسر الثقة.",
+      "approxStart": 73.9,
+      "approxEnd": 82.36,
+      "audioStart": 73.58000000000001,
+      "audioEnd": 82.71,
+      "rawAlignment": [
+        {
+          "word": " وفي",
+          "tokens": [
+            4032,
+            41185
+          ],
+          "start": 0.0,
+          "end": 0.56,
+          "probability": 0.8911110162734985
+        },
+        {
+          "word": " الفريق،",
+          "tokens": [
+            27188,
+            16572,
+            4587,
+            12399
+          ],
+          "start": 0.56,
+          "end": 1.2,
+          "probability": 0.7346255476295482
+        },
+        {
+          "word": " حققت",
+          "tokens": [
+            11331,
+            4587,
+            38149
+          ],
+          "start": 1.2,
+          "end": 1.66,
+          "probability": 0.8651953736941019
+        },
+        {
+          "word": " إنجازًا؟",
+          "tokens": [
+            36145,
+            7435,
+            31377,
+            14111,
+            995,
+            22807
+          ],
+          "start": 1.66,
+          "end": 2.46,
+          "probability": 0.5352912253389756
+        },
+        {
+          "word": " سمِّ",
+          "tokens": [
+            8608,
+            2304,
+            11703,
+            11082
+          ],
+          "start": 2.46,
+          "end": 2.9,
+          "probability": 0.38529393725912087
+        },
+        {
+          "word": " دورك،",
+          "tokens": [
+            11778,
+            13063,
+            4117,
+            12399
+          ],
+          "start": 2.9,
+          "end": 3.46,
+          "probability": 0.7053810805082321
+        },
+        {
+          "word": " واذكر",
+          "tokens": [
+            4032,
+            45636,
+            37983
+          ],
+          "start": 3.46,
+          "end": 3.8,
+          "probability": 0.6128085255622864
+        },
+        {
+          "word": " مين",
+          "tokens": [
+            3714,
+            9957
+          ],
+          "start": 3.8,
+          "end": 4.08,
+          "probability": 0.694553792476654
+        },
+        {
+          "word": " ساعدك",
+          "tokens": [
+            8608,
+            995,
+            22488,
+            4117
+          ],
+          "start": 4.08,
+          "end": 4.64,
+          "probability": 0.7023587226867676
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 4.64,
+          "end": 4.88,
+          "probability": 0.4223601520061493
+        },
+        {
+          "word": " لو",
+          "tokens": [
+            45164
+          ],
+          "start": 4.88,
+          "end": 5.04,
+          "probability": 0.9914261102676392
+        },
+        {
+          "word": " أخذت",
+          "tokens": [
+            5551,
+            9778,
+            8848,
+            2655
+          ],
+          "start": 5.04,
+          "end": 5.44,
+          "probability": 0.7113866657018661
+        },
+        {
+          "word": " الفضل",
+          "tokens": [
+            27188,
+            11242,
+            1211
+          ],
+          "start": 5.44,
+          "end": 5.78,
+          "probability": 0.9741401274998983
+        },
+        {
+          "word": " كله،",
+          "tokens": [
+            28242,
+            3224,
+            12399
+          ],
+          "start": 5.78,
+          "end": 6.38,
+          "probability": 0.47090425590674084
+        },
+        {
+          "word": " يمكن",
+          "tokens": [
+            7251,
+            43020
+          ],
+          "start": 6.38,
+          "end": 6.62,
+          "probability": 0.9618332982063293
+        },
+        {
+          "word": " تكسب",
+          "tokens": [
+            6055,
+            4117,
+            35457
+          ],
+          "start": 6.62,
+          "end": 7.0,
+          "probability": 0.8273317416508993
+        },
+        {
+          "word": " التصفيق",
+          "tokens": [
+            16712,
+            9381,
+            41185,
+            4587
+          ],
+          "start": 7.0,
+          "end": 7.64,
+          "probability": 0.959791973233223
+        },
+        {
+          "word": " وتخسر",
+          "tokens": [
+            34683,
+            9778,
+            3794,
+            2288
+          ],
+          "start": 7.64,
+          "end": 8.2,
+          "probability": 0.9535759538412094
+        },
+        {
+          "word": " الثقة",
+          "tokens": [
+            6024,
+            104,
+            28671
+          ],
+          "start": 8.2,
+          "end": 8.56,
+          "probability": 0.9301949938138326
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 8.56,
+          "end": 8.82,
+          "probability": 0.7655948996543884
+        }
+      ]
+    },
+    {
+      "segment": 9,
+      "firstWord": 173,
+      "endWord": 200,
+      "text": "مو كل مسؤول يخاف المتميّز. بعضهم يشوفك شريكًا، وبعضهم يشوفك تهديدًا لمكانته. المهارة إنك تعرض كفاءتك وتحفظ كرامة غيرك؛ بدون كذب، ولا تملّق، ولا تنازل عن حقك.",
+      "approxStart": 82.36,
+      "approxEnd": 95.82,
+      "audioStart": 82.04,
+      "audioEnd": 96.16999999999999,
+      "rawAlignment": [
+        {
+          "word": " مو",
+          "tokens": [
+            3714,
+            2407
+          ],
+          "start": 0.0,
+          "end": 0.68,
+          "probability": 0.5051647201180458
+        },
+        {
+          "word": " كل",
+          "tokens": [
+            28242
+          ],
+          "start": 0.68,
+          "end": 0.78,
+          "probability": 0.602648138999939
+        },
+        {
+          "word": " مسؤول",
+          "tokens": [
+            47524,
+            33604,
+            12610
+          ],
+          "start": 0.78,
+          "end": 1.22,
+          "probability": 0.8972961703936259
+        },
+        {
+          "word": " يخاف",
+          "tokens": [
+            7251,
+            9778,
+            31845
+          ],
+          "start": 1.22,
+          "end": 1.54,
+          "probability": 0.9677181243896484
+        },
+        {
+          "word": " المتميّز",
+          "tokens": [
+            9673,
+            39237,
+            1829,
+            11703,
+            11622
+          ],
+          "start": 1.54,
+          "end": 2.22,
+          "probability": 0.6648124683182687
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 2.22,
+          "end": 2.42,
+          "probability": 0.14329859614372253
+        },
+        {
+          "word": " بعضهم",
+          "tokens": [
+            45030,
+            11242,
+            16095
+          ],
+          "start": 2.42,
+          "end": 2.98,
+          "probability": 0.9528363943099976
+        },
+        {
+          "word": " يشوفك",
+          "tokens": [
+            7251,
+            8592,
+            38688,
+            4117
+          ],
+          "start": 2.98,
+          "end": 3.42,
+          "probability": 0.9613284170627594
+        },
+        {
+          "word": " شريكًا،",
+          "tokens": [
+            13412,
+            16572,
+            4117,
+            14111,
+            995,
+            12399
+          ],
+          "start": 3.42,
+          "end": 4.18,
+          "probability": 0.5907126155992349
+        },
+        {
+          "word": " وبعضهم",
+          "tokens": [
+            46599,
+            3615,
+            11242,
+            16095
+          ],
+          "start": 4.18,
+          "end": 4.72,
+          "probability": 0.9723086357116699
+        },
+        {
+          "word": " يشوفك",
+          "tokens": [
+            7251,
+            8592,
+            38688,
+            4117
+          ],
+          "start": 4.72,
+          "end": 5.28,
+          "probability": 0.9972109496593475
+        },
+        {
+          "word": " تهديدًا",
+          "tokens": [
+            6055,
+            3224,
+            16254,
+            3215,
+            14111,
+            995
+          ],
+          "start": 5.28,
+          "end": 5.88,
+          "probability": 0.8489308307568232
+        },
+        {
+          "word": " لمكانته",
+          "tokens": [
+            32767,
+            41361,
+            47395
+          ],
+          "start": 5.88,
+          "end": 6.56,
+          "probability": 0.7477253675460815
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 6.56,
+          "end": 6.8,
+          "probability": 0.8621494174003601
+        },
+        {
+          "word": " المهارة",
+          "tokens": [
+            9673,
+            3224,
+            9640,
+            3660
+          ],
+          "start": 6.8,
+          "end": 7.46,
+          "probability": 0.9323431700468063
+        },
+        {
+          "word": " إنك",
+          "tokens": [
+            36145,
+            4117
+          ],
+          "start": 7.46,
+          "end": 7.76,
+          "probability": 0.6337244063615799
+        },
+        {
+          "word": " تعرض",
+          "tokens": [
+            37279,
+            43042
+          ],
+          "start": 7.76,
+          "end": 8.1,
+          "probability": 0.9679364264011383
+        },
+        {
+          "word": " كفاءتك",
+          "tokens": [
+            9122,
+            5172,
+            16606,
+            2655,
+            4117
+          ],
+          "start": 8.1,
+          "end": 8.74,
+          "probability": 0.8800036072731018
+        },
+        {
+          "word": " وتحفظ",
+          "tokens": [
+            34683,
+            5016,
+            5172,
+            19913
+          ],
+          "start": 8.74,
+          "end": 9.3,
+          "probability": 0.9479839503765106
+        },
+        {
+          "word": " كرامة",
+          "tokens": [
+            9122,
+            2288,
+            10943,
+            3660
+          ],
+          "start": 9.3,
+          "end": 9.74,
+          "probability": 0.8636018931865692
+        },
+        {
+          "word": " غيرك؛",
+          "tokens": [
+            32771,
+            13546,
+            4117,
+            148,
+            249
+          ],
+          "start": 9.74,
+          "end": 10.4,
+          "probability": 0.7852214959682897
+        },
+        {
+          "word": " بدون",
+          "tokens": [
+            47525,
+            11536
+          ],
+          "start": 10.4,
+          "end": 10.72,
+          "probability": 0.9616487324237823
+        },
+        {
+          "word": " كذب،",
+          "tokens": [
+            9122,
+            8848,
+            3555,
+            12399
+          ],
+          "start": 10.72,
+          "end": 11.32,
+          "probability": 0.763370830565691
+        },
+        {
+          "word": " ولا",
+          "tokens": [
+            49429
+          ],
+          "start": 11.32,
+          "end": 11.52,
+          "probability": 0.9903764128684998
+        },
+        {
+          "word": " تملّق،",
+          "tokens": [
+            6055,
+            42213,
+            11703,
+            4587,
+            12399
+          ],
+          "start": 11.52,
+          "end": 12.28,
+          "probability": 0.555204676091671
+        },
+        {
+          "word": " ولا",
+          "tokens": [
+            49429
+          ],
+          "start": 12.28,
+          "end": 12.48,
+          "probability": 0.997901201248169
+        },
+        {
+          "word": " تنازل",
+          "tokens": [
+            6055,
+            1863,
+            31377,
+            1211
+          ],
+          "start": 12.48,
+          "end": 13.0,
+          "probability": 0.9507977664470673
+        },
+        {
+          "word": " عن",
+          "tokens": [
+            18871
+          ],
+          "start": 13.0,
+          "end": 13.12,
+          "probability": 0.9733162522315979
+        },
+        {
+          "word": " حقك",
+          "tokens": [
+            11331,
+            4587,
+            4117
+          ],
+          "start": 13.12,
+          "end": 13.56,
+          "probability": 0.6696539670228958
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 13.56,
+          "end": 13.84,
+          "probability": 0.6586924195289612
+        }
+      ]
+    },
+    {
+      "segment": 10,
+      "firstWord": 200,
+      "endWord": 209,
+      "text": "لا تطفّي نورك… بس لا تستخدمه عشان تعمي غيرك.",
+      "approxStart": 95.82,
+      "approxEnd": 99.56,
+      "audioStart": 95.5,
+      "audioEnd": 99.68,
+      "rawAlignment": [
+        {
+          "word": " لا",
+          "tokens": [
+            20193
+          ],
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.8668093085289001
+        },
+        {
+          "word": " تطفّي",
+          "tokens": [
+            6055,
+            9566,
+            5172,
+            11703,
+            1829
+          ],
+          "start": 0.6,
+          "end": 1.12,
+          "probability": 0.6414906784892083
+        },
+        {
+          "word": " نورك…",
+          "tokens": [
+            8717,
+            13063,
+            4117,
+            1260
+          ],
+          "start": 1.12,
+          "end": 1.62,
+          "probability": 0.7140999306866433
+        },
+        {
+          "word": " بس",
+          "tokens": [
+            4724,
+            3794
+          ],
+          "start": 1.62,
+          "end": 1.96,
+          "probability": 0.8475062847137451
+        },
+        {
+          "word": " لا",
+          "tokens": [
+            20193
+          ],
+          "start": 1.96,
+          "end": 2.1,
+          "probability": 0.9643942713737488
+        },
+        {
+          "word": " تستخدمه",
+          "tokens": [
+            6055,
+            14851,
+            9778,
+            40448,
+            3224
+          ],
+          "start": 2.1,
+          "end": 2.8,
+          "probability": 0.826885661482811
+        },
+        {
+          "word": " عشان",
+          "tokens": [
+            6225,
+            8592,
+            7649
+          ],
+          "start": 2.8,
+          "end": 3.14,
+          "probability": 0.9365726312001547
+        },
+        {
+          "word": " تعمي",
+          "tokens": [
+            6055,
+            25957,
+            1829
+          ],
+          "start": 3.14,
+          "end": 3.54,
+          "probability": 0.7971148093541464
+        },
+        {
+          "word": " غيرك",
+          "tokens": [
+            32771,
+            13546,
+            4117
+          ],
+          "start": 3.54,
+          "end": 3.94,
+          "probability": 0.964723547299703
+        },
+        {
+          "word": ".",
+          "tokens": [
+            13
+          ],
+          "start": 3.94,
+          "end": 4.06,
+          "probability": 0.6250061988830566
+        }
+      ]
+    }
+  ],
+  "elapsedSeconds": 11.9351659010008
+}

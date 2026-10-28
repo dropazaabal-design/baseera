@@ -1,0 +1,174 @@
+{
+  "status": "FAIL",
+  "method": "FFmpeg two-pass loudnorm, -16 LUFS, mastering peak ceiling -4.5dBTP to allow lossy codec headroom; no trim, time stretch, music or new voice generation.",
+  "originalPreserved": true,
+  "firstPass": {
+    "input_i": "-17.54",
+    "input_tp": "-1.75",
+    "input_lra": "1.50",
+    "input_thresh": "-27.66",
+    "output_i": "-16.73",
+    "output_tp": "-4.50",
+    "output_lra": "1.50",
+    "output_thresh": "-26.83",
+    "normalization_type": "dynamic",
+    "target_offset": "0.73"
+  },
+  "secondPass": {
+    "input_i": "-17.54",
+    "input_tp": "-1.75",
+    "input_lra": "1.50",
+    "input_thresh": "-27.66",
+    "output_i": "-16.68",
+    "output_tp": "-4.50",
+    "output_lra": "1.70",
+    "output_thresh": "-26.75",
+    "normalization_type": "dynamic",
+    "target_offset": "0.68"
+  },
+  "outputs": [
+    {
+      "format": "wav",
+      "file": "public/law01/audio/Law01-Narration-Mastered.wav",
+      "sha256": "d9cf2441a8df69b1a2324b228f31dc6f16e31e6574c116a7ccfc49f7d18ce21c",
+      "bytes": 14354022,
+      "integratedLUFS": -16.69,
+      "truePeakDBTP": -4.46,
+      "loudnessRangeLU": 1.7,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "pcm_s24le",
+            "codec_long_name": "PCM signed 24-bit little-endian",
+            "codec_type": "audio",
+            "codec_tag_string": "[1][0][0][0]",
+            "codec_tag": "0x0001",
+            "sample_fmt": "s32",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 24,
+            "initial_padding": 0,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/48000",
+            "duration_ts": 4784640,
+            "duration": "99.680000",
+            "bit_rate": "1152000",
+            "bits_per_raw_sample": "24",
+            "disposition": {
+              "default": 0,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/public/law01/audio/Law01-Narration-Mastered.wav",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "format_name": "wav",
+          "format_long_name": "WAV / WAVE (Waveform Audio)",
+          "duration": "99.680000",
+          "size": "14354022",
+          "bit_rate": "1152008",
+          "probe_score": 99,
+          "tags": {
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      },
+      "loudnessPass": false,
+      "truePeakPass": true
+    },
+    {
+      "format": "mp3",
+      "file": "public/law01/audio/Law01-Narration-Final.mp3",
+      "sha256": "5d3ce9b6f765c2d115b194be69074d27d4c33a9728d7b2e9c65370d9168b6703",
+      "bytes": 1496312,
+      "integratedLUFS": -16.69,
+      "truePeakDBTP": -3.72,
+      "loudnessRangeLU": 1.7,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "mp3",
+            "codec_long_name": "MP3 (MPEG audio layer 3)",
+            "codec_type": "audio",
+            "codec_tag_string": "[0][0][0][0]",
+            "codec_tag": "0x0000",
+            "sample_fmt": "fltp",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 0,
+            "initial_padding": 0,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/14112000",
+            "start_pts": 324870,
+            "start_time": "0.023021",
+            "duration_ts": 1407248640,
+            "duration": "99.720000",
+            "bit_rate": "120035",
+            "disposition": {
+              "default": 0,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/public/law01/audio/Law01-Narration-Final.mp3",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "format_name": "mp3",
+          "format_long_name": "MP2/3 (MPEG audio layer 2/3)",
+          "start_time": "0.023021",
+          "duration": "99.720000",
+          "size": "1496312",
+          "bit_rate": "120041",
+          "probe_score": 51,
+          "tags": {
+            "title": "Baseera Law01 Narration",
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      },
+      "loudnessPass": false,
+      "truePeakPass": false
+    }
+  ]
+}

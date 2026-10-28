@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "file": "projects/law01-cinematic/renders/Law01-Cinematic-Final-1080x1920-60fps-v1.mp4",
+  "visualReviewFile": "projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4",
+  "sha256": "46c10118936bc196bc047f1f293994e6c3e61558a85e76be0f0a01abbea50a29",
+  "bytes": 58501520,
+  "metadata": {
+    "codec": "h264",
+    "profile": "High",
+    "pixelFormat": "yuv420p",
+    "width": 1080,
+    "height": 1920,
+    "fps": "60/1",
+    "readFrames": 5981,
+    "durationSeconds": 99.683333,
+    "colorSpace": "bt709"
+  },
+  "audioQA": {
+    "status": "PASS",
+    "checks": {
+      "aac": true,
+      "mono48k": true,
+      "integratedLUFSWithin025": true,
+      "truePeakAtMostMinus4": true,
+      "noClippedSamples": true,
+      "noSilenceOver2Seconds": true,
+      "waveformSyncWithin1ms": true,
+      "recordingDurationCompatible": true
+    },
+    "integratedLUFS": -16.09,
+    "truePeakDBTP": -5.68,
+    "samplePeak": 0.5180097818374634,
+    "clippedSamples": 0,
+    "decodedSamples": 4785152,
+    "decodedDurationSeconds": 99.69066666666667,
+    "silenceThresholdDB": -45,
+    "silenceIntervalsOver1Second": [],
+    "waveformSyncWindows": [
+      {
+        "startSecond": 2,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999411990562427
+      },
+      {
+        "startSecond": 20,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999484397650734
+      },
+      {
+        "startSecond": 55,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999648512130852
+      },
+      {
+        "startSecond": 90,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999619812196071
+      }
+    ],
+    "captionAlignment": "209 approved words forced-aligned locally to actual recording; 45 cues. Model-based 20ms timing resolution, not ground-truth 17ms accuracy.",
+    "audioStreamCount": 1,
+    "recordingAvailable": true,
+    "music": false
+  },
+  "reviewAndFinalByteIdentical": true,
+  "reason": "Complete audiovisual review passed without a further picture/audio change; final is a preserved copy, not a re-encode.",
+  "publicationReady": true
+}

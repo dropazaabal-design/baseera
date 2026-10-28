@@ -2,11 +2,13 @@ import {bundle} from "@remotion/bundler";
 import {getCompositions,openBrowser,renderStill} from "@remotion/renderer";
 import {mkdirSync,readFileSync,writeFileSync,copyFileSync} from "node:fs";
 import path from "node:path";
-const root=path.resolve("."),qa=path.join(root,"projects/law01-cinematic/qa");
+const root=path.resolve("."),baseQa=path.join(root,"projects/law01-cinematic/qa");
+const recorded=process.argv.includes("--recorded"),qa=recorded?path.join(baseQa,"final"):baseQa;
 mkdirSync(path.join(qa,"repeat-final"),{recursive:true});
 const exe=path.join(root,"node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell-linux64/chrome-headless-shell");
 const url=await bundle({entryPoint:path.join(root,"src/law01/index.ts"),outDir:path.join(root,"out/law01-determinism-bundle"),rspack:true});
-const cases=[{shot:"SHOT03",frame:207},{shot:"SHOT14",frame:2610},{shot:"SHOT29",frame:5565}];
+const project=JSON.parse(readFileSync("src/law01/project.json","utf8"));
+const cases=["SHOT03","SHOT14","SHOT29"].map(id=>{const s=project.shots.find(s=>s.id===id);return {shot:id,frame:s.startFrame+Math.floor(s.durationInFrames/2)};});
 for(const pass of ["a","b"]){
  const browser=await openBrowser("chrome",{browserExecutable:exe});
  try{

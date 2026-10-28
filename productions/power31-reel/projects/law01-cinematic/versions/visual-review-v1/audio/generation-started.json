@@ -1,0 +1,39 @@
+{
+  "flow_id": "UH1xZgfdoe9KkGubivnN",
+  "flow_created": false,
+  "node_id": "zRYnuzeD4gD5CiOQotrL",
+  "results": [
+    {
+      "success": true,
+      "node_id": "zRYnuzeD4gD5CiOQotrL",
+      "session_id": "xK7pycJXTr4hG9O8Yx9C",
+      "credit_costs": {
+        "Jq5R2clbbtyYBLh1U5M9": 1215.8784
+      }
+    }
+  ],
+  "summary": {
+    "nodes_run": 1,
+    "generations_started": 1,
+    "failed": 0,
+    "generations_by_node": {
+      "zRYnuzeD4gD5CiOQotrL": 1
+    }
+  },
+  "session_ids": [
+    "xK7pycJXTr4hG9O8Yx9C"
+  ],
+  "pending": [
+    {
+      "generation_id": "Jq5R2clbbtyYBLh1U5M9",
+      "kind": "audio"
+    }
+  ],
+  "poll_after_seconds": 3,
+  "notes": "Not finished yet. The generation view tracks progress and polls by itself, so there is nothing to do here — do not call creative_get_flow_run_status.\nThe result renders as a speech view: it plays the takes, and offers the user a voice switcher and a pager over every take generated so far. Switching voice there starts and charges another generation of this same line, appended as a take, and is published to you as widget context — read that rather than asking what they switched to.",
+  "view_kind": "speech_generation",
+  "view_state_id": "viewstate_01m61ts5zxenhvvhcahjyer3ff",
+  "flow_url": "https://elevenlabs.io/app/flows/UH1xZgfdoe9KkGubivnN?mode=switchWorkspace&oobCode=fb3bcb7d79a84aa4a25cfaab376e2d96",
+  "authorization": "User approved one take on 2026-10-28",
+  "generationCallCount": 1
+}

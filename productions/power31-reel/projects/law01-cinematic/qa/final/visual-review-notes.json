@@ -1,0 +1,13 @@
+{
+  "status": "PASS_SAMPLED_REVIEW",
+  "shots": 30,
+  "renderedReferenceSamples": 95,
+  "startMiddleEndAllShotsReviewed": true,
+  "additionalTransitionSamples": 5,
+  "noBrokenImagesObserved": true,
+  "captionLayout": "Cairo RTL panels; up to two lines; no random text added to approved images.",
+  "timing": "Recording-derived word timing with model estimates. Brief continuation of a caption across a rounding boundary can occur within one frame.",
+  "animation": "13 true multiplane shots; bounded body/eye motion and pose changes. No new articulated rig.",
+  "manualListeningClaim": false,
+  "fullFileDecodeAndAudioMeasurements": "Reported separately in video-validation.json."
+}

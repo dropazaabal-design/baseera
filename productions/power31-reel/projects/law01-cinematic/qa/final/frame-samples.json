@@ -1,0 +1,676 @@
+{
+  "samples": [
+    {
+      "shot": "SHOT01",
+      "label": "start",
+      "frame": 0,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT01-start.png"
+    },
+    {
+      "shot": "SHOT01",
+      "label": "middle",
+      "frame": 57,
+      "localFrame": 57,
+      "file": "frames-recorded/SHOT01-middle.png"
+    },
+    {
+      "shot": "SHOT01",
+      "label": "end",
+      "frame": 114,
+      "localFrame": 114,
+      "file": "frames-recorded/SHOT01-end.png"
+    },
+    {
+      "shot": "SHOT02",
+      "label": "start",
+      "frame": 115,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT02-start.png"
+    },
+    {
+      "shot": "SHOT02",
+      "label": "middle",
+      "frame": 150,
+      "localFrame": 35,
+      "file": "frames-recorded/SHOT02-middle.png"
+    },
+    {
+      "shot": "SHOT02",
+      "label": "end",
+      "frame": 184,
+      "localFrame": 69,
+      "file": "frames-recorded/SHOT02-end.png"
+    },
+    {
+      "shot": "SHOT02",
+      "label": "transition",
+      "frame": 125,
+      "localFrame": 10,
+      "file": "frames-recorded/SHOT02-transition.png"
+    },
+    {
+      "shot": "SHOT03",
+      "label": "start",
+      "frame": 185,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT03-start.png"
+    },
+    {
+      "shot": "SHOT03",
+      "label": "middle",
+      "frame": 211,
+      "localFrame": 26,
+      "file": "frames-recorded/SHOT03-middle.png"
+    },
+    {
+      "shot": "SHOT03",
+      "label": "end",
+      "frame": 236,
+      "localFrame": 51,
+      "file": "frames-recorded/SHOT03-end.png"
+    },
+    {
+      "shot": "SHOT04",
+      "label": "start",
+      "frame": 237,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT04-start.png"
+    },
+    {
+      "shot": "SHOT04",
+      "label": "middle",
+      "frame": 398,
+      "localFrame": 161,
+      "file": "frames-recorded/SHOT04-middle.png"
+    },
+    {
+      "shot": "SHOT04",
+      "label": "end",
+      "frame": 558,
+      "localFrame": 321,
+      "file": "frames-recorded/SHOT04-end.png"
+    },
+    {
+      "shot": "SHOT05",
+      "label": "start",
+      "frame": 559,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT05-start.png"
+    },
+    {
+      "shot": "SHOT05",
+      "label": "middle",
+      "frame": 662,
+      "localFrame": 103,
+      "file": "frames-recorded/SHOT05-middle.png"
+    },
+    {
+      "shot": "SHOT05",
+      "label": "end",
+      "frame": 765,
+      "localFrame": 206,
+      "file": "frames-recorded/SHOT05-end.png"
+    },
+    {
+      "shot": "SHOT06",
+      "label": "start",
+      "frame": 766,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT06-start.png"
+    },
+    {
+      "shot": "SHOT06",
+      "label": "middle",
+      "frame": 870,
+      "localFrame": 104,
+      "file": "frames-recorded/SHOT06-middle.png"
+    },
+    {
+      "shot": "SHOT06",
+      "label": "end",
+      "frame": 973,
+      "localFrame": 207,
+      "file": "frames-recorded/SHOT06-end.png"
+    },
+    {
+      "shot": "SHOT07",
+      "label": "start",
+      "frame": 974,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT07-start.png"
+    },
+    {
+      "shot": "SHOT07",
+      "label": "middle",
+      "frame": 1030,
+      "localFrame": 56,
+      "file": "frames-recorded/SHOT07-middle.png"
+    },
+    {
+      "shot": "SHOT07",
+      "label": "end",
+      "frame": 1086,
+      "localFrame": 112,
+      "file": "frames-recorded/SHOT07-end.png"
+    },
+    {
+      "shot": "SHOT08",
+      "label": "start",
+      "frame": 1087,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT08-start.png"
+    },
+    {
+      "shot": "SHOT08",
+      "label": "middle",
+      "frame": 1155,
+      "localFrame": 68,
+      "file": "frames-recorded/SHOT08-middle.png"
+    },
+    {
+      "shot": "SHOT08",
+      "label": "end",
+      "frame": 1222,
+      "localFrame": 135,
+      "file": "frames-recorded/SHOT08-end.png"
+    },
+    {
+      "shot": "SHOT09",
+      "label": "start",
+      "frame": 1223,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT09-start.png"
+    },
+    {
+      "shot": "SHOT09",
+      "label": "middle",
+      "frame": 1274,
+      "localFrame": 51,
+      "file": "frames-recorded/SHOT09-middle.png"
+    },
+    {
+      "shot": "SHOT09",
+      "label": "end",
+      "frame": 1325,
+      "localFrame": 102,
+      "file": "frames-recorded/SHOT09-end.png"
+    },
+    {
+      "shot": "SHOT10",
+      "label": "start",
+      "frame": 1326,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT10-start.png"
+    },
+    {
+      "shot": "SHOT10",
+      "label": "middle",
+      "frame": 1366,
+      "localFrame": 40,
+      "file": "frames-recorded/SHOT10-middle.png"
+    },
+    {
+      "shot": "SHOT10",
+      "label": "end",
+      "frame": 1405,
+      "localFrame": 79,
+      "file": "frames-recorded/SHOT10-end.png"
+    },
+    {
+      "shot": "SHOT11",
+      "label": "start",
+      "frame": 1406,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT11-start.png"
+    },
+    {
+      "shot": "SHOT11",
+      "label": "middle",
+      "frame": 1577,
+      "localFrame": 171,
+      "file": "frames-recorded/SHOT11-middle.png"
+    },
+    {
+      "shot": "SHOT11",
+      "label": "end",
+      "frame": 1748,
+      "localFrame": 342,
+      "file": "frames-recorded/SHOT11-end.png"
+    },
+    {
+      "shot": "SHOT11",
+      "label": "transition",
+      "frame": 1416,
+      "localFrame": 10,
+      "file": "frames-recorded/SHOT11-transition.png"
+    },
+    {
+      "shot": "SHOT12",
+      "label": "start",
+      "frame": 1749,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT12-start.png"
+    },
+    {
+      "shot": "SHOT12",
+      "label": "middle",
+      "frame": 1925,
+      "localFrame": 176,
+      "file": "frames-recorded/SHOT12-middle.png"
+    },
+    {
+      "shot": "SHOT12",
+      "label": "end",
+      "frame": 2100,
+      "localFrame": 351,
+      "file": "frames-recorded/SHOT12-end.png"
+    },
+    {
+      "shot": "SHOT13",
+      "label": "start",
+      "frame": 2101,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT13-start.png"
+    },
+    {
+      "shot": "SHOT13",
+      "label": "middle",
+      "frame": 2248,
+      "localFrame": 147,
+      "file": "frames-recorded/SHOT13-middle.png"
+    },
+    {
+      "shot": "SHOT13",
+      "label": "end",
+      "frame": 2395,
+      "localFrame": 294,
+      "file": "frames-recorded/SHOT13-end.png"
+    },
+    {
+      "shot": "SHOT14",
+      "label": "start",
+      "frame": 2396,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT14-start.png"
+    },
+    {
+      "shot": "SHOT14",
+      "label": "middle",
+      "frame": 2634,
+      "localFrame": 238,
+      "file": "frames-recorded/SHOT14-middle.png"
+    },
+    {
+      "shot": "SHOT14",
+      "label": "end",
+      "frame": 2872,
+      "localFrame": 476,
+      "file": "frames-recorded/SHOT14-end.png"
+    },
+    {
+      "shot": "SHOT15",
+      "label": "start",
+      "frame": 2873,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT15-start.png"
+    },
+    {
+      "shot": "SHOT15",
+      "label": "middle",
+      "frame": 3016,
+      "localFrame": 143,
+      "file": "frames-recorded/SHOT15-middle.png"
+    },
+    {
+      "shot": "SHOT15",
+      "label": "end",
+      "frame": 3159,
+      "localFrame": 286,
+      "file": "frames-recorded/SHOT15-end.png"
+    },
+    {
+      "shot": "SHOT16",
+      "label": "start",
+      "frame": 3160,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT16-start.png"
+    },
+    {
+      "shot": "SHOT16",
+      "label": "middle",
+      "frame": 3200,
+      "localFrame": 40,
+      "file": "frames-recorded/SHOT16-middle.png"
+    },
+    {
+      "shot": "SHOT16",
+      "label": "end",
+      "frame": 3239,
+      "localFrame": 79,
+      "file": "frames-recorded/SHOT16-end.png"
+    },
+    {
+      "shot": "SHOT17",
+      "label": "start",
+      "frame": 3240,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT17-start.png"
+    },
+    {
+      "shot": "SHOT17",
+      "label": "middle",
+      "frame": 3299,
+      "localFrame": 59,
+      "file": "frames-recorded/SHOT17-middle.png"
+    },
+    {
+      "shot": "SHOT17",
+      "label": "end",
+      "frame": 3358,
+      "localFrame": 118,
+      "file": "frames-recorded/SHOT17-end.png"
+    },
+    {
+      "shot": "SHOT18",
+      "label": "start",
+      "frame": 3359,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT18-start.png"
+    },
+    {
+      "shot": "SHOT18",
+      "label": "middle",
+      "frame": 3412,
+      "localFrame": 53,
+      "file": "frames-recorded/SHOT18-middle.png"
+    },
+    {
+      "shot": "SHOT18",
+      "label": "end",
+      "frame": 3465,
+      "localFrame": 106,
+      "file": "frames-recorded/SHOT18-end.png"
+    },
+    {
+      "shot": "SHOT19",
+      "label": "start",
+      "frame": 3466,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT19-start.png"
+    },
+    {
+      "shot": "SHOT19",
+      "label": "middle",
+      "frame": 3648,
+      "localFrame": 182,
+      "file": "frames-recorded/SHOT19-middle.png"
+    },
+    {
+      "shot": "SHOT19",
+      "label": "end",
+      "frame": 3829,
+      "localFrame": 363,
+      "file": "frames-recorded/SHOT19-end.png"
+    },
+    {
+      "shot": "SHOT20",
+      "label": "start",
+      "frame": 3830,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT20-start.png"
+    },
+    {
+      "shot": "SHOT20",
+      "label": "middle",
+      "frame": 3922,
+      "localFrame": 92,
+      "file": "frames-recorded/SHOT20-middle.png"
+    },
+    {
+      "shot": "SHOT20",
+      "label": "end",
+      "frame": 4013,
+      "localFrame": 183,
+      "file": "frames-recorded/SHOT20-end.png"
+    },
+    {
+      "shot": "SHOT21",
+      "label": "start",
+      "frame": 4014,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT21-start.png"
+    },
+    {
+      "shot": "SHOT21",
+      "label": "middle",
+      "frame": 4085,
+      "localFrame": 71,
+      "file": "frames-recorded/SHOT21-middle.png"
+    },
+    {
+      "shot": "SHOT21",
+      "label": "end",
+      "frame": 4155,
+      "localFrame": 141,
+      "file": "frames-recorded/SHOT21-end.png"
+    },
+    {
+      "shot": "SHOT22",
+      "label": "start",
+      "frame": 4156,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT22-start.png"
+    },
+    {
+      "shot": "SHOT22",
+      "label": "middle",
+      "frame": 4290,
+      "localFrame": 134,
+      "file": "frames-recorded/SHOT22-middle.png"
+    },
+    {
+      "shot": "SHOT22",
+      "label": "end",
+      "frame": 4424,
+      "localFrame": 268,
+      "file": "frames-recorded/SHOT22-end.png"
+    },
+    {
+      "shot": "SHOT23",
+      "label": "start",
+      "frame": 4425,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT23-start.png"
+    },
+    {
+      "shot": "SHOT23",
+      "label": "middle",
+      "frame": 4493,
+      "localFrame": 68,
+      "file": "frames-recorded/SHOT23-middle.png"
+    },
+    {
+      "shot": "SHOT23",
+      "label": "end",
+      "frame": 4561,
+      "localFrame": 136,
+      "file": "frames-recorded/SHOT23-end.png"
+    },
+    {
+      "shot": "SHOT25",
+      "label": "start",
+      "frame": 4562,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT25-start.png"
+    },
+    {
+      "shot": "SHOT25",
+      "label": "middle",
+      "frame": 4631,
+      "localFrame": 69,
+      "file": "frames-recorded/SHOT25-middle.png"
+    },
+    {
+      "shot": "SHOT25",
+      "label": "end",
+      "frame": 4699,
+      "localFrame": 137,
+      "file": "frames-recorded/SHOT25-end.png"
+    },
+    {
+      "shot": "SHOT25",
+      "label": "transition",
+      "frame": 4572,
+      "localFrame": 10,
+      "file": "frames-recorded/SHOT25-transition.png"
+    },
+    {
+      "shot": "SHOT24",
+      "label": "start",
+      "frame": 4700,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT24-start.png"
+    },
+    {
+      "shot": "SHOT24",
+      "label": "middle",
+      "frame": 4816,
+      "localFrame": 116,
+      "file": "frames-recorded/SHOT24-middle.png"
+    },
+    {
+      "shot": "SHOT24",
+      "label": "end",
+      "frame": 4931,
+      "localFrame": 231,
+      "file": "frames-recorded/SHOT24-end.png"
+    },
+    {
+      "shot": "SHOT26",
+      "label": "start",
+      "frame": 4932,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT26-start.png"
+    },
+    {
+      "shot": "SHOT26",
+      "label": "middle",
+      "frame": 5052,
+      "localFrame": 120,
+      "file": "frames-recorded/SHOT26-middle.png"
+    },
+    {
+      "shot": "SHOT26",
+      "label": "end",
+      "frame": 5172,
+      "localFrame": 240,
+      "file": "frames-recorded/SHOT26-end.png"
+    },
+    {
+      "shot": "SHOT27",
+      "label": "start",
+      "frame": 5173,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT27-start.png"
+    },
+    {
+      "shot": "SHOT27",
+      "label": "middle",
+      "frame": 5248,
+      "localFrame": 75,
+      "file": "frames-recorded/SHOT27-middle.png"
+    },
+    {
+      "shot": "SHOT27",
+      "label": "end",
+      "frame": 5322,
+      "localFrame": 149,
+      "file": "frames-recorded/SHOT27-end.png"
+    },
+    {
+      "shot": "SHOT28",
+      "label": "start",
+      "frame": 5323,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT28-start.png"
+    },
+    {
+      "shot": "SHOT28",
+      "label": "middle",
+      "frame": 5531,
+      "localFrame": 208,
+      "file": "frames-recorded/SHOT28-middle.png"
+    },
+    {
+      "shot": "SHOT28",
+      "label": "end",
+      "frame": 5739,
+      "localFrame": 416,
+      "file": "frames-recorded/SHOT28-end.png"
+    },
+    {
+      "shot": "SHOT29",
+      "label": "start",
+      "frame": 5740,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT29-start.png"
+    },
+    {
+      "shot": "SHOT29",
+      "label": "middle",
+      "frame": 5783,
+      "localFrame": 43,
+      "file": "frames-recorded/SHOT29-middle.png"
+    },
+    {
+      "shot": "SHOT29",
+      "label": "end",
+      "frame": 5826,
+      "localFrame": 86,
+      "file": "frames-recorded/SHOT29-end.png"
+    },
+    {
+      "shot": "SHOT29",
+      "label": "transition",
+      "frame": 5752,
+      "localFrame": 12,
+      "file": "frames-recorded/SHOT29-transition.png"
+    },
+    {
+      "shot": "SHOT30",
+      "label": "start",
+      "frame": 5827,
+      "localFrame": 0,
+      "file": "frames-recorded/SHOT30-start.png"
+    },
+    {
+      "shot": "SHOT30",
+      "label": "middle",
+      "frame": 5904,
+      "localFrame": 77,
+      "file": "frames-recorded/SHOT30-middle.png"
+    },
+    {
+      "shot": "SHOT30",
+      "label": "end",
+      "frame": 5980,
+      "localFrame": 153,
+      "file": "frames-recorded/SHOT30-end.png"
+    },
+    {
+      "shot": "SHOT30",
+      "label": "transition",
+      "frame": 5839,
+      "localFrame": 12,
+      "file": "frames-recorded/SHOT30-transition.png"
+    }
+  ],
+  "errors": [],
+  "previewComparison": {
+    "assembly": "frames-recorded/SHOT19-middle.png",
+    "assemblyFrame": 3526,
+    "previewFrame": 60,
+    "preview": "preview-SHOT19.png"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "status": "PASS",
+  "method": "Measured gain targets -16 LUFS; 192kHz lookahead limiter with latency compensation and -6dB sample ceiling provides lossy-codec headroom; then 48kHz 24-bit master. No trim, time stretch, music or new voice generation.",
+  "originalPreserved": true,
+  "firstPass": {
+    "input_i": "-17.54",
+    "input_tp": "-1.75",
+    "input_lra": "1.50",
+    "input_thresh": "-27.66",
+    "output_i": "-18.38",
+    "output_tp": "-6.00",
+    "output_lra": "1.70",
+    "output_thresh": "-28.44",
+    "normalization_type": "dynamic",
+    "target_offset": "2.38"
+  },
+  "trials": [
+    {
+      "attempt": 1,
+      "gainDB": 1.5399999999999991,
+      "filter": "aresample=192000,volume=1.54000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-17.01",
+        "input_tp": "-6.00",
+        "input_lra": "1.50",
+        "input_thresh": "-27.10",
+        "output_i": "-16.21",
+        "output_tp": "-5.01",
+        "output_lra": "1.50",
+        "output_thresh": "-26.29",
+        "normalization_type": "dynamic",
+        "target_offset": "0.21"
+      }
+    },
+    {
+      "attempt": 2,
+      "gainDB": 3.5600000000000023,
+      "filter": "aresample=192000,volume=3.56000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-16.43",
+        "input_tp": "-5.99",
+        "input_lra": "1.50",
+        "input_thresh": "-26.49",
+        "output_i": "-16.20",
+        "output_tp": "-5.58",
+        "output_lra": "1.40",
+        "output_thresh": "-26.26",
+        "normalization_type": "dynamic",
+        "target_offset": "0.20"
+      }
+    },
+    {
+      "attempt": 3,
+      "gainDB": 4.420000000000002,
+      "filter": "aresample=192000,volume=4.42000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-16.26",
+        "input_tp": "-5.99",
+        "input_lra": "1.50",
+        "input_thresh": "-26.31",
+        "output_i": "-16.20",
+        "output_tp": "-5.75",
+        "output_lra": "1.40",
+        "output_thresh": "-26.25",
+        "normalization_type": "dynamic",
+        "target_offset": "0.20"
+      }
+    },
+    {
+      "attempt": 4,
+      "gainDB": 4.940000000000005,
+      "filter": "aresample=192000,volume=4.94000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-16.16",
+        "input_tp": "-5.99",
+        "input_lra": "1.50",
+        "input_thresh": "-26.21",
+        "output_i": "-16.20",
+        "output_tp": "-5.85",
+        "output_lra": "1.40",
+        "output_thresh": "-26.25",
+        "normalization_type": "dynamic",
+        "target_offset": "0.20"
+      }
+    },
+    {
+      "attempt": 5,
+      "gainDB": 5.260000000000005,
+      "filter": "aresample=192000,volume=5.26000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-16.11",
+        "input_tp": "-5.99",
+        "input_lra": "1.40",
+        "input_thresh": "-26.16",
+        "output_i": "-16.19",
+        "output_tp": "-5.90",
+        "output_lra": "1.40",
+        "output_thresh": "-26.24",
+        "normalization_type": "dynamic",
+        "target_offset": "0.19"
+      }
+    },
+    {
+      "attempt": 6,
+      "gainDB": 5.480000000000004,
+      "filter": "aresample=192000,volume=5.48000dB,alimiter=limit=0.501187:level=false:attack=5:release=50:latency=true,aresample=48000",
+      "measured": {
+        "input_i": "-16.07",
+        "input_tp": "-5.99",
+        "input_lra": "1.50",
+        "input_thresh": "-26.12",
+        "output_i": "-16.19",
+        "output_tp": "-5.94",
+        "output_lra": "1.40",
+        "output_thresh": "-26.24",
+        "normalization_type": "dynamic",
+        "target_offset": "0.19"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "format": "wav",
+      "file": "public/law01/audio/Law01-Narration-Mastered.wav",
+      "sha256": "ce8f35a67b48830b0ceee5c79a25d9b4c3f2f03ed1f4c82273b5374933068951",
+      "bytes": 14354022,
+      "integratedLUFS": -16.07,
+      "truePeakDBTP": -5.99,
+      "loudnessRangeLU": 1.5,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "pcm_s24le",
+            "codec_long_name": "PCM signed 24-bit little-endian",
+            "codec_type": "audio",
+            "codec_tag_string": "[1][0][0][0]",
+            "codec_tag": "0x0001",
+            "sample_fmt": "s32",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 24,
+            "initial_padding": 0,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/48000",
+            "duration_ts": 4784640,
+            "duration": "99.680000",
+            "bit_rate": "1152000",
+            "bits_per_raw_sample": "24",
+            "disposition": {
+              "default": 0,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/public/law01/audio/Law01-Narration-Mastered.wav",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "format_name": "wav",
+          "format_long_name": "WAV / WAVE (Waveform Audio)",
+          "duration": "99.680000",
+          "size": "14354022",
+          "bit_rate": "1152008",
+          "probe_score": 99,
+          "tags": {
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      },
+      "loudnessPass": true,
+      "truePeakPass": true
+    },
+    {
+      "format": "mp3",
+      "file": "public/law01/audio/Law01-Narration-Final.mp3",
+      "sha256": "b8b08bf99f82496fa36a6c2a436abf20b5975734174fdd446a560ddb40c973a1",
+      "bytes": 1501568,
+      "integratedLUFS": -16.07,
+      "truePeakDBTP": -4.46,
+      "loudnessRangeLU": 1.5,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "mp3",
+            "codec_long_name": "MP3 (MPEG audio layer 3)",
+            "codec_type": "audio",
+            "codec_tag_string": "[0][0][0][0]",
+            "codec_tag": "0x0000",
+            "sample_fmt": "fltp",
+            "sample_rate": "48000",
+            "channels": 1,
+            "channel_layout": "mono",
+            "bits_per_sample": 0,
+            "initial_padding": 0,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/14112000",
+            "start_pts": 324870,
+            "start_time": "0.023021",
+            "duration_ts": 1407248640,
+            "duration": "99.720000",
+            "bit_rate": "120456",
+            "disposition": {
+              "default": 0,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0
+            }
+          }
+        ],
+        "format": {
+          "filename": "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/public/law01/audio/Law01-Narration-Final.mp3",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "format_name": "mp3",
+          "format_long_name": "MP2/3 (MPEG audio layer 2/3)",
+          "start_time": "0.023021",
+          "duration": "99.720000",
+          "size": "1501568",
+          "bit_rate": "120462",
+          "probe_score": 51,
+          "tags": {
+            "title": "Baseera Law01 Narration",
+            "encoder": "Lavf60.16.100"
+          }
+        }
+      },
+      "loudnessPass": true,
+      "truePeakPass": true
+    }
+  ]
+}

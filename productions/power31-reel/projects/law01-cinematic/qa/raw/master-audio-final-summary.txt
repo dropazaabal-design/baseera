@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/scripts/law01/master_audio.py", line 28, in <module>
+    else:raise RuntimeError('Measured gain did not converge; do not publish master.')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Measured gain did not converge; do not publish master.

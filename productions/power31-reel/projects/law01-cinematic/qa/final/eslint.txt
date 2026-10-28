@@ -1,0 +1,7 @@
+
+/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/src/law01/Production.tsx
+   37:16  warning  This animation does not run purely off useCurrentFrame() and will lead to flickering.
+See: https://www.remotion.dev/docs/flickering  @remotion/non-pure-animation
+  123:62  warning  React Hook useMemo has an unnecessary dependency: 'path'. Either exclude it or remove the dependency array                           react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)

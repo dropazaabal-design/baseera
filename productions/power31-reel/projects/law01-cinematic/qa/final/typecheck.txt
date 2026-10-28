@@ -1,0 +1,4 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ethical-power31-reel@1.0.0 check
+> tsc --noEmit
