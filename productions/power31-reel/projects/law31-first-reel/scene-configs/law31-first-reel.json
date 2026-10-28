@@ -1,0 +1,491 @@
+{
+  "name": "Law31-First-Cinematic-Reel",
+  "stage": "VISUAL_REVIEW_AUDIO_BLOCKED",
+  "timingStatus": "PROVISIONAL_86_SECONDS",
+  "srt": "law31-first-reel/subtitles/visual-review-estimated.srt",
+  "presentation": {
+    "showSceneTitle": false,
+    "compactBrand": true,
+    "captionFontSize": 48,
+    "captionBottom": 205,
+    "reviewLabel": "نسخة بصرية للمراجعة · بانتظار التعليق الصوتي"
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "title": "المشهد 1",
+      "duration": 5.633333333333334,
+      "narration": "تخيّل واحدًا يقول لك: «اختر الباب اللي يعجبك». تفكّر، وتقارن، وتختار.",
+      "preset": "slowPush",
+      "camera": {
+        "from": {
+          "x": 785,
+          "y": 1100,
+          "zoom": 0.96
+        },
+        "to": {
+          "x": 812,
+          "y": 1080,
+          "zoom": 1.05
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "background",
+          "src": "law31-first-reel/scene-01/background.png",
+          "depth": -1,
+          "scale": 1.03626943
+        },
+        {
+          "id": "left-door",
+          "src": "law31-first-reel/scene-01/left-door.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "right-door",
+          "src": "law31-first-reel/scene-01/right-door.png",
+          "depth": 0.35,
+          "scale": 0.98789825
+        },
+        {
+          "id": "main-character",
+          "src": "law31-first-reel/scene-01/main-character.png",
+          "depth": 2,
+          "scale": 0.93457944
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "title": "المشهد 2",
+      "duration": 3.8,
+      "narration": "لكن المفاجأة؟ البابان يؤدّيان إلى المكان نفسه!",
+      "preset": "pullBack",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1065,
+          "zoom": 1.12
+        },
+        "to": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.93
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-02/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "title": "المشهد 3",
+      "duration": 3.8,
+      "narration": "لأن شخصًا آخر رسم الطريقين، وحدّد نهايتهما.",
+      "preset": "tiltReveal",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1370,
+          "zoom": 1.17
+        },
+        "to": {
+          "x": 800,
+          "y": 1065,
+          "zoom": 0.94
+        },
+        "keys": [
+          {
+            "frame": 0,
+            "x": 800,
+            "y": 1370,
+            "zoom": 1.17
+          },
+          {
+            "frame": 18,
+            "x": 800,
+            "y": 1370,
+            "zoom": 1.17
+          },
+          {
+            "frame": 210,
+            "x": 800,
+            "y": 1065,
+            "zoom": 0.94
+          },
+          {
+            "frame": 227,
+            "x": 800,
+            "y": 1065,
+            "zoom": 0.94
+          }
+        ]
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "background",
+          "src": "law31-first-reel/scene-03/background.png",
+          "depth": -0.6,
+          "scale": 1.02145046
+        },
+        {
+          "id": "puppet-master",
+          "src": "law31-first-reel/scene-03/puppet-master.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "left-door",
+          "src": "law31-first-reel/scene-03/left-door.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "right-door",
+          "src": "law31-first-reel/scene-03/right-door.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "strings",
+          "src": "law31-first-reel/scene-03/strings.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "main-character",
+          "src": "law31-first-reel/scene-03/main-character.png",
+          "depth": 1.7,
+          "scale": 0.94384143
+        }
+      ]
+    },
+    {
+      "id": "scene-04",
+      "title": "المشهد 4",
+      "duration": 11.6,
+      "narration": "هذه فكرة القانون الحادي والثلاثين في «ثمانية وأربعون قانونًا للسلطة» لروبرت غرين: أحيانًا تكون السيطرة بالتحكّم في خياراتك. نفهمها لنحمي قرارنا، لا لنحاصر الناس.",
+      "preset": "slowPush",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1110,
+          "zoom": 0.95
+        },
+        "to": {
+          "x": 800,
+          "y": 1070,
+          "zoom": 1.05
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-04/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-05",
+      "title": "المشهد 5",
+      "duration": 8.85,
+      "narration": "في العمل: «إمّا تقبل ضغطًا إضافيًا بلا نقاش، أو أنت غير ملتزم». وفجأة، تحس أن أمامك طريقين فقط!",
+      "preset": "panLeft",
+      "camera": {
+        "from": {
+          "x": 781,
+          "y": 1100,
+          "zoom": 0.94
+        },
+        "to": {
+          "x": 817,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "background",
+          "src": "law31-first-reel/scene-05/background.png",
+          "depth": -1,
+          "scale": 1.03626943
+        },
+        {
+          "id": "desk-and-manager",
+          "src": "law31-first-reel/scene-05/desk-and-manager.png",
+          "depth": 0,
+          "scale": 1.0
+        },
+        {
+          "id": "main-character",
+          "src": "law31-first-reel/scene-05/main-character.png",
+          "depth": 1.5,
+          "scale": 0.95011876
+        }
+      ]
+    },
+    {
+      "id": "scene-06",
+      "title": "المشهد 6",
+      "duration": 5.633333333333334,
+      "narration": "لكن أين التفاوض؟ وتوزيع المهام؟ والاتفاق الواضح الذي يحفظ حق الجميع؟",
+      "preset": "pullBack",
+      "camera": {
+        "from": {
+          "x": 805,
+          "y": 1100,
+          "zoom": 1.06
+        },
+        "to": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-06/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-07",
+      "title": "المشهد 7",
+      "duration": 7.933333333333334,
+      "narration": "وفي العلاقات: «إمّا توافقني في كل شيء، أو أنت ما تهتم بي». وكأن الاهتمام اختبار طاعة!",
+      "preset": "panLeft",
+      "camera": {
+        "from": {
+          "x": 779,
+          "y": 1100,
+          "zoom": 1
+        },
+        "to": {
+          "x": 819,
+          "y": 1095,
+          "zoom": 1
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-07/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-08",
+      "title": "المشهد 8",
+      "duration": 6.55,
+      "narration": "لكن الاحترام ما يعني تلغي رأيك. من حقك تختلف، وتناقش، وتحافظ على حدودك.",
+      "preset": "slowPush",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.97
+        },
+        "to": {
+          "x": 810,
+          "y": 1085,
+          "zoom": 1.035
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-08/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-09",
+      "title": "المشهد 9",
+      "duration": 5.183333333333334,
+      "narration": "وفي العائلة: «إمّا تختار التخصص اللي نريده، أو تخيّب أملنا».",
+      "preset": "pullBack",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 1
+        },
+        "to": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-09/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-10",
+      "title": "المشهد 10",
+      "duration": 7.933333333333334,
+      "narration": "قد يكون وراء الكلام خوف حقيقي على مستقبلك. لكن هذا لا يمنع الحوار، ولا يلغي البدائل.",
+      "preset": "driftRight",
+      "camera": {
+        "from": {
+          "x": 789,
+          "y": 1100,
+          "zoom": 0.97
+        },
+        "to": {
+          "x": 808,
+          "y": 1090,
+          "zoom": 0.99
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-10/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scene-11",
+      "title": "المشهد 11",
+      "duration": 10.216666666666667,
+      "narration": "وانتبه: مو كل موقف فيه خياران يعني تلاعبًا. لكن إذا حسّيت أنك محاصر، اسأل: من حدّد الخيارات؟ وهل فيه خيار ثالث؟",
+      "preset": "driftRight",
+      "camera": {
+        "from": {
+          "x": 780,
+          "y": 1110,
+          "zoom": 1.01
+        },
+        "to": {
+          "x": 816,
+          "y": 1082,
+          "zoom": 1.045
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "layers": [
+        {
+          "id": "background",
+          "src": "law31-first-reel/scene-11/background.png",
+          "depth": -1,
+          "scale": 1.03626943
+        },
+        {
+          "id": "main-character",
+          "src": "law31-first-reel/scene-11/main-character.png",
+          "depth": 1.7,
+          "scale": 0.94384143
+        }
+      ]
+    },
+    {
+      "id": "scene-12",
+      "title": "المشهد 12",
+      "duration": 8.866666666666667,
+      "narration": "ليس كل من يمنحك خيارًا، يمنحك حرية. وأحيانًا أقوى قرار... أن ترفض الاختيار بين بابين لا يناسبانك أصلًا.",
+      "preset": "pullBack",
+      "camera": {
+        "from": {
+          "x": 800,
+          "y": 1080,
+          "zoom": 1.12
+        },
+        "to": {
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.93
+        }
+      },
+      "parallax": 1,
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "layers": [
+        {
+          "id": "illustration",
+          "src": "law31-first-reel/scene-12/illustration.png",
+          "depth": 0,
+          "scale": 1.0
+        }
+      ]
+    }
+  ]
+}

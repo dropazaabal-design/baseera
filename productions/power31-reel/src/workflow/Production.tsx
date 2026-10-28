@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   AbsoluteFill,
   Sequence,
+  Freeze,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
@@ -10,7 +11,10 @@ import {
   cancelRender,
 } from "remotion";
 import { Audio } from "@remotion/media";
-import { ParallaxScene } from "../cinematic/CinematicCameraEngine";
+import {
+  ParallaxScene,
+  SceneTransition,
+} from "../cinematic/CinematicCameraEngine";
 import {
   parseSrt,
   presetCamera,
@@ -18,9 +22,16 @@ import {
   type Project,
   type SceneConfig,
   type Cue,
+  type Presentation,
 } from "./config";
 import "../design";
-export const ProductionScene = ({ scene }: { scene: SceneConfig }) => (
+export const ProductionScene = ({
+  scene,
+  presentation = {},
+}: {
+  scene: SceneConfig;
+  presentation?: Presentation;
+}) => (
   <AbsoluteFill>
     <ParallaxScene
       camera={presetCamera(scene)}
@@ -29,31 +40,35 @@ export const ProductionScene = ({ scene }: { scene: SceneConfig }) => (
         depth: l.depth * (scene.parallax ?? 1),
       }))}
     />
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 420,
-        background: "linear-gradient(#091525,transparent)",
-      }}
-    />
-    <div
-      dir="rtl"
-      style={{
-        position: "absolute",
-        top: 110,
-        right: 80,
-        left: 80,
-        fontFamily: "Alexandria",
-        fontSize: 62,
-        lineHeight: 1.5,
-        color: "#F8FAFC",
-      }}
-    >
-      {scene.title}
-    </div>
+    {presentation.showSceneTitle !== false && (
+      <>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 420,
+            background: "linear-gradient(#091525,transparent)",
+          }}
+        />
+        <div
+          dir="rtl"
+          style={{
+            position: "absolute",
+            top: 110,
+            right: 80,
+            left: 80,
+            fontFamily: "Alexandria",
+            fontSize: 62,
+            lineHeight: 1.5,
+            color: "#F8FAFC",
+          }}
+        >
+          {scene.title}
+        </div>
+      </>
+    )}
     <div
       dir="rtl"
       style={{
@@ -62,18 +77,27 @@ export const ProductionScene = ({ scene }: { scene: SceneConfig }) => (
         right: 80,
         left: 80,
         fontFamily: "Cairo",
-        fontSize: 32,
+        fontSize: presentation.compactBrand ? 28 : 32,
+        textAlign: presentation.compactBrand ? "center" : undefined,
         color: "#B5DDD9",
       }}
     >
-      القانون 31 · لفهم التلاعب لا لممارسته ·{" "}
+      {!presentation.compactBrand && (
+        <>القانون 31 · لفهم التلاعب لا لممارسته · </>
+      )}
       <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
         @kitabwbs
       </span>
     </div>
   </AbsoluteFill>
 );
-const Subtitles = ({ cues }: { cues: Cue[] }) => {
+const Subtitles = ({
+  cues,
+  presentation = {},
+}: {
+  cues: Cue[];
+  presentation?: Presentation;
+}) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const c = cues.find((c) => f / fps >= c.start && f / fps < c.end);
@@ -82,12 +106,12 @@ const Subtitles = ({ cues }: { cues: Cue[] }) => {
       dir="rtl"
       style={{
         position: "absolute",
-        bottom: 200,
+        bottom: presentation.captionBottom ?? 200,
         left: 90,
         right: 90,
         textAlign: "center",
         fontFamily: "Cairo",
-        fontSize: 49,
+        fontSize: presentation.captionFontSize ?? 49,
         lineHeight: 1.45,
         color: "white",
         background: "rgba(3,7,13,.9)",
@@ -103,7 +127,10 @@ const Subtitles = ({ cues }: { cues: Cue[] }) => {
 export const Production = ({ project }: { project: Project }) => {
   const items = timeline(project);
   const { fps } = useVideoConfig();
-  const handle = useMemo(() => delayRender("Load SRT: " + (project.srt ?? "none")), [project.srt]);
+  const handle = useMemo(
+    () => delayRender("Load SRT: " + (project.srt ?? "none")),
+    [project.srt],
+  );
   const [cues, setCues] = useState<Cue[]>([]);
   useEffect(() => {
     let active = true;
@@ -130,7 +157,7 @@ export const Production = ({ project }: { project: Project }) => {
   }, [project.srt, handle]);
   return (
     <AbsoluteFill style={{ background: "#091525" }}>
-      {items.map(({ scene, from, durationInFrames }) => (
+      {items.map(({ scene, from, durationInFrames }, index) => (
         <Sequence
           key={scene.id}
           name={scene.id}
@@ -138,7 +165,11 @@ export const Production = ({ project }: { project: Project }) => {
           durationInFrames={durationInFrames}
           premountFor={fps}
         >
-          <ProductionScene scene={scene} />
+          <TransitionedScene
+            scene={scene}
+            previous={items[index - 1]}
+            presentation={project.presentation}
+          />
         </Sequence>
       ))}
       {project.audio && (
@@ -149,13 +180,61 @@ export const Production = ({ project }: { project: Project }) => {
         />
       )}
       <Subtitles
+        presentation={project.presentation}
         cues={cues.map((c) => ({
           ...c,
           start: c.start - (project.audioOffset ?? 0),
           end: c.end - (project.audioOffset ?? 0),
         }))}
       />
+      {project.presentation?.reviewLabel && (
+        <div
+          dir="rtl"
+          style={{
+            position: "absolute",
+            top: 50,
+            left: 100,
+            right: 100,
+            fontFamily: "Cairo",
+            fontSize: 25,
+            textAlign: "center",
+            color: "#D1E5EC",
+            background: "rgba(9,21,37,.85)",
+            padding: "10px 14px",
+            borderRadius: 8,
+          }}
+        >
+          {project.presentation.reviewLabel}
+        </div>
+      )}
     </AbsoluteFill>
+  );
+};
+
+const TransitionedScene = ({
+  scene,
+  previous,
+  presentation,
+}: {
+  scene: SceneConfig;
+  previous?: { scene: SceneConfig; durationInFrames: number };
+  presentation?: Presentation;
+}) => {
+  const frame = useCurrentFrame();
+  const n = Math.round((scene.transition?.duration ?? 0) * 60);
+  if (scene.transition?.type !== "crossfade" || !previous || !n)
+    return <ProductionScene scene={scene} presentation={presentation} />;
+  return (
+    <>
+      {frame < n && (
+        <Freeze frame={previous.durationInFrames - 1}>
+          <ProductionScene scene={previous.scene} presentation={presentation} />
+        </Freeze>
+      )}
+      <SceneTransition start={0} duration={n}>
+        <ProductionScene scene={scene} presentation={presentation} />
+      </SceneTransition>
+    </>
   );
 };
 

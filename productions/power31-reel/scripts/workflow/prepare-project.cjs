@@ -19,6 +19,9 @@ function configModule() {
 module.exports = configModule;
 if (require.main === module) {
   const input = process.argv[2];
+  const noRegister = process.argv.includes("--no-register");
+  const active = process.argv.includes("--active-production");
+  const propsFile = process.argv.find(a=>a.startsWith("--props="))?.slice(8) ?? "out/project-props.json";
   if (!input)
     throw new Error(
       "Usage: node scripts/workflow/prepare-project.cjs project.json",
@@ -64,13 +67,13 @@ if (require.main === module) {
     if (duration - (p.audioOffset ?? 0) + 0.1 < total)
       throw new Error("Narration is shorter than timeline");
   }
-  fs.writeFileSync(
-    "src/projects/current.json",
+  if (!noRegister || active) fs.writeFileSync(
+    active ? "src/projects/active-production.json" : "src/projects/current.json",
     JSON.stringify(p, null, 2) + "\n",
   );
-  fs.mkdirSync("out", { recursive: true });
+  fs.mkdirSync(path.dirname(propsFile), { recursive: true });
   fs.writeFileSync(
-    "out/project-props.json",
+    propsFile,
     JSON.stringify({ project: p }, null, 2),
   );
   console.log(
@@ -79,6 +82,7 @@ if (require.main === module) {
       duration: total,
       frames: Math.round(total * 60),
       assets: "validated",
+      registered: active ? "active-production" : !noRegister,
       audio: !!p.audio,
       srtCues: cues.filter((c) => c.start < total).length,
     }),

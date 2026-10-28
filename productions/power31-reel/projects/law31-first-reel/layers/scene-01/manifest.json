@@ -1,0 +1,73 @@
+{
+  "sceneId": "scene-01",
+  "mode": "TRUE_SEPARATE_PLANES",
+  "canvas": [
+    941,
+    1672
+  ],
+  "coordinateSystem": "Full source canvas, depth scaling compensated at rest",
+  "segmentation": "Manual masks + OpenCV GrabCut; no SAM/depth model",
+  "notes": [],
+  "layers": [
+    {
+      "id": "background",
+      "src": "law31-first-reel/scene-01/background.png",
+      "depth": -1,
+      "scale": 1.03626943,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "34bd5893edd198cb77fa53dbbc5f9390d060e8de2c808e461d45f3871623bd0d"
+    },
+    {
+      "id": "left-door",
+      "src": "law31-first-reel/scene-01/left-door.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "d4e764c52a100fd8f3796fe032718ed7c13368b357aef4b6f8bb3756c84d4f10"
+    },
+    {
+      "id": "right-door",
+      "src": "law31-first-reel/scene-01/right-door.png",
+      "depth": 0.35,
+      "scale": 0.98789825,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "74c2303dddaa333f6c06a72c0543b6199c5a7159446b8ac0ac884adda8552e97"
+    },
+    {
+      "id": "main-character",
+      "src": "law31-first-reel/scene-01/main-character.png",
+      "depth": 2,
+      "scale": 0.93457944,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "84efc7cd2c39d851664bca02c155bd14c1135dc9204c8c08fe9147cfa0ef6829"
+    }
+  ]
+}

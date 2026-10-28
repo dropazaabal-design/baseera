@@ -1,0 +1,19 @@
+{
+  "style": "Cinematic Psychological Graphic Novel — Premium Stickman 2.5D",
+  "masterPrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold.",
+  "palette": [
+    "#091525",
+    "#173C59",
+    "#277DB5",
+    "#10B981",
+    "#F8FAFC"
+  ],
+  "hero": "Slim black body, circular head, white eyes, one emerald LEFT-wrist cuff",
+  "reference": "character-references/reference-sheet-v1.png",
+  "constraints": [
+    "No music",
+    "No yellow/orange/gold",
+    "No text in generated art",
+    "No SVG placeholders"
+  ]
+}

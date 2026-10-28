@@ -1,0 +1,515 @@
+{
+  "title": "أخطر أنواع السيطرة… أن تظن أنك تختار!",
+  "targetSeconds": [
+    80,
+    90
+  ],
+  "previewDuration": 86,
+  "finalDuration": null,
+  "scenes": [
+    {
+      "sceneId": "scene-01",
+      "narration": "تخيّل واحدًا يقول لك: «اختر الباب اللي يعجبك». تفكّر، وتقارن، وتختار.",
+      "estimatedDuration": 5.633333333333334,
+      "finalDuration": null,
+      "previewFromFrame": 0,
+      "visualDescription": "Confused black stickman before two cyan and emerald doors in a midnight stone hall",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Confused black stickman before two cyan and emerald doors in a midnight stone hall",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-01-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-01/manifest.json",
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "cameraPreset": "slowPush",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 785,
+          "y": 1100,
+          "zoom": 0.96
+        },
+        {
+          "frame": 337,
+          "x": 812,
+          "y": 1080,
+          "zoom": 1.05
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-02",
+      "narration": "لكن المفاجأة؟ البابان يؤدّيان إلى المكان نفسه!",
+      "estimatedDuration": 3.8,
+      "finalDuration": null,
+      "previewFromFrame": 338,
+      "visualDescription": "Two winding stone routes converge at one distant fortress gate",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Two winding stone routes converge at one distant fortress gate",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-02-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-02/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "pullBack",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1065,
+          "zoom": 1.12
+        },
+        {
+          "frame": 227,
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.93
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-03",
+      "narration": "لأن شخصًا آخر رسم الطريقين، وحدّد نهايتهما.",
+      "estimatedDuration": 3.8,
+      "finalDuration": null,
+      "previewFromFrame": 566,
+      "visualDescription": "Giant controller holds delicate strings attached to two doors; cuffed hero below",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Giant controller holds delicate strings attached to two doors; cuffed hero below",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-03-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-03/manifest.json",
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "cameraPreset": "tiltReveal",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1370,
+          "zoom": 1.17
+        },
+        {
+          "frame": 18,
+          "x": 800,
+          "y": 1370,
+          "zoom": 1.17
+        },
+        {
+          "frame": 210,
+          "x": 800,
+          "y": 1065,
+          "zoom": 0.94
+        },
+        {
+          "frame": 227,
+          "x": 800,
+          "y": 1065,
+          "zoom": 0.94
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-04",
+      "narration": "هذه فكرة القانون الحادي والثلاثين في «ثمانية وأربعون قانونًا للسلطة» لروبرت غرين: أحيانًا تكون السيطرة بالتحكّم في خياراتك. نفهمها لنحمي قرارنا، لا لنحاصر الناس.",
+      "estimatedDuration": 11.6,
+      "finalDuration": null,
+      "previewFromFrame": 794,
+      "visualDescription": "Small hero on a monumental stone chessboard",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Small hero on a monumental stone chessboard",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-04-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-04/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "slowPush",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1110,
+          "zoom": 0.95
+        },
+        {
+          "frame": 695,
+          "x": 800,
+          "y": 1070,
+          "zoom": 1.05
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-05",
+      "narration": "في العمل: «إمّا تقبل ضغطًا إضافيًا بلا نقاش، أو أنت غير ملتزم». وفجأة، تحس أن أمامك طريقين فقط!",
+      "estimatedDuration": 8.85,
+      "finalDuration": null,
+      "previewFromFrame": 1490,
+      "visualDescription": "Manager behind a carved desk pressures employee in a navy office",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Manager behind a carved desk pressures employee in a navy office",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-05-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-05/manifest.json",
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "cameraPreset": "panLeft",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 781,
+          "y": 1100,
+          "zoom": 0.94
+        },
+        {
+          "frame": 530,
+          "x": 817,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-06",
+      "narration": "لكن أين التفاوض؟ وتوزيع المهام؟ والاتفاق الواضح الذي يحفظ حق الجميع؟",
+      "estimatedDuration": 5.633333333333334,
+      "finalDuration": null,
+      "previewFromFrame": 2021,
+      "visualDescription": "Same office: employee indicates negotiation and fair workload alternatives",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Same office: employee indicates negotiation and fair workload alternatives",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-06-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-06/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "pullBack",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 805,
+          "y": 1100,
+          "zoom": 1.06
+        },
+        {
+          "frame": 337,
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-07",
+      "narration": "وفي العلاقات: «إمّا توافقني في كل شيء، أو أنت ما تهتم بي». وكأن الاهتمام اختبار طاعة!",
+      "estimatedDuration": 7.933333333333334,
+      "finalDuration": null,
+      "previewFromFrame": 2359,
+      "visualDescription": "Two stickmen separated by a cracked bridge, tense conversation",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Two stickmen separated by a cracked bridge, tense conversation",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-07-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-07/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "panLeft",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 779,
+          "y": 1100,
+          "zoom": 1
+        },
+        {
+          "frame": 475,
+          "x": 819,
+          "y": 1095,
+          "zoom": 1
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-08",
+      "narration": "لكن الاحترام ما يعني تلغي رأيك. من حقك تختلف، وتناقش، وتحافظ على حدودك.",
+      "estimatedDuration": 6.55,
+      "finalDuration": null,
+      "previewFromFrame": 2835,
+      "visualDescription": "Same bridge: calm open hand, respectful boundaries",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Same bridge: calm open hand, respectful boundaries",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-08-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-08/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "slowPush",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.97
+        },
+        {
+          "frame": 392,
+          "x": 810,
+          "y": 1085,
+          "zoom": 1.035
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-09",
+      "narration": "وفي العائلة: «إمّا تختار التخصص اللي نريده، أو تخيّب أملنا».",
+      "estimatedDuration": 5.183333333333334,
+      "finalDuration": null,
+      "previewFromFrame": 3228,
+      "visualDescription": "Caring parents and young hero discuss two study folders",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Caring parents and young hero discuss two study folders",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-09-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-09/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "pullBack",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1100,
+          "zoom": 1
+        },
+        {
+          "frame": 310,
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.94
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-10",
+      "narration": "قد يكون وراء الكلام خوف حقيقي على مستقبلك. لكن هذا لا يمنع الحوار، ولا يلغي البدائل.",
+      "estimatedDuration": 7.933333333333334,
+      "finalDuration": null,
+      "previewFromFrame": 3539,
+      "visualDescription": "Same family: calm dialogue, three folders and branching garden paths",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Same family: calm dialogue, three folders and branching garden paths",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-10-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-10/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "driftRight",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 789,
+          "y": 1100,
+          "zoom": 0.97
+        },
+        {
+          "frame": 475,
+          "x": 808,
+          "y": 1090,
+          "zoom": 0.99
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-11",
+      "narration": "وانتبه: مو كل موقف فيه خياران يعني تلاعبًا. لكن إذا حسّيت أنك محاصر، اسأل: من حدّد الخيارات؟ وهل فيه خيار ثالث؟",
+      "estimatedDuration": 10.216666666666667,
+      "finalDuration": null,
+      "previewFromFrame": 4015,
+      "visualDescription": "Same two doors and a narrow hidden third passage",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Same two doors and a narrow hidden third passage",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-11-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-11/manifest.json",
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "cameraPreset": "driftRight",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 780,
+          "y": 1110,
+          "zoom": 1.01
+        },
+        {
+          "frame": 612,
+          "x": 816,
+          "y": 1082,
+          "zoom": 1.045
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "duration": 0
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    },
+    {
+      "sceneId": "scene-12",
+      "narration": "ليس كل من يمنحك خيارًا، يمنحك حرية. وأحيانًا أقوى قرار... أن ترفض الاختيار بين بابين لا يناسبانك أصلًا.",
+      "estimatedDuration": 8.866666666666667,
+      "finalDuration": null,
+      "previewFromFrame": 4628,
+      "visualDescription": "Hero and an open landscape with multiple distinct routes toward city, garden and mountains",
+      "aiImagePrompt": "Cinematic psychological graphic novel, premium hand-painted storytelling illustration, stylized black stickman characters with circular heads and expressive white eyes, one emerald left-wrist cuff on hero, detailed dark illustrated environments, atmospheric depth, navy and charcoal, cyan and emerald accents, chiaroscuro lighting, powerful silhouettes, vertical 9:16, consistent identity, no photorealistic faces, no text, no watermark, no yellow, no orange, no gold. Hero and an open landscape with multiple distinct routes toward city, garden and mountains",
+      "promptProvenance": "Art direction reconstructed after environment reset; not identical regeneration guarantee",
+      "characterReferences": [
+        "character-references/reference-sheet-v1.png"
+      ],
+      "environmentReferences": [
+        "generated-images/scene-12-master-v1.png"
+      ],
+      "layerManifest": "layers/scene-12/manifest.json",
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "cameraPreset": "pullBack",
+      "cameraKeyframes": [
+        {
+          "frame": 0,
+          "x": 800,
+          "y": 1080,
+          "zoom": 1.12
+        },
+        {
+          "frame": 531,
+          "x": 800,
+          "y": 1100,
+          "zoom": 0.93
+        }
+      ],
+      "transition": {
+        "type": "crossfade",
+        "duration": 0.3
+      },
+      "imageProvider": "built-in image_gen",
+      "generationStatus": "GENERATED_ORIGINAL_RECOVERED",
+      "reviewStatus": "STILL_REVIEWED",
+      "timingStatus": "ESTIMATED_NOT_AUDIO_ALIGNED"
+    }
+  ]
+}

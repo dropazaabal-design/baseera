@@ -1,0 +1,30 @@
+{
+  "sceneId": "scene-08",
+  "mode": "SINGLE_ILLUSTRATED_PLANE",
+  "canvas": [
+    941,
+    1672
+  ],
+  "coordinateSystem": "Full source canvas, depth scaling compensated at rest",
+  "segmentation": "Not applied",
+  "notes": [
+    "Camera motion only; not multilayer parallax."
+  ],
+  "layers": [
+    {
+      "id": "illustration",
+      "src": "law31-first-reel/scene-08/illustration.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "4250f8e3655bd1ae1428b35a3d5f9ab7d596fc8db51f34df78cb742c8a6380f6"
+    }
+  ]
+}
