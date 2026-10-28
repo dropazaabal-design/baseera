@@ -1,0 +1,35 @@
+{
+  "stage": "VISUAL_REVIEW_NOT_PUBLICATION_READY",
+  "audio_path": null,
+  "final_narration_available": false,
+  "local_inventory": {
+    "preexisting_tts_engine": false,
+    "preexisting_arabic_voice": false,
+    "existing_law01_recording": false,
+    "piper_candidate": {
+      "name": "ar_JO-kareem-low",
+      "installed": false,
+      "quality": "low",
+      "decision": "Not used: does not satisfy natural Saudi storytelling requirement; no artificial placeholder narration generated."
+    }
+  },
+  "elevenlabs": {
+    "provider": "ElevenLabs",
+    "connected": true,
+    "total_count": 22,
+    "generation_invoked": false,
+    "billing_authorized": false,
+    "candidate_names": [
+      "RAED ",
+      "Khalid Alghamdi – Natural Saudi Narrator",
+      "Firas / Saudi",
+      "Nasser AlJubaily - Authentic Saudi Pro",
+      "Abdullah - Saudi Arabic Narrator",
+      "Ali - calm & Deep Arabic Saudi Narrator"
+    ]
+  },
+  "motionlab_invoked": false,
+  "music": false,
+  "srt_status": "estimated review cues only; not aligned to recording",
+  "publication_gate": "BLOCKED_PENDING_APPROVED_NARRATION_AND_ALIGNMENT"
+}

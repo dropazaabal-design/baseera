@@ -1,0 +1,51 @@
+{
+  "shotId": "SHOT17",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT17.png",
+  "source_sha256": "64af1fbf6427a284558fc35759e531eb2ef6339cfc6d141fc1b3ecca397ea15f",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT17/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "8cb56e4573ec70983f82100a4fe0e1b5ac9fdca47084eda43cc52e5b99c0323e"
+    },
+    {
+      "id": "employee",
+      "src": "law01/layers/SHOT17/employee.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "d1448a0c1ea2505ee6c55fff57f45173d6e5b6ecaeb8b797b8599bb478d9507c",
+      "pivot": [
+        742,
+        1600
+      ],
+      "motionGroup": "employee"
+    }
+  ],
+  "actions": [
+    "accusatory drawn arm pose, restrained whole-body emphasis"
+  ]
+}

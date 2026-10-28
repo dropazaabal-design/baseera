@@ -1,0 +1,1114 @@
+{
+  "project": "BASEERA LAW01",
+  "phase": "02 image generation only",
+  "style_reference_supplied": false,
+  "character_reference_supplied": false,
+  "notes": [
+    "Only the script attachment was available. Generated shots establish working references, not user-approved references.",
+    "No audio, animation, parallax extraction or MP4 rendering performed.",
+    "Parallax assessment is suitability only; all images are flattened PNGs."
+  ],
+  "shots": [
+    {
+      "shot_id": "SHOT01",
+      "sequence": 1,
+      "title": "The Rise",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-2d335468-b46c-43fc-896a-40d4e5195a09.png",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/generated_images/exec-bf5e62c2-e1a3-4803-a4c1-8f29bf4d60db.png"
+      ],
+      "reference_roles": "Initial variant used only as composition reference, then repainted to correct 3D realism.",
+      "prompt": "Edit the reference into the final SHOT01 for a premium illustrated psychological graphic novel. Keep ONLY its story and overall upward staircase composition: lone figure confidently climbing simple stone stairs toward an ivory-lit platform.\nCRITICAL CORRECTION: the reference is too photorealistic and 3D. Redraw the ENTIRE image clearly as a hand-painted 2D graphic novel, 60% composed cinematic / 40% visibly illustrated. Simplify architecture into broad painted planes, bold inked contours, visible brush texture. NO photographic rock texture, no realistic volumetric rendering, no glossy surfaces. Reduce monumental fantasy pillars. Moderate detail, not an epic fantasy movie.\nRedesign the character as a TRUE MINIMALIST BLACK STICKMAN: perfectly round matte solid black circle head with exactly two short narrow white eyes, very thin simple black articulated line-like arms and legs, small simple hands, slim torso in a plain dark-navy top; NO muscular humanoid body, no puffy trousers or realistic shoes. Adult balanced proportions, not a child or toy. View a little from behind/side so both eye slits can be visible. Bold silhouette readable on a phone.\nCharcoal and deep navy environment; desaturated ivory-white light only. ONE standalone vertical 9:16 image, no text or numbers, no logos, no collage, no panels, no 3D/Pixar, no yellow/orange/gold, no particles.",
+      "character_consistency_result": "PASS — establishes working protagonist: black round head, navy shirt, thin black limbs. Eyes seen obliquely.",
+      "background_continuity_result": "BASELINE — ascending stone stair and ivory portal.",
+      "parallax_layering": "YES — foreground stairs, protagonist, background gateway; masks and hidden-area reconstruction required.",
+      "review_notes": "Corrected initial overly realistic variant. Selected image is visibly painterly; no text/panels.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT01.png",
+      "relative_path": "images/SHOT01.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "6d189361d4255ae030a0b3665fdc66e1292de5b20f0a2faef60f0485aa22d7af",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "initial_generation_prompt": "Use case: illustration-story. BASEERA LAW01 SHOT01 — THE RISE.\nCreate exactly ONE standalone vertical 9:16 image, preferably 1080x1920. This is a single cinematic shot, NOT a page, collage or panels.\nScene: A lone minimalist black stickman confidently climbs a tall staircase toward an illuminated platform. Dark surroundings, simple stone steps, dramatic but controlled upward perspective. Small full-body figure and a large destination, symbolic ambition, clear phone-readable silhouette. The staircase ascends from lower foreground toward upper background; figure in the middle of the climb, no collapse yet.\nCharacter: perfectly round solid black head, exactly two narrow expressive ivory-white eyes, no mouth/nose/human face, thin articulated black limbs, simple plain dark navy clothing. Elegant adult proportions, simple hands with clean anatomy.\nVISUAL IDENTITY: 60% cinematic composition, 40% stylized psychological graphic novel illustration. Premium 2D digital painting, bold clean silhouettes, charcoal-black and deep navy environment, muted ivory lighting, subtle painterly texture, moderate detail, controlled dramatic lighting, strong negative space. Sophisticated illustrated psychological comic. Keep black character legible with very subtle cool rim light. Light is soft ivory-white, no saturated yellow, orange or gold.\nAvoid photorealism, human faces, 3D/Pixar, childish cartoon proportions, flat clipart/vector look, excessive fantasy architecture, particles, neon glow, lens flares, excessive camera drama, extra limbs, distorted anatomy, random objects. Absolutely NO text, letters, numbers, symbols, Arabic typography, captions, speech balloons, logos, watermarks, borders, split screens or multiple panels.",
+      "reference_shot_ids": [
+        "SHOT01 initial draft (composition reference)"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT02",
+      "sequence": 1,
+      "title": "The Hidden Threat",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT02 — THE HIDDEN THREAT. Same protagonist as reference, now standing proudly on the TOP landing of the same simple stone staircase. He is small in the lower-middle foreground, facing partly toward us with TWO NARROW HORIZONTAL WHITE EYE SLITS. Behind him a single GIGANTIC CROWNED AUTHORITY SHADOW emerges onto the dark wall. The shadow is a flat illustrative shadow only, round head, crown silhouette, broad cloak; no actual second person visible. Protagonist is unaware, relaxed proud upright posture. Ominous restrained ivory side lighting, large negative space. Keep same navy shirt, black circular head, thin line-like limbs, stone material and painterly style of reference. The shadow should be the clear threat; avoid adding a real crown on the protagonist. Single standalone suspense shot; NOT a copy of the whole previous stair view.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT01.png"
+      ],
+      "reference_roles": "SHOT01: protagonist, stair material and illustration style.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-6f93559c-cc42-477f-a5c5-bf0e3abcf8a2.png",
+      "character_consistency_result": "PASS — same round-headed protagonist, slim navy shirt, white horizontal eyes, no crown on protagonist.",
+      "background_continuity_result": "PASS — matching painted stone stair/landing and ivory side lighting.",
+      "parallax_layering": "YES — stairs, protagonist, wall/shadow; shadow can be a separate mask.",
+      "review_notes": "Clear standalone threat composition; no text or panels.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT02.png",
+      "relative_path": "images/SHOT02.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "ef09868f06ee55f06a1396c3759290f8db7180a57032b662dd5c5c128e54ef3e",
+      "reference_shot_ids": [
+        "SHOT01"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT03",
+      "sequence": 1,
+      "title": "The Fall",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT03 — THE FALL. Use reference1 for the SAME stickman identity and painted staircase material, reference2 for top landing context. A fresh standalone shot: the successful stickman is near the top landing and instinctively steps backward in surprise as THE STAIRCASE UNDER HIS FEET BREAKS APART. One hand lifted for balance, body tilting away from the crack, thin black line-like limbs intact. Several large clearly drawn stone step fragments tumble downward into a deep navy-black void. Strong diagonal composition, readable negative space, no motion blur. Keep character black round head, two narrow WHITE EYE SLITS, navy shirt, very slim adult stick limbs. Maintain visible 2D brushwork. The figure is NOT falling from an actual palace, purely psychological symbolism. No actual crown on the protagonist. Clearly show ONE uninterrupted scene with breaking steps, not a before-and-after or panels.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT01.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT02.png"
+      ],
+      "reference_roles": "SHOT01: character and stairs. SHOT02: top-landing context.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-98d71e48-e86f-405b-9aa5-260848669bba.png",
+      "character_consistency_result": "PASS — same navy-shirt protagonist with black round head and slim limbs; surprised balanced pose.",
+      "background_continuity_result": "PASS — same top landing, painted stone and crowned wall shadow; stairs now collapse.",
+      "parallax_layering": "YES — near stone fragments, protagonist, steps, wall/shadow. Occluded surfaces need reconstruction.",
+      "review_notes": "Sequence01 reviewed: clear rise/threat/fall progression. Eye slits shift with viewing angle; identity remains readable.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT03.png",
+      "relative_path": "images/SHOT03.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "f83c514154c6af8ca2c9605e8fedb58c0b88639b0e5cc75d608cec597e4816ef",
+      "reference_shot_ids": [
+        "SHOT01",
+        "SHOT02"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT04",
+      "sequence": 2,
+      "title": "France, 1661",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT04 — FRANCE, 1661. Reference image is ONLY for 2D painting style, palette and brush texture. DO NOT copy staircase, character, portal or shadow.\nA new wide establishing shot within a VERTICAL FRAME of the real-world-inspired Château de Vaux-le-Vicomte in seventeenth-century France. Recognizable restrained French classical estate: symmetrical pale stone facade, CENTRAL OVAL DOMED PAVILION with slate roof, long balanced low wings, tall windows. Formal geometrical French garden axis in foreground with clipped hedges and a reflecting water basin. Broad evening navy sky, very subdued ivory-lit windows. Full building visible in middle distance. No people in immediate foreground. Architectural accuracy in broad silhouette, not photographic reconstruction. Majestic but not fantasy, not a medieval castle, no gothic towers, no cathedral, no Versailles extravagance. Strong clear inked edges and painted shadow planes.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT01.png"
+      ],
+      "reference_roles": "SHOT01 used for illustration style only; establishes the working Vaux-le-Vicomte environment.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-af277da1-4821-4f5a-bac7-36720d74ad6e.png",
+      "character_consistency_result": "N/A — no foreground characters.",
+      "background_continuity_result": "BASELINE — Vaux-inspired symmetrical facade, central dome, slate roofs, axial gardens and reflecting pool.",
+      "parallax_layering": "YES — foreground pool/urns, hedges, palace, sky. Water reflections limit large displacements.",
+      "review_notes": "Stylized seventeenth-century setting, not a photographic reconstruction. No typography.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT04.png",
+      "relative_path": "images/SHOT04.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "0ad87a6ae7f89b978b33e1b8369d2c29cc27847bb06d1ea6a00efbb6c64376a8",
+      "reference_shot_ids": [
+        "SHOT01"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT05",
+      "sequence": 2,
+      "title": "Nicolas Fouquet",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT05 — NICOLAS FOUQUET. Reference1 provides the EXACT Vaux-le-Vicomte palace setting; reference2 supplies stickman construction and illustration style ONLY. New camera nearer the entrance, waist-to-full-body main character clearly readable.\nEstablish FOUQUET: small/slim black stickman, perfectly round matte black head, exactly two narrow horizontal ivory-white eyes, no hair, no mouth/nose/ears, thin articulated black arms/legs. Seventeenth-century French nobleman's DARK NAVY knee-length coat, small subtle ivory embroidered seam details, distinctive WHITE CRAVAT at neck, simple black footwear, NEVER a crown. No gold trim.\nHe stands in front of the palace entrance, confident composed upright posture, one open welcoming hand toward arriving noble guests. A dark seventeenth-century carriage and several SMALL STICKMAN noble guests behind, all have black circular heads and simple silhouettes, no human faces. Frame with the same pale French classical door and windows from reference1. Warmth is restrained desaturated ivory architecture lighting, navy dusk. Keep illustration painterly, not realistic. No modern suit or necktie on Fouquet. ONE shot.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT04.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT02.png"
+      ],
+      "reference_roles": "SHOT04: palace environment. SHOT02: stickman construction and style only.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-5d05c62b-131c-4ab8-a94e-20a83744074a.png",
+      "character_consistency_result": "BASELINE — Fouquet established: round black head, horizontal white eyes, navy period coat, ivory embroidery/cravat, slim limbs, no crown.",
+      "background_continuity_result": "PASS — closer view of SHOT04 central domed facade and entrance with carriage.",
+      "parallax_layering": "YES — foreground arriving guest/carriage, Fouquet, palace. Fine embroidery requires careful masks.",
+      "review_notes": "Fouquet in center-left welcomes guests. Character reference is working/internal, pending user approval.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png",
+      "relative_path": "images/SHOT05.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "bf17783974fa81ddfa25622bc5908959efa7b8ee304fcc80211a4930b01b3ec9",
+      "reference_shot_ids": [
+        "SHOT04",
+        "SHOT02"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT06",
+      "sequence": 2,
+      "title": "The Grand Gardens",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT06 — THE GRAND GARDENS. New AERIAL THREE-QUARTER view of the same Château de Vaux-le-Vicomte estate. Reference1 locks palace design, slate central dome, facade, formal garden axis and reflecting pool. Reference2 supplies guest silhouette construction and evening lighting only. Do not include a giant foreground Fouquet.\nFrench geometrical parterre gardens extend through a vertical composition: clipped hedges, ordered pathways, central reflecting canal, a few restrained fountains. Rows of small black ROUND-HEADED STICKMAN noble guests gather along paths. Carefully arranged small ivory lantern points suggest a grand celebration, not excessive particle effects. Palace is at the far upper background; garden scale is the subject. Maintain dusk deep navy/charcoal and desaturated architectural ivory, visibly painted brush texture, bold readable garden shapes, moderate detail. No fireworks necessary in this shot, no modern objects, no maps/labels/letters/numbers.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT04.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT04: palace and garden axis. SHOT05: guest silhouettes and celebration lighting.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-7dcd045f-b5a5-4a6f-b625-238e68acc919.png",
+      "character_consistency_result": "PASS — distant guests use black circular heads, white eyes and simplified period clothing.",
+      "background_continuity_result": "PASS — same palace dome, garden axis/pools and dusk. View is elevated and near-axial rather than strongly lateral.",
+      "parallax_layering": "LIMITED — garden planes/palace/sky separable; many small guests, fountains and reflections constrain strong parallax.",
+      "review_notes": "Wide scale and phone-readable axis established. High-angle view retains estate continuity.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT06.png",
+      "relative_path": "images/SHOT06.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "1a50482767f076d52207a8718e8a6e55be85658d23c4a1fcb043f1c47e4516e3",
+      "reference_shot_ids": [
+        "SHOT04",
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS_WITH_NOTES"
+    },
+    {
+      "shot_id": "SHOT07",
+      "sequence": 2,
+      "title": "The Banquet",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT07 — THE BANQUET. Use reference1 to reproduce EXACT FOUQUET character: small slim round black head, two narrow horizontal white eyes, navy knee-length French noble coat, ivory embroidered seams, distinctive white cravat, slim black limbs, NO CROWN. Reference2 controls painterly atmosphere and palace visual language only.\nInterior of a lavish yet restrained seventeenth-century FRENCH PALACE DINING HALL at Vaux-le-Vicomte: tall classical windows and wall panels, two restrained chandeliers, a long banquet table receding into the room, fine pale cloth, simple silver table settings and platters. Black round-headed STICKMAN noble guests seated along both sides, no realistic human faces. FOUQUET stands prominently at one side of the near-middle table presenting the celebration with one graceful open hand; he must be recognizable from reference1. Balanced wide scene in a vertical 9:16 frame, doorway/column provides layered foreground. Clear primary focus on host and long table; not too cluttered. Muted ivory architectural candlelight, navy shadows. Explicitly brush-painted 2D, no photographic food texture, no gold ornamental overload, no modern electric fixtures, no words, numbers or decorative writing.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT06.png"
+      ],
+      "reference_roles": "SHOT05: Fouquet identity/costume. SHOT06: palace palette/lighting and visual language.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-dd3ae536-c303-4597-af20-b873a937d169.png",
+      "character_consistency_result": "PASS — Fouquet's coat, cravat, round head and narrow white eyes match SHOT05; noble guests use same silhouette system.",
+      "background_continuity_result": "PASS — period interior extension of palace: tall windows, navy dusk, ivory chandelier lighting.",
+      "parallax_layering": "YES — foreground doorway/column, host/table/guests, windows and exterior. Fine chandeliers need careful masks.",
+      "review_notes": "Host remains readable in richly illustrated hall. No in-image writing.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT07.png",
+      "relative_path": "images/SHOT07.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "640ab073f9afb63772f1326a1633b1c35a6c9f482d48f7c555f353f01b1139c5",
+      "reference_shot_ids": [
+        "SHOT05",
+        "SHOT06"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT08",
+      "sequence": 2,
+      "title": "The King Watches",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT08 — THE KING WATCHES. Reference1 locks the same Vaux-le-Vicomte gardens/terrace, central pool and illumination. Reference2 locks FOUQUET only, shown SMALL BELOW among guests with navy coat and white cravat.\nEstablish KING LOUIS XIV in the near foreground on a stone PALACE BALCONY, standing slightly apart, looking down at the evening celebration. Taller authoritative BLACK STICKMAN, perfectly ROUND matte black head, narrow NEUTRAL WHITE EYE SLITS, NO nose/mouth/beard/real face. Long DARK NAVY-BLACK royal cloak down to ankles, VERY RESTRAINED CRIMSON edge detail, simple pale neckpiece, small understated matte ivory-silver crown. Thin articulated black hands rest lightly on stone balustrade. Proud upright royal silhouette, not muscular humanoid. Three-quarter profile so eye is readable.\nDo not make him furious, scowling, villainous or definitively jealous; he simply observes silently. Preserve painterly graphic novel style, use broad 2D shadow planes and subtle brushwork, moderate details. Frame the tall king against negative navy space at one side, celebration gardens in lower background. ONE scene. No speech bubbles, no text, no stage labels. This is stylized narrative interpretation, not a documented exact historical moment.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT06.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT06: garden and terrace environment. SHOT05: distant Fouquet identity.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-59ef9067-a80c-4c19-9ce7-cf72fea7feb4.png",
+      "character_consistency_result": "BASELINE — Louis XIV established: taller black round head, white eyes, long navy royal cloak, crimson/ivory edging and pale crown. Distant host not individually identifiable.",
+      "background_continuity_result": "PASS — same palace/garden axis from a stylized overlook; balcony placement is interpretive, not an architectural survey.",
+      "parallax_layering": "YES — king/balustrade, gardens/guests, palace, sky. Dense distant guests constrain fine separation.",
+      "review_notes": "Sequence02 reviewed. King observes without caricatured anger. This tableau does not assert a documented specific moment or emotion.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT08.png",
+      "relative_path": "images/SHOT08.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "8f14ec132fb384c85fcad5032d98e391819da217828a2d91bcb134aa7477488a",
+      "reference_shot_ids": [
+        "SHOT06",
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS_WITH_NOTES"
+    },
+    {
+      "shot_id": "SHOT09",
+      "sequence": 3,
+      "title": "The Approach",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT09 — THE APPROACH. A NEW location: austere seventeenth-century French stone passage in NANTES. Use reference only for the painted 2D graphic-novel style and round-headed stickman construction, not palace luxury or Fouquet clothing.\nTwo ROYAL GUARDS approach a heavy plain wooden doorway at the end of the stone passage. One slightly taller than the other. Both are slim BLACK STICKMEN with round black heads, two narrow white eyes (visible in slight profile where plausible), dark blue plain seventeenth-century short guard coats/capes, simple broad-brimmed dark hats with a thin muted ivory band, thin articulated limbs, dark boots. Their swords stay SHEATHED at hip, not brandished. They advance calmly and decisively, no violence. Strong linear perspective, empty near foreground floor, heavy charcoal shadows, ONE narrow strip of COLD IVORY-BLUE WINDOW LIGHT along rough stone. Plain barrel-vaulted corridor with visible door framing, no ornate palace embellishment. Moderate drawn detail, blocky painted shadow planes, no glossy photoreal surfaces, no inscriptions or symbols. Single vertical shot, tense quiet anticipation.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT05: illustration style and stickman construction only. Establishes new Nantes corridor and guards.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-c5e61df3-d135-4211-bfc1-e8df7f16a727.png",
+      "character_consistency_result": "BASELINE — two round-headed guards: navy period coats, broad-brimmed hats, pale bands/collars, sheathed swords; one taller.",
+      "background_continuity_result": "BASELINE — austere Nantes-inspired vaulted stone passage, window at left, heavy wooden door.",
+      "parallax_layering": "YES — guards, foreground stone, door/walls, window light; moderate depth.",
+      "review_notes": "Quiet approach, no physical violence or readable insignia.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT09.png",
+      "relative_path": "images/SHOT09.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "81aa2a2359bb7620d4add05172d49a60693ff28b394037b7cc0dd9e2cb09321e",
+      "reference_shot_ids": [
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT10",
+      "sequence": 3,
+      "title": "Fouquet Arrested",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT10 — FOUQUET ARRESTED. Reuse reference1 for the SAME stone corridor, cold window light, two royal guard designs (broad-brimmed navy hats with pale bands, plain navy period coats, white collars, sheathed swords). Reuse reference2 for EXACT FOUQUET identity and outfit, NOT its palace background.\nFront-facing three-quarter full-body view of Fouquet being calmly escorted forward BETWEEN the two guards in the austere Nantes passage. Fouquet is the smaller central BLACK ROUND-HEADED STICKMAN with two narrow horizontal WHITE EYES, navy knee-length noble coat with distinctive delicate ivory embroidery, WHITE CRAVAT, thin black limbs, no hat/crown. Slightly lowered arms, dignified upright body, subdued composure. Guards flank him, one slightly taller, one hand open to direct the way, no grabbing/choking, no violence, no shackles needed. Arched opening with cold daylight in far background; heavy stone and shadow dominate. Powerful contrast to the earlier banquet, visibly 2D painted planes, not realistic human anatomy. Three figures cleanly separated and phone-readable, no extra people, no writing.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT09.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT09: corridor and guards. SHOT05: Fouquet identity/costume.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-81e0dc09-dc96-4aa4-b5c8-fdf1cba26232.png",
+      "character_consistency_result": "PASS — Fouquet matches SHOT05; guards match SHOT09 hats/coats and relative heights.",
+      "background_continuity_result": "PASS — same vaulted stone corridor, wooden door and cold side window. Daylight is from side window rather than rear arch.",
+      "parallax_layering": "YES — three figures separated from corridor; ground-contact shadows and coat edges need masks.",
+      "review_notes": "Sequence03 reviewed. Arrest conveyed through escort and posture, no violence. Exact arrest staging is interpretive.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT10.png",
+      "relative_path": "images/SHOT10.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "fb785b00842bb63766bd36a97122a726ade551a0ec62da33f6306726bcd184ad",
+      "reference_shot_ids": [
+        "SHOT09",
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS_WITH_NOTES"
+    },
+    {
+      "shot_id": "SHOT11",
+      "sequence": 4,
+      "title": "The Financial Documents",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT11 — THE FINANCIAL DOCUMENTS. Reference is for the 2D painted style and round-headed stickmen only. NEW seventeenth-century administrative room, not palace gardens.\nA high OVERHEAD three-quarter view of a dark wooden desk covered with several financial LEDGERS, folded sealed correspondence, ink bottle and quill, plain accounting papers in orderly little stacks. ALL pages have ONLY blank ruled columns and empty table cells — ABSOLUTELY NO writing, digits, letters, random glyphs or signatures. Book covers and seals carry no symbols.\nA SMALL SLIM BLACK ROUND-HEADED OFFICIAL studies the documents seated at the upper side of the desk, face slightly lifted so narrow white eyes are visible. Establish a subdued medium-GRAY seventeenth-century court coat with simple dark cuffs, small pale collar, thin black limbs; no crown, no wig, no long white cravat, distinguish from Fouquet. This working official design will be used for Colbert in the next shot.\nFocused ivory light from a simple PERIOD CANDLESTICK, NOT an electric desk lamp. Desk occupies most of frame, shadowy room beyond. Grounded political mystery, visibly painted wood planes, clear ink contours, moderate paper detail, no textual decoration, no modern objects.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT05: illustration and stickman style only; establishes gray-coated official/Colbert and period documents.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-f122712f-a004-4747-99f0-255981bb2516.png",
+      "character_consistency_result": "BASELINE — gray-coated round-headed official established as working Colbert reference; narrow eyes, dark cuffs and pale neckwear.",
+      "background_continuity_result": "BASELINE — period financial desk, plain ledgers/sealed papers, quill and candle; new administrative setting.",
+      "parallax_layering": "LIMITED — desk/official/background separable; overlapping paper stacks and overhead geometry restrict depth.",
+      "review_notes": "Blank ruled financial documents; period candle replaces a modern electric desk lamp. No readable writing.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT11.png",
+      "relative_path": "images/SHOT11.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "85a6bb77541d7196c6bb5035dd0d6a6da2191d2bf01fd26212d1ef6f4a2fe840",
+      "reference_shot_ids": [
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT12",
+      "sequence": 4,
+      "title": "Colbert's Influence",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT12 — COLBERT'S INFLUENCE. Reference1 establishes Colbert's slim gray period coat, black round head, narrow white eyes, small pale neckwear and dark cuffs; reference2 establishes the SAME taller royal Louis XIV with long dark cloak, restrained crimson/ivory trim and pale crown.\nA dim seventeenth-century ROYAL CHAMBER, tall classical palace windows behind, slate-blue light and controlled ivory side illumination. COLBERT on one side holds a closed blank dark financial ledger against his body and discreetly gestures with the other open hand toward Louis XIV. The KING stands taller on the opposite side, reserved attentive posture, not angry, no evil expression. Both in three-quarter PROFILE, eyes visible as slim WHITE slits, no realistic facial features or human noses. Clear separated silhouettes, full bodies or knee-up, ample negative space above. Subtle influence and suspicion conveyed through body spacing, no pointing accusations. Moderate illustrated room detail, bold painted shadows.\nThis is SYMBOLIC INTERPRETIVE staging of political influence; do not add a quotation or speech balloon, do not suggest an exact documented dialogue. Absolutely no writing on ledger or in room. No extra figures.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT11.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT08.png"
+      ],
+      "reference_roles": "SHOT11: Colbert identity/costume. SHOT08: king identity/costume.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-0726d856-ca00-4edc-a053-bf62dd8ddd7c.png",
+      "character_consistency_result": "PASS — king matches SHOT08 crown/cloak/crimson edging; Colbert matches SHOT11 gray coat and pale neckwear.",
+      "background_continuity_result": "PASS — new royal chamber, tall window, navy drapery and ivory light consistent with period visual language.",
+      "parallax_layering": "YES — Colbert/king, furniture, window/drapes; costume embroidery adds masking complexity.",
+      "review_notes": "Interpretive political encounter only; no claim of documented exact dialogue. Ledger has no writing.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT12.png",
+      "relative_path": "images/SHOT12.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "bdadaccadb5f612366f933fd320f38a08f03fdfeddb1202a093713a90633de62",
+      "reference_shot_ids": [
+        "SHOT11",
+        "SHOT08"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT13",
+      "sequence": 4,
+      "title": "The Chessboard",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT13 — THE CHESSBOARD. A SYMBOLIC chessboard on a plain dark royal wooden table in the same chamber atmosphere as reference1. Reference2 is ONLY for the small noble piece's Fouquet-inspired navy coat/white cravat, no actual full-sized Fouquet in scene.\nLow three-quarter view across the board. An imposing matte ivory CROWNED KING CHESS PIECE faces a smaller dark NOBLE CHESS PIECE: simple round black head, white cravat cue, NO crown on the noble. A few clean geometric strategic chess pieces surround them; not cluttered, not a fantastical battle. No letters or numbers on board edges. In the distant shadowy background, an OUT-OF-FOCUS LARGE ROYAL SILHOUETTE with the king's recognizable pale crown, long cloak and tiny restrained crimson edge echoes authority. This shadowy king is secondary, chess pieces are focus.\nSimple strong psychological metaphor for political rivalry. Keep painterly broad planes and bold ink silhouettes; deliberately reduce ornate room details. Charcoal, navy and muted ivory, NO gilded chessboard, gold pieces, neon or bright color. Single clear standalone image, not a diagram, no labels, no symbols beyond recognizable chess geometry.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT12.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT05.png"
+      ],
+      "reference_roles": "SHOT12: royal silhouette/chamber. SHOT05: Fouquet-inspired noble piece cue.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-823ba303-e91e-45c2-9e65-1be222cbdc72.png",
+      "character_consistency_result": "PASS — noble chess piece echoes Fouquet's uncrowned head/coat/cravat; background royal figure matches king.",
+      "background_continuity_result": "PASS — SHOT12 chamber window/drapery retained around royal chess table.",
+      "parallax_layering": "LIMITED — foreground chess pieces, board and background king separable; board reflections and shallow focus constrain motion.",
+      "review_notes": "Sequence04 reviewed. Explicit visual metaphor, not a claim that the historical actors played this chess game.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT13.png",
+      "relative_path": "images/SHOT13.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "6f79158df59b531220335be45f8caa8d90a97e42504a541920b5fa989a5d5523",
+      "reference_shot_ids": [
+        "SHOT12",
+        "SHOT05"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT14",
+      "sequence": 5,
+      "title": "The Shadow of Authority",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT14 — THE SHADOW OF AUTHORITY. Reference1 is the EXACT modern symbolic protagonist: round black head, two slim white eyes, plain navy short-sleeved shirt and thin black articulated limbs, no hair, no royal clothing. Reference2 supplies only a restrained historical atmosphere, NOT its ornate decorations or people.\nA SMALL SUCCESSFUL STICKMAN stands in the lower-left foreground, upright and composed, holding a plain pale project folder as symbol of achievement, no arrogance. An EMPTY ROYAL THRONE is centered in the upper-middle distance, seen straight-on at a slight upward angle, very tall squared back, charcoal/navy structure, subtle ivory edges. Its ENORMOUS FLAT SHADOW climbs the wall behind and looms over the small protagonist. Massive simple classical columns frame both sides, broad painterly planes, controlled dramatic COOL IVORY side light, deep navy negative space. NO king or Colbert present.\nThis composition will be matched by a modern executive chair in the next shot, so keep the throne clean, centered and readable, with simple rectangular proportions and just a very small crown-like top silhouette. No gold decorative overload, no candles, no baroque clutter, no real human anatomy. Main action is a competent person beneath a hierarchy shadow. ONE standalone image.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT02.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT12.png"
+      ],
+      "reference_roles": "SHOT02: modern symbolic protagonist/style. SHOT12: period visual language only.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-96599f7d-5b78-46f2-a1f2-75f3e5721a38.png",
+      "character_consistency_result": "PASS — plain navy-shirt protagonist from SHOT02, black round head, slim limbs, pale project folder.",
+      "background_continuity_result": "BASELINE — centered tall-backed throne with columns/stairs for match composition. Shadow evokes crowned authority rather than literal empty-chair geometry.",
+      "parallax_layering": "YES — protagonist/folder, floor/stairs, throne, wall/authority shadow.",
+      "review_notes": "Symbolic hierarchy scene; subject remains upright and competent. Shadow is a conceptual authority silhouette.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT14.png",
+      "relative_path": "images/SHOT14.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "de62f97c0bada3de0b2c52fcc3e000612ba5811561ba1f1a496e60161f05936c",
+      "reference_shot_ids": [
+        "SHOT02",
+        "SHOT12"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS_WITH_NOTES"
+    },
+    {
+      "shot_id": "SHOT15",
+      "sequence": 5,
+      "title": "From Throne to Office",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT15 — FROM THRONE TO OFFICE. Use reference for COMPOSITION MATCH and same character, not literal historical content. Create a NEW fully MODERN dark executive office. Replace the reference's throne with an oversized empty dark executive chair positioned at EXACT SAME upper-middle location and frontal slightly-upward perspective. Keep the very tall squared chair BACK clearly visible, clean armrests, behind a low plain contemporary desk. Match silhouette proportions of the throne back for later editorial matching.\nThe SAME small black round-headed stickman employee remains in LOWER-LEFT foreground holding the same plain pale project folder, same navy short-sleeved shirt, thin black limbs, two narrow white eyes, upright composed. Tall office WINDOWS replace classical columns at the two sides. Clean modern charcoal walls and smooth floor planes, subtle blue-white evening city light, restrained ivory highlights. NO medieval architecture, crown, king, royal robe, stone staircase, classical columns or crumbling stone. NO giant human shadow, only natural chair shadows. Strong negative upper wall, clean office readable on phone, visibly painted graphic novel texture, not photographic office rendering. ONE standalone shot, no text, labels, logos or numbers.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT14.png"
+      ],
+      "reference_roles": "SHOT14: protagonist, folder and throne-to-chair composition match.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-998e9b4c-5f5b-4f7b-85e9-830887ac0cdf.png",
+      "character_consistency_result": "PASS — same navy-shirt employee, round black head, white eyes and pale folder as SHOT14.",
+      "background_continuity_result": "PASS — chair/throne back and protagonist positions match closely. Modern windows/desk replace historical setting; raised platform remains symbolic.",
+      "parallax_layering": "YES — employee, office floor/platform, desk/chair, windows/city.",
+      "review_notes": "Sequence05 reviewed. Strong throne-to-chair visual match; office scale intentionally symbolic.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT15.png",
+      "relative_path": "images/SHOT15.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "e6bdfef4350378b9e44dc3b4535537e7dad785ef728d29472e762be6c690b91e",
+      "reference_shot_ids": [
+        "SHOT14"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS_WITH_NOTES"
+    },
+    {
+      "shot_id": "SHOT16",
+      "sequence": 6,
+      "title": "The Meeting",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT16 — THE MEETING. Reference controls painterly visual style and SAME protagonist identity only. NEW ORDINARY modern conference room, no throne, dais, steps or oversized chair.\nFive BLACK STICKMAN colleagues sit around a simple long dark-slate rectangular meeting table, and ONE MANAGER stands beside a presentation screen at the far end (six people total). Main EMPLOYEE sits near-right foreground, studying a printed report: same round black head, two narrow white eyes, plain navy short-sleeved shirt and thin black limbs as reference. The four other seated colleagues use simple dark-gray/charcoal clothing.\nEstablish MANAGER: slightly taller/slightly broader but still slim stickman, perfectly round black head, two narrow neutral white eyes, plain charcoal tailored blazer over a light slate-blue collared shirt, no tie, thin black limbs, no hair/nose/mouth. Manager stands at upper-left near screen, presenting calmly.\nScreen shows ONLY three SIMPLE ABSTRACT BLUE BARS and a small abstract line shape; report has simple blue geometric bars, NO letters, numbers, labels, glyphs or text. Main employee notices report/chart discrepancy through head tilt and focused posture. Tall window on right, plain wall at back, simple contemporary office chairs, cool ivory-blue light, moderate painterly detail. Establish room layout clearly for exact reuse next shots. ONE shot, no collage, no speech.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT15.png"
+      ],
+      "reference_roles": "SHOT15: employee identity and modern painted style only; establishes conference room and manager.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-6f68bdc0-827a-4b34-9996-00817c08818d.png",
+      "correction_prompt": "TARGETED CORRECTION OF SHOT16 ONLY. Keep the image's framing, painting style, all lighting, table, window, screen/chart, manager, main navy-shirt employee with report, and all other characters EXACTLY UNCHANGED.\nThere are currently SIX seated colleagues plus standing manager. REMOVE ONLY THE EXTRA SEATED FIGURE AT THE EXTREME RIGHT EDGE — the bob-haired silhouette behind the right-side blazer colleague — and remove that extra figure's associated chair/arm if visible. Reconstruct only the small window/table/chair background where that extra person was.\nFinal precise count: FIVE seated round-headed black stickman colleagues (main near-right navy-shirt employee, two left-side colleagues, two right-side colleagues) plus ONE standing manager at the screen = SIX people total. Do NOT add anyone. All remaining heads are clean black circles with narrow white eyes, no hair. Do NOT change report or screen. No text, numbers, speech bubbles or collage. Maintain vertical 9:16.",
+      "correction_reference": "/workspace/scratch/4b49832951b6/generated_images/exec-f32bf89a-bc29-4360-8c73-9c8240116e0b.png",
+      "character_consistency_result": "BASELINE — navy-shirt employee, charcoal-blazer/slate-blue-shirt manager; all round black heads/white eyes. Corrected to five seated colleagues plus one manager.",
+      "background_continuity_result": "BASELINE — screen on back-left wall, tall city windows right, dark long conference table, simple chairs, abstract blue chart/report.",
+      "parallax_layering": "YES — near employee/report, table/colleagues, manager/screen, windows/city. Reflections restrict strong shifts.",
+      "review_notes": "Rejected first version with extra guest/bob hair. Targeted removal yields exactly six people, no readable text.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT16.png",
+      "relative_path": "images/SHOT16.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "5f0ac55fca152a9adf4e4b5e92e8eee807d5d1006806e7cbae2180ea0c67f210",
+      "reference_shot_ids": [
+        "SHOT15",
+        "SHOT16 initial draft (targeted correction)"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT17",
+      "sequence": 6,
+      "title": "Public Embarrassment",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT17 — PUBLIC EMBARRASSMENT. Use reference for EXACT SAME conference room and SIX PEOPLE total. Keep screen/chart at far-left back wall, city windows on right, long dark table, seats and charcoal/blue palette.\nThe SAME MAIN EMPLOYEE (plain navy short-sleeved shirt, thin black limbs, perfectly round black head, narrow white eyes) has stood up from his NEAR-RIGHT chair and abruptly points a straight accusatory finger across the table toward the manager's chart. Other hand holds the report down at his side. His gesture is sharp and socially abrasive but no physical aggression.\nThe SAME MANAGER (charcoal blazer over light slate-blue collared shirt, no tie, black round head/white eyes) remains by the presentation screen, now uncomfortable through slightly drawn-in shoulders, lowered hand and turned posture. Four OTHER colleagues remain seated (two left, two right), heads turning awkwardly toward the confrontation. No extra figures, no hair, no human facial details. Clearly communicate public embarrassment through body language only, no red rage faces or exclamation symbols.\nSame abstract THREE BLUE BARS and line on screen; report has blue shapes only. No letters, captions, words or numbers. Maintain clean phone-readable single shot and strong painterly 2D contour style.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT16.png"
+      ],
+      "reference_roles": "SHOT16 corrected final: exact manager, employee, room, chart and colleagues.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-2b0202bf-844c-47bf-ad5b-6d45cbdb2977.png",
+      "character_consistency_result": "PASS — same navy-shirt employee stands/points; same charcoal-blazer manager becomes withdrawn; four seated colleagues remain.",
+      "background_continuity_result": "PASS — same room, screen/chart, city windows, long table and seating arrangement.",
+      "parallax_layering": "YES — near pointing employee/report, table/colleagues, manager/screen/window. Arm mask is prominent.",
+      "review_notes": "Public embarrassment readable from pointing and manager posture; no cartoon anger symbols.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT17.png",
+      "relative_path": "images/SHOT17.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "64af1fbf6427a284558fc35759e531eb2ef6339cfc6d141fc1b3ecca397ea15f",
+      "reference_shot_ids": [
+        "SHOT16"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT18",
+      "sequence": 6,
+      "title": "The Manager's Reaction",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT18 — THE MANAGER'S REACTION. Reference1 locks the exact SAME manager, charcoal blazer, light slate-blue collared shirt with no tie, perfectly round matte black head and narrow white eyes. Reference2 locks the conference room and other characters.\nA NEW MEDIUM-CLOSE SHOT of the manager NOW SEATED at the far end of the same dark conference table. Manager occupies the center foreground, waist/chest-up, hands gently clasped/folded defensively on the tabletop, shoulders slightly closed inward, head turned slightly down/aside. Subtle discomfort and withdrawal, not anger or evil. Clean thin black hands with simple anatomy, no human face.\nSame navy-shirt employee and a few other round-headed colleagues visible as SMALL SOFTLY PAINTED simplified background figures, no extra identities, no hair. Right-side tall city windows and an edge of the same abstract chart screen establish the room; camera is nearer manager, not previous wide angle. Strong negative space, restrained cool ivory light. Background simplification must be drawn, not photographic bokeh. Same visible 2D painterly texture and bold silhouettes, clean phone-readable emotions through posture. No writing, numbers or speech bubbles.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT17.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT16.png"
+      ],
+      "reference_roles": "SHOT17: manager/employee identity and emotional continuity. SHOT16: room layout and palette.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-cf22e8f5-c1a8-4d72-8f75-d3384d0f8392.png",
+      "character_consistency_result": "PASS — manager's round head, narrow eyes, charcoal blazer and slate-blue collared shirt retained; navy-shirt employee visible behind.",
+      "background_continuity_result": "PASS — conference screen, city windows, plant and dark reflective table retained from new close angle.",
+      "parallax_layering": "LIMITED — foreground manager/hands/table vs background figures/screen. Close framing and reflections favor subtle motion.",
+      "review_notes": "Defensive hands and lowered posture express discomfort. New rendering preserves close-shot detail rather than low-resolution crop.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT18.png",
+      "relative_path": "images/SHOT18.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "b6bddca694187a3b7186ebe4fa20f5137aa5f35d140e8ebbb23e7d9133d730ff",
+      "reference_shot_ids": [
+        "SHOT17",
+        "SHOT16"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT19",
+      "sequence": 6,
+      "title": "The Respectful Correction",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT19 — THE RESPECTFUL CORRECTION. Reuse reference1 for EXACT navy short-sleeved employee and charcoal-blazer manager identities, original conference room and abstract chart/report. Reference2 confirms manager outfit and head. A new quiet two-person medium shot at the SAME conference table/desk near its window side.\nThe navy-shirt employee on left calmly points with ONE gentle finger at an abstract blue bar on the report lying BETWEEN them on the tabletop. The manager on right, seated, leans forward attentively to inspect the evidence, open relaxed shoulders, one hand lightly on table. Both round black heads with narrow neutral white eyes, no human facial details/hair, slim black hands, no extra limbs. Their bodies share equal respectful space; no bowing or submission. Cooperation rather than confrontation.\nWindow grid and city at right, familiar dark-slate table, screen edge/plant subtly in background; other colleagues outside this tighter framing. Cool balanced ivory-blue light, slightly more open and even than reaction shot. Report and any screen show ONLY simple abstract blue geometric bars/lines, absolutely NO letters, digits, labels, glyphs or speech bubbles. Visible 2D brushwork, bold clean silhouette. ONE standalone vertical shot.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT16.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT18.png"
+      ],
+      "reference_roles": "SHOT16: manager/employee, room and report. SHOT18: manager close identity.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-bd76f064-0100-4d3e-9048-23b86fe39d4c.png",
+      "character_consistency_result": "PASS — navy short-sleeved employee and charcoal-blazer/slate-shirt manager retained, round heads/narrow white eyes.",
+      "background_continuity_result": "PASS — same dark table, abstract chart, plant and right-side city windows.",
+      "parallax_layering": "LIMITED — people/hands/report/table and background separable; close composition favors gentle depth.",
+      "review_notes": "Sequence06 reviewed. Finger targets evidence on paper; manager listens. No visible writing or numbers.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT19.png",
+      "relative_path": "images/SHOT19.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "a436c1cd12940f0e2173759b2d39a1823878d8ec801ad14d943374a50aa7f236",
+      "reference_shot_ids": [
+        "SHOT16",
+        "SHOT18"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT20",
+      "sequence": 7,
+      "title": "The Training Room",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT20 — THE TRAINING ROOM. Reference is ONLY for 2D painterly style and navy-shirt protagonist, NOT conference setting/manager.\nEstablish a NEW modern training classroom, charcoal/navy walls, simple separate student desks, a large board on front-left with ONLY a few abstract BLUE educational circles/blocks and connecting lines. No words, numbers, equations, logos or glyphs.\nAn INSTRUCTOR stands beside board: slim taller BLACK ROUND-HEADED STICKMAN, narrow horizontal white eyes, simple MEDIUM-GRAY long-sleeved shirt with sleeves neatly rolled to wrists, charcoal trousers, no jacket, no hair/real human features. Distinct from office manager.\nFOUR adult stickman STUDENTS total sit at desks: MAIN STUDENT in NEAR-RIGHT foreground is the same plain NAVY SHORT-SLEEVED protagonist, black round head/white eyes, thin limbs. He raises ONE hand politely to contribute while seated. Other THREE students in simple dark clothing listen, all perfect round black heads, no hair. Instructor turns attentively toward raised hand. Tall plain classroom windows on right with soft blue light, no skyscraper office view needed. Clear readable spatial arrangement for reuse in SHOT21/22, moderate illustrated details, calm respectful atmosphere. One standalone vertical frame, no panels or speech bubbles.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT19.png"
+      ],
+      "reference_roles": "SHOT19: protagonist identity and painterly style only; establishes classroom/instructor.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-8de8d4f4-2b3f-4058-b5a0-f9e3007ebc1f.png",
+      "correction_prompt": "Make ONE tiny targeted correction to this SHOT20 classroom image. Keep EVERYTHING else pixel-faithful in design and composition: instructor, board diagrams, raised hand, navy-shirt main student, other classmates, desks, windows, lighting, texture.\nCorrect ONLY the background seated student at the FAR RIGHT EDGE beside the window. Their current silhouette has long hair and a human nose/profile. Replace ONLY that head/hair silhouette with a PERFECT SOLID MATTE BLACK CIRCLE, no hair whatsoever, no nose, no mouth, no ears, no chin. Add two small narrow horizontal white eye slits when viewed at three-quarter angle, or one slit for strict profile. Neck stays a simple black line. Keep this student's original body/clothes/seated pose and position unchanged. FOUR seated students plus ONE standing instructor remain. Do not change any other head, add people, text or objects. Premium painterly 2D graphic novel; maintain vertical 9:16.",
+      "correction_reference": "/workspace/scratch/4b49832951b6/generated_images/exec-18f4e87f-cdd6-4ac8-b165-a80182927cad.png",
+      "character_consistency_result": "BASELINE — navy-shirt student, gray long-sleeved instructor; four students and one instructor. Corrected far-right classmate to clean round head/no human features.",
+      "background_continuity_result": "BASELINE — board left with abstract blue circles/blocks, individual desks, right classroom windows/foliage.",
+      "parallax_layering": "YES — raised-hand student/desks, classmates, instructor/board, windows. Thin desk legs/hand need precise masks.",
+      "review_notes": "Targeted correction removed incidental hair/human profile. All visible characters conform to round black heads/white eyes.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT20.png",
+      "relative_path": "images/SHOT20.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "b23b1a25f8d9ba8c58a2d4522690be18005c2525cabecb407c836b3c61f912b5",
+      "reference_shot_ids": [
+        "SHOT19",
+        "SHOT20 initial draft (targeted correction)"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT21",
+      "sequence": 7,
+      "title": "The Mockery",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT21 — THE MOCKERY. Use reference to preserve the EXACT SAME classroom composition: board and abstract blue circles/blocks on left, gray-shirt instructor, navy-shirt main student near-right, three other seated classmates, right window/foliage, desks and cool ivory-blue lighting. FIVE people total. All heads MUST remain perfectly round BLACK CIRCLES with narrow white eyes, no hair, ears, noses or realistic facial profiles.\nThe MAIN STUDENT has now STOOD beside his near-right desk, one arm extended in an ACCUSATORY POINT toward instructor, the other open palm turned dismissively. His body leans forward a little, socially disrespectful delivery but no violence. The instructor is slightly withdrawn, shoulders smaller, hands lowered, looking at student. Three classmates react awkwardly through head turns and closed posture, not exaggerated laughter.\nDo not change the actual abstract educational content, no words or speech balloons such as mocking dialogue. Show that the DELIVERY is disrespectful rather than declaring the information right or wrong. Same navy short sleeves and gray instructor shirt, same silhouettes and furniture layout. Clearly painterly 2D graphic novel, no blur, no realistic faces.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT20.png"
+      ],
+      "reference_roles": "SHOT20 corrected final: exact classroom, instructor, student and classmates.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-4a6ce980-51d1-4d2a-a3e0-05945859c63a.png",
+      "character_consistency_result": "PASS — same navy-shirt student and gray-shirt instructor; three classmates remain round-headed, no hair/features.",
+      "background_continuity_result": "PASS — identical board diagram, desks, right window/foliage and room lighting.",
+      "parallax_layering": "YES — standing student/pointing arm, desks/classmates, instructor/board, windows.",
+      "review_notes": "Accusatory gesture conveys disrespect; image does not claim student is factually wrong.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT21.png",
+      "relative_path": "images/SHOT21.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "c56bfa555b779271110e8d24419ebb2179c41c518e5ffd866280955c4bd172fd",
+      "reference_shot_ids": [
+        "SHOT20"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT22",
+      "sequence": 7,
+      "title": "The Respectful Contribution",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT22 — THE RESPECTFUL CONTRIBUTION. Reference1 locks the SAME classroom composition and respectful base lighting; reference2 locks identities and all classroom furniture. Keep EXACT same board blue circles/blocks diagram, left front wall, right windows/foliage, desks, five people total.\nThe SAME MAIN NAVY-SHORT-SLEEVED STUDENT now stands at the FRONT BESIDE THE BOARD, to the right of the gray-shirt instructor. Student contributes information with one OPEN relaxed PALM directed toward the abstract educational diagram, NOT pointing at the instructor, other hand rests naturally. Upright confident posture, no bowing. Instructor turns toward student with attentive open stance, one small open-hand gesture inviting explanation. THREE classmates stay seated, black round heads with white eyes, following discussion.\nAll heads perfectly round matte black circles, narrow white horizontal eyes, no hair, noses, ears or mouths. Same outfits: instructor gray rolled-cuff long-sleeved shirt/charcoal trousers, student navy short sleeves. Calm cooperation, identical overall lighting and framing to classroom references. Visible hand-painted 2D contour style. No text, equations, letters, digits, speech bubbles, extra people or altered diagram content.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT20.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT21.png"
+      ],
+      "reference_roles": "SHOT20 corrected final: classroom and lighting. SHOT21: exact identities and layout continuity.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-3966b309-c681-4d3c-9e6f-2ca4259dec09.png",
+      "character_consistency_result": "PASS — same navy-shirt student and gray-shirt instructor, three seated round-headed classmates.",
+      "background_continuity_result": "PASS — exact diagram, room/window layout, desks and lighting retained; student now beside board.",
+      "parallax_layering": "YES — foreground desks/classmates, standing student/instructor, board/window; fine fingers/desk legs need masks.",
+      "review_notes": "Sequence07 reviewed. Open hands and equal upright stance convey contribution without submission.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT22.png",
+      "relative_path": "images/SHOT22.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "d3b0adb7144bf8742f7ff078b7a8f07aa157daa76d448bfda5c970c9a8c6a109",
+      "reference_shot_ids": [
+        "SHOT20",
+        "SHOT21"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT23",
+      "sequence": 8,
+      "title": "The Achievement",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT23 — THE ACHIEVEMENT. Reference is for same central navy-short-sleeved protagonist and hand-painted 2D style only, NOT classroom or conference setting.\nEstablish a NEW modern project-team WORKSPACE with a plain long workbench/table. FOUR BLACK STICKMAN TEAM MEMBERS TOTAL stand close together around a COMPLETED PROJECT PROTOTYPE on the table: a modest abstract modular device, three neatly joined slate-blue geometrical blocks on a rectangular base, a little ivory center detail, NO text/logos, not a weapon. Keep the same prototype as a repeatable clear prop.\nCENTRAL CHARACTER is same slim navy-short-sleeved protagonist, round black head, narrow white horizontal eyes, no hair/nose/mouth. He holds a MODEST AWARD at chest level, small matte ivory geometric obelisk on a plain dark rectangular base, absolutely NO writing or gold. Three teammates in distinct simple dark clothing: one medium-gray long-sleeved crewneck, one charcoal collared shirt, one graphite plain jacket. ALL heads perfect solid black circles and narrow white eyes; no hair, no human profiles.\nThey visibly share achievement with open supportive postures and small gestures toward prototype, not pompous celebration. Contemporary walls, simple dark blue illuminated monitors with only abstract rectangles (NO letters/numbers), clean workbench, right-side tall windows. Balanced ivory-blue lighting, strong readable grouping, moderate detail. One standalone vertical shot, no panels, no captions.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT19.png"
+      ],
+      "reference_roles": "SHOT19: navy-shirt protagonist and modern painterly style only; establishes team/workspace/prototype/award.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-8dd89748-a051-48b5-a596-5a42e31865b1.png",
+      "character_consistency_result": "BASELINE — navy-shirt award holder, gray crewneck teammate, charcoal collared teammate, graphite jacket teammate. All round black heads/white eyes.",
+      "background_continuity_result": "BASELINE — project workspace, right city windows, blue abstract displays, workbench with three-block prototype and plain ivory obelisk award.",
+      "parallax_layering": "YES — near workbench/prototype, four figures, monitors, windows/city. Fine hands and reflections require masks.",
+      "review_notes": "Four-person team shares success; no writing/logos on award, prototype or screens.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT23.png",
+      "relative_path": "images/SHOT23.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "76774d8cdca723220b454f464bdb0b17d40485b0e3c041c4be1c9ee72481fe23",
+      "reference_shot_ids": [
+        "SHOT19"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT24",
+      "sequence": 8,
+      "title": "Taking All the Credit",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT24 — TAKING ALL THE CREDIT. Use reference to preserve EXACT FOUR team identities, costume colors, matte ivory pointed-obelisk award/dark base, three-block blue prototype, workbench and city-window project workspace.\nNew pulled-back composition: the SAME navy-short-sleeved protagonist stands ALONE in a restrained IVORY SPOTLIGHT in the foreground holding the SAME modest award at chest level, claiming attention. No arrogant human face; proud isolated stance conveyed by body. The THREE teammates remain several steps BEHIND in quieter navy shadow, visibly separated from him by negative space. Gray crewneck at one side, charcoal collared shirt, graphite jacket; all black circular heads with narrow white eyes, no hair/nose/mouth. Their posture is subdued and emotionally distant, NOT threatening.\nThe SAME workbench and completed three-slate-blue-block prototype with small ivory center remain visible nearby, so achievement setting is continuous. Do not replace prototype with another product. Simple blue screens and right-side city windows stay in background. Strong clean metaphor about individual recognition at cost of trust, not a stage performance. Visible 2D painted planes, no photorealistic spot haze, no particles, no extra people, no text/numbers.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT23.png"
+      ],
+      "reference_roles": "SHOT23: same four teammates, award, prototype and project workspace.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-44a26ccf-0cdb-48ad-9ed6-c9ed2bc04389.png",
+      "character_consistency_result": "PASS — same navy-shirt award holder and three teammates in gray crewneck/charcoal shirt/graphite jacket; all round-headed.",
+      "background_continuity_result": "PASS — same award, three-block prototype, workbench, abstract blue screens and city windows.",
+      "parallax_layering": "YES — foreground award holder, prototype/table, distant teammates, office/windows. Spotlight can be masked separately.",
+      "review_notes": "Clear emotional/physical gap; no villainous caricature or text.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT24.png",
+      "relative_path": "images/SHOT24.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "ac8038a446eaf7ebebaa68d32e712a5ae89acab838dde0ca4b56c16072f5021c",
+      "reference_shot_ids": [
+        "SHOT23"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT25",
+      "sequence": 8,
+      "title": "Shared Recognition",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT25 — SHARED RECOGNITION. Reference1 supplies SAME FOUR-person team and exact award/prototype/workspace. Reference2 supplies wider camera position. Keep all outfits and props identical: navy short-sleeved protagonist, gray crewneck teammate, charcoal collared shirt teammate, graphite jacket teammate; all adult round black heads with narrow white eyes, no hair/human features.\nThe protagonist NOW openly gestures toward the THREE TEAMMATES, inviting them beside him into shared light. He holds the SAME small ivory obelisk award with dark rectangular base in one hand, other arm extends with relaxed OPEN PALM toward colleagues. Teammates have moved forward to stand SIDE BY SIDE with him around the SAME completed three-slate-blue-block prototype on its dark base. Supportive small shoulder/open-hand gestures, no extra hands or people. Everyone shares recognition while the protagonist's achievement remains visible.\nUse balanced muted IVORY-BLUE illumination across all four, remove isolating spotlight cone; keep city windows on right, blue abstract displays and workbench from references. Moderate painterly texture, clean silhouettes, slightly wider full/three-quarter-body composition showing group and project. No bows, no dominant size hierarchy, no balloons/confetti, no labels or numbers. One standalone frame.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT23.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT24.png"
+      ],
+      "reference_roles": "SHOT23: team identities, award, prototype, workspace. SHOT24: wider position and continuity.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-a9141db8-5e3a-4e8f-92ea-02aad4c1f6a8.png",
+      "character_consistency_result": "PASS — exact four team members and outfits; protagonist retains award while gesturing toward teammates.",
+      "background_continuity_result": "PASS — same three-block prototype, workbench, monitors and city windows; shared illumination replaces isolation.",
+      "parallax_layering": "YES — prototype/table, four-person group, office/windows. Overlapping shoulder contacts require careful masks.",
+      "review_notes": "Sequence08 reviewed. Shared recognition is visible without hiding protagonist's own award or contribution.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT25.png",
+      "relative_path": "images/SHOT25.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "24fc345114e9b52c4bcc449ffc53ed4ed342c4d3ff39cfc1f630f86d031be963",
+      "reference_shot_ids": [
+        "SHOT23",
+        "SHOT24"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT26",
+      "sequence": 9,
+      "title": "The Supportive Leader",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT26 — THE SUPPORTIVE LEADER. Reference locks SAME capable navy-short-sleeved employee, three teammate identities and completed project workspace. NEW SUPPORTIVE LEADER joins them, five adults total.\nIn the foreground, the capable employee and a supportive leader exchange ONE RESPECTFUL NATURAL HANDSHAKE at chest/waist level. Both upright, open shoulders, equal dignity, no bowing; one right hand from each, no fused or extra fingers. Leader is a slightly taller slim black stickman with perfect round black head and narrow neutral white eyes, simple MEDIUM-GRAY OPEN CARDIGAN over a charcoal plain shirt, dark trousers, no hair/nose/mouth. This cardigan distinguishes leader from other managers/teammates.\nSame THREE teammates stand behind with quietly approving open postures: gray crewneck, charcoal collared shirt, graphite plain jacket; all round black heads/white eyes, no hair. The SAME three-block blue project prototype remains on workbench in background, same abstract blue monitors and right-side city windows. No award needs to be held during handshake. Balanced soft cool ivory-blue light, visibly brush-painted 2D graphic novel, clean and humanely positive, not exaggerated joy. No text, numbers, icons, speech or extra characters.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT25.png"
+      ],
+      "reference_roles": "SHOT25: employee, three teammates, project/workspace. Establishes gray-cardigan supportive leader.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-b9cbd80f-7917-4ab0-b4cd-6c04fef978c7.png",
+      "character_consistency_result": "PASS — same employee and three teammates; supportive leader introduced in gray cardigan, round black head/narrow white eyes. Handshake anatomy readable.",
+      "background_continuity_result": "PASS — same project/workbench, blue displays and city windows.",
+      "parallax_layering": "YES — handshake pair, teammates, project/table, office. Joined handshake/shoulder edges need careful separation.",
+      "review_notes": "Supportive leader distinct from charcoal-blazer manager; equal upright dignity.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT26.png",
+      "relative_path": "images/SHOT26.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "27ae70dcc5a9fac1668c2a2fef0b5ef3477334af740b0b40ea61d7f516b33298",
+      "reference_shot_ids": [
+        "SHOT25"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT27",
+      "sequence": 9,
+      "title": "The Insecure Leader",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT27 — THE INSECURE LEADER. Reference1 preserves EXACT SAME capable employee (navy short-sleeved shirt, black circular head, narrow white eyes) and project workspace/prototype. Reference2 provides a DIFFERENT manager identity from the supportive cardigan leader: plain CHARCOAL BLAZER over light slate-blue collared shirt, no tie, round black head, narrow neutral white eyes. Do not use cardigan for this manager.\nTwo-person medium-wide composition: employee on left calmly presents the completed THREE SLATE-BLUE BLOCK prototype on its dark base at the workbench, open hand indicating the project, upright capable posture. Other manager stands some distance away at right with ARMS CROSSED and guarded closed shoulders, head angled toward project. Subtle psychological tension, no furious eyes, no villain grin, no gigantic ominous monster shadow. All bodies simple articulated black stickman bodies, no realistic human features/hair.\nSame right-side tall city windows, abstract blue monitors and workbench as reference1; teammates outside framing. Cooler restrained ivory-blue light, shadow separating the figures slightly, maintaining painted graphic novel style. Scene suggests perceived status threat as one possible reaction, not a diagnosis. One standalone vertical shot, no text/digits/speech bubbles.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT26.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT18.png"
+      ],
+      "reference_roles": "SHOT26: employee, prototype, workspace. SHOT18: different charcoal-blazer manager identity.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-a90b8b2b-e1c1-4d24-b4e4-879a622e06e8.png",
+      "character_consistency_result": "PASS — same capable employee and prototype; guarded manager matches SHOT18 blazer/slate shirt and is distinct from cardigan leader.",
+      "background_continuity_result": "PASS — same project workspace, table, abstract blue displays and city windows.",
+      "parallax_layering": "YES — two figures, prototype/table, office/windows. Crossed arms read as one foreground silhouette.",
+      "review_notes": "Guarded posture shows possible status threat; no diagnosis, rage caricature or villain imagery.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT27.png",
+      "relative_path": "images/SHOT27.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "f8a4495eb08c69de0f0f1c328f83b7d7af436a042dd3c57eeaa176a0853ef855",
+      "reference_shot_ids": [
+        "SHOT26",
+        "SHOT18"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT28",
+      "sequence": 9,
+      "title": "Competence and Dignity",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT28 — COMPETENCE AND DIGNITY. Reference1 locks the SAME navy-shirt protagonist and three collaborator outfits; reference2 is for the protagonist's plain PALE PROJECT FOLDER only, NOT throne-like office hierarchy.\nA confident slim BLACK STICKMAN protagonist stands upright near center holding a closed plain pale completed-project folder naturally against his side. Same navy short-sleeved shirt, round black head, two narrow calm white eyes, thin black articulated limbs, no hair/nose/mouth. THREE collaborators stand alongside on the SAME FLOOR LINE and roughly SAME SCALE: gray crewneck, charcoal collared shirt, graphite plain jacket. All round black heads, white eyes, no human features. Open respectful collaborative postures, equal eye level, no huge boss, no small subordinate, no bowing, no one in shadow.\nUse a simplified continuation of the project workspace, broad charcoal/navy painted wall planes, a soft suggestion of windows and blue abstract monitor behind. Reduce clutter so the characters and folder are main story. Balanced restrained ivory-blue light across everyone, strong self-respect and mutual dignity, minimalist psychological graphic-novel illustration, not photorealistic. No trophy required. ONE standalone vertical composition, no words, numbers, captions, symbols, halos, crowns or speech bubbles.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT25.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT15.png"
+      ],
+      "reference_roles": "SHOT25: protagonist/three collaborators and workspace. SHOT15: pale project folder only.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-960efdca-e363-4ce4-ada4-82a8f0412ac4.png",
+      "character_consistency_result": "PASS — same navy-shirt protagonist with pale folder and same three collaborator outfits; round heads/narrow white eyes.",
+      "background_continuity_result": "PASS — simplified project-workspace palette, blue displays/windows; figures share floor line/scale.",
+      "parallax_layering": "YES — four figures/folder, floor, simplified workspace/windows. Overlapping bodies require mask care.",
+      "review_notes": "Sequence09 reviewed. No exaggerated hierarchy; achievement and equal dignity remain visible.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT28.png",
+      "relative_path": "images/SHOT28.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "ed1f570451ec1ad65f59b9a25293ce978adc3a4c2806d3d0769057f1a084733b",
+      "reference_shot_ids": [
+        "SHOT25",
+        "SHOT15"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT29",
+      "sequence": 10,
+      "title": "The Light",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT29 — THE LIGHT. Reference1 is for EXACT SAME slim navy-short-sleeved protagonist identity. Reference2 is for broad painted dark stone material and illustrative texture ONLY, not stairs/portal.\nNEW SYMBOLIC OUTDOOR SCENE: the protagonist stands on a simple DARK STONE PATHWAY in a minimal deep-navy night landscape. He holds a SMALL plain black-framed LANTERN LOW at his side, its soft muted IVORY-WHITE light illuminating the GROUND AHEAD, forming a gentle readable pool along the path. Upright calm confident stance, black round head with narrow white eyes, thin articulated limbs, no realistic face/hair. No folder in this scene.\nTwo SMALL nearby black stickman figures stand farther along the side of the path; light gently reaches THEIR FEET AND THE GROUND, NEVER shines into their faces or eyes. Keep those figures simple circles/white eye slits, dark clothes and respectful spacing, no crowd.\nClear memorable visual metaphor: personal light helps navigate without dazzling others. Lantern light is soft IVORY-WHITE, NOT yellow/orange/gold, no magical beam, no neon halo, no particles. Minimal background, restrained 60% cinematic intensity, broad 2D painted planes, clean bold silhouettes. One standalone vertical 9:16 shot, no text, numbers, titles or speech.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT28.png",
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT01.png"
+      ],
+      "reference_roles": "SHOT28: protagonist identity. SHOT01: painted stone material/texture only.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-18518b91-2ccb-40bd-aaef-d1a5b0a65534.png",
+      "character_consistency_result": "PASS — same navy-shirt protagonist; nearby figures echo established round-headed collaborators.",
+      "background_continuity_result": "BASELINE — dark elevated stone path and navy landscape; lantern establishes concluding environment.",
+      "parallax_layering": "YES — near rocks/path, protagonist/lantern, two figures, distant mountains/sky. Light pool can be separate mask.",
+      "review_notes": "Lantern points low; ground/feet illuminated, faces remain dark. No text or in-image titles.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT29.png",
+      "relative_path": "images/SHOT29.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "bb606df642a5702cc627c177cdb8d81bcc08e6ec6768e30bb06fb24617d33da8",
+      "reference_shot_ids": [
+        "SHOT28",
+        "SHOT01"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    },
+    {
+      "shot_id": "SHOT30",
+      "sequence": 10,
+      "title": "The Final Frame",
+      "prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering.\nSHOT30 — THE FINAL FRAME. Use reference for the SAME protagonist, navy short sleeves, black round head/white eyes, slim articulated limbs, simple dark shoes, same small plain lantern, and same painted stone PATH material. Continue this location at QUIET COOL DAWN.\nA wide memorable final composition: lone protagonist stands upright CONFIDENTLY on the elevated stone pathway in the LOWER THIRD of the vertical frame, seen from behind/three-quarter side facing the vast OPEN DARK-BLUE LANDSCAPE ahead. Neither hiding nor towering over anyone. His small lantern may remain low at his side with a very gentle ivory glow, no dramatic beam. No other people need be shown.\nGentle COOL IVORY-BLUE dawn light illuminates the route winding ahead across restrained navy rolling hills; no orange/yellow sunrise, no blazing sun. Broad simple painterly landscape shapes, moderate detail, no monumental fantasy gateway or throne. The UPPER HALF is clean quiet deep-navy/slate-blue open sky with subtle brush texture, generous NEGATIVE SPACE deliberately reserved for later title/subtitles — GENERATE ABSOLUTELY NO TITLE, TEXT, NUMBERS OR MARKS in that space. Strong simple silhouette and calm agency. Not photorealistic, not 3D. One standalone 9:16 shot, no panels, no logo/watermark.",
+      "reference_images_used": [
+        "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT29.png"
+      ],
+      "reference_roles": "SHOT29: same protagonist, lantern, path and painterly landscape, changed to cool dawn.",
+      "source_path": "/workspace/scratch/4b49832951b6/generated_images/exec-8267ff13-4795-4460-b3e8-9ffeb3d4e79d.png",
+      "character_consistency_result": "PASS — same navy-shirt protagonist, round black head, narrow white eyes and small lantern as SHOT29.",
+      "background_continuity_result": "PASS — stone pathway and navy landscape continue at dawn; horizon opens, upper sky provides negative space.",
+      "parallax_layering": "YES — near rocks/path, protagonist/lantern, layered hills/water, sky. Large depth changes require hidden-area reconstruction.",
+      "review_notes": "Sequence10 reviewed. Calm final silhouette with generous upper negative space, no title/subtitles embedded.",
+      "source_dimensions": [
+        941,
+        1672
+      ],
+      "format_normalization": "Lossless center crop 941x1672 to 936x1664; no creative retouching or resampling.",
+      "width": 936,
+      "height": 1664,
+      "aspect_ratio_verified": true,
+      "generated_image_path": "/workspace/scratch/4b49832951b6/Baseera/Phase-02-Law-01/images/SHOT30.png",
+      "relative_path": "images/SHOT30.png",
+      "image_provider": "OpenAI image_gen (built-in)",
+      "approval_status": "internally_reviewed_awaiting_user_approval",
+      "sha256": "f5ab5bf20050c77ffa8791474214237d8bb813e0f71818a42bf5c84dd8343bdf",
+      "reference_shot_ids": [
+        "SHOT29"
+      ],
+      "user_approved_reference_used": false,
+      "review_result": "PASS"
+    }
+  ],
+  "created_date": "2026-10-28",
+  "generation_summary": {
+    "selected_shots": 30,
+    "sequences_reviewed": 10,
+    "image_generation_calls": 33,
+    "targeted_corrections": [
+      "SHOT01: repaint overly realistic initial draft",
+      "SHOT16: remove extra guest and non-round head",
+      "SHOT20: correct incidental hair/human profile"
+    ],
+    "provider": "OpenAI built-in image_gen only",
+    "motionlab_invoked": false,
+    "audio_created": false,
+    "animation_created": false,
+    "mp4_created": false,
+    "user_approval": "pending_for_all_selected_shots"
+  },
+  "final_dimensions": {
+    "width": 936,
+    "height": 1664,
+    "aspect": "9:16",
+    "format": "PNG"
+  },
+  "normalization_note": "Generated source images were 941x1672; each was losslessly center-cropped by a few edge pixels to exactly 936x1664. No upsampling or creative image changes.",
+  "working_character_anchors": {
+    "protagonist": [
+      "SHOT02",
+      "SHOT16",
+      "SHOT28"
+    ],
+    "fouquet": [
+      "SHOT05"
+    ],
+    "louis_xiv": [
+      "SHOT08"
+    ],
+    "colbert": [
+      "SHOT11",
+      "SHOT12"
+    ],
+    "guards": [
+      "SHOT09"
+    ],
+    "office_manager": [
+      "SHOT16"
+    ],
+    "instructor": [
+      "SHOT20"
+    ],
+    "team": [
+      "SHOT23"
+    ],
+    "supportive_leader": [
+      "SHOT26"
+    ]
+  },
+  "working_environment_anchors": {
+    "symbolic_stairs": "SHOT01",
+    "vaux_palace": "SHOT04",
+    "gardens": "SHOT06",
+    "banquet": "SHOT07",
+    "nantes_corridor": "SHOT09",
+    "financial_desk": "SHOT11",
+    "royal_chamber": "SHOT12",
+    "hierarchy_match": "SHOT14",
+    "executive_office": "SHOT15",
+    "conference_room": "SHOT16",
+    "classroom": "SHOT20",
+    "project_workspace": "SHOT23",
+    "final_path": "SHOT29"
+  },
+  "global_style_prompt": "Single standalone vertical 9:16 image, preferably 1080x1920. Exactly one shot. 60% cinematic composition / 40% stylized psychological graphic novel. Premium 2D digital painting, minimalist black stickmen, perfectly round black heads, two narrow expressive white eyes, simple articulated bodies, clean bold silhouettes, adult proportions. Charcoal-black and deep navy backgrounds, muted ivory highlights, subtle painterly textures, controlled dramatic lighting. Phone-readable action. Black figures distinguished by restrained cool rim light. Sophisticated illustrated psychological comic, NOT photorealism, NOT 3D/Pixar, NOT flat vector. No saturated yellow/orange/gold or strong neon. Warm architectural light only subtly ivory. No text, letters, numbers, readable writing, typography, captions, speech bubbles, logos, watermarks, borders, collage, grid, split screen, multiple panels, extra limbs, distorted anatomy, overwhelming particles, lens flares, excessive fantasy architecture. Visible hand-painted planes and bold ink contours. Thin line-like black limbs, slim torso, NOT a thick human body. Small clean simple hands and feet. No glossy rendering."
+}

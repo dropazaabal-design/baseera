@@ -1,0 +1,126 @@
+{
+  "project": "Law01-Cinematic",
+  "reviewStatus": "PASS",
+  "publicationStatus": "BLOCKED",
+  "publicationReady": false,
+  "checks": [
+    {
+      "category": "Images",
+      "status": "PASS",
+      "evidence": "asset-validation-report.json",
+      "details": "30 original PNGs fully decoded; signature, chunks, CRC, IEND, SHA-256, 936x1664 exact 9:16. All match Phase 2 hashes."
+    },
+    {
+      "category": "Layers",
+      "status": "PASS",
+      "evidence": [
+        "layer-validation-report.json",
+        "layer-byte-integrity.json"
+      ],
+      "details": "67 used PNGs, aligned source canvas. 13 true multilayer shots; other shots explicitly flat/eye overlays. Initial truncated derived SHOT05 PNG caught and replaced through atomic saving. Originals unchanged."
+    },
+    {
+      "category": "Timeline and animation",
+      "status": "PASS",
+      "evidence": "timeline-animation-tests.json",
+      "details": "5760 frames; no timeline gaps/overlaps; exclusive end boundaries; final visible frame 5759. Minimum opaque coverage margin 57.09375px."
+    },
+    {
+      "category": "Actual sampled renders",
+      "status": "PASS",
+      "evidence": [
+        "render-frame-validation.json",
+        "frame-samples-v2.json"
+      ],
+      "details": "95 actual 1080x1920 frames: start/middle/end of all 30 shots plus 5 transition completions; SHOT19 isolated preview exactly matches assembled pixels."
+    },
+    {
+      "category": "Determinism and regression",
+      "status": "PASS",
+      "evidence": [
+        "render-determinism-regression.json",
+        "source-preservation.json",
+        "raw/engine-regression.txt",
+        "raw/workflow-regression.txt"
+      ],
+      "details": "3 Law01 frames repeated in independent browsers; 2 legacy frames before/after exactly equal. Original engine/workflow tests pass. Full previous videos and their audio not re-rendered."
+    },
+    {
+      "category": "Source preservation",
+      "status": "PASS",
+      "evidence": "source-preservation.json",
+      "details": "29 existing src files unchanged."
+    },
+    {
+      "category": "TypeScript",
+      "status": "PASS",
+      "evidence": "raw/typecheck.txt",
+      "details": "npm run check completed successfully."
+    },
+    {
+      "category": "Scoped lint",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": "raw/eslint-law01.txt",
+      "details": "0 errors, 2 warnings: config transition object detected as CSS animation; caption-path dependency intentionally resets delayRender handle. Actual deterministic renders pass. No blanket rule disable."
+    },
+    {
+      "category": "MP4 render",
+      "status": "PASS",
+      "evidence": [
+        "video-validation.json",
+        "raw/ffprobe.json",
+        "raw/full-decode-black-freeze.log",
+        "render-result.json"
+      ],
+      "details": "H.264/yuv420p, 1080x1920, 60fps, 5760 decoded frames, 96 seconds. Full-file black/freeze detection uses documented thresholds."
+    },
+    {
+      "category": "Narration and audio QA",
+      "status": "BLOCKED",
+      "evidence": "../audio/provider-status.json",
+      "details": "No approved actual recording. No paid voice generation. No music. LUFS, true peak, clipping, and unexpected silence cannot be certified."
+    },
+    {
+      "category": "SRT recording alignment",
+      "status": "BLOCKED",
+      "evidence": "timeline-animation-tests.json",
+      "details": "45 short RTL Cairo cues, Western digits, exact SRT/JSON round trip. Timings estimated from script only; no word alignment or 17ms accuracy claimed."
+    },
+    {
+      "category": "Publication gate",
+      "status": "BLOCKED",
+      "evidence": "raw/final-export-gate.txt",
+      "details": "Final export deliberately rejected until approved narration and recording-aligned captions exist."
+    }
+  ],
+  "visualReview": {
+    "method": "Six start/middle/end contact sheets covering all shots and a five-transition sheet inspected; actual delivered-MP4 samples inspected separately. Motion also verified from frame-driven source, keyframe tests, full video decoding and freeze detection.",
+    "audioReviewed": false
+  },
+  "limits": [
+    "Narration absent; 96s is a review timeline, not measured voice performance.",
+    "Source art is 936x1664 upscaled to the requested 1080x1920 output.",
+    "Character animation consists of bounded whole-cutout leans, eye shifts/blinks and approved alternate poses, not a fully articulated walk rig.",
+    "Local background completion is bounded 2.5D inpainting, not a reconstructed 3D environment.",
+    "Regression covers source hashes, existing tests, and two rendered legacy sample frames, not every old film.",
+    "Visual samples and measured coverage do not constitute a human inspection of every one of the 5760 frames."
+  ],
+  "video": {
+    "file": "projects/law01-cinematic/renders/Law01-Visual-Review-1080x1920-60fps-v1.mp4",
+    "bytes": 52254033,
+    "sha256": "336b146d71d87931419eff706ecf234b56cd3c606dd05c1cee6ae18000aab0ab",
+    "metadata": {
+      "codec": "h264",
+      "profile": "High",
+      "pixelFormat": "yuv420p",
+      "width": 1080,
+      "height": 1920,
+      "fps": "60/1",
+      "readFrames": 5760,
+      "durationSeconds": 96.0,
+      "colorSpace": "bt709"
+    }
+  },
+  "paidProvidersUsed": false,
+  "musicUsed": false
+}

@@ -1,0 +1,407 @@
+[
+  {
+    "text": "نجاحك ممكن يطيّحك.",
+    "startMs": 0,
+    "endMs": 1500,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT01",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "بس مو بالطريقة",
+    "startMs": 1500,
+    "endMs": 2900,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT02",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "اللي تتخيّلها.",
+    "startMs": 2900,
+    "endMs": 4000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT03",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "سنة 1661، نيكولا فوكيه، المسؤول عن",
+    "startMs": 4000,
+    "endMs": 7326,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT04",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "مالية فرنسا،",
+    "startMs": 7326,
+    "endMs": 8500,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT04",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "استقبل الملك لويس الرابع عشر في",
+    "startMs": 8500,
+    "endMs": 10760,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT05",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "قصر فو لو فيكونت.",
+    "startMs": 10760,
+    "endMs": 12000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT05",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "كان يوم 17 أغسطس. حدائق مضاءة،",
+    "startMs": 12000,
+    "endMs": 15000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT06",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "ووليمة، وألعاب نارية…",
+    "startMs": 15000,
+    "endMs": 17300,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT07",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "عرض هائل لثروته ونفوذه.",
+    "startMs": 17300,
+    "endMs": 20000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT08",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "يوم 5 سبتمبر…",
+    "startMs": 20000,
+    "endMs": 21200,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT09",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "فوكيه يُعتقل.",
+    "startMs": 21200,
+    "endMs": 23000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT10",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "تقول: أكيد الحفلة! بس المفاجأة؟ الملك",
+    "startMs": 23000,
+    "endMs": 26348,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT11",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "كان يسعى لإقصائه من قبلها.",
+    "startMs": 26348,
+    "endMs": 28700,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT11",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "فيه اتهامات مالية، وصراع سياسي مع",
+    "startMs": 28700,
+    "endMs": 30974,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT12",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "كولبير. يعني المسألة أعقد من غيرة",
+    "startMs": 30974,
+    "endMs": 33249,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT12",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "على قصر.",
+    "startMs": 33249,
+    "endMs": 33800,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT12",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "لكنها تبيّن خطورة النفوذ، لما يصير",
+    "startMs": 33800,
+    "endMs": 36652,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT13",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "صاحبه منافسًا في عين الحاكم.",
+    "startMs": 36652,
+    "endMs": 39000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT13",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "روبرت غرين يحذّر من هذا في",
+    "startMs": 39000,
+    "endMs": 41690,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT14",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "أول قانون من «48 قانونًا للسلطة»:",
+    "startMs": 41690,
+    "endMs": 45103,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT14",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "«لا تُظهر تفوّقك على رئيسك».",
+    "startMs": 45103,
+    "endMs": 48000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT14",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "بس خذ التحذير، مو دعوة إنك",
+    "startMs": 48000,
+    "endMs": 49825,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT15",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "تصغّر نفسك. طيب، وش علاقته فيك؟",
+    "startMs": 49825,
+    "endMs": 52000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT15",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "تصحّح خطأ مديرك",
+    "startMs": 52000,
+    "endMs": 54100,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT16",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "بطريقة تحرجه قدّام الجميع؟",
+    "startMs": 54100,
+    "endMs": 56100,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT17",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "ممكن تتوتر علاقتكم.",
+    "startMs": 56100,
+    "endMs": 57700,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT18",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "قل بهدوء: «بحسب التقرير، الرقم الصحيح",
+    "startMs": 57700,
+    "endMs": 60040,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT19",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "كذا». الحقيقة وصلت، بدون تجريح.",
+    "startMs": 60040,
+    "endMs": 62000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT19",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "وفي التدريب، تضيف معلومة فاتت المدرّب…",
+    "startMs": 62000,
+    "endMs": 64700,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT20",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "أو تسخر: «حتى هذي ما تعرفها؟»",
+    "startMs": 64700,
+    "endMs": 67200,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT21",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "نفس المعلومة؛ أثر مختلف. الاحترام مو",
+    "startMs": 67200,
+    "endMs": 70656,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT22",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "سكوت عن الخطأ.",
+    "startMs": 70656,
+    "endMs": 72000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT22",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "وفي الفريق، حققت إنجازًا؟",
+    "startMs": 72000,
+    "endMs": 74000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT23",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "سمِّ دورك، واذكر مين ساعدك.",
+    "startMs": 74000,
+    "endMs": 76500,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT25",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "لو أخذت الفضل كله، يمكن تكسب",
+    "startMs": 76500,
+    "endMs": 78542,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT24",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "التصفيق وتخسر الثقة.",
+    "startMs": 78542,
+    "endMs": 80000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT24",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "مو كل مسؤول يخاف المتميّز. بعضهم",
+    "startMs": 80000,
+    "endMs": 82276,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT26",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "يشوفك شريكًا،",
+    "startMs": 82276,
+    "endMs": 83200,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT26",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "وبعضهم يشوفك تهديدًا لمكانته.",
+    "startMs": 83200,
+    "endMs": 86000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT27",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "المهارة إنك تعرض كفاءتك وتحفظ كرامة",
+    "startMs": 86000,
+    "endMs": 88692,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT28",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "غيرك؛ بدون كذب، ولا تملّق، ولا",
+    "startMs": 88692,
+    "endMs": 91000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT28",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "تنازل عن حقك.",
+    "startMs": 91000,
+    "endMs": 92000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT28",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "لا تطفّي نورك…",
+    "startMs": 92000,
+    "endMs": 93500,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT29",
+    "timingBasis": "estimated_script_not_audio"
+  },
+  {
+    "text": "بس لا تستخدمه عشان تعمي غيرك.",
+    "startMs": 93500,
+    "endMs": 96000,
+    "timestampMs": null,
+    "confidence": null,
+    "shotId": "SHOT30",
+    "timingBasis": "estimated_script_not_audio"
+  }
+]

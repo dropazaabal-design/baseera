@@ -1,0 +1,810 @@
+{
+  "layers": [
+    {
+      "shot": "SHOT01",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "79bbd010ea8b854e0601a0dd4e4c7b59f0c702ee64cf6a770ce625f10965fb85",
+      "bytes": 2451807,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT01",
+      "layer": "hero",
+      "fullDecode": true,
+      "sha256": "b046d570098b5959da0a8a5638d944cde4a402594cc9ac7d68c789a159b6992e",
+      "bytes": 55230,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT02",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "f98df63ebc203a40d9de8cf86f733899c2817d597cee7ad79da8c85b122667ce",
+      "bytes": 2534171,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT02",
+      "layer": "hero",
+      "fullDecode": true,
+      "sha256": "780a24b85dd2fba7524e2ca0cafd99169c2e53cd81d236823c3c349ee4b5dff4",
+      "bytes": 44157,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT02",
+      "layer": "hero-eyes",
+      "fullDecode": true,
+      "sha256": "80cadf24baba6975d79d0b3e5a32a4fe01fc9ced412e34771dc55f56f9938880",
+      "bytes": 6536,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT03",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "8670c0e49236dc1f8a9c50df1186e36d6deda2459f2214a8208fef878b31dc6d",
+      "bytes": 2678730,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT03",
+      "layer": "hero",
+      "fullDecode": true,
+      "sha256": "9fc7a8f07dc7a49ada92785adcc36d82336f06b5310cac819ef2398fbf7edd64",
+      "bytes": 79447,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT03",
+      "layer": "falling-stone",
+      "fullDecode": true,
+      "sha256": "d5df92b2a834ffaff0276d452802fac11503dfaee611c5b10c26491d97d9ba18",
+      "bytes": 70195,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT04",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "c3c828871e71377a921699d7ed7ef404b99086fa3f693e02fb9ecead0895e0c0",
+      "bytes": 2804052,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT04",
+      "layer": "foreground-garden",
+      "fullDecode": true,
+      "sha256": "dc7e606e7978dd3a0a2d08ef8ffb6a98ca06a41afa7bb8ade8350023e07d63fb",
+      "bytes": 773500,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT05",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "3fad036a366c4e3ad2d23b43be745d46225afdc496d2571bc5b9deebef915baa",
+      "bytes": 2880640,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT05",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "176b75be158a42ffe7b3e26ff760907b49068078eb8670b59dc4c800379123c0",
+      "bytes": 6549,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT06",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "75935489e320ee22e74063d87b4070465c1bfad3735bac89a08381c501bee8ed",
+      "bytes": 3177874,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT07",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "259cfac72fa8da66ef1b90266dc3c8b0737d38da6633951e4ff9105904269f29",
+      "bytes": 2724922,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT07",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "f3c6f63b890d9b04f72ae3fdfe3e135fac0ba3c9c29a1dde872c3f240f0808ba",
+      "bytes": 6453,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT08",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "b2f523ec4b66e403301b8593748653ba9876114ce5542c4e5160cb2dd6073677",
+      "bytes": 2821739,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT08",
+      "layer": "king",
+      "fullDecode": true,
+      "sha256": "16f371b02109a72db2e5a68d6d6a2f36ba2339e80708a26afa0fe6fba516baeb",
+      "bytes": 601951,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT09",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "1f014db47924a0f9c7add08a445a41b0c6b40f1624611514b445b3e1f0ca72fd",
+      "bytes": 2704813,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT09",
+      "layer": "guards",
+      "fullDecode": true,
+      "sha256": "564100dd48bc01ab76544a161240057894851727a4390c818419ed4cd2161c99",
+      "bytes": 268366,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT09",
+      "layer": "guards-eyes",
+      "fullDecode": true,
+      "sha256": "a1255c3c3f3c5f6d4ad80f6979bd9aad60302282493499a7e29dbdc4ec90b3a7",
+      "bytes": 6161,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT10",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "9911d2450305761e9b29377a79a0dcece8f3a2f8c1061c457888534ba33bb8ab",
+      "bytes": 2742557,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT10",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "7c4b42ac12e34409b9a664801470d4a424ea809bbb37ca3ac3da37dd3f9dcf11",
+      "bytes": 6695,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT11",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "f3a8cfa532c90a1eec68a6e8ae592918dfb3e65b189cec849a29220bd0860bf7",
+      "bytes": 2910524,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT11",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "08ac33616216ca4d6d104411f086589086aabe844095cecafbfd869e54bb72f4",
+      "bytes": 8232,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT12",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "34bad8b1c55aaad858c3705e693439374e0fdb2f2fc4a4550f8a9bea2a368dd5",
+      "bytes": 2746201,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT12",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "9ccd1d3c4991851d8b0b4ed5dac302c1bf00bc204ec79ce92edab3e208fd2f2e",
+      "bytes": 8050,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT13",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "277a8aafeaf9077324ace292f191a7f774f880c995b2028b7a7cf5d827568bd7",
+      "bytes": 2191322,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT13",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "fe0c0638676ad585a51155a30d04b52e321b1ffedf3b40b6706a23be9619b8db",
+      "bytes": 6999,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT14",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "c2b29b1253145b01503b8fc5f22cd7abdc81c238018a075cbf527854bdafe6f8",
+      "bytes": 2736166,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT14",
+      "layer": "hero",
+      "fullDecode": true,
+      "sha256": "09251a4510341c2be7b3628f8e5f6ca6f4b8f40c786a4020e9536736364c8d6c",
+      "bytes": 86258,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT14",
+      "layer": "hero-eyes",
+      "fullDecode": true,
+      "sha256": "83407b19c25b96f31aa7c7f67d3ab125ad233f757d97da62774275c32be74294",
+      "bytes": 6646,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT15",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "ed2017d1e2489e25a98e668cde1bdaac46764fcc60cc37c1d11756946678ed10",
+      "bytes": 2289972,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT15",
+      "layer": "hero",
+      "fullDecode": true,
+      "sha256": "3ba1dc5915ac7df0d2b14edf8a9ee2097fb8984fc3d5c5e02d267a2170e4780d",
+      "bytes": 83686,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT15",
+      "layer": "hero-eyes",
+      "fullDecode": true,
+      "sha256": "910ba38b15b8f8592e2586f5e4fde52042c4efdf5faadb1a238b39c752efaa07",
+      "bytes": 6701,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT16",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "d3ff12a3292bfe77077cfc4113df68d5ccc040bfdc0d3f0079a8dd722a8593b2",
+      "bytes": 2154579,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT16",
+      "layer": "employee-report-chair",
+      "fullDecode": true,
+      "sha256": "57f8da0910164be7c561c96a0747c9af0d7a982ce336aad5669156bcf96226b8",
+      "bytes": 379088,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT17",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "8cb56e4573ec70983f82100a4fe0e1b5ac9fdca47084eda43cc52e5b99c0323e",
+      "bytes": 2143489,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT17",
+      "layer": "employee",
+      "fullDecode": true,
+      "sha256": "d1448a0c1ea2505ee6c55fff57f45173d6e5b6ecaeb8b797b8599bb478d9507c",
+      "bytes": 247402,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT18",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "645b5b4b5b5ac84875625cbcd8028efe6e1fe1adcfc27f4aaef82cfb60b5e39c",
+      "bytes": 1900013,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT18",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "c5ecc7f6cb44b9b17e6309e653b1b5c49ee08b7ad59f4d5086fd7833feaaf561",
+      "bytes": 7974,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT19",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "2dce25e492185ce01eb51129fba89e92ac440471719461b41dc9d0d21402d35d",
+      "bytes": 2123977,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT19",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "436e43a02687c4cac41b0cdaea8dc1e2e24366ee5bc83d991d8e6a884089e74c",
+      "bytes": 8186,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT20",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "1f88d24309e86795505d6ec2e6838cfdeb21e52ed68806d35dbc8f499a734876",
+      "bytes": 1951442,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT20",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "e31d2f04fca9704c8b0ae95767fd96f90452b24fa586e3040c0073769f65e671",
+      "bytes": 6774,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT21",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "ac6975c49f3ccf8672365f5e0edbcc9705272eb05d9c6fd1b74e1aed85fd2866",
+      "bytes": 1973710,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT22",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "8da457dfd5481a46d2e01684b598910276992e6c3e65343bc4438e3ea56bef7c",
+      "bytes": 1981732,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT22",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "02f9921882c1fc1858f5aa871d8e2dbd57c41add6dd8a505eb5f7f5f613da186",
+      "bytes": 7010,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT23",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "71cd6cce8c3db5232a68a3ed59f4d419b43744c6f9d2477ce3f6b086184fd660",
+      "bytes": 2135163,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT23",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "0a3d8b08c5d076f28825a5a1f752e72e13baaa4b943786801a597fdf186ec1bd",
+      "bytes": 6843,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT24",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "5da95a8f61bc39ca5eea069c0c91f15f6e6c6c678bbbb23c5fd3d75381258f3c",
+      "bytes": 2176030,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT24",
+      "layer": "award-holder",
+      "fullDecode": true,
+      "sha256": "da2c28e1a6b9bd5da1138c7e056f0a17f2e5675c60f62be6033b75065ed5c8ff",
+      "bytes": 361711,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT24",
+      "layer": "award-holder-eyes",
+      "fullDecode": true,
+      "sha256": "407e902db67e825d05f7b246717b7bcbd68808a9a9c61fd22567c0ad4a7aad7f",
+      "bytes": 6282,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT25",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "0de6ec51c61f2e055cf4f54020d4229bb0678e2eb2c7067bcfcf56bcd88cdb91",
+      "bytes": 2332867,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT25",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "807aebaa1e12d261e53c427cb0744293fa8396c4cfab38827eb4c2c71a1bff2f",
+      "bytes": 6779,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT26",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "d6fabe6bbaacbb097c67c927bfa89be802cf1e32ba064f772402917ffcb6a7b3",
+      "bytes": 2261634,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT26",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "318be8522d8063525a46bda63bdf14ea8b3c4e4696f97c8143b7034e4834ae09",
+      "bytes": 7446,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT27",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "7a967396f20fd7369e1739246d1d91769514ba691a302fb2b4c1f58c32338c40",
+      "bytes": 2161137,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT27",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "88cf0950cb2faa8ede46f01925591a72ffa0d9bd30b5c45e3cf3256b82e610e8",
+      "bytes": 7742,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT28",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "cbffc44d13b047b49ec83c0980698ea628621ddaf0cd4ddd6905fbc47c26ea36",
+      "bytes": 2317599,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT28",
+      "layer": "background-eyes",
+      "fullDecode": true,
+      "sha256": "30814128e802ed4536c62fd9df2113c16340f85c7aa5d7f72372fefc21b497cd",
+      "bytes": 6735,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT29",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "02b99591d237051ad16d15dabbd505e0f1933340d7aa07752ed0b495287eaee1",
+      "bytes": 2561807,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT29",
+      "layer": "hero-and-lantern",
+      "fullDecode": true,
+      "sha256": "7efc608d40118925474712450372a3881ebedfc6033fa73b954c61c3f1072c31",
+      "bytes": 283137,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT29",
+      "layer": "hero-and-lantern-eyes",
+      "fullDecode": true,
+      "sha256": "aac5859af01aa55691cf4f7be3458132654bdb5dfb77206be161898b7d70eb73",
+      "bytes": 6479,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT30",
+      "layer": "background",
+      "fullDecode": true,
+      "sha256": "1930fbb9b23091f544714a701df37e25bf1e743eb5f86b52aa751f252339f257",
+      "bytes": 2505590,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT30",
+      "layer": "foreground-path",
+      "fullDecode": true,
+      "sha256": "03c6cbd7a8042da437dc55739a7405b06ba66c3263ecc37c6877b8fd0858b0e3",
+      "bytes": 398048,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT30",
+      "layer": "hero-and-lantern",
+      "fullDecode": true,
+      "sha256": "a44d545318ba2bd56af5e638d219297579a6ba34755cca3837bad065339620ab",
+      "bytes": 111487,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    },
+    {
+      "shot": "SHOT30",
+      "layer": "hero-and-lantern-eyes",
+      "fullDecode": true,
+      "sha256": "ade1a75f9c42936ae9f57ff801ce03598f1ad0c385e2cf8d4d1ff1a8a266e0ff",
+      "bytes": 6290,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "postPublishHashMatches": true
+    }
+  ],
+  "atomicWriteFix": "Initial non-atomic SHOT05 completed-background PNG was caught truncated after an initial successful decode. Replaced via fully validated staged atomic publication; all final layer hashes and full decode checked again.",
+  "initialFailureEvidence": "qa/raw/layer-preparation-v1-failed.log"
+}

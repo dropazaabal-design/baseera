@@ -1,0 +1,1 @@
+{"status":"PASS","shots":30,"frames":5760,"depthSeparatedShots":13,"minimumCoverage":57.09375,"cues":45,"publicationReady":false}
