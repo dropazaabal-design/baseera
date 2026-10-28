@@ -1,0 +1,1473 @@
+{
+  "status": "PASS",
+  "checkedAssets": 97,
+  "originalCount": 30,
+  "usedLayerCount": 67,
+  "sourceResolution": [
+    936,
+    1664
+  ],
+  "newImagesGenerated": false,
+  "checks": [
+    {
+      "file": "public/law01/originals/SHOT01.png",
+      "fullDecode": true,
+      "sha256": "6d189361d4255ae030a0b3665fdc66e1292de5b20f0a2faef60f0485aa22d7af",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT02.png",
+      "fullDecode": true,
+      "sha256": "ef09868f06ee55f06a1396c3759290f8db7180a57032b662dd5c5c128e54ef3e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT03.png",
+      "fullDecode": true,
+      "sha256": "f83c514154c6af8ca2c9605e8fedb58c0b88639b0e5cc75d608cec597e4816ef",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT04.png",
+      "fullDecode": true,
+      "sha256": "0ad87a6ae7f89b978b33e1b8369d2c29cc27847bb06d1ea6a00efbb6c64376a8",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT05.png",
+      "fullDecode": true,
+      "sha256": "bf17783974fa81ddfa25622bc5908959efa7b8ee304fcc80211a4930b01b3ec9",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT06.png",
+      "fullDecode": true,
+      "sha256": "1a50482767f076d52207a8718e8a6e55be85658d23c4a1fcb043f1c47e4516e3",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT07.png",
+      "fullDecode": true,
+      "sha256": "640ab073f9afb63772f1326a1633b1c35a6c9f482d48f7c555f353f01b1139c5",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT08.png",
+      "fullDecode": true,
+      "sha256": "8f14ec132fb384c85fcad5032d98e391819da217828a2d91bcb134aa7477488a",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT09.png",
+      "fullDecode": true,
+      "sha256": "81aa2a2359bb7620d4add05172d49a60693ff28b394037b7cc0dd9e2cb09321e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT10.png",
+      "fullDecode": true,
+      "sha256": "fb785b00842bb63766bd36a97122a726ade551a0ec62da33f6306726bcd184ad",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT11.png",
+      "fullDecode": true,
+      "sha256": "85a6bb77541d7196c6bb5035dd0d6a6da2191d2bf01fd26212d1ef6f4a2fe840",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT12.png",
+      "fullDecode": true,
+      "sha256": "bdadaccadb5f612366f933fd320f38a08f03fdfeddb1202a093713a90633de62",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT13.png",
+      "fullDecode": true,
+      "sha256": "6f79158df59b531220335be45f8caa8d90a97e42504a541920b5fa989a5d5523",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT14.png",
+      "fullDecode": true,
+      "sha256": "de62f97c0bada3de0b2c52fcc3e000612ba5811561ba1f1a496e60161f05936c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT15.png",
+      "fullDecode": true,
+      "sha256": "e6bdfef4350378b9e44dc3b4535537e7dad785ef728d29472e762be6c690b91e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT16.png",
+      "fullDecode": true,
+      "sha256": "5f0ac55fca152a9adf4e4b5e92e8eee807d5d1006806e7cbae2180ea0c67f210",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT17.png",
+      "fullDecode": true,
+      "sha256": "64af1fbf6427a284558fc35759e531eb2ef6339cfc6d141fc1b3ecca397ea15f",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT18.png",
+      "fullDecode": true,
+      "sha256": "b6bddca694187a3b7186ebe4fa20f5137aa5f35d140e8ebbb23e7d9133d730ff",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT19.png",
+      "fullDecode": true,
+      "sha256": "a436c1cd12940f0e2173759b2d39a1823878d8ec801ad14d943374a50aa7f236",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT20.png",
+      "fullDecode": true,
+      "sha256": "b23b1a25f8d9ba8c58a2d4522690be18005c2525cabecb407c836b3c61f912b5",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT21.png",
+      "fullDecode": true,
+      "sha256": "c56bfa555b779271110e8d24419ebb2179c41c518e5ffd866280955c4bd172fd",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT22.png",
+      "fullDecode": true,
+      "sha256": "d3b0adb7144bf8742f7ff078b7a8f07aa157daa76d448bfda5c970c9a8c6a109",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT23.png",
+      "fullDecode": true,
+      "sha256": "76774d8cdca723220b454f464bdb0b17d40485b0e3c041c4be1c9ee72481fe23",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT24.png",
+      "fullDecode": true,
+      "sha256": "ac8038a446eaf7ebebaa68d32e712a5ae89acab838dde0ca4b56c16072f5021c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT25.png",
+      "fullDecode": true,
+      "sha256": "24fc345114e9b52c4bcc449ffc53ed4ed342c4d3ff39cfc1f630f86d031be963",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT26.png",
+      "fullDecode": true,
+      "sha256": "27ae70dcc5a9fac1668c2a2fef0b5ef3477334af740b0b40ea61d7f516b33298",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT27.png",
+      "fullDecode": true,
+      "sha256": "f8a4495eb08c69de0f0f1c328f83b7d7af436a042dd3c57eeaa176a0853ef855",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT28.png",
+      "fullDecode": true,
+      "sha256": "ed1f570451ec1ad65f59b9a25293ce978adc3a4c2806d3d0769057f1a084733b",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT29.png",
+      "fullDecode": true,
+      "sha256": "bb606df642a5702cc627c177cdb8d81bcc08e6ec6768e30bb06fb24617d33da8",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/originals/SHOT30.png",
+      "fullDecode": true,
+      "sha256": "f5ab5bf20050c77ffa8791474214237d8bb813e0f71818a42bf5c84dd8343bdf",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "approved original",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT01/background.png",
+      "fullDecode": true,
+      "sha256": "79bbd010ea8b854e0601a0dd4e4c7b59f0c702ee64cf6a770ce625f10965fb85",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT01/hero.png",
+      "fullDecode": true,
+      "sha256": "b046d570098b5959da0a8a5638d944cde4a402594cc9ac7d68c789a159b6992e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT02/background.png",
+      "fullDecode": true,
+      "sha256": "f98df63ebc203a40d9de8cf86f733899c2817d597cee7ad79da8c85b122667ce",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT02/hero.png",
+      "fullDecode": true,
+      "sha256": "780a24b85dd2fba7524e2ca0cafd99169c2e53cd81d236823c3c349ee4b5dff4",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT02/hero-eyes.png",
+      "fullDecode": true,
+      "sha256": "80cadf24baba6975d79d0b3e5a32a4fe01fc9ced412e34771dc55f56f9938880",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT03/background.png",
+      "fullDecode": true,
+      "sha256": "8670c0e49236dc1f8a9c50df1186e36d6deda2459f2214a8208fef878b31dc6d",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT03/hero.png",
+      "fullDecode": true,
+      "sha256": "9fc7a8f07dc7a49ada92785adcc36d82336f06b5310cac819ef2398fbf7edd64",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT03/falling-stone.png",
+      "fullDecode": true,
+      "sha256": "d5df92b2a834ffaff0276d452802fac11503dfaee611c5b10c26491d97d9ba18",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "falling-fragment",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT04/background.png",
+      "fullDecode": true,
+      "sha256": "c3c828871e71377a921699d7ed7ef404b99086fa3f693e02fb9ecead0895e0c0",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT04/foreground-garden.png",
+      "fullDecode": true,
+      "sha256": "dc7e606e7978dd3a0a2d08ef8ffb6a98ca06a41afa7bb8ade8350023e07d63fb",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "foreground-terrain",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT05/background.png",
+      "fullDecode": true,
+      "sha256": "3fad036a366c4e3ad2d23b43be745d46225afdc496d2571bc5b9deebef915baa",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT05/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "176b75be158a42ffe7b3e26ff760907b49068078eb8670b59dc4c800379123c0",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT06/background.png",
+      "fullDecode": true,
+      "sha256": "75935489e320ee22e74063d87b4070465c1bfad3735bac89a08381c501bee8ed",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT07/background.png",
+      "fullDecode": true,
+      "sha256": "259cfac72fa8da66ef1b90266dc3c8b0737d38da6633951e4ff9105904269f29",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT07/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "f3c6f63b890d9b04f72ae3fdfe3e135fac0ba3c9c29a1dde872c3f240f0808ba",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT08/background.png",
+      "fullDecode": true,
+      "sha256": "b2f523ec4b66e403301b8593748653ba9876114ce5542c4e5160cb2dd6073677",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT08/king.png",
+      "fullDecode": true,
+      "sha256": "16f371b02109a72db2e5a68d6d6a2f36ba2339e80708a26afa0fe6fba516baeb",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT09/background.png",
+      "fullDecode": true,
+      "sha256": "1f014db47924a0f9c7add08a445a41b0c6b40f1624611514b445b3e1f0ca72fd",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT09/guards.png",
+      "fullDecode": true,
+      "sha256": "564100dd48bc01ab76544a161240057894851727a4390c818419ed4cd2161c99",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT09/guards-eyes.png",
+      "fullDecode": true,
+      "sha256": "a1255c3c3f3c5f6d4ad80f6979bd9aad60302282493499a7e29dbdc4ec90b3a7",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT10/background.png",
+      "fullDecode": true,
+      "sha256": "9911d2450305761e9b29377a79a0dcece8f3a2f8c1061c457888534ba33bb8ab",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT10/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "7c4b42ac12e34409b9a664801470d4a424ea809bbb37ca3ac3da37dd3f9dcf11",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT11/background.png",
+      "fullDecode": true,
+      "sha256": "f3a8cfa532c90a1eec68a6e8ae592918dfb3e65b189cec849a29220bd0860bf7",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT11/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "08ac33616216ca4d6d104411f086589086aabe844095cecafbfd869e54bb72f4",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT12/background.png",
+      "fullDecode": true,
+      "sha256": "34bad8b1c55aaad858c3705e693439374e0fdb2f2fc4a4550f8a9bea2a368dd5",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT12/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "9ccd1d3c4991851d8b0b4ed5dac302c1bf00bc204ec79ce92edab3e208fd2f2e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT13/background.png",
+      "fullDecode": true,
+      "sha256": "277a8aafeaf9077324ace292f191a7f774f880c995b2028b7a7cf5d827568bd7",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT13/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "fe0c0638676ad585a51155a30d04b52e321b1ffedf3b40b6706a23be9619b8db",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT14/background.png",
+      "fullDecode": true,
+      "sha256": "c2b29b1253145b01503b8fc5f22cd7abdc81c238018a075cbf527854bdafe6f8",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT14/hero.png",
+      "fullDecode": true,
+      "sha256": "09251a4510341c2be7b3628f8e5f6ca6f4b8f40c786a4020e9536736364c8d6c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT14/hero-eyes.png",
+      "fullDecode": true,
+      "sha256": "83407b19c25b96f31aa7c7f67d3ab125ad233f757d97da62774275c32be74294",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT15/background.png",
+      "fullDecode": true,
+      "sha256": "ed2017d1e2489e25a98e668cde1bdaac46764fcc60cc37c1d11756946678ed10",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT15/hero.png",
+      "fullDecode": true,
+      "sha256": "3ba1dc5915ac7df0d2b14edf8a9ee2097fb8984fc3d5c5e02d267a2170e4780d",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT15/hero-eyes.png",
+      "fullDecode": true,
+      "sha256": "910ba38b15b8f8592e2586f5e4fde52042c4efdf5faadb1a238b39c752efaa07",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT16/background.png",
+      "fullDecode": true,
+      "sha256": "d3ff12a3292bfe77077cfc4113df68d5ccc040bfdc0d3f0079a8dd722a8593b2",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT16/employee-report-chair.png",
+      "fullDecode": true,
+      "sha256": "57f8da0910164be7c561c96a0747c9af0d7a982ce336aad5669156bcf96226b8",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT17/background.png",
+      "fullDecode": true,
+      "sha256": "8cb56e4573ec70983f82100a4fe0e1b5ac9fdca47084eda43cc52e5b99c0323e",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT17/employee.png",
+      "fullDecode": true,
+      "sha256": "d1448a0c1ea2505ee6c55fff57f45173d6e5b6ecaeb8b797b8599bb478d9507c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT18/background.png",
+      "fullDecode": true,
+      "sha256": "645b5b4b5b5ac84875625cbcd8028efe6e1fe1adcfc27f4aaef82cfb60b5e39c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT18/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "c5ecc7f6cb44b9b17e6309e653b1b5c49ee08b7ad59f4d5086fd7833feaaf561",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT19/background.png",
+      "fullDecode": true,
+      "sha256": "2dce25e492185ce01eb51129fba89e92ac440471719461b41dc9d0d21402d35d",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT19/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "436e43a02687c4cac41b0cdaea8dc1e2e24366ee5bc83d991d8e6a884089e74c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT20/background.png",
+      "fullDecode": true,
+      "sha256": "1f88d24309e86795505d6ec2e6838cfdeb21e52ed68806d35dbc8f499a734876",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT20/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "e31d2f04fca9704c8b0ae95767fd96f90452b24fa586e3040c0073769f65e671",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT21/background.png",
+      "fullDecode": true,
+      "sha256": "ac6975c49f3ccf8672365f5e0edbcc9705272eb05d9c6fd1b74e1aed85fd2866",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT22/background.png",
+      "fullDecode": true,
+      "sha256": "8da457dfd5481a46d2e01684b598910276992e6c3e65343bc4438e3ea56bef7c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT22/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "02f9921882c1fc1858f5aa871d8e2dbd57c41add6dd8a505eb5f7f5f613da186",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT23/background.png",
+      "fullDecode": true,
+      "sha256": "71cd6cce8c3db5232a68a3ed59f4d419b43744c6f9d2477ce3f6b086184fd660",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT23/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "0a3d8b08c5d076f28825a5a1f752e72e13baaa4b943786801a597fdf186ec1bd",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT25/background.png",
+      "fullDecode": true,
+      "sha256": "0de6ec51c61f2e055cf4f54020d4229bb0678e2eb2c7067bcfcf56bcd88cdb91",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT25/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "807aebaa1e12d261e53c427cb0744293fa8396c4cfab38827eb4c2c71a1bff2f",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT24/background.png",
+      "fullDecode": true,
+      "sha256": "5da95a8f61bc39ca5eea069c0c91f15f6e6c6c678bbbb23c5fd3d75381258f3c",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT24/award-holder.png",
+      "fullDecode": true,
+      "sha256": "da2c28e1a6b9bd5da1138c7e056f0a17f2e5675c60f62be6033b75065ed5c8ff",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT24/award-holder-eyes.png",
+      "fullDecode": true,
+      "sha256": "407e902db67e825d05f7b246717b7bcbd68808a9a9c61fd22567c0ad4a7aad7f",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT26/background.png",
+      "fullDecode": true,
+      "sha256": "d6fabe6bbaacbb097c67c927bfa89be802cf1e32ba064f772402917ffcb6a7b3",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT26/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "318be8522d8063525a46bda63bdf14ea8b3c4e4696f97c8143b7034e4834ae09",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT27/background.png",
+      "fullDecode": true,
+      "sha256": "7a967396f20fd7369e1739246d1d91769514ba691a302fb2b4c1f58c32338c40",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT27/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "88cf0950cb2faa8ede46f01925591a72ffa0d9bd30b5c45e3cf3256b82e610e8",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT28/background.png",
+      "fullDecode": true,
+      "sha256": "cbffc44d13b047b49ec83c0980698ea628621ddaf0cd4ddd6905fbc47c26ea36",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "single-illustrated-plane",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT28/background-eyes.png",
+      "fullDecode": true,
+      "sha256": "30814128e802ed4536c62fd9df2113c16340f85c7aa5d7f72372fefc21b497cd",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT29/background.png",
+      "fullDecode": true,
+      "sha256": "02b99591d237051ad16d15dabbd505e0f1933340d7aa07752ed0b495287eaee1",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT29/hero-and-lantern.png",
+      "fullDecode": true,
+      "sha256": "7efc608d40118925474712450372a3881ebedfc6033fa73b954c61c3f1072c31",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT29/hero-and-lantern-eyes.png",
+      "fullDecode": true,
+      "sha256": "aac5859af01aa55691cf4f7be3458132654bdb5dfb77206be161898b7d70eb73",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT30/background.png",
+      "fullDecode": true,
+      "sha256": "1930fbb9b23091f544714a701df37e25bf1e743eb5f86b52aa751f252339f257",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "kind": "completed-background",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT30/foreground-path.png",
+      "fullDecode": true,
+      "sha256": "03c6cbd7a8042da437dc55739a7405b06ba66c3263ecc37c6877b8fd0858b0e3",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "foreground-terrain",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT30/hero-and-lantern.png",
+      "fullDecode": true,
+      "sha256": "a44d545318ba2bd56af5e638d219297579a6ba34755cca3837bad065339620ab",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "character-group",
+      "status": "PASS"
+    },
+    {
+      "file": "public/law01/layers/SHOT30/hero-and-lantern-eyes.png",
+      "fullDecode": true,
+      "sha256": "ade1a75f9c42936ae9f57ff801ce03598f1ad0c385e2cf8d4d1ff1a8a266e0ff",
+      "dimensions": [
+        936,
+        1664
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "kind": "eye-expression",
+      "status": "PASS"
+    }
+  ],
+  "sourcePreservation": {
+    "existingSourceFilesChecked": 29,
+    "changedExistingSourceFiles": [],
+    "engineRebuilt": false
+  }
+}

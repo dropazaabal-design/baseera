@@ -1,0 +1,117 @@
+{
+  "timeline": {
+    "shots": 30,
+    "frames": 5981,
+    "seconds": 99.68333333333334,
+    "exactBoundaries": true,
+    "finalFrame": 5980
+  },
+  "invalidInput": {
+    "gap": "PASS",
+    "duplicate": "PASS",
+    "badCharacterKey": "PASS",
+    "unapprovedFinal": "PASS"
+  },
+  "camera": {
+    "framesChecked": 5981,
+    "allFramesFinite": true,
+    "allFramesDeterministic": true,
+    "minimumOpaqueCoverageMarginPixels": 57.09375,
+    "depthSeparatedShots": [
+      {
+        "shot": "SHOT01",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 1.987739999999917
+      },
+      {
+        "shot": "SHOT02",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 14.798700000000053
+      },
+      {
+        "shot": "SHOT03",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 1.9828800000001365
+      },
+      {
+        "shot": "SHOT04",
+        "foregroundDepth": 1.7,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 18.909450000000106
+      },
+      {
+        "shot": "SHOT08",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 10.194659999999999
+      },
+      {
+        "shot": "SHOT09",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 8.879220000000032
+      },
+      {
+        "shot": "SHOT14",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 9.96300000000008
+      },
+      {
+        "shot": "SHOT15",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 3.979506176399188
+      },
+      {
+        "shot": "SHOT16",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 10.194659999999999
+      },
+      {
+        "shot": "SHOT17",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 1.987739999999917
+      },
+      {
+        "shot": "SHOT24",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 5.155578416627934
+      },
+      {
+        "shot": "SHOT29",
+        "foregroundDepth": 1.2,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 1.987739999999917
+      },
+      {
+        "shot": "SHOT30",
+        "foregroundDepth": 1.5,
+        "backgroundDepth": -0.6,
+        "differentialPixels": 3.918560751411203
+      }
+    ],
+    "coreReused": true
+  },
+  "captions": {
+    "cues": 45,
+    "jsonSrtRoundTrip": "PASS",
+    "orderedNoOverlap": "PASS",
+    "westernDigits": "PASS",
+    "timingBasis": "recording",
+    "audioAlignment": "RECORDING_DERIVED_LOCAL_FORCED_ALIGNMENT",
+    "groundTruth17msClaim": false
+  },
+  "publication": {
+    "finalExportGate": "APPROVED_AUDIO_AND_CAPTIONS_PRESENT",
+    "audioAvailable": true,
+    "approvedNarration": true,
+    "publicationReady": true
+  }
+}

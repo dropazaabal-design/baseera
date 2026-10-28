@@ -20,7 +20,7 @@ const results={timeline:{shots:p.shots.length,frames:p.durationInFrames,seconds:
 for(const [label,mutate] of [
  ["gap",q=>q.shots[1].startFrame++],["duplicate",q=>q.shots[1].id=q.shots[0].id],
  ["badCharacterKey",q=>q.shots[0].layers.find(l=>l.motion).motion.keys[1].frame=-1],
- ["unapprovedFinal",q=>q.publicationReady=true]
+ ["unapprovedFinal",q=>{q.publicationReady=true;q.approval.narration=false;}]
 ]){
  const q=structuredClone(p);mutate(q);assert.throws(()=>validateLawProject(q));results.invalidInput[label]="PASS";
 }
@@ -54,7 +54,7 @@ for(const s of p.shots){
  }
 }
 assert(allFinite&&allDeterministic);assert(minimumMargin>=0,"Camera exposes image borders");
-results.camera={all5760FramesFinite:allFinite,all5760FramesDeterministic:allDeterministic,minimumOpaqueCoverageMarginPixels:minimumMargin,depthSeparatedShots:depth,coreReused:true};
+results.camera={framesChecked:p.durationInFrames,allFramesFinite:allFinite,allFramesDeterministic:allDeterministic,minimumOpaqueCoverageMarginPixels:minimumMargin,depthSeparatedShots:depth,coreReused:true};
 const cues=JSON.parse(fs.readFileSync("public/"+p.captions,"utf8"));
 const srt=parseSrt(fs.readFileSync("public/"+p.srt,"utf8"));
 assert.equal(cues.length,srt.length);let previous=-1;
@@ -63,8 +63,17 @@ for(let i=0;i<cues.length;i++){
  assert(!/[٠-٩۰-۹]/.test(c.text));assert.equal(c.text,srt[i].text);
  assert(Math.abs(c.startMs-srt[i].start*1000)<.01);assert(Math.abs(c.endMs-srt[i].end*1000)<.01);
 }
-results.captions={cues:cues.length,jsonSrtRoundTrip:"PASS",orderedNoOverlap:"PASS",westernDigits:"PASS",timingBasis:"estimated_script_not_recording",audioAlignment:"NOT_TESTABLE_NO_RECORDING"};
-results.publication={finalExportGate:"BLOCKED_AS_EXPECTED",audioAvailable:false,approvedNarration:false,publicationReady:p.publicationReady};
-fs.writeFileSync(P+"/qa/timeline-animation-tests.json",JSON.stringify(results,null,2));
-console.log(JSON.stringify({status:"PASS",shots:p.shots.length,frames:p.durationInFrames,depthSeparatedShots:depth.length,minimumCoverage:minimumMargin,cues:cues.length,publicationReady:false}));
+const recorded=p.timingBasis==="recording";
+if(recorded){
+ assert(fs.existsSync("public/"+p.audio));assert(p.approval.narration&&p.approval.captionAlignment);
+ const alignment=JSON.parse(fs.readFileSync(P+"/qa/audio-final/forced-alignment.json","utf8"));
+ assert.equal(alignment.words.length,209);assert.equal(alignment.issues.length,0);assert(alignment.sourceTextExact);
+ assert(Math.abs(p.durationInFrames/p.fps-alignment.duration)<=1/p.fps);
+ for(const c of cues){assert(c.firstWordIndex>=0&&c.lastWordIndex<209);assert(c.endMs<=p.durationInFrames/p.fps*1000);}
+}
+results.captions={cues:cues.length,jsonSrtRoundTrip:"PASS",orderedNoOverlap:"PASS",westernDigits:"PASS",timingBasis:p.timingBasis,audioAlignment:recorded?"RECORDING_DERIVED_LOCAL_FORCED_ALIGNMENT":"NOT_TESTABLE_NO_RECORDING",groundTruth17msClaim:false};
+results.publication={finalExportGate:recorded?"APPROVED_AUDIO_AND_CAPTIONS_PRESENT":"BLOCKED_AS_EXPECTED",audioAvailable:!!p.audio,approvedNarration:p.approval.narration,publicationReady:p.publicationReady};
+const qa=P+"/qa"+(recorded?"/final":"");fs.mkdirSync(qa,{recursive:true});
+fs.writeFileSync(qa+"/timeline-animation-tests.json",JSON.stringify(results,null,2));
+console.log(JSON.stringify({status:"PASS",shots:p.shots.length,frames:p.durationInFrames,depthSeparatedShots:depth.length,minimumCoverage:minimumMargin,cues:cues.length,publicationReady:p.publicationReady}));
 

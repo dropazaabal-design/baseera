@@ -3,18 +3,19 @@ import {bundle} from "@remotion/bundler";
 import {getCompositions,openBrowser,renderStill} from "@remotion/renderer";
 import {mkdirSync,readFileSync,writeFileSync} from "node:fs";
 import path from "node:path";
-const root=path.resolve("."),qa=path.join(root,"projects/law01-cinematic/qa");
+const root=path.resolve("."),baseQa=path.join(root,"projects/law01-cinematic/qa");
+const variant=process.argv[2]??"v1";
+const qa=variant==="recorded"?path.join(baseQa,"final"):baseQa;
 const project=JSON.parse(readFileSync("src/law01/project.json","utf8"));
 const browserExecutable=process.env.REMOTION_CHROME??path.join(root,"node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell-linux64/chrome-headless-shell");
 const serveUrl=await bundle({entryPoint:path.join(root,"src/law01/index.ts"),outDir:path.join(root,"out/law01-qa-bundle"),rspack:true,enableCaching:true});
 const browser=await openBrowser("chrome",{browserExecutable});
 const samples=[],errors=[];
-const variant=process.argv[2]??"v1";
 mkdirSync(path.join(qa,"frames-"+variant),{recursive:true});
 try{
  const comps=await getCompositions(serveUrl,{puppeteerInstance:browser});
  writeFileSync(path.join(qa,"compositions.json"),JSON.stringify(comps.map(c=>({id:c.id,width:c.width,height:c.height,fps:c.fps,durationInFrames:c.durationInFrames})),null,2));
- const composition=comps.find(c=>c.id==="Law01-Visual-Review");if(!composition)throw Error("Missing full reel");
+ const composition=comps.find(c=>c.id===(project.publicationReady?"Law01-Cinematic-Final":"Law01-Visual-Review"));if(!composition)throw Error("Missing full reel");
  if(comps.filter(c=>/^Law01-SHOT/.test(c.id)).length!==30)throw Error("Missing standalone shot previews");
  for(const s of project.shots){
   const points=[["start",0],["middle",Math.floor(s.durationInFrames/2)],["end",s.durationInFrames-1]];

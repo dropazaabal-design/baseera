@@ -2,11 +2,12 @@
 from pathlib import Path
 from PIL import Image
 import hashlib
-import json
+import json,sys
 import numpy as np
 
 R = Path(__file__).resolve().parents[2]
 Q = R / 'projects/law01-cinematic/qa'
+if '--recorded' in sys.argv:Q=Q/'final'
 cases = json.loads((Q/'determinism-cases.json').read_text())
 def compare(a,b,**extra):
     ap,bp=Q/a,Q/b

@@ -6,6 +6,8 @@ import json
 R=Path(__file__).resolve().parents[2]
 P=R/'projects/law01-cinematic';Q=P/'qa'
 def read(name):return json.loads((Q/name).read_text())
+if json.loads((R/'src/law01/project.json').read_text()).get('timingBasis')=='recording':
+    raise SystemExit('For the recorded production use finalize_recorded.py; silent-review reports are preserved under versions/visual-review-v1.')
 assets=read('asset-validation-report.json');layers=read('layer-validation-report.json')
 pixels=read('render-determinism-regression.json');math=read('timeline-animation-tests.json')
 render=read('render-frame-validation.json');video=read('video-validation.json')
@@ -17,7 +19,7 @@ type_log=(Q/'raw/typecheck.txt').read_text();lint=(Q/'raw/eslint-law01.txt').rea
 checks=[
  {'category':'Images','status':'PASS' if assets['passed']==30 and assets['failed']==0 else 'FAIL','evidence':'asset-validation-report.json','details':'30 original PNGs fully decoded; signature, chunks, CRC, IEND, SHA-256, 936x1664 exact 9:16. All match Phase 2 hashes.'},
  {'category':'Layers','status':'PASS' if all(x['aligned'] and x['alphaVerified'] and x['backgroundOpaque'] for x in layers['shots']) else 'FAIL','evidence':['layer-validation-report.json','layer-byte-integrity.json'],'details':'67 used PNGs, aligned source canvas. 13 true multilayer shots; other shots explicitly flat/eye overlays. Initial truncated derived SHOT05 PNG caught and replaced through atomic saving. Originals unchanged.'},
- {'category':'Timeline and animation','status':'PASS' if math['camera']['all5760FramesFinite'] and math['camera']['all5760FramesDeterministic'] and math['timeline']['exactBoundaries'] else 'FAIL','evidence':'timeline-animation-tests.json','details':'5760 frames; no timeline gaps/overlaps; exclusive end boundaries; final visible frame 5759. Minimum opaque coverage margin 57.09375px.'},
+ {'category':'Timeline and animation','status':'PASS' if math['camera'].get('allFramesFinite',math['camera'].get('all5760FramesFinite',False)) and math['camera'].get('allFramesDeterministic',math['camera'].get('all5760FramesDeterministic',False)) and math['timeline']['exactBoundaries'] else 'FAIL','evidence':'timeline-animation-tests.json','details':'5760 frames; no timeline gaps/overlaps; exclusive end boundaries; final visible frame 5759. Minimum opaque coverage margin 57.09375px.'},
  {'category':'Actual sampled renders','status':'PASS' if render['noBlankSamples'] and not render['browserErrors'] and render['standalonePreviewComparison']['pixelEqual'] else 'FAIL','evidence':['render-frame-validation.json','frame-samples-v2.json'],'details':'95 actual 1080x1920 frames: start/middle/end of all 30 shots plus 5 transition completions; SHOT19 isolated preview exactly matches assembled pixels.'},
  {'category':'Determinism and regression','status':pixels['status'],'evidence':['render-determinism-regression.json','source-preservation.json','raw/engine-regression.txt','raw/workflow-regression.txt'],'details':'3 Law01 frames repeated in independent browsers; 2 legacy frames before/after exactly equal. Original engine/workflow tests pass. Full previous videos and their audio not re-rendered.'},
  {'category':'Source preservation','status':preservation['status'],'evidence':'source-preservation.json','details':f'{len(baseline)} existing src files unchanged.'},

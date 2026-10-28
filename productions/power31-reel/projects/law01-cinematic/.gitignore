@@ -4,3 +4,8 @@ qa/review*/
 qa/repeat*/
 qa/*.png
 qa/raw/*.bin
+qa/final/frames*/
+qa/final/review*/
+qa/final/repeat*/
+qa/final/*.png
+qa/final/*.mp4

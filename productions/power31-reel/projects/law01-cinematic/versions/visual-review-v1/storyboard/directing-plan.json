@@ -1,0 +1,320 @@
+{
+  "fps": 60,
+  "target_seconds": 96,
+  "timing_basis": "estimated_script_not_recording",
+  "reordered_shots": {
+    "from": [
+      23,
+      24,
+      25
+    ],
+    "to": [
+      23,
+      25,
+      24
+    ],
+    "reason": "النص المعتمد يذكر الاعتراف بالمساهمات قبل التحذير من احتكار الفضل؛ قدّمت SHOT25 على SHOT24 لمزامنة المعنى دون تغيير السكريبت."
+  },
+  "rows": [
+    [
+      1,
+      1,
+      1.5,
+      "نجاحك ممكن يطيّحك.",
+      "صعود البطل نحو المنصة",
+      "slowPush",
+      "cut",
+      "ascent anticipation"
+    ],
+    [
+      2,
+      1,
+      1.4,
+      "بس مو بالطريقة",
+      "ظهور ظل السلطة خلف البطل",
+      "tiltReveal",
+      "shadow-reveal",
+      "attention lean and eye direction"
+    ],
+    [
+      3,
+      1,
+      1.1,
+      "اللي تتخيّلها.",
+      "تشقّق الدرج وتراجع البطل",
+      "pullBack",
+      "impact-cut",
+      "drawn step-back pose and falling fragment"
+    ],
+    [
+      4,
+      2,
+      4.5,
+      "سنة ألف وستمية وواحد وستين، نيكولا فوكيه، المسؤول عن مالية فرنسا،",
+      "تأسيس فرنسا والقصر",
+      "tiltReveal",
+      "cut",
+      "architectural reveal; no foreground actor"
+    ],
+    [
+      5,
+      2,
+      3.5,
+      "استقبل الملك لويس الرابع عشر في قصر فو لو فيكونت.",
+      "فوكيه يستقبل الضيوف",
+      "driftRight",
+      "cut",
+      "drawn welcome pose; subtle gaze shift"
+    ],
+    [
+      6,
+      2,
+      3,
+      "كان يوم سبعتعش أغسطس. حدائق مضاءة،",
+      "اتساع الحدائق والحفل",
+      "panLeft",
+      "cut",
+      "distant drawn silhouettes remain static"
+    ],
+    [
+      7,
+      2,
+      2.3,
+      "ووليمة، وألعاب نارية…",
+      "الوليمة واتساع الاستقبال",
+      "slowPush",
+      "cut",
+      "host eye direction; drawn presenting pose"
+    ],
+    [
+      8,
+      2,
+      2.7,
+      "عرض هائل لثروته ونفوذه.",
+      "الملك يراقب من بعيد",
+      "panLeft",
+      "cut",
+      "quiet gaze shift, no asserted historical emotion"
+    ],
+    [
+      9,
+      3,
+      1.2,
+      "يوم خمسة سبتمبر…",
+      "الحرس يقتربون من الباب",
+      "driftRight",
+      "contrast-cut",
+      "small depth advance in drawn walking pose"
+    ],
+    [
+      10,
+      3,
+      1.8,
+      "فوكيه يُعتقل.",
+      "فوكيه بين الحرس",
+      "slowPush",
+      "cut",
+      "drawn escort pose; Fouquet gaze shift, no joint reconstruction"
+    ],
+    [
+      11,
+      4,
+      5.7,
+      "تقول: أكيد الحفلة! بس المفاجأة؟ الملك كان يسعى لإقصائه من قبلها.",
+      "الرجوع إلى ملف الصراع السابق",
+      "driftRight",
+      "evidence-wipe",
+      "official gaze moves toward ledger"
+    ],
+    [
+      12,
+      4,
+      5.1,
+      "فيه اتهامات مالية، وصراع سياسي مع كولبير. يعني المسألة أعقد من غيرة على قصر.",
+      "كولبير والملك ودفتر الحسابات",
+      "panLeft",
+      "cut",
+      "drawn conversational pose and subtle gaze"
+    ],
+    [
+      13,
+      4,
+      5.2,
+      "لكنها تبيّن خطورة النفوذ، لما يصير صاحبه منافسًا في عين الحاكم.",
+      "استعارة الشطرنج وصراع المكانة",
+      "pullBack",
+      "cut",
+      "symbolic pieces; subtle noble-piece eye movement"
+    ],
+    [
+      14,
+      5,
+      9,
+      "روبرت غرين يحذّر من هذا في أول قانون من «ثمانية وأربعين قانونًا للسلطة»: «لا تُظهر تفوّقك على رئيسك».",
+      "العرش وظل السلطة مع بقاء كفاءة البطل",
+      "tiltReveal",
+      "cut",
+      "upright body lean and gaze; light reveals authority"
+    ],
+    [
+      15,
+      5,
+      4,
+      "بس خذ التحذير، مو دعوة إنك تصغّر نفسك. طيب، وش علاقته فيك؟",
+      "مطابقة العرش بكرسي المكتب",
+      "driftRight",
+      "match-cut",
+      "same hero stance, slight idle"
+    ],
+    [
+      16,
+      6,
+      2.1,
+      "تصحّح خطأ مديرك",
+      "الموظف يلاحظ اختلاف التقرير",
+      "panLeft",
+      "cut",
+      "report-reading body lean"
+    ],
+    [
+      17,
+      6,
+      2,
+      "بطريقة تحرجه قدّام الجميع؟",
+      "إيماءة التصحيح المحرجة",
+      "slowPush",
+      "behavior-cut",
+      "drawn pointing pose with restrained whole-body emphasis"
+    ],
+    [
+      18,
+      6,
+      1.6,
+      "ممكن تتوتر علاقتكم.",
+      "ردّ فعل المدير المتوتر",
+      "driftRight",
+      "reaction-cut",
+      "lowered eye direction"
+    ],
+    [
+      19,
+      6,
+      4.3,
+      "قل بهدوء: «بحسب التقرير، الرقم الصحيح كذا». الحقيقة وصلت، بدون تجريح.",
+      "التصحيح المحترم حول التقرير",
+      "pullBack",
+      "behavior-cut",
+      "alternate cooperative drawing, eye attention toward report"
+    ],
+    [
+      20,
+      7,
+      2.7,
+      "وفي التدريب، تضيف معلومة فاتت المدرّب…",
+      "رفع اليد للمشاركة",
+      "tiltReveal",
+      "cut",
+      "drawn raised-hand pose, gaze attention"
+    ],
+    [
+      21,
+      7,
+      2.5,
+      "أو تسخر: «حتى هذي ما تعرفها؟»",
+      "الإشارة الساخرة إلى المدرب",
+      "slowPush",
+      "behavior-cut",
+      "drawn mocking pose and gaze; next approved drawing supplies cooperative posture"
+    ],
+    [
+      22,
+      7,
+      4.8,
+      "نفس المعلومة؛ أثر مختلف. الاحترام مو سكوت عن الخطأ.",
+      "المشاركة المحترمة بجانب اللوحة",
+      "pullBack",
+      "behavior-cut",
+      "alternate open-palm contribution pose and gaze"
+    ],
+    [
+      23,
+      8,
+      2,
+      "وفي الفريق، حققت إنجازًا؟",
+      "إنجاز مع جائزة ومشروع واضحين",
+      "slowPush",
+      "cut",
+      "award-holder attention shift"
+    ],
+    [
+      25,
+      8,
+      2.5,
+      "سمِّ دورك، واذكر مين ساعدك.",
+      "كشف الفريق والاعتراف بمساهمته",
+      "pullBack",
+      "shared-reveal",
+      "drawn open-hand recognition, attention light broadens"
+    ],
+    [
+      24,
+      8,
+      3.5,
+      "لو أخذت الفضل كله، يمكن تكسب التصفيق وتخسر الثقة.",
+      "الانفراد بالجائزة وابتعاد الفريق",
+      "slowPush",
+      "contrast-cut",
+      "isolated award-holder lean and eye direction"
+    ],
+    [
+      26,
+      9,
+      3.2,
+      "مو كل مسؤول يخاف المتميّز. بعضهم يشوفك شريكًا،",
+      "قائد يدعم الكفاءة",
+      "driftRight",
+      "cut",
+      "drawn handshake and shared gaze"
+    ],
+    [
+      27,
+      9,
+      2.8,
+      "وبعضهم يشوفك تهديدًا لمكانته.",
+      "مدير متحفظ تجاه الإنجاز",
+      "panLeft",
+      "reaction-cut",
+      "drawn crossed-arm reaction and project-directed gaze"
+    ],
+    [
+      28,
+      9,
+      6,
+      "المهارة إنك تعرض كفاءتك وتحفظ كرامة غيرك؛ بدون كذب، ولا تملّق، ولا تنازل عن حقك.",
+      "الكفاءة والكرامة على مستوى واحد",
+      "driftRight",
+      "cut",
+      "small deliberate gaze shifts; equal upright poses"
+    ],
+    [
+      29,
+      10,
+      1.5,
+      "لا تطفّي نورك…",
+      "ضوء المصباح موجّه إلى الطريق",
+      "slowPush",
+      "calm-dissolve",
+      "lantern-bearing body lean and directed ground light"
+    ],
+    [
+      30,
+      10,
+      2.5,
+      "بس لا تستخدمه عشان تعمي غيرك.",
+      "أفق مفتوح وخاتمة هادئة",
+      "pullBack",
+      "dawn-lift",
+      "calm stance and tiny lantern sway"
+    ]
+  ]
+}

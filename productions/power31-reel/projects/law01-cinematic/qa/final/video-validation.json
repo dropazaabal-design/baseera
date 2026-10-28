@@ -1,0 +1,1061 @@
+{
+  "status": "PASS",
+  "file": "projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4",
+  "bytes": 58501520,
+  "sha256": "46c10118936bc196bc047f1f293994e6c3e61558a85e76be0f0a01abbea50a29",
+  "checks": {
+    "opens": true,
+    "resolution1080x1920": true,
+    "fps60": true,
+    "h264": true,
+    "yuv420p": true,
+    "allExpectedFramesReadable": true,
+    "exactTimelineDuration": true,
+    "expectedAudioTrackCount": true,
+    "fullDecodeExit0": true,
+    "noBlackIntervals": true,
+    "noFreezeLongerThan3s": true,
+    "allShotSamplesDecoded": true,
+    "noBlankSamples": true,
+    "deliveredFramesMatchGlobalTimeline": true,
+    "audio_aac": true,
+    "audio_mono48k": true,
+    "audio_integratedLUFSWithin025": true,
+    "audio_truePeakAtMostMinus4": true,
+    "audio_noClippedSamples": true,
+    "audio_noSilenceOver2Seconds": true,
+    "audio_waveformSyncWithin1ms": true,
+    "audio_recordingDurationCompatible": true
+  },
+  "metadata": {
+    "codec": "h264",
+    "profile": "High",
+    "pixelFormat": "yuv420p",
+    "width": 1080,
+    "height": 1920,
+    "fps": "60/1",
+    "readFrames": 5981,
+    "durationSeconds": 99.683333,
+    "colorSpace": "bt709"
+  },
+  "blackDetection": {
+    "minimumDurationSeconds": 0.05,
+    "pixelThreshold": 0.02,
+    "pictureThreshold": 0.98,
+    "intervals": []
+  },
+  "freezeDetection": {
+    "noiseThresholdDB": -60,
+    "minimumDurationSeconds": 3,
+    "intervals": [],
+    "scope": "Detects near-identical frames at the documented FFmpeg threshold; not a measure of artistic motion quality."
+  },
+  "decodedSamples": [
+    {
+      "frame": 0,
+      "file": "review-mp4/0001.png",
+      "meanLuma": 0.23290976193718227,
+      "blackPixelFraction": 0.04708333333333333,
+      "sha256": "635c7eb614d4c30f5811f8b74e32ad465ef62e014e381f28705904a992f68b49",
+      "referenceFrame": "frames-recorded/SHOT01-start.png",
+      "referenceMeanAbsoluteError": 2.1637138310185184,
+      "referencePSNR": 39.94830691070276
+    },
+    {
+      "frame": 57,
+      "file": "review-mp4/0002.png",
+      "meanLuma": 0.240255480664488,
+      "blackPixelFraction": 0.03763454861111111,
+      "sha256": "d95bccd9aefca4869dc2974eed1553de1abb6943904842b780b2693bf6fef763",
+      "referenceFrame": "frames-recorded/SHOT01-middle.png",
+      "referenceMeanAbsoluteError": 1.9640422453703703,
+      "referencePSNR": 40.34577184717281
+    },
+    {
+      "frame": 114,
+      "file": "review-mp4/0003.png",
+      "meanLuma": 0.24477081063907044,
+      "blackPixelFraction": 0.036770833333333336,
+      "sha256": "5a5aa4e17333be021c318f37a854ef6ebcf806c5633ee70f533d92644deae2db",
+      "referenceFrame": "frames-recorded/SHOT01-end.png",
+      "referenceMeanAbsoluteError": 2.1298075810185186,
+      "referencePSNR": 39.891110227295115
+    },
+    {
+      "frame": 115,
+      "file": "review-mp4/0004.png",
+      "meanLuma": 0.24476797385620913,
+      "blackPixelFraction": 0.036770833333333336,
+      "sha256": "bca331447fc8ed2bb1dbf34298614286be4bbcec390e5faa4b447693f812ea43",
+      "referenceFrame": "frames-recorded/SHOT02-start.png",
+      "referenceMeanAbsoluteError": 2.1303718171296295,
+      "referencePSNR": 39.889248547023136
+    },
+    {
+      "frame": 125,
+      "file": "review-mp4/0005.png",
+      "meanLuma": 0.19723375658133624,
+      "blackPixelFraction": 0.028272569444444444,
+      "sha256": "cacf1d809b9240f6e4e29641bf0e8e56cbc61d689cc3b8ac8ed578b1b2f9c23b",
+      "referenceFrame": "frames-recorded/SHOT02-transition.png",
+      "referenceMeanAbsoluteError": 2.188375289351852,
+      "referencePSNR": 39.83345728071521
+    },
+    {
+      "frame": 150,
+      "file": "review-mp4/0006.png",
+      "meanLuma": 0.219786628540305,
+      "blackPixelFraction": 0.02670138888888889,
+      "sha256": "44b369dd5d16ef7b9886a57bc5812d01e8c18a919d15430d9649442ecca23db3",
+      "referenceFrame": "frames-recorded/SHOT02-middle.png",
+      "referenceMeanAbsoluteError": 2.1374840856481483,
+      "referencePSNR": 39.80893396440599
+    },
+    {
+      "frame": 184,
+      "file": "review-mp4/0007.png",
+      "meanLuma": 0.24565477487291212,
+      "blackPixelFraction": 0.021710069444444445,
+      "sha256": "b7acc6bf1b992d7182b892081f798d776fd2824fdf138fc93650d235f8f70044",
+      "referenceFrame": "frames-recorded/SHOT02-end.png",
+      "referenceMeanAbsoluteError": 2.1689409722222224,
+      "referencePSNR": 39.39898734956964
+    },
+    {
+      "frame": 185,
+      "file": "review-mp4/0008.png",
+      "meanLuma": 0.22254096881808277,
+      "blackPixelFraction": 0.11871961805555556,
+      "sha256": "2c3b65b4d86712f2e582c57d111f96a5b33c7a3e46322f6cc6381b64c8704d53",
+      "referenceFrame": "frames-recorded/SHOT03-start.png",
+      "referenceMeanAbsoluteError": 2.1476793981481483,
+      "referencePSNR": 39.31879863061846
+    },
+    {
+      "frame": 211,
+      "file": "review-mp4/0009.png",
+      "meanLuma": 0.21975047090595498,
+      "blackPixelFraction": 0.11301215277777778,
+      "sha256": "fae8402779c7d3f1fc7bdf7234e494ce96c63b364148a601f8d716b5a4809098",
+      "referenceFrame": "frames-recorded/SHOT03-middle.png",
+      "referenceMeanAbsoluteError": 2.02798900462963,
+      "referencePSNR": 39.31850293266029
+    },
+    {
+      "frame": 236,
+      "file": "review-mp4/0010.png",
+      "meanLuma": 0.21433221564088598,
+      "blackPixelFraction": 0.11797743055555555,
+      "sha256": "0bd988cc4d57637c988b6985f8276bef42375aabe96f24762cb15877bd1080dd",
+      "referenceFrame": "frames-recorded/SHOT03-end.png",
+      "referenceMeanAbsoluteError": 2.1784780092592593,
+      "referencePSNR": 38.82559800071498
+    },
+    {
+      "frame": 237,
+      "file": "review-mp4/0011.png",
+      "meanLuma": 0.18180512436456064,
+      "blackPixelFraction": 0.04938802083333333,
+      "sha256": "488f420ec2cd23fa038458ea776a31596d32710a34a6ea3e2d25c5a6350ad6a9",
+      "referenceFrame": "frames-recorded/SHOT04-start.png",
+      "referenceMeanAbsoluteError": 2.2407740162037038,
+      "referencePSNR": 39.24370492563182
+    },
+    {
+      "frame": 398,
+      "file": "review-mp4/0012.png",
+      "meanLuma": 0.18207801152868555,
+      "blackPixelFraction": 0.04201388888888889,
+      "sha256": "ec4d539c5834eecfd63b0c7c1ce932bc76cdc050cc3a4894e8286b84cbd6c48b",
+      "referenceFrame": "frames-recorded/SHOT04-middle.png",
+      "referenceMeanAbsoluteError": 2.2375231481481483,
+      "referencePSNR": 39.100208484439484
+    },
+    {
+      "frame": 558,
+      "file": "review-mp4/0013.png",
+      "meanLuma": 0.1819965334513435,
+      "blackPixelFraction": 0.040685763888888886,
+      "sha256": "39232e67657371b86cfb4995ee65b59d9c5472a5e9a84073287fc520b5e232a5",
+      "referenceFrame": "frames-recorded/SHOT04-end.png",
+      "referenceMeanAbsoluteError": 2.2728182870370373,
+      "referencePSNR": 39.044087478986754
+    },
+    {
+      "frame": 559,
+      "file": "review-mp4/0014.png",
+      "meanLuma": 0.25335157952069715,
+      "blackPixelFraction": 0.09646701388888888,
+      "sha256": "65e8ffe91c5e54d9a0f8a0586b82ae0c9aaee1be4d91117a86edae898c822017",
+      "referenceFrame": "frames-recorded/SHOT05-start.png",
+      "referenceMeanAbsoluteError": 2.4158130787037035,
+      "referencePSNR": 37.77139581380672
+    },
+    {
+      "frame": 662,
+      "file": "review-mp4/0015.png",
+      "meanLuma": 0.25078010393972405,
+      "blackPixelFraction": 0.09278645833333334,
+      "sha256": "6799b491cfa9a5510eab7deffc461e5d70d735a9a22d373f129383c8fdd844a4",
+      "referenceFrame": "frames-recorded/SHOT05-middle.png",
+      "referenceMeanAbsoluteError": 2.4081293402777777,
+      "referencePSNR": 37.74034036056561
+    },
+    {
+      "frame": 765,
+      "file": "review-mp4/0016.png",
+      "meanLuma": 0.2528018280228758,
+      "blackPixelFraction": 0.09893229166666667,
+      "sha256": "b64c6b466844b8c70d5138a66b458be8350e4ea09f8b00a91b05fd5f2317f112",
+      "referenceFrame": "frames-recorded/SHOT05-end.png",
+      "referenceMeanAbsoluteError": 2.460915798611111,
+      "referencePSNR": 37.48062715504815
+    },
+    {
+      "frame": 766,
+      "file": "review-mp4/0017.png",
+      "meanLuma": 0.19761651801924474,
+      "blackPixelFraction": 0.07493055555555556,
+      "sha256": "8d74e38d33a1eff5ed6c1ba9684c9d8731462e7a2964ea665b35eb1b0a9e8941",
+      "referenceFrame": "frames-recorded/SHOT06-start.png",
+      "referenceMeanAbsoluteError": 2.5093070023148147,
+      "referencePSNR": 37.46024634288912
+    },
+    {
+      "frame": 870,
+      "file": "review-mp4/0018.png",
+      "meanLuma": 0.19796897126906318,
+      "blackPixelFraction": 0.07154947916666667,
+      "sha256": "324cafb5ce531e641a9b4821a2dd28c9e5e4d7795a2a83791e8f1b0f999ebf8f",
+      "referenceFrame": "frames-recorded/SHOT06-middle.png",
+      "referenceMeanAbsoluteError": 2.4913917824074074,
+      "referencePSNR": 37.405346526389295
+    },
+    {
+      "frame": 973,
+      "file": "review-mp4/0019.png",
+      "meanLuma": 0.1967956495098039,
+      "blackPixelFraction": 0.07307725694444445,
+      "sha256": "62cb4ba352f78013a331b842294b353cd20d7b1490a725b5a835d21722c0fa0e",
+      "referenceFrame": "frames-recorded/SHOT06-end.png",
+      "referenceMeanAbsoluteError": 2.5399435763888887,
+      "referencePSNR": 37.31218146803146
+    },
+    {
+      "frame": 974,
+      "file": "review-mp4/0020.png",
+      "meanLuma": 0.244627740332244,
+      "blackPixelFraction": 0.09169704861111111,
+      "sha256": "f361174c3b624524cf1d94eca89ab4c53cde0d465302e65cc4ecdf0510be1658",
+      "referenceFrame": "frames-recorded/SHOT07-start.png",
+      "referenceMeanAbsoluteError": 2.783003472222222,
+      "referencePSNR": 35.891083898730685
+    },
+    {
+      "frame": 1030,
+      "file": "review-mp4/0021.png",
+      "meanLuma": 0.24683837145969498,
+      "blackPixelFraction": 0.08630642361111111,
+      "sha256": "6dd1aff7b5401931275974f855a4fe576a84aebcada9857151eea05a9cd5eb63",
+      "referenceFrame": "frames-recorded/SHOT07-middle.png",
+      "referenceMeanAbsoluteError": 2.7094646990740743,
+      "referencePSNR": 35.796173404466096
+    },
+    {
+      "frame": 1086,
+      "file": "review-mp4/0022.png",
+      "meanLuma": 0.24771838689179373,
+      "blackPixelFraction": 0.08971788194444444,
+      "sha256": "46400d8d0d23543e335cd2b215c9ac94a8c110a7ac668a01c7e687e06fca037e",
+      "referenceFrame": "frames-recorded/SHOT07-end.png",
+      "referenceMeanAbsoluteError": 2.888002025462963,
+      "referencePSNR": 35.55443479259383
+    },
+    {
+      "frame": 1087,
+      "file": "review-mp4/0023.png",
+      "meanLuma": 0.1647097857661583,
+      "blackPixelFraction": 0.1656857638888889,
+      "sha256": "75527b36f38357ad54abb2f9af5ff306ea46267e44fc32ec44b8262a6f0ac220",
+      "referenceFrame": "frames-recorded/SHOT08-start.png",
+      "referenceMeanAbsoluteError": 2.3816333912037035,
+      "referencePSNR": 37.229514108099224
+    },
+    {
+      "frame": 1155,
+      "file": "review-mp4/0024.png",
+      "meanLuma": 0.16308175040849673,
+      "blackPixelFraction": 0.1673828125,
+      "sha256": "a27d27c7922cd56c0898ad3ef4b6a6e0dd9b9397e7f163fce7b99aef8bba5b85",
+      "referenceFrame": "frames-recorded/SHOT08-middle.png",
+      "referenceMeanAbsoluteError": 2.302220775462963,
+      "referencePSNR": 37.32855735534748
+    },
+    {
+      "frame": 1222,
+      "file": "review-mp4/0025.png",
+      "meanLuma": 0.16194392247639797,
+      "blackPixelFraction": 0.17395833333333333,
+      "sha256": "c9021164342523916690beddbf5e0879cbb947c99326536d15af6ebfaa9c3a6a",
+      "referenceFrame": "frames-recorded/SHOT08-end.png",
+      "referenceMeanAbsoluteError": 2.387673611111111,
+      "referencePSNR": 37.096980657922025
+    },
+    {
+      "frame": 1223,
+      "file": "review-mp4/0026.png",
+      "meanLuma": 0.15778346836419754,
+      "blackPixelFraction": 0.08751736111111111,
+      "sha256": "8c440fc0b497be8b8a69cac3a54a16cc23dc51c1092f6db0d4fff336619a9692",
+      "referenceFrame": "frames-recorded/SHOT09-start.png",
+      "referenceMeanAbsoluteError": 2.0466652199074074,
+      "referencePSNR": 40.36742346089662
+    },
+    {
+      "frame": 1274,
+      "file": "review-mp4/0027.png",
+      "meanLuma": 0.15741809073166302,
+      "blackPixelFraction": 0.08351996527777777,
+      "sha256": "9869978b17769e852a3d02513f78ea60d413748228010449b2f1a1c02b7af09c",
+      "referenceFrame": "frames-recorded/SHOT09-middle.png",
+      "referenceMeanAbsoluteError": 1.9722019675925926,
+      "referencePSNR": 40.61348746133329
+    },
+    {
+      "frame": 1325,
+      "file": "review-mp4/0028.png",
+      "meanLuma": 0.15597092864923748,
+      "blackPixelFraction": 0.08565972222222222,
+      "sha256": "9741a89f2c575a89a5aff53c17722d5f8f69326ecbb6539cafc55b164be78fe0",
+      "referenceFrame": "frames-recorded/SHOT09-end.png",
+      "referenceMeanAbsoluteError": 2.021304976851852,
+      "referencePSNR": 40.31164456871939
+    },
+    {
+      "frame": 1326,
+      "file": "review-mp4/0029.png",
+      "meanLuma": 0.16921111905410313,
+      "blackPixelFraction": 0.167265625,
+      "sha256": "292a61deedacd220070ec62f1564285759168e7fd69c37d6d879c03ab6a50f51",
+      "referenceFrame": "frames-recorded/SHOT10-start.png",
+      "referenceMeanAbsoluteError": 2.03296875,
+      "referencePSNR": 39.97361791878412
+    },
+    {
+      "frame": 1366,
+      "file": "review-mp4/0030.png",
+      "meanLuma": 0.17222193854393608,
+      "blackPixelFraction": 0.1617230902777778,
+      "sha256": "b9b75daaad84e2956d2b80d4039b63ed9635dbd56f1e7ff00bf69556a451a723",
+      "referenceFrame": "frames-recorded/SHOT10-middle.png",
+      "referenceMeanAbsoluteError": 1.8702025462962963,
+      "referencePSNR": 40.11780489845226
+    },
+    {
+      "frame": 1405,
+      "file": "review-mp4/0031.png",
+      "meanLuma": 0.17102641044843864,
+      "blackPixelFraction": 0.17467013888888888,
+      "sha256": "bf10507870960451b122cdb78912a5837e2c44909982d0b8b0b03d7f353ae754",
+      "referenceFrame": "frames-recorded/SHOT10-end.png",
+      "referenceMeanAbsoluteError": 2.046720196759259,
+      "referencePSNR": 39.54274600579093
+    },
+    {
+      "frame": 1406,
+      "file": "review-mp4/0032.png",
+      "meanLuma": 0.17099501293572983,
+      "blackPixelFraction": 0.1748220486111111,
+      "sha256": "a28540a4887e59e79281fee892b7d2a2dbcfd89b20c3ecd9c6701661f8ae4b77",
+      "referenceFrame": "frames-recorded/SHOT11-start.png",
+      "referenceMeanAbsoluteError": 2.0531669560185186,
+      "referencePSNR": 39.52178965571834
+    },
+    {
+      "frame": 1416,
+      "file": "review-mp4/0033.png",
+      "meanLuma": 0.24615535925018156,
+      "blackPixelFraction": 0.13809895833333333,
+      "sha256": "7cc85ef8d5e8a9c30bec68e49f28d2342889af99dfe927058ffe902b4a0b1dd0",
+      "referenceFrame": "frames-recorded/SHOT11-transition.png",
+      "referenceMeanAbsoluteError": 2.166140046296296,
+      "referencePSNR": 38.794766517830254
+    },
+    {
+      "frame": 1577,
+      "file": "review-mp4/0034.png",
+      "meanLuma": 0.24541575322258535,
+      "blackPixelFraction": 0.13731336805555555,
+      "sha256": "363c69af397b232b58c4aeefc6a9e0f293b94ff2aeaae5ef6fc43b07f3965a32",
+      "referenceFrame": "frames-recorded/SHOT11-middle.png",
+      "referenceMeanAbsoluteError": 2.1364641203703703,
+      "referencePSNR": 38.861289309912465
+    },
+    {
+      "frame": 1748,
+      "file": "review-mp4/0035.png",
+      "meanLuma": 0.24964805169753088,
+      "blackPixelFraction": 0.14079427083333335,
+      "sha256": "1aabac23d2a04e78465f8987a3ade0ec0522f48f715e6e665e8926940d179bfb",
+      "referenceFrame": "frames-recorded/SHOT11-end.png",
+      "referenceMeanAbsoluteError": 2.1624913194444444,
+      "referencePSNR": 38.692413361946755
+    },
+    {
+      "frame": 1749,
+      "file": "review-mp4/0036.png",
+      "meanLuma": 0.17170833900689905,
+      "blackPixelFraction": 0.14868055555555557,
+      "sha256": "867f6bf1c59e840872cb54b2c3d78ed9f1c6ad871de1b8f90368d387292db84b",
+      "referenceFrame": "frames-recorded/SHOT12-start.png",
+      "referenceMeanAbsoluteError": 2.557355324074074,
+      "referencePSNR": 36.27104869481496
+    },
+    {
+      "frame": 1925,
+      "file": "review-mp4/0037.png",
+      "meanLuma": 0.16662627087872187,
+      "blackPixelFraction": 0.1441970486111111,
+      "sha256": "2794d24c9d933d9274658ee20cb40d676bc0344d67f1ddec35d1b6442a180bf6",
+      "referenceFrame": "frames-recorded/SHOT12-middle.png",
+      "referenceMeanAbsoluteError": 2.5070182291666665,
+      "referencePSNR": 36.34755732761268
+    },
+    {
+      "frame": 2100,
+      "file": "review-mp4/0038.png",
+      "meanLuma": 0.17120804398148148,
+      "blackPixelFraction": 0.15159288194444445,
+      "sha256": "a0c3e40744f54926e6e7395c1581ed6376bf24a5d0ff30bb61a7a56a7bd247e8",
+      "referenceFrame": "frames-recorded/SHOT12-end.png",
+      "referenceMeanAbsoluteError": 2.9316290509259257,
+      "referencePSNR": 35.03647111541688
+    },
+    {
+      "frame": 2101,
+      "file": "review-mp4/0039.png",
+      "meanLuma": 0.16399156908133625,
+      "blackPixelFraction": 0.10294270833333333,
+      "sha256": "a805fce759538d0ae9024c55fe05423a4dbc0f1dcde480fa798b58dc7e604884",
+      "referenceFrame": "frames-recorded/SHOT13-start.png",
+      "referenceMeanAbsoluteError": 2.250736400462963,
+      "referencePSNR": 38.626796543105165
+    },
+    {
+      "frame": 2248,
+      "file": "review-mp4/0040.png",
+      "meanLuma": 0.1582179443536674,
+      "blackPixelFraction": 0.10137586805555555,
+      "sha256": "07ceadac2c21b5693ba572e999e75c26777ac534c0941aa35cad7186820c68ca",
+      "referenceFrame": "frames-recorded/SHOT13-middle.png",
+      "referenceMeanAbsoluteError": 2.067154224537037,
+      "referencePSNR": 38.78507321346828
+    },
+    {
+      "frame": 2395,
+      "file": "review-mp4/0041.png",
+      "meanLuma": 0.15790525145243284,
+      "blackPixelFraction": 0.11682291666666667,
+      "sha256": "564bd0c078f09f88f2b773fe5f18ed2237b9d12e3c791f50b6485ee9b65bd5ee",
+      "referenceFrame": "frames-recorded/SHOT13-end.png",
+      "referenceMeanAbsoluteError": 2.242941261574074,
+      "referencePSNR": 38.46095461140376
+    },
+    {
+      "frame": 2396,
+      "file": "review-mp4/0042.png",
+      "meanLuma": 0.19095318740922293,
+      "blackPixelFraction": 0.02866753472222222,
+      "sha256": "9b095a4ee0045a5d5d3f60b19c9330a6360246c0589553903b54936ca9821ce0",
+      "referenceFrame": "frames-recorded/SHOT14-start.png",
+      "referenceMeanAbsoluteError": 2.2494675925925924,
+      "referencePSNR": 39.31991883117056
+    },
+    {
+      "frame": 2634,
+      "file": "review-mp4/0043.png",
+      "meanLuma": 0.2330196645787945,
+      "blackPixelFraction": 0.025889756944444446,
+      "sha256": "8f3e3a15f0471223ab811b3bd6aa76b783ddcb732643dae1f5fada830d4c99d2",
+      "referenceFrame": "frames-recorded/SHOT14-middle.png",
+      "referenceMeanAbsoluteError": 2.262824074074074,
+      "referencePSNR": 38.874686896582816
+    },
+    {
+      "frame": 2872,
+      "file": "review-mp4/0044.png",
+      "meanLuma": 0.23460081926289034,
+      "blackPixelFraction": 0.025889756944444446,
+      "sha256": "796210c669fb5ec1bba0b99aecc1d473a3a59e8a0b6f74eed33c98d2aeb402d9",
+      "referenceFrame": "frames-recorded/SHOT14-end.png",
+      "referenceMeanAbsoluteError": 2.264827835648148,
+      "referencePSNR": 38.974310254481544
+    },
+    {
+      "frame": 2873,
+      "file": "review-mp4/0045.png",
+      "meanLuma": 0.17353319035947712,
+      "blackPixelFraction": 0.04472222222222222,
+      "sha256": "4eee4c3c916af6ed1c40af357351e9128631f4f09d7bff512e39e6b16559b891",
+      "referenceFrame": "frames-recorded/SHOT15-start.png",
+      "referenceMeanAbsoluteError": 2.194503761574074,
+      "referencePSNR": 39.666386309169404
+    },
+    {
+      "frame": 3016,
+      "file": "review-mp4/0046.png",
+      "meanLuma": 0.17210335534676835,
+      "blackPixelFraction": 0.04310763888888889,
+      "sha256": "aa68d17962104bf5a05a7448bfe6857b8ea20cfe503de6b7821c67fe7d1c882f",
+      "referenceFrame": "frames-recorded/SHOT15-middle.png",
+      "referenceMeanAbsoluteError": 2.154842303240741,
+      "referencePSNR": 39.69226648573575
+    },
+    {
+      "frame": 3159,
+      "file": "review-mp4/0047.png",
+      "meanLuma": 0.17153201593137254,
+      "blackPixelFraction": 0.043263888888888886,
+      "sha256": "91cc1fcb4598297153463340a0416ee84e50798dd0c1429b99ea7ad5cfc3b29f",
+      "referenceFrame": "frames-recorded/SHOT15-end.png",
+      "referenceMeanAbsoluteError": 2.1781843171296296,
+      "referencePSNR": 39.57406387516752
+    },
+    {
+      "frame": 3160,
+      "file": "review-mp4/0048.png",
+      "meanLuma": 0.22870242715141614,
+      "blackPixelFraction": 0.202890625,
+      "sha256": "69afbac947b1eea9eb6293e28436b86c110ea5b304e1abb11b9cb36f67320348",
+      "referenceFrame": "frames-recorded/SHOT16-start.png",
+      "referenceMeanAbsoluteError": 1.9824320023148148,
+      "referencePSNR": 39.49351176734125
+    },
+    {
+      "frame": 3200,
+      "file": "review-mp4/0049.png",
+      "meanLuma": 0.22511187704248367,
+      "blackPixelFraction": 0.207578125,
+      "sha256": "150dc87a98a2cb0a765185b90595633b6a1a19010124a2f13f68c728db788d77",
+      "referenceFrame": "frames-recorded/SHOT16-middle.png",
+      "referenceMeanAbsoluteError": 1.872958622685185,
+      "referencePSNR": 39.855533820611896
+    },
+    {
+      "frame": 3239,
+      "file": "review-mp4/0050.png",
+      "meanLuma": 0.22301965323166303,
+      "blackPixelFraction": 0.20721788194444443,
+      "sha256": "91083041567e399c14b69f9b55ce83e90f84124c172b1a00b3aa62a79e9225b8",
+      "referenceFrame": "frames-recorded/SHOT16-end.png",
+      "referenceMeanAbsoluteError": 1.883587962962963,
+      "referencePSNR": 39.789298358266684
+    },
+    {
+      "frame": 3240,
+      "file": "review-mp4/0051.png",
+      "meanLuma": 0.21483215890522878,
+      "blackPixelFraction": 0.20875868055555555,
+      "sha256": "f2c18947147fdb0e041c7d3a95f38c94a69d91932f41234bce20ff158eacbee8",
+      "referenceFrame": "frames-recorded/SHOT17-start.png",
+      "referenceMeanAbsoluteError": 1.9297280092592592,
+      "referencePSNR": 39.437683255495145
+    },
+    {
+      "frame": 3299,
+      "file": "review-mp4/0052.png",
+      "meanLuma": 0.22046978826252722,
+      "blackPixelFraction": 0.20293402777777778,
+      "sha256": "31bbc342f40192bf2ccebf7316230a95639bcb308b69828875b0bfe7175dc975",
+      "referenceFrame": "frames-recorded/SHOT17-middle.png",
+      "referenceMeanAbsoluteError": 1.91640625,
+      "referencePSNR": 39.202882394733074
+    },
+    {
+      "frame": 3358,
+      "file": "review-mp4/0053.png",
+      "meanLuma": 0.22367488198983296,
+      "blackPixelFraction": 0.20315104166666667,
+      "sha256": "e461a021bf492af0493a89a566e79880e07387b76e9af9e9fece44eaa929d069",
+      "referenceFrame": "frames-recorded/SHOT17-end.png",
+      "referenceMeanAbsoluteError": 1.9644762731481482,
+      "referencePSNR": 39.304417027948205
+    },
+    {
+      "frame": 3359,
+      "file": "review-mp4/0054.png",
+      "meanLuma": 0.22711068559368192,
+      "blackPixelFraction": 0.15930989583333333,
+      "sha256": "37326831bd2cd383b2fbe0aae932d7f559954412028687d266bc4f82de075f1d",
+      "referenceFrame": "frames-recorded/SHOT18-start.png",
+      "referenceMeanAbsoluteError": 2.0292650462962962,
+      "referencePSNR": 39.20356283944807
+    },
+    {
+      "frame": 3412,
+      "file": "review-mp4/0055.png",
+      "meanLuma": 0.2272674348674655,
+      "blackPixelFraction": 0.15684461805555555,
+      "sha256": "8e67b59e889cec24433346f2a6efe6d993475822f227af1e707ad9d455fa59b0",
+      "referenceFrame": "frames-recorded/SHOT18-middle.png",
+      "referenceMeanAbsoluteError": 1.9694733796296295,
+      "referencePSNR": 39.25514175545987
+    },
+    {
+      "frame": 3465,
+      "file": "review-mp4/0056.png",
+      "meanLuma": 0.22690259055010895,
+      "blackPixelFraction": 0.15793836805555556,
+      "sha256": "6e48940cf5116f70ca4edf1b6015f164c3bf248090dd8cee5ee47e12e00f75a0",
+      "referenceFrame": "frames-recorded/SHOT18-end.png",
+      "referenceMeanAbsoluteError": 1.9926765046296295,
+      "referencePSNR": 38.89703650621989
+    },
+    {
+      "frame": 3466,
+      "file": "review-mp4/0057.png",
+      "meanLuma": 0.2276008362835875,
+      "blackPixelFraction": 0.1504904513888889,
+      "sha256": "5eb9aaf49ca163805ca9e119837f42c367e2313b015540d46859f9b380fb0c00",
+      "referenceFrame": "frames-recorded/SHOT19-start.png",
+      "referenceMeanAbsoluteError": 2.1759678819444446,
+      "referencePSNR": 38.00925734551933
+    },
+    {
+      "frame": 3648,
+      "file": "review-mp4/0058.png",
+      "meanLuma": 0.22319635076252722,
+      "blackPixelFraction": 0.142421875,
+      "sha256": "36dee33d67737ae46ccc58785ec3f812f662eaf2d1458ffc8d46a46d5aaad332",
+      "referenceFrame": "frames-recorded/SHOT19-middle.png",
+      "referenceMeanAbsoluteError": 2.1728313078703705,
+      "referencePSNR": 37.76732972275686
+    },
+    {
+      "frame": 3829,
+      "file": "review-mp4/0059.png",
+      "meanLuma": 0.22538170048111836,
+      "blackPixelFraction": 0.14118055555555556,
+      "sha256": "a1b3c9fdbada8a452900c32ee8243e31011a14c5ca2c3371cbc8b0c939aad284",
+      "referenceFrame": "frames-recorded/SHOT19-end.png",
+      "referenceMeanAbsoluteError": 2.213984375,
+      "referencePSNR": 37.666348778307594
+    },
+    {
+      "frame": 3830,
+      "file": "review-mp4/0060.png",
+      "meanLuma": 0.20791226397966595,
+      "blackPixelFraction": 0.190703125,
+      "sha256": "fc4abdd9baf8c177debadeec297d032a9ddc69ff46586a2cf161318e17613d62",
+      "referenceFrame": "frames-recorded/SHOT20-start.png",
+      "referenceMeanAbsoluteError": 2.183017939814815,
+      "referencePSNR": 38.19589147915528
+    },
+    {
+      "frame": 3922,
+      "file": "review-mp4/0061.png",
+      "meanLuma": 0.1930273068718228,
+      "blackPixelFraction": 0.1878862847222222,
+      "sha256": "cc1696408dd298ee932e88b83c74c0d172a262ba4b433ae73a3ad339a0792298",
+      "referenceFrame": "frames-recorded/SHOT20-middle.png",
+      "referenceMeanAbsoluteError": 2.132337962962963,
+      "referencePSNR": 38.39294340180676
+    },
+    {
+      "frame": 4013,
+      "file": "review-mp4/0062.png",
+      "meanLuma": 0.19409476556826435,
+      "blackPixelFraction": 0.18760416666666666,
+      "sha256": "35c40bf5f963626d2ba39876f8bab79f68fcae5f80379714fdec6b8c5bd844b6",
+      "referenceFrame": "frames-recorded/SHOT20-end.png",
+      "referenceMeanAbsoluteError": 2.1308492476851852,
+      "referencePSNR": 38.344025604332955
+    },
+    {
+      "frame": 4014,
+      "file": "review-mp4/0063.png",
+      "meanLuma": 0.20947923474945532,
+      "blackPixelFraction": 0.16104166666666667,
+      "sha256": "523b7d605b5317349642f45d90df5db252f5a1ceefa5a72135258c57ac527f20",
+      "referenceFrame": "frames-recorded/SHOT21-start.png",
+      "referenceMeanAbsoluteError": 2.278732638888889,
+      "referencePSNR": 37.656025626902164
+    },
+    {
+      "frame": 4085,
+      "file": "review-mp4/0064.png",
+      "meanLuma": 0.21177655796114742,
+      "blackPixelFraction": 0.15336371527777778,
+      "sha256": "7146b154a38b464398010a5e321a377ee27a5b76745c02699fbb164acdb79913",
+      "referenceFrame": "frames-recorded/SHOT21-middle.png",
+      "referenceMeanAbsoluteError": 2.132790798611111,
+      "referencePSNR": 37.744610612057464
+    },
+    {
+      "frame": 4155,
+      "file": "review-mp4/0065.png",
+      "meanLuma": 0.21116108387799565,
+      "blackPixelFraction": 0.1607986111111111,
+      "sha256": "13d8d4aa334838885ddbd07b80325fbb4ca93b6a43b000a0e4219e56798bde5e",
+      "referenceFrame": "frames-recorded/SHOT21-end.png",
+      "referenceMeanAbsoluteError": 2.259442997685185,
+      "referencePSNR": 37.7341951704434
+    },
+    {
+      "frame": 4156,
+      "file": "review-mp4/0066.png",
+      "meanLuma": 0.22122710148874364,
+      "blackPixelFraction": 0.146875,
+      "sha256": "d1cac467f146321bc6c93dd51ba59fed5abc3ca697d4da4fdcb54eb8468e4bda",
+      "referenceFrame": "frames-recorded/SHOT22-start.png",
+      "referenceMeanAbsoluteError": 2.3767650462962964,
+      "referencePSNR": 37.43708756430438
+    },
+    {
+      "frame": 4290,
+      "file": "review-mp4/0067.png",
+      "meanLuma": 0.21903478463144518,
+      "blackPixelFraction": 0.13987847222222222,
+      "sha256": "5141cf327a225d6047301e3f04b3098854e3b19772732b8e7f14fd20b6aadddc",
+      "referenceFrame": "frames-recorded/SHOT22-middle.png",
+      "referenceMeanAbsoluteError": 2.2303023726851854,
+      "referencePSNR": 37.599912972456245
+    },
+    {
+      "frame": 4424,
+      "file": "review-mp4/0068.png",
+      "meanLuma": 0.2212709921931736,
+      "blackPixelFraction": 0.14752604166666666,
+      "sha256": "487d135155d51685ffbbaf0b088ca9716c3965e6ab8aadaadcf2f9166153f09b",
+      "referenceFrame": "frames-recorded/SHOT22-end.png",
+      "referenceMeanAbsoluteError": 2.358974247685185,
+      "referencePSNR": 37.31844299671174
+    },
+    {
+      "frame": 4425,
+      "file": "review-mp4/0069.png",
+      "meanLuma": 0.214540412808642,
+      "blackPixelFraction": 0.176015625,
+      "sha256": "f657ae7a10774241afdf8b55922460049513d3387416b5e5601c1b8dbded7d6b",
+      "referenceFrame": "frames-recorded/SHOT23-start.png",
+      "referenceMeanAbsoluteError": 2.1489308449074076,
+      "referencePSNR": 37.79147790179681
+    },
+    {
+      "frame": 4493,
+      "file": "review-mp4/0070.png",
+      "meanLuma": 0.2059388843500363,
+      "blackPixelFraction": 0.17427083333333335,
+      "sha256": "bfc69ed02a7a810ccd54845705838fd58f0f1b299783455afbc5d7c1b8cc4b50",
+      "referenceFrame": "frames-recorded/SHOT23-middle.png",
+      "referenceMeanAbsoluteError": 2.1573697916666665,
+      "referencePSNR": 37.441085760638025
+    },
+    {
+      "frame": 4561,
+      "file": "review-mp4/0071.png",
+      "meanLuma": 0.20634154298293392,
+      "blackPixelFraction": 0.17787326388888888,
+      "sha256": "16586629b8b5976b2a391c900091abf85ba7992e8d8fbcb7f4c568c07dc4f02f",
+      "referenceFrame": "frames-recorded/SHOT23-end.png",
+      "referenceMeanAbsoluteError": 2.1743605324074076,
+      "referencePSNR": 37.57989514451745
+    },
+    {
+      "frame": 4562,
+      "file": "review-mp4/0072.png",
+      "meanLuma": 0.19056941040305012,
+      "blackPixelFraction": 0.20053819444444446,
+      "sha256": "153107a3590d1fdae7196e038e970063f7f6e4b0d47d49718acaa3116e5e37e0",
+      "referenceFrame": "frames-recorded/SHOT25-start.png",
+      "referenceMeanAbsoluteError": 2.2103862847222224,
+      "referencePSNR": 37.571256965747935
+    },
+    {
+      "frame": 4572,
+      "file": "review-mp4/0073.png",
+      "meanLuma": 0.15867297567175018,
+      "blackPixelFraction": 0.19697482638888889,
+      "sha256": "7cd4746f20adb20827b2f07838b5d60c5304428d4f0c8165321775117e932e3f",
+      "referenceFrame": "frames-recorded/SHOT25-transition.png",
+      "referenceMeanAbsoluteError": 2.2737239583333335,
+      "referencePSNR": 37.91302276864173
+    },
+    {
+      "frame": 4631,
+      "file": "review-mp4/0074.png",
+      "meanLuma": 0.17238254584241103,
+      "blackPixelFraction": 0.19648871527777778,
+      "sha256": "cee24a0c9072054f3ce4543c6d6eba5db1ee05119e3e91fb09fc15e8dcb798f0",
+      "referenceFrame": "frames-recorded/SHOT25-middle.png",
+      "referenceMeanAbsoluteError": 2.224548611111111,
+      "referencePSNR": 37.47533170863517
+    },
+    {
+      "frame": 4699,
+      "file": "review-mp4/0075.png",
+      "meanLuma": 0.18462506240922297,
+      "blackPixelFraction": 0.20742621527777777,
+      "sha256": "ada5ac85833751a2488e6cc493212e1a3080278c971682eff2d94c839f6dd0b3",
+      "referenceFrame": "frames-recorded/SHOT25-end.png",
+      "referenceMeanAbsoluteError": 2.4997641782407407,
+      "referencePSNR": 36.369118253815074
+    },
+    {
+      "frame": 4700,
+      "file": "review-mp4/0076.png",
+      "meanLuma": 0.21811305147058824,
+      "blackPixelFraction": 0.19418836805555556,
+      "sha256": "f6aee6ee3e0ab205e01cdf9514a2c3d41a595b4e6505b4cd02e1fd2faae7e1e1",
+      "referenceFrame": "frames-recorded/SHOT24-start.png",
+      "referenceMeanAbsoluteError": 2.2352719907407406,
+      "referencePSNR": 37.581946768313024
+    },
+    {
+      "frame": 4816,
+      "file": "review-mp4/0077.png",
+      "meanLuma": 0.21423164601488745,
+      "blackPixelFraction": 0.18816840277777777,
+      "sha256": "abdb5ca5d779abd9bc3bff2dbb9e8c0e3312fc6770cc4e09ac375127fc92eb06",
+      "referenceFrame": "frames-recorded/SHOT24-middle.png",
+      "referenceMeanAbsoluteError": 2.229454571759259,
+      "referencePSNR": 37.2770228104585
+    },
+    {
+      "frame": 4931,
+      "file": "review-mp4/0078.png",
+      "meanLuma": 0.21534452160493828,
+      "blackPixelFraction": 0.18575086805555555,
+      "sha256": "e6fcf38f9516cb3710400a92b7fd6a574bb997ccdbdc0a6d7f5e115fdcfa1f75",
+      "referenceFrame": "frames-recorded/SHOT24-end.png",
+      "referenceMeanAbsoluteError": 2.216536458333333,
+      "referencePSNR": 37.580323547135336
+    },
+    {
+      "frame": 4932,
+      "file": "review-mp4/0079.png",
+      "meanLuma": 0.189929993872549,
+      "blackPixelFraction": 0.2079079861111111,
+      "sha256": "2d7d34b51742a2e6ca36ec577b591bfe8260cefabcfa631280091ba8c2e8b5fa",
+      "referenceFrame": "frames-recorded/SHOT26-start.png",
+      "referenceMeanAbsoluteError": 2.3109635416666667,
+      "referencePSNR": 36.84631259543871
+    },
+    {
+      "frame": 5052,
+      "file": "review-mp4/0080.png",
+      "meanLuma": 0.1902092070624546,
+      "blackPixelFraction": 0.19290364583333333,
+      "sha256": "348d80f189f46310095ba13136b9372db9478a2712bfef0f479f30ff9a3ce25a",
+      "referenceFrame": "frames-recorded/SHOT26-middle.png",
+      "referenceMeanAbsoluteError": 2.26154224537037,
+      "referencePSNR": 36.96534396423295
+    },
+    {
+      "frame": 5172,
+      "file": "review-mp4/0081.png",
+      "meanLuma": 0.19002667710602758,
+      "blackPixelFraction": 0.1989626736111111,
+      "sha256": "3903c8d1301d35eb25cceb0d1f8d6bf8315ebfc28ce235ec4670898444c026f1",
+      "referenceFrame": "frames-recorded/SHOT26-end.png",
+      "referenceMeanAbsoluteError": 2.3016087962962963,
+      "referencePSNR": 36.81355442767471
+    },
+    {
+      "frame": 5173,
+      "file": "review-mp4/0082.png",
+      "meanLuma": 0.202010552832244,
+      "blackPixelFraction": 0.15509548611111112,
+      "sha256": "76b1e3f5c467ffec9925cc153aac7e479674bfb31d60e07736bc897eb155113d",
+      "referenceFrame": "frames-recorded/SHOT27-start.png",
+      "referenceMeanAbsoluteError": 2.397236689814815,
+      "referencePSNR": 36.77224065094093
+    },
+    {
+      "frame": 5248,
+      "file": "review-mp4/0083.png",
+      "meanLuma": 0.20320571781953523,
+      "blackPixelFraction": 0.14625,
+      "sha256": "b783fdf4c82622bc8d3018e784634ea7f4ce23d3d74781a3052da8c81f389a05",
+      "referenceFrame": "frames-recorded/SHOT27-middle.png",
+      "referenceMeanAbsoluteError": 2.2476215277777776,
+      "referencePSNR": 37.22160601244065
+    },
+    {
+      "frame": 5322,
+      "file": "review-mp4/0084.png",
+      "meanLuma": 0.20351536968954248,
+      "blackPixelFraction": 0.15578125,
+      "sha256": "84ed8a59014dbc9795759db413b836332528c1f94e05b2c064ea684583ecd165",
+      "referenceFrame": "frames-recorded/SHOT27-end.png",
+      "referenceMeanAbsoluteError": 2.3520457175925924,
+      "referencePSNR": 36.87498669779495
+    },
+    {
+      "frame": 5323,
+      "file": "review-mp4/0085.png",
+      "meanLuma": 0.18170472494553377,
+      "blackPixelFraction": 0.20518663194444445,
+      "sha256": "5317d694aa1e01ee23aa081c2a1a94450e410375cc4c26d7aaa1cabb6ffa23b2",
+      "referenceFrame": "frames-recorded/SHOT28-start.png",
+      "referenceMeanAbsoluteError": 2.2463657407407407,
+      "referencePSNR": 38.00097000201419
+    },
+    {
+      "frame": 5531,
+      "file": "review-mp4/0086.png",
+      "meanLuma": 0.17919944285584605,
+      "blackPixelFraction": 0.19648003472222222,
+      "sha256": "408b51375fc5314d624b372a682bc4c015e6b46fbefb75a62582bbdcc40565bc",
+      "referenceFrame": "frames-recorded/SHOT28-middle.png",
+      "referenceMeanAbsoluteError": 2.2508637152777777,
+      "referencePSNR": 38.00088645833234
+    },
+    {
+      "frame": 5739,
+      "file": "review-mp4/0087.png",
+      "meanLuma": 0.1804846530047204,
+      "blackPixelFraction": 0.2005815972222222,
+      "sha256": "952a17646318802c24f9250c4307e87a29527db2d5168cb558562fbdf939726a",
+      "referenceFrame": "frames-recorded/SHOT28-end.png",
+      "referenceMeanAbsoluteError": 2.253933738425926,
+      "referencePSNR": 37.96180378702862
+    },
+    {
+      "frame": 5740,
+      "file": "review-mp4/0088.png",
+      "meanLuma": 0.18048147013435004,
+      "blackPixelFraction": 0.20061631944444444,
+      "sha256": "09a8ad5b27747147294fee9db7a7bd755f12275224c6f854e988e568084c84af",
+      "referenceFrame": "frames-recorded/SHOT29-start.png",
+      "referenceMeanAbsoluteError": 2.254376446759259,
+      "referencePSNR": 37.961036344348884
+    },
+    {
+      "frame": 5752,
+      "file": "review-mp4/0089.png",
+      "meanLuma": 0.1583586431100218,
+      "blackPixelFraction": 0.14391059027777778,
+      "sha256": "11e5c546d8ac9d31c092dd1ee1eeeedd65126289151ee2333e252b941fd1ca65",
+      "referenceFrame": "frames-recorded/SHOT29-transition.png",
+      "referenceMeanAbsoluteError": 2.294208622685185,
+      "referencePSNR": 38.60749280709617
+    },
+    {
+      "frame": 5783,
+      "file": "review-mp4/0090.png",
+      "meanLuma": 0.16269766135620917,
+      "blackPixelFraction": 0.13664496527777778,
+      "sha256": "e1a578444c641ea185bb40db4d13f28ba9389167f6b3b038e68f81ef53977fb2",
+      "referenceFrame": "frames-recorded/SHOT29-middle.png",
+      "referenceMeanAbsoluteError": 2.043991608796296,
+      "referencePSNR": 39.205716675109755
+    },
+    {
+      "frame": 5826,
+      "file": "review-mp4/0091.png",
+      "meanLuma": 0.16356236950798836,
+      "blackPixelFraction": 0.14190538194444444,
+      "sha256": "e3812e867d9d2d429116c74e779f26373391f2a8bc8ca09dbd3782b10382e469",
+      "referenceFrame": "frames-recorded/SHOT29-end.png",
+      "referenceMeanAbsoluteError": 2.1956929976851853,
+      "referencePSNR": 38.83254548660422
+    },
+    {
+      "frame": 5827,
+      "file": "review-mp4/0092.png",
+      "meanLuma": 0.16353938021968048,
+      "blackPixelFraction": 0.14198350694444445,
+      "sha256": "877fd8c0eba724bc638ab8a820cf722ee4df73a015fce254e30ae01f051c7200",
+      "referenceFrame": "frames-recorded/SHOT30-start.png",
+      "referenceMeanAbsoluteError": 2.200296585648148,
+      "referencePSNR": 38.81973652326966
+    },
+    {
+      "frame": 5839,
+      "file": "review-mp4/0093.png",
+      "meanLuma": 0.19141262708787218,
+      "blackPixelFraction": 0.057265625,
+      "sha256": "769c7b69f244c1879d9c1a2197c148e676a951a6a85db69dea27298903c6e6ee",
+      "referenceFrame": "frames-recorded/SHOT30-transition.png",
+      "referenceMeanAbsoluteError": 2.3560734953703704,
+      "referencePSNR": 38.40508457874813
+    },
+    {
+      "frame": 5904,
+      "file": "review-mp4/0094.png",
+      "meanLuma": 0.19061380038126363,
+      "blackPixelFraction": 0.05405815972222222,
+      "sha256": "fe9fc405956828af4ef7e8e48cd20a3eab82a93ea7908bfb0d593ed13a6d72f1",
+      "referenceFrame": "frames-recorded/SHOT30-middle.png",
+      "referenceMeanAbsoluteError": 2.198187210648148,
+      "referencePSNR": 38.681394714505956
+    },
+    {
+      "frame": 5980,
+      "file": "review-mp4/0095.png",
+      "meanLuma": 0.18624890500181554,
+      "blackPixelFraction": 0.057903645833333336,
+      "sha256": "d4324fac49cca29d89e41f33ce90fba9e6912f4f2a7eee91ad7ae2509784560f",
+      "referenceFrame": "frames-recorded/SHOT30-end.png",
+      "referenceMeanAbsoluteError": 2.290162037037037,
+      "referencePSNR": 38.616479719638555
+    }
+  ],
+  "audioQA": {
+    "status": "PASS",
+    "checks": {
+      "aac": true,
+      "mono48k": true,
+      "integratedLUFSWithin025": true,
+      "truePeakAtMostMinus4": true,
+      "noClippedSamples": true,
+      "noSilenceOver2Seconds": true,
+      "waveformSyncWithin1ms": true,
+      "recordingDurationCompatible": true
+    },
+    "integratedLUFS": -16.09,
+    "truePeakDBTP": -5.68,
+    "samplePeak": 0.5180097818374634,
+    "clippedSamples": 0,
+    "decodedSamples": 4785152,
+    "decodedDurationSeconds": 99.69066666666667,
+    "silenceThresholdDB": -45,
+    "silenceIntervalsOver1Second": [],
+    "waveformSyncWindows": [
+      {
+        "startSecond": 2,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999411990562427
+      },
+      {
+        "startSecond": 20,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999484397650734
+      },
+      {
+        "startSecond": 55,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999648512130852
+      },
+      {
+        "startSecond": 90,
+        "lengthSeconds": 2,
+        "lagSamples": 0,
+        "lagMilliseconds": 0.0,
+        "normalizedCorrelation": 0.9999619812196071
+      }
+    ],
+    "captionAlignment": "209 approved words forced-aligned locally to actual recording; 45 cues. Model-based 20ms timing resolution, not ground-truth 17ms accuracy.",
+    "audioStreamCount": 1,
+    "recordingAvailable": true,
+    "music": false
+  },
+  "publicationReady": true
+}

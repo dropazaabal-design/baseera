@@ -1,0 +1,36 @@
+{
+  "probe": [
+    "ffprobe",
+    "-v",
+    "error",
+    "-show_streams",
+    "-show_format",
+    "-count_frames",
+    "-of",
+    "json",
+    "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4"
+  ],
+  "decodeAndDetection": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-y",
+    "-xerror",
+    "-threads",
+    "2",
+    "-filter_threads",
+    "2",
+    "-i",
+    "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4",
+    "-vf",
+    "blackdetect=d=0.05:pix_th=0.02:pic_th=0.98,freezedetect=n=-60dB:d=3,select=eq(n\\,0)+eq(n\\,57)+eq(n\\,114)+eq(n\\,115)+eq(n\\,125)+eq(n\\,150)+eq(n\\,184)+eq(n\\,185)+eq(n\\,211)+eq(n\\,236)+eq(n\\,237)+eq(n\\,398)+eq(n\\,558)+eq(n\\,559)+eq(n\\,662)+eq(n\\,765)+eq(n\\,766)+eq(n\\,870)+eq(n\\,973)+eq(n\\,974)+eq(n\\,1030)+eq(n\\,1086)+eq(n\\,1087)+eq(n\\,1155)+eq(n\\,1222)+eq(n\\,1223)+eq(n\\,1274)+eq(n\\,1325)+eq(n\\,1326)+eq(n\\,1366)+eq(n\\,1405)+eq(n\\,1406)+eq(n\\,1416)+eq(n\\,1577)+eq(n\\,1748)+eq(n\\,1749)+eq(n\\,1925)+eq(n\\,2100)+eq(n\\,2101)+eq(n\\,2248)+eq(n\\,2395)+eq(n\\,2396)+eq(n\\,2634)+eq(n\\,2872)+eq(n\\,2873)+eq(n\\,3016)+eq(n\\,3159)+eq(n\\,3160)+eq(n\\,3200)+eq(n\\,3239)+eq(n\\,3240)+eq(n\\,3299)+eq(n\\,3358)+eq(n\\,3359)+eq(n\\,3412)+eq(n\\,3465)+eq(n\\,3466)+eq(n\\,3648)+eq(n\\,3829)+eq(n\\,3830)+eq(n\\,3922)+eq(n\\,4013)+eq(n\\,4014)+eq(n\\,4085)+eq(n\\,4155)+eq(n\\,4156)+eq(n\\,4290)+eq(n\\,4424)+eq(n\\,4425)+eq(n\\,4493)+eq(n\\,4561)+eq(n\\,4562)+eq(n\\,4572)+eq(n\\,4631)+eq(n\\,4699)+eq(n\\,4700)+eq(n\\,4816)+eq(n\\,4931)+eq(n\\,4932)+eq(n\\,5052)+eq(n\\,5172)+eq(n\\,5173)+eq(n\\,5248)+eq(n\\,5322)+eq(n\\,5323)+eq(n\\,5531)+eq(n\\,5739)+eq(n\\,5740)+eq(n\\,5752)+eq(n\\,5783)+eq(n\\,5826)+eq(n\\,5827)+eq(n\\,5839)+eq(n\\,5904)+eq(n\\,5980),scale=360:640",
+    "-fps_mode",
+    "vfr",
+    "-an",
+    "-c:v",
+    "png",
+    "-threads",
+    "2",
+    "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/projects/law01-cinematic/qa/final/review-mp4/%04d.png"
+  ]
+}

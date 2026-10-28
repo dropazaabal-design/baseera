@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "file": "projects/law01-cinematic/renders/Law01-Voice-Visual-Review-1080x1920-60fps-v1.mp4",
+  "bytes": 58501520,
+  "sha256": "46c10118936bc196bc047f1f293994e6c3e61558a85e76be0f0a01abbea50a29",
+  "checks": {
+    "opens": true,
+    "resolution1080x1920": true,
+    "fps60": true,
+    "h264": true,
+    "yuv420p": true,
+    "allExpectedFramesReadable": true,
+    "exactTimelineDuration": true,
+    "expectedAudioTrackCount": true,
+    "fullDecodeExit0": true,
+    "noBlackIntervals": true,
+    "noFreezeLongerThan3s": true,
+    "allShotSamplesDecoded": true,
+    "noBlankSamples": true,
+    "deliveredFramesMatchGlobalTimeline": true,
+    "audio_aac": true,
+    "audio_mono48k": true,
+    "audio_integratedLUFSWithin025": true,
+    "audio_truePeakAtMostMinus4": true,
+    "audio_noClippedSamples": true,
+    "audio_noSilenceOver2Seconds": true,
+    "audio_waveformSyncWithin1ms": true,
+    "audio_recordingDurationCompatible": true
+  },
+  "metadata": {
+    "codec": "h264",
+    "profile": "High",
+    "pixelFormat": "yuv420p",
+    "width": 1080,
+    "height": 1920,
+    "fps": "60/1",
+    "readFrames": 5981,
+    "durationSeconds": 99.683333,
+    "colorSpace": "bt709"
+  },
+  "blackDetection": {
+    "minimumDurationSeconds": 0.05,
+    "pixelThreshold": 0.02,
+    "pictureThreshold": 0.98,
+    "intervals": []
+  },
+  "freezeDetection": {
+    "noiseThresholdDB": -60,
+    "minimumDurationSeconds": 3,
+    "intervals": [],
+    "scope": "Detects near-identical frames at the documented FFmpeg threshold; not a measure of artistic motion quality."
+  }
+}

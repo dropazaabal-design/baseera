@@ -1,5 +1,5 @@
 {
-  "timingBasis": "estimated, no actual narration",
+  "timingBasis": "actual recording with local forced word alignment",
   "endFrameConvention": "exclusive; lastVisibleFrame is inclusive",
   "reordering": {
     "from": [
@@ -20,15 +20,15 @@
       "segment": 1,
       "title": "صعود البطل نحو المنصة",
       "imagePath": "law01/originals/SHOT01.png",
-      "duration": 1.5,
-      "durationInFrames": 90,
+      "duration": 1.9166666666666667,
+      "durationInFrames": 115,
       "startFrame": 0,
-      "endFrame": 90,
-      "lastVisibleFrame": 89,
+      "endFrame": 115,
+      "lastVisibleFrame": 114,
       "narrationStart": 0.0,
-      "narrationEnd": 1.5,
+      "narrationEnd": 1.84,
       "narration": "نجاحك ممكن يطيّحك.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -40,7 +40,7 @@
             "rotation": 0
           },
           {
-            "frame": 89,
+            "frame": 114,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -96,13 +96,13 @@
                 "rotation": 0
               },
               {
-                "frame": 49,
+                "frame": 63,
                 "x": 1.4,
                 "y": -2.0,
                 "rotation": -0.7
               },
               {
-                "frame": 89,
+                "frame": 114,
                 "x": 0.48999999999999994,
                 "y": -0.6,
                 "rotation": -0.21
@@ -120,22 +120,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "صعود البطل نحو المنصة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 0,
+      "wordEnd": 3
     },
     {
       "id": "SHOT02",
       "segment": 1,
       "title": "ظهور ظل السلطة خلف البطل",
       "imagePath": "law01/originals/SHOT02.png",
-      "duration": 1.4,
-      "durationInFrames": 84,
-      "startFrame": 90,
-      "endFrame": 174,
-      "lastVisibleFrame": 173,
-      "narrationStart": 1.5,
-      "narrationEnd": 2.9,
+      "duration": 1.1666666666666667,
+      "durationInFrames": 70,
+      "startFrame": 115,
+      "endFrame": 185,
+      "lastVisibleFrame": 184,
+      "narrationStart": 2.0,
+      "narrationEnd": 3.08,
       "narration": "بس مو بالطريقة",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "tiltReveal",
       "camera": {
         "keys": [
@@ -147,7 +149,7 @@
             "rotation": 0
           },
           {
-            "frame": 83,
+            "frame": 69,
             "x": 800,
             "y": 1085,
             "zoom": 1.015,
@@ -203,13 +205,13 @@
                 "rotation": 0
               },
               {
-                "frame": 46,
+                "frame": 38,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.8
               },
               {
-                "frame": 83,
+                "frame": 69,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.24
@@ -249,13 +251,13 @@
                 "rotation": 0
               },
               {
-                "frame": 46,
+                "frame": 38,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.8
               },
               {
-                "frame": 83,
+                "frame": 69,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.24
@@ -264,7 +266,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 52,
+            "blinkAt": 43,
             "blinkFrames": 7
           }
         }
@@ -278,22 +280,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "ظهور ظل السلطة خلف البطل",
-      "attentionLight": "authority-reveal"
+      "attentionLight": "authority-reveal",
+      "wordStart": 3,
+      "wordEnd": 6
     },
     {
       "id": "SHOT03",
       "segment": 1,
       "title": "تشقّق الدرج وتراجع البطل",
       "imagePath": "law01/originals/SHOT03.png",
-      "duration": 1.1,
-      "durationInFrames": 66,
-      "startFrame": 174,
-      "endFrame": 240,
-      "lastVisibleFrame": 239,
-      "narrationStart": 2.9,
-      "narrationEnd": 4.0,
+      "duration": 0.8666666666666667,
+      "durationInFrames": 52,
+      "startFrame": 185,
+      "endFrame": 237,
+      "lastVisibleFrame": 236,
+      "narrationStart": 3.08,
+      "narrationEnd": 3.86,
       "narration": "اللي تتخيّلها.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -305,7 +309,7 @@
             "rotation": 0
           },
           {
-            "frame": 65,
+            "frame": 51,
             "x": 797,
             "y": 1100,
             "zoom": 0.985,
@@ -361,13 +365,13 @@
                 "rotation": 0
               },
               {
-                "frame": 36,
+                "frame": 28,
                 "x": -7.0,
                 "y": -0.8,
                 "rotation": -1.2
               },
               {
-                "frame": 65,
+                "frame": 51,
                 "x": -2.4499999999999997,
                 "y": -0.24,
                 "rotation": -0.36
@@ -407,7 +411,7 @@
                 "rotation": 0
               },
               {
-                "frame": 65,
+                "frame": 51,
                 "x": 4,
                 "y": 18,
                 "rotation": 1.5
@@ -425,22 +429,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "تشقّق الدرج وتراجع البطل",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 6,
+      "wordEnd": 8
     },
     {
       "id": "SHOT04",
       "segment": 2,
       "title": "تأسيس فرنسا والقصر",
       "imagePath": "law01/originals/SHOT04.png",
-      "duration": 4.5,
-      "durationInFrames": 270,
-      "startFrame": 240,
-      "endFrame": 510,
-      "lastVisibleFrame": 509,
-      "narrationStart": 4.0,
-      "narrationEnd": 8.5,
+      "duration": 5.366666666666666,
+      "durationInFrames": 322,
+      "startFrame": 237,
+      "endFrame": 559,
+      "lastVisibleFrame": 558,
+      "narrationStart": 4.04,
+      "narrationEnd": 9.32,
       "narration": "سنة ألف وستمية وواحد وستين، نيكولا فوكيه، المسؤول عن مالية فرنسا،",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "tiltReveal",
       "camera": {
         "keys": [
@@ -452,7 +458,7 @@
             "rotation": 0
           },
           {
-            "frame": 269,
+            "frame": 321,
             "x": 800,
             "y": 1085,
             "zoom": 1.015,
@@ -500,22 +506,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "تأسيس فرنسا والقصر",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 8,
+      "wordEnd": 19
     },
     {
       "id": "SHOT05",
       "segment": 2,
       "title": "فوكيه يستقبل الضيوف",
       "imagePath": "law01/originals/SHOT05.png",
-      "duration": 3.5,
-      "durationInFrames": 210,
-      "startFrame": 510,
-      "endFrame": 720,
-      "lastVisibleFrame": 719,
-      "narrationStart": 8.5,
-      "narrationEnd": 12.0,
+      "duration": 3.45,
+      "durationInFrames": 207,
+      "startFrame": 559,
+      "endFrame": 766,
+      "lastVisibleFrame": 765,
+      "narrationStart": 9.32,
+      "narrationEnd": 12.64,
       "narration": "استقبل الملك لويس الرابع عشر في قصر فو لو فيكونت.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -527,7 +535,7 @@
             "rotation": 0
           },
           {
-            "frame": 209,
+            "frame": 206,
             "x": 812,
             "y": 1100,
             "zoom": 1.015,
@@ -566,7 +574,7 @@
           "sha256": "176b75be158a42ffe7b3e26ff760907b49068078eb8670b59dc4c800379123c0",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 130,
+            "blinkAt": 128,
             "blinkFrames": 7
           }
         }
@@ -580,22 +588,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "فوكيه يستقبل الضيوف",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 19,
+      "wordEnd": 29
     },
     {
       "id": "SHOT06",
       "segment": 2,
       "title": "اتساع الحدائق والحفل",
       "imagePath": "law01/originals/SHOT06.png",
-      "duration": 3.0,
-      "durationInFrames": 180,
-      "startFrame": 720,
-      "endFrame": 900,
-      "lastVisibleFrame": 899,
-      "narrationStart": 12.0,
-      "narrationEnd": 15.0,
+      "duration": 3.466666666666667,
+      "durationInFrames": 208,
+      "startFrame": 766,
+      "endFrame": 974,
+      "lastVisibleFrame": 973,
+      "narrationStart": 12.88,
+      "narrationEnd": 16.24,
       "narration": "كان يوم سبعتعش أغسطس. حدائق مضاءة،",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "panLeft",
       "camera": {
         "keys": [
@@ -607,7 +617,7 @@
             "rotation": 0
           },
           {
-            "frame": 179,
+            "frame": 207,
             "x": 788,
             "y": 1100,
             "zoom": 1.015,
@@ -641,22 +651,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "اتساع الحدائق والحفل",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 29,
+      "wordEnd": 35
     },
     {
       "id": "SHOT07",
       "segment": 2,
       "title": "الوليمة واتساع الاستقبال",
       "imagePath": "law01/originals/SHOT07.png",
-      "duration": 2.3,
-      "durationInFrames": 138,
-      "startFrame": 900,
-      "endFrame": 1038,
-      "lastVisibleFrame": 1037,
-      "narrationStart": 15.0,
-      "narrationEnd": 17.3,
+      "duration": 1.8833333333333333,
+      "durationInFrames": 113,
+      "startFrame": 974,
+      "endFrame": 1087,
+      "lastVisibleFrame": 1086,
+      "narrationStart": 16.24,
+      "narrationEnd": 18.12,
       "narration": "ووليمة، وألعاب نارية…",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -668,7 +680,7 @@
             "rotation": 0
           },
           {
-            "frame": 137,
+            "frame": 112,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -707,7 +719,7 @@
           "sha256": "f3c6f63b890d9b04f72ae3fdfe3e135fac0ba3c9c29a1dde872c3f240f0808ba",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 86,
+            "blinkAt": 70,
             "blinkFrames": 7
           }
         }
@@ -721,22 +733,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الوليمة واتساع الاستقبال",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 35,
+      "wordEnd": 38
     },
     {
       "id": "SHOT08",
       "segment": 2,
       "title": "الملك يراقب من بعيد",
       "imagePath": "law01/originals/SHOT08.png",
-      "duration": 2.7,
-      "durationInFrames": 162,
-      "startFrame": 1038,
-      "endFrame": 1200,
-      "lastVisibleFrame": 1199,
-      "narrationStart": 17.3,
-      "narrationEnd": 20.0,
+      "duration": 2.2666666666666666,
+      "durationInFrames": 136,
+      "startFrame": 1087,
+      "endFrame": 1223,
+      "lastVisibleFrame": 1222,
+      "narrationStart": 18.12,
+      "narrationEnd": 20.26,
       "narration": "عرض هائل لثروته ونفوذه.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "panLeft",
       "camera": {
         "keys": [
@@ -748,7 +762,7 @@
             "rotation": 0
           },
           {
-            "frame": 161,
+            "frame": 135,
             "x": 788,
             "y": 1100,
             "zoom": 1.015,
@@ -804,13 +818,13 @@
                 "rotation": 0
               },
               {
-                "frame": 89,
+                "frame": 75,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.32
               },
               {
-                "frame": 161,
+                "frame": 135,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.096
@@ -828,22 +842,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "الملك يراقب من بعيد",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 38,
+      "wordEnd": 42
     },
     {
       "id": "SHOT09",
       "segment": 3,
       "title": "الحرس يقتربون من الباب",
       "imagePath": "law01/originals/SHOT09.png",
-      "duration": 1.2,
-      "durationInFrames": 72,
-      "startFrame": 1200,
-      "endFrame": 1272,
-      "lastVisibleFrame": 1271,
-      "narrationStart": 20.0,
-      "narrationEnd": 21.2,
+      "duration": 1.7166666666666666,
+      "durationInFrames": 103,
+      "startFrame": 1223,
+      "endFrame": 1326,
+      "lastVisibleFrame": 1325,
+      "narrationStart": 20.5,
+      "narrationEnd": 22.1,
       "narration": "يوم خمسة سبتمبر…",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -855,7 +871,7 @@
             "rotation": 0
           },
           {
-            "frame": 71,
+            "frame": 102,
             "x": 812,
             "y": 1100,
             "zoom": 1.015,
@@ -911,13 +927,13 @@
                 "rotation": 0
               },
               {
-                "frame": 39,
+                "frame": 56,
                 "x": -2.0,
                 "y": -0.8,
                 "rotation": -0.15
               },
               {
-                "frame": 71,
+                "frame": 102,
                 "x": -0.7,
                 "y": -0.24,
                 "rotation": -0.045
@@ -957,13 +973,13 @@
                 "rotation": 0
               },
               {
-                "frame": 39,
+                "frame": 56,
                 "x": -2.0,
                 "y": -0.8,
                 "rotation": -0.15
               },
               {
-                "frame": 71,
+                "frame": 102,
                 "x": -0.7,
                 "y": -0.24,
                 "rotation": -0.045
@@ -972,7 +988,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 45,
+            "blinkAt": 65,
             "blinkFrames": 7
           }
         }
@@ -986,22 +1002,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الحرس يقتربون من الباب",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 42,
+      "wordEnd": 45
     },
     {
       "id": "SHOT10",
       "segment": 3,
       "title": "فوكيه بين الحرس",
       "imagePath": "law01/originals/SHOT10.png",
-      "duration": 1.8,
-      "durationInFrames": 108,
-      "startFrame": 1272,
-      "endFrame": 1380,
-      "lastVisibleFrame": 1379,
-      "narrationStart": 21.2,
-      "narrationEnd": 23.0,
+      "duration": 1.3333333333333333,
+      "durationInFrames": 80,
+      "startFrame": 1326,
+      "endFrame": 1406,
+      "lastVisibleFrame": 1405,
+      "narrationStart": 22.1,
+      "narrationEnd": 23.3,
       "narration": "فوكيه يُعتقل.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -1013,7 +1031,7 @@
             "rotation": 0
           },
           {
-            "frame": 107,
+            "frame": 79,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -1052,7 +1070,7 @@
           "sha256": "7c4b42ac12e34409b9a664801470d4a424ea809bbb37ca3ac3da37dd3f9dcf11",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 67,
+            "blinkAt": 49,
             "blinkFrames": 7
           }
         }
@@ -1066,22 +1084,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "فوكيه بين الحرس",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 45,
+      "wordEnd": 47
     },
     {
       "id": "SHOT11",
       "segment": 4,
       "title": "الرجوع إلى ملف الصراع السابق",
       "imagePath": "law01/originals/SHOT11.png",
-      "duration": 5.7,
-      "durationInFrames": 342,
-      "startFrame": 1380,
-      "endFrame": 1722,
-      "lastVisibleFrame": 1721,
-      "narrationStart": 23.0,
-      "narrationEnd": 28.7,
+      "duration": 5.716666666666667,
+      "durationInFrames": 343,
+      "startFrame": 1406,
+      "endFrame": 1749,
+      "lastVisibleFrame": 1748,
+      "narrationStart": 23.57,
+      "narrationEnd": 28.92,
       "narration": "تقول: أكيد الحفلة! بس المفاجأة؟ الملك كان يسعى لإقصائه من قبلها.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -1093,7 +1113,7 @@
             "rotation": 0
           },
           {
-            "frame": 341,
+            "frame": 342,
             "x": 812,
             "y": 1100,
             "zoom": 1.015,
@@ -1132,7 +1152,7 @@
           "sha256": "08ac33616216ca4d6d104411f086589086aabe844095cecafbfd869e54bb72f4",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 212,
+            "blinkAt": 213,
             "blinkFrames": 7
           }
         }
@@ -1146,22 +1166,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الرجوع إلى ملف الصراع السابق",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 47,
+      "wordEnd": 58
     },
     {
       "id": "SHOT12",
       "segment": 4,
       "title": "كولبير والملك ودفتر الحسابات",
       "imagePath": "law01/originals/SHOT12.png",
-      "duration": 5.1,
-      "durationInFrames": 306,
-      "startFrame": 1722,
-      "endFrame": 2028,
-      "lastVisibleFrame": 2027,
-      "narrationStart": 28.7,
-      "narrationEnd": 33.8,
+      "duration": 5.866666666666666,
+      "durationInFrames": 352,
+      "startFrame": 1749,
+      "endFrame": 2101,
+      "lastVisibleFrame": 2100,
+      "narrationStart": 29.3,
+      "narrationEnd": 34.9,
       "narration": "فيه اتهامات مالية، وصراع سياسي مع كولبير. يعني المسألة أعقد من غيرة على قصر.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "panLeft",
       "camera": {
         "keys": [
@@ -1173,7 +1195,7 @@
             "rotation": 0
           },
           {
-            "frame": 305,
+            "frame": 351,
             "x": 788,
             "y": 1100,
             "zoom": 1.015,
@@ -1212,7 +1234,7 @@
           "sha256": "9ccd1d3c4991851d8b0b4ed5dac302c1bf00bc204ec79ce92edab3e208fd2f2e",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 190,
+            "blinkAt": 219,
             "blinkFrames": 7
           }
         }
@@ -1226,22 +1248,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "كولبير والملك ودفتر الحسابات",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 58,
+      "wordEnd": 72
     },
     {
       "id": "SHOT13",
       "segment": 4,
       "title": "استعارة الشطرنج وصراع المكانة",
       "imagePath": "law01/originals/SHOT13.png",
-      "duration": 5.2,
-      "durationInFrames": 312,
-      "startFrame": 2028,
-      "endFrame": 2340,
-      "lastVisibleFrame": 2339,
-      "narrationStart": 33.8,
-      "narrationEnd": 39.0,
+      "duration": 4.916666666666667,
+      "durationInFrames": 295,
+      "startFrame": 2101,
+      "endFrame": 2396,
+      "lastVisibleFrame": 2395,
+      "narrationStart": 35.12,
+      "narrationEnd": 39.72,
       "narration": "لكنها تبيّن خطورة النفوذ، لما يصير صاحبه منافسًا في عين الحاكم.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -1253,7 +1277,7 @@
             "rotation": 0
           },
           {
-            "frame": 311,
+            "frame": 294,
             "x": 797,
             "y": 1100,
             "zoom": 0.985,
@@ -1292,7 +1316,7 @@
           "sha256": "fe0c0638676ad585a51155a30d04b52e321b1ffedf3b40b6706a23be9619b8db",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 193,
+            "blinkAt": 182,
             "blinkFrames": 7
           }
         }
@@ -1306,22 +1330,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "استعارة الشطرنج وصراع المكانة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 72,
+      "wordEnd": 83
     },
     {
       "id": "SHOT14",
       "segment": 5,
       "title": "العرش وظل السلطة مع بقاء كفاءة البطل",
       "imagePath": "law01/originals/SHOT14.png",
-      "duration": 9.0,
-      "durationInFrames": 540,
-      "startFrame": 2340,
-      "endFrame": 2880,
-      "lastVisibleFrame": 2879,
-      "narrationStart": 39.0,
-      "narrationEnd": 48.0,
+      "duration": 7.95,
+      "durationInFrames": 477,
+      "startFrame": 2396,
+      "endFrame": 2873,
+      "lastVisibleFrame": 2872,
+      "narrationStart": 40.09,
+      "narrationEnd": 47.88,
       "narration": "روبرت غرين يحذّر من هذا في أول قانون من «ثمانية وأربعين قانونًا للسلطة»: «لا تُظهر تفوّقك على رئيسك».",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "tiltReveal",
       "camera": {
         "keys": [
@@ -1333,7 +1359,7 @@
             "rotation": 0
           },
           {
-            "frame": 539,
+            "frame": 476,
             "x": 800,
             "y": 1100,
             "zoom": 1.02,
@@ -1389,13 +1415,13 @@
                 "rotation": 0
               },
               {
-                "frame": 296,
+                "frame": 261,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.45
               },
               {
-                "frame": 539,
+                "frame": 476,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.135
@@ -1435,13 +1461,13 @@
                 "rotation": 0
               },
               {
-                "frame": 296,
+                "frame": 261,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.45
               },
               {
-                "frame": 539,
+                "frame": 476,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.135
@@ -1450,7 +1476,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 335,
+            "blinkAt": 296,
             "blinkFrames": 7
           }
         }
@@ -1464,22 +1490,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "العرش وظل السلطة مع بقاء كفاءة البطل",
-      "attentionLight": "authority-reveal"
+      "attentionLight": "authority-reveal",
+      "wordStart": 83,
+      "wordEnd": 101
     },
     {
       "id": "SHOT15",
       "segment": 5,
       "title": "مطابقة العرش بكرسي المكتب",
       "imagePath": "law01/originals/SHOT15.png",
-      "duration": 4.0,
-      "durationInFrames": 240,
-      "startFrame": 2880,
-      "endFrame": 3120,
-      "lastVisibleFrame": 3119,
-      "narrationStart": 48.0,
-      "narrationEnd": 52.0,
+      "duration": 4.783333333333333,
+      "durationInFrames": 287,
+      "startFrame": 2873,
+      "endFrame": 3160,
+      "lastVisibleFrame": 3159,
+      "narrationStart": 47.88,
+      "narrationEnd": 52.665,
       "narration": "بس خذ التحذير، مو دعوة إنك تصغّر نفسك. طيب، وش علاقته فيك؟",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -1491,7 +1519,7 @@
             "rotation": 0
           },
           {
-            "frame": 239,
+            "frame": 286,
             "x": 809,
             "y": 1092,
             "zoom": 1.02,
@@ -1547,13 +1575,13 @@
                 "rotation": 0
               },
               {
-                "frame": 131,
+                "frame": 157,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.25
               },
               {
-                "frame": 239,
+                "frame": 286,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.075
@@ -1593,13 +1621,13 @@
                 "rotation": 0
               },
               {
-                "frame": 131,
+                "frame": 157,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.25
               },
               {
-                "frame": 239,
+                "frame": 286,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.075
@@ -1608,7 +1636,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 149,
+            "blinkAt": 178,
             "blinkFrames": 7
           }
         }
@@ -1622,22 +1650,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "مطابقة العرش بكرسي المكتب",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 101,
+      "wordEnd": 113
     },
     {
       "id": "SHOT16",
       "segment": 6,
       "title": "الموظف يلاحظ اختلاف التقرير",
       "imagePath": "law01/originals/SHOT16.png",
-      "duration": 2.1,
-      "durationInFrames": 126,
-      "startFrame": 3120,
-      "endFrame": 3246,
-      "lastVisibleFrame": 3245,
-      "narrationStart": 52.0,
-      "narrationEnd": 54.1,
+      "duration": 1.3333333333333333,
+      "durationInFrames": 80,
+      "startFrame": 3160,
+      "endFrame": 3240,
+      "lastVisibleFrame": 3239,
+      "narrationStart": 52.665,
+      "narrationEnd": 54.0,
       "narration": "تصحّح خطأ مديرك",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "panLeft",
       "camera": {
         "keys": [
@@ -1649,7 +1679,7 @@
             "rotation": 0
           },
           {
-            "frame": 125,
+            "frame": 79,
             "x": 788,
             "y": 1100,
             "zoom": 1.015,
@@ -1705,13 +1735,13 @@
                 "rotation": 0
               },
               {
-                "frame": 69,
+                "frame": 44,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.5
               },
               {
-                "frame": 125,
+                "frame": 79,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.15
@@ -1729,22 +1759,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الموظف يلاحظ اختلاف التقرير",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 113,
+      "wordEnd": 116
     },
     {
       "id": "SHOT17",
       "segment": 6,
       "title": "إيماءة التصحيح المحرجة",
       "imagePath": "law01/originals/SHOT17.png",
-      "duration": 2.0,
-      "durationInFrames": 120,
-      "startFrame": 3246,
-      "endFrame": 3366,
-      "lastVisibleFrame": 3365,
-      "narrationStart": 54.1,
-      "narrationEnd": 56.1,
+      "duration": 1.9833333333333334,
+      "durationInFrames": 119,
+      "startFrame": 3240,
+      "endFrame": 3359,
+      "lastVisibleFrame": 3358,
+      "narrationStart": 54.0,
+      "narrationEnd": 55.98,
       "narration": "بطريقة تحرجه قدّام الجميع؟",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -1756,7 +1788,7 @@
             "rotation": 0
           },
           {
-            "frame": 119,
+            "frame": 118,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -1812,13 +1844,13 @@
                 "rotation": 0
               },
               {
-                "frame": 65,
+                "frame": 64,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": -1.1
               },
               {
-                "frame": 119,
+                "frame": 118,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": -0.33
@@ -1836,22 +1868,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "إيماءة التصحيح المحرجة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 116,
+      "wordEnd": 120
     },
     {
       "id": "SHOT18",
       "segment": 6,
       "title": "ردّ فعل المدير المتوتر",
       "imagePath": "law01/originals/SHOT18.png",
-      "duration": 1.6,
-      "durationInFrames": 96,
-      "startFrame": 3366,
-      "endFrame": 3462,
-      "lastVisibleFrame": 3461,
-      "narrationStart": 56.1,
-      "narrationEnd": 57.7,
+      "duration": 1.7833333333333334,
+      "durationInFrames": 107,
+      "startFrame": 3359,
+      "endFrame": 3466,
+      "lastVisibleFrame": 3465,
+      "narrationStart": 55.98,
+      "narrationEnd": 57.62,
       "narration": "ممكن تتوتر علاقتكم.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -1863,7 +1897,7 @@
             "rotation": 0
           },
           {
-            "frame": 95,
+            "frame": 106,
             "x": 805,
             "y": 1100,
             "zoom": 1.015,
@@ -1902,7 +1936,7 @@
           "sha256": "c5ecc7f6cb44b9b17e6309e653b1b5c49ee08b7ad59f4d5086fd7833feaaf561",
           "eyeAnimation": {
             "gazePixels": 1.0,
-            "blinkAt": 60,
+            "blinkAt": 67,
             "blinkFrames": 7
           }
         }
@@ -1916,22 +1950,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "ردّ فعل المدير المتوتر",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 120,
+      "wordEnd": 123
     },
     {
       "id": "SHOT19",
       "segment": 6,
       "title": "التصحيح المحترم حول التقرير",
       "imagePath": "law01/originals/SHOT19.png",
-      "duration": 4.3,
-      "durationInFrames": 258,
-      "startFrame": 3462,
-      "endFrame": 3720,
-      "lastVisibleFrame": 3719,
-      "narrationStart": 57.7,
-      "narrationEnd": 62.0,
+      "duration": 6.066666666666666,
+      "durationInFrames": 364,
+      "startFrame": 3466,
+      "endFrame": 3830,
+      "lastVisibleFrame": 3829,
+      "narrationStart": 57.9,
+      "narrationEnd": 63.74,
       "narration": "قل بهدوء: «بحسب التقرير، الرقم الصحيح كذا». الحقيقة وصلت، بدون تجريح.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -1943,7 +1979,7 @@
             "rotation": 0
           },
           {
-            "frame": 257,
+            "frame": 363,
             "x": 797,
             "y": 1100,
             "zoom": 0.985,
@@ -1982,7 +2018,7 @@
           "sha256": "436e43a02687c4cac41b0cdaea8dc1e2e24366ee5bc83d991d8e6a884089e74c",
           "eyeAnimation": {
             "gazePixels": 1.0,
-            "blinkAt": 160,
+            "blinkAt": 226,
             "blinkFrames": 7
           }
         }
@@ -1996,22 +2032,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "التصحيح المحترم حول التقرير",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 123,
+      "wordEnd": 134
     },
     {
       "id": "SHOT20",
       "segment": 7,
       "title": "رفع اليد للمشاركة",
       "imagePath": "law01/originals/SHOT20.png",
-      "duration": 2.7,
-      "durationInFrames": 162,
-      "startFrame": 3720,
-      "endFrame": 3882,
-      "lastVisibleFrame": 3881,
-      "narrationStart": 62.0,
-      "narrationEnd": 64.7,
+      "duration": 3.066666666666667,
+      "durationInFrames": 184,
+      "startFrame": 3830,
+      "endFrame": 4014,
+      "lastVisibleFrame": 4013,
+      "narrationStart": 63.93,
+      "narrationEnd": 66.9,
       "narration": "وفي التدريب، تضيف معلومة فاتت المدرّب…",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "tiltReveal",
       "camera": {
         "keys": [
@@ -2023,7 +2061,7 @@
             "rotation": 0
           },
           {
-            "frame": 161,
+            "frame": 183,
             "x": 800,
             "y": 1085,
             "zoom": 1.015,
@@ -2062,7 +2100,7 @@
           "sha256": "e31d2f04fca9704c8b0ae95767fd96f90452b24fa586e3040c0073769f65e671",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 100,
+            "blinkAt": 114,
             "blinkFrames": 7
           }
         }
@@ -2076,22 +2114,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "رفع اليد للمشاركة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 134,
+      "wordEnd": 140
     },
     {
       "id": "SHOT21",
       "segment": 7,
       "title": "الإشارة الساخرة إلى المدرب",
       "imagePath": "law01/originals/SHOT21.png",
-      "duration": 2.5,
-      "durationInFrames": 150,
-      "startFrame": 3882,
-      "endFrame": 4032,
-      "lastVisibleFrame": 4031,
-      "narrationStart": 64.7,
-      "narrationEnd": 67.2,
+      "duration": 2.3666666666666667,
+      "durationInFrames": 142,
+      "startFrame": 4014,
+      "endFrame": 4156,
+      "lastVisibleFrame": 4155,
+      "narrationStart": 66.9,
+      "narrationEnd": 69.26,
       "narration": "أو تسخر: «حتى هذي ما تعرفها؟»",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -2103,7 +2143,7 @@
             "rotation": 0
           },
           {
-            "frame": 149,
+            "frame": 141,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -2137,22 +2177,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "الإشارة الساخرة إلى المدرب",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 140,
+      "wordEnd": 146
     },
     {
       "id": "SHOT22",
       "segment": 7,
       "title": "المشاركة المحترمة بجانب اللوحة",
       "imagePath": "law01/originals/SHOT22.png",
-      "duration": 4.8,
-      "durationInFrames": 288,
-      "startFrame": 4032,
-      "endFrame": 4320,
-      "lastVisibleFrame": 4319,
-      "narrationStart": 67.2,
-      "narrationEnd": 72.0,
+      "duration": 4.483333333333333,
+      "durationInFrames": 269,
+      "startFrame": 4156,
+      "endFrame": 4425,
+      "lastVisibleFrame": 4424,
+      "narrationStart": 69.26,
+      "narrationEnd": 73.64,
       "narration": "نفس المعلومة؛ أثر مختلف. الاحترام مو سكوت عن الخطأ.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -2164,7 +2206,7 @@
             "rotation": 0
           },
           {
-            "frame": 287,
+            "frame": 268,
             "x": 797,
             "y": 1100,
             "zoom": 0.985,
@@ -2203,7 +2245,7 @@
           "sha256": "02f9921882c1fc1858f5aa871d8e2dbd57c41add6dd8a505eb5f7f5f613da186",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 179,
+            "blinkAt": 167,
             "blinkFrames": 7
           }
         }
@@ -2217,22 +2259,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "المشاركة المحترمة بجانب اللوحة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 146,
+      "wordEnd": 155
     },
     {
       "id": "SHOT23",
       "segment": 8,
       "title": "إنجاز مع جائزة ومشروع واضحين",
       "imagePath": "law01/originals/SHOT23.png",
-      "duration": 2.0,
-      "durationInFrames": 120,
-      "startFrame": 4320,
-      "endFrame": 4440,
-      "lastVisibleFrame": 4439,
-      "narrationStart": 72.0,
-      "narrationEnd": 74.0,
+      "duration": 2.283333333333333,
+      "durationInFrames": 137,
+      "startFrame": 4425,
+      "endFrame": 4562,
+      "lastVisibleFrame": 4561,
+      "narrationStart": 73.85,
+      "narrationEnd": 76.04,
       "narration": "وفي الفريق، حققت إنجازًا؟",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -2244,7 +2288,7 @@
             "rotation": 0
           },
           {
-            "frame": 119,
+            "frame": 136,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -2283,7 +2327,7 @@
           "sha256": "0a3d8b08c5d076f28825a5a1f752e72e13baaa4b943786801a597fdf186ec1bd",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 74,
+            "blinkAt": 85,
             "blinkFrames": 7
           }
         }
@@ -2297,22 +2341,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "إنجاز مع جائزة ومشروع واضحين",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 155,
+      "wordEnd": 159
     },
     {
       "id": "SHOT25",
       "segment": 8,
       "title": "كشف الفريق والاعتراف بمساهمته",
       "imagePath": "law01/originals/SHOT25.png",
-      "duration": 2.5,
-      "durationInFrames": 150,
-      "startFrame": 4440,
-      "endFrame": 4590,
-      "lastVisibleFrame": 4589,
-      "narrationStart": 74.0,
-      "narrationEnd": 76.5,
+      "duration": 2.3,
+      "durationInFrames": 138,
+      "startFrame": 4562,
+      "endFrame": 4700,
+      "lastVisibleFrame": 4699,
+      "narrationStart": 76.04,
+      "narrationEnd": 78.22,
       "narration": "سمِّ دورك، واذكر مين ساعدك.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -2324,7 +2370,7 @@
             "rotation": 0
           },
           {
-            "frame": 149,
+            "frame": 137,
             "x": 800,
             "y": 1100,
             "zoom": 0.965,
@@ -2363,7 +2409,7 @@
           "sha256": "807aebaa1e12d261e53c427cb0744293fa8396c4cfab38827eb4c2c71a1bff2f",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 93,
+            "blinkAt": 86,
             "blinkFrames": 7
           }
         }
@@ -2377,22 +2423,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "كشف الفريق والاعتراف بمساهمته",
-      "attentionLight": "shared-team"
+      "attentionLight": "shared-team",
+      "wordStart": 159,
+      "wordEnd": 164
     },
     {
       "id": "SHOT24",
       "segment": 8,
       "title": "الانفراد بالجائزة وابتعاد الفريق",
       "imagePath": "law01/originals/SHOT24.png",
-      "duration": 3.5,
-      "durationInFrames": 210,
-      "startFrame": 4590,
-      "endFrame": 4800,
-      "lastVisibleFrame": 4799,
-      "narrationStart": 76.5,
-      "narrationEnd": 80.0,
+      "duration": 3.8666666666666667,
+      "durationInFrames": 232,
+      "startFrame": 4700,
+      "endFrame": 4932,
+      "lastVisibleFrame": 4931,
+      "narrationStart": 78.46,
+      "narrationEnd": 82.14,
       "narration": "لو أخذت الفضل كله، يمكن تكسب التصفيق وتخسر الثقة.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -2404,7 +2452,7 @@
             "rotation": 0
           },
           {
-            "frame": 209,
+            "frame": 231,
             "x": 785,
             "y": 1096,
             "zoom": 1.025,
@@ -2460,13 +2508,13 @@
                 "rotation": 0
               },
               {
-                "frame": 115,
+                "frame": 127,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.6
               },
               {
-                "frame": 209,
+                "frame": 231,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.18
@@ -2506,13 +2554,13 @@
                 "rotation": 0
               },
               {
-                "frame": 115,
+                "frame": 127,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.6
               },
               {
-                "frame": 209,
+                "frame": 231,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.18
@@ -2521,7 +2569,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 130,
+            "blinkAt": 144,
             "blinkFrames": 7
           }
         }
@@ -2535,22 +2583,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الانفراد بالجائزة وابتعاد الفريق",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 164,
+      "wordEnd": 173
     },
     {
       "id": "SHOT26",
       "segment": 9,
       "title": "قائد يدعم الكفاءة",
       "imagePath": "law01/originals/SHOT26.png",
-      "duration": 3.2,
-      "durationInFrames": 192,
-      "startFrame": 4800,
-      "endFrame": 4992,
-      "lastVisibleFrame": 4991,
-      "narrationStart": 80.0,
-      "narrationEnd": 83.2,
+      "duration": 4.016666666666667,
+      "durationInFrames": 241,
+      "startFrame": 4932,
+      "endFrame": 5173,
+      "lastVisibleFrame": 5172,
+      "narrationStart": 82.25,
+      "narrationEnd": 86.22,
       "narration": "مو كل مسؤول يخاف المتميّز. بعضهم يشوفك شريكًا،",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -2562,7 +2612,7 @@
             "rotation": 0
           },
           {
-            "frame": 191,
+            "frame": 240,
             "x": 812,
             "y": 1100,
             "zoom": 1.015,
@@ -2601,7 +2651,7 @@
           "sha256": "318be8522d8063525a46bda63bdf14ea8b3c4e4696f97c8143b7034e4834ae09",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 119,
+            "blinkAt": 150,
             "blinkFrames": 7
           }
         }
@@ -2615,22 +2665,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "قائد يدعم الكفاءة",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 173,
+      "wordEnd": 181
     },
     {
       "id": "SHOT27",
       "segment": 9,
       "title": "مدير متحفظ تجاه الإنجاز",
       "imagePath": "law01/originals/SHOT27.png",
-      "duration": 2.8,
-      "durationInFrames": 168,
-      "startFrame": 4992,
-      "endFrame": 5160,
-      "lastVisibleFrame": 5159,
-      "narrationStart": 83.2,
-      "narrationEnd": 86.0,
+      "duration": 2.5,
+      "durationInFrames": 150,
+      "startFrame": 5173,
+      "endFrame": 5323,
+      "lastVisibleFrame": 5322,
+      "narrationStart": 86.22,
+      "narrationEnd": 88.6,
       "narration": "وبعضهم يشوفك تهديدًا لمكانته.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "panLeft",
       "camera": {
         "keys": [
@@ -2642,7 +2694,7 @@
             "rotation": 0
           },
           {
-            "frame": 167,
+            "frame": 149,
             "x": 788,
             "y": 1100,
             "zoom": 1.015,
@@ -2681,7 +2733,7 @@
           "sha256": "88cf0950cb2faa8ede46f01925591a72ffa0d9bd30b5c45e3cf3256b82e610e8",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 104,
+            "blinkAt": 93,
             "blinkFrames": 7
           }
         }
@@ -2695,22 +2747,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "مدير متحفظ تجاه الإنجاز",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 181,
+      "wordEnd": 185
     },
     {
       "id": "SHOT28",
       "segment": 9,
       "title": "الكفاءة والكرامة على مستوى واحد",
       "imagePath": "law01/originals/SHOT28.png",
-      "duration": 6.0,
-      "durationInFrames": 360,
-      "startFrame": 5160,
-      "endFrame": 5520,
-      "lastVisibleFrame": 5519,
-      "narrationStart": 86.0,
-      "narrationEnd": 92.0,
+      "duration": 6.95,
+      "durationInFrames": 417,
+      "startFrame": 5323,
+      "endFrame": 5740,
+      "lastVisibleFrame": 5739,
+      "narrationStart": 88.84,
+      "narrationEnd": 95.6,
       "narration": "المهارة إنك تعرض كفاءتك وتحفظ كرامة غيرك؛ بدون كذب، ولا تملّق، ولا تنازل عن حقك.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "driftRight",
       "camera": {
         "keys": [
@@ -2722,7 +2776,7 @@
             "rotation": 0
           },
           {
-            "frame": 359,
+            "frame": 416,
             "x": 800,
             "y": 1100,
             "zoom": 0.965,
@@ -2761,7 +2815,7 @@
           "sha256": "30814128e802ed4536c62fd9df2113c16340f85c7aa5d7f72372fefc21b497cd",
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 223,
+            "blinkAt": 258,
             "blinkFrames": 7
           }
         }
@@ -2775,22 +2829,24 @@
       },
       "captionAnchor": "bottom",
       "narrativePurpose": "الكفاءة والكرامة على مستوى واحد",
-      "attentionLight": null
+      "attentionLight": null,
+      "wordStart": 185,
+      "wordEnd": 200
     },
     {
       "id": "SHOT29",
       "segment": 10,
       "title": "ضوء المصباح موجّه إلى الطريق",
       "imagePath": "law01/originals/SHOT29.png",
-      "duration": 1.5,
-      "durationInFrames": 90,
-      "startFrame": 5520,
-      "endFrame": 5610,
-      "lastVisibleFrame": 5609,
-      "narrationStart": 92.0,
-      "narrationEnd": 93.5,
+      "duration": 1.45,
+      "durationInFrames": 87,
+      "startFrame": 5740,
+      "endFrame": 5827,
+      "lastVisibleFrame": 5826,
+      "narrationStart": 95.72,
+      "narrationEnd": 97.12,
       "narration": "لا تطفّي نورك…",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "slowPush",
       "camera": {
         "keys": [
@@ -2802,7 +2858,7 @@
             "rotation": 0
           },
           {
-            "frame": 89,
+            "frame": 86,
             "x": 803,
             "y": 1100,
             "zoom": 1.045,
@@ -2858,13 +2914,13 @@
                 "rotation": 0
               },
               {
-                "frame": 49,
+                "frame": 47,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": -0.5
               },
               {
-                "frame": 89,
+                "frame": 86,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": -0.15
@@ -2904,13 +2960,13 @@
                 "rotation": 0
               },
               {
-                "frame": 49,
+                "frame": 47,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": -0.5
               },
               {
-                "frame": 89,
+                "frame": 86,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": -0.15
@@ -2919,7 +2975,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 56,
+            "blinkAt": 54,
             "blinkFrames": 7
           }
         }
@@ -2933,22 +2989,24 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "ضوء المصباح موجّه إلى الطريق",
-      "attentionLight": "lantern-ground"
+      "attentionLight": "lantern-ground",
+      "wordStart": 200,
+      "wordEnd": 203
     },
     {
       "id": "SHOT30",
       "segment": 10,
       "title": "أفق مفتوح وخاتمة هادئة",
       "imagePath": "law01/originals/SHOT30.png",
-      "duration": 2.5,
-      "durationInFrames": 150,
-      "startFrame": 5610,
-      "endFrame": 5760,
-      "lastVisibleFrame": 5759,
-      "narrationStart": 93.5,
-      "narrationEnd": 96.0,
+      "duration": 2.566666666666667,
+      "durationInFrames": 154,
+      "startFrame": 5827,
+      "endFrame": 5981,
+      "lastVisibleFrame": 5980,
+      "narrationStart": 97.12,
+      "narrationEnd": 99.44,
       "narration": "بس لا تستخدمه عشان تعمي غيرك.",
-      "timingBasis": "estimated_script_not_audio",
+      "timingBasis": "recording_forced_word_alignment",
       "preset": "pullBack",
       "camera": {
         "keys": [
@@ -2960,7 +3018,7 @@
             "rotation": 0
           },
           {
-            "frame": 149,
+            "frame": 153,
             "x": 800,
             "y": 1090,
             "zoom": 0.99,
@@ -3030,13 +3088,13 @@
                 "rotation": 0
               },
               {
-                "frame": 82,
+                "frame": 84,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.18
               },
               {
-                "frame": 149,
+                "frame": 153,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.054
@@ -3076,13 +3134,13 @@
                 "rotation": 0
               },
               {
-                "frame": 82,
+                "frame": 84,
                 "x": 1.4,
                 "y": -0.8,
                 "rotation": 0.18
               },
               {
-                "frame": 149,
+                "frame": 153,
                 "x": 0.48999999999999994,
                 "y": -0.24,
                 "rotation": 0.054
@@ -3091,7 +3149,7 @@
           },
           "eyeAnimation": {
             "gazePixels": 1.5,
-            "blinkAt": 93,
+            "blinkAt": 95,
             "blinkFrames": 7
           }
         }
@@ -3105,7 +3163,9 @@
       },
       "captionAnchor": "top",
       "narrativePurpose": "أفق مفتوح وخاتمة هادئة",
-      "attentionLight": "lantern-ground"
+      "attentionLight": "lantern-ground",
+      "wordStart": 203,
+      "wordEnd": 209
     }
   ]
 }

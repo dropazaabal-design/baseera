@@ -1,0 +1,24 @@
+{
+  "status": "FAIL",
+  "outputs": [
+    {
+      "file": "public/law01/audio/Law01-Narration-Mastered.wav",
+      "integratedLUFS": -16.69,
+      "truePeakDBTP": -4.46,
+      "loudnessPass": false,
+      "truePeakPass": true
+    },
+    {
+      "file": "public/law01/audio/Law01-Narration-Final.mp3",
+      "integratedLUFS": -16.69,
+      "truePeakDBTP": -3.72,
+      "loudnessPass": false,
+      "truePeakPass": false
+    }
+  ]
+}
+Traceback (most recent call last):
+  File "/workspace/scratch/4b49832951b6/baseera-law01-production/productions/power31-reel/scripts/law01/master_audio.py", line 39, in <module>
+    assert report['status']=='PASS'
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,43 @@
+{
+  "status": "AUTHORIZED_SINGLE_GENERATION_STARTING",
+  "voiceId": "dlGxemPxFMTY7iXagmOj",
+  "modelId": "eleven_v4",
+  "generationsCount": 1,
+  "narrationText": "نجاحك ممكن يطيّحك.\nبس مو بالطريقة اللي تتخيّلها.\n\nسنة ألف وستمية وواحد وستين، نيكولا فوكيه، المسؤول عن مالية فرنسا، استقبل الملك لويس الرابع عشر في قصر فو لو فيكونت.\nكان يوم سبعتعش أغسطس.\nحدائق مضاءة، ووليمة، وألعاب نارية… عرض هائل لثروته ونفوذه.\n\nيوم خمسة سبتمبر… فوكيه يُعتقل.\n\nتقول: أكيد الحفلة!\nبس المفاجأة؟ الملك كان يسعى لإقصائه من قبلها.\nفيه اتهامات مالية، وصراع سياسي مع كولبير.\nيعني المسألة أعقد من غيرة على قصر.\nلكنها تبيّن خطورة النفوذ، لما يصير صاحبه منافسًا في عين الحاكم.\n\nروبرت غرين يحذّر من هذا في أول قانون من «ثمانية وأربعين قانونًا للسلطة»: «لا تُظهر تفوّقك على رئيسك».\nبس خذ التحذير، مو دعوة إنك تصغّر نفسك.\n\nطيب، وش علاقته فيك؟\n\nتصحّح خطأ مديرك بطريقة تحرجه قدّام الجميع؟ ممكن تتوتر علاقتكم.\nقل بهدوء: «بحسب التقرير، الرقم الصحيح كذا».\nالحقيقة وصلت، بدون تجريح.\n\nوفي التدريب، تضيف معلومة فاتت المدرّب… أو تسخر: «حتى هذي ما تعرفها؟»\nنفس المعلومة؛ أثر مختلف.\nالاحترام مو سكوت عن الخطأ.\n\nوفي الفريق، حققت إنجازًا؟\nسمِّ دورك، واذكر مين ساعدك.\nلو أخذت الفضل كله، يمكن تكسب التصفيق وتخسر الثقة.\n\nمو كل مسؤول يخاف المتميّز.\nبعضهم يشوفك شريكًا، وبعضهم يشوفك تهديدًا لمكانته.\n\nالمهارة إنك تعرض كفاءتك وتحفظ كرامة غيرك؛ بدون كذب، ولا تملّق، ولا تنازل عن حقك.\n\nلا تطفّي نورك… بس لا تستخدمه عشان تعمي غيرك.\n",
+  "narrationSHA256": "140b43699fe7cfcbf7860511d52b05e8decc3c44cf9f3136ef867dd86e712db9",
+  "words": 209,
+  "characters": 1216,
+  "estimate": {
+    "credits": 1215.8784,
+    "price_cents": 22.10688,
+    "currency": "usd",
+    "generations_count": 1,
+    "nothingGenerated": true,
+    "nothingCharged": true
+  },
+  "preparedFlow": {
+    "flowId": "UH1xZgfdoe9KkGubivnN",
+    "nodeId": "05qYDMCrm5w39blOOjIn"
+  },
+  "billingAuthorized": true,
+  "actualAudioPath": null,
+  "captionAlignmentStatus": "NOT_STARTED_RECORDING_REQUIRED",
+  "remotionIntegration": {
+    "projectJSON": "scene-configs/Law01-Cinematic.json",
+    "finalCompositionId": "Law01-Cinematic-Final",
+    "publicationGatePreserved": true,
+    "nextStepsAfterAuthorization": [
+      "Run exactly one narration generation using the selected voice and approved script.",
+      "Retrieve the actual recording and verify names/dates and complete text.",
+      "Measure and normalize actual audio to -16 LUFS / true peak at most -4 dBTP.",
+      "Create recording-derived caption JSON and SRT; retime shot boundaries to spoken words.",
+      "Re-render and run full image, timeline, audio and video QA before claiming final completion."
+    ]
+  },
+  "authorizationReason": "Original user instruction requires explicit approval before spending ElevenLabs credits. Voice selection was provided; spending authorization remains pending.",
+  "authorization": {
+    "userMessage": "اوفق",
+    "date": "2026-10-28",
+    "scope": "One take using voice dlGxemPxFMTY7iXagmOj and eleven_v4, estimated 1215.8784 credits / USD 0.2210688; no extra paid generations or transcription."
+  }
+}

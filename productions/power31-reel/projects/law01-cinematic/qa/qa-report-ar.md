@@ -1,39 +1,42 @@
-# القانون 1 — تقرير الجودة
+# القانون 1 — تقرير الفيديو بالصوت
 
-مراجعة بصرية: **PASS**. النشر النهائي: **BLOCKED** بسبب غياب التسجيل المعتمد ومحاذاة الترجمة معه.
+**PASS — ملف MP4 كامل بالصوت والترجمة المشتقة من التسجيل الحقيقي.**
+
+المدة 99.683 ثانية، 1080×1920، 60fps، 5981 إطارًا، H.264/yuv420p. الصوت AAC أحادي 48kHz.
+
+مستوى الصوت في MP4: -16.09 LUFS، الذروة -5.68 dBTP. SHA-256: `46c10118936bc196bc047f1f293994e6c3e61558a85e76be0f0a01abbea50a29`.
 
 | الفحص | النتيجة | الدليل |
 |---|---|---|
-| Images | PASS | [asset-validation-report.json](asset-validation-report.json) |
-| Layers | PASS | [layer-validation-report.json](layer-validation-report.json), [layer-byte-integrity.json](layer-byte-integrity.json) |
-| Timeline and animation | PASS | [timeline-animation-tests.json](timeline-animation-tests.json) |
-| Actual sampled renders | PASS | [render-frame-validation.json](render-frame-validation.json), [frame-samples-v2.json](frame-samples-v2.json) |
-| Determinism and regression | PASS | [render-determinism-regression.json](render-determinism-regression.json), [source-preservation.json](source-preservation.json), [engine-regression.txt](raw/engine-regression.txt), [workflow-regression.txt](raw/workflow-regression.txt) |
-| Source preservation | PASS | [source-preservation.json](source-preservation.json) |
-| TypeScript | PASS | [typecheck.txt](raw/typecheck.txt) |
-| Scoped lint | PASS_WITH_WARNINGS | [eslint-law01.txt](raw/eslint-law01.txt) |
-| MP4 render | PASS | [video-validation.json](video-validation.json), [ffprobe.json](raw/ffprobe.json), [full-decode-black-freeze.log](raw/full-decode-black-freeze.log), [render-result.json](render-result.json) |
-| Narration and audio QA | BLOCKED | [provider-status.json](../audio/provider-status.json) |
-| SRT recording alignment | BLOCKED | [timeline-animation-tests.json](timeline-animation-tests.json) |
-| Publication gate | BLOCKED | [final-export-gate.txt](raw/final-export-gate.txt) |
+| Approved artwork and layers | PASS | [asset-revalidation.json](final/asset-revalidation.json) |
+| Camera, motion and timeline | PASS | [timeline-animation-tests.json](final/timeline-animation-tests.json) |
+| Actual rendered samples | PASS | [render-frame-validation.json](final/render-frame-validation.json) |
+| Repeated renders / regression | PASS | [render-determinism-regression.json](final/render-determinism-regression.json) |
+| Actual narration | PASS_WITH_SCOPE | [narration-content-review.json](audio-final/narration-content-review.json) |
+| Audio master / MP3 | PASS | [audio-mastering.json](audio-final/audio-mastering.json) |
+| Caption timing | PASS_WITH_SCOPE | [forced-alignment.json](audio-final/forced-alignment.json) |
+| Native Remotion audio | PASS | [native-remotion-audio.json](final/native-remotion-audio.json) |
+| Full MP4 and audio | PASS | [video-validation.json](final/video-validation.json) |
+| TypeScript | PASS | [typecheck.txt](final/typecheck.txt) |
+| Scoped ESLint | PASS_WITH_WARNINGS | [eslint.txt](final/eslint.txt) |
+| Credit authorization | PASS | [narration-request.json](../audio/narration-request.json) |
 
-## الملف الفعلي
+## الصوت والإنفاق
 
-96 ثانية، 1080×1920، 60fps، H.264/yuv420p، 5760 إطارًا مفكوكًا. لا مسار صوتي في نسخة المراجعة. SHA-256: `336b146d71d87931419eff706ecf234b56cd3c606dd05c1cee6ae18000aab0ab`.
+أُنتج تسجيل واحد فقط بعد موافقة المستخدم: الصوت dlGxemPxFMTY7iXagmOj، النموذج eleven_v4، والتكلفة 1215.8784 رصيدًا (0.2210688 دولار حسب المزود). استُخدم تفريغ ومحاذاة محليان دون تكلفة مزود إضافية. النص المعتمد لم يتغير.
 
-## ما أُصلح
+أُصلحت ذروة MP3 التي تجاوزت الهدف في تجربة معالجة محلية أولى، باستخدام هامش للترميز وقياس جديد. النسخة النهائية من MP3 وWAV وAAC اختُبرت فعليًا. لم يُعاد توليد الصوت المدفوع.
 
-أُصلح ملف طبقة مشتقة غير مكتمل قبل إدخاله في التصدير، مع حفظ ذري وفك ترميز كامل. حُسنت أقنعة الحواف، وأعيدت 3 لقطات إلى رسومات مسطحة عندما لم يحفظ الفصل تفاصيلها. ضُبط التفاف النص داخل منطقة الهاتف. قُوي ميل بعض الشخصيات ضمن حركة لا تكشف مناطق الخلفية المعالجة. انقطع التصدير المتصل قبل اكتماله؛ استُخدمت نطاقات إطارات قابلة للاستئناف من Composition نفسه وجُمعت دون إعادة ترميز، ثم فُحص الملف الكامل.
+مدة الأداء 99.68 ثانية؛ ضُبطت اللقطات والكاميرا وحركة الشخصيات على هذا الأداء. نسخة المراجعة الصامتة السابقة وإعداداتها محفوظة. المراجعة الكاملة بالصوت اجتازت الفحص دون تعديل إضافي، لذلك يطابقها ملف Final ببايتاته دون إعادة ترميز.
 
-## حدود النتائج
+## نطاق الاختبارات وحدودها
 
-- Narration absent; 96s is a review timeline, not measured voice performance.
-- Source art is 936x1664 upscaled to the requested 1080x1920 output.
-- Character animation consists of bounded whole-cutout leans, eye shifts/blinks and approved alternate poses, not a fully articulated walk rig.
-- Local background completion is bounded 2.5D inpainting, not a reconstructed 3D environment.
-- Regression covers source hashes, existing tests, and two rendered legacy sample frames, not every old film.
-- Visual samples and measured coverage do not constitute a human inspection of every one of the 5760 frames.
+- Transcription and word boundaries are model estimates; no independently labeled phonetic ground truth or 17ms guarantee.
+- ASR spelling differences for proper names were retained in raw reports; captions use the approved Arabic orthography.
+- No human listening review is claimed.
+- Visual inspection samples every shot and transitions; automated full-file decoding does not mean a person inspected all 5981 frames.
+- Character animation is bounded cutout lean, eyes and approved pose changes; no newly articulated walking rig.
+- Source art is 936x1664 upscaled to 1080x1920.
+- Legacy compatibility covers hashes, original tests and two rendered sample frames, not all prior films/audio.
 
-ملفات SRT وCaption JSON الحالية تقديرية؛ لا تصلح دليلًا على مزامنة مع صوت غير موجود. لم يُستخدم رصيد ElevenLabs أو MotionLab ولم تُدمج أي PR.
-
-تفاصيل السرد والمصادر في [المراجعة التحريرية](../editorial-review-ar.md)، وطريقة التشغيل في [دليل الإنتاج](../production-guide-ar.md).
+السجلات الخام لفك الفيديو وقياس الصوت في final/raw، والكلمات ومحاذاتها في audio-final. مصادر القصة في [المراجعة التحريرية](../editorial-review-ar.md).

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "shots": 30,
+  "frames": 5981,
+  "durationSeconds": 99.68333333333334,
+  "actualRecordingSeconds": 99.68,
+  "cueCount": 45,
+  "recordingDerived": true
+}
