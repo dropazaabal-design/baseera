@@ -19,9 +19,9 @@
 
 | الفحص | النتيجة | الدليل داخل projects/law31-first-reel/qa |
 |---|---|---|
-| TypeScript | PASS | typescript.log |
-| ESLint changed workflow | PASS | eslint-new-scope.log |
-| ESLint whole existing project | FAIL_PREEXISTING | full-lint.log; baseline-lint.log |
+| TypeScript | PASS | logs/typescript.txt |
+| ESLint changed workflow | PASS | logs/eslint-new-scope.txt |
+| ESLint whole existing project | FAIL_PREEXISTING | logs/full-lint.txt; logs/baseline-lint.txt |
 | Module imports | PASS | module-imports.json |
 | Engine and workflow regression tests | PASS | engine-test.json; workflow-test.json |
 | JSON, frame bounds and independent depth | PASS | config-preflight.json |
@@ -30,10 +30,10 @@
 | 18-scene JSON production slot | PASS | 18-scene-workflow.json |
 | Studio start and HTTP | PASS | studio-http.json |
 | Determinism final source | PASS | determinism-final.json |
-| Full MP4 decode, black/freeze scan | PASS | full-decode.log |
+| Full MP4 decode, black/freeze scan | PASS | logs/full-decode.txt |
 | Visual review of actual MP4 samples | PASS_WITH_SCOPE | mp4-samples.json; mp4-review-board-1..4.jpg; mp4-transitions.jpg |
 | SRT syntax, order and RTL | PASS_ESTIMATED_TIMING | config-preflight.json; rendered samples |
-| Legacy render compatibility | PASS_SAMPLES | legacy-clip.log; legacy-compatibility.json |
+| Legacy render compatibility | PASS_SAMPLES | logs/legacy-clip.txt; legacy-compatibility.json |
 | Strict legacy pixel comparison | PARTIAL_FAIL | legacy-compatibility.json |
 | Narration, LUFS, True Peak and alignment | BLOCKED | ../audio/provider-status.json |
 | SAM 2 / Depth Anything V2 | NOT_INSTALLED_NOT_RUN | Deferred; manual masks and local OpenCV used |

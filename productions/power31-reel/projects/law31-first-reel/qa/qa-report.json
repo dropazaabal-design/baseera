@@ -16,17 +16,17 @@
     {
       "check": "TypeScript",
       "status": "PASS",
-      "evidence": "typescript.log"
+      "evidence": "logs/typescript.txt"
     },
     {
       "check": "ESLint changed workflow",
       "status": "PASS",
-      "evidence": "eslint-new-scope.log"
+      "evidence": "logs/eslint-new-scope.txt"
     },
     {
       "check": "ESLint whole existing project",
       "status": "FAIL_PREEXISTING",
-      "evidence": "full-lint.log; baseline-lint.log",
+      "evidence": "logs/full-lint.txt; logs/baseline-lint.txt",
       "detail": "@remotion/from-0 in unchanged src/Power31.tsx:20"
     },
     {
@@ -76,7 +76,7 @@
     {
       "check": "Full MP4 decode, black/freeze scan",
       "status": "PASS",
-      "evidence": "full-decode.log",
+      "evidence": "logs/full-decode.txt",
       "limit": "blackdetect .98/.02/.02s; freezedetect .001/2s"
     },
     {
@@ -94,7 +94,7 @@
     {
       "check": "Legacy render compatibility",
       "status": "PASS_SAMPLES",
-      "evidence": "legacy-clip.log; legacy-compatibility.json",
+      "evidence": "logs/legacy-clip.txt; legacy-compatibility.json",
       "detail": "CinematicDemo and Power31-Cinematic stills; Power31 still; 2s Power31-Cinematic MP4"
     },
     {
@@ -122,7 +122,7 @@
     {
       "check": "Per-frame blackframe scan",
       "status": "PASS",
-      "evidence": "blackframe-scan.json; blackframe-scan.log",
+      "evidence": "blackframe-scan.json; logs/blackframe-scan.txt",
       "detail": "All 5160 frames; amount 98 threshold 5, zero detections"
     }
   ]
