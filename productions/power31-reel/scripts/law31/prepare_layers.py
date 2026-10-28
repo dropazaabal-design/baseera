@@ -29,7 +29,8 @@ def actor(im,poly,ellipses=(),seeds=()):
 def write(n,items,depths,mode='TRUE_SEPARATE_PLANES',notes=None):
  folder=U/f'scene-{n:02d}';folder.mkdir(parents=True,exist_ok=True);layers=[];comp=None
  for name,im in items:
-  pending=folder/(name+'.pending');target=folder/(name+'.png');im.save(pending,format='PNG')
+  staging=R/'out/layer-staging';staging.mkdir(parents=True,exist_ok=True)
+  pending=staging/f'{n:02d}-{name}.pending';target=folder/(name+'.png');im.save(pending,format='PNG')
   with Image.open(pending) as test:test.verify()
   os.replace(pending,target)
   if comp is None:comp=im.copy()
