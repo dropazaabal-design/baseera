@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "baselineRef": "a83f0528e466ab44b02c3ba29aecadb15a4d992d",
+  "checkedExistingSourceFiles": 29,
+  "changedExistingSourceFiles": [],
+  "engineCoreUnchanged": true,
+  "oldProjectsModified": false,
+  "scope": "All existing src files byte-compared; actual legacy rendering regression is limited to the two sample frames documented separately."
+}

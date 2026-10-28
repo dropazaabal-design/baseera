@@ -1,0 +1,38 @@
+{
+  "status": "PASS_SAMPLED_VISUAL_REVIEW",
+  "version": "v2",
+  "samples": 95,
+  "shots": 30,
+  "observed": [
+    "All 30 shots inspected at start, middle and end through six rendered contact sheets.",
+    "Five transition-completion frames inspected separately.",
+    "Cairo captions readable within phone-safe panels; longest cues wrap inside border-box.",
+    "Court, office, training and team costumes and environments stay coherent within their connected shots.",
+    "Removed local cutout remnants and reverted three weak separations to plates.",
+    "Subject movement is deliberately limited to whole-cutout lean, eye direction/blink and pose cuts; no joint deformation."
+  ],
+  "reviewerScope": "Visual contact-sheet inspection and source/keyframe review, not playback of every frame. Delivered MP4 is separately decoded and sampled in video-validation.json.",
+  "revisionHistory": [
+    {
+      "revision": "v1",
+      "issues": [
+        "Long caption could overflow padding",
+        "Some mask fragments and clothing damage from cutouts",
+        "Initial derived SHOT05 PNG truncated; caught before final render"
+      ],
+      "resolution": "Revised masks, flat fallback for SHOT05/10/21, atomic layer save, border-box caption wrapping, bounded stronger leans."
+    },
+    {
+      "revision": "v2",
+      "result": "95 sample frames reviewed; no further visual changes required."
+    }
+  ],
+  "historicalInterpretation": "Royal eye/body direction illustrates attention, not evidence of a documented emotion. No historical spoken dialogue.",
+  "audioReview": "BLOCKED — no actual approved recording",
+  "deliveredMP4Review": {
+    "sampledFrames": 95,
+    "all30ShotsContactSheetsInspected": true,
+    "noNewProblemsObserved": true,
+    "referenceComparisonMaxMAE": 2.8669603587962964
+  }
+}

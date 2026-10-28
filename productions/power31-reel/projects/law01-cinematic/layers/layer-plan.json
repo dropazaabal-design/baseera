@@ -1,0 +1,864 @@
+{
+  "method": "Existing Law31 manual-ROI GrabCut approach, preserving holes and completing hidden backgrounds locally",
+  "shots": {
+    "SHOT01": {
+      "actors": [
+        {
+          "id": "hero",
+          "rect": [
+            343,
+            744,
+            177,
+            421
+          ],
+          "heads": [
+            [
+              444,
+              788,
+              30
+            ]
+          ],
+          "seeds": [
+            [
+              408,
+              845,
+              48,
+              60
+            ],
+            [
+              380,
+              1020,
+              14,
+              80
+            ],
+            [
+              434,
+              988,
+              15,
+              60
+            ]
+          ],
+          "pivot": [
+            420,
+            1140
+          ],
+          "action": "whole-figure ascent anticipation; next drawings supply actual pose changes"
+        }
+      ]
+    },
+    "SHOT02": {
+      "actors": [
+        {
+          "id": "hero",
+          "rect": [
+            399,
+            775,
+            149,
+            343
+          ],
+          "heads": [
+            [
+              484,
+              818,
+              27
+            ]
+          ],
+          "seeds": [
+            [
+              451,
+              871,
+              37,
+              64
+            ],
+            [
+              420,
+              1028,
+              12,
+              55
+            ],
+            [
+              493,
+              1032,
+              12,
+              42
+            ]
+          ],
+          "pivot": [
+            470,
+            1108
+          ],
+          "action": "subtle body lean and gaze toward looming shadow"
+        }
+      ]
+    },
+    "SHOT03": {
+      "actors": [
+        {
+          "id": "hero",
+          "rect": [
+            225,
+            370,
+            365,
+            366
+          ],
+          "heads": [
+            [
+              399,
+              420,
+              37
+            ]
+          ],
+          "seeds": [
+            [
+              362,
+              476,
+              40,
+              54
+            ],
+            [
+              280,
+              522,
+              48,
+              12
+            ],
+            [
+              468,
+              578,
+              36,
+              12
+            ]
+          ],
+          "pivot": [
+            401,
+            716
+          ],
+          "action": "drawn step-back pose with restrained whole-body reaction"
+        }
+      ],
+      "foreground": {
+        "id": "falling-stone",
+        "polygon": [
+          [
+            608,
+            804
+          ],
+          [
+            698,
+            807
+          ],
+          [
+            756,
+            845
+          ],
+          [
+            784,
+            922
+          ],
+          [
+            742,
+            1000
+          ],
+          [
+            685,
+            1001
+          ],
+          [
+            628,
+            951
+          ],
+          [
+            599,
+            869
+          ]
+        ],
+        "depth": 2.3,
+        "action": "stone fragment drops into void"
+      }
+    },
+    "SHOT04": {
+      "terrain": {
+        "split": 1210,
+        "depth": 1.7,
+        "id": "foreground-garden"
+      }
+    },
+    "SHOT05": {
+      "actors": [],
+      "reason": "Retained flat plate with eye animation and approved alternate drawn poses: local matting could not preserve costume/occlusion cleanly enough."
+    },
+    "SHOT08": {
+      "actors": [
+        {
+          "id": "king",
+          "rect": [
+            0,
+            235,
+            520,
+            1429
+          ],
+          "heads": [
+            [
+              239,
+              423,
+              68
+            ]
+          ],
+          "seeds": [
+            [
+              65,
+              641,
+              190,
+              600
+            ],
+            [
+              270,
+              703,
+              60,
+              160
+            ],
+            [
+              12,
+              1300,
+              210,
+              260
+            ]
+          ],
+          "pivot": [
+            170,
+            1635
+          ],
+          "action": "quiet attention shift and subtle full-cloak lean; no asserted historical emotion"
+        }
+      ]
+    },
+    "SHOT09": {
+      "actors": [
+        {
+          "id": "guards",
+          "rect": [
+            197,
+            603,
+            469,
+            768
+          ],
+          "heads": [
+            [
+              379,
+              697,
+              30
+            ],
+            [
+              600,
+              767,
+              24
+            ]
+          ],
+          "seeds": [
+            [
+              279,
+              801,
+              140,
+              250
+            ],
+            [
+              549,
+              848,
+              74,
+              210
+            ],
+            [
+              335,
+              1150,
+              25,
+              110
+            ]
+          ],
+          "pivot": [
+            410,
+            1340
+          ],
+          "action": "small depth advance using drawn walking pose"
+        }
+      ]
+    },
+    "SHOT10": {
+      "actors": [],
+      "reason": "Retained flat plate with eye animation and approved alternate drawn poses: local matting could not preserve costume/occlusion cleanly enough."
+    },
+    "SHOT14": {
+      "actors": [
+        {
+          "id": "hero",
+          "rect": [
+            123,
+            882,
+            210,
+            541
+          ],
+          "heads": [
+            [
+              237,
+              936,
+              39
+            ]
+          ],
+          "seeds": [
+            [
+              191,
+              1025,
+              46,
+              130
+            ],
+            [
+              160,
+              1250,
+              13,
+              107
+            ],
+            [
+              246,
+              1230,
+              13,
+              115
+            ],
+            [
+              244,
+              1090,
+              49,
+              100
+            ]
+          ],
+          "pivot": [
+            215,
+            1400
+          ],
+          "action": "upright self-respect, small attention lean"
+        }
+      ]
+    },
+    "SHOT15": {
+      "actors": [
+        {
+          "id": "hero",
+          "rect": [
+            123,
+            882,
+            210,
+            541
+          ],
+          "heads": [
+            [
+              237,
+              936,
+              39
+            ]
+          ],
+          "seeds": [
+            [
+              191,
+              1025,
+              46,
+              130
+            ],
+            [
+              160,
+              1250,
+              13,
+              107
+            ],
+            [
+              246,
+              1230,
+              13,
+              115
+            ],
+            [
+              244,
+              1090,
+              49,
+              100
+            ]
+          ],
+          "pivot": [
+            215,
+            1400
+          ],
+          "action": "match-cut same employee stance and restrained idle"
+        }
+      ]
+    },
+    "SHOT16": {
+      "actors": [
+        {
+          "id": "employee-report-chair",
+          "rect": [
+            346,
+            823,
+            590,
+            841
+          ],
+          "heads": [
+            [
+              640,
+              960,
+              78
+            ]
+          ],
+          "seeds": [
+            [
+              661,
+              1124,
+              171,
+              224
+            ],
+            [
+              422,
+              1103,
+              110,
+              120
+            ],
+            [
+              754,
+              1430,
+              101,
+              120
+            ]
+          ],
+          "pivot": [
+            730,
+            1560
+          ],
+          "action": "focused report-reading body lean; report remains attached to hand"
+        }
+      ]
+    },
+    "SHOT17": {
+      "actors": [
+        {
+          "id": "employee",
+          "rect": [
+            409,
+            587,
+            527,
+            1077
+          ],
+          "heads": [
+            [
+              697,
+              685,
+              65
+            ]
+          ],
+          "seeds": [
+            [
+              646,
+              840,
+              145,
+              235
+            ],
+            [
+              497,
+              674,
+              70,
+              24
+            ],
+            [
+              827,
+              1156,
+              70,
+              92
+            ],
+            [
+              667,
+              1281,
+              30,
+              185
+            ]
+          ],
+          "pivot": [
+            742,
+            1600
+          ],
+          "action": "accusatory drawn arm pose, restrained whole-body emphasis"
+        }
+      ]
+    },
+    "SHOT21": {
+      "actors": [],
+      "reason": "Retained flat plate with eye animation and approved alternate drawn poses: local matting could not preserve costume/occlusion cleanly enough."
+    },
+    "SHOT24": {
+      "actors": [
+        {
+          "id": "award-holder",
+          "rect": [
+            0,
+            407,
+            391,
+            1180
+          ],
+          "heads": [
+            [
+              225,
+              505,
+              66
+            ]
+          ],
+          "seeds": [
+            [
+              90,
+              695,
+              175,
+              242
+            ],
+            [
+              234,
+              694,
+              38,
+              71
+            ],
+            [
+              126,
+              1120,
+              25,
+              201
+            ],
+            [
+              255,
+              1190,
+              22,
+              159
+            ]
+          ],
+          "pivot": [
+            181,
+            1550
+          ],
+          "action": "isolated whole-figure emphasis; light excludes distant team"
+        }
+      ]
+    },
+    "SHOT29": {
+      "actors": [
+        {
+          "id": "hero-and-lantern",
+          "rect": [
+            103,
+            511,
+            363,
+            1034
+          ],
+          "heads": [
+            [
+              309,
+              600,
+              52
+            ]
+          ],
+          "seeds": [
+            [
+              222,
+              735,
+              115,
+              227
+            ],
+            [
+              349,
+              1048,
+              73,
+              91
+            ],
+            [
+              220,
+              1150,
+              22,
+              200
+            ],
+            [
+              310,
+              1255,
+              18,
+              140
+            ]
+          ],
+          "pivot": [
+            270,
+            1500
+          ],
+          "action": "small lantern-bearing body lean; ground-light direction changes without face glare"
+        }
+      ]
+    },
+    "SHOT30": {
+      "actors": [
+        {
+          "id": "hero-and-lantern",
+          "rect": [
+            150,
+            824,
+            231,
+            610
+          ],
+          "heads": [
+            [
+              281,
+              882,
+              34
+            ]
+          ],
+          "seeds": [
+            [
+              214,
+              971,
+              95,
+              118
+            ],
+            [
+              325,
+              1178,
+              36,
+              49
+            ],
+            [
+              218,
+              1160,
+              15,
+              180
+            ]
+          ],
+          "pivot": [
+            248,
+            1415
+          ],
+          "action": "calm final stance, tiny lantern sway"
+        }
+      ],
+      "terrain": {
+        "split": 1480,
+        "depth": 1.5,
+        "id": "foreground-path"
+      }
+    }
+  },
+  "eyeHeads": {
+    "SHOT01": [
+      [
+        444,
+        788,
+        32
+      ]
+    ],
+    "SHOT02": [
+      [
+        484,
+        818,
+        29
+      ]
+    ],
+    "SHOT03": [
+      [
+        399,
+        420,
+        38
+      ]
+    ],
+    "SHOT05": [
+      [
+        323,
+        887,
+        32
+      ]
+    ],
+    "SHOT07": [
+      [
+        352,
+        695,
+        32
+      ]
+    ],
+    "SHOT08": [
+      [
+        239,
+        423,
+        73
+      ]
+    ],
+    "SHOT10": [
+      [
+        496,
+        683,
+        43
+      ]
+    ],
+    "SHOT11": [
+      [
+        552,
+        431,
+        82
+      ]
+    ],
+    "SHOT12": [
+      [
+        266,
+        433,
+        73
+      ],
+      [
+        675,
+        530,
+        66
+      ]
+    ],
+    "SHOT13": [
+      [
+        280,
+        794,
+        59
+      ]
+    ],
+    "SHOT14": [
+      [
+        237,
+        936,
+        42
+      ]
+    ],
+    "SHOT15": [
+      [
+        237,
+        936,
+        42
+      ]
+    ],
+    "SHOT16": [
+      [
+        640,
+        960,
+        87
+      ]
+    ],
+    "SHOT17": [
+      [
+        697,
+        685,
+        68
+      ]
+    ],
+    "SHOT18": [
+      [
+        486,
+        710,
+        124
+      ]
+    ],
+    "SHOT19": [
+      [
+        261,
+        776,
+        86
+      ],
+      [
+        645,
+        776,
+        99
+      ]
+    ],
+    "SHOT20": [
+      [
+        755,
+        799,
+        82
+      ],
+      [
+        337,
+        481,
+        38
+      ]
+    ],
+    "SHOT21": [
+      [
+        642,
+        543,
+        62
+      ]
+    ],
+    "SHOT22": [
+      [
+        524,
+        506,
+        35
+      ],
+      [
+        244,
+        493,
+        38
+      ]
+    ],
+    "SHOT23": [
+      [
+        421,
+        552,
+        77
+      ]
+    ],
+    "SHOT24": [
+      [
+        225,
+        505,
+        75
+      ]
+    ],
+    "SHOT25": [
+      [
+        375,
+        558,
+        69
+      ]
+    ],
+    "SHOT26": [
+      [
+        350,
+        554,
+        65
+      ],
+      [
+        635,
+        509,
+        70
+      ]
+    ],
+    "SHOT27": [
+      [
+        226,
+        538,
+        70
+      ],
+      [
+        749,
+        541,
+        70
+      ]
+    ],
+    "SHOT28": [
+      [
+        407,
+        587,
+        61
+      ]
+    ],
+    "SHOT29": [
+      [
+        309,
+        600,
+        55
+      ]
+    ],
+    "SHOT30": [
+      [
+        281,
+        882,
+        36
+      ]
+    ]
+  }
+}

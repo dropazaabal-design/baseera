@@ -1,0 +1,51 @@
+{
+  "shotId": "SHOT08",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT08.png",
+  "source_sha256": "8f14ec132fb384c85fcad5032d98e391819da217828a2d91bcb134aa7477488a",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT08/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "b2f523ec4b66e403301b8593748653ba9876114ce5542c4e5160cb2dd6073677"
+    },
+    {
+      "id": "king",
+      "src": "law01/layers/SHOT08/king.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "16f371b02109a72db2e5a68d6d6a2f36ba2339e80708a26afa0fe6fba516baeb",
+      "pivot": [
+        170,
+        1635
+      ],
+      "motionGroup": "king"
+    }
+  ],
+  "actions": [
+    "quiet attention shift and subtle full-cloak lean; no asserted historical emotion"
+  ]
+}

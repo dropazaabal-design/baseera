@@ -1,0 +1,84 @@
+{
+  "shotId": "SHOT30",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT30.png",
+  "source_sha256": "f5ab5bf20050c77ffa8791474214237d8bb813e0f71818a42bf5c84dd8343bdf",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT30/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "1930fbb9b23091f544714a701df37e25bf1e743eb5f86b52aa751f252339f257"
+    },
+    {
+      "id": "foreground-path",
+      "src": "law01/layers/SHOT30/foreground-path.png",
+      "depth": 1.5,
+      "scale": 0.9501187648456058,
+      "role": "foreground-terrain",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "03c6cbd7a8042da437dc55739a7405b06ba66c3263ecc37c6877b8fd0858b0e3"
+    },
+    {
+      "id": "hero-and-lantern",
+      "src": "law01/layers/SHOT30/hero-and-lantern.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "a44d545318ba2bd56af5e638d219297579a6ba34755cca3837bad065339620ab",
+      "pivot": [
+        248,
+        1415
+      ],
+      "motionGroup": "hero-and-lantern"
+    },
+    {
+      "id": "hero-and-lantern-eyes",
+      "src": "law01/layers/SHOT30/hero-and-lantern-eyes.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "ade1a75f9c42936ae9f57ff801ce03598f1ad0c385e2cf8d4d1ff1a8a266e0ff",
+      "pivot": [
+        248,
+        1415
+      ],
+      "motionGroup": "hero-and-lantern"
+    }
+  ],
+  "actions": [
+    "calm final stance, tiny lantern sway"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "shotId": "SHOT24",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT24.png",
+  "source_sha256": "ac8038a446eaf7ebebaa68d32e712a5ae89acab838dde0ca4b56c16072f5021c",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT24/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "5da95a8f61bc39ca5eea069c0c91f15f6e6c6c678bbbb23c5fd3d75381258f3c"
+    },
+    {
+      "id": "award-holder",
+      "src": "law01/layers/SHOT24/award-holder.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "da2c28e1a6b9bd5da1138c7e056f0a17f2e5675c60f62be6033b75065ed5c8ff",
+      "pivot": [
+        181,
+        1550
+      ],
+      "motionGroup": "award-holder"
+    },
+    {
+      "id": "award-holder-eyes",
+      "src": "law01/layers/SHOT24/award-holder-eyes.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "407e902db67e825d05f7b246717b7bcbd68808a9a9c61fd22567c0ad4a7aad7f",
+      "pivot": [
+        181,
+        1550
+      ],
+      "motionGroup": "award-holder"
+    }
+  ],
+  "actions": [
+    "isolated whole-figure emphasis; light excludes distant team"
+  ]
+}

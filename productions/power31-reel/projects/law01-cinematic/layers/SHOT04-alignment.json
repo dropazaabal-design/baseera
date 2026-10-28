@@ -1,0 +1,44 @@
+{
+  "shotId": "SHOT04",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT04.png",
+  "source_sha256": "0ad87a6ae7f89b978b33e1b8369d2c29cc27847bb06d1ea6a00efbb6c64376a8",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local edge-texture continuation behind opaque foreground terrain",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT04/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "c3c828871e71377a921699d7ed7ef404b99086fa3f693e02fb9ecead0895e0c0"
+    },
+    {
+      "id": "foreground-garden",
+      "src": "law01/layers/SHOT04/foreground-garden.png",
+      "depth": 1.7,
+      "scale": 0.9438414346389805,
+      "role": "foreground-terrain",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "dc7e606e7978dd3a0a2d08ef8ffb6a98ca06a41afa7bb8ade8350023e07d63fb"
+    }
+  ],
+  "actions": []
+}
