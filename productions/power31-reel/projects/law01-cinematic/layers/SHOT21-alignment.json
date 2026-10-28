@@ -1,0 +1,30 @@
+{
+  "shotId": "SHOT21",
+  "mode": "SINGLE_ILLUSTRATED_PLANE",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT21.png",
+  "source_sha256": "c56bfa555b779271110e8d24419ebb2179c41c518e5ffd866280955c4bd172fd",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "not needed",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT21/background.png",
+      "depth": 0,
+      "scale": 1.0,
+      "role": "single-illustrated-plane",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "ac6975c49f3ccf8672365f5e0edbcc9705272eb05d9c6fd1b74e1aed85fd2866"
+    }
+  ],
+  "actions": []
+}

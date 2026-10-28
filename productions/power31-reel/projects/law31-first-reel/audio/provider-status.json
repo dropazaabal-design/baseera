@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED_PENDING_EXPLICIT_PAID_APPROVAL",
+  "generated": false,
+  "freeAlternative": "SILMA status and short generation returned connection errors in preceding session",
+  "paidEstimateOnly": {
+    "provider": "ElevenLabs",
+    "voiceId": "DhfzvPf0OIN8xdGwcHOk",
+    "voice": "Mohammed — Deep Narrator & Documentary",
+    "model": "eleven_v4",
+    "takes": 1,
+    "credits": 1017.8982,
+    "price_cents": 18.50724,
+    "currency": "USD"
+  },
+  "legacyAudio": "Existing approved recording has a different script and was preserved"
+}

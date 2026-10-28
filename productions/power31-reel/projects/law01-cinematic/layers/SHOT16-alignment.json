@@ -1,0 +1,51 @@
+{
+  "shotId": "SHOT16",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT16.png",
+  "source_sha256": "5f0ac55fca152a9adf4e4b5e92e8eee807d5d1006806e7cbae2180ea0c67f210",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT16/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "d3ff12a3292bfe77077cfc4113df68d5ccc040bfdc0d3f0079a8dd722a8593b2"
+    },
+    {
+      "id": "employee-report-chair",
+      "src": "law01/layers/SHOT16/employee-report-chair.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "57f8da0910164be7c561c96a0747c9af0d7a982ce336aad5669156bcf96226b8",
+      "pivot": [
+        730,
+        1560
+      ],
+      "motionGroup": "employee-report-chair"
+    }
+  ],
+  "actions": [
+    "focused report-reading body lean; report remains attached to hand"
+  ]
+}

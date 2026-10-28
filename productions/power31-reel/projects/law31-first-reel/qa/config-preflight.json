@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "framesTested": 5160,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "framesTested": 338,
+      "minimumCoverageMargin": 42.50778944396836,
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "relativeCameraMotion": {
+        "x": -14.579999999999927,
+        "y": 11.339999999999918
+      }
+    },
+    {
+      "id": "scene-02",
+      "framesTested": 228,
+      "minimumCoverageMargin": 35.74342105263156,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-03",
+      "framesTested": 228,
+      "minimumCoverageMargin": 41.31578967133146,
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "relativeCameraMotion": {
+        "x": 0,
+        "y": 144.40319999999997
+      }
+    },
+    {
+      "id": "scene-04",
+      "framesTested": 696,
+      "minimumCoverageMargin": 48.125,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-05",
+      "framesTested": 531,
+      "minimumCoverageMargin": 27.289010497218896,
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "relativeCameraMotion": {
+        "x": -15.227999999999838,
+        "y": 0
+      }
+    },
+    {
+      "id": "scene-06",
+      "framesTested": 338,
+      "minimumCoverageMargin": 41.934210526315724,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-07",
+      "framesTested": 476,
+      "minimumCoverageMargin": 58.07894736842104,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-08",
+      "framesTested": 393,
+      "minimumCoverageMargin": 60.506578947368325,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-09",
+      "framesTested": 311,
+      "minimumCoverageMargin": 41.934210526315724,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-10",
+      "framesTested": 476,
+      "minimumCoverageMargin": 49.83657894736848,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    },
+    {
+      "id": "scene-11",
+      "framesTested": 613,
+      "minimumCoverageMargin": 68.70573681084159,
+      "layerMode": "TRUE_SEPARATE_PLANES",
+      "relativeCameraMotion": {
+        "x": -17.94312000000002,
+        "y": 14.05025999999998
+      }
+    },
+    {
+      "id": "scene-12",
+      "framesTested": 532,
+      "minimumCoverageMargin": 35.74342105263156,
+      "layerMode": "SINGLE_ILLUSTRATED_PLANE",
+      "relativeCameraMotion": null
+    }
+  ],
+  "invalidProjectsRejected": 5,
+  "srt": {
+    "parsing": "PASS",
+    "ordered": "PASS",
+    "count": 33,
+    "alignment": "ESTIMATED_NOT_AUDIO_ALIGNED"
+  }
+}

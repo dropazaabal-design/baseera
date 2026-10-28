@@ -1,0 +1,44 @@
+{
+  "shotId": "SHOT26",
+  "mode": "ILLUSTRATED_PLANE_WITH_EYE_ANIMATION",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT26.png",
+  "source_sha256": "27ae70dcc5a9fac1668c2a2fef0b5ef3477334af740b0b40ea61d7f516b33298",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "not needed",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT26/background.png",
+      "depth": 0,
+      "scale": 1.0,
+      "role": "single-illustrated-plane",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "d6fabe6bbaacbb097c67c927bfa89be802cf1e32ba064f772402917ffcb6a7b3"
+    },
+    {
+      "id": "background-eyes",
+      "src": "law01/layers/SHOT26/background-eyes.png",
+      "depth": 0,
+      "scale": 1.0,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "318be8522d8063525a46bda63bdf14ea8b3c4e4696f97c8143b7034e4834ae09"
+    }
+  ],
+  "actions": []
+}

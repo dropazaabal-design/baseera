@@ -1,0 +1,8 @@
+{
+  "status": "PASS_ORIGINALS_RECOVERED",
+  "masters": 12,
+  "regenerated": 0,
+  "source": "Previously generated originals recovered by exact Library identities",
+  "renderStatus": "RERENDER_COMPLETED_AND_VERIFIED",
+  "outputSha256": "43abff15719c6a31f061c842bb93545b806213919ac2886d5d6ca12c96e8b7c9"
+}

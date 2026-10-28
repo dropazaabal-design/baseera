@@ -1,0 +1,70 @@
+{
+  "shotId": "SHOT03",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT03.png",
+  "source_sha256": "f83c514154c6af8ca2c9605e8fedb58c0b88639b0e5cc75d608cec597e4816ef",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT03/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "8670c0e49236dc1f8a9c50df1186e36d6deda2459f2214a8208fef878b31dc6d"
+    },
+    {
+      "id": "hero",
+      "src": "law01/layers/SHOT03/hero.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "9fc7a8f07dc7a49ada92785adcc36d82336f06b5310cac819ef2398fbf7edd64",
+      "pivot": [
+        401,
+        716
+      ],
+      "motionGroup": "hero"
+    },
+    {
+      "id": "falling-stone",
+      "src": "law01/layers/SHOT03/falling-stone.png",
+      "depth": 2.3,
+      "scale": 0.9254974548819991,
+      "role": "falling-fragment",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "d5df92b2a834ffaff0276d452802fac11503dfaee611c5b10c26491d97d9ba18",
+      "pivot": [
+        700,
+        905
+      ],
+      "motionGroup": "falling-stone"
+    }
+  ],
+  "actions": [
+    "drawn step-back pose with restrained whole-body reaction"
+  ]
+}

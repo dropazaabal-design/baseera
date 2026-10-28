@@ -1,0 +1,70 @@
+{
+  "shotId": "SHOT29",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT29.png",
+  "source_sha256": "bb606df642a5702cc627c177cdb8d81bcc08e6ec6768e30bb06fb24617d33da8",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT29/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "02b99591d237051ad16d15dabbd505e0f1933340d7aa07752ed0b495287eaee1"
+    },
+    {
+      "id": "hero-and-lantern",
+      "src": "law01/layers/SHOT29/hero-and-lantern.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "7efc608d40118925474712450372a3881ebedfc6033fa73b954c61c3f1072c31",
+      "pivot": [
+        270,
+        1500
+      ],
+      "motionGroup": "hero-and-lantern"
+    },
+    {
+      "id": "hero-and-lantern-eyes",
+      "src": "law01/layers/SHOT29/hero-and-lantern-eyes.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "aac5859af01aa55691cf4f7be3458132654bdb5dfb77206be161898b7d70eb73",
+      "pivot": [
+        270,
+        1500
+      ],
+      "motionGroup": "hero-and-lantern"
+    }
+  ],
+  "actions": [
+    "small lantern-bearing body lean; ground-light direction changes without face glare"
+  ]
+}

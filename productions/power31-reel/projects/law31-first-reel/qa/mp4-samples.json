@@ -1,0 +1,9 @@
+{
+  "status": "PASS_EXTRACTION",
+  "samples": 41,
+  "fps": 60,
+  "resolution": [
+    1080,
+    1920
+  ]
+}

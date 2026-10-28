@@ -1,0 +1,106 @@
+{
+  "sceneId": "scene-03",
+  "mode": "TRUE_SEPARATE_PLANES",
+  "canvas": [
+    940,
+    1672
+  ],
+  "coordinateSystem": "Full source canvas, depth scaling compensated at rest",
+  "segmentation": "Manual masks + OpenCV GrabCut; no SAM/depth model",
+  "notes": [
+    "Strings, hands and doors share depth to retain attachment.",
+    "A provider cutout edit was rejected; local matting of approved art used instead."
+  ],
+  "layers": [
+    {
+      "id": "background",
+      "src": "law31-first-reel/scene-03/background.png",
+      "depth": -0.6,
+      "scale": 1.02145046,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "9623dc651f63fbba22faa35257602efb60bdceb777c64b66b79139b2ad863525"
+    },
+    {
+      "id": "puppet-master",
+      "src": "law31-first-reel/scene-03/puppet-master.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "6ba60f51a17e32fab64a74858583295f1de16d426cbccd5a9ef74602a8adc7d6"
+    },
+    {
+      "id": "left-door",
+      "src": "law31-first-reel/scene-03/left-door.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "280e84d845a1fecf2c3a996d6665074093747f5694543d9bfccff1599f3c99e6"
+    },
+    {
+      "id": "right-door",
+      "src": "law31-first-reel/scene-03/right-door.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "a2e227d2cbf560392a45801598c1883c089e9be4f302973f8f1a3a5b992bd276"
+    },
+    {
+      "id": "strings",
+      "src": "law31-first-reel/scene-03/strings.png",
+      "depth": 0,
+      "scale": 1.0,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "14cc2fcda4759daba0e15843c477328d8ab2851c1ff7257d73bacab83147520e"
+    },
+    {
+      "id": "main-character",
+      "src": "law31-first-reel/scene-03/main-character.png",
+      "depth": 1.7,
+      "scale": 0.94384143,
+      "dimensions": [
+        940,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "e0dc4bb89106174616cdf16a2fbcc000c6c46bf56b819f6f736334bb77af3892"
+    }
+  ]
+}

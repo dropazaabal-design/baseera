@@ -1,0 +1,175 @@
+{
+  "renderProcess": "COMPLETED",
+  "file": "projects/law01-cinematic/renders/Law01-Visual-Review-1080x1920-60fps-v1.mp4",
+  "publicationReady": false,
+  "audioIncluded": false,
+  "estimatedCaptions": true,
+  "expectedFrames": 5760,
+  "expectedFPS": 60,
+  "method": "Global frame ranges rendered at identical quality and stream-concatenated without re-encoding.",
+  "checkpoint": {
+    "inputSHA256": "7858907b75db37c902fa515fed5eb6b02f3a55daff03f8beb2586439dc56343b",
+    "chunks": [
+      {
+        "index": 0,
+        "startFrame": 0,
+        "endFrameInclusive": 299,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/000.mp4",
+        "sha256": "32ce6bbec9c0b1cd53e80761e4bb9c5b4aba0bcae7c3962a5bf58ad644f45f4c"
+      },
+      {
+        "index": 1,
+        "startFrame": 300,
+        "endFrameInclusive": 599,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/001.mp4",
+        "sha256": "1455595c0878453a483b4135958b92832cea0ad85bc568841b9809e395a9a5af"
+      },
+      {
+        "index": 2,
+        "startFrame": 600,
+        "endFrameInclusive": 899,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/002.mp4",
+        "sha256": "c4099eecf93e6c48889bc17ef89c42ff65faa48d480d6932de02dffa82e25150"
+      },
+      {
+        "index": 3,
+        "startFrame": 900,
+        "endFrameInclusive": 1199,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/003.mp4",
+        "sha256": "2c0f6d040c1ba55c59e4bfb4d6b9ac96bbe70f2c2cc234b85200c0b64ff040ab"
+      },
+      {
+        "index": 4,
+        "startFrame": 1200,
+        "endFrameInclusive": 1499,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/004.mp4",
+        "sha256": "26890c887b7a74445664ec35ca392b41d94d246fdb116a59224e0c804c7612dc"
+      },
+      {
+        "index": 5,
+        "startFrame": 1500,
+        "endFrameInclusive": 1799,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/005.mp4",
+        "sha256": "71674b298da45527410f62b341a7eadb673c6224e4e5b24affe8416de99d6bdf"
+      },
+      {
+        "index": 6,
+        "startFrame": 1800,
+        "endFrameInclusive": 2099,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/006.mp4",
+        "sha256": "86263574851c64bc9185521b943ae40ba76f67c523c8d6560abe07b910ac24b3"
+      },
+      {
+        "index": 7,
+        "startFrame": 2100,
+        "endFrameInclusive": 2399,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/007.mp4",
+        "sha256": "4ed5861c3a45ef409c9b7066c06bc4a6df41f00eee8758d6fb47c49fb3a4fb61"
+      },
+      {
+        "index": 8,
+        "startFrame": 2400,
+        "endFrameInclusive": 2699,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/008.mp4",
+        "sha256": "eae1625f1f550d63126e012548babfbc2f5af945291cb143303325c127cee9b2"
+      },
+      {
+        "index": 9,
+        "startFrame": 2700,
+        "endFrameInclusive": 2999,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/009.mp4",
+        "sha256": "4496f69fcfe1efa7f6a8116c49c8910263e30743ad75f86fe0d4a204574005e4"
+      },
+      {
+        "index": 10,
+        "startFrame": 3000,
+        "endFrameInclusive": 3299,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/010.mp4",
+        "sha256": "2af49b6a7a84b0484236d815e2b0d8693605d8c1ddfdb95c17be98e9825ef59a"
+      },
+      {
+        "index": 11,
+        "startFrame": 3300,
+        "endFrameInclusive": 3599,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/011.mp4",
+        "sha256": "dc2791f7244a73ac95c6d138000189fca17b278955f0defbbbcf58d0c25bc1ba"
+      },
+      {
+        "index": 12,
+        "startFrame": 3600,
+        "endFrameInclusive": 3899,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/012.mp4",
+        "sha256": "26fa2d54fb005f2d0eafd999c5ae43be069f4b04f0a9a3e86b6dceb07196209f"
+      },
+      {
+        "index": 13,
+        "startFrame": 3900,
+        "endFrameInclusive": 4199,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/013.mp4",
+        "sha256": "159b9602cfa084b9d234a201e088091bebb0b4381c64aa9bf262cb5626f79cb5"
+      },
+      {
+        "index": 14,
+        "startFrame": 4200,
+        "endFrameInclusive": 4499,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/014.mp4",
+        "sha256": "74715b6e4a71d4be2b7a2ef3c7444fd7f470d0b99434199169f81d99a5be23fd"
+      },
+      {
+        "index": 15,
+        "startFrame": 4500,
+        "endFrameInclusive": 4799,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/015.mp4",
+        "sha256": "febb1ec6a3b0805860b490c2057c10d91d3079bb03b759ba10e2d3c8f6d1e87f"
+      },
+      {
+        "index": 16,
+        "startFrame": 4800,
+        "endFrameInclusive": 5099,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/016.mp4",
+        "sha256": "7a7e3956956eb60acd5076088eb226e72c2d3fb78ea4c4fb81bdf6ebdc009109"
+      },
+      {
+        "index": 17,
+        "startFrame": 5100,
+        "endFrameInclusive": 5399,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/017.mp4",
+        "sha256": "fb3353169a7da971e307135fdce6420a81e3a29593e2f44c599e3ecb450cec4a"
+      },
+      {
+        "index": 18,
+        "startFrame": 5400,
+        "endFrameInclusive": 5699,
+        "frames": 300,
+        "file": "projects/law01-cinematic/renders/chunks-v1/018.mp4",
+        "sha256": "4f187c2b2c94313bcdf8e13a8b3803b67d985ba7bf725f3d45b6caed63000454"
+      },
+      {
+        "index": 19,
+        "startFrame": 5700,
+        "endFrameInclusive": 5759,
+        "frames": 60,
+        "file": "projects/law01-cinematic/renders/chunks-v1/019.mp4",
+        "sha256": "67c12ed805e62bfd21135d2ad1c01573bd656ec6bcea77271f2f749e2a747063"
+      }
+    ]
+  }
+}

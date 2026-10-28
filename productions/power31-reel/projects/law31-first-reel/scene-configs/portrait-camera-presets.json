@@ -1,0 +1,63 @@
+{
+  "note": "Copy the selected camera object into scene.camera; explicit camera keys override presets. Existing engine defaults remain unchanged for legacy SVG projects.",
+  "slowPush": {
+    "from": {
+      "x": 785,
+      "y": 1100,
+      "zoom": 0.96
+    },
+    "to": {
+      "x": 812,
+      "y": 1080,
+      "zoom": 1.05
+    }
+  },
+  "pullBack": {
+    "from": {
+      "x": 800,
+      "y": 1065,
+      "zoom": 1.12
+    },
+    "to": {
+      "x": 800,
+      "y": 1100,
+      "zoom": 0.93
+    }
+  },
+  "panLeft": {
+    "from": {
+      "x": 820,
+      "y": 1100,
+      "zoom": 0.98
+    },
+    "to": {
+      "x": 780,
+      "y": 1100,
+      "zoom": 0.98
+    }
+  },
+  "driftRight": {
+    "from": {
+      "x": 789,
+      "y": 1100,
+      "zoom": 0.97
+    },
+    "to": {
+      "x": 808,
+      "y": 1090,
+      "zoom": 0.99
+    }
+  },
+  "tiltReveal": {
+    "from": {
+      "x": 800,
+      "y": 1370,
+      "zoom": 1.17
+    },
+    "to": {
+      "x": 800,
+      "y": 1065,
+      "zoom": 0.94
+    }
+  }
+}

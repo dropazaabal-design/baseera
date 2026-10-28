@@ -1,0 +1,70 @@
+{
+  "shotId": "SHOT09",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT09.png",
+  "source_sha256": "81aa2a2359bb7620d4add05172d49a60693ff28b394037b7cc0dd9e2cb09321e",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT09/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "1f014db47924a0f9c7add08a445a41b0c6b40f1624611514b445b3e1f0ca72fd"
+    },
+    {
+      "id": "guards",
+      "src": "law01/layers/SHOT09/guards.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "564100dd48bc01ab76544a161240057894851727a4390c818419ed4cd2161c99",
+      "pivot": [
+        410,
+        1340
+      ],
+      "motionGroup": "guards"
+    },
+    {
+      "id": "guards-eyes",
+      "src": "law01/layers/SHOT09/guards-eyes.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "a1255c3c3f3c5f6d4ad80f6979bd9aad60302282493499a7e29dbdc4ec90b3a7",
+      "pivot": [
+        410,
+        1340
+      ],
+      "motionGroup": "guards"
+    }
+  ],
+  "actions": [
+    "small depth advance using drawn walking pose"
+  ]
+}

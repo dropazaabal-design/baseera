@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "Four full-resolution stills rendered twice with frozen assets in the same runtime; not AI regeneration",
+  "samples": [
+    {
+      "scene": "scene-01",
+      "frame": 169,
+      "pixelsEqual": true,
+      "sha256A": "34f1b877dc89f31037b7b046a501fa1a2d7750286310d5e7adc167bb0581ca71",
+      "sha256B": "34f1b877dc89f31037b7b046a501fa1a2d7750286310d5e7adc167bb0581ca71"
+    },
+    {
+      "scene": "scene-03",
+      "frame": 680,
+      "pixelsEqual": true,
+      "sha256A": "f85132ea83feb0b6a871143a783221fed9a2f56d7fdf0d9354ff9a39992bbfab",
+      "sha256B": "f85132ea83feb0b6a871143a783221fed9a2f56d7fdf0d9354ff9a39992bbfab"
+    },
+    {
+      "scene": "scene-05",
+      "frame": 1755,
+      "pixelsEqual": true,
+      "sha256A": "a3a9302708bde9541f97a2f836ebba97b88ffe79b4e1aab55b517e850f2b5032",
+      "sha256B": "a3a9302708bde9541f97a2f836ebba97b88ffe79b4e1aab55b517e850f2b5032"
+    },
+    {
+      "scene": "scene-11",
+      "frame": 4321,
+      "pixelsEqual": true,
+      "sha256A": "9aa476b8ef2fb0c779b0a42bfacbf91d7107fc161287e11e42faf8533121b45b",
+      "sha256B": "9aa476b8ef2fb0c779b0a42bfacbf91d7107fc161287e11e42faf8533121b45b"
+    }
+  ]
+}

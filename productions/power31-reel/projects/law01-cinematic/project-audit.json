@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/dropazaabal-design/baseera",
+  "auditDate": "2026-10-28",
+  "defaultBranch": "claude/serene-franklin-qhg0cg",
+  "defaultBranchAtAudit": "8af4191a617120dc4bb8bbe0c3bbface5e331e34",
+  "existingPRs": [
+    {"number": 12, "name": "CinematicCameraEngine", "statusAtAudit": "MERGED"},
+    {"number": 13, "name": "JSON Production Workflow", "statusAtAudit": "MERGED"},
+    {"number": 14, "branch": "production/law31-first-cinematic", "statusAtAudit": "OPEN"}
+  ],
+  "productionBaseBranch": "production/law31-first-cinematic",
+  "productionBaseCommit": "a83f0528e466ab44b02c3ba29aecadb15a4d992d",
+  "law01Branch": "production/law01-cinematic-20261028",
+  "isolatedEntryPoint": "src/law01/index.ts",
+  "engineRebuilt": false,
+  "existingSourceFilesModified": false,
+  "phase1Words": 209,
+  "phase2OriginalCount": 30,
+  "phase2SourceResolution": [936, 1664],
+  "paidGenerationInvoked": false,
+  "audioAvailable": false,
+  "publicationReady": false,
+  "finalDeliverableGate": "Approved actual narration and recording-aligned captions required.",
+  "dependencies": "PR targets the existing Law31 production branch to isolate Law01 changes; no PR has been merged by this production task."
+}

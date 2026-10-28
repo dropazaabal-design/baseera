@@ -1,0 +1,281 @@
+{
+  "samples": [
+    {
+      "scene": "scene-01",
+      "label": "start",
+      "frame": 0,
+      "file": "frames/scene-01-start.png"
+    },
+    {
+      "scene": "scene-01",
+      "label": "middle",
+      "frame": 169,
+      "file": "frames/scene-01-middle.png"
+    },
+    {
+      "scene": "scene-01",
+      "label": "end",
+      "frame": 337,
+      "file": "frames/scene-01-end.png"
+    },
+    {
+      "scene": "scene-02",
+      "label": "start",
+      "frame": 338,
+      "file": "frames/scene-02-start.png"
+    },
+    {
+      "scene": "scene-02",
+      "label": "middle",
+      "frame": 452,
+      "file": "frames/scene-02-middle.png"
+    },
+    {
+      "scene": "scene-02",
+      "label": "end",
+      "frame": 565,
+      "file": "frames/scene-02-end.png"
+    },
+    {
+      "scene": "scene-03",
+      "label": "start",
+      "frame": 566,
+      "file": "frames/scene-03-start.png"
+    },
+    {
+      "scene": "scene-03",
+      "label": "middle",
+      "frame": 680,
+      "file": "frames/scene-03-middle.png"
+    },
+    {
+      "scene": "scene-03",
+      "label": "end",
+      "frame": 793,
+      "file": "frames/scene-03-end.png"
+    },
+    {
+      "scene": "scene-04",
+      "label": "start",
+      "frame": 794,
+      "file": "frames/scene-04-start.png"
+    },
+    {
+      "scene": "scene-04",
+      "label": "middle",
+      "frame": 1142,
+      "file": "frames/scene-04-middle.png"
+    },
+    {
+      "scene": "scene-04",
+      "label": "end",
+      "frame": 1489,
+      "file": "frames/scene-04-end.png"
+    },
+    {
+      "scene": "scene-04",
+      "label": "transition",
+      "frame": 803,
+      "file": "frames/scene-04-transition.png"
+    },
+    {
+      "scene": "scene-05",
+      "label": "start",
+      "frame": 1490,
+      "file": "frames/scene-05-start.png"
+    },
+    {
+      "scene": "scene-05",
+      "label": "middle",
+      "frame": 1755,
+      "file": "frames/scene-05-middle.png"
+    },
+    {
+      "scene": "scene-05",
+      "label": "end",
+      "frame": 2020,
+      "file": "frames/scene-05-end.png"
+    },
+    {
+      "scene": "scene-06",
+      "label": "start",
+      "frame": 2021,
+      "file": "frames/scene-06-start.png"
+    },
+    {
+      "scene": "scene-06",
+      "label": "middle",
+      "frame": 2190,
+      "file": "frames/scene-06-middle.png"
+    },
+    {
+      "scene": "scene-06",
+      "label": "end",
+      "frame": 2358,
+      "file": "frames/scene-06-end.png"
+    },
+    {
+      "scene": "scene-06",
+      "label": "transition",
+      "frame": 2030,
+      "file": "frames/scene-06-transition.png"
+    },
+    {
+      "scene": "scene-07",
+      "label": "start",
+      "frame": 2359,
+      "file": "frames/scene-07-start.png"
+    },
+    {
+      "scene": "scene-07",
+      "label": "middle",
+      "frame": 2597,
+      "file": "frames/scene-07-middle.png"
+    },
+    {
+      "scene": "scene-07",
+      "label": "end",
+      "frame": 2834,
+      "file": "frames/scene-07-end.png"
+    },
+    {
+      "scene": "scene-08",
+      "label": "start",
+      "frame": 2835,
+      "file": "frames/scene-08-start.png"
+    },
+    {
+      "scene": "scene-08",
+      "label": "middle",
+      "frame": 3031,
+      "file": "frames/scene-08-middle.png"
+    },
+    {
+      "scene": "scene-08",
+      "label": "end",
+      "frame": 3227,
+      "file": "frames/scene-08-end.png"
+    },
+    {
+      "scene": "scene-08",
+      "label": "transition",
+      "frame": 2844,
+      "file": "frames/scene-08-transition.png"
+    },
+    {
+      "scene": "scene-09",
+      "label": "start",
+      "frame": 3228,
+      "file": "frames/scene-09-start.png"
+    },
+    {
+      "scene": "scene-09",
+      "label": "middle",
+      "frame": 3383,
+      "file": "frames/scene-09-middle.png"
+    },
+    {
+      "scene": "scene-09",
+      "label": "end",
+      "frame": 3538,
+      "file": "frames/scene-09-end.png"
+    },
+    {
+      "scene": "scene-10",
+      "label": "start",
+      "frame": 3539,
+      "file": "frames/scene-10-start.png"
+    },
+    {
+      "scene": "scene-10",
+      "label": "middle",
+      "frame": 3777,
+      "file": "frames/scene-10-middle.png"
+    },
+    {
+      "scene": "scene-10",
+      "label": "end",
+      "frame": 4014,
+      "file": "frames/scene-10-end.png"
+    },
+    {
+      "scene": "scene-10",
+      "label": "transition",
+      "frame": 3548,
+      "file": "frames/scene-10-transition.png"
+    },
+    {
+      "scene": "scene-11",
+      "label": "start",
+      "frame": 4015,
+      "file": "frames/scene-11-start.png"
+    },
+    {
+      "scene": "scene-11",
+      "label": "middle",
+      "frame": 4321,
+      "file": "frames/scene-11-middle.png"
+    },
+    {
+      "scene": "scene-11",
+      "label": "end",
+      "frame": 4627,
+      "file": "frames/scene-11-end.png"
+    },
+    {
+      "scene": "scene-12",
+      "label": "start",
+      "frame": 4628,
+      "file": "frames/scene-12-start.png"
+    },
+    {
+      "scene": "scene-12",
+      "label": "middle",
+      "frame": 4894,
+      "file": "frames/scene-12-middle.png"
+    },
+    {
+      "scene": "scene-12",
+      "label": "end",
+      "frame": 5159,
+      "file": "frames/scene-12-end.png"
+    },
+    {
+      "scene": "scene-12",
+      "label": "transition",
+      "frame": 4637,
+      "file": "frames/scene-12-transition.png"
+    }
+  ],
+  "repeated": [
+    {
+      "scene": "scene-01",
+      "label": "middle",
+      "frame": 169,
+      "file": "frames/scene-01-middle.png",
+      "repeat": "repeat/scene-01.png"
+    },
+    {
+      "scene": "scene-03",
+      "label": "middle",
+      "frame": 680,
+      "file": "frames/scene-03-middle.png",
+      "repeat": "repeat/scene-03.png"
+    },
+    {
+      "scene": "scene-05",
+      "label": "middle",
+      "frame": 1755,
+      "file": "frames/scene-05-middle.png",
+      "repeat": "repeat/scene-05.png"
+    },
+    {
+      "scene": "scene-11",
+      "label": "middle",
+      "frame": 4321,
+      "file": "frames/scene-11-middle.png",
+      "repeat": "repeat/scene-11.png"
+    }
+  ],
+  "browserErrors": []
+}

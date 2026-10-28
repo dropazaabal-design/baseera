@@ -1,0 +1,45 @@
+{
+  "sceneId": "scene-11",
+  "mode": "TRUE_SEPARATE_PLANES",
+  "canvas": [
+    941,
+    1672
+  ],
+  "coordinateSystem": "Full source canvas, depth scaling compensated at rest",
+  "segmentation": "Manual masks + OpenCV GrabCut; no SAM/depth model",
+  "notes": [
+    "Third passage revealed by reframing; no claim of simulated door geometry."
+  ],
+  "layers": [
+    {
+      "id": "background",
+      "src": "law31-first-reel/scene-11/background.png",
+      "depth": -1,
+      "scale": 1.03626943,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "e3ba55dfbe6dd879498105f26c06357751e3ae29d56f5bfaf6d013ef765ad1cf"
+    },
+    {
+      "id": "main-character",
+      "src": "law31-first-reel/scene-11/main-character.png",
+      "depth": 1.7,
+      "scale": 0.94384143,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "cf5c6f777d92a7e4e00f78eef591c21834e96ebf82a740e3466b37c630db255a"
+    }
+  ]
+}

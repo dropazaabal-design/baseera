@@ -11,3 +11,11 @@ production/*.log
 core
 
 public/projects/*.mp3
+.venv-layer-tools/
+public/law31-first-reel/**/*.png
+projects/law31-first-reel/**/*.png
+projects/law31-first-reel/**/*.jpg
+projects/law31-first-reel/**/*.mp4
+projects/law31-first-reel/**/*.mp3
+projects/law31-first-reel/**/*.wav
+projects/law31-first-reel/qa/render-mp4.log

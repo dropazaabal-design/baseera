@@ -1,0 +1,70 @@
+{
+  "shotId": "SHOT14",
+  "mode": "MULTILAYER_2_5D",
+  "canvas": [
+    936,
+    1664
+  ],
+  "original": "law01/originals/SHOT14.png",
+  "source_sha256": "de62f97c0bada3de0b2c52fcc3e000612ba5811561ba1f1a496e60161f05936c",
+  "coordinateSystem": "full source canvas; engine depth scale is compensated at rest",
+  "backgroundCompletion": "Local OpenCV Telea inpainting with expanded mask, no generative model; hidden regions reviewed for the bounded camera path",
+  "segmentation": "authored ROI/seeds + deterministic GrabCut; internal holes retained",
+  "layers": [
+    {
+      "id": "background",
+      "src": "law01/layers/SHOT14/background.png",
+      "depth": -0.6,
+      "scale": 1.0214504596527068,
+      "role": "completed-background",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "c2b29b1253145b01503b8fc5f22cd7abdc81c238018a075cbf527854bdafe6f8"
+    },
+    {
+      "id": "hero",
+      "src": "law01/layers/SHOT14/hero.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "character-group",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "09251a4510341c2be7b3628f8e5f6ca6f4b8f40c786a4020e9536736364c8d6c",
+      "pivot": [
+        215,
+        1400
+      ],
+      "motionGroup": "hero"
+    },
+    {
+      "id": "hero-eyes",
+      "src": "law01/layers/SHOT14/hero-eyes.png",
+      "depth": 1.2,
+      "scale": 0.9596928982725528,
+      "role": "eye-expression",
+      "width": 936,
+      "height": 1664,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "83407b19c25b96f31aa7c7f67d3ab125ad233f757d97da62774275c32be74294",
+      "pivot": [
+        215,
+        1400
+      ],
+      "motionGroup": "hero"
+    }
+  ],
+  "actions": [
+    "upright self-respect, small attention lean"
+  ]
+}

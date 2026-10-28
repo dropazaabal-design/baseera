@@ -1,0 +1,6 @@
+renders/
+qa/frames*/
+qa/review*/
+qa/repeat*/
+qa/*.png
+qa/raw/*.bin

@@ -1,0 +1,26 @@
+{
+  "src/cinematic/CinematicCameraEngine.tsx": {
+    "unchanged": true,
+    "sha256": "53ded7b80cd35dca7e8e6af7e4269cd09039c25dc734ee499933a4ec9aeec75b"
+  },
+  "src/cinematic/CinematicDemo.tsx": {
+    "unchanged": true,
+    "sha256": "7cb52d80b9c3f1695a046625d8e009cc4184bdbf7671256f5d6f16425bedabf4"
+  },
+  "src/Power31.tsx": {
+    "unchanged": true,
+    "sha256": "be7eb0c413e85b7868f0b52c09cc7dc04a846e532740d76e83d6fc8c734b3d43"
+  },
+  "src/projects/current.json": {
+    "unchanged": true,
+    "sha256": "7177f3a201a9632684e5d66efc7260aafbe8fda87f31e18ec92f6557290c6a3a"
+  },
+  "package.json": {
+    "unchanged": true,
+    "sha256": "f82cb917b8cadc50c5fb6d6418d8d59a70f08e48458851f8e21069ccd181b686"
+  },
+  "package-lock.json": {
+    "unchanged": true,
+    "sha256": "4dd397c2f5339010c10ee6e897715d199067aae5b3457d9b274c0abc54bd91ca"
+  }
+}
