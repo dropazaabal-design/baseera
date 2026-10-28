@@ -1,0 +1,129 @@
+{
+  "stage": "VISUAL_REVIEW_NOT_PUBLICATION_READY",
+  "output": {
+    "path": "projects/law31-first-reel/renders/Law31-Visual-Review-1080x1920-60fps.mp4",
+    "sha256": "43abff15719c6a31f061c842bb93545b806213919ac2886d5d6ca12c96e8b7c9",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "frames": 5160,
+    "duration": 86,
+    "codec": "H.264",
+    "pixelFormat": "yuv420p",
+    "audioStreams": 0
+  },
+  "checks": [
+    {
+      "check": "TypeScript",
+      "status": "PASS",
+      "evidence": "typescript.log"
+    },
+    {
+      "check": "ESLint changed workflow",
+      "status": "PASS",
+      "evidence": "eslint-new-scope.log"
+    },
+    {
+      "check": "ESLint whole existing project",
+      "status": "FAIL_PREEXISTING",
+      "evidence": "full-lint.log; baseline-lint.log",
+      "detail": "@remotion/from-0 in unchanged src/Power31.tsx:20"
+    },
+    {
+      "check": "Module imports",
+      "status": "PASS",
+      "evidence": "module-imports.json"
+    },
+    {
+      "check": "Engine and workflow regression tests",
+      "status": "PASS",
+      "evidence": "engine-test.json; workflow-test.json"
+    },
+    {
+      "check": "JSON, frame bounds and independent depth",
+      "status": "PASS",
+      "evidence": "config-preflight.json",
+      "frames": 5160
+    },
+    {
+      "check": "PNG decode, dimensions, alpha and hashes",
+      "status": "PASS",
+      "evidence": "asset-preflight.json",
+      "images": 23
+    },
+    {
+      "check": "Composition discovery and per-scene preview",
+      "status": "PASS",
+      "evidence": "compositions.json"
+    },
+    {
+      "check": "18-scene JSON production slot",
+      "status": "PASS",
+      "evidence": "18-scene-workflow.json"
+    },
+    {
+      "check": "Studio start and HTTP",
+      "status": "PASS",
+      "evidence": "studio-http.json",
+      "limit": "No browser GUI automation"
+    },
+    {
+      "check": "Determinism final source",
+      "status": "PASS",
+      "evidence": "determinism-final.json",
+      "pairs": 4
+    },
+    {
+      "check": "Full MP4 decode, black/freeze scan",
+      "status": "PASS",
+      "evidence": "full-decode.log",
+      "limit": "blackdetect .98/.02/.02s; freezedetect .001/2s"
+    },
+    {
+      "check": "Visual review of actual MP4 samples",
+      "status": "PASS_WITH_SCOPE",
+      "evidence": "mp4-samples.json; mp4-review-board-1..4.jpg; mp4-transitions.jpg",
+      "detail": "36 start/middle/end samples + 5 transitions; not a claim of manual inspection of every frame"
+    },
+    {
+      "check": "SRT syntax, order and RTL",
+      "status": "PASS_ESTIMATED_TIMING",
+      "evidence": "config-preflight.json; rendered samples",
+      "detail": "33 cues. No audio-synchronization or 17ms claim"
+    },
+    {
+      "check": "Legacy render compatibility",
+      "status": "PASS_SAMPLES",
+      "evidence": "legacy-clip.log; legacy-compatibility.json",
+      "detail": "CinematicDemo and Power31-Cinematic stills; Power31 still; 2s Power31-Cinematic MP4"
+    },
+    {
+      "check": "Strict legacy pixel comparison",
+      "status": "PARTIAL_FAIL",
+      "evidence": "legacy-compatibility.json",
+      "detail": "CinematicDemo exact. Power31-Cinematic differs in 145 of 2073600 pixels in a small footer glyph region; cause not established"
+    },
+    {
+      "check": "Narration, LUFS, True Peak and alignment",
+      "status": "BLOCKED",
+      "evidence": "../audio/provider-status.json",
+      "detail": "No approved new audio. SILMA connection failed. Paid generation not authorized"
+    },
+    {
+      "check": "SAM 2 / Depth Anything V2",
+      "status": "NOT_INSTALLED_NOT_RUN",
+      "detail": "Deferred; manual masks and local OpenCV used"
+    },
+    {
+      "check": "Publication-ready final reel",
+      "status": "BLOCKED",
+      "detail": "Narration, actual scene timing, synchronized captions and audio QA remain"
+    },
+    {
+      "check": "Per-frame blackframe scan",
+      "status": "PASS",
+      "evidence": "blackframe-scan.json; blackframe-scan.log",
+      "detail": "All 5160 frames; amount 98 threshold 5, zero detections"
+    }
+  ]
+}

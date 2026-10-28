@@ -69,26 +69,43 @@ export const ProductionScene = ({
         </div>
       </>
     )}
-    <div
-      dir="rtl"
-      style={{
-        position: "absolute",
-        bottom: 90,
-        right: 80,
-        left: 80,
-        fontFamily: "Cairo",
-        fontSize: presentation.compactBrand ? 28 : 32,
-        textAlign: presentation.compactBrand ? "center" : undefined,
-        color: "#B5DDD9",
-      }}
-    >
-      {!presentation.compactBrand && (
-        <>القانون 31 · لفهم التلاعب لا لممارسته · </>
-      )}
-      <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
-        @kitabwbs
-      </span>
-    </div>
+    {presentation.compactBrand ? (
+      <div
+        dir="rtl"
+        style={{
+          position: "absolute",
+          bottom: 90,
+          right: 80,
+          left: 80,
+          fontFamily: "Cairo",
+          fontSize: 28,
+          textAlign: "center",
+          color: "#B5DDD9",
+        }}
+      >
+        <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
+          @kitabwbs
+        </span>
+      </div>
+    ) : (
+      <div
+        dir="rtl"
+        style={{
+          position: "absolute",
+          bottom: 90,
+          right: 80,
+          left: 80,
+          fontFamily: "Cairo",
+          fontSize: 32,
+          color: "#B5DDD9",
+        }}
+      >
+        القانون 31 · لفهم التلاعب لا لممارسته ·{" "}
+        <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
+          @kitabwbs
+        </span>
+      </div>
+    )}
   </AbsoluteFill>
 );
 const Subtitles = ({

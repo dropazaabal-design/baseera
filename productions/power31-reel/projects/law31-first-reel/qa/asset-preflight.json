@@ -1,0 +1,213 @@
+{
+  "status": "PASS",
+  "decodedImages": 23,
+  "images": [
+    {
+      "file": "law31-first-reel/scene-01/background.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "34bd5893edd198cb77fa53dbbc5f9390d060e8de2c808e461d45f3871623bd0d"
+    },
+    {
+      "file": "law31-first-reel/scene-01/left-door.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d4e764c52a100fd8f3796fe032718ed7c13368b357aef4b6f8bb3756c84d4f10"
+    },
+    {
+      "file": "law31-first-reel/scene-01/right-door.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "74c2303dddaa333f6c06a72c0543b6199c5a7159446b8ac0ac884adda8552e97"
+    },
+    {
+      "file": "law31-first-reel/scene-01/main-character.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "84efc7cd2c39d851664bca02c155bd14c1135dc9204c8c08fe9147cfa0ef6829"
+    },
+    {
+      "file": "law31-first-reel/scene-02/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "fe94d553bdf285c75cc58b3f35212abb514b4c95cd558608400693c4e52072a7"
+    },
+    {
+      "file": "law31-first-reel/scene-03/background.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "9623dc651f63fbba22faa35257602efb60bdceb777c64b66b79139b2ad863525"
+    },
+    {
+      "file": "law31-first-reel/scene-03/puppet-master.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6ba60f51a17e32fab64a74858583295f1de16d426cbccd5a9ef74602a8adc7d6"
+    },
+    {
+      "file": "law31-first-reel/scene-03/left-door.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "280e84d845a1fecf2c3a996d6665074093747f5694543d9bfccff1599f3c99e6"
+    },
+    {
+      "file": "law31-first-reel/scene-03/right-door.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a2e227d2cbf560392a45801598c1883c089e9be4f302973f8f1a3a5b992bd276"
+    },
+    {
+      "file": "law31-first-reel/scene-03/strings.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "14cc2fcda4759daba0e15843c477328d8ab2851c1ff7257d73bacab83147520e"
+    },
+    {
+      "file": "law31-first-reel/scene-03/main-character.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "e0dc4bb89106174616cdf16a2fbcc000c6c46bf56b819f6f736334bb77af3892"
+    },
+    {
+      "file": "law31-first-reel/scene-04/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "afe371eeeb562dd8356fbd8939b14fa2b43dcd1982ba0691b57ec525b7a6fc41"
+    },
+    {
+      "file": "law31-first-reel/scene-05/background.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "28068a9d53c06cc992a3937aeaa8e512c04c621ef5439a794ff25a117b07ca0a"
+    },
+    {
+      "file": "law31-first-reel/scene-05/desk-and-manager.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "34950333f2da36fb9b5f611748e263a6c2b1d8b30224e0c094fd04f66428c011"
+    },
+    {
+      "file": "law31-first-reel/scene-05/main-character.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "db302375bf61d610c119ca039b2c1bb716993ecca01325261853255ee68dc4cc"
+    },
+    {
+      "file": "law31-first-reel/scene-06/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "2d707e27c0051950a0e8d68fd99178865436be3cefbc220a4d74cccdba9844e5"
+    },
+    {
+      "file": "law31-first-reel/scene-07/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "ef4ae6482548a770c3033cff649c3707f18c0986531d6c6d57f53bbd9a8140c7"
+    },
+    {
+      "file": "law31-first-reel/scene-08/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "4250f8e3655bd1ae1428b35a3d5f9ab7d596fc8db51f34df78cb742c8a6380f6"
+    },
+    {
+      "file": "law31-first-reel/scene-09/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "3863b2069de85e56eaaf1efd4b213d4a41298d9bac9f1d513db0982817dde40b"
+    },
+    {
+      "file": "law31-first-reel/scene-10/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "098e805cba9224a4ad3c8defd8ee85781a2e11a48e60c1c231b63c64cced4b39"
+    },
+    {
+      "file": "law31-first-reel/scene-11/background.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "e3ba55dfbe6dd879498105f26c06357751e3ae29d56f5bfaf6d013ef765ad1cf"
+    },
+    {
+      "file": "law31-first-reel/scene-11/main-character.png",
+      "status": "PASS",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "cf5c6f777d92a7e4e00f78eef591c21834e96ebf82a740e3466b37c630db255a"
+    },
+    {
+      "file": "law31-first-reel/scene-12/illustration.png",
+      "status": "PASS",
+      "alpha": [
+        255,
+        255
+      ],
+      "sha256": "1619db519327442e47aa4e23212de178bc292ac4063c5bdc3bde20959ae73a45"
+    }
+  ]
+}

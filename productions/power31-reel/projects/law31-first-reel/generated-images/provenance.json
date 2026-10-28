@@ -4,119 +4,164 @@
       "file": "scene-01-clean-v1.png",
       "sha256": "8cac9d96565bfdc333b080f3cf18e35217cff65174753856fd541184218fbcc5",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_f00b904deb6c819194e10b37a4fe7a4f",
+      "originalProviderFilename": "Empty Stone Hall with Twin Glowing Doors.png"
     },
     {
       "file": "scene-01-empty-v1.png",
       "sha256": "69efecec00f053ef8633889c1779f0b05dc27699f2e209c2ef1c2eb42220e404",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_50731703f16081919a2ae09d89f551f5",
+      "originalProviderFilename": "Empty hall with dark recessed alcoves.png"
+    },
+    {
+      "file": "scene-01-hero-v1.png",
+      "sha256": "894f5ae35175db3318206e72b4033c8bfe2ebc1f191d8f6cdc95bb284d52573d",
+      "provider": "built-in image_gen",
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_d71bc2cf4c5c819190964803b7ec5cf8",
+      "originalProviderFilename": "Black stickman hero cutout.png"
     },
     {
       "file": "scene-01-hero-v2.png",
       "sha256": "d6a4fe8d359eb0d7c86d37bb0daa98c80ac5e0229eb6afe1afd303261a818602",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_a165cbb43c308191a543643ce66a78ed",
+      "originalProviderFilename": "Raised wrist cuff correction.png"
     },
     {
       "file": "scene-01-master-v1.png",
       "sha256": "a0f13ce64170a56f978e97023f6a735ef6c114039424006d14dd7210643f121f",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_d97e5ddac2b8819182e0d9da9059fe50",
+      "originalProviderFilename": "Midnight Hall, Two Closed Doors.png"
     },
     {
       "file": "scene-02-master-v1.png",
       "sha256": "9a9bfc02b65aae4576480c9aaba20840c4621d6d1dfd6240f979beb21bacdbbd",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_ec34306dad188191820877cb4162191f",
+      "originalProviderFilename": "Two Paths, One Fortress Gate.png"
     },
     {
       "file": "scene-03-clean-v1.png",
       "sha256": "472537fcf3e808514ecd4d32498861560ea0fdc7a4552ea0d645218c6a8edc35",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_5a64873975048191a77d1ba2c5ba0799",
+      "originalProviderFilename": "Empty stone hall with glowing doors.png"
     },
     {
       "file": "scene-03-empty-v1.png",
       "sha256": "f506700ad97a45a2ecb2aa768fb65d42f0c04aab0002845be0761be5478d9f0f",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_685fc0808320819194d45a9305506b77",
+      "originalProviderFilename": "Empty Hall, Dark Stone Alcoves.png"
     },
     {
       "file": "scene-03-master-v1.png",
       "sha256": "4613cccd323e29bc920d4144638552c0209fe66b11d7214f75e13bf790271449",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_37ce43c9f8dc8191810913fc14dea307",
+      "originalProviderFilename": "Strings Over the Twin Doors.png"
     },
     {
       "file": "scene-04-master-v1.png",
       "sha256": "bdd3d2f320a5e8f1d7a5924bb1c1035e0d9b14c531bc45c753dbaafdf5f2ed13",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_1f3c61a572a08191a256a722ee539a64",
+      "originalProviderFilename": "Small Hero, Giant Chessboard.png"
     },
     {
       "file": "scene-05-clean-v1.png",
       "sha256": "752199181e2f3f6d537685d673237454292caa36d272d3d9521d177cb8c8822d",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_c1a15dbfac9c8191aa96a366af4e32a9",
+      "originalProviderFilename": "Empty Midnight Stone Office Background.png"
     },
     {
       "file": "scene-05-master-v1.png",
       "sha256": "c7ded7e4803a3e1c994c98803225699820349c4667c574e368ac84c4c5ae6572",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_f34b28b7b2908191ad2ff1da567059a5",
+      "originalProviderFilename": "Under Pressure at the Desk.png"
     },
     {
       "file": "scene-06-master-v1.png",
       "sha256": "7a0260305c94d9047386a4856e6d61188af00144532ba5f23c35745744b17d0f",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_0a2935160e888191ad2b0bfa90bba36a",
+      "originalProviderFilename": "Finding fair options at work.png"
     },
     {
       "file": "scene-07-master-v1.png",
       "sha256": "57f4a64a61ac8daea9b77acf693318404c74c881271f588d9d1c18dcd9661c79",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_b15f9b45b0dc81919155803d1ab09a44",
+      "originalProviderFilename": "A crack between two figures.png"
     },
     {
       "file": "scene-08-master-v1.png",
       "sha256": "5bb45c0cfc4c5b61bcc5cf90b6a4966db5821d2e7d9d1f3daeda8ec1bebd9e13",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_cfd9a2277b948191b0604104af75c319",
+      "originalProviderFilename": "Calm Boundaries on the Stone Bridge.png"
     },
     {
       "file": "scene-09-master-v1.png",
       "sha256": "722d02de24bbb4a6044407043259825495d1a38d397ebe530e45c66fc35ab1fa",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_6e08b1b2d5448191906f7b68db25d500",
+      "originalProviderFilename": "Family counsel for future choices.png"
     },
     {
       "file": "scene-10-master-v1.png",
       "sha256": "3bfecbea642a19f850c329452949708341f1beb418d539f8b590c76ec1cd0381",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_b7c70bc571548191b43855aac0309ab0",
+      "originalProviderFilename": "Caring family explores three new paths.png"
     },
     {
       "file": "scene-11-clean-v1.png",
       "sha256": "f4910d88c797a6a991173a5f5fe71a0543a8d75797ce9d3c09ebb7b53ace14ec",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_fb52aac656c08191aa36b2137c26a8e4",
+      "originalProviderFilename": "Empty hidden passage with cyan doors.png"
     },
     {
       "file": "scene-11-master-v1.png",
       "sha256": "be70314ab219c0bc027bc8b88f0bd00cff729dd49f23830ef19cbfbfbf888666",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_2077fffb492881919f08085b448f80ff",
+      "originalProviderFilename": "The Hidden Passage Between Doors.png"
     },
     {
       "file": "scene-12-master-v1.png",
       "sha256": "b466e898afb65c5a778a4c91f8989e4322e2b8a33638f5522372f81f7a9a9cb0",
       "provider": "built-in image_gen",
-      "status": "Original recovered without regeneration"
+      "status": "Original recovered without regeneration",
+      "libraryFileId": "libfile_e444b0cc45708191bee96cfff23cb5ef",
+      "originalProviderFilename": "Three paths toward open horizons.png"
     }
   ],
-  "source": "Previously generated originals recovered by exact Library identifiers in this conversation",
   "noPaidGeneration": true,
-  "failedGeneration": "One transparent controller edit rejected by provider; original approved controller manually matted instead",
-  "prompts": "Machine-readable storyboard contains reconstructed art direction after local environment reset, not exact provider seed reproducibility"
+  "failedGeneration": "One transparent controller edit rejected; approved original manually matted instead",
+  "prompts": "Storyboard stores reconstructed art direction after environment reset"
 }

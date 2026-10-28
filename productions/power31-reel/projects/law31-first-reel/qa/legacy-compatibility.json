@@ -1,0 +1,34 @@
+{
+  "status": "PASS_RENDERING_WITH_LOCALIZED_FOOTER_DIFFERENCE",
+  "samples": [
+    {
+      "composition": "CinematicDemo",
+      "render": "PASS",
+      "strictPixelComparison": "PASS",
+      "differentPixels": 0,
+      "totalPixels": 2073600,
+      "differenceBoundingBox": null,
+      "meanChannelDifference": 0.0,
+      "sha256A": "661bf14d02428e84c627ff928901aba1f30eae80e33e7453b81121133bbde9e6",
+      "sha256B": "661bf14d02428e84c627ff928901aba1f30eae80e33e7453b81121133bbde9e6"
+    },
+    {
+      "composition": "Power31-Cinematic",
+      "render": "PASS",
+      "strictPixelComparison": "FAIL",
+      "differentPixels": 145,
+      "totalPixels": 2073600,
+      "differenceBoundingBox": [
+        662,
+        1796,
+        690,
+        1818
+      ],
+      "meanChannelDifference": 0.0012107767489711934,
+      "sha256A": "eeca64651d60ad9ad78a6e8c300a75e4d5f87f4bf2526a81e82428aa742e1797",
+      "sha256B": "5ef50ec3ec6f7faaf11880425783e2fa290a6ecdd9384a50c826fd23af34316f"
+    }
+  ],
+  "source": "8af baseline in same Chrome/Remotion versions",
+  "limits": "One frame per composition, plus a Power31 still. Localized old footer glyph difference remains documented; no claim of pixel-identical workflow baseline or exhaustive old-project QA."
+}

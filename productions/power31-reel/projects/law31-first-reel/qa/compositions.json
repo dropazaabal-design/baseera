@@ -1,0 +1,310 @@
+[
+  {
+    "id": "Power31-Cinematic",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 2682
+  },
+  {
+    "id": "Cinematic-choice",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 589
+  },
+  {
+    "id": "Cinematic-pressure",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 1003
+  },
+  {
+    "id": "Cinematic-law",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 1090
+  },
+  {
+    "id": "Law31-First-Cinematic-Reel",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 5160
+  },
+  {
+    "id": "Law31-scene-01",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 338
+  },
+  {
+    "id": "Law31-scene-02",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 228
+  },
+  {
+    "id": "Law31-scene-03",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 228
+  },
+  {
+    "id": "Law31-scene-04",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 696
+  },
+  {
+    "id": "Law31-scene-05",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 531
+  },
+  {
+    "id": "Law31-scene-06",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 338
+  },
+  {
+    "id": "Law31-scene-07",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 476
+  },
+  {
+    "id": "Law31-scene-08",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 393
+  },
+  {
+    "id": "Law31-scene-09",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 311
+  },
+  {
+    "id": "Law31-scene-10",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 476
+  },
+  {
+    "id": "Law31-scene-11",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 613
+  },
+  {
+    "id": "Law31-scene-12",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 532
+  },
+  {
+    "id": "Baseera-Production",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 5160
+  },
+  {
+    "id": "Baseera-scene-01",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 338
+  },
+  {
+    "id": "Baseera-scene-02",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 228
+  },
+  {
+    "id": "Baseera-scene-03",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 228
+  },
+  {
+    "id": "Baseera-scene-04",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 696
+  },
+  {
+    "id": "Baseera-scene-05",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 531
+  },
+  {
+    "id": "Baseera-scene-06",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 338
+  },
+  {
+    "id": "Baseera-scene-07",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 476
+  },
+  {
+    "id": "Baseera-scene-08",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 393
+  },
+  {
+    "id": "Baseera-scene-09",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 311
+  },
+  {
+    "id": "Baseera-scene-10",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 476
+  },
+  {
+    "id": "Baseera-scene-11",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 613
+  },
+  {
+    "id": "Baseera-scene-12",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 532
+  },
+  {
+    "id": "Power31",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 7889
+  },
+  {
+    "id": "CinematicDemo",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 720
+  },
+  {
+    "id": "EngineProbe",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 240
+  },
+  {
+    "id": "Scene-Hook",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 589
+  },
+  {
+    "id": "Scene-Pressure",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 1003
+  },
+  {
+    "id": "Scene-Law",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 1090
+  },
+  {
+    "id": "Scene-Warning",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 729
+  },
+  {
+    "id": "Scene-Signs",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 727
+  },
+  {
+    "id": "Scene-Nuance",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 555
+  },
+  {
+    "id": "Scene-Response",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 1047
+  },
+  {
+    "id": "Scene-Ethics",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 584
+  },
+  {
+    "id": "Scene-Contrast",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 572
+  },
+  {
+    "id": "Scene-Reading",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 504
+  },
+  {
+    "id": "Scene-Ending",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "durationInFrames": 489
+  }
+]

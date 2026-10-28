@@ -1,0 +1,45 @@
+{
+  "node": "v24.22.1",
+  "results": [
+    {
+      "name": "remotion",
+      "status": "PASS",
+      "exports": 59
+    },
+    {
+      "name": "@remotion/cli",
+      "status": "PASS",
+      "exports": 5
+    },
+    {
+      "name": "@remotion/media",
+      "status": "PASS",
+      "exports": 6
+    },
+    {
+      "name": "@remotion/fonts",
+      "status": "PASS",
+      "exports": 4
+    },
+    {
+      "name": "@remotion/captions",
+      "status": "PASS",
+      "exports": 5
+    },
+    {
+      "name": "@remotion/paths",
+      "status": "PASS",
+      "exports": 22
+    },
+    {
+      "name": "@remotion/transitions",
+      "status": "PASS",
+      "exports": 11
+    },
+    {
+      "name": "gsap",
+      "status": "PASS",
+      "exports": 25
+    }
+  ]
+}

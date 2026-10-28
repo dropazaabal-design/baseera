@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "httpStatus": 200,
+  "bytes": 38180,
+  "scope": "Studio start and HTTP response inside isolated probe process. GUI controls were not automated."
+}

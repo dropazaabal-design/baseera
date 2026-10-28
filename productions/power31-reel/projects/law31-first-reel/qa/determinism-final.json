@@ -1,0 +1,54 @@
+{
+  "status": "PASS_FILE_HASHES",
+  "samples": [
+    {
+      "scene": "scene-01",
+      "frame": 169,
+      "files": [
+        "projects/law31-first-reel/qa/determinism-final/scene-01-a.png",
+        "projects/law31-first-reel/qa/determinism-final/scene-01-b.png"
+      ],
+      "sha256A": "34f1b877dc89f31037b7b046a501fa1a2d7750286310d5e7adc167bb0581ca71",
+      "sha256B": "34f1b877dc89f31037b7b046a501fa1a2d7750286310d5e7adc167bb0581ca71",
+      "fileHashesEqual": true,
+      "pixelsEqual": true
+    },
+    {
+      "scene": "scene-03",
+      "frame": 680,
+      "files": [
+        "projects/law31-first-reel/qa/determinism-final/scene-03-a.png",
+        "projects/law31-first-reel/qa/determinism-final/scene-03-b.png"
+      ],
+      "sha256A": "f85132ea83feb0b6a871143a783221fed9a2f56d7fdf0d9354ff9a39992bbfab",
+      "sha256B": "f85132ea83feb0b6a871143a783221fed9a2f56d7fdf0d9354ff9a39992bbfab",
+      "fileHashesEqual": true,
+      "pixelsEqual": true
+    },
+    {
+      "scene": "scene-05",
+      "frame": 1755,
+      "files": [
+        "projects/law31-first-reel/qa/determinism-final/scene-05-a.png",
+        "projects/law31-first-reel/qa/determinism-final/scene-05-b.png"
+      ],
+      "sha256A": "a3a9302708bde9541f97a2f836ebba97b88ffe79b4e1aab55b517e850f2b5032",
+      "sha256B": "a3a9302708bde9541f97a2f836ebba97b88ffe79b4e1aab55b517e850f2b5032",
+      "fileHashesEqual": true,
+      "pixelsEqual": true
+    },
+    {
+      "scene": "scene-11",
+      "frame": 4321,
+      "files": [
+        "projects/law31-first-reel/qa/determinism-final/scene-11-a.png",
+        "projects/law31-first-reel/qa/determinism-final/scene-11-b.png"
+      ],
+      "sha256A": "9aa476b8ef2fb0c779b0a42bfacbf91d7107fc161287e11e42faf8533121b45b",
+      "sha256B": "9aa476b8ef2fb0c779b0a42bfacbf91d7107fc161287e11e42faf8533121b45b",
+      "fileHashesEqual": true,
+      "pixelsEqual": true
+    }
+  ],
+  "scope": "Same final source, assets, browser and runtime; AI regeneration not tested"
+}
